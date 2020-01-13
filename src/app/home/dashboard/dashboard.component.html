@@ -1,1 +1,15 @@
-<p>dashboard works!</p>
+<full-calendar
+      #calendar
+      defaultView="dayGridMonth"
+      [header]="{
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      }"
+      eventLimit="true"
+      [plugins]="calendarPlugins"
+      [weekends]="calendarWeekends"
+      [events]="calendarEvents"
+      (dateClick)="handleDateClick($event)"
+      (eventClick)="eventClicked($event)"
+    ></full-calendar> 

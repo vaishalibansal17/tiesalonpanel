@@ -2,5 +2,12 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Tosater */
 @import "../node_modules/ng2-slim-loading-bar/style.css";
 @import '../node_modules/ngx-toastr/toastr.css';
+
+
+/* Full calender*/
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
