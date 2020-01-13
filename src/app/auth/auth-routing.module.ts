@@ -4,11 +4,13 @@ import { AuthComponent } from './auth.component';
 
 
 const routes: Routes = [{
-  path:'s', component:AuthComponent
+  path:'', component: AuthComponent
 }, {
-  path:'forgot', loadChildren:()=> import('./forgot-password/forgot-password.module').then(m=> m.ForgotPasswordModule)
+  path: 'forgot', loadChildren:() => import('./forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule)
 },{
-  path:'reset', loadChildren:()=> import('./reset-password/reset-password.module').then(m=>m.ResetPasswordModule)
+  path: 'reset', loadChildren:() => import('./reset-password/reset-password.module').then(m => m.ResetPasswordModule)
+},{
+  path: 'login', loadChildren:() => import('./login/login.module').then(m => m.LoginModule)
 }];
 
 @NgModule({

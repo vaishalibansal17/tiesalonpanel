@@ -7,12 +7,14 @@ import { DatePipe } from './_pipes/date.pipe';
 import { StampToDate } from './_pipes/stamptoDate.pipe';
 import { TimePipe } from './_pipes/time.pipe';
 import { SafePipe } from './_pipes/safe.pipe';
+import { MaterialModule } from './material/material.module';
 
 
 @NgModule({
 	imports: [
 		CommonModule,
 		HttpClientModule,
+		MaterialModule
 	],
 	exports: [
 		HttpClientModule,
@@ -21,7 +23,8 @@ import { SafePipe } from './_pipes/safe.pipe';
 		DatePipe,
 		StampToDate,
 		TimePipe,
-		SafePipe
+		SafePipe,
+		MaterialModule
 	],
 	declarations: [
 		DataFilterPipe,
