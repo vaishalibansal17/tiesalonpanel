@@ -4,7 +4,7 @@ import { AuthComponent } from './auth.component';
 
 
 const routes: Routes = [{
-  path:'s', component:AuthComponent
+  path:'', component:AuthComponent
 }, {
   path:'forgot', loadChildren:()=> import('./forgot-password/forgot-password.module').then(m=> m.ForgotPasswordModule)
 },{
