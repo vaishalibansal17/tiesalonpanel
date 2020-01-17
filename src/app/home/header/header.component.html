@@ -6,7 +6,13 @@
           <div class="top-right">
             <ul>
               <li><img src="assets/images/notification.png" alt="Notification"></li>
-              <li>fgf</li>
+              <li>
+                <button mat-button [matMenuTriggerFor]="beforeMenu">Before</button>
+                <mat-menu #beforeMenu="matMenu" xPosition="before">
+                  <button mat-menu-item>Item 1</button>
+                  <button mat-menu-item>Item 2</button>
+                </mat-menu>
+              </li>
             </ul>
           </div>
           <div class="clearfix"></div>
