@@ -1,11 +1,11 @@
-
 import { Injectable } from '@angular/core';
 import moment from 'moment-timezone';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable()
 
 export class Helper {
-    constructor() { }
+    constructor(private toastr: ToastrService) { }
 
     convertTimestampToISODate(value) {
         let year = new Date(value).getFullYear();
@@ -45,7 +45,7 @@ export class Helper {
 
         var timeStamp = new Date(Number(date.getFullYear()), Number(mnth), Number(day), (dateTime.getHours()), (dateTime.getMinutes()), (dateTime.getSeconds()), (dateTime.getMilliseconds()));
         let bac = moment.utc(timeStamp)
-          if (isUTC)
+        if (isUTC)
             return bac.valueOf();
         else
             return timeStamp.getTime();
@@ -53,6 +53,27 @@ export class Helper {
 
     getTimeZone(dateTime, timeZone?) {
         var testDateUtc = moment.tz(dateTime, timeZone).format('DD-MM-YYYY H:mm:s');
-        return new Date(new Date(dateTime).toLocaleString("en-US", {timeZone: timeZone}));
+        return new Date(new Date(dateTime).toLocaleString("en-US", { timeZone: timeZone }));
+    }
+
+    errTostr(tostr:{title:'', msg:''}) {
+        this.toastr.error(tostr.title, tostr.msg,
+            {
+                timeOut: 10000,
+                closeButton: true,
+                progressBar: true,
+                progressAnimation: 'decreasing',
+                positionClass: 'toast-bottom-right'
+            });
+    }
+    sucsTostr(tostr:{title:'', msg:''}) {
+        this.toastr.success(tostr.title, tostr.msg,
+            {
+                timeOut: 10000,
+                closeButton: true,
+                progressBar: true,
+                progressAnimation: 'decreasing',
+                positionClass: 'toast-bottom-right'
+            });
     }
 }

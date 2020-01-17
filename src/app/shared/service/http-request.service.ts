@@ -20,11 +20,9 @@ export class HttpRequestService {
 		const Url = APIURLS[apiName];
 		return Url;
 	}
-	getRequest(type: string, requestUrl: string, data?: any, queryParams?: any): Observable<any> {
-		console.log('--------------jkl', this.getApi(requestUrl));
-		
+	getRequest(type: string, requestUrl: string, data?: any, queryParams?: any): Observable<any> {		
 		if (type === 'GET') {
-			return this.http.get<any>('https://jsonplaceholder.typicode.com/xyz' + '/');
+			return this.http.get<any>(this.getApi(requestUrl) + '/');
 		} else if (type === 'POST') {
 			return this.http.post<any>(this.getApi(requestUrl), data);;
 		} else if (type === 'POST_WITHDATA') {			

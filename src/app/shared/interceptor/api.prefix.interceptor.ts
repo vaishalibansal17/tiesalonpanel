@@ -3,9 +3,6 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse } fr
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
-declare const $: any;
-console.log('----------')
 /**
  * Prefixes all requests with `environment.serverUrl`.
  */

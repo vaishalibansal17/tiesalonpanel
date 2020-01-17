@@ -7,12 +7,14 @@ import { DatePipe } from './_pipes/date.pipe';
 import { StampToDate } from './_pipes/stamptoDate.pipe';
 import { TimePipe } from './_pipes/time.pipe';
 import { SafePipe } from './_pipes/safe.pipe';
-
+import { MaterialModule } from './material/material.module';
+import { TranslatePipe } from './_pipes/translate.pipe';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		HttpClientModule,
+		MaterialModule
 	],
 	exports: [
 		HttpClientModule,
@@ -21,7 +23,9 @@ import { SafePipe } from './_pipes/safe.pipe';
 		DatePipe,
 		StampToDate,
 		TimePipe,
-		SafePipe
+		SafePipe,
+		MaterialModule,
+		TranslatePipe
 	],
 	declarations: [
 		DataFilterPipe,
@@ -29,7 +33,8 @@ import { SafePipe } from './_pipes/safe.pipe';
 		DatePipe,
 		StampToDate,
 		TimePipe,
-		SafePipe
+		SafePipe,
+		TranslatePipe
 	],
 	providers: [],
 	schemas: [ NO_ERRORS_SCHEMA ]

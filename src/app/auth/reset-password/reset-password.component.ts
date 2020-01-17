@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reset-password.component.scss']
 })
 export class ResetPasswordComponent implements OnInit {
-
+  chide = true;
+  nhide = true;
   constructor() { }
 
   ngOnInit() {

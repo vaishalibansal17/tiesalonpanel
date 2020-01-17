@@ -1,0 +1,46 @@
+<div class="main_bg">
+    <div class="fixed-nav">
+        <ul>
+            <li class="active"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6 main-left">
+                <div class="full-vertical">
+                <img class="on_board" src="assets/images/img_onboard_1.png" alt="Login">
+                <div class="head">Your Service Menu is <span>Online</span></div>
+            </div>
+            </div>
+            <div class="col-md-6 main-right">
+                <div class="fixed-select">
+                    <select name="" id="">
+                        <option value="">En <img src="assets/images/flag_en.png" alt="England"></option>
+                        <option value="">En <img src="assets/images/flag_en.png" alt="England"></option>
+                    </select>
+                </div>
+                <div class="full-vertical custom-width">
+                    <div class="logo"><img src="assets/images/tie_logo_black.png" alt="Logo"></div>
+                    <h1 class="head">Login</h1>
+                    <div class="login-form">
+                        <form (ngSubmit)="onSubmit()" [formGroup]="loginfrm">
+                        <mat-form-field>
+                          <input matInput placeholder="Email" formControlName="email" class="form-control email-img"> 
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="Enter your password" formControlName="password" [type]="hide ? 'password' : 'text'" class="form-control password-img">
+                            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                          </mat-form-field>
+                          <p class="right"><a [routerLink]="['/auth/forgot']">Forgot Password?</a></p>
+                          <button type="submit" class="btn btn-submit">Log In</button>
+                        </form>
+                        </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>
