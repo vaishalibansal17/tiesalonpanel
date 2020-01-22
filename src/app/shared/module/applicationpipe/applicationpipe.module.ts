@@ -1,13 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TranslateService } from '../../service/translate.service';
-
-
+import {NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
+import { TranslatePipe } from '../../_pipes/translate.pipe';
 
 @NgModule({
-  declarations: [TranslateService],
   imports: [
-    CommonModule
+    // dep modules
+  ],
+  declarations: [ 
+    TranslatePipe
+  ],
+  exports: [
+    TranslatePipe
   ]
 })
-export class ApplicationpipeModule { }
+export class ApplicationpipeModule {}
