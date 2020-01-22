@@ -165,6 +165,8 @@ ul.breadcrumb li a{color: #F96BB3;}
         border-radius: 7px;
         color: #fff !important;
         padding-left: 55px;
+        padding-right: 15px;
+        }
     }
     .btn-submit{
         font-size: 20px;
@@ -192,11 +194,13 @@ ul.breadcrumb li a{color: #F96BB3;}
     }
     }
 
-}
+
 
 .full-vertical{position: relative;top: 50%;transform: translateY(-50%);}
 span.email-img {position: absolute;top: 21px;left: 15px;}
 span.email-img.pass{top: 18px;}
+.main-right .custom-width .form-control.pass-space{padding-right: 50px;}
+
 
 /*----------left-nav--------------*/
 body.nav-open{

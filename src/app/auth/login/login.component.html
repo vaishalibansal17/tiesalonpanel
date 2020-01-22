@@ -16,10 +16,10 @@
             </div>
             <div class="col-md-6 main-right">
                 <div class="fixed-select">
-                    <select name="" id="">
-                        <option value="">En <img src="assets/images/flag_en.png" alt="England"></option>
-                        <option value="">En <img src="assets/images/flag_en.png" alt="England"></option>
-                    </select>
+                    <button mat-button [matMenuTriggerFor]="beforeMenu">En <img src="assets/images/flag_en.png" alt="England"><img class="drop_img" src="assets/images/dropdown.png" alt=""></button>
+                    <mat-menu #beforeMenu="matMenu" xPosition="before">
+                      <button mat-menu-item>Ar <img src="assets/images/flag_ar.png" alt="England"></button>
+                    </mat-menu>
                 </div>
                 <div class="full-vertical custom-width">
                     <div class="logo"><img src="assets/images/tie_logo_black.png" alt="Logo"></div>
@@ -27,15 +27,17 @@
                     <div class="login-form">
                         <form action="">
                         <mat-form-field>
-                          <input matInput placeholder="Email" class="form-control email-img"> 
+                            <span class="email-img"><img src="assets/images/envelope.png" alt="envelope"></span>
+                          <input matInput placeholder="Email" class="form-control"> 
                         </mat-form-field>
                         <mat-form-field>
-                            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" class="form-control password-img">
+                            <span class="email-img pass"><img src="assets/images/lock.png" alt="envelope"></span>
+                            <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" class="form-control pass-space">
                             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                             </button>
                           </mat-form-field>
-                          <p class="right"><a [routerLink]="['../forgot']">Forgot Password?</a></p>
+                          <p class="right"><a [routerLink]="['/auth/forgot']">Forgot Password?</a></p>
                           <button type="submit" class="btn btn-submit">Log In</button>
                         </form>
                         </div>

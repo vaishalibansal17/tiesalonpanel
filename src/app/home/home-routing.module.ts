@@ -8,6 +8,7 @@ const routes: Routes = [{
   children: [
     { path: '', loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule) },
     { path: 'dashboard', loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule) },
+    { path: 'notification', loadChildren: () => import('./notification/notification.module').then(mod => mod.NotificationModule) },
     { path: 'staff', loadChildren: () => import('./staff/staff.module').then(mod => mod.StaffModule) }
   ]
 },];
