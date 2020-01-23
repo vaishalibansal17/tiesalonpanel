@@ -5,8 +5,6 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 // import { CookieService } from 'ngx-cookie-service';
 import { APIURLS } from '../apiurl/apiurl';
-import {  throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
 @Injectable()
 
 export class HttpRequestService {
@@ -40,12 +38,12 @@ export class HttpRequestService {
 	logout() {
 		// Customize credentials invalidation here
 		localStorage.clear();
-		this.myRoute.navigate(['/login']);
+		this.myRoute.navigate(['/auth']);
 	}
 
 
 	isLoggednIn() {
-		return localStorage.getItem('access_token');
+		return localStorage.getItem('acsTkn');
 	}
 
 	// showError(errormsg: string, err?: string, timeOut?: number) {

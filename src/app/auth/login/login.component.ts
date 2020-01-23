@@ -4,6 +4,8 @@ import { HttpRequestService } from 'src/app/shared/service/http-request.service'
 import { Router } from '@angular/router';
 import { ErrorService } from 'src/app/shared/service/error.service';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
+import { ValidationService } from 'src/app/shared/service/validation-service';
+import { Helper } from 'src/app/shared/service/helper.service';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +14,13 @@ import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 })
 export class LoginComponent implements OnInit {
   hide = true;
-
   loginfrm: FormGroup;
   submitted = false;
   public formSubmit = false;
   public data: any;
   public loading = false;
   public email: string = '';
-  public password: string = '';
+  public pass: string = '';
   message: string;
   isLoading = false;
   isError: boolean;
@@ -27,19 +28,19 @@ export class LoginComponent implements OnInit {
   constructor(private httpService: HttpRequestService,
     private router: Router,
     private error: ErrorService,
-    private trns: TranslatePipe
+    private trns: TranslatePipe,
+    private helper : Helper
   ) { }
 
   ngOnInit() {
-    console.log(this.trns.transform('TITLE'));
 
     this.loginfrm = new FormGroup({
-      email: new FormControl(this.email, [
+      email: new FormControl(null, [
         Validators.required,
-        Validators.pattern('^[A-Z0-9a-z_.~+-{|}!#$%&()/:;<=>?@`\'",]{1,}@[A-Z0-9a-z-]{2,}[.]{1}[A-Za-z.]{2,}$')
+        ValidationService.validateEmail
       ]),
-      password: new FormControl(this.password, [
-        Validators.minLength(8),
+      pass: new FormControl(null, [
+        Validators.minLength(6),
         Validators.required
       ])
     });
@@ -48,20 +49,16 @@ export class LoginComponent implements OnInit {
 
 
   onSubmit() {
+    this.submitted = true;
     if (this.loginfrm.valid) {
       this.httpService.getRequest('POST', 'LOGIN', this.loginfrm.value)
         .subscribe((data: any) => {
           // this.spinner.hide();
-          if (data.statusCode) {
-            if (this.loginfrm.value.remember === 1) {
-              // this.cookieService.set('email', this.loginfrm.value.email);
-            } else {
-              // this.cookieService.delete('email');
-            }
-            localStorage.setItem('access_token', data.responseData.accessToken);
-            localStorage.setItem('userDetails', JSON.stringify(data.responseData.userProfile));
-            localStorage.setItem('byAdmin', data.responseData.userProfile.byAdmin);
+          if (data.status) {
+            let {acsTkn} = data.res;
+            localStorage.setItem('acsTkn', acsTkn);
             this.isLoading = !this.isLoading;
+            this.router.navigate(['/']).then(()=> this.helper.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('LOGINSUCCESS')))
           } else {
             this.error.handleError(data.error);
           }

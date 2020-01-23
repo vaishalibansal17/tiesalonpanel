@@ -23,7 +23,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 
 export function setupTranslateFactory(
   service: TranslateService): Function {
-  return () => service.use('ua');
+  return () => service.use('en');
 }
 @NgModule({
   declarations: [
@@ -51,12 +51,7 @@ export function setupTranslateFactory(
     { provide: HTTP_INTERCEPTORS, useClass: OfflineInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: setupTranslateFactory,
-      deps: [ TranslateService ],
-      multi: true
-    }
+    { provide: APP_INITIALIZER, useFactory: setupTranslateFactory, deps: [TranslateService], multi: true }
   ],
   bootstrap: [AppComponent]
 })

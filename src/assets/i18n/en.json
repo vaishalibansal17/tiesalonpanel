@@ -1,7 +1,5 @@
 {
-  "TITLE": "TIE Admin",
-  "D_TITLE": "Dashboard",
-  "BTN_ADD": "Add Category",
+  "TITLE": "Welcome to our Tie Admin",
   "TTL_USR": "Total Users",
   "IMAGE": "Image",
   "NAME": "Name",
@@ -9,8 +7,41 @@
   "NO": "No.",
   "EDIT": "Edit  ",
   "DELETE": "Delete",
-  "DASHBOARD": "Dashboard",
+
+  "STAFF": "STAFF",
+  "BOOKING": "BOOKINGS",
+  "WALKUSR": "WALKING USERS",
+  "MANAGECALENDER": "MANAGE CALENDER",
+  "PROMOCODE": "PROMO CODES/OFFERS",
+  "REPORTS": "REPORTS",
+  "CHAT": "CHAT MANAGEMENT",
+  "DASHBOARD": "DASHBOARD",
+  "CANCELLATION": "CANCELLATION POLICY",
   "CATEGORY": "Category",
+  "FEEDBACK": "FEEDBACK",
+  "ABOUTUS": "ABOUT US",
+
+  "RESETPASSNOTMATCH": "New password and confirm password does not match.",
+  "RESETPASSREQ": "Please enter a new password.",
+  "RESETPASSCNFREQ": "Please enter confirm password.",
+  "RESETPASSSUCC": "Your password has been changed successfully.",
+  "PASSPATTERN": "Password must be 6-20 characters long and contain at least one numeric, one uppercase alphabet, one lowercase alphabet and one special characters.",
+  "CURRENTPASS" : "Please enter current password",
+  "LOGIN":"Login",
+
+  "PLACEHOLDERLCPASS":"Old Password",
+  "PLACEHOLDERLNPASS":"New Password",
+  "PLACEHOLDERLCONFIRMPASS":"Confirm New Password",
+
+  "PLACEHOLDERLPASS":"Enter your password",
+  "PLACEHOLDERLEMAIL":"Email",
+  "LOGINEMAIL":"Please enter email address.",
+  "LOGINVALIDEMAIL":"Please enter a valid email address.",
+  "LOGINPASS" : "Please enter password.",
+  "LOGINSUCCESS": "You are Successfully Logged in.",
+  "SUCCESS": "Success",
+  "SALONOTEXIST" : "Salon does not exist.",
+
   "UI ELEMENT": "Modules",
   "NAVIGATION": "Navigation",
   "USERMANG": "User Management",
@@ -73,5 +104,5 @@
   "FREE_TYPE": "Freelancer Type",
   "COMMI": "Commission",
   "COMM_REQ": "Please enter commission",
-  "BACK":"Back"
+  "BACK": "Back"
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpRequestService } from 'src/app/shared/service/http-request.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpservice: HttpRequestService) { }
 
   ngOnInit() {
   }
 
+  logout() {
+    this.httpservice.logout();
+  }
 }

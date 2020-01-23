@@ -4,8 +4,9 @@ export const ERROR_MSG = {
 };
 
 export const MESSAGE = {
-  
-
+  SUCCESS : 'SUCCESS',
+  FORGOT_SUC : 'Forgot Password Link has been sent successfully.',
+  FORGOT_FAIL : 'Admin not found'
 };
 
 export const DELETE = {

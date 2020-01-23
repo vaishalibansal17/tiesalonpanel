@@ -10,36 +10,53 @@
         <div class="row">
             <div class="col-md-6 main-left">
                 <div class="full-vertical">
-                <img class="on_board" src="assets/images/img_onboard_1.png" alt="Login">
-                <div class="head">Your Service Menu is <span>Online</span></div>
-            </div>
+                    <img class="on_board" src="assets/images/img_onboard_1.png" alt="Login">
+                    <div class="head">Your Service Menu is <span>Online</span></div>
+                </div>
             </div>
             <div class="col-md-6 main-right">
                 <div class="fixed-select">
-                    <select name="" id="">
-                        <option value="">En <img src="assets/images/flag_en.png" alt="England"></option>
-                        <option value="">En <img src="assets/images/flag_en.png" alt="England"></option>
-                    </select>
+                    <button mat-button [matMenuTriggerFor]="beforeMenu">En <img src="assets/images/flag_en.png"
+                            alt="England"><img class="drop_img" src="assets/images/dropdown.png" alt=""></button>
+                    <mat-menu #beforeMenu="matMenu" xPosition="before">
+                        <button mat-menu-item>Ar <img src="assets/images/flag_ar.png" alt="England"></button>
+                    </mat-menu>
                 </div>
                 <div class="full-vertical custom-width">
                     <div class="logo"><img src="assets/images/tie_logo_black.png" alt="Logo"></div>
-                    <h1 class="head">{{'TITLE' | translate}}</h1>
+                    <h1 class="head">{{'LOGIN'| translate}}</h1>
                     <div class="login-form">
                         <form (ngSubmit)="onSubmit()" [formGroup]="loginfrm">
-                        <mat-form-field>
-                          <input matInput placeholder="Email" formControlName="email" class="form-control email-img"> 
-                        </mat-form-field>
-                        <mat-form-field>
-                            <input matInput placeholder="Enter your password" formControlName="password" [type]="hide ? 'password' : 'text'" class="form-control password-img">
-                            <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                            </button>
-                          </mat-form-field>
-                          <p class="right"><a [routerLink]="['/auth/forgot']">Forgot Password?</a></p>
-                          <button type="submit" class="btn btn-submit">Log In</button>
+                            <mat-form-field>
+                                <span class="email-img"><img src="assets/images/envelope.png" alt="envelope"></span>
+                                <input matInput placeholder="{{'PLACEHOLDERLEMAIL'| translate}}" class="form-control" formControlName="email"
+                                    maxlength="50">
+                            </mat-form-field>
+                            <div
+                                *ngIf="(submitted || getControl.email.dirty|| getControl.email.touched) && getControl.email.errors">
+                                <p class="color" *ngIf="getControl.email.errors.required">{{'LOGINEMAIL'| translate}}</p>
+                                <p class="color" *ngIf="!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress">{{'LOGINVALIDEMAIL'| translate}}</p>
+                            </div>
+                            <mat-form-field>
+                                <span class="email-img pass"><img src="assets/images/lock.png" alt="envelope"></span>
+                                <input matInput placeholder="{{'PLACEHOLDERLPASS'| translate}}" formControlName="pass" maxlength="20"
+                                    [type]="hide ? 'password' : 'text'" class="form-control pass-space">
+                                <button mat-icon-button matSuffix type="button" (click)="hide = !hide"
+                                    [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                </button>
+                            </mat-form-field>
+                            <div
+                                *ngIf="(submitted || getControl.pass.dirty|| getControl.pass.touched) && getControl.pass.errors">
+                                <p class="color" *ngIf="getControl.pass.errors.required">{{'LOGINPASS'| translate}}</p>
+                                <!-- <p class="color" *ngIf="getControl.pass.errors.minlength ">Incorrect password or
+                                    email.</p> -->
+                            </div>
+                            <p class="right"><a [routerLink]="['/auth/forgot']">Forgot Password?</a></p>
+                            <button type="submit" class="btn btn-submit">Log In</button>
                         </form>
-                        </div>
-                </div>                
+                    </div>
+                </div>
             </div>
         </div>
     </div>

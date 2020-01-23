@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/applicationpipe.module';
+import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
+import { SharedModule } from 'src/app/shared/shared.module';
 
-import { SidebarComponent } from './sidebar.component';
 
 
 @NgModule({
-  declarations: [SidebarComponent],
+  declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    SharedModule,
   ],
-  exports:[SidebarComponent]
+  providers:[]
 })
 export class SidebarModule { }

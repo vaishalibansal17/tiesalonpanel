@@ -56,24 +56,24 @@ export class Helper {
         return new Date(new Date(dateTime).toLocaleString("en-US", { timeZone: timeZone }));
     }
 
-    errTostr(tostr:{title:'', msg:''}) {
-        this.toastr.error(tostr.title, tostr.msg,
+    errTostr(title, msg) {
+        this.toastr.error(msg, title,
             {
-                timeOut: 10000,
+                timeOut: 5000,
                 closeButton: true,
                 progressBar: true,
                 progressAnimation: 'decreasing',
-                positionClass: 'toast-bottom-right'
+                positionClass: 'toast-bottom-left'
             });
     }
-    sucsTostr(tostr:{title:'', msg:''}) {
-        this.toastr.success(tostr.title, tostr.msg,
+    sucsTostr(title,msg) {
+        this.toastr.success(msg,title,
             {
-                timeOut: 10000,
+                timeOut: 5000,
                 closeButton: true,
                 progressBar: true,
                 progressAnimation: 'decreasing',
-                positionClass: 'toast-bottom-right'
+                positionClass: 'toast-bottom-left'
             });
     }
 }
