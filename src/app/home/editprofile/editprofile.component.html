@@ -5,7 +5,10 @@
                 <div class="file_input">
                     <img [src]="url" alt="">
                 </div>
-                <label for="" class="custom_label">Change Profile Picture</label>
+                <label for="" class="custom_label">
+                    <input type="file" accept="image/jpeg,image/png"
+                    (change)="readUrl($event)">
+                    Change Profile Picture</label>
             </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/edit-user.png" alt="envelope"></span>
@@ -30,10 +33,7 @@
                     </agm-map>
                   </div>
             </mat-form-field>
-            <a [routerLink]="['/business-hours']"><mat-form-field>
-                <span class="email-img pass"><img src="assets/images/time.png" alt="envelope"></span>
-                <input matInput placeholder="Business Hours" class="form-control cursor" disabled>
-            </mat-form-field></a>
+            
             <!-- <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/reviews.png" alt="envelope"></span>
                 <input matInput placeholder="Reviews" class="form-control">
@@ -44,21 +44,22 @@
             </mat-form-field>
             <div class="work_gallery">
                 <label for="">Work Gallery</label>
-                <ul>
+                <!-- <ul>
                     <li><img src="assets/images/view-edit.png" alt=""></li>
                     <li><img src="assets/images/add-edit.png" alt=""></li>
-                </ul>
+                </ul> -->
 
                 <div class="form-group form-primary custom_formgroup">
                     <input type="file" class="custom_upload1" multiple accept="image/x-png,image/gif,image/jpeg,image/jpg" (change)="readUrlMultipleImage($event)"
                       formControlName='multiImage'>
-                    <img class="file_upload1" [src]="salonImageUrl" alt="Upload">
-                  </div>
-                  <label class="detail_content"><a class="margin_top"
-                    *ngFor="let image of salonImageUrlArray; index as i">
-                    <img class="file_upload2" [src]="image" alt="Upload">
-                    <span
-                      (click)="removeSalonImages(image,i)">x</span> </a></label> <br>
+                      <img class="file_upload1" src="assets/images/add-edit.png" alt="Upload">
+                      <label class="detail_content"><a class="margin_top"
+                        *ngFor="let image of salonImageUrlArray; index as i">
+                        <img class="file_upload2" [src]="image" alt="Upload">
+                        <span
+                        (click)="removeSalonImages(image,i)">x</span> </a></label>
+                        <br>
+                    </div>
             </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/web.png" alt="envelope"></span>
@@ -67,20 +68,53 @@
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
                 <mat-label>Service At</mat-label>
-                <mat-select>
+                <mat-select formControlName='serviceat'>
                   <mat-option *ngFor="let service of services" [value]="service.value">
                     {{service.viewValue}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
-            <mat-form-field>
+              <a [routerLink]="['/staff']">  <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/edit-staff.png" alt="envelope"></span>
-                <input matInput placeholder="Manage Staff" class="form-control">
-            </mat-form-field>
+                <input matInput placeholder="Manage Staff" class="form-control cursor" disabled>
+            </mat-form-field></a>
+            <a [routerLink]="['/business-hours']"><mat-form-field>
+                <span class="email-img pass"><img src="assets/images/time.png" alt="envelope"></span>
+                <input matInput placeholder="Business Hours" class="form-control cursor" disabled>
+            </mat-form-field></a>
 
             <div class="text-center">
                 <button type="submit" class="btn btn-submit">Save</button>
             </div>
         </form>
     </div>
+                    <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        
+                     
+                        <ng-container matColumnDef="No.">
+                          <th mat-header-cell *matHeaderCellDef> No. </th>
+                          <td mat-cell *matCellDef="let element"> {{1}} </td>
+                        </ng-container>
+                      
+                        
+                        <ng-container matColumnDef="name">
+                          <th mat-header-cell *matHeaderCellDef> Name </th>
+                          <td mat-cell *matCellDef="let element"> {{element.cat_name}} </td>
+                        </ng-container>
+                      
+                        
+                        <ng-container matColumnDef="price">
+                          <th mat-header-cell *matHeaderCellDef> Price </th>
+                          <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                        </ng-container>
+                      
+                        
+                        <ng-container matColumnDef="discount_price">
+                          <th mat-header-cell *matHeaderCellDef> Discount </th>
+                          <td mat-cell *matCellDef="let element"> {{element.discount_price}} </td>
+                        </ng-container>
+                      
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      </table> -->
 </div>

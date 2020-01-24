@@ -8,6 +8,6 @@ export const APIURLS = {
     RESET: BASE_URL + 'salon/reset/pass',
     FORGOT: BASE_URL + 'salon/forgot/pass',
     CHANGEPASS: BASE_URL + 'salon/change/pass',
-    PROFILE: BASE_URL + 'salon/detail/self',
-    EDIT : BASE_URL + 'salon/self'
+    PROFILE: BASE_URL + 'salon/detail',
+    EDIT : BASE_URL + 'salon'
 };

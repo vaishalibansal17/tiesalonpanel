@@ -7,6 +7,7 @@ import { } from 'googlemaps';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ValidationService } from 'src/app/shared/service/validation-service';
 import _ from 'lodash';
+import { MessageService } from 'src/app/shared/service/message.service';
 
 export interface Service {
   value: string;
@@ -14,7 +15,13 @@ export interface Service {
 }
 
 declare var google;
-
+interface SalonServices {
+  name: string;
+  price: number;
+  discount_price: number;
+  status: boolean;
+  cat_name : String
+}
 
 interface Marker {
   lat: number;
@@ -45,12 +52,14 @@ interface Location {
 
 export class EditprofileComponent implements OnInit {
   services: Service[] = [
-    { value: 'hair-cut', viewValue: 'Hair Cut' },
-    { value: 'spa', viewValue: 'Spa' },
+    { value: '1', viewValue: 'Salon' },
+    { value: '2', viewValue: 'Home' },
+    { value: '3', viewValue: 'Both' },
   ];
   // google map
   @ViewChild("search", { static: false })
   public searchElementRef: ElementRef;
+  displayedColumns = ['No.', 'name', 'price', 'discount_price'];
   geocoder: any;
   public location: Location = {
     lat: 28.7041,
@@ -76,10 +85,12 @@ export class EditprofileComponent implements OnInit {
   salonImageUrlArray = [];
   salonImageArray = [];
   deletedImageArray = [];
+  dataSource= [];
   constructor(private httpService: HttpRequestService,
     private router: Router, private helper: Helper,
     public mapsApiLoader: MapsAPILoader,
-    private zone: NgZone) { }
+    private zone: NgZone,
+    private messageService: MessageService) { }
 
   ngOnInit() {
     this.salonid = localStorage.getItem('salonid');
@@ -102,41 +113,46 @@ export class EditprofileComponent implements OnInit {
         Validators.required
       ]),
       website: new FormControl(null, [
-        Validators.required, ValidationService.validateWebsite
+        ValidationService.validateWebsite
       ]),
-      multiImage: new FormControl(null)
+      multiImage: new FormControl(null),
+      serviceat: new FormControl(null)
     })
   }
 
   update() {
     this.submitted = true;
-
+    console.log(this.profile.value);
+    // return false
     this.formData = new FormData();
     if (this.profile.valid) {
       if (this.profileImage)
         this.formData.append('salon_logo', this.profileImage, this.profileImage.name);
-
+      for (let i = 0; i < this.salonImageArray.length; i++) {
+        this.formData.append('salon_imgs', this.salonImageArray[i]);
+      }
+      if (this.deletedImageArray.length)
+        this.formData.append('del_imgs', JSON.stringify(this.deletedImageArray));
       this.formData.append('name', this.profile.value.name);
       this.formData.append('email', this.profile.value.email);
       this.formData.append('phone', this.profile.value.phone);
-      this.formData.append('address', this.location.full_address);
       this.formData.append('website', this.profile.value.website ? this.profile.value.website : '');
-      this.formData.append('address', this.location ? this.location.full_address : "")
-      this.formData.append('city', this.location ? this.location.address_level_2 : "")
-      this.formData.append('state', this.location ? this.location.address_state : "")
-      this.formData.append('pincode', this.location ? this.location.address_zip : "")
-      this.formData.append('country', this.location ? this.location.address_country : "")
-      this.formData.append('lat', this.location ? String(this.location.lat) : "")
-      this.formData.append('lng', this.location ? String(this.location.lng) : "")
-
+      this.formData.append('address', this.location.full_address ? this.location.full_address : this.profile.value.location)
+      this.formData.append('city', this.location ? this.location.address_level_2 : "");
+      this.formData.append('state', this.location ? this.location.address_state : "");
+      this.formData.append('pincode', this.location ? this.location.address_zip : "");
+      this.formData.append('country', this.location ? this.location.address_country : "");
+      this.formData.append('lat', this.location ? String(this.location.lat) : "");
+      this.formData.append('lng', this.location ? String(this.location.lng) : "");
+      this.formData.append('service_at', this.profile.value.serviceat);
       this.httpService.getRequest('PUT', 'EDIT', this.formData, '')
         .subscribe((response: any) => {
           this.loader = false;
 
           if (response.status === 1) {
             this.submitted = true;
-            localStorage.setItem('userDetails', JSON.stringify(response.responseData.organiserInfo));
-            // this.messageService.sendMessage('profile changed');
+            localStorage.setItem('salon', JSON.stringify({ name: this.profile.value.name, logo: response.res.logo?response.res.logo:this.detail.logo }));
+            this.messageService.sendMessage('profile changed');
             this.router.navigateByUrl('/')
               .then(() => {
                 // this.httpService.showSuccess(MESSAGE.PROFILE_UPDATE, '', MESSAGE.MSGTIME);
@@ -159,6 +175,9 @@ export class EditprofileComponent implements OnInit {
 
           // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
         });
+    } else {
+      console.log(this.profile);
+
     }
   }
 
@@ -174,7 +193,7 @@ export class EditprofileComponent implements OnInit {
             this.salonImageUrlArray.push(e.target.result);
           }
           reader.readAsDataURL(file);
-          this.salonImageArray.push((file));
+          this.salonImageArray.push(file);
         }
       }
     }
@@ -188,9 +207,12 @@ export class EditprofileComponent implements OnInit {
       }
       return index !== itemIndex
     })
-    if (value.length > 500) {
+    console.log(value, typeof this.salonImageArray[itemIndex]);
+    
+    if (typeof this.salonImageArray[itemIndex]==='object') {
       let deleteIndex = itemIndex - this.deletedImageArray.length;
       this.salonImageArray.splice(deleteIndex, 1)
+      console.log('----------------', this.salonImageArray, deleteIndex);
     }
   }
   readUrl(event: any) {
@@ -226,6 +248,8 @@ export class EditprofileComponent implements OnInit {
             location: this.detail.hasOwnProperty('address') ? this.detail.address : '',
             // company details
             website: this.detail.hasOwnProperty('website') ? this.detail.website : '',
+            description: this.detail.hasOwnProperty('desc') ? this.detail.desc : '',
+            serviceat : this.detail.hasOwnProperty('service_at')?String(this.detail.service_at):''
           });
           this.location.address_level_2 = this.detail.city;
           this.location.address_state = this.detail.state;
@@ -234,6 +258,14 @@ export class EditprofileComponent implements OnInit {
           this.location.lat = this.detail.lat;
           this.location.lng = this.detail.lng;
           this.url = this.detail.logo ? this.detail.logo : this.url;
+          this.dataSource = this.detail.services;
+          if (this.detail && this.detail.imgs) {
+            this.detail.imgs.map(item => {
+              item = this.detail.bp + item;
+              this.salonImageUrlArray.push(item);
+              this.salonImageArray.push(item);
+            })
+          }
         } else {
           // if (!_.isEmpty(response.error)) {
           //   if (response.error.errorCode == 20) {
