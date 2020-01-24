@@ -12,6 +12,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     SettingsRoutingModule,
     SharedModule
-  ]
+  ],
+  entryComponents : []
 })
 export class SettingsModule { }

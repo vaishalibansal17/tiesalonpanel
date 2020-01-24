@@ -13,22 +13,26 @@ export class SettingsComponent implements OnInit {
   position = new FormControl(this.positionOptions[0]);
   constructor(public dialog: MatDialog) {}
 
-  openDialog() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(DialogContentExampleDialog);
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
 
   ngOnInit() {
   }
 
 }
 
-@Component({
-  selector: 'settings-dialog.component',
-  templateUrl: 'settings-dialog.component.html',
-})
-export class DialogContentExampleDialog {}
+// @Component({
+//   selector: 'settings-dialog.component',
+//   templateUrl: 'settings-dialog.component.html',
+// })
+// export class DialogContentExampleDialog {
+//   constructor(){
+
+//   }
+// }
 
