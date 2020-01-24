@@ -138,9 +138,9 @@ ul.breadcrumb li a{color: #F96BB3;}
     .mat-form-field-infix,.mat-form-field{width:100%;margin: 0;padding:0}
     .mat-form-field-appearance-legacy .mat-form-field-underline{display: none;}
     .mat-form-field-appearance-legacy .mat-form-field-wrapper{padding-bottom: 0px;}
-    button.mat-icon-button.mat-button-base {position: absolute; top: -22px;right: 15px;}
+    button.mat-icon-button.mat-button-base {position: absolute; top: -16px;right: 15px;}
     .mat-form-field-wrapper{margin-bottom: 0px;}
-    .mat-form-field-appearance-legacy .mat-form-field-label {top: 39px;color: #fff;left: 55px;}
+    .mat-form-field-appearance-legacy .mat-form-field-label {top: 34px;color: #fff;left: 45px;width: calc(100% - 92px);}
     .mat-button-wrapper .mat-icon{color: #fff;}
     .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label {display: none;}
     .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {display: none;}
@@ -151,11 +151,11 @@ ul.breadcrumb li a{color: #F96BB3;}
     }
     h1.head{
         text-align: center;
-        font-family: 'Conv_GothamRounded-Medium';
-        font-size: 26px;
+        // font-family: 'Conv_GothamRounded-Medium';
+        font-size: 18px;
         color: #fff;
         text-transform: uppercase;
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
     .form-control{
         background-color: rgba(255, 255, 255, 0.5) !important;
@@ -164,7 +164,7 @@ ul.breadcrumb li a{color: #F96BB3;}
         height: 60px;
         border-radius: 7px;
         color: #fff !important;
-        padding-left: 55px;
+        padding-left: 45px;
         padding-right: 15px;
         }
     }
@@ -184,7 +184,7 @@ ul.breadcrumb li a{color: #F96BB3;}
         margin-top: 5px;
         a{
             font-family: 'Conv_GothamRounded-Medium';
-            font-size: 18px;
+            font-size: 13px;
             color: #000;
             opacity: .7;
         }
@@ -197,7 +197,8 @@ ul.breadcrumb li a{color: #F96BB3;}
 
 
 .full-vertical{position: relative;top: 50%;transform: translateY(-50%);}
-span.email-img {position: absolute;top: 21px;left: 15px;}
+span.email-img {position: absolute;top: 20px;left: 14px;}
+span.email-img img {width: 18px;}
 span.email-img.pass{top: 18px;}
 .main-right .custom-width .form-control.pass-space{padding-right: 50px;}
 
@@ -543,9 +544,9 @@ img.full_width{width:100%;margin-bottom: 20px;}
 /*------------------MEDIA CSS------------*/
 
 @media(max-width:1500px){
-    .main-right .custom-width h1.head {font-size: 20px;margin-bottom: 10px;}
-    .main-right button.mat-icon-button.mat-button-base{top:-19px}
-    .main-right .custom-width p.right a{font-size: 14px;}
+    // .main-right .custom-width h1.head {font-size: 20px;margin-bottom: 10px;}
+    // .main-right button.mat-icon-button.mat-button-base{top:-19px}
+    // .main-right .custom-width p.right a{font-size: 14px;}
     .main-right .custom-width .btn-submit {margin: 10px 0px;}
     .main-card .notifi_list .noti_right {padding: 15px 0px 15px;}
     .main-card .notifi_list{margin-bottom: 2px;}
