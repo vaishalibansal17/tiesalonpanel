@@ -66,8 +66,8 @@ export class Helper {
                 positionClass: 'toast-bottom-left'
             });
     }
-    sucsTostr(title,msg) {
-        this.toastr.success(msg,title,
+    sucsTostr(title, msg) {
+        this.toastr.success(msg, title,
             {
                 timeOut: 5000,
                 closeButton: true,
@@ -75,5 +75,27 @@ export class Helper {
                 progressAnimation: 'decreasing',
                 positionClass: 'toast-bottom-left'
             });
+    }
+
+    checkImageValidationMultiple(event) {
+
+        let files = event.target.files;
+        if (files) {
+            for (let file of files) {
+                if (files && files[0]) {
+                    if (files[0].size > 5000000) {
+                        this.errTostr('', 'error');
+                        return false
+                    } else if (this.isImage(files[0].type)) {
+                        return true;
+                    } else {
+                        this.errTostr('', 'image error');
+                        return false
+                    }
+                }
+            }
+        }
+
+
     }
 }

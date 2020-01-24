@@ -4,6 +4,7 @@ import { HttpRequestService } from 'src/app/shared/service/http-request.service'
 import { Router } from '@angular/router';
 import { Helper } from 'src/app/shared/service/helper.service';
 import { PassValid, ValidationService } from 'src/app/shared/service/validation-service';
+import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 
 @Component({
   selector: 'app-changepassword',
@@ -26,7 +27,8 @@ export class ChangepasswordComponent implements OnInit {
     private httpService: HttpRequestService,
     private router: Router,
     private fb: FormBuilder,
-    private helper: Helper) { }
+    private helper: Helper,
+    private trns : TranslatePipe) { }
 
   ngOnInit() {
 
@@ -52,7 +54,6 @@ export class ChangepasswordComponent implements OnInit {
     } else {
       this.organiserChangePassword.value['new_pass'] = this.organiserChangePassword.value.newPassword;
       this.organiserChangePassword.value['old_pass'] = this.organiserChangePassword.value.oldPassword;
-
       this.httpService.getRequest('PUT', 'CHANGEPASS', this.organiserChangePassword.value, '').subscribe((response: any) => {
         // this.spinner.hide();
 
@@ -60,9 +61,7 @@ export class ChangepasswordComponent implements OnInit {
           this.submitted = true;
           this.router.navigateByUrl('/')
             .then(() => {
-              console.log('response',response);
-              
-              // this.httpService.showSuccess(MESSAGE.ATTENDEE.RESET_PASS, '', MESSAGE.MSGTIME);
+              this.helper.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('RESETPASSSUCC'));
             });
         } else {
           // if (!_.isEmpty(response.error.errors)) {

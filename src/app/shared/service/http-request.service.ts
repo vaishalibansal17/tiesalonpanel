@@ -20,7 +20,7 @@ export class HttpRequestService {
 	}
 	getRequest(type: string, requestUrl: string, data?: any, queryParams?: any): Observable<any> {		
 		if (type === 'GET') {
-			return this.http.get<any>(this.getApi(requestUrl) + '/');
+			return this.http.get<any>(this.getApi(requestUrl) + '/' + data);
 		} else if (type === 'POST') {
 			return this.http.post<any>(this.getApi(requestUrl), data);;
 		} else if (type === 'POST_WITHDATA') {			

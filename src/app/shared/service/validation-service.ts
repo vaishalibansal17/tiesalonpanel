@@ -1,6 +1,24 @@
 import { AbstractControl } from "@angular/forms";
 
 export class ValidationService {
+
+  
+
+
+  static validateWebsite(control) {
+    // RFC 2822 compliant regex
+    if (
+      control.value &&
+      control.value.match(
+        '^(http[s]?:\\/\\/(www\\.)?|ftp:\\/\\/(www\\.)?|www\\.){1}([0-9A-Za-z-\\.@:%_\+~#=]+)+((\\.[a-zA-Z]{2,3})+)(/(.)*)?(\\?(.)*)?'
+      )
+    ) {
+      return null;
+    } else {
+      return { invalidWebsite: true };
+    }
+  }
+
   static validateEmail(control) {
     // RFC 2822 compliant regex
     if (

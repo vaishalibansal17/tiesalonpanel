@@ -19,6 +19,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color :maroon;
     // padding-top: 5px;
 }
+agm-map {
+    height: 300px;
+  }  
+.map {
+    border: 5px solid whitesmoke;
+    box-shadow: 2px 2px 2px 2px #888888;
+    position: relative;
+    border-radius: 7px;
+  }
 body{font-size:20px !important;line-height:30px !important;font-family: 'Conv_GothamRounded-Book' !important;}
 ul{list-style: none;margin: 0;padding: 0;}
 .form-control:focus{box-shadow: none !important;border:none !important;outline: none !important;}
@@ -511,7 +520,7 @@ body.nav-close{
 
 /*----------edit-profile------------*/
 label.custom_label{color: #7C42FF;font-size: 16px;margin: 15px 0px 20px;}
-img.full_width{width:100%;margin-bottom: 20px;}
+div.full_width{width:100%;margin-bottom: 20px;}
 .work_gallery ul li {display: inline-block;margin: 5px 10px;}
 .work_gallery ul li:first-child {margin-left: 0px;}
 .work_gallery ul li:last-child {margin-right: 0px;}

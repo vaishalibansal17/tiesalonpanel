@@ -55,8 +55,9 @@ export class LoginComponent implements OnInit {
         .subscribe((data: any) => {
           // this.spinner.hide();
           if (data.status) {
-            let {acsTkn} = data.res;
+            let {acsTkn, _id} = data.res;
             localStorage.setItem('acsTkn', acsTkn);
+            localStorage.setItem('salonid', _id);
             this.isLoading = !this.isLoading;
             this.router.navigate(['/']).then(()=> this.helper.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('LOGINSUCCESS')))
           } else {
