@@ -4,12 +4,12 @@ html, body { height: 100%; }
 @import "../node_modules/ng2-slim-loading-bar/style.css";
 @import '../node_modules/ngx-toastr/toastr.css';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-body{font-size:20px !important;line-height:30px !important;font-family: 'Conv_GothamRounded-Book' !important;}
+body{font-size:15px !important;line-height:30px !important;font-family: 'Conv_GothamRounded-Book' !important;}
 ul{list-style: none;margin: 0;padding: 0;}
 .form-control:focus{box-shadow: none !important;border:none !important;outline: none !important;}
 a:hover{text-decoration: none !important;}
 select,.cursor{cursor: pointer;}
-p.warning{color:#FF2626;font-size: 16px;}
+p.warning{color:#FF2626;font-size: 14px;}
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus,
@@ -57,19 +57,19 @@ select:-webkit-autofill:focus {
 .mat-menu-item{font-family: 'Conv_GothamRounded-Book' !important;}
 .mat-elevation-z4{box-shadow: 0px 0px 10px #ccc;}
 button:focus{outline:none !important}
-.breadcrumb {padding: 0 !important;margin-bottom: 15px !important;background-color: transparent !important;border-radius: 0px !important;font-size: 16px !important;text-transform: uppercase !important;color: #999 !important;}
+.breadcrumb {padding: 0 !important;margin-bottom: 15px !important;background-color: transparent !important;border-radius: 0px !important;font-size: 15px !important;text-transform: uppercase !important;color: #999 !important;}
 ul.breadcrumb li a{color: #F96BB3;}
 
 /*-----------login-------------*/
 .fixed-nav {
 	position: absolute;
 	top: 15%;
-	left: 40px;
+	left:55px;
 	z-index: 999;
 	ul {
 		li {
-			height: 45px;
-			width: 5px;
+            height: 40px;
+            width: 4px;
 			background: #a1a1a1;
 			margin-bottom: 8px;
 		}
@@ -128,7 +128,7 @@ ul.breadcrumb li a{color: #F96BB3;}
 .main-left{
     background: url(assets/images/main_background.jpg) no-repeat center;background-size: cover;min-height: 100vh;text-align:center;
     .head{
-        font-size: 36px;text-transform: uppercase;color: #000;margin-top: 60px;
+        font-size: 26px;text-transform: uppercase;color: #000;margin-top: 60px;
         span{font-family: 'Conv_GothamRounded-Bold';}
     }
 }
@@ -144,7 +144,7 @@ ul.breadcrumb li a{color: #F96BB3;}
     .mat-button-wrapper .mat-icon{color: #fff;}
     .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label {display: none;}
     .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {display: none;}
-    .custom-width{width:55%;margin: 0 auto;
+    .custom-width{width:50%;margin: 0 auto;
     .logo{
         text-align: center;
         margin-bottom: 50px;
@@ -161,7 +161,7 @@ ul.breadcrumb li a{color: #F96BB3;}
         background-color: rgba(255, 255, 255, 0.5) !important;
         border: none;
         margin-bottom: 0px;
-        height: 70px;
+        height: 60px;
         border-radius: 7px;
         color: #fff !important;
         padding-left: 55px;
@@ -169,13 +169,13 @@ ul.breadcrumb li a{color: #F96BB3;}
         }
     }
     .btn-submit{
-        font-size: 20px;
+        font-size: 16px;
         color: #F96BB3;
         font-family: "Conv_GothamRounded-Book";
         width: 100%;
         background: #fff;
         border-radius: 30px;
-        padding: 12px 20px;
+        padding: 10px 20px;
         margin: 25px 0px 10px;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     }
@@ -229,7 +229,7 @@ body.nav-open{
         width:100%;
     }
      li{
-        font-size: 15px;
+        font-size: 14px;
         font-family: 'Conv_GothamRounded-Book';
         text-transform: uppercase;
         margin: 20px 0px;
@@ -398,7 +398,7 @@ body.nav-close{
 /*---------Dashboard Page------------*/
 .dashboard_row{}
 .dashboard_col{}
-.dashboard_col .card{font-family: "Conv_GothamRounded-Book";font-size: 18px;background: #ccc;border-radius: 15px;color: #fff;min-height: 170px;padding: 30px 35px;border: 1px solid #BFBFBF;margin-bottom: 20px;}
+.dashboard_col .card{font-family: "Conv_GothamRounded-Book";font-size: 15px;background: #ccc;border-radius: 15px;color: #fff;min-height: 170px;padding: 30px 35px;border: 1px solid #BFBFBF;margin-bottom: 20px;}
 .dashboard_col .card span{font-family: 'Conv_GothamRounded-Medium';font-size: 70px;display: block;line-height: 65px;}
 .dashboard_row .dashboard_col:nth-child(1) .card{background: #F96BB3;}
 .dashboard_row .dashboard_col:nth-child(2) .card{background: #C471FF;}
@@ -495,12 +495,12 @@ body.nav-close{
 }
 
 /*----------edit-profile------------*/
-label.custom_label{color: #7C42FF;font-size: 16px;margin: 15px 0px 20px;}
+label.custom_label{color: #7C42FF;font-size: 15px;margin: 15px 0px 20px;}
 img.full_width{width:100%;margin-bottom: 20px;}
 .work_gallery ul li {display: inline-block;margin: 5px 10px;}
 .work_gallery ul li:first-child {margin-left: 0px;}
 .work_gallery ul li:last-child {margin-right: 0px;}
-.work_gallery label{color: #999;font-size: 16px;}
+.work_gallery label{color: #999;font-size: 15px;}
 
 
 /*----------business-hours------------*/
@@ -514,11 +514,11 @@ img.full_width{width:100%;margin-bottom: 20px;}
             padding-top:14px;
         }
         .day{
-            font-size: 20px;
+            font-size: 15px;
             color: #000;
         }
         .to{
-            font-size: 16px;
+            font-size: 14px;
             color: #999;
             text-align: center;
         }
@@ -526,9 +526,9 @@ img.full_width{width:100%;margin-bottom: 20px;}
         .mat-form-field-appearance-legacy .mat-form-field-underline,.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label,.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{display: none;}
         .mat-form-field-appearance-legacy .mat-form-field-wrapper{padding-bottom: 0px;}
         .mat-form-field-wrapper{margin-bottom: 0px;padding-bottom: 0px;}
-        .mat-form-field-appearance-legacy .mat-form-field-label {top: 38px;color: #999;left: 20px;width: calc(100% - 20px);font-size:16px}
+        .mat-form-field-appearance-legacy .mat-form-field-label {top: 38px;color: #999;left: 20px;width: calc(100% - 20px);font-size:15px}
         .mat-button-wrapper .mat-icon{color: #999;}
-        input.form-control {height: 60px;border: 1px solid #dad9d9;padding: 0px 20px;border-radius: 7px;font-size:16px}
+        input.form-control {height: 60px;border: 1px solid #dad9d9;padding: 0px 20px;border-radius: 7px;font-size:15px}
         .form-control:focus {border: 1px solid #dad9d9 !important;}
         }
         .add{
@@ -543,20 +543,13 @@ img.full_width{width:100%;margin-bottom: 20px;}
 /*------------------MEDIA CSS------------*/
 
 @media(max-width:1500px){
-    .main-left{
-        .head{
-        font-size: 30px;
-        margin-top: 40px;
-        }
-    }
     .main-right .custom-width h1.head {font-size: 20px;margin-bottom: 10px;}
-    body{font-size: 16px !important;}
     .main-right button.mat-icon-button.mat-button-base{top:-19px}
     .main-right .custom-width p.right a{font-size: 14px;}
-    .main-right .custom-width .btn-submit {font-size: 18px;margin: 10px 0px;}
+    .main-right .custom-width .btn-submit {margin: 10px 0px;}
     .main-card .notifi_list .noti_right {padding: 15px 0px 15px;}
     .main-card .notifi_list{margin-bottom: 2px;}
-    body.nav-open .left-nav li {font-size: 14px;margin: 12px 0px;}
+    body.nav-open .left-nav li {margin: 12px 0px;}
     body.nav-close .left-nav .logo{margin-bottom: 5px;}
     .custom_form .mat-form-field-appearance-legacy .mat-form-field-label{top:32px}
 }
@@ -569,11 +562,10 @@ img.full_width{width:100%;margin-bottom: 20px;}
     .main-right .form-control.password-img{background: url(assets/images/lock.png) no-repeat 15px 15px; padding-right: 40px;}
     .main-right .mat-form-field-appearance-legacy .mat-form-field-label {top: 32px;}
     .main-right .custom-width {width: 80%;}
-    .dashboard_col .card {font-size: 14px;min-height: 140px;padding: 15px 20px;}
+    .dashboard_col .card {font-size: 13px;min-height: 140px;padding: 15px 20px;}
     .dashboard_col .card span {font-size: 40px;line-height: 50px;}
     .main-header .right-nav h1 {font-size: 20px;padding-top: 9px;}
     .main-header .top-right ul li {margin: 0px 7px;}
-    .main-header .top-right ul li button{font-size: 13px;}
 }
 
 @media(max-width:992px){
