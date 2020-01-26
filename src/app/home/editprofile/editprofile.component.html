@@ -5,9 +5,8 @@
                 <div class="file_input">
                     <img [src]="url" alt="">
                 </div>
-                <label for="" class="custom_label">
-                    <input type="file" accept="image/jpeg,image/png"
-                    (change)="readUrl($event)">
+                <label for="" class="custom_label upload-image">
+                    <input type="file" accept="image/jpeg,image/png" (change)="readUrl($event)">
                     Change Profile Picture</label>
             </div>
             <mat-form-field>
@@ -15,32 +14,34 @@
                 <input matInput placeholder="User Name" class="form-control" formControlName="name">
             </mat-form-field>
             <mat-form-field>
-                <span class="email-img pass"><img src="assets/images/email.png" alt="envelope" ></span>
+                <span class="email-img pass"><img src="assets/images/email.png" alt="envelope"></span>
                 <input matInput placeholder="Email" class="form-control" formControlName="email">
             </mat-form-field>
             <mat-form-field>
-                <span class="email-img pass"><img src="assets/images/mobile.png" alt="envelope" ></span>
+                <span class="email-img phone"><img src="assets/images/mobile.png" alt="envelope"></span>
                 <input matInput placeholder="Phone" class="form-control" formControlName="phone">
             </mat-form-field>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/location.png" alt="envelope"></span>
-                <input matInput placeholder="Location" class="form-control"  #search autocorrect="off" autocapitalize="off" spellcheck="off"
-                formControlName="location">
+                <input matInput placeholder="Location" class="form-control" #search autocorrect="off"
+                    autocapitalize="off" spellcheck="off" formControlName="location">
                 <!-- <img class="full_width" src="assets/images/maps.png" alt=""> -->
                 <div class="map full_width">
-                    <agm-map [latitude]="location.lat" [longitude]="location.lng" [(zoom)]="location.zoom" [zoomControl]="true">
-                      <agm-marker [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
+                    <agm-map [latitude]="location.lat" [longitude]="location.lng" [(zoom)]="location.zoom"
+                        [zoomControl]="true">
+                        <agm-marker [latitude]="location.lat" [longitude]="location.lng"></agm-marker>
                     </agm-map>
-                  </div>
+                </div>
             </mat-form-field>
-            
+
             <!-- <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/reviews.png" alt="envelope"></span>
                 <input matInput placeholder="Reviews" class="form-control">
             </mat-form-field> -->
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/description.png" alt="envelope"></span>
-                <textarea matInput placeholder="Description" class="form-control" formControlName="description"></textarea>
+                <textarea matInput placeholder="Description" class="form-control"
+                    formControlName="description"></textarea>
             </mat-form-field>
             <div class="work_gallery">
                 <label for="">Work Gallery</label>
@@ -50,16 +51,18 @@
                 </ul> -->
 
                 <div class="form-group form-primary custom_formgroup">
-                    <input type="file" class="custom_upload1" multiple accept="image/x-png,image/gif,image/jpeg,image/jpg" (change)="readUrlMultipleImage($event)"
-                      formControlName='multiImage'>
-                      <img class="file_upload1" src="assets/images/add-edit.png" alt="Upload">
-                      <label class="detail_content"><a class="margin_top"
-                        *ngFor="let image of salonImageUrlArray; index as i">
-                        <img class="file_upload2" [src]="image" alt="Upload">
-                        <span
-                        (click)="removeSalonImages(image,i)">x</span> </a></label>
-                        <br>
-                    </div>
+                    <input type="file" class="custom_upload1" multiple
+                        accept="image/x-png,image/gif,image/jpeg,image/jpg" (change)="readUrlMultipleImage($event)"
+                        formControlName='multiImage'>
+
+                    <label class="detail_content"><a class="margin_top"
+                            *ngFor="let image of salonImageUrlArray; index as i" (click)="openModal(template)">
+                            <img class="file_upload2" [src]="image" alt="Upload">
+                            <span (click)="removeSalonImages(image,i)">x</span> </a>
+                            <img class="file_upload1" src="assets/images/add-edit.png" alt="Upload">
+                        </label>
+                    <br>
+                </div>
             </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/web.png" alt="envelope"></span>
@@ -69,26 +72,30 @@
                 <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
                 <mat-label>Service At</mat-label>
                 <mat-select formControlName='serviceat'>
-                  <mat-option *ngFor="let service of services" [value]="service.value">
-                    {{service.viewValue}}
-                  </mat-option>
+                    <mat-option *ngFor="let service of services" [value]="service.value">
+                        {{service.viewValue}}
+                    </mat-option>
                 </mat-select>
-              </mat-form-field>
-              <a [routerLink]="['/staff']">  <mat-form-field>
-                <span class="email-img pass"><img src="assets/images/edit-staff.png" alt="envelope"></span>
-                <input matInput placeholder="Manage Staff" class="form-control cursor" disabled>
-            </mat-form-field></a>
-            <a [routerLink]="['/business-hours']"><mat-form-field>
-                <span class="email-img pass"><img src="assets/images/time.png" alt="envelope"></span>
-                <input matInput placeholder="Business Hours" class="form-control cursor" disabled>
-            </mat-form-field></a>
+            </mat-form-field>
+            <a [routerLink]="['/staff']">
+                <mat-form-field>
+                    <span class="email-img pass"><img src="assets/images/edit-staff.png" alt="envelope"></span>
+                    <input matInput placeholder="Manage Staff" class="form-control cursor" disabled>
+                </mat-form-field>
+            </a>
+            <a [routerLink]="['/business-hours']">
+                <mat-form-field>
+                    <span class="email-img pass"><img src="assets/images/time.png" alt="envelope"></span>
+                    <input matInput placeholder="Business Hours" class="form-control cursor" disabled>
+                </mat-form-field>
+            </a>
 
             <div class="text-center">
                 <button type="submit" class="btn btn-submit">Save</button>
             </div>
         </form>
     </div>
-                    <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         
                      
                         <ng-container matColumnDef="No.">
@@ -117,4 +124,20 @@
                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                       </table> -->
+                      <!-- <button mat-raised-button (click)="openModal(template)">Pick one</button> -->
+  
 </div>
+
+<ng-template #template>
+    <div class="modal-content px-5">
+      <h4 class="mt-3 text-left">Salon Images</h4>
+      <div class="modal-body px-0">
+      <slideshow #slideshow  [imageUrls]="slide" [height]="height" [minHeight]="'200px'" [autoPlay]="false"
+      [showArrows]="true" [lazyLoad]="true" [backgroundSize]="'auto'" [imageUrls]="imageSources"
+      [lazyLoad]="imageSources?.length > 1" [autoPlayWaitForLazyLoad]="true"
+      ></slideshow>
+    </div>
+    </div>
+  </ng-template>
+  
+  

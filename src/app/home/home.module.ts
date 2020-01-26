@@ -13,6 +13,7 @@ import { SharedModule } from '../shared/shared.module';
 import { SupportComponent } from './support/support.component';
 import { ApplicationpipeModule } from '../shared/module/applicationpipe/applicationpipe.module';
 import { TranslatePipe } from '../shared/_pipes/translate.pipe';
+import { BreadcrumbModule } from '../shared/breadcrumb/breadcrumb.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TranslatePipe } from '../shared/_pipes/translate.pipe';
      SlimLoadingBarModule,
      MaterialModule,
      SharedModule,
-     ApplicationpipeModule
+     ApplicationpipeModule,
+     BreadcrumbModule
   ],
   providers:[TranslatePipe]
 })

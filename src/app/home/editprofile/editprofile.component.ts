@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, NgZone, ViewChild, ElementRef, Inject, TemplateRef } from '@angular/core';
 import { HttpRequestService } from 'src/app/shared/service/http-request.service';
 import { Router } from '@angular/router';
 import { Helper } from 'src/app/shared/service/helper.service';
@@ -8,7 +8,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ValidationService } from 'src/app/shared/service/validation-service';
 import _ from 'lodash';
 import { MessageService } from 'src/app/shared/service/message.service';
-
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 export interface Service {
   value: string;
   viewValue: string;
@@ -20,7 +21,7 @@ interface SalonServices {
   price: number;
   discount_price: number;
   status: boolean;
-  cat_name : String
+  cat_name: String
 }
 
 interface Marker {
@@ -59,6 +60,11 @@ export class EditprofileComponent implements OnInit {
   // google map
   @ViewChild("search", { static: false })
   public searchElementRef: ElementRef;
+
+
+  @ViewChild('slideshow',  { static: true }) slideshow:any
+
+
   displayedColumns = ['No.', 'name', 'price', 'discount_price'];
   geocoder: any;
   public location: Location = {
@@ -71,6 +77,7 @@ export class EditprofileComponent implements OnInit {
     },
     zoom: 12
   };
+  modalRef: BsModalRef;
   profile: FormGroup;
   formData: FormData;
   profileImage: any;
@@ -85,12 +92,14 @@ export class EditprofileComponent implements OnInit {
   salonImageUrlArray = [];
   salonImageArray = [];
   deletedImageArray = [];
-  dataSource= [];
+  dataSource = [];
+  slide = [];
   constructor(private httpService: HttpRequestService,
     private router: Router, private helper: Helper,
     public mapsApiLoader: MapsAPILoader,
     private zone: NgZone,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private modalService: BsModalService, ) { }
 
   ngOnInit() {
     this.salonid = localStorage.getItem('salonid');
@@ -122,7 +131,6 @@ export class EditprofileComponent implements OnInit {
 
   update() {
     this.submitted = true;
-    console.log(this.profile.value);
     // return false
     this.formData = new FormData();
     if (this.profile.valid) {
@@ -151,7 +159,7 @@ export class EditprofileComponent implements OnInit {
 
           if (response.status === 1) {
             this.submitted = true;
-            localStorage.setItem('salon', JSON.stringify({ name: this.profile.value.name, logo: response.res.logo?response.res.logo:this.detail.logo }));
+            localStorage.setItem('salon', JSON.stringify({ name: this.profile.value.name, logo: response.res.logo ? response.res.logo : this.detail.logo }));
             this.messageService.sendMessage('profile changed');
             this.router.navigateByUrl('/')
               .then(() => {
@@ -208,8 +216,8 @@ export class EditprofileComponent implements OnInit {
       return index !== itemIndex
     })
     console.log(value, typeof this.salonImageArray[itemIndex]);
-    
-    if (typeof this.salonImageArray[itemIndex]==='object') {
+
+    if (typeof this.salonImageArray[itemIndex] === 'object') {
       let deleteIndex = itemIndex - this.deletedImageArray.length;
       this.salonImageArray.splice(deleteIndex, 1)
       console.log('----------------', this.salonImageArray, deleteIndex);
@@ -249,7 +257,7 @@ export class EditprofileComponent implements OnInit {
             // company details
             website: this.detail.hasOwnProperty('website') ? this.detail.website : '',
             description: this.detail.hasOwnProperty('desc') ? this.detail.desc : '',
-            serviceat : this.detail.hasOwnProperty('service_at')?String(this.detail.service_at):''
+            serviceat: this.detail.hasOwnProperty('service_at') ? String(this.detail.service_at) : ''
           });
           this.location.address_level_2 = this.detail.city;
           this.location.address_state = this.detail.state;
@@ -264,6 +272,9 @@ export class EditprofileComponent implements OnInit {
               item = this.detail.bp + item;
               this.salonImageUrlArray.push(item);
               this.salonImageArray.push(item);
+              console.log({'url':item});
+              this.slide = [...this.slide, {'url':item,  clickAction: () => alert('custom click function') }]
+              // this.slide.push({'url':item});
             })
           }
         } else {
@@ -339,4 +350,14 @@ export class EditprofileComponent implements OnInit {
     });
   }
 
+  openModal(template: TemplateRef<any>) {
+    let config = {
+      backdrop: true,
+      ignoreBackdropClick: true
+    };
+    console.log(this.slideshow);
+    
+    // this.slideshow.goToSlide(3);
+    this.modalRef = this.modalService.show(template, config);
+  }
 }

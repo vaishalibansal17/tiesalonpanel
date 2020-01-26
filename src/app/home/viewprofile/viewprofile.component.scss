@@ -1,11 +1,3 @@
-.file_input img{
-    border-radius: 50%;
-    height: 153px;
-    width: 153px;
-    border: 5px solid whitesmoke;
-}
-
-// img.file_upload1{width:10%}
 img.file_upload2{height: 100px !important;width: 100px !important;  margin: 5px !important; margin-left: 0px !important; border: 5px solid whitesmoke;
     // box-shadow: 2px 2px 2px 2px #888888;
     position: relative;
@@ -17,42 +9,3 @@ img.file_upload2{height: 100px !important;width: 100px !important;  margin: 5px 
 
 .detail_content a.margin_top{position:relative;color: #fff !important; margin: 0;font-size: 17px;margin-right: 15px;margin-bottom: 15px;}
 .detail_content a.margin_top span{ cursor: pointer;   position: absolute;right: 7px;background: #e42525;height: 20px;width: 20px;border-radius: 50%;font-size: 13px;font-weight: 600;padding-left: 7px;}
-
-.upload-image input[type="file"] {
-    cursor: pointer;
-    position: absolute;
-    left: 0;
-    opacity: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.upload-image {
-    position: relative;
-    // width: 100%;
-    height: 100%;
-    display: inline-block;
-    overflow: hidden;
-    // margin-bottom: 0px !important;
-}
-
-//  .profile  {
-//     display:none;
-//     margin:10px;
-//     }
-//      .profile  + label {
-//     display:inline-block;
-//     margin:20px;
-//     padding: 4px 32px;
-//     background-color: #FFFFFF;
-//     border:solid 1px #666F77;
-//     border-radius: 6px;
-//     color:#666F77;
-//     }
-//      .profile :active + label {
-//     background-image: none;
-//     background-color:#2D6C7A;
-//     color:#FFFFFF;
-//     }
-
