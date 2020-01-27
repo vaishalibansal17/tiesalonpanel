@@ -10,6 +10,8 @@ import _ from 'lodash';
 import { MessageService } from 'src/app/shared/service/message.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+import { ErrorService } from 'src/app/shared/service/error.service';
+import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 export interface Service {
   value: string;
   viewValue: string;
@@ -99,7 +101,10 @@ export class EditprofileComponent implements OnInit {
     public mapsApiLoader: MapsAPILoader,
     private zone: NgZone,
     private messageService: MessageService,
-    private modalService: BsModalService, ) { }
+    private modalService: BsModalService,
+    private errorserv: ErrorService,
+    private trns : TranslatePipe
+    ) { }
 
   ngOnInit() {
     this.salonid = localStorage.getItem('salonid');
@@ -116,10 +121,11 @@ export class EditprofileComponent implements OnInit {
         Validators.required, ValidationService.validateEmail
       ]),
       phone: new FormControl(null, [
-        Validators.required, ValidationService.phonevalidator
+        Validators.required, 
+        ValidationService.phonevalidator
       ]),
       description: new FormControl(null, [
-        Validators.required
+        
       ]),
       website: new FormControl(null, [
         ValidationService.validateWebsite
@@ -145,6 +151,7 @@ export class EditprofileComponent implements OnInit {
       this.formData.append('email', this.profile.value.email);
       this.formData.append('phone', this.profile.value.phone);
       this.formData.append('website', this.profile.value.website ? this.profile.value.website : '');
+      this.formData.append('desc', this.profile.value.description ? this.profile.value.description : '');
       this.formData.append('address', this.location.full_address ? this.location.full_address : this.profile.value.location)
       this.formData.append('city', this.location ? this.location.address_level_2 : "");
       this.formData.append('state', this.location ? this.location.address_state : "");
@@ -161,12 +168,13 @@ export class EditprofileComponent implements OnInit {
             this.submitted = true;
             localStorage.setItem('salon', JSON.stringify({ name: this.profile.value.name, logo: response.res.logo ? response.res.logo : this.detail.logo }));
             this.messageService.sendMessage('profile changed');
-            this.router.navigateByUrl('/')
+            this.router.navigateByUrl('/profile')
               .then(() => {
-                // this.httpService.showSuccess(MESSAGE.PROFILE_UPDATE, '', MESSAGE.MSGTIME);
+                this.helper.sucsTostr(this.trns.transform('SUCCESS'),this.trns.transform('SALONSUCCESS'));
               });
           } else {
             if (!_.isEmpty(response.error)) {
+              // this.errorserv.handleError(31);
               //   if (response.error.errorCode == 20) {
               //     this.httpService.showError(MESSAGE.LOGIN.NOT_EXIST, MESSAGE.LOGIN.DEL_ORG, MESSAGE.MSGTIME);
               //     this.httpService.logout();
@@ -215,12 +223,9 @@ export class EditprofileComponent implements OnInit {
       }
       return index !== itemIndex
     })
-    console.log(value, typeof this.salonImageArray[itemIndex]);
-
     if (typeof this.salonImageArray[itemIndex] === 'object') {
       let deleteIndex = itemIndex - this.deletedImageArray.length;
       this.salonImageArray.splice(deleteIndex, 1)
-      console.log('----------------', this.salonImageArray, deleteIndex);
     }
   }
   readUrl(event: any) {
@@ -272,7 +277,6 @@ export class EditprofileComponent implements OnInit {
               item = this.detail.bp + item;
               this.salonImageUrlArray.push(item);
               this.salonImageArray.push(item);
-              console.log({'url':item});
               this.slide = [...this.slide, {'url':item,  clickAction: () => alert('custom click function') }]
               // this.slide.push({'url':item});
             })

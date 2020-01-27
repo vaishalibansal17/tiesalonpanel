@@ -4,7 +4,9 @@ import { HttpRequestService } from 'src/app/shared/service/http-request.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { PassValid, ValidationService } from 'src/app/shared/service/validation-service';
+import { PassValid, ValidationService, passValidator } from 'src/app/shared/service/validation-service';
+import { ErrorService } from 'src/app/shared/service/error.service';
+import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 
 
 
@@ -25,12 +27,14 @@ export class ResetPasswordComponent implements OnInit {
   passShow = true;
   cPassShow = true;
   public formData = new FormData();
-  constructor(private httpService: HttpRequestService, private router: Router, private fb: FormBuilder, private routes: ActivatedRoute) {
+  constructor(private httpService: HttpRequestService, 
+    private router: Router, private fb: FormBuilder, 
+    private routes: ActivatedRoute, private error: ErrorService, private trns: TranslatePipe) {
     this.unsubscribeAll = new Subject;
   }
 
   ngOnInit() {
-    this.token = this.routes.snapshot.queryParamMap.get('token');
+    this.token = this.routes.snapshot.params.token;
     if (this.token)
       this.token = this.token.replace(/\s/g, "+");
 
@@ -39,50 +43,42 @@ export class ResetPasswordComponent implements OnInit {
         Validators.required, Validators.minLength(6),
         ValidationService.passwordValidator
       ]),
-      confirmPassword: new FormControl(null, [Validators.required])
-    },
-      {
-        validator: [PassValid.MatchPassword]
-      }
+      confirmPassword: new FormControl(null, [Validators.required, passValidator])
+    }
     );
 
-    // this.reset.get('newPassword').valueChanges
-    //   .pipe(takeUntil(this.unsubscribeAll))
-    //   .subscribe(() => {
-    //     this.reset.get('confirmPassword').updateValueAndValidity();
-    //   });
+    this.reset.get('newPassword').valueChanges
+      .pipe(takeUntil(this.unsubscribeAll))
+      .subscribe(() => {
+        this.reset.get('confirmPassword').updateValueAndValidity();
+      });
   }
   get getControl() { return this.reset.controls; }
 
   resetPassword() {
+    console.log(this.getControl.confirmPassword.errors);
+    
     this.isLoading = true;
     this.submitted = true;
     if (this.reset.invalid) {
       this.isLoading = false;
     } else {
-      // tslint:disable-next-line:max-line-length
-      // this.spinner.show();
-      this.httpService.getRequest('POST', 'ORGANISER_RESET_PASS', { password: this.reset.value.newPassword, token: this.token }).subscribe((response: any) => {
+      this.httpService.getRequest('POST', 'RESET', { pass: this.reset.value.newPassword, tkn: this.token }).subscribe((response: any) => {
         if (response.status === 1) {
-          // this.spinner.hide();
           this.isLoading = false;
           this.router.navigateByUrl('/auth')
             .then(() => {
-              // this.helper.showSuccess(MESSAGE.ATTENDEE.RESET_PASS, '', MESSAGE.MSGTIME);
+              this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('RESETPASSSUCC'))
             });
         } else {
-          // this.spinner.hide();
-          // if (!_.isEmpty(response.error)) {
-          //   if (response.error.errorCode === 2)
-          //     this.httpService.showError('Link expired.', '', MESSAGE.MSGTIME);
-
-          //   this.isLoading = false;
-          //   this.httpService.showError(response.error.errors.message, 'Validation Error!', MESSAGE.MSGTIME);
-          // } else {
-          //   this.isLoading = false;
-          //   this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
-          // }
+          if (response.error) {
+              this.error.handleError(response.err.errCode)
+          } else {
+            this.error.handleError(0)
+          }
         }
+      }, err=>{
+        this.error.handleError(0)
       });
     }
   }

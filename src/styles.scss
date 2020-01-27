@@ -15,6 +15,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import '../node_modules/ngx-toastr/toastr.css';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+.ui-toast{
+    width: 24em !important;
+}
+.ui-toast .ui-toast-icon{
+    top: 1em !important;
+}
+.ui-toast .ui-toast-summary{
+    padding-bottom: 0px !important;
+}
 .color{
     color :maroon;
     // padding-top: 5px;

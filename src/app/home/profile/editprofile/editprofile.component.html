@@ -7,19 +7,19 @@
                 </div>
                 <label for="" class="custom_label upload-image">
                     <input type="file" accept="image/jpeg,image/png" (change)="readUrl($event)">
-                    Change Profile Picture</label>
+                    {{'CHNGPIC'| translate}}</label>
             </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/edit-user.png" alt="envelope"></span>
-                <input matInput placeholder="User Name" class="form-control" formControlName="name">
+                <input matInput placeholder="User Name" class="form-control" formControlName="name" maxlength="100">
             </mat-form-field>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/email.png" alt="envelope"></span>
-                <input matInput placeholder="Email" class="form-control" formControlName="email">
+                <input matInput placeholder="{{'EMAIL'| translate | titlecase}}" class="form-control" formControlName="email" maxlength="100">
             </mat-form-field>
             <mat-form-field>
                 <span class="email-img phone"><img src="assets/images/mobile.png" alt="envelope"></span>
-                <input matInput placeholder="Phone" class="form-control" formControlName="phone">
+                <input matInput placeholder="{{'PHONE'| translate}}" class="form-control" formControlName="phone" maxlength="12">
             </mat-form-field>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/location.png" alt="envelope"></span>
@@ -33,23 +33,13 @@
                     </agm-map>
                 </div>
             </mat-form-field>
-
-            <!-- <mat-form-field>
-                <span class="email-img pass"><img src="assets/images/reviews.png" alt="envelope"></span>
-                <input matInput placeholder="Reviews" class="form-control">
-            </mat-form-field> -->
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/description.png" alt="envelope"></span>
-                <textarea matInput placeholder="Description" class="form-control"
-                    formControlName="description"></textarea>
+                <textarea matInput placeholder="{{'DESCRIPTION'| translate}}" class="form-control"
+                    formControlName="description" maxlength="500"></textarea>
             </mat-form-field>
             <div class="work_gallery">
-                <label for="">Work Gallery</label>
-                <!-- <ul>
-                    <li><img src="assets/images/view-edit.png" alt=""></li>
-                    <li><img src="assets/images/add-edit.png" alt=""></li>
-                </ul> -->
-
+                <label for="">{{'WORKGALLERY'| translate}}</label>
                 <div class="form-group form-primary custom_formgroup">
                     <input type="file" class="custom_upload1" multiple
                         accept="image/x-png,image/gif,image/jpeg,image/jpg" (change)="readUrlMultipleImage($event)"
@@ -83,10 +73,10 @@
                     <input matInput placeholder="Manage Staff" class="form-control cursor" disabled>
                 </mat-form-field>
             </a>
-            <a [routerLink]="['/business-hours']">
+            <a [routerLink]="['/profile/business-hours']">
                 <mat-form-field>
                     <span class="email-img pass"><img src="assets/images/time.png" alt="envelope"></span>
-                    <input matInput placeholder="Business Hours" class="form-control cursor" disabled>
+                    <input matInput placeholder="{{'BUSINESSHOURS'| translate}}" class="form-control cursor" disabled>
                 </mat-form-field>
             </a>
 

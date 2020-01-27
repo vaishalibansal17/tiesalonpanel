@@ -1,12 +1,12 @@
 <div class="main-card">
     <div class="row">
         <div class="col-md-6 top_view"><img [src]="url" alt=""><span class="user_name">{{detail?.name}}</span></div>
-        <div class="col-md-6 alignright"><a class="btn btn-edit" [routerLink]="['/edit-profile']"> Edit Profile</a></div>
-        <div class="col-md-4 label">Email:</div>
+        <div class="col-md-6 alignright"><a class="btn btn-edit" [routerLink]="['/profile/edit']"> {{'EDITPROF'| translate}}</a></div>
+        <div class="col-md-4 label">{{'EMAIL'| translate | titlecase}}:</div>
         <div class="col-md-8">{{detail?.email}}</div>
-        <div class="col-md-4 label">Mobile Number:</div>
+        <div class="col-md-4 label">{{'MOBILENUMBER'| translate}}:</div>
         <div class="col-md-8">{{detail?.phone}}</div>
-        <div class="col-md-4 label">Location:</div>
+        <div class="col-md-4 label">{{'LOCATION'| translate}}:</div>
         <div class="col-md-8">{{detail?.address}}
             <!-- <img src="assets/images/maps.png" alt="map" class="full_width"> -->
             <div class="map full_width">
@@ -16,13 +16,13 @@
                 </agm-map>
             </div>
         </div>
-        <div class="col-md-4 label">Business Hours:</div>
+        <div class="col-md-4 label">{{'BUSINESSHOURS'| translate}}:</div>
         <div class="col-md-8">NA</div>
-        <div class="col-md-4 label">Reviews:</div>
-        <div class="col-md-8"><img src="assets/images/reviews-star.png" alt="Review"></div>
-        <div class="col-md-4 label">Description:</div>
+        <div class="col-md-4 label">{{'REVIEWS'| translate}}:</div>
+        <div class="col-md-8"><img src="assets/images/reviews.png" alt="Review"></div>
+        <div class="col-md-4 label">{{'DESCRIPTION'| translate}}:</div>
         <div class="col-md-8">{{detail?.desc}}</div>
-        <div class="col-md-4 label">Work Gallery:</div>
+        <div class="col-md-4 label">{{'WORKGALLERY'| translate}}:</div>
         <div class="col-md-8">
             <div class="work_gallery">
                 <label class="detail_content"><a class="margin_top"
@@ -33,11 +33,11 @@
                 </label>
             </div>
         </div>
-        <div class="col-md-4 label">Website:</div>
+        <div class="col-md-4 label">{{'WEBSITE'| translate}}:</div>
         <div class="col-md-8">{{detail?.website}}</div>
-        <div class="col-md-4 label">Service At:</div>
-        <div class="col-md-8">{{detail?.service_at?Home: detail?.service_at==2?Salon:Both}}</div>
-        <div class="col-md-4 label">Staff Name:</div>
+        <div class="col-md-4 label">{{'SERVICEAT'| translate}}:</div>
+        <div class="col-md-8">{{detail?.service_at == 1?'Home': detail?.service_at==2?'Salon':'Both'}}</div>
+        <div class="col-md-4 label">{{'STAFFNAME'| translate}}:</div>
         <div class="col-md-8">
             <ul class="staff_name">
                 <li>Allen</li>

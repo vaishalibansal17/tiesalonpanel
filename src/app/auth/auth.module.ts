@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './auth.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
-  declarations: [AuthComponent],
+  declarations: [AuthComponent, HeaderComponent],
   imports: [
     CommonModule,
     AuthRoutingModule

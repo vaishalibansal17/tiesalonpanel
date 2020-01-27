@@ -9,7 +9,7 @@ const routes: Routes = [
   }, {
     path: 'forgot', loadChildren: () => import('./forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule)
   }, {
-    path: 'reset', loadChildren: () => import('./reset-password/reset-password.module').then(m => m.ResetPasswordModule)
+    path: 'reset/:token', loadChildren: () => import('./reset-password/reset-password.module').then(m => m.ResetPasswordModule)
   }, {
     path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
   }];

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpRequestService } from 'src/app/shared/service/http-request.service';
 import { MessageService } from 'src/app/shared/service/message.service';
+import { TranslateService } from 'src/app/shared/service/translate.service';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,9 @@ import { MessageService } from 'src/app/shared/service/message.service';
 })
 export class HeaderComponent implements OnInit {
   detail: any;
+  lang: string = 'assets/images/flag_en.png';
 
-  constructor(private httpservice: HttpRequestService, private message: MessageService, ) { }
+  constructor(private httpservice: HttpRequestService, private message: MessageService,private trns: TranslateService, ) { }
 
   ngOnInit() {
     this.detail = JSON.parse(localStorage.getItem('salon'));
@@ -21,6 +23,11 @@ export class HeaderComponent implements OnInit {
       }
     }
     );
+  }
+
+  setLang(lang: string) {
+    this.lang = lang;
+    this.trns.use(lang);
   }
 
   logout() {

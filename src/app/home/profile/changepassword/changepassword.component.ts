@@ -3,8 +3,9 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
 import { HttpRequestService } from 'src/app/shared/service/http-request.service';
 import { Router } from '@angular/router';
 import { Helper } from 'src/app/shared/service/helper.service';
-import { PassValid, ValidationService } from 'src/app/shared/service/validation-service';
+import { PassValid, ValidationService, passValidator } from 'src/app/shared/service/validation-service';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
+import { ErrorService } from 'src/app/shared/service/error.service';
 
 @Component({
   selector: 'app-changepassword',
@@ -28,7 +29,8 @@ export class ChangepasswordComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private helper: Helper,
-    private trns : TranslatePipe) { }
+    private trns : TranslatePipe, 
+    private error : ErrorService) { }
 
   ngOnInit() {
 
@@ -36,27 +38,20 @@ export class ChangepasswordComponent implements OnInit {
     this.organiserChangePassword = this.fb.group({
       oldPassword: new FormControl(null, [Validators.required]),
       newPassword: new FormControl(null, [Validators.required, Validators.minLength(6), ValidationService.passwordValidator]),
-      confirmPassword: new FormControl(null, [Validators.required]),
-    },
-      {
-        validator: [PassValid.MatchPassword]
-      }
+      confirmPassword: new FormControl(null, [Validators.required, passValidator]),
+    }
     );
   }
 
   get getControl() { return this.organiserChangePassword.controls; }
   changePassword() {
-    // this.spinner.show();
     this.submitted = true;
     if (this.organiserChangePassword.invalid) {
-      // this.spinner.hide();
       return;
     } else {
       this.organiserChangePassword.value['new_pass'] = this.organiserChangePassword.value.newPassword;
       this.organiserChangePassword.value['old_pass'] = this.organiserChangePassword.value.oldPassword;
       this.httpService.getRequest('PUT', 'CHANGEPASS', this.organiserChangePassword.value, '').subscribe((response: any) => {
-        // this.spinner.hide();
-
         if (response.status=== 1) {
           this.submitted = true;
           this.router.navigateByUrl('/')
@@ -64,22 +59,10 @@ export class ChangepasswordComponent implements OnInit {
               this.helper.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('RESETPASSSUCC'));
             });
         } else {
-          // if (!_.isEmpty(response.error.errors)) {
-          //   this.httpService.showError(response.error.errors.message, 'Validation Error!', MESSAGE.MSGTIME);
-          // } else {
-          //   if (response.error.errorCode === 5) {
-          //     this.httpService.showError('Old password and new password can not be same', '', MESSAGE.MSGTIME);
-          //   } else if (response.error.errorCode === 22) {
-          //     this.httpService.showError('Your current password is wrong.', "Wrong password!", MESSAGE.MSGTIME);
-          //   }
-          //   else {
-          //     this.httpService.showError('Please check your internet connection and try again.', 'No Internet Connection.', MESSAGE.MSGTIME);
-          //   }
-          // }
+            this.error.handleError(response.err.errCode)
         }
       }, (error) => {
-        // this.spinner.hide();
-        // this.httpService.showError('Please check your internet connection and try again.', 'No Internet Connection.', MESSAGE.MSGTIME);
+        this.error.handleError(0)
       });
     }
   }

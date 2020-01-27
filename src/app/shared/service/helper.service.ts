@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import moment from 'moment-timezone';
 import { ToastrService } from 'ngx-toastr';
+import { MessageService } from 'primeng/api';
 
 @Injectable()
 
 export class Helper {
-    constructor(private toastr: ToastrService) { }
+    constructor(private toastr: ToastrService, private messageService: MessageService) { }
 
     convertTimestampToISODate(value) {
         let year = new Date(value).getFullYear();
@@ -57,24 +58,28 @@ export class Helper {
     }
 
     errTostr(title, msg) {
-        this.toastr.error(msg, title,
-            {
-                timeOut: 5000,
-                closeButton: true,
-                progressBar: true,
-                progressAnimation: 'decreasing',
-                positionClass: 'toast-bottom-left'
-            });
+        this.messageService.add({ severity: 'error', summary: title, detail: msg });
+        // this.toastr.error(msg, title,
+        //     {
+        //         timeOut: 5000,
+        //         closeButton: true,
+        //         progressBar: true,
+        //         progressAnimation: 'decreasing',
+        //         positionClass: 'toast-bottom-left'
+        //     });
     }
     sucsTostr(title, msg) {
-        this.toastr.success(msg, title,
-            {
-                timeOut: 5000,
-                closeButton: true,
-                progressBar: true,
-                progressAnimation: 'decreasing',
-                positionClass: 'toast-bottom-left'
-            });
+        this.messageService.clear();
+        this.messageService.add({ severity: 'success', summary: title, detail: msg, sticky:true });
+
+        // this.toastr.success(msg, title,
+        //     {
+        //         timeOut: 5000,
+        //         closeButton: true,
+        //         progressBar: true,
+        //         progressAnimation: 'decreasing',
+        //         positionClass: 'toast-bottom-left'
+        //     });
     }
 
     checkImageValidationMultiple(event) {

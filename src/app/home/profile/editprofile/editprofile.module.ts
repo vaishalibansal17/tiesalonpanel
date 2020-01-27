@@ -10,6 +10,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {SlideshowModule} from 'ng-simple-slideshow';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BreadcrumbModule } from 'src/app/shared/breadcrumb/breadcrumb.module';
+import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/applicationpipe.module';
+import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [EditprofileComponent],
@@ -25,7 +28,9 @@ import { BreadcrumbModule } from 'src/app/shared/breadcrumb/breadcrumb.module';
     }),
     SlideshowModule,
     ModalModule.forRoot(),
-    BreadcrumbModule
-  ]
+    BreadcrumbModule,
+    ApplicationpipeModule
+  ],
+  providers:[TranslatePipe, MessageService]
 })
 export class EditprofileModule { }

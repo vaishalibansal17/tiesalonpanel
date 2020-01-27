@@ -6,17 +6,19 @@
           <div class="top-right">
             <ul>
               <li> 
-                <button mat-button [matMenuTriggerFor]="lan_menu">En <img src="assets/images/flag_en.png" alt="England"><img class="drop_img" src="assets/images/dropdown_grey.png" alt=""></button>
+                <button mat-button [matMenuTriggerFor]="lan_menu">{{lang=='en'?"En":"Ar"}} <img src="{{lang=='en'?'assets/images/flag_en.png':'assets/images/flag_ar.png'}}" alt="England">
+                  <img class="drop_img" src="assets/images/dropdown_grey.png" alt=""></button>
                 <mat-menu #lan_menu="matMenu" xPosition="before">
-                  <button mat-menu-item>Ar <img src="assets/images/flag_ar.png" alt="England"></button>
+                  <button mat-menu-item>Ar <img src="assets/images/flag_ar.png" (click)="setLang('ua')" alt="England"></button>
+                  <button mat-menu-item>En <img src="assets/images/flag_en.png" (click)="setLang('en')" alt="England"></button>
                 </mat-menu></li>
               <li><a [routerLink]="['/notification']"><img src="assets/images/notification.png" alt="Notification"></a></li>
               <li>
                 <button mat-button [matMenuTriggerFor]="beforeMenu"><img class="profile_img" src="{{detail.logo}}" alt="">
                   {{detail.name | titlecase}} Admin <img class="drop_img" src="assets/images/dropdown_grey.png" alt=""></button>
                 <mat-menu #beforeMenu="matMenu" xPosition="before">
-                  <button mat-menu-item><a [routerLink]="['/edit-profile']"><img src="assets/images/edit-profile.png" alt="">Edit Profile</a></button>
-                  <button mat-menu-item><a [routerLink]="['/change-password']"><img src="assets/images/password.png" alt="">Change Password</a></button>
+                  <button mat-menu-item><a [routerLink]="['/profile']"><img src="assets/images/edit-profile.png" alt="">My Profile</a></button>
+                  <button mat-menu-item><a [routerLink]="['/profile/change-password']"><img src="assets/images/password.png" alt="">Change Password</a></button>
                   <button mat-menu-item><a [routerLink]="['/settings']"><img src="assets/images/settings.png" alt="">Settings</a></button>
                   <button mat-menu-item (click)='logout()'><img src="assets/images/log_out.png" alt="">Logout</button>
                 </mat-menu>

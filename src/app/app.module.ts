@@ -16,6 +16,8 @@ import { Helper } from './shared/service/helper.service';
 import { TranslateService } from './shared/service/translate.service';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ApplicationpipeModule } from './shared/module/applicationpipe/applicationpipe.module';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -43,10 +45,11 @@ export function setupTranslateFactory(
       maxOpened: 3,
       autoDismiss: true
     }),
-    ApplicationpipeModule
+    ApplicationpipeModule,
+    ToastModule
   ],
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
-  providers: [HttpRequestService, Helper, TranslateService,
+  providers: [HttpRequestService, Helper, TranslateService, MessageService,
     { provide: HTTP_INTERCEPTORS, useClass: ApiPrefixInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: OfflineInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },

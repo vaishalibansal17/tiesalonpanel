@@ -19,6 +19,7 @@ export class OfflineInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
         if (!window.navigator.onLine) {
+            
             this.toastr.error('No Internet Connection.', 'Please check your internet connection and try again.',
                 {
                     timeOut: 10000,
