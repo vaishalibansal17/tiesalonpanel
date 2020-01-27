@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 export interface PeriodicElement {
   name: string;
   position: number;
-  photo: number;
+  photo: string;
   email: string;
   number: number;
-  rating: number;
+  rating: string;
   action: string;
 }
 
@@ -30,5 +30,11 @@ export class StaffComponent implements OnInit {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', photo: 1.0079, email: 'H', number: 1325, rating: 13214, action:'fdg' },
+  {position: 1, name: 'Jane Doe', photo: 'assets/images/noti-pro.png', email: 'jane@gmail.com', number: +919999999999, rating: 'assets/images/reviews-star.png', action:'Action Button' },
+  {position: 2, name: 'Jane Doe', photo: 'assets/images/noti-pro.png', email: 'jane@gmail.com', number: +919999999999, rating: 'assets/images/reviews-star.png', action:'Action Button' },
+  {position: 3, name: 'Jane Doe', photo: 'assets/images/noti-pro.png', email: 'jane@gmail.com', number: +919999999999, rating: 'assets/images/reviews-star.png', action:'Action Button' },
+  {position: 4, name: 'Jane Doe', photo: 'assets/images/noti-pro.png', email: 'jane@gmail.com', number: +919999999999, rating: 'assets/images/reviews-star.png', action:'Action Button' },
+  {position: 5, name: 'Jane Doe', photo: 'assets/images/noti-pro.png', email: 'jane@gmail.com', number: +919999999999, rating: 'assets/images/reviews-star.png', action:'Action Button' },
+
 ];
+
