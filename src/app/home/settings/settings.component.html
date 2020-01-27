@@ -24,11 +24,11 @@
     </div>
     <div class="setting_list">
         <div class="row">
-            <div class="col-md-6"><button mat-raised-button (click)="openDialog()" [disableRipple]="true">Schedule Appointments</button> <button mat-raised-button matTooltip="Schedule Appointment" [matTooltipPosition]="position.value" aria-label="Button that displays a tooltip in various positions"><img src="assets/images/info.png" alt="Info"></button></div>
-            <div class="col-md-6 alignright">  
+            <div class="col-md-8">Schedule Appointments <button mat-raised-button matTooltip="Schedule Appointment" [matTooltipPosition]="position.value" aria-label="Button that displays a tooltip in various positions"><img src="assets/images/info.png" alt="Info"></button></div>
+            <div class="col-md-4 alignright">  
              <mat-form-field>
                 <mat-label>Schedule Appointments</mat-label>
-                <mat-select>
+                <mat-select (click)="openDialog()" [disableRipple]="true">
                   <mat-option *ngFor="let appointment of appointments" [value]="appointment.value">
                     {{appointment.viewValue}}
                   </mat-option>
@@ -57,7 +57,7 @@
     <div class="setting_list">
         <div class="row">
             <div class="col-md-6">Deactivate Account 
-                <button mat-raised-button matTooltip="You can deactivate your account for weeks or months, based on your availability. Users will not be able to see you while your account is deactivated." [matTooltipPosition]="position.value" aria-label="Button that displays a tooltip in various positions"><img src="assets/images/info.png" alt="Info"></button>
+                <button  [disableRipple]="true" mat-raised-button matTooltip="You can deactivate your account for weeks or months, based on your availability. Users will not be able to see you while your account is deactivated." [matTooltipPosition]="position.value" aria-label="Button that displays a tooltip in various positions"><img src="assets/images/info.png" alt="Info"></button>
             </div>
             <div class="col-md-6 alignright"><mat-slide-toggle></mat-slide-toggle></div>
         </div>
