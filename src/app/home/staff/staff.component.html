@@ -1,6 +1,6 @@
 <div class="main-card">
     <div class="row">
-        <div class="col-md-6 add"><img src="assets/images/add.png" alt="Add"> Add Staff</div>
+        <div class="col-md-6 add"><a [routerLink]="['/add-staff']"><img src="assets/images/add.png" alt="Add"> Add Staff</a></div>
         <div class="col-md-6 alignright"><a href="#" class="btn btn-export">Export</a></div>
     </div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">

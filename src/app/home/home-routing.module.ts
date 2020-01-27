@@ -14,7 +14,10 @@ const routes: Routes = [{
     { path: 'change-password', loadChildren: () => import('./changepassword/changepassword.module').then(mod => mod.ChangepasswordModule) },
     { path: 'business-hours', loadChildren: () => import('./businesshours/businesshours.module').then(mod => mod.BusinesshoursModule) },
     { path: 'settings', loadChildren: () => import('./settings/settings.module').then(mod => mod.SettingsModule) },
-    { path: 'staff', loadChildren: () => import('./staff/staff.module').then(mod => mod.StaffModule) }
+    { path: 'staff', loadChildren: () => import('./staff/staff.module').then(mod => mod.StaffModule) },
+    { path: 'add-staff', loadChildren: () => import('./addstaff/addstaff.module').then(mod => mod.AddstaffModule) },
+    { path: 'edit-staff', loadChildren: () => import('./editstaff/editstaff.module').then(mod => mod.EditstaffModule) }
+
   ]
 },];
 
