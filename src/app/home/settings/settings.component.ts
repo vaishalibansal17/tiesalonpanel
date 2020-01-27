@@ -14,11 +14,14 @@ export class SettingsComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   openDialog() {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog);
+    const dialogRef = this.dialog.open(DialogContentExampleDialog, { width: '500px', disableClose: true });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+  }
+
+  
+  openDialog2() {
+    const dialogRef = this.dialog.open(DialogBookingSettings, { width: '500px', disableClose: true });
+
   }
 
   ngOnInit() {
@@ -29,6 +32,26 @@ export class SettingsComponent implements OnInit {
 @Component({
   selector: 'settings-dialog.component',
   templateUrl: 'settings-dialog.component.html',
+  styleUrls: ['./settings.component.scss']
 })
-export class DialogContentExampleDialog {}
+export class DialogContentExampleDialog {
+  constructor(){
+
+  }
+}
+
+
+@Component({
+  selector: 'settings-bookings',
+  templateUrl: 'settings-bookings.html',
+  styleUrls: ['./settings.component.scss']
+})
+export class DialogBookingSettings {
+  constructor(){
+
+  }
+}
+
+
+
 

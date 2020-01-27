@@ -6,11 +6,34 @@
           <div class="top-right">
             <ul>
               <li> 
-                <button mat-button [matMenuTriggerFor]="lan_menu">En <img src="assets/images/flag_en.png" alt="England"><img class="drop_img" src="assets/images/dropdown_grey.png" alt=""></button>
+                <button mat-button [matMenuTriggerFor]="lan_menu" [disableRipple]="true">En <img src="assets/images/flag_en.png" alt="England"><img class="drop_img" src="assets/images/dropdown_grey.png" alt=""></button>
                 <mat-menu #lan_menu="matMenu" xPosition="before">
-                  <button mat-menu-item>Ar <img src="assets/images/flag_ar.png" alt="England"></button>
+                  <button class="flag_drop" mat-menu-item>Ar <img src="assets/images/flag_ar.png" alt="England"></button>
                 </mat-menu></li>
-              <li><a [routerLink]="['/notification']"><img src="assets/images/notification.png" alt="Notification"></a></li>
+              <li>              
+                <button mat-button [matMenuTriggerFor]="dropdown_notification" [disableRipple]="true"><img src="assets/images/notification.png" alt="Notification"></button>
+                <mat-menu #dropdown_notification="matMenu" xPosition="before">
+                    <div class="notifi_list">
+                        <div class="noti_left"><img src="assets/images/noti-pro.png" alt=""></div>
+                        <div class="noti_right">
+                            Jane Doe wants to book you for haircut.
+                        </div>
+                    </div>
+                    <div class="notifi_list">
+                      <div class="noti_left"><img src="assets/images/noti-pro.png" alt=""></div>
+                      <div class="noti_right">
+                          Jane Doe wants to book you for haircut.
+                      </div>
+                  </div>
+                  <div class="notifi_list">
+                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt=""></div>
+                    <div class="noti_right">
+                        Jane Doe wants to book you for haircut.
+                    </div>
+                </div>
+                  <div class="text-center"><a [routerLink]="['/notification']">View All</a></div>
+                </mat-menu>
+              </li>
               <li>
                 <button mat-button [matMenuTriggerFor]="beforeMenu"><img class="profile_img" src="assets/images/profile.png" alt="">
                   Tie Admin <img class="drop_img" src="assets/images/dropdown_grey.png" alt=""></button>

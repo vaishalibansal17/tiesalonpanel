@@ -8,7 +8,12 @@
     <div class="setting_list">
         <div class="row">
             <div class="col-md-6">Language</div>
-            <div class="col-md-6 alignright"><mat-slide-toggle></mat-slide-toggle></div>
+            <div class="col-md-6 alignright">
+                <ul>
+                    <li class="active">En <img src="assets/images/flag_en.png" alt="English"></li>
+                    <li>Ar <img src="assets/images/flag_ar.png" alt="Arabic"></li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="setting_list">
@@ -19,8 +24,16 @@
     </div>
     <div class="setting_list">
         <div class="row">
-            <div class="col-md-6">Schedule Appointments <img src="assets/images/info.png" alt="Info"></div>
-            <div class="col-md-6 alignright"><mat-slide-toggle></mat-slide-toggle></div>
+            <div class="col-md-6"><button mat-raised-button (click)="openDialog()" [disableRipple]="true">Schedule Appointments</button> <button mat-raised-button matTooltip="Schedule Appointment" [matTooltipPosition]="position.value" aria-label="Button that displays a tooltip in various positions"><img src="assets/images/info.png" alt="Info"></button></div>
+            <div class="col-md-6 alignright">  
+             <mat-form-field>
+                <mat-label>Schedule Appointments</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let appointment of appointments" [value]="appointment.value">
+                    {{appointment.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field></div>
         </div>
     </div>
     <div class="setting_list">
@@ -37,22 +50,15 @@
     </div>
     <div class="setting_list">
         <div class="row">
-            <div class="col-md-6">Number of Bookings</div>
+            <div class="col-md-6"><button mat-raised-button (click)="openDialog2()" [disableRipple]="true">Number of Bookings</button></div>
             <div class="col-md-6 alignright">8</div>
         </div>
     </div>
     <div class="setting_list">
         <div class="row">
-            <div class="col-md-6">Deactivate Account <button mat-raised-button
-                matTooltip="You can deactivate your
-                account for weeks or
-                months, based on your
-                availability. Users will not
-                be able to see you while
-                your account is
-                deactivated." [matTooltipPosition]="position.value" 
-                aria-label="Button that displays a tooltip when focused or hovered over">
-                <img src="assets/images/info.png" alt="Info">        </button></div>
+            <div class="col-md-6">Deactivate Account 
+                <button mat-raised-button matTooltip="You can deactivate your account for weeks or months, based on your availability. Users will not be able to see you while your account is deactivated." [matTooltipPosition]="position.value" aria-label="Button that displays a tooltip in various positions"><img src="assets/images/info.png" alt="Info"></button>
+            </div>
             <div class="col-md-6 alignright"><mat-slide-toggle></mat-slide-toggle></div>
         </div>
     </div>
@@ -60,4 +66,3 @@
 </div>
 
 
-<button mat-button (click)="openDialog()">Open dialog</button>
