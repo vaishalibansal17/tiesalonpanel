@@ -162,38 +162,24 @@ export class EditprofileComponent implements OnInit {
       this.formData.append('service_at', this.profile.value.serviceat);
       this.httpService.getRequest('PUT', 'EDIT', this.formData, '')
         .subscribe((response: any) => {
-          this.loader = false;
-
           if (response.status === 1) {
             this.submitted = true;
             localStorage.setItem('salon', JSON.stringify({ name: this.profile.value.name, logo: response.res.logo ? response.res.logo : this.detail.logo }));
             this.messageService.sendMessage('profile changed');
             this.router.navigateByUrl('/profile')
               .then(() => {
-                this.helper.sucsTostr(this.trns.transform('SUCCESS'),this.trns.transform('SALONSUCCESS'));
+                this.httpService.sucsTostr(this.trns.transform('SUCCESS'),this.trns.transform('SALONSUCCESS'));
               });
           } else {
-            if (!_.isEmpty(response.error)) {
-              // this.errorserv.handleError(31);
-              //   if (response.error.errorCode == 20) {
-              //     this.httpService.showError(MESSAGE.LOGIN.NOT_EXIST, MESSAGE.LOGIN.DEL_ORG, MESSAGE.MSGTIME);
-              //     this.httpService.logout();
-              //   }
-              //   else {
-              //     this.httpService.showError(response.error.errors.message, 'Validation Error!', MESSAGE.MSGTIME);
-              //   }
-              // } else {
-
-              //   this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
+            if (!_.isEmpty(response.err)) {
+              this.errorserv.handleError(response.err.errCode);
             }
           }
         }, (error) => {
-
-          // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
+          this.errorserv.handleError(0);
         });
     } else {
       console.log(this.profile);
-
     }
   }
 
