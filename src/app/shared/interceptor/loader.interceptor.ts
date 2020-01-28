@@ -15,7 +15,7 @@ export class LoaderInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // start our loader here
     this._loadingBar.start();
-    return next.handle(req).delay(1000).do((event: HttpEvent<any>) => {
+    return next.handle(req).do((event: HttpEvent<any>) => {
         // if the event is for http response
         if (event instanceof HttpResponse) {
         // stop our loader here
