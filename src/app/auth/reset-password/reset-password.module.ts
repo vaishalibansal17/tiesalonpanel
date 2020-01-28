@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/applicationpipe.module';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
+import { AuthHeaderModule } from '../auth-header/auth-header.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
     ResetPasswordRoutingModule,
     MaterialModule,
     SharedModule,
-    ApplicationpipeModule
+    ApplicationpipeModule,
+    AuthHeaderModule
   ],
   providers:[TranslatePipe],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

@@ -9,8 +9,8 @@
                 <button mat-button [matMenuTriggerFor]="lan_menu" [disableRipple]="true">{{lang=='en'?"En":"Ar"}} <img src="{{lang=='en'?'assets/images/flag_en.png':'assets/images/flag_ar.png'}}" alt="England">
                   <img class="drop_img" src="assets/images/dropdown_grey.png" alt=""></button>
                 <mat-menu #lan_menu="matMenu" xPosition="before">
-                  <button mat-menu-item>Ar <img src="assets/images/flag_ar.png" (click)="setLang('ua')" alt="England"></button>
-                  <button mat-menu-item>En <img src="assets/images/flag_en.png" (click)="setLang('en')" alt="England"></button>
+                  <button class="flag_drop" mat-menu-item (click)="setLang('ua')">Ar <img src="assets/images/flag_ar.png"  alt="England"></button>
+                  <button class="flag_drop" mat-menu-item (click)="setLang('en')">En <img src="assets/images/flag_en.png"  alt="England"></button>
                 </mat-menu></li>
               <li>              
                 <button mat-button [matMenuTriggerFor]="dropdown_notification" [disableRipple]="true"><img src="assets/images/notification.png" alt="Notification"></button>

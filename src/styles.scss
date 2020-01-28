@@ -39,7 +39,7 @@ agm-map {
     margin-bottom: 25px;
   }
 // body{font-size:20px !important;line-height:30px !important;font-family: 'Conv_GothamRounded-Book' !important;}
-body{font-size:15px !important;line-height:30px !important;font-family: 'Conv_GothamRounded-Book' !important;}
+body{font-size:14px !important;line-height:24px !important;font-family: 'Conv_GothamRounded-Book' !important;}
 button,.mat-table{font-family: 'Conv_GothamRounded-Book' !important;}
 ul{list-style: none;margin: 0;padding: 0;}
 .form-control:focus{box-shadow: none !important;border:none !important;outline: none !important;}
@@ -47,7 +47,9 @@ a:hover{text-decoration: none !important;}
 select,.cursor{cursor: pointer;}
 p.warning{color:#FF2626;font-size: 14px;}
 a.link{font-size: 16px;text-decoration: underline;color: #999999;padding-top: 20px;}
+.btn-link {color: #f96bb3 !important;text-decoration: underline !important;;padding: 15px 0px !important;;}
 .mat-button:hover .mat-button-focus-overlay, .mat-stroked-button:hover .mat-button-focus-overlay{opacity: 0 !important;}
+.clearfix.space{padding: 5px 0px;}
 :focus{outline: none;background: none;box-shadow: none;}
 .mat-raised-button:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow: none;}
 .mat-button-focus-overlay{background: transparent;}
@@ -133,6 +135,7 @@ ul.breadcrumb li a{color: #F96BB3;}
     button{
         color: #fff;
         font-family: 'Conv_GothamRounded-Book' !important;
+        padding: 0px;
     }
 }
 
@@ -159,8 +162,11 @@ ul.breadcrumb li a{color: #F96BB3;}
 
 .fixed-support{
     position: fixed;
-    bottom:30px;
-    right: 30px;
+    bottom:20px;
+    right: 0px;
+    img{
+        width: 175px;
+    }
 }
 
 .main_bg{
@@ -221,7 +227,7 @@ ul.breadcrumb li a{color: #F96BB3;}
         background: #fff;
         border-radius: 30px;
         padding: 10px 20px;
-        margin: 20px 0px 10px;
+        margin: 30px 0px 10px;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
         &:hover{
             background: #fff;
@@ -507,7 +513,7 @@ body.nav-close{
 
 /*-----------notification---------------*/
 .main-card{
-    padding: 30px;
+    padding: 30px 40px;
     box-shadow: 0px 0px 10px rgba(0,0,0,.16);
     border-radius: 12px;
     .notifi_list{
@@ -703,6 +709,10 @@ img.full_width{width:100%;margin-bottom: 20px;}
         // z-index: 999;
     }
 }
+
+.cdk-overlay-dark-backdrop {
+    background: rgba(0,0,0,.5);
+}
 .cdk-overlay-pane{
     .mat-dialog-title{
         font-family: 'Conv_GothamRounded-Book' !important;
@@ -715,6 +725,7 @@ img.full_width{width:100%;margin-bottom: 20px;}
         &:focus{
             background: #fff;
         }
+        .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{display: none;}
     }
     .mat-dialog-content{
         color: #999;
@@ -737,7 +748,7 @@ img.full_width{width:100%;margin-bottom: 20px;}
     .form-control:focus {border: 1px solid #dad9d9 !important;}
     button.btn-submit{
             width: 80%;
-            margin: 0px auto 10px;
+            margin: 20px auto 10px;
             background: #f96bb3;
             font-size: 15px;
             text-align: center;
@@ -749,6 +760,23 @@ img.full_width{width:100%;margin-bottom: 20px;}
                 color: #808AA5;
                 border:1px solid #808AA5;
             }
+    }
+    button.btn-cancel{
+        width: 80%;
+        margin: 5px auto 10px;
+        background: transparent;
+        color: #808AA5;
+        border:1px solid #808AA5; 
+        font-size: 15px;
+        text-align: center;
+        padding: 10px;
+        border-radius: 30px;
+        box-shadow: 0px 2px 9px #a0a0a0cc;
+        &:hover{
+            background: #f96bb3;
+            color: #fff;
+            border:1px solid transparent;
+        }
     }
     }
     button.mat-button.mat-button-base{
@@ -832,6 +860,16 @@ img.full_width{width:100%;margin-bottom: 20px;}
             font-size: 14px;
             border: 1px solid #efefef;
         }
+        button.action_btn{
+            background: #ccc;
+            height: 36px;
+            width: 36px;
+            border: honeydew;
+            border-radius: 5px;
+         }
+         button.action_btn.pink{margin-right: 12px;background: #F96BB3;}
+         button.action_btn.black{margin-right: 12px;background: #000;}
+         button.action_btn.red{background: #FF2626;}
     }
     table tr:last-child td.mat-cell{border-bottom: 1px solid #efefef;}
     ul.pagination{
@@ -844,6 +882,71 @@ img.full_width{width:100%;margin-bottom: 20px;}
             }
         }
         li.active a{color: #F96BB3;padding: 0px;}
+    }
+}
+
+/*------------------Staff Detail------------*/
+.main-card{
+    h3{
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .staffdetail_notifi{
+    .notifi_list{
+        .noti_right{
+            padding: 0px 0px 15px;
+            margin-bottom: 5px;
+            .author-review{
+                display: inline-flex;
+                clear: both;
+                width: 100%;
+                .author{
+                    min-width: 160px;
+                    font-size: 16px;
+                    margin-bottom: 2px;
+                }
+                .reviews{
+                    position: relative;
+                    top: -3px;
+                }
+            }
+            }
+        }
+    }
+    .mat-progress-bar {
+        display: block;
+        height: 10px;
+        overflow: hidden;
+        position: relative;
+        transition: opacity 250ms linear;
+        width: 100%;
+        border-radius: 30px;
+        /* background: #BFBFBF; */
+        margin-top: 7px;
+    }
+    .mat-progress-bar-buffer{
+        background-color: #BFBFBF;
+    }
+    .mat-progress-bar.high .mat-progress-bar-fill::after{background-color: #F96BB3;}
+    .mat-progress-bar.average .mat-progress-bar-fill::after{background-color: #5059FF;}
+    .mat-progress-bar.equalhigh .mat-progress-bar-fill::after{background-color: #000;}
+    .mat-progress-bar.lesshigh .mat-progress-bar-fill::after{background-color: #FFC107;}
+
+    .rating_head{
+        margin: 10px 0px;
+    }
+    .rating_mat{margin: 10px 0px;}
+    .rating_mark{margin: 10px 0px;color: #999;}
+    span.big {
+        font-size: 40px;
+        color: #F96BB3;
+        margin-right: 5px;
+        line-height: 1;
+    }
+    span.small{
+    font-size: 100%;
+    position: relative;
+    top: -4px;
     }
 }
 

@@ -17,7 +17,6 @@ export class SettingsComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogContentExampleDialog, { width: '500px', disableClose: true });
 
   }
-
   
   openDialog2() {
     const dialogRef = this.dialog.open(DialogBookingSettings, { width: '500px', disableClose: true });

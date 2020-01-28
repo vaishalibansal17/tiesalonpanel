@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthComponent } from './auth.component';
-
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' }, {
-    path: '', component: AuthComponent
-  }, {
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
     path: 'forgot', loadChildren: () => import('./forgot-password/forgot-password.module').then(m => m.ForgotPasswordModule)
   }, {
     path: 'reset/:token', loadChildren: () => import('./reset-password/reset-password.module').then(m => m.ResetPasswordModule)

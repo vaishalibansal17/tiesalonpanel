@@ -8,6 +8,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/applicationpipe.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthHeaderModule } from '../auth-header/auth-header.module';
 
 @NgModule({
   declarations: [ForgotPasswordComponent],
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ForgotPasswordRoutingModule,
     MaterialModule,
     SharedModule,
-    ApplicationpipeModule
+    ApplicationpipeModule,
+    AuthHeaderModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers:[TranslatePipe]

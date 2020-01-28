@@ -2,16 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { StaffRoutingModule } from './staff-routing.module';
-import { StaffComponent } from './staff.component';
+import { StaffComponent,  } from './staff.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
-  declarations: [StaffComponent],
+  declarations: [StaffComponent, ],
   imports: [
     CommonModule,
     StaffRoutingModule,
     SharedModule
-  ]
+  ],
+  entryComponents : []
+
 })
 export class StaffModule { }

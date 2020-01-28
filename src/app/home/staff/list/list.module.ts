@@ -3,15 +3,16 @@ import { CommonModule } from '@angular/common';
 
 import { ListRoutingModule } from './list-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ListComponent } from './list.component';
+import { ListComponent, StaffDeleteDialogBox } from './list.component';
 
 
 @NgModule({
-  declarations: [ListComponent],
+  declarations: [ListComponent, StaffDeleteDialogBox],
   imports: [
     CommonModule,
     ListRoutingModule,
     SharedModule
-  ]
+  ],
+  entryComponents : [StaffDeleteDialogBox]
 })
 export class ListModule { }

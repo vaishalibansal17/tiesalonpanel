@@ -7,7 +7,6 @@ import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { ValidationService } from 'src/app/shared/service/validation-service';
 import { Helper } from 'src/app/shared/service/helper.service';
 import { TranslateService } from 'src/app/shared/service/translate.service';
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -30,13 +29,13 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private error: ErrorService,
     private trns: TranslatePipe,
-    private trnsalte : TranslateService,
-    private helper : Helper
+    private trnsalte: TranslateService,
+    private helper: Helper
   ) { }
 
   ngOnInit() {
     // console.log(this.trnsalte.currentLang);
-    
+
     this.loginfrm = new FormGroup({
       email: new FormControl(null, [
         Validators.required,
@@ -57,12 +56,12 @@ export class LoginComponent implements OnInit {
       this.httpService.getRequest('POST', 'LOGIN', this.loginfrm.value)
         .subscribe((data: any) => {
           if (data.status) {
-            let {acsTkn, _id, logo, email, name} = data.res;
+            let { acsTkn, _id, logo, email, name } = data.res;
             localStorage.setItem('acsTkn', acsTkn);
             localStorage.setItem('salonid', _id);
-            localStorage.setItem('salon', JSON.stringify({'name':name, 'logo':logo,'email': email}));
+            localStorage.setItem('salon', JSON.stringify({ 'name': name, 'logo': logo, 'email': email }));
             this.isLoading = !this.isLoading;
-            this.router.navigate(['/']).then(()=> this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('LOGINSUCCESS')))
+            this.router.navigate(['/']).then(() => this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('LOGINSUCCESS')))
           } else {
             this.error.handleError(data.err.errCode);
           }
