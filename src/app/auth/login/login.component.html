@@ -16,8 +16,8 @@
             </div>
             <div class="col-md-6 main-right">
                 <div class="fixed-select">
-                    <button mat-button [matMenuTriggerFor]="beforeMenu">En <img src="assets/images/flag_en.png"
-                            alt="England"><img class="drop_img" src="assets/images/dropdown.png" alt=""></button>
+                    <button mat-button [matMenuTriggerFor]="beforeMenu" [disableRipple]="true">En <img src="assets/images/flag_en.png" alt="England">
+                        <img class="drop_img" src="assets/images/dropdown.png" alt=""></button>
                     <mat-menu #beforeMenu="matMenu" xPosition="before">
                         <button mat-menu-item>Ar <img src="assets/images/flag_ar.png" alt="England"></button>
                         <button mat-menu-item>En <img src="assets/images/flag_en.png" alt="England"></button>

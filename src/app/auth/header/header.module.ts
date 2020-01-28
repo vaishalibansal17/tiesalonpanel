@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { MaterialModule } from 'src/app/shared/material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -9,7 +11,10 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
   declarations: [],
   imports: [
     CommonModule,
-    MaterialModule
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    MatMenuModule
   ]
 })
 export class HeaderModule { }

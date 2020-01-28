@@ -13,26 +13,45 @@ export class SettingsComponent implements OnInit {
   position = new FormControl(this.positionOptions[0]);
   constructor(public dialog: MatDialog) {}
 
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(DialogContentExampleDialog);
+  openDialog() {
+    const dialogRef = this.dialog.open(DialogContentExampleDialog, { width: '500px', disableClose: true });
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
+  }
+
+  
+  openDialog2() {
+    const dialogRef = this.dialog.open(DialogBookingSettings, { width: '500px', disableClose: true });
+
+  }
 
   ngOnInit() {
   }
 
 }
 
-// @Component({
-//   selector: 'settings-dialog.component',
-//   templateUrl: 'settings-dialog.component.html',
-// })
-// export class DialogContentExampleDialog {
-//   constructor(){
+@Component({
+  selector: 'settings-dialog.component',
+  templateUrl: 'settings-dialog.component.html',
+  styleUrls: ['./settings.component.scss']
+})
+export class DialogContentExampleDialog {
+  constructor(){
 
-//   }
-// }
+  }
+}
+
+
+@Component({
+  selector: 'settings-bookings',
+  templateUrl: 'settings-bookings.html',
+  styleUrls: ['./settings.component.scss']
+})
+export class DialogBookingSettings {
+  constructor(){
+
+  }
+}
+
+
+
 
