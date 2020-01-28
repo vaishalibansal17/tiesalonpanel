@@ -36,7 +36,11 @@
       
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef> Actions </th>
-          <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+          <td mat-cell *matCellDef="let user"> 
+          <button class="action_btn pink"><a [routerLink]="['../staff-detail']"><img src="assets/images/view.png" alt="View"></a></button>  
+          <button class="action_btn black"><a [routerLink]="['../edit-staff']"><img src="assets/images/edit.png" alt="Edit"></a></button>  
+          <button class="action_btn red" (click)="openDialog()"><img src="assets/images/delete.png" alt="Delete"></button>  
+          </td>
         </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

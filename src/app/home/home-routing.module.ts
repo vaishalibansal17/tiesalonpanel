@@ -16,7 +16,10 @@ const routes: Routes = [{
     { path: 'settings', loadChildren: () => import('./settings/settings.module').then(mod => mod.SettingsModule) },
     { path: 'staff', loadChildren: () => import('./staff/staff.module').then(mod => mod.StaffModule) },
     { path: 'add-staff', loadChildren: () => import('./addstaff/addstaff.module').then(mod => mod.AddstaffModule) },
-    { path: 'edit-staff', loadChildren: () => import('./editstaff/editstaff.module').then(mod => mod.EditstaffModule) }
+    { path: 'edit-staff', loadChildren: () => import('./editstaff/editstaff.module').then(mod => mod.EditstaffModule) },
+    { path: 'staff-detail', loadChildren: () => import('./staffdetail/staffdetail.module').then(mod => mod.StaffdetailModule) },
+    { path: 'staff-reviews', loadChildren: () => import('./staffreview/staffreview.module').then(mod => mod.StaffreviewModule) }
+
 
   ]
 },];
