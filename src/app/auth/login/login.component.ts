@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('salonid', _id);
             localStorage.setItem('salon', JSON.stringify({'name':name, 'logo':logo,'email': email}));
             this.isLoading = !this.isLoading;
-            this.router.navigate(['/']).then(()=> this.helper.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('LOGINSUCCESS')))
+            this.router.navigate(['/']).then(()=> this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('LOGINSUCCESS')))
           } else {
             this.error.handleError(data.err.errCode);
           }

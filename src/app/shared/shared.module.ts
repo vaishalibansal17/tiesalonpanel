@@ -8,12 +8,16 @@ import { StampToDate } from './_pipes/stamptoDate.pipe';
 import { TimePipe } from './_pipes/time.pipe';
 import { SafePipe } from './_pipes/safe.pipe';
 import { MaterialModule } from './material/material.module';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 
 @NgModule({
 	imports: [
 		CommonModule,
 		HttpClientModule,
-		MaterialModule
+		MaterialModule,
+		SlimLoadingBarModule.forRoot()
+
 	],
 	exports: [
 		HttpClientModule,
@@ -23,7 +27,8 @@ import { MaterialModule } from './material/material.module';
 		StampToDate,
 		TimePipe,
 		SafePipe,
-		MaterialModule
+		MaterialModule,
+		SpinnerComponent
 	],
 	declarations: [
 		DataFilterPipe,
@@ -31,7 +36,8 @@ import { MaterialModule } from './material/material.module';
 		DatePipe,
 		StampToDate,
 		TimePipe,
-		SafePipe
+		SafePipe,
+		SpinnerComponent
 	],
 	providers: [],
 	schemas: [ NO_ERRORS_SCHEMA ]

@@ -43,7 +43,7 @@ export class ForgotPasswordComponent implements OnInit {
           this.isLoading = false;
           this.router.navigateByUrl('/auth')
             .then(() => {
-              this.helper.sucsTostr(MESSAGE.SUCCESS, MESSAGE.FORGOT_SUC);
+              this.httpService.sucsTostr(MESSAGE.SUCCESS, MESSAGE.FORGOT_SUC);
             });
         } else {
           console.log(response);

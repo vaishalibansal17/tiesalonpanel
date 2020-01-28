@@ -40,7 +40,7 @@
   "LOGINEMAIL":"Please enter email address.",
   "LOGINVALIDEMAIL":"Please enter a valid email address.",
   "LOGINPASS" : "Please enter password.",
-  "LOGINSUCCESS": "You are Successfully Logged in.",
+  "LOGINSUCCESS": "You have Logged in Successfully.",
   "SUCCESS": "Success",
   "SALONOTEXIST" : "Salon does not exist.",
   "INVALIDPASS":"Invalid Password.",

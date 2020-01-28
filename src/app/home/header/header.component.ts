@@ -10,7 +10,7 @@ import { TranslateService } from 'src/app/shared/service/translate.service';
 })
 export class HeaderComponent implements OnInit {
   detail: any;
-  lang: string = 'assets/images/flag_en.png';
+  lang: string = localStorage.getItem('lang');
 
   constructor(private httpservice: HttpRequestService, private message: MessageService,private trns: TranslateService, ) { }
 
@@ -26,8 +26,9 @@ export class HeaderComponent implements OnInit {
   }
 
   setLang(lang: string) {
+    localStorage.setItem('lang',lang);
     this.lang = lang;
-    this.trns.use(lang);
+    this.trns.use(this.lang);
   }
 
   logout() {

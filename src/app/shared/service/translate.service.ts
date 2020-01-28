@@ -5,11 +5,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TranslateService {
   data: any = {};
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   use(lang: string): Promise<{}> {
+    console.log(localStorage.getItem('lang'), lang,'-----------');
     return new Promise<{}>((resolve, reject) => {
-      const langPath = `assets/i18n/${lang || 'ua'}.json`;
+      lang = localStorage.getItem('lang');
+      const langPath = `assets/i18n/${lang || 'en'}.json`;
       this.http.get<{}>(langPath).subscribe(
         translation => {
           this.data = Object.assign({}, translation || {});
@@ -21,5 +23,5 @@ export class TranslateService {
         }
       );
     });
-  } 
+  }
 }
