@@ -18,7 +18,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ApplicationpipeModule } from './shared/module/applicationpipe/applicationpipe.module';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -48,8 +47,7 @@ export function setupTranslateFactory(
     //   autoDismiss: true
     // }),
     ApplicationpipeModule,
-    ToastModule,
-    NgxMaterialTimepickerModule
+    ToastModule
   ],
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
   providers: [HttpRequestService, Helper, TranslateService, MessageService,

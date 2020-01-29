@@ -1240,13 +1240,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
-    /*! ngx-material-timepicker */
-    "./node_modules/ngx-material-timepicker/fesm2015/ngx-material-timepicker.js");
-    /* harmony import */
-
-
-    var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+    var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
     /*! ./page-not-found/page-not-found.component */
     "./src/app/page-not-found/page-not-found.component.ts"); // import { ToastrModule } from 'ngx-toastr';
 
@@ -1266,7 +1260,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_20__["PageNotFoundComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_19__["PageNotFoundComponent"]],
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"], ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_11__["SlimLoadingBarModule"].forRoot(), // ToastrModule.forRoot({
       //   timeOut: 10000,
       //   positionClass: 'toast-bottom-right',
@@ -1275,7 +1269,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       //   maxOpened: 3,
       //   autoDismiss: true
       // }),
-      _shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_16__["ApplicationpipeModule"], primeng_toast__WEBPACK_IMPORTED_MODULE_17__["ToastModule"], ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_19__["NgxMaterialTimepickerModule"]],
+      _shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_16__["ApplicationpipeModule"], primeng_toast__WEBPACK_IMPORTED_MODULE_17__["ToastModule"]],
       schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["NO_ERRORS_SCHEMA"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["CUSTOM_ELEMENTS_SCHEMA"]],
       providers: [_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_6__["HttpRequestService"], _shared_service_helper_service__WEBPACK_IMPORTED_MODULE_13__["Helper"], _shared_service_translate_service__WEBPACK_IMPORTED_MODULE_14__["TranslateService"], primeng_api__WEBPACK_IMPORTED_MODULE_18__["MessageService"], {
         provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HTTP_INTERCEPTORS"],

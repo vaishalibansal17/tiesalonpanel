@@ -27,7 +27,7 @@
         <div class="col-md-8">
             <div class="work_gallery">
                 <label class="detail_content"><a class="margin_top"
-                    *ngFor="let image of salonImageUrlArray; index as i" (click)="openModal(template)">
+                    *ngFor="let image of salonImageUrlArray; index as i">
                     <img class="file_upload2" [src]="image" alt="Upload">
                      </a>
                     <!-- <img class="file_upload1" src="assets/images/add-edit.png" alt="Upload"> -->
@@ -49,17 +49,6 @@
         </div>
     </div>
 </div>
-<ng-template #template>
-    <div class="modal-content px-5">
-      <h4 class="mt-3 text-left">Salon Images</h4>
-      <div class="modal-body px-0">
-      <slideshow  [imageUrls]="slide" [height]="height" [minHeight]="'200px'" [autoPlay]="false"
-      [showArrows]="true" [lazyLoad]="true" [backgroundSize]="'auto'" [imageUrls]="imageSources"
-      [lazyLoad]="imageSources?.length > 1" [autoPlayWaitForLazyLoad]="true"
-      ></slideshow>
-    </div>
-    </div>
-  </ng-template>
 
 
 

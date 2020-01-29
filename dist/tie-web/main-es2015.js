@@ -680,8 +680,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
 /* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! primeng/toast */ "./node_modules/primeng/fesm2015/primeng-toast.js");
 /* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
-/* harmony import */ var ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ngx-material-timepicker */ "./node_modules/ngx-material-timepicker/fesm2015/ngx-material-timepicker.js");
-/* harmony import */ var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
+/* harmony import */ var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
 
 
 
@@ -703,7 +702,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
 function HttpLoaderFactory(httpClient) {
     return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_15__["TranslateHttpLoader"](httpClient);
 }
@@ -715,7 +713,7 @@ let AppModule = class AppModule {
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_20__["PageNotFoundComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_19__["PageNotFoundComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -732,8 +730,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             //   autoDismiss: true
             // }),
             _shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_16__["ApplicationpipeModule"],
-            primeng_toast__WEBPACK_IMPORTED_MODULE_17__["ToastModule"],
-            ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_19__["NgxMaterialTimepickerModule"]
+            primeng_toast__WEBPACK_IMPORTED_MODULE_17__["ToastModule"]
         ],
         schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["NO_ERRORS_SCHEMA"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["CUSTOM_ELEMENTS_SCHEMA"]],
         providers: [_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_6__["HttpRequestService"], _shared_service_helper_service__WEBPACK_IMPORTED_MODULE_13__["Helper"], _shared_service_translate_service__WEBPACK_IMPORTED_MODULE_14__["TranslateService"], primeng_api__WEBPACK_IMPORTED_MODULE_18__["MessageService"],

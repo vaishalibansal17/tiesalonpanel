@@ -3578,13 +3578,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ngx-material-timepicker */
-    "./node_modules/ngx-material-timepicker/fesm2015/ngx-material-timepicker.js");
-    /* harmony import */
-
-
-    var primeng_calendar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var primeng_calendar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! primeng/calendar */
     "./node_modules/primeng/fesm2015/primeng-calendar.js");
 
@@ -3594,7 +3588,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     BusinesshoursModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [_businesshours_component__WEBPACK_IMPORTED_MODULE_4__["BusinesshoursComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], _businesshours_routing_module__WEBPACK_IMPORTED_MODULE_3__["BusinesshoursRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_7__["NgxMaterialTimepickerModule"], primeng_calendar__WEBPACK_IMPORTED_MODULE_8__["CalendarModule"]]
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], _businesshours_routing_module__WEBPACK_IMPORTED_MODULE_3__["BusinesshoursRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], primeng_calendar__WEBPACK_IMPORTED_MODULE_7__["CalendarModule"]]
     })], BusinesshoursModule);
     /***/
   },

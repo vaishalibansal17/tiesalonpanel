@@ -2959,9 +2959,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _businesshours_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./businesshours.component */ "./src/app/home/profile/businesshours/businesshours.component.ts");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-material-timepicker */ "./node_modules/ngx-material-timepicker/fesm2015/ngx-material-timepicker.js");
-/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primeng/calendar */ "./node_modules/primeng/fesm2015/primeng-calendar.js");
-
+/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/calendar */ "./node_modules/primeng/fesm2015/primeng-calendar.js");
 
 
 
@@ -2981,8 +2979,7 @@ BusinesshoursModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
             _businesshours_routing_module__WEBPACK_IMPORTED_MODULE_3__["BusinesshoursRoutingModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
-            ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_7__["NgxMaterialTimepickerModule"],
-            primeng_calendar__WEBPACK_IMPORTED_MODULE_8__["CalendarModule"]
+            primeng_calendar__WEBPACK_IMPORTED_MODULE_7__["CalendarModule"]
         ]
     })
 ], BusinesshoursModule);

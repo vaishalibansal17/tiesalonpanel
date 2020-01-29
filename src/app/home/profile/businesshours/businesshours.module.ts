@@ -5,7 +5,6 @@ import { BusinesshoursRoutingModule } from './businesshours-routing.module';
 import { BusinesshoursComponent } from './businesshours.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { CalendarModule } from 'primeng/calendar';
 
 
@@ -17,7 +16,6 @@ import { CalendarModule } from 'primeng/calendar';
     ReactiveFormsModule,
     BusinesshoursRoutingModule,
     SharedModule,
-    NgxMaterialTimepickerModule,
     CalendarModule
   ]
 })
