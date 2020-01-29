@@ -150,7 +150,7 @@ ul.breadcrumb li a{color: #F96BB3;}
 }
 
 .main-right{
-    background: url(assets/images/background_pink.jpg) no-repeat center;background-size: cover;min-height: 100vh;
+    background: url(assets/images/background_pink.jpg) no-repeat center;background-size: cover;min-height: 100vh;box-shadow:  0px 0px 10px rgba(0,0,0,0.2);
     .mat-form-field-infix,.mat-form-field{width:100%;margin: 0;padding:0}
     .mat-form-field-appearance-legacy .mat-form-field-underline{display: none;}
     .mat-form-field-appearance-legacy .mat-form-field-wrapper{padding-bottom: 0px;}
@@ -214,6 +214,9 @@ ul.breadcrumb li a{color: #F96BB3;}
     }
 
 }
+
+.main-right.freelancer .mat-form-field-appearance-legacy .mat-form-field-label,.main-right.freelancer .custom-width .form-control {color: #808AA5 !important;font-family: 'Conv_GothamRounded-Book' !important;}
+.main-right.freelancer .mat-button-wrapper .mat-icon{color: #808AA5 !important}
 
 .mat-menu-content{
     .notifi_list{
@@ -311,7 +314,7 @@ body.nav-open{
                 background: #fff;
                 border-radius: 30px 0px 0px 30px;
                 font-family: 'Conv_GothamRounded-Medium';
-                padding: 6px 10px 6px 20px;
+                padding: 5px 10px 5px 20px;
                 color: #F96BB3;
         }
         }
@@ -842,7 +845,9 @@ img.full_width{width:100%;margin-bottom: 20px;}
          button.action_btn.pink{margin-right: 12px;background: #F96BB3;}
          button.action_btn.black{margin-right: 12px;background: #000;}
          button.action_btn.red{background: #FF2626;}
+
     }
+
     table tr:last-child td.mat-cell{border-bottom: 1px solid #efefef;}
     ul.pagination{
         justify-content:center;
@@ -854,6 +859,17 @@ img.full_width{width:100%;margin-bottom: 20px;}
             }
         }
         li.active a{color: #F96BB3;padding: 0px;}
+    }
+    .table_wrap{
+        overflow-x: auto;
+        .table_scroll{
+            .mat-column-action {
+                min-width: 175px;
+            }
+            .mat-column-name{
+                min-width: 175px;
+            }
+        }
     }
 }
 
@@ -943,6 +959,7 @@ img.full_width{width:100%;margin-bottom: 20px;}
     .dashboard_col .card span {font-size: 40px;line-height: 50px;}
     .main-header .right-nav h1 {font-size: 20px;padding-top: 9px;}
     .main-header .top-right ul li {margin: 0px 7px;}
+    .main-card table td.mat-cell, .main-card table td.mat-footer-cell, .main-card table th.mat-header-cell {padding: 5px 10px;font-size: 13px;}
 }
 
 @media(max-width:992px){

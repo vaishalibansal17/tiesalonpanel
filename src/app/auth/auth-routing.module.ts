@@ -12,7 +12,7 @@ const routes: Routes = [{
 },{
   path: 'login', loadChildren:() => import('./login/login.module').then(m => m.LoginModule)
 },{
-  path: 'reset-freelancer', loadChildren:() => import('./resetpasswordfreelancer/resetpasswordfreelancer.module').then(m => m.ResetpasswordfreelancerModule)
+  path: 'reset-freelancer', loadChildren:() => import('./resetfreelancer/resetfreelancer.module').then(m => m.ResetfreelancerModule)
 }];
 
 @NgModule({

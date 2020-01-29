@@ -14,29 +14,29 @@
                 <div class="head">boost your reputation with <span>reviews</span></div>
             </div>
             </div>
-            <div class="col-md-6 main-right">
+            <div class="col-md-6 main-right freelancer">
                 <div class="fixed-back"><a [routerLink]="['/auth/login']"><i class="fa fa-angle-left"></i></a></div>
                 <div class="fixed-select">
-                    <button mat-button [matMenuTriggerFor]="lan_menu" [disableRipple]="true">En <img src="assets/images/flag_en.png" alt="England"><img class="drop_img" src="assets/images/dropdown.png" alt=""></button>
+                    <button mat-button [matMenuTriggerFor]="lan_menu" [disableRipple]="true">En <img src="assets/images/flag_en.png" alt="England"><img class="drop_img" src="assets/images/dropdown-pink.png" alt=""></button>
                     <mat-menu #lan_menu="matMenu" xPosition="before">
                     <button class="flag_drop" mat-menu-item>Ar <img src="assets/images/flag_ar.png" alt="England"></button>
                     </mat-menu>
                 </div>
                 <div class="full-vertical custom-width">
-                    <div class="logo"><img src="assets/images/tie_logo_black.png" alt="Logo"></div>
-                    <h1 class="head">Reset Password</h1>
+                    <div class="logo"><img src="assets/images/tie_logo.png" alt="Logo"></div>
+                    <h1 class="head">Freelancer Reset Password</h1>
                     <p class="text-center">Please enter your new password</p>
                     <div class="login-form">
                         <form action="">
                         <mat-form-field>
-                            <span class="email-img pass"><img src="assets/images/lock.png" alt="envelope"></span>
+                            <span class="email-img pass"><img src="assets/images/password-free.png" alt="envelope"></span>
                             <input matInput placeholder="New Password" [type]="hide ? 'password' : 'text'" class="form-control">
                             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                             </button>
                           </mat-form-field>
                           <mat-form-field>
-                            <span class="email-img pass"><img src="assets/images/lock.png" alt="envelope"></span>
+                            <span class="email-img pass"><img src="assets/images/password-free.png" alt="envelope"></span>
                             <input matInput placeholder="Confirm Password" [type]="hide ? 'password' : 'text'" class="form-control">
                             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

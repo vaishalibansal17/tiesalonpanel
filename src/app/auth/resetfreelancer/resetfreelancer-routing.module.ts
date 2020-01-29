@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ResetpasswordfreelancerComponent } from './resetpasswordfreelancer.component';
-
+import { ResetfreelancerComponent } from './resetfreelancer.component';
 
 const routes: Routes = [{
-  path:'', component: ResetpasswordfreelancerComponent
+  path:'', component: ResetfreelancerComponent
 }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ResetpasswordfreelancerRoutingModule { }
+export class ResetfreelancerRoutingModule { }
