@@ -74,6 +74,8 @@
   "ENTREGISTRMAIL":"Please enter your Registered Email to Reset",
   "ENTRNWPASS":"Please enter your new password",
 
+  "FREERESETPASS":"Freelancer Reset Password",
+
   "PHNREQ":"Please enter phone number.",
   "PHNLNGTH":"Phone number should be between 7 to 12 digits.",
   "LOCREQ":"Please enter location.",

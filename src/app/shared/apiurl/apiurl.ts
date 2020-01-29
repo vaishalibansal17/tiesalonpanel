@@ -9,5 +9,6 @@ export const APIURLS = {
     CHANGEPASS: BASE_URL + 'salon/change/pass',
     PROFILE: BASE_URL + 'salon/detail',
     EDIT : BASE_URL + 'salon',
-    WRKNGHRS : BASE_URL + 'salon/working/hour'
+    WRKNGHRS : BASE_URL + 'salon/working/hour',
+    FREELNCERESET : BASE_URL + 'freelance/reset/pass'
 };

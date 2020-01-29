@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { HttpRequestService } from 'src/app/shared/service/http-request.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
-import { PassValid, ValidationService, passValidator } from 'src/app/shared/service/validation-service';
 import { ErrorService } from 'src/app/shared/service/error.service';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
-
-
+import { ValidationService, passValidator } from 'src/app/shared/service/validation-service';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-reset-password',
-  templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.scss']
+  selector: 'app-reset-freelancer',
+  templateUrl: './reset-freelancer.component.html',
+  styleUrls: ['./reset-freelancer.component.scss']
 })
+export class ResetFreelancerComponent implements OnInit {
 
-export class ResetPasswordComponent implements OnInit {
   unsubscribeAll: Subject<any>;
   chide = true;
   nhide = true;
@@ -32,9 +30,7 @@ export class ResetPasswordComponent implements OnInit {
     private routes: ActivatedRoute, private error: ErrorService, private trns: TranslatePipe) {
     this.unsubscribeAll = new Subject;
   }
-
-  ngOnInit() {
-    this.token = this.routes.snapshot.params.token;
+  ngOnInit() {this.token = this.routes.snapshot.params.token;
     if (this.token)
       this.token = this.token.replace(/\s/g, "+");
 
@@ -60,9 +56,9 @@ export class ResetPasswordComponent implements OnInit {
     this.submitted = true;
     if (!this.reset.valid) {
       this.isLoading = false;
-      return;
+      return
     } else {
-      this.httpService.getRequest('POST', 'RESET', { pass: this.reset.value.newPassword, tkn: this.token }).subscribe((response: any) => {
+      this.httpService.getRequest('POST', 'FREELNCERESET', { pass: this.reset.value.newPassword, tkn: this.token }).subscribe((response: any) => {
         if (response.status === 1) {
           this.isLoading = false;
           this.router.navigateByUrl('/auth')

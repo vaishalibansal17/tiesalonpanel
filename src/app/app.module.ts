@@ -19,6 +19,7 @@ import { ApplicationpipeModule } from './shared/module/applicationpipe/applicati
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -30,7 +31,7 @@ export function setupTranslateFactory(
 }
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

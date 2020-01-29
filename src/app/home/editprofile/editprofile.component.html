@@ -1,0 +1,69 @@
+<div class="main-card">
+    <div class="custom_form">
+        <form action="">
+            <div class="text-center">
+                <div class="file_input">
+                    <img src="assets/images/change.png" alt="">
+                </div>
+                <label for="" class="custom_label">Change Profile Picture</label>
+            </div>
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/edit-user.png" alt="envelope"></span>
+                <input matInput placeholder="User Name" class="form-control">
+            </mat-form-field>
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/email.png" alt="envelope"></span>
+                <input matInput placeholder="Email" class="form-control">
+            </mat-form-field>
+            <mat-form-field>
+                <span class="email-img phone"><img src="assets/images/mobile.png" alt="envelope"></span>
+                <input matInput placeholder="Phone" class="form-control">
+            </mat-form-field>
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/location.png" alt="envelope"></span>
+                <input matInput placeholder="Location" class="form-control">
+                <img class="full_width" src="assets/images/maps.png" alt="">
+            </mat-form-field>
+            <a [routerLink]="['/business-hours']"><mat-form-field>
+                <span class="email-img pass"><img src="assets/images/time.png" alt="envelope"></span>
+                <input matInput placeholder="Business Hours" class="form-control cursor" disabled>
+            </mat-form-field></a>
+            <a [routerLink]="['/reviews']"><mat-form-field>
+                <span class="email-img pass"><img src="assets/images/reviews.png" alt="envelope"></span>
+                <input matInput placeholder="Reviews" class="form-control cursor" disabled>
+            </mat-form-field></a>
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/description.png" alt="envelope"></span>
+                <textarea matInput placeholder="Description" class="form-control"></textarea>
+            </mat-form-field>
+            <div class="work_gallery">
+                <label for="">Work Gallery</label>
+                <ul>
+                    <li><img src="assets/images/view-edit.png" alt=""></li>
+                    <li><img src="assets/images/add-edit.png" alt=""></li>
+                </ul>
+            </div>
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/web.png" alt="envelope"></span>
+                <input matInput placeholder="Website" class="form-control">
+            </mat-form-field>
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
+                <mat-label>Service At</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let service of services" [value]="service.value">
+                    {{service.viewValue}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/edit-staff.png" alt="envelope"></span>
+                <input matInput placeholder="Manage Staff" class="form-control">
+            </mat-form-field>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-submit">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
