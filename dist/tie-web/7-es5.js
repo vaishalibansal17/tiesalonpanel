@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main_bg\">\n    <div class=\"fixed-nav\">\n        <ul>\n            <li></li>\n            <li class=\"active\"></li>\n            <li></li>\n        </ul>\n    </div>\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-md-6 main-left\">\n                <div class=\"full-vertical\">\n                <img class=\"on_board\" src=\"assets/images/img_onboard_2.png\" alt=\"Forgot\">\n                <div class=\"head\"><span>Get Paid</span> when clients don't show up</div>\n            </div>\n            </div>\n            <div class=\"col-md-6 main-right\">\n                <div class=\"fixed-select\">\n                    <button mat-button [matMenuTriggerFor]=\"beforeMenu\" [disableRipple]=\"true\">En <img src=\"assets/images/flag_en.png\" alt=\"England\"><img class=\"drop_img\" src=\"assets/images/dropdown.png\" alt=\"\"></button>\n                    <mat-menu #beforeMenu=\"matMenu\" xPosition=\"before\">\n                      <button mat-menu-item>En <img src=\"assets/images/flag_en.png\" alt=\"England\"></button>\n                      <button mat-menu-item>Ar <img src=\"assets/images/flag_ar.png\" alt=\"England\"></button>\n                    </mat-menu>\n                </div>\n                <div class=\"fixed-back\"><a [routerLink]=\"['/auth/login']\"><i class=\"fa fa-angle-left\"></i></a></div>\n                <div class=\"full-vertical custom-width\">\n                    <div class=\"logo\"><img src=\"assets/images/tie_logo_black.png\" alt=\"Logo\"></div>\n                    <h1 class=\"head\">Forgot Password</h1>\n                    <p class=\"text-center\">Please enter your Registered Email to Reset </p>\n                    <div class=\"login-form\">\n                        <form  (ngSubmit)=\"forgetPass()\" [formGroup]=\"forgetPasswordForm\">\n                        <mat-form-field>\n                          <span class=\"email-img\"><img src=\"assets/images/envelope.png\" alt=\"envelope\"></span>\n                          <input matInput placeholder=\"Email\" class=\"form-control\" formControlName=\"email\"> \n                        </mat-form-field>\n                          <button type=\"submit\" class=\"btn btn-submit\">Continue</button>\n                        </form>\n                        </div>\n                </div>                \n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"main_bg\">\n    <div class=\"fixed-nav\">\n        <ul>\n            <li></li>\n            <li class=\"active\"></li>\n            <li></li>\n        </ul>\n    </div>\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-md-6 main-left\">\n                <div class=\"full-vertical\">\n                <img class=\"on_board\" src=\"assets/images/img_onboard_2.png\" alt=\"Forgot\">\n                <div class=\"head\"><span>Get Paid</span> when clients don't show up</div>\n            </div>\n            </div>\n            <div class=\"col-md-6 main-right\">\n                <app-auth-header></app-auth-header>\n                <div class=\"fixed-back\"><a [routerLink]=\"['/auth/login']\"><i class=\"fa fa-angle-left\"></i></a></div>\n                <div class=\"full-vertical custom-width\">\n                    <div class=\"logo\"><img src=\"assets/images/tie_logo_black.png\" alt=\"Logo\"></div>\n                    <h1 class=\"head\">{{'FRGTPASS'| translate}}</h1>\n                    <p class=\"text-center\">{{'ENTREGISTRMAIL'| translate}} </p>\n                    <div class=\"login-form\">\n                        <form  (ngSubmit)=\"forgetPass()\" [formGroup]=\"forgetPasswordForm\">\n                        <mat-form-field>\n                          <span class=\"email-img\"><img src=\"assets/images/envelope.png\" alt=\"envelope\"></span>\n                          <input matInput placeholder=\"{{'EMAIL'| translate}}\" class=\"form-control\" formControlName=\"email\"> \n                        </mat-form-field>\n                          <button type=\"submit\" class=\"btn btn-submit\">{{'CONTINUE' | translate}}</button>\n                        </form>\n                        </div>\n                </div>                \n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
@@ -209,7 +209,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 _this.isLoading = false;
 
                 _this.router.navigateByUrl('/auth').then(function () {
-                  _this.helper.sucsTostr(src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_7__["MESSAGE"].SUCCESS, src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_7__["MESSAGE"].FORGOT_SUC);
+                  _this.httpService.sucsTostr(src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_7__["MESSAGE"].SUCCESS, src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_7__["MESSAGE"].FORGOT_SUC);
                 });
               } else {
                 console.log(response);
@@ -339,6 +339,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _auth_header_auth_header_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ../auth-header/auth-header.module */
+    "./src/app/auth/auth-header/auth-header.module.ts");
 
     var ForgotPasswordModule = function ForgotPasswordModule() {
       _classCallCheck(this, ForgotPasswordModule);
@@ -346,7 +352,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     ForgotPasswordModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [_forgot_password_component__WEBPACK_IMPORTED_MODULE_4__["ForgotPasswordComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], _forgot_password_routing_module__WEBPACK_IMPORTED_MODULE_3__["ForgotPasswordRoutingModule"], src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__["MaterialModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"], _forgot_password_routing_module__WEBPACK_IMPORTED_MODULE_3__["ForgotPasswordRoutingModule"], src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__["MaterialModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"], _auth_header_auth_header_module__WEBPACK_IMPORTED_MODULE_10__["AuthHeaderModule"]],
       schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]],
       providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]]
     })], ForgotPasswordModule);
@@ -405,6 +411,126 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       DELETE_MSG: 'You wont be able to revert this!',
       DELETE_CONFIRM_TEXT: 'Yes, delete it!'
     };
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/service/error.service.ts":
+  /*!*************************************************!*\
+    !*** ./src/app/shared/service/error.service.ts ***!
+    \*************************************************/
+
+  /*! exports provided: ErrorService */
+
+  /***/
+  function srcAppSharedServiceErrorServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ErrorService", function () {
+      return ErrorService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./translate.service */
+    "./src/app/shared/service/translate.service.ts");
+    /* harmony import */
+
+
+    var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./http-request.service */
+    "./src/app/shared/service/http-request.service.ts"); // import { TranslatePipe } from '../_pipes/translate.pipe';
+
+
+    var ErrorService =
+    /*#__PURE__*/
+    function () {
+      function ErrorService(helper, trns) {
+        _classCallCheck(this, ErrorService);
+
+        this.helper = helper;
+        this.trns = trns;
+      }
+
+      _createClass(ErrorService, [{
+        key: "handleError",
+        value: function handleError() {
+          var errCode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+          switch (errCode) {
+            case 0:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 1:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 4:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+              break;
+
+            case 5:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
+              break;
+
+            case 6:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
+              break;
+
+            case 7:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
+              break;
+
+            case 8:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
+              break;
+
+            case 9:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
+              break;
+
+            case 31:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+              break;
+
+            default:
+              break;
+          }
+        }
+      }]);
+
+      return ErrorService;
+    }();
+
+    ErrorService.ctorParameters = function () {
+      return [{
+        type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
+      }, {
+        type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
+      }];
+    };
+
+    ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], ErrorService);
     /***/
   }
 }]);

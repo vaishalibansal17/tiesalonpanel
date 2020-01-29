@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[9], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/reset-password/reset-password.component.html":
-  /*!*********************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/auth/reset-password/reset-password.component.html ***!
-    \*********************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/login/login.component.html":
+  /*!***************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/auth/login/login.component.html ***!
+    \***************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppAuthResetPasswordResetPasswordComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppAuthLoginLoginComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main_bg\">\n    <div class=\"fixed-nav\">\n        <ul>\n            <li></li>\n            <li></li>\n            <li class=\"active\"></li>\n        </ul>\n    </div>\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-md-6 main-left\">\n                <div class=\"full-vertical\">\n                    <img class=\"on_board\" src=\"assets/images/img_onboard_3.png\" alt=\"Login\">\n                    <div class=\"head\">boost your reputation with <span>reviews</span></div>\n                </div>\n            </div>\n            <div class=\"col-md-6 main-right\">\n                <div class=\"fixed-back\"><a [routerLink]=\"['/auth']\"><i class=\"fa fa-angle-left\"></i></a></div>\n                <div class=\"fixed-select\">\n                    <button mat-button [matMenuTriggerFor]=\"lan_menu\" [disableRipple]=\"true\">En <img src=\"assets/images/flag_en.png\" alt=\"England\"><img class=\"drop_img\" src=\"assets/images/dropdown.png\" alt=\"\"></button>\n                    <mat-menu #lan_menu=\"matMenu\" xPosition=\"before\">\n                        <button mat-menu-item>Ar <img src=\"assets/images/flag_ar.png\" alt=\"England\"></button>\n                    </mat-menu>\n                </div>\n                <div class=\"full-vertical custom-width\">\n                    <div class=\"logo\"><img src=\"assets/images/tie_logo_black.png\" alt=\"Logo\"></div>\n                    <h1 class=\"head\">Reset Password</h1>\n                    <p class=\"text-center\">Please enter your new password</p>\n                    <div class=\"login-form\">\n                        <form name=\"reset\" (ngSubmit)=\"resetPassword()\" [formGroup]=\"reset\">\n                            <mat-form-field>\n                                <span class=\"email-img pass\"><img src=\"assets/images/lock.png\" alt=\"envelope\"></span>\n                                <input matInput placeholder=\"New Password\" [type]=\"nhide ? 'password' : 'text'\"\n                                    maxlength=\"20\" (keydown.space)=\"$event.preventDefault()\"\n                                    formControlName='newPassword' class=\"form-control\">\n                                <button type=\"button\" mat-icon-button matSuffix (click)=\"nhide = !nhide\"\n                                    [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                                    <mat-icon>{{nhide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                                </button>\n                            </mat-form-field>\n                            <div\n                                *ngIf=\"(submitted || getControl.newPassword.dirty|| getControl.newPassword.touched) && getControl.newPassword.errors\">\n                                <p class=\"color\" *ngIf=\"getControl.newPassword.errors.required\">{{'RESETPASSREQ'| translate}}\n                                </p>\n                                <p class=\"color\" *ngIf=\"getControl.newPassword.errors.minlength \">{{'PASSPATTERN'| translate}}</p>\n                                <span *ngIf=\"!getControl.newPassword.errors.minlength\">\n                                    <p class=\"color\" *ngIf=\"getControl.newPassword.errors.pattern\">{{'PASSPATTERN'| translate}}</p>\n                                </span>\n                            </div>\n                            <mat-form-field>\n                                <span class=\"email-img pass\"><img src=\"assets/images/lock.png\" alt=\"envelope\"></span>\n                                <input matInput placeholder=\"Confirm Password\" [type]=\"chide ? 'password' : 'text'\"\n                                    maxlength=\"20\" (keydown.space)=\"$event.preventDefault()\"\n                                    formControlName='confirmPassword' class=\"form-control\">\n                                <button type=\"button\" mat-icon-button matSuffix (click)=\"chide = !chide\"\n                                    [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                                    <mat-icon>{{chide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                                </button>\n                            </mat-form-field>\n                            <div\n                                *ngIf=\"(submitted || getControl.confirmPassword.dirty|| getControl.confirmPassword.touched) && getControl.confirmPassword.errors\">\n                                <p class=\"color\" *ngIf=\"getControl.confirmPassword.errors.required\">{{'RESETPASSCNFREQ'| translate}}</p>\n                                <span *ngIf=\"!getControl.confirmPassword.errors.required\">\n                                    <p class=\"color\" *ngIf=\"getControl.confirmPassword.invalid\">{{'RESETPASSNOTMATCH'| translate}}</p>\n                                </span>\n                            </div>\n                            <button type=\"submit\" class=\"btn btn-submit\">Reset</button>\n                        </form>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"main_bg\">\n    <div class=\"fixed-nav\">\n        <ul>\n            <li class=\"active\"></li>\n            <li></li>\n            <li></li>\n        </ul>\n    </div>\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-md-6 main-left\">\n                <div class=\"full-vertical\">\n                    <img class=\"on_board\" src=\"assets/images/img_onboard_1.png\" alt=\"Login\">\n                    <div class=\"head\">Your Service Menu is <span>Online</span></div>\n                </div>\n            </div>\n            <div class=\"col-md-6 main-right\">\n                <app-auth-header></app-auth-header>\n                <div class=\"full-vertical custom-width\">\n                    <div class=\"logo\"><img src=\"assets/images/tie_logo_black.png\" alt=\"Logo\"></div>\n                    <h1 class=\"head\">{{'LOGIN'| translate}}</h1>\n                    <div class=\"login-form\">\n                        <form (ngSubmit)=\"onSubmit()\" [formGroup]=\"loginfrm\">\n                            <mat-form-field>\n                                <span class=\"email-img\"><img src=\"assets/images/envelope.png\" alt=\"envelope\"></span>\n                                <input matInput placeholder=\"{{'PLACEHOLDERLEMAIL'| translate}}\" class=\"form-control\" formControlName=\"email\"\n                                    maxlength=\"50\">\n                            </mat-form-field>\n                            <div\n                                *ngIf=\"(submitted || getControl.email.dirty|| getControl.email.touched) && getControl.email.errors\">\n                                <p class=\"color\" *ngIf=\"getControl.email.errors.required\">{{'LOGINEMAIL'| translate}}</p>\n                                <p class=\"color\" *ngIf=\"!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress\">{{'LOGINVALIDEMAIL'| translate}}</p>\n                            </div>\n                            <mat-form-field>\n                                <span class=\"email-img pass\"><img src=\"assets/images/lock.png\" alt=\"envelope\"></span>\n                                <input matInput placeholder=\"{{'PLACEHOLDERLPASS'| translate}}\" formControlName=\"pass\" maxlength=\"20\"\n                                    [type]=\"hide ? 'password' : 'text'\" class=\"form-control pass-space\">\n                                <button mat-icon-button matSuffix type=\"button\" (click)=\"hide = !hide\"\n                                    [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                                </button>\n                            </mat-form-field>\n                            <div\n                                *ngIf=\"(submitted || getControl.pass.dirty|| getControl.pass.touched) && getControl.pass.errors\">\n                                <p class=\"color\" *ngIf=\"getControl.pass.errors.required\">{{'LOGINPASS'| translate}}</p>\n                                <!-- <p class=\"color\" *ngIf=\"getControl.pass.errors.minlength \">Incorrect password or\n                                    email.</p> -->\n                            </div>\n                            <p class=\"right\"><a [routerLink]=\"['/auth/forgot']\">{{'FRGTPASS' |  translate}}?</a></p>\n                            <button type=\"submit\" class=\"btn btn-submit\">Log In</button>\n                        </form>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/auth/reset-password/reset-password-routing.module.ts":
-  /*!**********************************************************************!*\
-    !*** ./src/app/auth/reset-password/reset-password-routing.module.ts ***!
-    \**********************************************************************/
+  "./src/app/auth/login/login-routing.module.ts":
+  /*!****************************************************!*\
+    !*** ./src/app/auth/login/login-routing.module.ts ***!
+    \****************************************************/
 
-  /*! exports provided: ResetPasswordRoutingModule */
+  /*! exports provided: LoginRoutingModule */
 
   /***/
-  function srcAppAuthResetPasswordResetPasswordRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppAuthLoginLoginRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ResetPasswordRoutingModule", function () {
-      return ResetPasswordRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "LoginRoutingModule", function () {
+      return LoginRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _reset_password_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./reset-password.component */
-    "./src/app/auth/reset-password/reset-password.component.ts");
+    var _login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./login.component */
+    "./src/app/auth/login/login.component.ts");
 
     var routes = [{
       path: '',
-      component: _reset_password_component__WEBPACK_IMPORTED_MODULE_3__["ResetPasswordComponent"]
+      component: _login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"]
     }];
 
-    var ResetPasswordRoutingModule = function ResetPasswordRoutingModule() {
-      _classCallCheck(this, ResetPasswordRoutingModule);
+    var LoginRoutingModule = function LoginRoutingModule() {
+      _classCallCheck(this, LoginRoutingModule);
     };
 
-    ResetPasswordRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    LoginRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], ResetPasswordRoutingModule);
+    })], LoginRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/auth/reset-password/reset-password.component.scss":
-  /*!*******************************************************************!*\
-    !*** ./src/app/auth/reset-password/reset-password.component.scss ***!
-    \*******************************************************************/
+  "./src/app/auth/login/login.component.scss":
+  /*!*************************************************!*\
+    !*** ./src/app/auth/login/login.component.scss ***!
+    \*************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppAuthResetPasswordResetPasswordComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppAuthLoginLoginComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2F1dGgvcmVzZXQtcGFzc3dvcmQvcmVzZXQtcGFzc3dvcmQuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = ".main-right .btn-submit {\n  margin: 0px 0px 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvYXV0aC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXV0aC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUF3QixvQkFBQTtBQ0V4QiIsImZpbGUiOiJzcmMvYXBwL2F1dGgvbG9naW4vbG9naW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbi1yaWdodCAuYnRuLXN1Ym1pdHttYXJnaW46IDBweCAwcHggMTBweDt9IiwiLm1haW4tcmlnaHQgLmJ0bi1zdWJtaXQge1xuICBtYXJnaW46IDBweCAwcHggMTBweDtcbn0iXX0= */";
     /***/
   },
 
   /***/
-  "./src/app/auth/reset-password/reset-password.component.ts":
-  /*!*****************************************************************!*\
-    !*** ./src/app/auth/reset-password/reset-password.component.ts ***!
-    \*****************************************************************/
+  "./src/app/auth/login/login.component.ts":
+  /*!***********************************************!*\
+    !*** ./src/app/auth/login/login.component.ts ***!
+    \***********************************************/
 
-  /*! exports provided: ResetPasswordComponent */
+  /*! exports provided: LoginComponent */
 
   /***/
-  function srcAppAuthResetPasswordResetPasswordComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppAuthLoginLoginComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ResetPasswordComponent", function () {
-      return ResetPasswordComponent;
+    __webpack_require__.d(__webpack_exports__, "LoginComponent", function () {
+      return LoginComponent;
     });
     /* harmony import */
 
@@ -157,15 +157,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! rxjs/operators */
-    "./node_modules/rxjs/_esm2015/operators/index.js");
+    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/service/error.service */
+    "./src/app/shared/service/error.service.ts");
     /* harmony import */
 
 
-    var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! rxjs */
-    "./node_modules/rxjs/_esm2015/index.js");
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
     /* harmony import */
 
 
@@ -175,148 +175,142 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! src/app/shared/service/error.service */
-    "./src/app/shared/service/error.service.ts");
+    var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/shared/service/helper.service */
+    "./src/app/shared/service/helper.service.ts");
     /* harmony import */
 
 
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! src/app/shared/_pipes/translate.pipe */
-    "./src/app/shared/_pipes/translate.pipe.ts");
+    var src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/shared/service/translate.service */
+    "./src/app/shared/service/translate.service.ts");
 
-    var ResetPasswordComponent =
+    var LoginComponent =
     /*#__PURE__*/
     function () {
-      function ResetPasswordComponent(httpService, router, fb, routes, error, trns) {
-        _classCallCheck(this, ResetPasswordComponent);
+      function LoginComponent(httpService, router, error, trns, trnsalte, helper) {
+        _classCallCheck(this, LoginComponent);
 
         this.httpService = httpService;
         this.router = router;
-        this.fb = fb;
-        this.routes = routes;
         this.error = error;
         this.trns = trns;
-        this.chide = true;
-        this.nhide = true;
+        this.trnsalte = trnsalte;
+        this.helper = helper;
+        this.hide = true;
+        this.submitted = false;
+        this.formSubmit = false;
+        this.loading = false;
+        this.email = '';
+        this.pass = '';
         this.isLoading = false;
         this.passShow = true;
-        this.cPassShow = true;
-        this.formData = new FormData();
-        this.unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subject"]();
       }
 
-      _createClass(ResetPasswordComponent, [{
+      _createClass(LoginComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
+          // console.log(this.trnsalte.currentLang);
+          this.loginfrm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].validateEmail]),
+            pass: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])
+          });
+        }
+      }, {
+        key: "onSubmit",
+        value: function onSubmit() {
           var _this = this;
 
-          this.token = this.routes.snapshot.params.token;
-          if (this.token) this.token = this.token.replace(/\s/g, "+");
-          this.reset = this.fb.group({
-            newPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6), src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].passwordValidator]),
-            confirmPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["passValidator"]])
-          });
-          this.reset.get('newPassword').valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["takeUntil"])(this.unsubscribeAll)).subscribe(function () {
-            _this.reset.get('confirmPassword').updateValueAndValidity();
-          });
-        }
-      }, {
-        key: "resetPassword",
-        value: function resetPassword() {
-          var _this2 = this;
-
-          console.log(this.getControl.confirmPassword.errors);
-          this.isLoading = true;
           this.submitted = true;
 
-          if (this.reset.invalid) {
-            this.isLoading = false;
-          } else {
-            this.httpService.getRequest('POST', 'RESET', {
-              pass: this.reset.value.newPassword,
-              tkn: this.token
-            }).subscribe(function (response) {
-              if (response.status === 1) {
-                _this2.isLoading = false;
+          if (this.loginfrm.valid) {
+            this.httpService.getRequest('POST', 'LOGIN', this.loginfrm.value).subscribe(function (data) {
+              if (data.status) {
+                var _data$res = data.res,
+                    acsTkn = _data$res.acsTkn,
+                    _id = _data$res._id,
+                    logo = _data$res.logo,
+                    email = _data$res.email,
+                    name = _data$res.name;
+                localStorage.setItem('acsTkn', acsTkn);
+                localStorage.setItem('salonid', _id);
+                localStorage.setItem('salon', JSON.stringify({
+                  'name': name,
+                  'logo': logo,
+                  'email': email
+                }));
+                _this.isLoading = !_this.isLoading;
 
-                _this2.router.navigateByUrl('/auth').then(function () {
-                  _this2.httpService.sucsTostr(_this2.trns.transform('SUCCESS'), _this2.trns.transform('RESETPASSSUCC'));
+                _this.router.navigate(['/']).then(function () {
+                  return _this.httpService.sucsTostr(_this.trns.transform('SUCCESS'), _this.trns.transform('LOGINSUCCESS'));
                 });
               } else {
-                if (response.error) {
-                  _this2.error.handleError(response.err.errCode);
-                } else {
-                  _this2.error.handleError(0);
-                }
+                _this.error.handleError(data.err.errCode);
               }
-            }, function (err) {
-              _this2.error.handleError(0);
+            }, function (error) {
+              _this.error.handleError(0);
             });
+          } else {
+            // this.spinner.hide();
+            this.isLoading = !this.isLoading;
           }
-        }
-      }, {
-        key: "ngDestroy",
-        value: function ngDestroy() {
-          this.unsubscribeAll.next();
-          this.unsubscribeAll.complete();
         }
       }, {
         key: "getControl",
         get: function get() {
-          return this.reset.controls;
+          return this.loginfrm.controls;
         }
       }]);
 
-      return ResetPasswordComponent;
+      return LoginComponent;
     }();
 
-    ResetPasswordComponent.ctorParameters = function () {
+    LoginComponent.ctorParameters = function () {
       return [{
         type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
       }, {
-        type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]
+        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__["ErrorService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
+        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__["TranslatePipe"]
       }, {
-        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__["ErrorService"]
+        type: src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]
       }, {
-        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"]
+        type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_8__["Helper"]
       }];
     };
 
-    ResetPasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-reset-password',
+    LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-login',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./reset-password.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/reset-password/reset-password.component.html")).default,
+      /*! raw-loader!./login.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/login/login.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./reset-password.component.scss */
-      "./src/app/auth/reset-password/reset-password.component.scss")).default]
-    })], ResetPasswordComponent);
+      /*! ./login.component.scss */
+      "./src/app/auth/login/login.component.scss")).default]
+    })], LoginComponent);
     /***/
   },
 
   /***/
-  "./src/app/auth/reset-password/reset-password.module.ts":
-  /*!**************************************************************!*\
-    !*** ./src/app/auth/reset-password/reset-password.module.ts ***!
-    \**************************************************************/
+  "./src/app/auth/login/login.module.ts":
+  /*!********************************************!*\
+    !*** ./src/app/auth/login/login.module.ts ***!
+    \********************************************/
 
-  /*! exports provided: ResetPasswordModule */
+  /*! exports provided: LoginModule */
 
   /***/
-  function srcAppAuthResetPasswordResetPasswordModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppAuthLoginLoginModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ResetPasswordModule", function () {
-      return ResetPasswordModule;
+    __webpack_require__.d(__webpack_exports__, "LoginModule", function () {
+      return LoginModule;
     });
     /* harmony import */
 
@@ -339,15 +333,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _reset_password_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./reset-password-routing.module */
-    "./src/app/auth/reset-password/reset-password-routing.module.ts");
+    var _login_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./login-routing.module */
+    "./src/app/auth/login/login-routing.module.ts");
     /* harmony import */
 
 
-    var _reset_password_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./reset-password.component */
-    "./src/app/auth/reset-password/reset-password.component.ts");
+    var _login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./login.component */
+    "./src/app/auth/login/login.component.ts");
     /* harmony import */
 
 
@@ -378,17 +372,143 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! src/app/shared/_pipes/translate.pipe */
     "./src/app/shared/_pipes/translate.pipe.ts");
+    /* harmony import */
 
-    var ResetPasswordModule = function ResetPasswordModule() {
-      _classCallCheck(this, ResetPasswordModule);
+
+    var _auth_header_auth_header_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ../auth-header/auth-header.module */
+    "./src/app/auth/auth-header/auth-header.module.ts");
+
+    var LoginModule = function LoginModule() {
+      _classCallCheck(this, LoginModule);
     };
 
-    ResetPasswordModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_reset_password_component__WEBPACK_IMPORTED_MODULE_4__["ResetPasswordComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"], _reset_password_routing_module__WEBPACK_IMPORTED_MODULE_3__["ResetPasswordRoutingModule"], src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__["MaterialModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"]],
+    LoginModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"], _login_routing_module__WEBPACK_IMPORTED_MODULE_3__["LoginRoutingModule"], src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__["MaterialModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], _auth_header_auth_header_module__WEBPACK_IMPORTED_MODULE_10__["AuthHeaderModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"]],
       providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"]],
       schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]]
-    })], ResetPasswordModule);
+    })], LoginModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/service/error.service.ts":
+  /*!*************************************************!*\
+    !*** ./src/app/shared/service/error.service.ts ***!
+    \*************************************************/
+
+  /*! exports provided: ErrorService */
+
+  /***/
+  function srcAppSharedServiceErrorServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ErrorService", function () {
+      return ErrorService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./translate.service */
+    "./src/app/shared/service/translate.service.ts");
+    /* harmony import */
+
+
+    var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./http-request.service */
+    "./src/app/shared/service/http-request.service.ts"); // import { TranslatePipe } from '../_pipes/translate.pipe';
+
+
+    var ErrorService =
+    /*#__PURE__*/
+    function () {
+      function ErrorService(helper, trns) {
+        _classCallCheck(this, ErrorService);
+
+        this.helper = helper;
+        this.trns = trns;
+      }
+
+      _createClass(ErrorService, [{
+        key: "handleError",
+        value: function handleError() {
+          var errCode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+          switch (errCode) {
+            case 0:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 1:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 4:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+              break;
+
+            case 5:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
+              break;
+
+            case 6:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
+              break;
+
+            case 7:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
+              break;
+
+            case 8:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
+              break;
+
+            case 9:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
+              break;
+
+            case 31:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+              break;
+
+            default:
+              break;
+          }
+        }
+      }]);
+
+      return ErrorService;
+    }();
+
+    ErrorService.ctorParameters = function () {
+      return [{
+        type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
+      }, {
+        type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
+      }];
+    };
+
+    ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], ErrorService);
     /***/
   }
 }]);

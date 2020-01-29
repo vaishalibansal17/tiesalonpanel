@@ -1,134 +1,174 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[13],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/profile.component.html":
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/list/list.component.html":
 /*!*******************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/profile.component.html ***!
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/list/list.component.html ***!
   \*******************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n  <div class=\"row\">\n      <div class=\"col-md-6 add\"><a [routerLink]=\"['/staff/add']\"><img src=\"assets/images/add.png\" alt=\"Add\"> Add Staff</a></div>\n      <div class=\"col-md-6 alignright\"><a href=\"#\" class=\"btn btn-export\">Export</a></div>\n  </div>\n  <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n      <ng-container matColumnDef=\"position\">\n        <th mat-header-cell *matHeaderCellDef> No. </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n      </ng-container>\n    \n      <ng-container matColumnDef=\"name\">\n        <th mat-header-cell *matHeaderCellDef> Name </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n      </ng-container>\n    \n      <ng-container matColumnDef=\"photo\">\n        <th mat-header-cell *matHeaderCellDef> Photo </th>\n        <td mat-cell *matCellDef=\"let element\"> <img [src]=\"element.photo\" /> </td>\n      </ng-container>\n    \n      <ng-container matColumnDef=\"email\">\n        <th mat-header-cell *matHeaderCellDef> Email </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\n      </ng-container>\n    \n      <ng-container matColumnDef=\"number\">\n        <th mat-header-cell *matHeaderCellDef> Mobile Number </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.number}} </td>\n      </ng-container>\n    \n      <ng-container matColumnDef=\"rating\">\n        <th mat-header-cell *matHeaderCellDef> Ratings </th>\n        <td mat-cell *matCellDef=\"let element\"> <img [src]=\"element.rating\" /> </td>\n      </ng-container>\n    \n      <ng-container matColumnDef=\"action\">\n        <th mat-header-cell *matHeaderCellDef> Actions </th>\n        <td mat-cell *matCellDef=\"let user\"> \n        <button class=\"action_btn pink\"><a [routerLink]=\"['/staff/info']\"><img src=\"assets/images/view.png\" alt=\"View\"></a></button>  \n        <button class=\"action_btn black\"><a [routerLink]=\"['/staff/edit']\"><img src=\"assets/images/edit.png\" alt=\"Edit\"></a></button>  \n        <button class=\"action_btn red\" (click)=\"openDialog()\"><img src=\"assets/images/delete.png\" alt=\"Delete\"></button>  \n        </td>\n      </ng-container>\n    \n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n    </table>\n\n    <ul class=\"pagination\">\n      <li><a href=\"#\"><i class=\"fa fa-angle-left\"></i></a></li>\n      <li class=\"active\"><a href=\"#\">1</a></li>\n      <li><a href=\"#\">2</a></li>\n      <li><a href=\"#\">3</a></li>\n      <li><a href=\"#\">4</a></li>\n      <li><a href=\"#\">5</a></li>\n      <li><a href=\"#\"><i class=\"fa fa-angle-right\"></i></a></li>\n    </ul>\n</div>");
 
 /***/ }),
 
-/***/ "./src/app/home/profile/profile-routing.module.ts":
-/*!********************************************************!*\
-  !*** ./src/app/home/profile/profile-routing.module.ts ***!
-  \********************************************************/
-/*! exports provided: ProfileRoutingModule */
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/list/staff-delete.component.html":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/list/staff-delete.component.html ***!
+  \***************************************************************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileRoutingModule", function() { return ProfileRoutingModule; });
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-dialog-content class=\"text-center\">\n  <h3>Are you sure you want to delete this Staff?</h3>\n  <div class=\"text-center\"><button type=\"submit\" class=\"btn btn-submit\">Delete</button></div>\n  <div class=\"text-center\"><button type=\"submit\" class=\"btn btn-cancel\">Cancel</button></div>\n</mat-dialog-content>\n  <button mat-button mat-dialog-close><img src=\"assets/images/close.png\" alt=\"Close\"></button>\n");
+
+/***/ }),
+
+/***/ "./src/app/home/staff/list/list-routing.module.ts":
+/*!********************************************************!*\
+  !*** ./src/app/home/staff/list/list-routing.module.ts ***!
+  \********************************************************/
+/*! exports provided: ListRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListRoutingModule", function() { return ListRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _profile_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./profile.component */ "./src/app/home/profile/profile.component.ts");
+/* harmony import */ var _list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./list.component */ "./src/app/home/staff/list/list.component.ts");
 
 
 
 
-const routes = [
-    { path: '', component: _profile_component__WEBPACK_IMPORTED_MODULE_3__["ProfileComponent"],
-        data: { title: "Profile", },
-        children: [
-            { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(14)]).then(__webpack_require__.bind(null, /*! ./viewprofile/viewprofile.module */ "./src/app/home/profile/viewprofile/viewprofile.module.ts")).then(mod => mod.ViewprofileModule) },
-            { path: 'edit', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e("common"), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./editprofile/editprofile.module */ "./src/app/home/profile/editprofile/editprofile.module.ts")).then(mod => mod.EditprofileModule), data: { title: "Edit", status: false } },
-            { path: 'change-password', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ./changepassword/changepassword.module */ "./src/app/home/profile/changepassword/changepassword.module.ts")).then(mod => mod.ChangepasswordModule), data: { title: "Change Password", status: false } },
-            { path: 'business-hours', loadChildren: () => __webpack_require__.e(/*! import() */ 11).then(__webpack_require__.bind(null, /*! ./businesshours/businesshours.module */ "./src/app/home/profile/businesshours/businesshours.module.ts")).then(mod => mod.BusinesshoursModule), data: { title: "Business Hours", status: false } },
-        ] }
-];
-let ProfileRoutingModule = class ProfileRoutingModule {
+const routes = [{ path: '', component: _list_component__WEBPACK_IMPORTED_MODULE_3__["ListComponent"] }];
+let ListRoutingModule = class ListRoutingModule {
 };
-ProfileRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+ListRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], ProfileRoutingModule);
+], ListRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/profile/profile.component.scss":
+/***/ "./src/app/home/staff/list/list.component.scss":
 /*!*****************************************************!*\
-  !*** ./src/app/home/profile/profile.component.scss ***!
+  !*** ./src/app/home/staff/list/list.component.scss ***!
   \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcHJvZmlsZS9wcm9maWxlLmNvbXBvbmVudC5zY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvc3RhZmYvbGlzdC9saXN0LmNvbXBvbmVudC5zY3NzIn0= */");
 
 /***/ }),
 
-/***/ "./src/app/home/profile/profile.component.ts":
+/***/ "./src/app/home/staff/list/list.component.ts":
 /*!***************************************************!*\
-  !*** ./src/app/home/profile/profile.component.ts ***!
+  !*** ./src/app/home/staff/list/list.component.ts ***!
   \***************************************************/
-/*! exports provided: ProfileComponent */
+/*! exports provided: ListComponent, StaffDeleteDialogBox */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListComponent", function() { return ListComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffDeleteDialogBox", function() { return StaffDeleteDialogBox; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
 
 
-let ProfileComponent = class ProfileComponent {
-    constructor() { }
+
+let ListComponent = class ListComponent {
+    constructor(dialog) {
+        this.dialog = dialog;
+        this.displayedColumns = ['position', 'name', 'photo', 'email', 'number', 'rating', 'action'];
+        this.dataSource = ELEMENT_DATA;
+    }
+    openDialog() {
+        console.log('-----');
+        const dialogRef = this.dialog.open(StaffDeleteDialogBox, { width: '500px', disableClose: true });
+    }
     ngOnInit() {
     }
 };
-ProfileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+ListComponent.ctorParameters = () => [
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }
+];
+ListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-profile',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./profile.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/profile.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./profile.component.scss */ "./src/app/home/profile/profile.component.scss")).default]
+        selector: 'app-staff',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/list/list.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./list.component.scss */ "./src/app/home/staff/list/list.component.scss")).default]
     })
-], ProfileComponent);
+], ListComponent);
+
+const ELEMENT_DATA = [
+    { position: 1, name: 'Jane Doe', photo: 'assets/images/noti-pro.png', email: 'jane@gmail.com', number: +919999999999, rating: 'assets/images/reviews-star.png' },
+    { position: 2, name: 'Jane Doe', photo: 'assets/images/noti-pro.png', email: 'jane@gmail.com', number: +919999999999, rating: 'assets/images/reviews-star.png' },
+    { position: 3, name: 'Jane Doe', photo: 'assets/images/noti-pro.png', email: 'jane@gmail.com', number: +919999999999, rating: 'assets/images/reviews-star.png' },
+    { position: 4, name: 'Jane Doe', photo: 'assets/images/noti-pro.png', email: 'jane@gmail.com', number: +919999999999, rating: 'assets/images/reviews-star.png' },
+    { position: 5, name: 'Jane Doe', photo: 'assets/images/noti-pro.png', email: 'jane@gmail.com', number: +919999999999, rating: 'assets/images/reviews-star.png' },
+];
+let StaffDeleteDialogBox = class StaffDeleteDialogBox {
+    constructor() {
+    }
+};
+StaffDeleteDialogBox = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'staff-delete.component',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./staff-delete.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/list/staff-delete.component.html")).default,
+    })
+], StaffDeleteDialogBox);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/profile/profile.module.ts":
+/***/ "./src/app/home/staff/list/list.module.ts":
 /*!************************************************!*\
-  !*** ./src/app/home/profile/profile.module.ts ***!
+  !*** ./src/app/home/staff/list/list.module.ts ***!
   \************************************************/
-/*! exports provided: ProfileModule */
+/*! exports provided: ListModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileModule", function() { return ProfileModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListModule", function() { return ListModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _profile_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./profile-routing.module */ "./src/app/home/profile/profile-routing.module.ts");
-/* harmony import */ var _profile_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./profile.component */ "./src/app/home/profile/profile.component.ts");
+/* harmony import */ var _list_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./list-routing.module */ "./src/app/home/staff/list/list-routing.module.ts");
+/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./list.component */ "./src/app/home/staff/list/list.component.ts");
 
 
 
 
 
-let ProfileModule = class ProfileModule {
+
+let ListModule = class ListModule {
 };
-ProfileModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+ListModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_profile_component__WEBPACK_IMPORTED_MODULE_4__["ProfileComponent"]],
+        declarations: [_list_component__WEBPACK_IMPORTED_MODULE_5__["ListComponent"], _list_component__WEBPACK_IMPORTED_MODULE_5__["StaffDeleteDialogBox"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _profile_routing_module__WEBPACK_IMPORTED_MODULE_3__["ProfileRoutingModule"]
-        ]
+            _list_routing_module__WEBPACK_IMPORTED_MODULE_3__["ListRoutingModule"],
+            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"]
+        ],
+        entryComponents: [_list_component__WEBPACK_IMPORTED_MODULE_5__["StaffDeleteDialogBox"]]
     })
-], ProfileModule);
+], ListModule);
 
 
 

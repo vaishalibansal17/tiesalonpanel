@@ -6,43 +6,83 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[8], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/login/login.component.html":
-  /*!***************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/auth/login/login.component.html ***!
-    \***************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings-bookings.html":
+  /*!********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings-bookings.html ***!
+    \********************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppAuthLoginLoginComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeSettingsSettingsBookingsHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main_bg\">\n    <div class=\"fixed-nav\">\n        <ul>\n            <li class=\"active\"></li>\n            <li></li>\n            <li></li>\n        </ul>\n    </div>\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-md-6 main-left\">\n                <div class=\"full-vertical\">\n                    <img class=\"on_board\" src=\"assets/images/img_onboard_1.png\" alt=\"Login\">\n                    <div class=\"head\">Your Service Menu is <span>Online</span></div>\n                </div>\n            </div>\n            <div class=\"col-md-6 main-right\">\n                <div class=\"fixed-select\">\n                    <button mat-button [matMenuTriggerFor]=\"beforeMenu\" [disableRipple]=\"true\">En <img src=\"assets/images/flag_en.png\" alt=\"England\">\n                        <img class=\"drop_img\" src=\"assets/images/dropdown.png\" alt=\"\"></button>\n                    <mat-menu #beforeMenu=\"matMenu\" xPosition=\"before\">\n                        <button mat-menu-item>Ar <img src=\"assets/images/flag_ar.png\" alt=\"England\"></button>\n                        <button mat-menu-item>En <img src=\"assets/images/flag_en.png\" alt=\"England\"></button>\n                    </mat-menu>\n                </div>\n                <!-- <app-header></app-header> -->\n                <div class=\"full-vertical custom-width\">\n                    <div class=\"logo\"><img src=\"assets/images/tie_logo_black.png\" alt=\"Logo\"></div>\n                    <h1 class=\"head\">{{'LOGIN'| translate}}</h1>\n                    <div class=\"login-form\">\n                        <form (ngSubmit)=\"onSubmit()\" [formGroup]=\"loginfrm\">\n                            <mat-form-field>\n                                <span class=\"email-img\"><img src=\"assets/images/envelope.png\" alt=\"envelope\"></span>\n                                <input matInput placeholder=\"{{'PLACEHOLDERLEMAIL'| translate}}\" class=\"form-control\" formControlName=\"email\"\n                                    maxlength=\"50\">\n                            </mat-form-field>\n                            <div\n                                *ngIf=\"(submitted || getControl.email.dirty|| getControl.email.touched) && getControl.email.errors\">\n                                <p class=\"color\" *ngIf=\"getControl.email.errors.required\">{{'LOGINEMAIL'| translate}}</p>\n                                <p class=\"color\" *ngIf=\"!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress\">{{'LOGINVALIDEMAIL'| translate}}</p>\n                            </div>\n                            <mat-form-field>\n                                <span class=\"email-img pass\"><img src=\"assets/images/lock.png\" alt=\"envelope\"></span>\n                                <input matInput placeholder=\"{{'PLACEHOLDERLPASS'| translate}}\" formControlName=\"pass\" maxlength=\"20\"\n                                    [type]=\"hide ? 'password' : 'text'\" class=\"form-control pass-space\">\n                                <button mat-icon-button matSuffix type=\"button\" (click)=\"hide = !hide\"\n                                    [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                                </button>\n                            </mat-form-field>\n                            <div\n                                *ngIf=\"(submitted || getControl.pass.dirty|| getControl.pass.touched) && getControl.pass.errors\">\n                                <p class=\"color\" *ngIf=\"getControl.pass.errors.required\">{{'LOGINPASS'| translate}}</p>\n                                <!-- <p class=\"color\" *ngIf=\"getControl.pass.errors.minlength \">Incorrect password or\n                                    email.</p> -->\n                            </div>\n                            <p class=\"right\"><a [routerLink]=\"['/auth/forgot']\">Forgot Password?</a></p>\n                            <button type=\"submit\" class=\"btn btn-submit\">Log In</button>\n                        </form>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<mat-dialog-content>\n  <h3>Number of Bookings</h3>\n  <form action=\"\">\n    <mat-form-field>\n      <input matInput placeholder=\"Number of Bookings\" class=\"form-control\"> \n    </mat-form-field>\n      <div class=\"text-center\"><button type=\"submit\" class=\"btn btn-submit\">Save</button></div>\n    </form>\n  </mat-dialog-content>\n  <button mat-button mat-dialog-close><img src=\"assets/images/close.png\" alt=\"Close\"></button>\n";
     /***/
   },
 
   /***/
-  "./src/app/auth/login/login-routing.module.ts":
-  /*!****************************************************!*\
-    !*** ./src/app/auth/login/login-routing.module.ts ***!
-    \****************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings-dialog.component.html":
+  /*!****************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings-dialog.component.html ***!
+    \****************************************************************************************************/
 
-  /*! exports provided: LoginRoutingModule */
+  /*! exports provided: default */
 
   /***/
-  function srcAppAuthLoginLoginRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeSettingsSettingsDialogComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<h2 mat-dialog-title>Schedule Appointments</h2>\n<mat-dialog-content>\n  <h3>On 15 minute intervals</h3>\n  <p>Clients can book at 02:00PM, 02:15PM, 02:30PM, 02:45PM, etc.</p>\n  <h3>On 30 minute intervals</h3>\n  <p>Clients can book at 02:00PM, 02:30PM, 03:00PM, 03:30PM, etc.</p>\n  <h3>On hourly intervals</h3>\n  <p>Clients can book at 02:00PM, 03:00PM, 04:00PM, 05:00PM, etc.</p>\n  <h3>Based on service duration</h3>\n  <p>Clients can book based on the total time their service takes and what is currently available in your schedule (i.e. a 2.5 hour service will allow clients to book at 12:00PM, 02:30PM, 05:00PM, etc.)</p>\n</mat-dialog-content>\n  <button mat-button mat-dialog-close><img src=\"assets/images/close.png\" alt=\"Close\"></button>\n";
+    /***/
+  },
+
+  /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings.component.html":
+  /*!*********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings.component.html ***!
+    \*********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeSettingsSettingsComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">Notifications</div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">Language</div>\n            <div class=\"col-md-6 alignright\">\n                <ul>\n                    <li class=\"active\">En <img src=\"assets/images/flag_en.png\" alt=\"English\"></li>\n                    <li>Ar <img src=\"assets/images/flag_ar.png\" alt=\"Arabic\"></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">Online Booking</div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-8\">Schedule Appointments <button mat-raised-button matTooltip=\"Schedule Appointment\" [matTooltipPosition]=\"position.value\" aria-label=\"Button that displays a tooltip in various positions\"><img src=\"assets/images/info.png\" alt=\"Info\"></button></div>\n            <div class=\"col-md-4 alignright\">  \n             <mat-form-field>\n                <mat-label>Schedule Appointments</mat-label>\n                <mat-select (click)=\"openDialog()\" [disableRipple]=\"true\">\n                  <mat-option *ngFor=\"let appointment of appointments\" [value]=\"appointment.value\">\n                    {{appointment.viewValue}}\n                  </mat-option>\n                </mat-select>\n              </mat-form-field></div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">Allow Multi-Service Bookings</div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">Hours Notice for Online Bookings</div>\n            <div class=\"col-md-6 alignright\">3</div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\"><button mat-raised-button (click)=\"openDialog2()\" [disableRipple]=\"true\">Number of Bookings</button></div>\n            <div class=\"col-md-6 alignright\">8</div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">Deactivate Account \n                <button  [disableRipple]=\"true\" mat-raised-button matTooltip=\"You can deactivate your account for weeks or months, based on your availability. Users will not be able to see you while your account is deactivated.\" [matTooltipPosition]=\"position.value\" aria-label=\"Button that displays a tooltip in various positions\"><img src=\"assets/images/info.png\" alt=\"Info\"></button>\n            </div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"text-center\"><a href=\"#\" class=\"link\">Delete Account</a></div>\n</div>\n\n\n";
+    /***/
+  },
+
+  /***/
+  "./src/app/home/settings/settings-routing.module.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/settings/settings-routing.module.ts ***!
+    \**********************************************************/
+
+  /*! exports provided: SettingsRoutingModule */
+
+  /***/
+  function srcAppHomeSettingsSettingsRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "LoginRoutingModule", function () {
-      return LoginRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "SettingsRoutingModule", function () {
+      return SettingsRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +105,76 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./login.component */
-    "./src/app/auth/login/login.component.ts");
+    var _settings_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./settings.component */
+    "./src/app/home/settings/settings.component.ts");
 
     var routes = [{
       path: '',
-      component: _login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"]
+      component: _settings_component__WEBPACK_IMPORTED_MODULE_3__["SettingsComponent"]
     }];
 
-    var LoginRoutingModule = function LoginRoutingModule() {
-      _classCallCheck(this, LoginRoutingModule);
+    var SettingsRoutingModule = function SettingsRoutingModule() {
+      _classCallCheck(this, SettingsRoutingModule);
     };
 
-    LoginRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    SettingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], LoginRoutingModule);
+    })], SettingsRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/auth/login/login.component.scss":
-  /*!*************************************************!*\
-    !*** ./src/app/auth/login/login.component.scss ***!
-    \*************************************************/
+  "./src/app/home/settings/settings.component.scss":
+  /*!*******************************************************!*\
+    !*** ./src/app/home/settings/settings.component.scss ***!
+    \*******************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppAuthLoginLoginComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeSettingsSettingsComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".main-right .btn-submit {\n  margin: 0px 0px 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvYXV0aC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXV0aC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUF3QixvQkFBQTtBQ0V4QiIsImZpbGUiOiJzcmMvYXBwL2F1dGgvbG9naW4vbG9naW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbi1yaWdodCAuYnRuLXN1Ym1pdHttYXJnaW46IDBweCAwcHggMTBweDt9IiwiLm1haW4tcmlnaHQgLmJ0bi1zdWJtaXQge1xuICBtYXJnaW46IDBweCAwcHggMTBweDtcbn0iXX0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvc2V0dGluZ3Mvc2V0dGluZ3MuY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
   /***/
-  "./src/app/auth/login/login.component.ts":
-  /*!***********************************************!*\
-    !*** ./src/app/auth/login/login.component.ts ***!
-    \***********************************************/
+  "./src/app/home/settings/settings.component.ts":
+  /*!*****************************************************!*\
+    !*** ./src/app/home/settings/settings.component.ts ***!
+    \*****************************************************/
 
-  /*! exports provided: LoginComponent */
+  /*! exports provided: SettingsComponent, DialogContentExampleDialog, DialogBookingSettings */
 
   /***/
-  function srcAppAuthLoginLoginComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeSettingsSettingsComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "LoginComponent", function () {
-      return LoginComponent;
+    __webpack_require__.d(__webpack_exports__, "SettingsComponent", function () {
+      return SettingsComponent;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "DialogContentExampleDialog", function () {
+      return DialogContentExampleDialog;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "DialogBookingSettings", function () {
+      return DialogBookingSettings;
     });
     /* harmony import */
 
@@ -145,172 +197,109 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/shared/service/http-request.service */
-    "./src/app/shared/service/http-request.service.ts");
-    /* harmony import */
+    var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/material */
+    "./node_modules/@angular/material/esm2015/material.js");
 
-
-    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
-    /* harmony import */
-
-
-    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/shared/service/error.service */
-    "./src/app/shared/service/error.service.ts");
-    /* harmony import */
-
-
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/app/shared/_pipes/translate.pipe */
-    "./src/app/shared/_pipes/translate.pipe.ts");
-    /* harmony import */
-
-
-    var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! src/app/shared/service/validation-service */
-    "./src/app/shared/service/validation-service.ts");
-    /* harmony import */
-
-
-    var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! src/app/shared/service/helper.service */
-    "./src/app/shared/service/helper.service.ts");
-    /* harmony import */
-
-
-    var src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! src/app/shared/service/translate.service */
-    "./src/app/shared/service/translate.service.ts");
-
-    var LoginComponent =
+    var SettingsComponent =
     /*#__PURE__*/
     function () {
-      function LoginComponent(httpService, router, error, trns, trnsalte, helper) {
-        _classCallCheck(this, LoginComponent);
+      function SettingsComponent(dialog) {
+        _classCallCheck(this, SettingsComponent);
 
-        this.httpService = httpService;
-        this.router = router;
-        this.error = error;
-        this.trns = trns;
-        this.trnsalte = trnsalte;
-        this.helper = helper;
-        this.hide = true;
-        this.submitted = false;
-        this.formSubmit = false;
-        this.loading = false;
-        this.email = '';
-        this.pass = '';
-        this.isLoading = false;
-        this.passShow = true;
+        this.dialog = dialog;
+        this.positionOptions = ['after', 'before', 'above', 'below', 'left', 'right'];
+        this.position = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](this.positionOptions[0]);
       }
 
-      _createClass(LoginComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {
-          // console.log(this.trnsalte.currentLang);
-          this.loginfrm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].validateEmail]),
-            pass: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])
+      _createClass(SettingsComponent, [{
+        key: "openDialog",
+        value: function openDialog() {
+          var dialogRef = this.dialog.open(DialogContentExampleDialog, {
+            width: '500px',
+            disableClose: true
           });
         }
       }, {
-        key: "onSubmit",
-        value: function onSubmit() {
-          var _this = this;
-
-          this.submitted = true;
-
-          if (this.loginfrm.valid) {
-            this.httpService.getRequest('POST', 'LOGIN', this.loginfrm.value).subscribe(function (data) {
-              if (data.status) {
-                var _data$res = data.res,
-                    acsTkn = _data$res.acsTkn,
-                    _id = _data$res._id,
-                    logo = _data$res.logo,
-                    email = _data$res.email,
-                    name = _data$res.name;
-                localStorage.setItem('acsTkn', acsTkn);
-                localStorage.setItem('salonid', _id);
-                localStorage.setItem('salon', JSON.stringify({
-                  'name': name,
-                  'logo': logo,
-                  'email': email
-                }));
-                _this.isLoading = !_this.isLoading;
-
-                _this.router.navigate(['/']).then(function () {
-                  return _this.helper.sucsTostr(_this.trns.transform('SUCCESS'), _this.trns.transform('LOGINSUCCESS'));
-                });
-              } else {
-                _this.error.handleError(data.err.errCode);
-              }
-            }, function (error) {
-              _this.error.handleError(0);
-            });
-          } else {
-            // this.spinner.hide();
-            this.isLoading = !this.isLoading;
-          }
+        key: "openDialog2",
+        value: function openDialog2() {
+          var dialogRef = this.dialog.open(DialogBookingSettings, {
+            width: '500px',
+            disableClose: true
+          });
         }
       }, {
-        key: "getControl",
-        get: function get() {
-          return this.loginfrm.controls;
-        }
+        key: "ngOnInit",
+        value: function ngOnInit() {}
       }]);
 
-      return LoginComponent;
+      return SettingsComponent;
     }();
 
-    LoginComponent.ctorParameters = function () {
+    SettingsComponent.ctorParameters = function () {
       return [{
-        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
-      }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
-      }, {
-        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__["ErrorService"]
-      }, {
-        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__["TranslatePipe"]
-      }, {
-        type: src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]
-      }, {
-        type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_8__["Helper"]
+        type: _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
       }];
     };
 
-    LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-login',
+    SettingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-settings',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./login.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/login/login.component.html")).default,
+      /*! raw-loader!./settings.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./login.component.scss */
-      "./src/app/auth/login/login.component.scss")).default]
-    })], LoginComponent);
+      /*! ./settings.component.scss */
+      "./src/app/home/settings/settings.component.scss")).default]
+    })], SettingsComponent);
+
+    var DialogContentExampleDialog = function DialogContentExampleDialog() {
+      _classCallCheck(this, DialogContentExampleDialog);
+    };
+
+    DialogContentExampleDialog = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'settings-dialog.component',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./settings-dialog.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings-dialog.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./settings.component.scss */
+      "./src/app/home/settings/settings.component.scss")).default]
+    })], DialogContentExampleDialog);
+
+    var DialogBookingSettings = function DialogBookingSettings() {
+      _classCallCheck(this, DialogBookingSettings);
+    };
+
+    DialogBookingSettings = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'settings-bookings',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./settings-bookings.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings-bookings.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./settings.component.scss */
+      "./src/app/home/settings/settings.component.scss")).default]
+    })], DialogBookingSettings);
     /***/
   },
 
   /***/
-  "./src/app/auth/login/login.module.ts":
-  /*!********************************************!*\
-    !*** ./src/app/auth/login/login.module.ts ***!
-    \********************************************/
+  "./src/app/home/settings/settings.module.ts":
+  /*!**************************************************!*\
+    !*** ./src/app/home/settings/settings.module.ts ***!
+    \**************************************************/
 
-  /*! exports provided: LoginModule */
+  /*! exports provided: SettingsModule */
 
   /***/
-  function srcAppAuthLoginLoginModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeSettingsSettingsModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "LoginModule", function () {
-      return LoginModule;
+    __webpack_require__.d(__webpack_exports__, "SettingsModule", function () {
+      return SettingsModule;
     });
     /* harmony import */
 
@@ -333,56 +322,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _login_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./login-routing.module */
-    "./src/app/auth/login/login-routing.module.ts");
+    var _settings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./settings-routing.module */
+    "./src/app/home/settings/settings-routing.module.ts");
     /* harmony import */
 
 
-    var _login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./login.component */
-    "./src/app/auth/login/login.component.ts");
+    var _settings_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./settings.component */
+    "./src/app/home/settings/settings.component.ts");
     /* harmony import */
 
 
-    var src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/shared/material/material.module */
-    "./src/app/shared/material/material.module.ts");
-    /* harmony import */
-
-
-    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/shared/shared.module */
     "./src/app/shared/shared.module.ts");
-    /* harmony import */
 
-
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
-    /* harmony import */
-
-
-    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! src/app/shared/module/applicationpipe/applicationpipe.module */
-    "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
-    /* harmony import */
-
-
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! src/app/shared/_pipes/translate.pipe */
-    "./src/app/shared/_pipes/translate.pipe.ts");
-
-    var LoginModule = function LoginModule() {
-      _classCallCheck(this, LoginModule);
+    var SettingsModule = function SettingsModule() {
+      _classCallCheck(this, SettingsModule);
     };
 
-    LoginModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"], _login_routing_module__WEBPACK_IMPORTED_MODULE_3__["LoginRoutingModule"], src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__["MaterialModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"]],
-      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"]],
-      schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]]
-    })], LoginModule);
+    SettingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_settings_component__WEBPACK_IMPORTED_MODULE_4__["SettingsComponent"], _settings_component__WEBPACK_IMPORTED_MODULE_4__["DialogContentExampleDialog"], _settings_component__WEBPACK_IMPORTED_MODULE_4__["DialogBookingSettings"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _settings_routing_module__WEBPACK_IMPORTED_MODULE_3__["SettingsRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]],
+      entryComponents: [_settings_component__WEBPACK_IMPORTED_MODULE_4__["DialogContentExampleDialog"], _settings_component__WEBPACK_IMPORTED_MODULE_4__["DialogBookingSettings"]]
+    })], SettingsModule);
     /***/
   }
 }]);

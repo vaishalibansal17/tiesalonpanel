@@ -206,6 +206,78 @@ ChangepasswordModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 
 
+/***/ }),
+
+/***/ "./src/app/shared/service/error.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/shared/service/error.service.ts ***!
+  \*************************************************/
+/*! exports provided: ErrorService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorService", function() { return ErrorService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./translate.service */ "./src/app/shared/service/translate.service.ts");
+/* harmony import */ var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./http-request.service */ "./src/app/shared/service/http-request.service.ts");
+
+
+
+
+// import { TranslatePipe } from '../_pipes/translate.pipe';
+let ErrorService = class ErrorService {
+    constructor(helper, trns) {
+        this.helper = helper;
+        this.trns = trns;
+    }
+    handleError(errCode = 0) {
+        switch (errCode) {
+            case 0:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+                break;
+            case 1:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+                break;
+            case 4:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+                break;
+            case 5:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
+                break;
+            case 6:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
+                break;
+            case 7:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
+                break;
+            case 8:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
+                break;
+            case 9:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
+                break;
+            case 31:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+                break;
+            default:
+                break;
+        }
+    }
+};
+ErrorService.ctorParameters = () => [
+    { type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"] },
+    { type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"] }
+];
+ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], ErrorService);
+
+
+
 /***/ })
 
 }]);

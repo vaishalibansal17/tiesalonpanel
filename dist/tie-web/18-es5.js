@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[18], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staff.component.html":
-  /*!***************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staff.component.html ***!
-    \***************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html":
+  /*!*****************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html ***!
+    \*****************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeStaffStaffComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeNotificationNotificationComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<router-outlet></router-outlet>";
+    __webpack_exports__["default"] = "<!-- <app-breadcrumb></app-breadcrumb> -->\n<div class=\"main-card\">\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n            <span class=\"right_btn\">\n                <a href=\"#\" class=\"btn btn-accept\">Accept</a>\n                <a href=\"#\" class=\"btn btn-decline\">Decline</a>\n            </span>\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staff-routing.module.ts":
-  /*!****************************************************!*\
-    !*** ./src/app/home/staff/staff-routing.module.ts ***!
-    \****************************************************/
+  "./src/app/home/notification/notification-routing.module.ts":
+  /*!******************************************************************!*\
+    !*** ./src/app/home/notification/notification-routing.module.ts ***!
+    \******************************************************************/
 
-  /*! exports provided: StaffRoutingModule */
+  /*! exports provided: NotificationRoutingModule */
 
   /***/
-  function srcAppHomeStaffStaffRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeNotificationNotificationRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffRoutingModule", function () {
-      return StaffRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "NotificationRoutingModule", function () {
+      return NotificationRoutingModule;
     });
     /* harmony import */
 
@@ -65,113 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _staff_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./staff.component */
-    "./src/app/home/staff/staff.component.ts");
+    var _notification_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./notification.component */
+    "./src/app/home/notification/notification.component.ts");
 
     var routes = [{
       path: '',
-      component: _staff_component__WEBPACK_IMPORTED_MODULE_3__["StaffComponent"],
-      data: {
-        title: "Staff"
-      },
-      children: [{
-        path: '',
-        loadChildren: function loadChildren() {
-          return __webpack_require__.e(
-          /*! import() */
-          17).then(__webpack_require__.bind(null,
-          /*! ./list/list.module */
-          "./src/app/home/staff/list/list.module.ts")).then(function (mod) {
-            return mod.ListModule;
-          });
-        },
-        data: {
-          title: "List",
-          status: false
-        }
-      }, {
-        path: 'add',
-        loadChildren: function loadChildren() {
-          return __webpack_require__.e(
-          /*! import() */
-          15).then(__webpack_require__.bind(null,
-          /*! ./addstaff/addstaff.module */
-          "./src/app/home/staff/addstaff/addstaff.module.ts")).then(function (mod) {
-            return mod.AddstaffModule;
-          });
-        },
-        data: {
-          title: "Add",
-          status: false
-        }
-      }, {
-        path: 'edit',
-        loadChildren: function loadChildren() {
-          return __webpack_require__.e(
-          /*! import() */
-          16).then(__webpack_require__.bind(null,
-          /*! ./editstaff/editstaff.module */
-          "./src/app/home/staff/editstaff/editstaff.module.ts")).then(function (mod) {
-            return mod.EditstaffModule;
-          });
-        },
-        data: {
-          title: "Edit",
-          status: false
-        }
-      }]
+      component: _notification_component__WEBPACK_IMPORTED_MODULE_3__["NotificationComponent"]
     }];
 
-    var StaffRoutingModule = function StaffRoutingModule() {
-      _classCallCheck(this, StaffRoutingModule);
+    var NotificationRoutingModule = function NotificationRoutingModule() {
+      _classCallCheck(this, NotificationRoutingModule);
     };
 
-    StaffRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    NotificationRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], StaffRoutingModule);
+    })], NotificationRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staff.component.scss":
-  /*!*************************************************!*\
-    !*** ./src/app/home/staff/staff.component.scss ***!
-    \*************************************************/
+  "./src/app/home/notification/notification.component.scss":
+  /*!***************************************************************!*\
+    !*** ./src/app/home/notification/notification.component.scss ***!
+    \***************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeStaffStaffComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeNotificationNotificationComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvc3RhZmYvc3RhZmYuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvbm90aWZpY2F0aW9uL25vdGlmaWNhdGlvbi5jb21wb25lbnQuc2NzcyJ9 */";
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staff.component.ts":
-  /*!***********************************************!*\
-    !*** ./src/app/home/staff/staff.component.ts ***!
-    \***********************************************/
+  "./src/app/home/notification/notification.component.ts":
+  /*!*************************************************************!*\
+    !*** ./src/app/home/notification/notification.component.ts ***!
+    \*************************************************************/
 
-  /*! exports provided: StaffComponent */
+  /*! exports provided: NotificationComponent */
 
   /***/
-  function srcAppHomeStaffStaffComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeNotificationNotificationComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffComponent", function () {
-      return StaffComponent;
+    __webpack_require__.d(__webpack_exports__, "NotificationComponent", function () {
+      return NotificationComponent;
     });
     /* harmony import */
 
@@ -186,95 +137,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var StaffComponent =
+    var NotificationComponent =
     /*#__PURE__*/
     function () {
-      function StaffComponent() {
-        _classCallCheck(this, StaffComponent);
-
-        this.displayedColumns = ['position', 'name', 'photo', 'email', 'number', 'rating', 'action'];
-        this.dataSource = ELEMENT_DATA;
+      function NotificationComponent() {
+        _classCallCheck(this, NotificationComponent);
       }
 
-      _createClass(StaffComponent, [{
+      _createClass(NotificationComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return StaffComponent;
+      return NotificationComponent;
     }();
 
-    StaffComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-staff',
+    NotificationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-notification',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./staff.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staff.component.html")).default,
+      /*! raw-loader!./notification.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./staff.component.scss */
-      "./src/app/home/staff/staff.component.scss")).default]
-    })], StaffComponent);
-    var ELEMENT_DATA = [{
-      position: 1,
-      name: 'Jane Doe',
-      photo: 'assets/images/noti-pro.png',
-      email: 'jane@gmail.com',
-      number: +919999999999,
-      rating: 'assets/images/reviews-star.png',
-      action: 'Action Button'
-    }, {
-      position: 2,
-      name: 'Jane Doe',
-      photo: 'assets/images/noti-pro.png',
-      email: 'jane@gmail.com',
-      number: +919999999999,
-      rating: 'assets/images/reviews-star.png',
-      action: 'Action Button'
-    }, {
-      position: 3,
-      name: 'Jane Doe',
-      photo: 'assets/images/noti-pro.png',
-      email: 'jane@gmail.com',
-      number: +919999999999,
-      rating: 'assets/images/reviews-star.png',
-      action: 'Action Button'
-    }, {
-      position: 4,
-      name: 'Jane Doe',
-      photo: 'assets/images/noti-pro.png',
-      email: 'jane@gmail.com',
-      number: +919999999999,
-      rating: 'assets/images/reviews-star.png',
-      action: 'Action Button'
-    }, {
-      position: 5,
-      name: 'Jane Doe',
-      photo: 'assets/images/noti-pro.png',
-      email: 'jane@gmail.com',
-      number: +919999999999,
-      rating: 'assets/images/reviews-star.png',
-      action: 'Action Button'
-    }];
+      /*! ./notification.component.scss */
+      "./src/app/home/notification/notification.component.scss")).default]
+    })], NotificationComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staff.module.ts":
-  /*!********************************************!*\
-    !*** ./src/app/home/staff/staff.module.ts ***!
-    \********************************************/
+  "./src/app/home/notification/notification.module.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/notification/notification.module.ts ***!
+    \**********************************************************/
 
-  /*! exports provided: StaffModule */
+  /*! exports provided: NotificationModule */
 
   /***/
-  function srcAppHomeStaffStaffModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeNotificationNotificationModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffModule", function () {
-      return StaffModule;
+    __webpack_require__.d(__webpack_exports__, "NotificationModule", function () {
+      return NotificationModule;
     });
     /* harmony import */
 
@@ -297,30 +204,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _staff_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./staff-routing.module */
-    "./src/app/home/staff/staff-routing.module.ts");
+    var _notification_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./notification-routing.module */
+    "./src/app/home/notification/notification-routing.module.ts");
     /* harmony import */
 
 
-    var _staff_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./staff.component */
-    "./src/app/home/staff/staff.component.ts");
+    var _notification_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./notification.component */
+    "./src/app/home/notification/notification.component.ts");
     /* harmony import */
 
 
-    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/shared/shared.module */
-    "./src/app/shared/shared.module.ts");
+    var src_app_shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/breadcrumb/breadcrumb.module */
+    "./src/app/shared/breadcrumb/breadcrumb.module.ts");
 
-    var StaffModule = function StaffModule() {
-      _classCallCheck(this, StaffModule);
+    var NotificationModule = function NotificationModule() {
+      _classCallCheck(this, NotificationModule);
     };
 
-    StaffModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_staff_component__WEBPACK_IMPORTED_MODULE_4__["StaffComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _staff_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
-    })], StaffModule);
+    NotificationModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_notification_component__WEBPACK_IMPORTED_MODULE_4__["NotificationComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _notification_routing_module__WEBPACK_IMPORTED_MODULE_3__["NotificationRoutingModule"], src_app_shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_5__["BreadcrumbModule"]]
+    })], NotificationModule);
     /***/
   }
 }]);

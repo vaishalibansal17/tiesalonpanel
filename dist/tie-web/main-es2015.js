@@ -318,7 +318,20 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ng2-slim-loading-bar [height]=\"'5px'\"></ng2-slim-loading-bar>\n<p-toast></p-toast>\n<router-outlet></router-outlet>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ng2-slim-loading-bar [height]=\"'5px'\" [color]=\"'#F96BB3'\"></ng2-slim-loading-bar>\n<p-toast></p-toast>\n<p-toast key=\"myKey1\" position=\"bottom-center\"></p-toast>\n<router-outlet>\n</router-outlet>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/page-not-found/page-not-found.component.html":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/page-not-found/page-not-found.component.html ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"error_page\"><h1>404 Page Not Found</h1></div>");
 
 /***/ }),
 
@@ -566,6 +579,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _shared_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./shared/guard/auth.guard */ "./src/app/shared/guard/auth.guard.ts");
 /* harmony import */ var _shared_guard_login_guard__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./shared/guard/login.guard */ "./src/app/shared/guard/login.guard.ts");
+/* harmony import */ var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
+
 
 
 
@@ -573,8 +588,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(3)]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomeModule), canActivate: [_shared_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'auth', loadChildren: () => __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./auth/auth.module */ "./src/app/auth/auth.module.ts")).then(m => m.AuthModule), canActivate: [_shared_guard_login_guard__WEBPACK_IMPORTED_MODULE_4__["LoginGuard"]] }
+    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomeModule), canActivate: [_shared_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'auth', loadChildren: () => __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ./auth/auth.module */ "./src/app/auth/auth.module.ts")).then(m => m.AuthModule), canActivate: [_shared_guard_login_guard__WEBPACK_IMPORTED_MODULE_4__["LoginGuard"]] },
+    { path: '**', component: _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__["PageNotFoundComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -655,16 +671,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var _shared_interceptor_api_prefix_interceptor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./shared/interceptor/api.prefix.interceptor */ "./src/app/shared/interceptor/api.prefix.interceptor.ts");
 /* harmony import */ var _shared_interceptor_offline_interceptor__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./shared/interceptor/offline.interceptor */ "./src/app/shared/interceptor/offline.interceptor.ts");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
-/* harmony import */ var _shared_interceptor_loader_interceptor__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./shared/interceptor/loader.interceptor */ "./src/app/shared/interceptor/loader.interceptor.ts");
-/* harmony import */ var ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ng2-slim-loading-bar */ "./node_modules/ng2-slim-loading-bar/index.js");
-/* harmony import */ var _shared_interceptor_error_interceptor__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./shared/interceptor/error.interceptor */ "./src/app/shared/interceptor/error.interceptor.ts");
-/* harmony import */ var _shared_service_helper_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./shared/service/helper.service */ "./src/app/shared/service/helper.service.ts");
-/* harmony import */ var _shared_service_translate_service__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./shared/service/translate.service */ "./src/app/shared/service/translate.service.ts");
-/* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! @ngx-translate/http-loader */ "./node_modules/@ngx-translate/http-loader/fesm2015/ngx-translate-http-loader.js");
-/* harmony import */ var _shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
-/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! primeng/toast */ "./node_modules/primeng/fesm2015/primeng-toast.js");
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
+/* harmony import */ var _shared_interceptor_loader_interceptor__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./shared/interceptor/loader.interceptor */ "./src/app/shared/interceptor/loader.interceptor.ts");
+/* harmony import */ var ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ng2-slim-loading-bar */ "./node_modules/ng2-slim-loading-bar/index.js");
+/* harmony import */ var _shared_interceptor_error_interceptor__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./shared/interceptor/error.interceptor */ "./src/app/shared/interceptor/error.interceptor.ts");
+/* harmony import */ var _shared_service_helper_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./shared/service/helper.service */ "./src/app/shared/service/helper.service.ts");
+/* harmony import */ var _shared_service_translate_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./shared/service/translate.service */ "./src/app/shared/service/translate.service.ts");
+/* harmony import */ var _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @ngx-translate/http-loader */ "./node_modules/@ngx-translate/http-loader/fesm2015/ngx-translate-http-loader.js");
+/* harmony import */ var _shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
+/* harmony import */ var primeng_toast__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! primeng/toast */ "./node_modules/primeng/fesm2015/primeng-toast.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
+/* harmony import */ var ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ngx-material-timepicker */ "./node_modules/ngx-material-timepicker/fesm2015/ngx-material-timepicker.js");
+/* harmony import */ var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./page-not-found/page-not-found.component */ "./src/app/page-not-found/page-not-found.component.ts");
 
 
 
@@ -674,6 +691,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+// import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -686,7 +705,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function HttpLoaderFactory(httpClient) {
-    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_16__["TranslateHttpLoader"](httpClient);
+    return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_15__["TranslateHttpLoader"](httpClient);
 }
 function setupTranslateFactory(service) {
     return () => service.use('en');
@@ -696,36 +715,81 @@ let AppModule = class AppModule {
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_20__["PageNotFoundComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"],
             _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
             _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"],
-            ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_12__["SlimLoadingBarModule"].forRoot(),
-            ngx_toastr__WEBPACK_IMPORTED_MODULE_10__["ToastrModule"].forRoot({
-                timeOut: 10000,
-                positionClass: 'toast-bottom-right',
-                preventDuplicates: true,
-                countDuplicates: true,
-                maxOpened: 3,
-                autoDismiss: true
-            }),
-            _shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_17__["ApplicationpipeModule"],
-            primeng_toast__WEBPACK_IMPORTED_MODULE_18__["ToastModule"]
+            ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_11__["SlimLoadingBarModule"].forRoot(),
+            // ToastrModule.forRoot({
+            //   timeOut: 10000,
+            //   positionClass: 'toast-bottom-right',
+            //   preventDuplicates: true,
+            //   countDuplicates: true,
+            //   maxOpened: 3,
+            //   autoDismiss: true
+            // }),
+            _shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_16__["ApplicationpipeModule"],
+            primeng_toast__WEBPACK_IMPORTED_MODULE_17__["ToastModule"],
+            ngx_material_timepicker__WEBPACK_IMPORTED_MODULE_19__["NgxMaterialTimepickerModule"]
         ],
         schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_2__["NO_ERRORS_SCHEMA"], _angular_core__WEBPACK_IMPORTED_MODULE_2__["CUSTOM_ELEMENTS_SCHEMA"]],
-        providers: [_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_6__["HttpRequestService"], _shared_service_helper_service__WEBPACK_IMPORTED_MODULE_14__["Helper"], _shared_service_translate_service__WEBPACK_IMPORTED_MODULE_15__["TranslateService"], primeng_api__WEBPACK_IMPORTED_MODULE_19__["MessageService"],
+        providers: [_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_6__["HttpRequestService"], _shared_service_helper_service__WEBPACK_IMPORTED_MODULE_13__["Helper"], _shared_service_translate_service__WEBPACK_IMPORTED_MODULE_14__["TranslateService"], primeng_api__WEBPACK_IMPORTED_MODULE_18__["MessageService"],
             { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HTTP_INTERCEPTORS"], useClass: _shared_interceptor_api_prefix_interceptor__WEBPACK_IMPORTED_MODULE_8__["ApiPrefixInterceptor"], multi: true },
             { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HTTP_INTERCEPTORS"], useClass: _shared_interceptor_offline_interceptor__WEBPACK_IMPORTED_MODULE_9__["OfflineInterceptor"], multi: true },
-            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HTTP_INTERCEPTORS"], useClass: _shared_interceptor_loader_interceptor__WEBPACK_IMPORTED_MODULE_11__["LoaderInterceptor"], multi: true },
-            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HTTP_INTERCEPTORS"], useClass: _shared_interceptor_error_interceptor__WEBPACK_IMPORTED_MODULE_13__["ErrorInterceptor"], multi: true },
-            { provide: _angular_core__WEBPACK_IMPORTED_MODULE_2__["APP_INITIALIZER"], useFactory: setupTranslateFactory, deps: [_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_15__["TranslateService"]], multi: true }
+            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HTTP_INTERCEPTORS"], useClass: _shared_interceptor_loader_interceptor__WEBPACK_IMPORTED_MODULE_10__["LoaderInterceptor"], multi: true },
+            { provide: _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HTTP_INTERCEPTORS"], useClass: _shared_interceptor_error_interceptor__WEBPACK_IMPORTED_MODULE_12__["ErrorInterceptor"], multi: true },
+            { provide: _angular_core__WEBPACK_IMPORTED_MODULE_2__["APP_INITIALIZER"], useFactory: setupTranslateFactory, deps: [_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_14__["TranslateService"]], multi: true }
         ],
         bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
     })
 ], AppModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/page-not-found/page-not-found.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/page-not-found/page-not-found.component.css ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".error_page {\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    background: #cecece;\n    left: 0;\n    top: 0;\n}\n\n.error_page h1 {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n    color: red;\n    margin: 0;\n    line-height: 1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZS1ub3QtZm91bmQvcGFnZS1ub3QtZm91bmQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGVBQWU7SUFDZixXQUFXO0lBQ1gsWUFBWTtJQUNaLG1CQUFtQjtJQUNuQixPQUFPO0lBQ1AsTUFBTTtBQUNWOztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLFNBQVM7SUFDVCxRQUFRO0lBQ1Isd0NBQWdDO1lBQWhDLGdDQUFnQztJQUNoQyxVQUFVO0lBQ1YsU0FBUztJQUNULGNBQWM7QUFDbEIiLCJmaWxlIjoic3JjL2FwcC9wYWdlLW5vdC1mb3VuZC9wYWdlLW5vdC1mb3VuZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmVycm9yX3BhZ2Uge1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgYmFja2dyb3VuZDogI2NlY2VjZTtcbiAgICBsZWZ0OiAwO1xuICAgIHRvcDogMDtcbn1cblxuLmVycm9yX3BhZ2UgaDEge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdG9wOiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgY29sb3I6IHJlZDtcbiAgICBtYXJnaW46IDA7XG4gICAgbGluZS1oZWlnaHQ6IDE7XG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/page-not-found/page-not-found.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/page-not-found/page-not-found.component.ts ***!
+  \************************************************************/
+/*! exports provided: PageNotFoundComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PageNotFoundComponent", function() { return PageNotFoundComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let PageNotFoundComponent = class PageNotFoundComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+PageNotFoundComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-page-not-found',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./page-not-found.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/page-not-found/page-not-found.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./page-not-found.component.css */ "./src/app/page-not-found/page-not-found.component.css")).default]
+    })
+], PageNotFoundComponent);
 
 
 
@@ -785,14 +849,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const BASE_URL = _environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].END_POINT;
-console.log(_environments_environment__WEBPACK_IMPORTED_MODULE_1__["environment"].END_POINT);
 const APIURLS = {
     LOGIN: BASE_URL + 'salon/login',
     RESET: BASE_URL + 'salon/reset/pass',
     FORGOT: BASE_URL + 'salon/forgot/pass',
     CHANGEPASS: BASE_URL + 'salon/change/pass',
     PROFILE: BASE_URL + 'salon/detail',
-    EDIT: BASE_URL + 'salon'
+    EDIT: BASE_URL + 'salon',
+    WRKNGHRS: BASE_URL + 'salon/working/hour',
+    FREELNCERESET: BASE_URL + 'freelance/reset/pass'
 };
 
 
@@ -1015,7 +1080,7 @@ let LoaderInterceptor = class LoaderInterceptor {
     intercept(req, next) {
         // start our loader here
         this._loadingBar.start();
-        return next.handle(req).delay(1000).do((event) => {
+        return next.handle(req).do((event) => {
             // if the event is for http response
             if (event instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpResponse"]) {
                 // stop our loader here
@@ -1053,25 +1118,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var rxjs_observable_throw__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/observable/throw */ "./node_modules/rxjs-compat/_esm2015/observable/throw.js");
 /* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
+
 
 
 
 
 
 let OfflineInterceptor = class OfflineInterceptor {
-    constructor(toastr) {
+    constructor(toastr, messageService) {
         this.toastr = toastr;
+        this.messageService = messageService;
     }
     intercept(request, next) {
         if (!window.navigator.onLine) {
-            this.toastr.error('No Internet Connection.', 'Please check your internet connection and try again.', {
-                timeOut: 10000,
-                closeButton: true,
-                progressBar: true,
-                progressAnimation: 'decreasing',
-                positionClass: 'toast-bottom-right'
-            });
+            this.messageService.add({ key: 'myKey1', severity: 'warn', summary: 'No Internet Connection.', detail: 'Please check your internet connection and try again.' });
             return Object(rxjs_observable_throw__WEBPACK_IMPORTED_MODULE_3__["_throw"])(new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpErrorResponse"]({ error: 'Internet is required.' }));
+            // this.toastr.error('No Internet Connection.', 'Please check your internet connection and try again.',
+            //     {
+            //         timeOut: 10000,
+            //         closeButton: true,
+            //         progressBar: true,
+            //         progressAnimation: 'decreasing',
+            //         positionClass: 'toast-bottom-right'
+            //     });
+            // return _throw(new HttpErrorResponse({ error: 'Internet is required.' }));
         }
         else {
             // else return the normal request
@@ -1080,7 +1151,8 @@ let OfflineInterceptor = class OfflineInterceptor {
     }
 };
 OfflineInterceptor.ctorParameters = () => [
-    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"] }
+    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"] },
+    { type: primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"] }
 ];
 OfflineInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
@@ -1177,15 +1249,9 @@ let Helper = class Helper {
             return false;
         }
     }
-    parseDate(data, time, isUTC = true) {
-        var date = new Date(data), mnth = ("0" + (date.getMonth())).slice(-2), day = ("0" + date.getDate()).slice(-2);
-        var dateTime = new Date(time);
-        var timeStamp = new Date(Number(date.getFullYear()), Number(mnth), Number(day), (dateTime.getHours()), (dateTime.getMinutes()), (dateTime.getSeconds()), (dateTime.getMilliseconds()));
-        let bac = moment_timezone__WEBPACK_IMPORTED_MODULE_2___default.a.utc(timeStamp);
-        if (isUTC)
-            return bac.valueOf();
-        else
-            return timeStamp.getTime();
+    parseDate(data) {
+        var date = new Date(data);
+        return { hh: date.getHours(), mm: date.getMinutes() };
     }
     getTimeZone(dateTime, timeZone) {
         var testDateUtc = moment_timezone__WEBPACK_IMPORTED_MODULE_2___default.a.tz(dateTime, timeZone).format('DD-MM-YYYY H:mm:s');
@@ -1358,8 +1424,10 @@ let TranslateService = class TranslateService {
         this.data = {};
     }
     use(lang) {
+        console.log(localStorage.getItem('lang'), lang, '-----------');
         return new Promise((resolve, reject) => {
-            const langPath = `assets/i18n/${lang || 'ua'}.json`;
+            lang = localStorage.getItem('lang');
+            const langPath = `assets/i18n/${lang || 'en'}.json`;
             this.http.get(langPath).subscribe(translation => {
                 this.data = Object.assign({}, translation || {});
                 resolve(this.data);

@@ -156,18 +156,9 @@ export class BusinesshoursComponent implements OnInit {
           this.isSatBreak = detail.wrk_hrs[6].is_break;
 
         } else {
-          // if (!_.isEmpty(response.error)) {
-          //   if (response.error.errorCode == 20) {
-          //     this.httpService.showError(MESSAGE.LOGIN.NOT_EXIST, MESSAGE.LOGIN.DEL_ORG, MESSAGE.MSGTIME);
-          //     this.httpService.logout();
-          //   }
-          //   else {
-          //     this.httpService.showError(response.error.errors.message, 'Validation Error!', MESSAGE.MSGTIME);
-          //   }
-          // } else {
-          //   this.spinner.hide();
-          //   this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
-          // }
+          if (response.err) {
+              this.errorserv.handleError(response.err.errCode)
+          } 
         }
       }, (error) => {
 

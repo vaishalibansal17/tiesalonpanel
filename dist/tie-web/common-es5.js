@@ -6,23 +6,63 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["common"], {
   /***/
-  "./src/app/shared/service/error.service.ts":
-  /*!*************************************************!*\
-    !*** ./src/app/shared/service/error.service.ts ***!
-    \*************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/auth-header/auth-header.component.html":
+  /*!***************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/auth/auth-header/auth-header.component.html ***!
+    \***************************************************************************************************/
 
-  /*! exports provided: ErrorService */
+  /*! exports provided: default */
 
   /***/
-  function srcAppSharedServiceErrorServiceTs(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppAuthAuthHeaderAuthHeaderComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"fixed-select\">\n    <button mat-button [matMenuTriggerFor]=\"lan_menu\" [disableRipple]=\"true\">{{lang=='en'?\"En\":\"Ar\"}} <img src=\"{{lang=='en'?'assets/images/flag_en.png':'assets/images/flag_ar.png'}}\" alt=\"England\"><img class=\"drop_img\" src=\"assets/images/dropdown.png\" alt=\"\"></button>\n    <mat-menu #lan_menu=\"matMenu\" xPosition=\"before\">\n    <button class=\"flag_drop\" mat-menu-item (click)=\"setLang('ua')\">Ar <img src=\"assets/images/flag_ar.png\" alt=\"England\"></button>\n    <button class=\"flag_drop\" mat-menu-item (click)=\"setLang('en')\">En <img src=\"assets/images/flag_en.png\" alt=\"England\"></button>\n    </mat-menu>\n</div>";
+    /***/
+  },
+
+  /***/
+  "./src/app/auth/auth-header/auth-header.component.scss":
+  /*!*************************************************************!*\
+    !*** ./src/app/auth/auth-header/auth-header.component.scss ***!
+    \*************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppAuthAuthHeaderAuthHeaderComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2F1dGgvYXV0aC1oZWFkZXIvYXV0aC1oZWFkZXIuY29tcG9uZW50LnNjc3MifQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/auth/auth-header/auth-header.component.ts":
+  /*!***********************************************************!*\
+    !*** ./src/app/auth/auth-header/auth-header.component.ts ***!
+    \***********************************************************/
+
+  /*! exports provided: AuthHeaderComponent */
+
+  /***/
+  function srcAppAuthAuthHeaderAuthHeaderComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ErrorService", function () {
-      return ErrorService;
+    __webpack_require__.d(__webpack_exports__, "AuthHeaderComponent", function () {
+      return AuthHeaderComponent;
     });
     /* harmony import */
 
@@ -39,89 +79,114 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./translate.service */
+    var src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/shared/service/translate.service */
     "./src/app/shared/service/translate.service.ts");
-    /* harmony import */
 
-
-    var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./http-request.service */
-    "./src/app/shared/service/http-request.service.ts"); // import { TranslatePipe } from '../_pipes/translate.pipe';
-
-
-    var ErrorService =
+    var AuthHeaderComponent =
     /*#__PURE__*/
     function () {
-      function ErrorService(helper, trns) {
-        _classCallCheck(this, ErrorService);
+      function AuthHeaderComponent(trns) {
+        _classCallCheck(this, AuthHeaderComponent);
 
-        this.helper = helper;
         this.trns = trns;
+        this.lang = localStorage.getItem('lang');
       }
 
-      _createClass(ErrorService, [{
-        key: "handleError",
-        value: function handleError() {
-          var errCode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-
-          switch (errCode) {
-            case 0:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
-              break;
-
-            case 1:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
-              break;
-
-            case 4:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
-              break;
-
-            case 5:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
-              break;
-
-            case 6:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
-              break;
-
-            case 7:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
-              break;
-
-            case 8:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
-              break;
-
-            case 9:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
-              break;
-
-            case 31:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
-              break;
-
-            default:
-              break;
-          }
+      _createClass(AuthHeaderComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          console.log("dfghjkl;");
+        }
+      }, {
+        key: "setLang",
+        value: function setLang(lang) {
+          localStorage.setItem('lang', lang);
+          this.lang = lang;
+          this.trns.use(this.lang);
         }
       }]);
 
-      return ErrorService;
+      return AuthHeaderComponent;
     }();
 
-    ErrorService.ctorParameters = function () {
+    AuthHeaderComponent.ctorParameters = function () {
       return [{
-        type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
-      }, {
-        type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
+        type: src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
       }];
     };
 
-    ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-      providedIn: 'root'
-    })], ErrorService);
+    AuthHeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-auth-header',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./auth-header.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/auth-header/auth-header.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./auth-header.component.scss */
+      "./src/app/auth/auth-header/auth-header.component.scss")).default]
+    })], AuthHeaderComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/auth/auth-header/auth-header.module.ts":
+  /*!********************************************************!*\
+    !*** ./src/app/auth/auth-header/auth-header.module.ts ***!
+    \********************************************************/
+
+  /*! exports provided: AuthHeaderModule */
+
+  /***/
+  function srcAppAuthAuthHeaderAuthHeaderModuleTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "AuthHeaderModule", function () {
+      return AuthHeaderModule;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/fesm2015/common.js");
+    /* harmony import */
+
+
+    var src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/shared/material/material.module */
+    "./src/app/shared/material/material.module.ts");
+    /* harmony import */
+
+
+    var _auth_header_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./auth-header.component */
+    "./src/app/auth/auth-header/auth-header.component.ts");
+
+    var AuthHeaderModule = function AuthHeaderModule() {
+      _classCallCheck(this, AuthHeaderModule);
+    };
+
+    AuthHeaderModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_auth_header_component__WEBPACK_IMPORTED_MODULE_4__["AuthHeaderComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_3__["MaterialModule"]],
+      exports: [_auth_header_component__WEBPACK_IMPORTED_MODULE_4__["AuthHeaderComponent"]]
+    })], AuthHeaderModule);
     /***/
   },
 
