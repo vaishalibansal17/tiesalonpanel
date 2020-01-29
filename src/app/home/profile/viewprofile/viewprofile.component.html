@@ -3,12 +3,12 @@
     <div class="row">
         <div class="col-md-6 top_view"><img [src]="url" alt=""><span class="user_name">{{detail?.name}}</span></div>
         <div class="col-md-6 alignright"><a class="btn btn-edit" [routerLink]="['/profile/edit']"> {{'EDITPROF'| translate}}</a></div>
-        <div class="col-md-4 label">{{'EMAIL'| translate | titlecase}}:</div>
-        <div class="col-md-8">{{detail?.email}}</div>
-        <div class="col-md-4 label">{{'MOBILENUMBER'| translate}}:</div>
-        <div class="col-md-8">{{detail?.phone}}</div>
-        <div class="col-md-4 label">{{'LOCATION'| translate}}:</div>
-        <div class="col-md-8">{{detail?.address}}
+        <div class="col-md-3 label">{{'EMAIL'| translate | titlecase}}:</div>
+        <div class="col-md-9 description">{{detail?.email}}</div>
+        <div class="col-md-3 label">{{'MOBILENUMBER'| translate}}:</div>
+        <div class="col-md-9 description">{{detail?.phone}}</div>
+        <div class="col-md-3 label">{{'LOCATION'| translate}}:</div>
+        <div class="col-md-9 description">{{detail?.address}}
             <!-- <img src="assets/images/maps.png" alt="map" class="full_width"> -->
             <div class="map full_width">
                 <agm-map [latitude]="detail?.lat" [longitude]="detail?.lng"
@@ -17,14 +17,14 @@
                 </agm-map>
             </div>
         </div>
-        <div class="col-md-4 label">{{'BUSINESSHOURS'| translate}}:</div>
-        <div class="col-md-8">NA</div>
-        <div class="col-md-4 label">{{'REVIEWS'| translate}}:</div>
-        <div class="col-md-8"><img src="assets/images/reviews.png" alt="Review"></div>
-        <div class="col-md-4 label">{{'DESCRIPTION'| translate}}:</div>
-        <div class="col-md-8">{{detail?.desc}}</div>
-        <div class="col-md-4 label">{{'WORKGALLERY'| translate}}:</div>
-        <div class="col-md-8">
+        <div class="col-md-3 label">{{'BUSINESSHOURS'| translate}}:</div>
+        <div class="col-md-9 description">NA</div>
+        <div class="col-md-3 label">{{'REVIEWS'| translate}}:</div>
+        <div class="col-md-9 description"><img src="assets/images/reviews.png" alt="Review"></div>
+        <div class="col-md-3 label">{{'DESCRIPTION'| translate}}:</div>
+        <div class="col-md-9 description">{{detail?.desc}}</div>
+        <div class="col-md-3 label">{{'WORKGALLERY'| translate}}:</div>
+        <div class="col-md-9 description">
             <div class="work_gallery">
                 <label class="detail_content"><a class="margin_top"
                     *ngFor="let image of salonImageUrlArray; index as i" (click)="openModal(template)">
@@ -34,12 +34,12 @@
                 </label>
             </div>
         </div>
-        <div class="col-md-4 label">{{'WEBSITE'| translate}}:</div>
-        <div class="col-md-8">{{detail?.website}}</div>
-        <div class="col-md-4 label">{{'SERVICEAT'| translate}}:</div>
-        <div class="col-md-8">{{detail?.service_at == 1?'Home': detail?.service_at==2?'Salon':'Both'}}</div>
-        <div class="col-md-4 label">{{'STAFFNAME'| translate}}:</div>
-        <div class="col-md-8">
+        <div class="col-md-3 label">{{'WEBSITE'| translate}}:</div>
+        <div class="col-md-9 description">{{detail?.website}}</div>
+        <div class="col-md-3 label">{{'SERVICEAT'| translate}}:</div>
+        <div class="col-md-9 description">{{detail?.service_at == 1?'Home': detail?.service_at==2?'Salon':'Both'}}</div>
+        <div class="col-md-3 label">{{'STAFFNAME'| translate}}:</div>
+        <div class="col-md-9 description">
             <ul class="staff_name">
                 <li>Allen</li>
                 <li>James</li>
