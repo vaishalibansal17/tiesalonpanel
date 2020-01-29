@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build && gzipper --verbose ./dist ./gzipped",
     "build_qa": "ng build && gzipper --verbose ./dist --configuration=qa --prod",
-    "build_dev": "ng build && gzipper --verbose ./dist --configuration=dev --prod --aot --build-optimizer --stats-json",
+    "build_dev": "ng build && gzipper --verbose ./dist --configuration=dev --prod  --build-optimizer --stats-json",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
