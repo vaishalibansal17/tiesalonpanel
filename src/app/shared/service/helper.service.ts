@@ -1,11 +1,12 @@
-
 import { Injectable } from '@angular/core';
 import moment from 'moment-timezone';
+import { ToastrService } from 'ngx-toastr';
+import { MessageService } from 'primeng/api';
 
 @Injectable()
 
 export class Helper {
-    constructor() { }
+    constructor(private toastr: ToastrService, private messageService: MessageService) { }
 
     convertTimestampToISODate(value) {
         let year = new Date(value).getFullYear();
@@ -45,7 +46,7 @@ export class Helper {
 
         var timeStamp = new Date(Number(date.getFullYear()), Number(mnth), Number(day), (dateTime.getHours()), (dateTime.getMinutes()), (dateTime.getSeconds()), (dateTime.getMilliseconds()));
         let bac = moment.utc(timeStamp)
-          if (isUTC)
+        if (isUTC)
             return bac.valueOf();
         else
             return timeStamp.getTime();
@@ -53,6 +54,53 @@ export class Helper {
 
     getTimeZone(dateTime, timeZone?) {
         var testDateUtc = moment.tz(dateTime, timeZone).format('DD-MM-YYYY H:mm:s');
-        return new Date(new Date(dateTime).toLocaleString("en-US", {timeZone: timeZone}));
+        return new Date(new Date(dateTime).toLocaleString("en-US", { timeZone: timeZone }));
+    }
+
+    errTostr(title, msg) {
+        this.messageService.add({ severity: 'error', summary: title, detail: msg });
+        // this.toastr.error(msg, title,
+        //     {
+        //         timeOut: 5000,
+        //         closeButton: true,
+        //         progressBar: true,
+        //         progressAnimation: 'decreasing',
+        //         positionClass: 'toast-bottom-left'
+        //     });
+    }
+    sucsTostr(title, msg) {
+        this.messageService.clear();
+        this.messageService.add({ severity: 'success', summary: title, detail: msg, sticky:true });
+
+        // this.toastr.success(msg, title,
+        //     {
+        //         timeOut: 5000,
+        //         closeButton: true,
+        //         progressBar: true,
+        //         progressAnimation: 'decreasing',
+        //         positionClass: 'toast-bottom-left'
+        //     });
+    }
+
+    checkImageValidationMultiple(event) {
+
+        let files = event.target.files;
+        if (files) {
+            for (let file of files) {
+                if (files && files[0]) {
+                    if (files[0].size > 5000000) {
+                        this.errTostr('', 'error');
+                        return false
+                    } else if (this.isImage(files[0].type)) {
+                        return true;
+                    } else {
+                        this.errTostr('', 'image error');
+                        return false
+                    }
+                }
+            }
+        }
+
+
     }
 }

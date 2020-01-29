@@ -11,6 +11,9 @@ import { HeaderComponent } from './header/header.component';
 import { MaterialModule } from '../shared/material/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { SupportComponent } from './support/support.component';
+import { ApplicationpipeModule } from '../shared/module/applicationpipe/applicationpipe.module';
+import { TranslatePipe } from '../shared/_pipes/translate.pipe';
+import { BreadcrumbModule } from '../shared/breadcrumb/breadcrumb.module';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import { SupportComponent } from './support/support.component';
     HomeRoutingModule,
      SlimLoadingBarModule,
      MaterialModule,
-     SharedModule
-  ]
+     SharedModule,
+     ApplicationpipeModule,
+     BreadcrumbModule
+  ],
+  providers:[TranslatePipe]
 })
 export class HomeModule { }

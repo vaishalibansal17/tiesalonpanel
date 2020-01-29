@@ -1,30 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-// import { ToastrManager } from 'ng6-toastr-notifications';
 import { Router } from '@angular/router';
-// import { CookieService } from 'ngx-cookie-service';
 import { APIURLS } from '../apiurl/apiurl';
-import {  throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import { MessageService } from 'primeng/api';
+
 @Injectable()
 
 export class HttpRequestService {
 	constructor(private http: HttpClient,
-		// public toaster: ToastrManager,
 		private myRoute: Router, 
-		// private cookieService: CookieService
+		private messageService: MessageService
 		) { }
 
 	getApi(apiName: string) {
 		const Url = APIURLS[apiName];
 		return Url;
 	}
-	getRequest(type: string, requestUrl: string, data?: any, queryParams?: any): Observable<any> {
-		console.log('--------------jkl', this.getApi(requestUrl));
-		
+	getRequest(type: string, requestUrl: string, data?: any, queryParams?: any): Observable<any> {		
 		if (type === 'GET') {
-			return this.http.get<any>('https://jsonplaceholder.typicode.com/xyz' + '/');
+			return this.http.get<any>(this.getApi(requestUrl) + '/' + data);
 		} else if (type === 'POST') {
 			return this.http.post<any>(this.getApi(requestUrl), data);;
 		} else if (type === 'POST_WITHDATA') {			
@@ -42,27 +37,22 @@ export class HttpRequestService {
 	logout() {
 		// Customize credentials invalidation here
 		localStorage.clear();
-		this.myRoute.navigate(['/login']);
+		this.myRoute.navigate(['/auth']);
 	}
 
 
 	isLoggednIn() {
-		return localStorage.getItem('access_token');
+		return localStorage.getItem('acsTkn');
 	}
 
-	// showError(errormsg: string, err?: string, timeOut?: number) {
-	// 	return this.toaster.errorToastr(errormsg, err, {
-	// 		position: 'bottom-center',
-	// 		animate: 'slideFromTop', showCloseButton: true, toastTimeout: timeOut, maxShown:1
-	// 	});
-	// }
-
-	// showSuccess(successmsg: string, sucessBody?: string, timeOut?: number) {
-	// 	this.toaster.successToastr(successmsg, sucessBody, {
-	// 		position: 'bottom-center',
-	// 		animate: 'slideFromTop', showCloseButton: true, toastTimeout: timeOut
-	// 	});
-	// }
+	errTostr(title, msg) {
+		this.messageService.clear();
+        this.messageService.add({ severity: 'error', summary: title, detail: msg });
+    }
+    sucsTostr(title, msg) {
+        this.messageService.clear();
+        this.messageService.add({ severity: 'success', summary: title, detail: msg });
+    }
 
 	toggleRoute(route) {
 		this.myRoute.navigate(['/main/event/' + route + '/' + localStorage.getItem('editEventId')]);

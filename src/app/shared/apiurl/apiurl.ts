@@ -4,5 +4,10 @@ export const BASE_URL = environment.END_POINT;
 console.log(environment.END_POINT);
 
 export const APIURLS = {
-    ORGANISER_EVENT_LIST: BASE_URL + 'organiser/eventList',
+    LOGIN: BASE_URL + 'salon/login',
+    RESET: BASE_URL + 'salon/reset/pass',
+    FORGOT: BASE_URL + 'salon/forgot/pass',
+    CHANGEPASS: BASE_URL + 'salon/change/pass',
+    PROFILE: BASE_URL + 'salon/detail',
+    EDIT : BASE_URL + 'salon'
 };
