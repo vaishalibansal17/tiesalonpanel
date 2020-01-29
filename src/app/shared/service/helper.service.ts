@@ -38,18 +38,9 @@ export class Helper {
         }
     }
 
-    parseDate(data?: any, time?: any, isUTC = true) {
-        var date = new Date(data),
-            mnth = ("0" + (date.getMonth())).slice(-2),
-            day = ("0" + date.getDate()).slice(-2);
-        var dateTime = new Date(time)
-
-        var timeStamp = new Date(Number(date.getFullYear()), Number(mnth), Number(day), (dateTime.getHours()), (dateTime.getMinutes()), (dateTime.getSeconds()), (dateTime.getMilliseconds()));
-        let bac = moment.utc(timeStamp)
-        if (isUTC)
-            return bac.valueOf();
-        else
-            return timeStamp.getTime();
+    parseDate(data) {
+        var date = new Date(data)
+        return {hh:date.getHours(), mm:date.getMinutes()}
     }
 
     getTimeZone(dateTime, timeZone?) {

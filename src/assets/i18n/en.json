@@ -10,6 +10,12 @@
   "EDIT": "Edit  ",
   "DELETE": "Delete",
 
+  "MPROFILE":"My Profile",
+  "SETTINGS": "Settings",
+  "LOGOUT": "Logout",
+  "VIEWALL" : "View All", 
+  "CONTINUE":"Continue",
+
   "STAFF": "STAFF",
   "BOOKING": "BOOKINGS",
   "WALKUSR": "WALKING USERS",
@@ -34,6 +40,7 @@
   "PLACEHOLDERLCPASS":"Old Password",
   "PLACEHOLDERLNPASS":"New Password",
   "PLACEHOLDERLCONFIRMPASS":"Confirm New Password",
+  "RESTPLACEHOLDERLCONFIRMPASS":"Confirm Password",
 
   "PLACEHOLDERLPASS":"Enter your password",
   "PLACEHOLDERLEMAIL":"Email",
@@ -60,6 +67,20 @@
   "EDITPROF":"Edit Profile",
   "SALONSUCCESS" :"Salon has been updated successfully.",
   "CHNGPIC":"Change Profile Picture",
+  "MANAGESTAFF" :"Manage Staff",
+  "WELCOMETOOUR":"Welcome to our",
+  "FRGTPASS":"Forgot Password",
+  "RSTPASS":"Reset Password",
+  "ENTREGISTRMAIL":"Please enter your Registered Email to Reset",
+  "ENTRNWPASS":"Please enter your new password",
+
+  "PHNREQ":"Please enter phone number.",
+  "PHNLNGTH":"Phone number should be between 7 to 12 digits.",
+  "LOCREQ":"Please enter location.",
+  "DESCREQ":"Please enter description.",
+  "DESCLNGTH":"Description should be between 2 to 500 characters.",
+  "WBSTINVLD":"Website is not valid.",
+
   "UI ELEMENT": "Modules",
   "NAVIGATION": "Navigation",
   "USERMANG": "User Management",

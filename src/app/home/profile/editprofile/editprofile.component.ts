@@ -64,7 +64,7 @@ export class EditprofileComponent implements OnInit {
   public searchElementRef: ElementRef;
 
 
-  @ViewChild('slideshow',  { static: true }) slideshow:any
+  @ViewChild('slideshow', { static: true }) slideshow: any
 
 
   displayedColumns = ['No.', 'name', 'price', 'discount_price'];
@@ -103,8 +103,8 @@ export class EditprofileComponent implements OnInit {
     private messageService: MessageService,
     private modalService: BsModalService,
     private errorserv: ErrorService,
-    private trns : TranslatePipe
-    ) { }
+    private trns: TranslatePipe
+  ) { }
 
   ngOnInit() {
     this.salonid = localStorage.getItem('salonid');
@@ -121,11 +121,13 @@ export class EditprofileComponent implements OnInit {
         Validators.required, ValidationService.validateEmail
       ]),
       phone: new FormControl(null, [
-        Validators.required, 
-        ValidationService.phonevalidator
+        Validators.required,
+        ValidationService.phonevalidator,
       ]),
       description: new FormControl(null, [
-        
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(500)
       ]),
       website: new FormControl(null, [
         ValidationService.validateWebsite
@@ -168,7 +170,7 @@ export class EditprofileComponent implements OnInit {
             this.messageService.sendMessage('profile changed');
             this.router.navigateByUrl('/profile')
               .then(() => {
-                this.httpService.sucsTostr(this.trns.transform('SUCCESS'),this.trns.transform('SALONSUCCESS'));
+                this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('SALONSUCCESS'));
               });
           } else {
             if (!_.isEmpty(response.err)) {
@@ -263,27 +265,17 @@ export class EditprofileComponent implements OnInit {
               item = this.detail.bp + item;
               this.salonImageUrlArray.push(item);
               this.salonImageArray.push(item);
-              this.slide = [...this.slide, {'url':item,  clickAction: () => alert('custom click function') }]
+              this.slide = [...this.slide, { 'url': item, clickAction: () => alert('custom click function') }]
               // this.slide.push({'url':item});
             })
           }
         } else {
-          // if (!_.isEmpty(response.error)) {
-          //   if (response.error.errorCode == 20) {
-          //     this.httpService.showError(MESSAGE.LOGIN.NOT_EXIST, MESSAGE.LOGIN.DEL_ORG, MESSAGE.MSGTIME);
-          //     this.httpService.logout();
-          //   }
-          //   else {
-          //     this.httpService.showError(response.error.errors.message, 'Validation Error!', MESSAGE.MSGTIME);
-          //   }
-          // } else {
-          //   this.spinner.hide();
-          //   this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
-          // }
+          if (!_.isEmpty(response.err)) {
+            this.errorserv.handleError(response.err.errCode);
+          }
         }
       }, (error) => {
-
-        // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
+        console.log(error);
       });
   }
   get getControl() { return this.profile.controls; }
@@ -346,7 +338,7 @@ export class EditprofileComponent implements OnInit {
       ignoreBackdropClick: true
     };
     console.log(this.slideshow);
-    
+
     // this.slideshow.goToSlide(3);
     this.modalRef = this.modalService.show(template, config);
   }

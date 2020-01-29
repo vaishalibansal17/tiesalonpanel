@@ -1,128 +1,208 @@
 <div class="main-card">
-    <div class="hour-section">
-        <form action="">
+    <form [formGroup]='form' (ngSubmit)="submit()">
+        <div class="hour-section">
+
             <div class="row">
                 <div class="col-sm-2 middle day">Sunday</div>
-                <div class="col-sm-2 middle"><mat-slide-toggle></mat-slide-toggle></div>
-                <div class="col-sm-4">
-                    <mat-form-field>
-                        <input matInput placeholder="Opening Hours" class="form-control">
-                    </mat-form-field>
+                <div class="col-sm-2 middle">
+                    <mat-slide-toggle formControlName="isSunOpen"></mat-slide-toggle>
                 </div>
                 <div class="col-sm-4">
-                    <mat-form-field>
-                        <input matInput placeholder="Closing Hours" class="form-control">
-                    </mat-form-field>
+                    <p-calendar [timeOnly]="true" formControlName="sunOpen" placeholder="Opening Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4">
+                    <p-calendar [timeOnly]="true" formControlName="sunClose" placeholder="Closing Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4">
+                    <div class="add" (click)="isBreak('sun')"><img src="assets/images/add.png" alt=""> Add Break</div>
+                </div>
+                <div class="col-sm-4" *ngIf="isSunBreak">
+                    <p-calendar [timeOnly]="true" formControlName="sunBreakStart" placeholder="Start Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4" *ngIf="isSunBreak">
+                    <p-calendar [timeOnly]="true" formControlName="sunBreakEnd" placeholder="End Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
                 </div>
             </div>
-        </form>
-        <div class="add"><img src="assets/images/add.png" alt=""> Add Break</div>
-    </div>
-    <div class="hour-section">
-        <form action="">
+
+        </div>
+        <div class="hour-section">
+
             <div class="row">
                 <div class="col-sm-2 middle day">Monday</div>
-                <div class="col-sm-2 middle"><mat-slide-toggle></mat-slide-toggle></div>
-                <div class="col-sm-4">
-                    <mat-form-field>
-                        <input matInput placeholder="Opening Hours" class="form-control">
-                    </mat-form-field>
+                <div class="col-sm-2 middle">
+                    <mat-slide-toggle formControlName="isMonOpen"></mat-slide-toggle>
                 </div>
                 <div class="col-sm-4">
-                    <mat-form-field>
-                        <input matInput placeholder="Closing Hours" class="form-control">
-                    </mat-form-field>
-                </div>
-                <div class="col-sm-4"><div class="add">
-                    Add Break</div></div>
-                <div class="col-sm-4">
-                    <mat-form-field>
-                        <input matInput placeholder="Start Break" class="form-control">
-                    </mat-form-field>
+                    <p-calendar [timeOnly]="true" formControlName="monOpen" placeholder="Opening Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
                 </div>
                 <div class="col-sm-4">
-                    <mat-form-field>
-                        <input matInput placeholder="End Break" class="form-control">
-                    </mat-form-field>
+                    <p-calendar [timeOnly]="true" formControlName="monClose" placeholder="Closing Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4">
+                    <div class="add" (click)="isBreak('mon')"><img src="assets/images/add.png" alt=""> Add Break</div>
+                </div>
+                <div class="col-sm-4" *ngIf="isMonBreak">
+                    <p-calendar [timeOnly]="true" formControlName="monBreakStart" placeholder="Start Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4" *ngIf="isMonBreak">
+                    <p-calendar [timeOnly]="true" formControlName="monBreakEnd" placeholder="End Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
                 </div>
             </div>
-        </form>
-    </div>
-    <div class="hour-section">
-        <form action="">
+
+        </div>
+        <div class="hour-section">
+
             <div class="row">
-                <div class="col-sm-2 middle day">Sunday</div>
-                <div class="col-sm-2 middle"><mat-slide-toggle></mat-slide-toggle></div>
-                <div class="col-sm-4">
-                    <mat-form-field>
-                        <input matInput placeholder="Opening Hours" class="form-control">
-                    </mat-form-field>
+                <div class="col-sm-2 middle day">Tuesday</div>
+                <div class="col-sm-2 middle">
+                    <mat-slide-toggle formControlName="isTuesOpen"></mat-slide-toggle>
                 </div>
                 <div class="col-sm-4">
-                    <mat-form-field>
-                        <input matInput placeholder="Closing Hours" class="form-control">
-                    </mat-form-field>
+                    <p-calendar [timeOnly]="true" formControlName="tuesOpen" placeholder="Opening Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4">
+                    <p-calendar [timeOnly]="true" formControlName="tuesClose" placeholder="Closing Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4">
+                    <div class="add" (click)="isBreak('tues')"><img src="assets/images/add.png" alt=""> Add Break</div>
+                </div>
+                <div class="col-sm-4" *ngIf="isTuesBreak">
+                    <p-calendar [timeOnly]="true" formControlName="tuesBreakStart" placeholder="Start Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4" *ngIf="isTuesBreak">
+                    <p-calendar [timeOnly]="true" formControlName="tuesBreakEnd" placeholder="End Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
                 </div>
             </div>
-        </form>
-        <div class="add"><img src="assets/images/add.png" alt=""> Add Break</div>
-    </div>
-    <div class="hour-section">
-        <form action="">
+
+        </div>
+        <div class="hour-section">
+
             <div class="row">
-                <div class="col-sm-2 middle day">Sunday</div>
-                <div class="col-sm-2 middle"><mat-slide-toggle></mat-slide-toggle></div>
-                <div class="col-sm-4">
-                    <mat-form-field>
-                        <input matInput placeholder="Opening Hours" class="form-control">
-                    </mat-form-field>
+                <div class="col-sm-2 middle day">Wednesday</div>
+                <div class="col-sm-2 middle">
+                    <mat-slide-toggle formControlName="isWedOpen" ></mat-slide-toggle>
                 </div>
                 <div class="col-sm-4">
-                    <mat-form-field>
-                        <input matInput placeholder="Closing Hours" class="form-control">
-                    </mat-form-field>
+                    <p-calendar [timeOnly]="true" formControlName="wedOpen" placeholder="Opening Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4">
+                    <p-calendar [timeOnly]="true" formControlName="wedClose" placeholder="Closing Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4">
+                    <div class="add" (click)="isBreak('wed')" ><img src="assets/images/add.png" alt=""> Add Break</div>
+                </div>
+                <div class="col-sm-4" *ngIf="isWedBreak">
+                    <p-calendar [timeOnly]="true" formControlName="wedBreakStart" placeholder="Start Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4" *ngIf="isWedBreak">
+                    <p-calendar [timeOnly]="true" formControlName="wedBreakEnd" placeholder="End Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
                 </div>
             </div>
-        </form>
-        <div class="add"><img src="assets/images/add.png" alt=""> Add Break</div>
-    </div>
-    <div class="hour-section">
-        <form action="">
+
+        </div>
+        <div class="hour-section">
+
             <div class="row">
-                <div class="col-sm-2 middle day">Sunday</div>
-                <div class="col-sm-2 middle"><mat-slide-toggle></mat-slide-toggle></div>
-                <div class="col-sm-4">
-                    <mat-form-field>
-                        <input matInput placeholder="Opening Hours" class="form-control">
-                    </mat-form-field>
+                <div class="col-sm-2 middle day">Thursday</div>
+                <div class="col-sm-2 middle">
+                    <mat-slide-toggle formControlName="isThursOpen"></mat-slide-toggle>
                 </div>
                 <div class="col-sm-4">
-                    <mat-form-field>
-                        <input matInput placeholder="Closing Hours" class="form-control">
-                    </mat-form-field>
+                    <p-calendar [timeOnly]="true" formControlName="thursOpen" placeholder="Opening Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4">
+                    <p-calendar [timeOnly]="true" formControlName="thursClose" placeholder="Closing Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4">
+                    <div class="add" (click)="isBreak('thurs')"><img src="assets/images/add.png" alt=""> Add Break</div>
+                </div>
+                <div class="col-sm-4" *ngIf="isThursBreak">
+                    <p-calendar [timeOnly]="true" formControlName="thursBreakStart" placeholder="Start Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4" *ngIf="isThursBreak">
+                    <p-calendar [timeOnly]="true" formControlName="thursBreakEnd" placeholder="End Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
                 </div>
             </div>
-        </form>
-        <div class="add"><img src="assets/images/add.png" alt=""> Add Break</div>
-    </div>
-    <div class="hour-section">
-        <form action="">
+
+        </div>
+        <div class="hour-section">
+
             <div class="row">
-                <div class="col-sm-2 middle day">Sunday</div>
-                <div class="col-sm-2 middle"><mat-slide-toggle></mat-slide-toggle></div>
-                <div class="col-sm-4">
-                    <mat-form-field>
-                        <input matInput placeholder="Opening Hours" class="form-control">
-                    </mat-form-field>
+                <div class="col-sm-2 middle day">Friday</div>
+                <div class="col-sm-2 middle">
+                    <mat-slide-toggle formControlName="isFriOpen"></mat-slide-toggle>
                 </div>
                 <div class="col-sm-4">
-                    <mat-form-field>
-                        <input matInput placeholder="Closing Hours" class="form-control">
-                    </mat-form-field>
+                    <p-calendar [timeOnly]="true" formControlName="friOpen" placeholder="Opening Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4">
+                    <p-calendar [timeOnly]="true" formControlName="friClose" placeholder="Closing Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4">
+                    <div class="add" (click)="isBreak('fri')"><img src="assets/images/add.png" alt=""> Add Break</div>
+                </div>
+                <div class="col-sm-4" *ngIf="isFriBreak">
+                    <p-calendar [timeOnly]="true" formControlName="friBreakStart" placeholder="Start Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4" *ngIf="isFriBreak">
+                    <p-calendar [timeOnly]="true" formControlName="friBreakEnd" placeholder="End Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
                 </div>
             </div>
-        </form>
-        <div class="add"><img src="assets/images/add.png" alt=""> Add Break</div>
-    </div>
-    <button class="btn btn-submit">Save</button>
+
+        </div>
+        <div class="hour-section">
+
+            <div class="row">
+                <div class="col-sm-2 middle day">Saturday</div>
+                <div class="col-sm-2 middle">
+                    <mat-slide-toggle formControlName="isSatOpen"></mat-slide-toggle>
+                </div>
+                <div class="col-sm-4">
+                    <p-calendar [timeOnly]="true" formControlName="satOpen" placeholder="Opening Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4">
+                    <p-calendar [timeOnly]="true" formControlName="satClose" placeholder="Closing Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4">
+                    <div class="add" (click)="isBreak('sat')"><img src="assets/images/add.png" alt=""> Add Break</div>
+                </div>
+                <div class="col-sm-4" *ngIf="isSatBreak">
+                    <p-calendar [timeOnly]="true" formControlName="satBreakStart" placeholder="Start Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+                <div class="col-sm-4" *ngIf="isSatBreak">
+                    <p-calendar [timeOnly]="true" formControlName="satBreakEnd" placeholder="End Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                </div>
+            </div>
+
+        </div>
+        <button class="btn btn-submit">Save</button>
+    </form>
 </div>

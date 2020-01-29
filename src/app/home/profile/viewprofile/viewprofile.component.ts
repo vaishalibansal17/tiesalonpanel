@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpRequestService } from 'src/app/shared/service/http-request.service';
-
-
-
+import { ErrorService } from 'src/app/shared/service/error.service';
 
 @Component({
   selector: 'app-viewprofile',
@@ -15,7 +13,7 @@ export class ViewprofileComponent implements OnInit {
   salonImageUrlArray=[];
   slide = [];
 
-  constructor(private httpService: HttpRequestService,) { }
+  constructor(private httpService: HttpRequestService, private error : ErrorService) { }
 
   ngOnInit() {
     this.getUserProfile();
@@ -35,21 +33,12 @@ export class ViewprofileComponent implements OnInit {
             })
           }
         } else {
-          // if (!_.isEmpty(response.error)) {
-          //   if (response.error.errorCode == 20) {
-          //     this.httpService.showError(MESSAGE.LOGIN.NOT_EXIST, MESSAGE.LOGIN.DEL_ORG, MESSAGE.MSGTIME);
-          //     this.httpService.logout();
-          //   }
-          //   else {
-          //     this.httpService.showError(response.error.errors.message, 'Validation Error!', MESSAGE.MSGTIME);
-          //   }
-          // } else {
-          //   this.spinner.hide();
-          //   this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
-          // }
+          if (response.err) {
+            this.error.handleError(response.err.errCode);
+          }
         }
       }, (error) => {
-
+        this.error.handleError(0);
         // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
       });
   }
