@@ -67,19 +67,21 @@
                 <p class="color" *ngIf="getControl.description.errors.minlength ">{{'DESCLNGTH'| translate}}</p>
             </div>
             <div class="work_gallery">
-                <label for="">{{'WORKGALLERY'| translate}}</label>
+                <label for="" class="block">{{'WORKGALLERY'| translate}}</label>
                 <div class="form-group form-primary custom_formgroup">
-                    <input type="file" class="custom_upload1" multiple
-                        accept="image/x-png,image/gif,image/jpeg,image/jpg" (change)="readUrlMultipleImage($event)"
-                        formControlName='multiImage'>
 
-                    <label class="detail_content"><a class="margin_top"
+                    <label class="detail_content">
+                        <a class="margin_top"
                             *ngFor="let image of salonImageUrlArray; index as i" (click)="openModal(template)">
                             <img class="file_upload2" [src]="image" alt="Upload">
                             <span (click)="removeSalonImages(image,i)">x</span> </a>
-                        <img class="file_upload1" src="assets/images/add-edit.png" alt="Upload">
                     </label>
-                    <br>
+                    <span class="file_div">
+                        <input type="file" class="custom_upload1" multiple
+                        accept="image/x-png,image/gif,image/jpeg,image/jpg" (change)="readUrlMultipleImage($event)"
+                        formControlName='multiImage'>
+                        <img class="file_upload1" src="assets/images/add-edit.png" alt="Upload">
+                    </span>
                 </div>
             </div>
             <mat-form-field>
