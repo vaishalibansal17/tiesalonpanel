@@ -1,125 +1,130 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[20],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/report.component.html":
-/*!*****************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/report.component.html ***!
-  \*****************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html":
+/*!*****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html ***!
+  \*****************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<hr>\n<h1>Will deliver in next milestone.</h1>\n<hr>\n<h2>Thank you</h2>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <app-breadcrumb></app-breadcrumb> -->\n<div class=\"main-card\">\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n            <span class=\"right_btn\">\n                <a href=\"#\" class=\"btn btn-accept\">Accept</a>\n                <a href=\"#\" class=\"btn btn-decline\">Decline</a>\n            </span>\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
-/***/ "./src/app/home/report/report-routing.module.ts":
-/*!******************************************************!*\
-  !*** ./src/app/home/report/report-routing.module.ts ***!
-  \******************************************************/
-/*! exports provided: ReportRoutingModule */
+/***/ "./src/app/home/notification/notification-routing.module.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/home/notification/notification-routing.module.ts ***!
+  \******************************************************************/
+/*! exports provided: NotificationRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReportRoutingModule", function() { return ReportRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationRoutingModule", function() { return NotificationRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _report_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./report.component */ "./src/app/home/report/report.component.ts");
+/* harmony import */ var _notification_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./notification.component */ "./src/app/home/notification/notification.component.ts");
 
 
 
 
-const routes = [{ path: '', component: _report_component__WEBPACK_IMPORTED_MODULE_3__["ReportComponent"] }];
-let ReportRoutingModule = class ReportRoutingModule {
+const routes = [{
+        path: '', component: _notification_component__WEBPACK_IMPORTED_MODULE_3__["NotificationComponent"]
+    }];
+let NotificationRoutingModule = class NotificationRoutingModule {
 };
-ReportRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+NotificationRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], ReportRoutingModule);
+], NotificationRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/report/report.component.scss":
-/*!***************************************************!*\
-  !*** ./src/app/home/report/report.component.scss ***!
-  \***************************************************/
+/***/ "./src/app/home/notification/notification.component.scss":
+/*!***************************************************************!*\
+  !*** ./src/app/home/notification/notification.component.scss ***!
+  \***************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcmVwb3J0L3JlcG9ydC5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = (".main-card {\n  padding: 30px 30px 30px 15px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9ub3RpZmljYXRpb24vbm90aWZpY2F0aW9uLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9ob21lL25vdGlmaWNhdGlvbi9ub3RpZmljYXRpb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBVyx1Q0FBQTtBQ0VYIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9ub3RpZmljYXRpb24vbm90aWZpY2F0aW9uLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1haW4tY2FyZHtwYWRkaW5nOiAzMHB4IDMwcHggMzBweCAxNXB4ICFpbXBvcnRhbnQ7fSIsIi5tYWluLWNhcmQge1xuICBwYWRkaW5nOiAzMHB4IDMwcHggMzBweCAxNXB4ICFpbXBvcnRhbnQ7XG59Il19 */");
 
 /***/ }),
 
-/***/ "./src/app/home/report/report.component.ts":
-/*!*************************************************!*\
-  !*** ./src/app/home/report/report.component.ts ***!
-  \*************************************************/
-/*! exports provided: ReportComponent */
+/***/ "./src/app/home/notification/notification.component.ts":
+/*!*************************************************************!*\
+  !*** ./src/app/home/notification/notification.component.ts ***!
+  \*************************************************************/
+/*! exports provided: NotificationComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReportComponent", function() { return ReportComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationComponent", function() { return NotificationComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 
 
-let ReportComponent = class ReportComponent {
+let NotificationComponent = class NotificationComponent {
     constructor() { }
     ngOnInit() {
     }
 };
-ReportComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+NotificationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-report',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./report.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/report.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./report.component.scss */ "./src/app/home/report/report.component.scss")).default]
+        selector: 'app-notification',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./notification.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./notification.component.scss */ "./src/app/home/notification/notification.component.scss")).default]
     })
-], ReportComponent);
+], NotificationComponent);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/report/report.module.ts":
-/*!**********************************************!*\
-  !*** ./src/app/home/report/report.module.ts ***!
-  \**********************************************/
-/*! exports provided: ReportModule */
+/***/ "./src/app/home/notification/notification.module.ts":
+/*!**********************************************************!*\
+  !*** ./src/app/home/notification/notification.module.ts ***!
+  \**********************************************************/
+/*! exports provided: NotificationModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReportModule", function() { return ReportModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationModule", function() { return NotificationModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _report_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./report-routing.module */ "./src/app/home/report/report-routing.module.ts");
-/* harmony import */ var _report_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./report.component */ "./src/app/home/report/report.component.ts");
+/* harmony import */ var _notification_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./notification-routing.module */ "./src/app/home/notification/notification-routing.module.ts");
+/* harmony import */ var _notification_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./notification.component */ "./src/app/home/notification/notification.component.ts");
+/* harmony import */ var src_app_shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/breadcrumb/breadcrumb.module */ "./src/app/shared/breadcrumb/breadcrumb.module.ts");
 
 
 
 
 
-let ReportModule = class ReportModule {
+
+let NotificationModule = class NotificationModule {
 };
-ReportModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+NotificationModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_report_component__WEBPACK_IMPORTED_MODULE_4__["ReportComponent"]],
+        declarations: [_notification_component__WEBPACK_IMPORTED_MODULE_4__["NotificationComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _report_routing_module__WEBPACK_IMPORTED_MODULE_3__["ReportRoutingModule"]
+            _notification_routing_module__WEBPACK_IMPORTED_MODULE_3__["NotificationRoutingModule"],
+            src_app_shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_5__["BreadcrumbModule"]
         ]
     })
-], ReportModule);
+], NotificationModule);
 
 
 

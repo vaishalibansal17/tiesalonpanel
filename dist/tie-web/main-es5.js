@@ -999,7 +999,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return __webpack_require__.e(
         /*! import() */
-        27).then(__webpack_require__.bind(null,
+        35).then(__webpack_require__.bind(null,
         /*! ./auth/auth.module */
         "./src/app/auth/auth.module.ts")).then(function (m) {
           return m.AuthModule;
@@ -1251,7 +1251,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }
 
     function setupTranslateFactory(service) {
-      debugger;
       return function () {
         return service.use('en');
       };

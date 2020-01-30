@@ -1,74 +1,128 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[29],{
 
-/***/ "./src/app/home/staff/staff-routing.module.ts":
-/*!****************************************************!*\
-  !*** ./src/app/home/staff/staff-routing.module.ts ***!
-  \****************************************************/
-/*! exports provided: StaffRoutingModule */
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html":
+/*!****************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html ***!
+  \****************************************************************************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffRoutingModule", function() { return StaffRoutingModule; });
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form action=\"\">\n            <div class=\"text-center\">\n                <div class=\"file_input\">\n                    <img src=\"assets/images/change.png\" alt=\"\">\n                </div>\n                <label for=\"\" class=\"custom_label\">Add Profile Picture</label>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/edit-user.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Full Name\" class=\"form-control\">\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/email.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Email\" class=\"form-control\">\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img phone\"><img src=\"assets/images/mobile.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Mobile Number\" class=\"form-control\">\n            </mat-form-field>\n            \n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/description.png\" alt=\"envelope\"></span>\n                <textarea matInput placeholder=\"Description\" class=\"form-control\"></textarea>\n            </mat-form-field>\n            <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Proceed</button>\n            </div>\n        </form>\n    </div>\n</div>");
+
+/***/ }),
+
+/***/ "./src/app/home/walking-user/addbookings/addbookings-routing.module.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/home/walking-user/addbookings/addbookings-routing.module.ts ***!
+  \*****************************************************************************/
+/*! exports provided: AddbookingsRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddbookingsRoutingModule", function() { return AddbookingsRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _addbookings_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./addbookings.component */ "./src/app/home/walking-user/addbookings/addbookings.component.ts");
 
 
 
-const routes = [
-    { path: '', loadChildren: () => __webpack_require__.e(/*! import() */ 13).then(__webpack_require__.bind(null, /*! ./list/list.module */ "./src/app/home/staff/list/list.module.ts")).then(mod => mod.ListModule), data: { title: "List", status: false } },
-    { path: 'add', loadChildren: () => __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./addstaff/addstaff.module */ "./src/app/home/staff/addstaff/addstaff.module.ts")).then(mod => mod.AddstaffModule), data: { title: "Add", status: false } },
-    { path: 'edit', loadChildren: () => __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./editstaff/editstaff.module */ "./src/app/home/staff/editstaff/editstaff.module.ts")).then(mod => mod.EditstaffModule), data: { title: "Edit", status: false } },
-    { path: 'info', loadChildren: () => __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ./staffdetail/staffdetail.module */ "./src/app/home/staff/staffdetail/staffdetail.module.ts")).then(mod => mod.StaffdetailModule), data: { title: "Info", status: false } },
-    { path: 'info/review', loadChildren: () => __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./staffreview/staffreview.module */ "./src/app/home/staff/staffreview/staffreview.module.ts")).then(mod => mod.StaffreviewModule), data: { title: "Info / Review", status: false } },
-];
-let StaffRoutingModule = class StaffRoutingModule {
+
+const routes = [{ path: '', component: _addbookings_component__WEBPACK_IMPORTED_MODULE_3__["AddbookingsComponent"] }];
+let AddbookingsRoutingModule = class AddbookingsRoutingModule {
 };
-StaffRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+AddbookingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], StaffRoutingModule);
+], AddbookingsRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/staff/staff.module.ts":
-/*!********************************************!*\
-  !*** ./src/app/home/staff/staff.module.ts ***!
-  \********************************************/
-/*! exports provided: StaffModule */
+/***/ "./src/app/home/walking-user/addbookings/addbookings.component.scss":
+/*!**************************************************************************!*\
+  !*** ./src/app/home/walking-user/addbookings/addbookings.component.scss ***!
+  \**************************************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffModule", function() { return StaffModule; });
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL2FkZGJvb2tpbmdzL2FkZGJvb2tpbmdzLmNvbXBvbmVudC5zY3NzIn0= */");
+
+/***/ }),
+
+/***/ "./src/app/home/walking-user/addbookings/addbookings.component.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/home/walking-user/addbookings/addbookings.component.ts ***!
+  \************************************************************************/
+/*! exports provided: AddbookingsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddbookingsComponent", function() { return AddbookingsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let AddbookingsComponent = class AddbookingsComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+AddbookingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-addbookings',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./addbookings.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./addbookings.component.scss */ "./src/app/home/walking-user/addbookings/addbookings.component.scss")).default]
+    })
+], AddbookingsComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/home/walking-user/addbookings/addbookings.module.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/home/walking-user/addbookings/addbookings.module.ts ***!
+  \*********************************************************************/
+/*! exports provided: AddbookingsModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddbookingsModule", function() { return AddbookingsModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _staff_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./staff-routing.module */ "./src/app/home/staff/staff-routing.module.ts");
-/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _addbookings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./addbookings-routing.module */ "./src/app/home/walking-user/addbookings/addbookings-routing.module.ts");
+/* harmony import */ var _addbookings_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./addbookings.component */ "./src/app/home/walking-user/addbookings/addbookings.component.ts");
+/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
 
 
 
 
 
-let StaffModule = class StaffModule {
+
+let AddbookingsModule = class AddbookingsModule {
 };
-StaffModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+AddbookingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [],
+        declarations: [_addbookings_component__WEBPACK_IMPORTED_MODULE_4__["AddbookingsComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _staff_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffRoutingModule"],
-            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"]
-        ],
-        entryComponents: []
+            _addbookings_routing_module__WEBPACK_IMPORTED_MODULE_3__["AddbookingsRoutingModule"],
+            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]
+        ]
     })
-], StaffModule);
+], AddbookingsModule);
 
 
 

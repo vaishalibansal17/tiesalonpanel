@@ -1,130 +1,125 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[18],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html":
-/*!*****************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html ***!
-  \*****************************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html ***!
+  \***********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <app-breadcrumb></app-breadcrumb> -->\n<div class=\"main-card\">\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n            <span class=\"right_btn\">\n                <a href=\"#\" class=\"btn btn-accept\">Accept</a>\n                <a href=\"#\" class=\"btn btn-decline\">Decline</a>\n            </span>\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<hr>\n<h1>Will deliver in next milestone.</h1>\n<hr>\n<h2>Thank you</h2>");
 
 /***/ }),
 
-/***/ "./src/app/home/notification/notification-routing.module.ts":
-/*!******************************************************************!*\
-  !*** ./src/app/home/notification/notification-routing.module.ts ***!
-  \******************************************************************/
-/*! exports provided: NotificationRoutingModule */
+/***/ "./src/app/home/chat-management/chat-management-routing.module.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/home/chat-management/chat-management-routing.module.ts ***!
+  \************************************************************************/
+/*! exports provided: ChatManagementRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationRoutingModule", function() { return NotificationRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatManagementRoutingModule", function() { return ChatManagementRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _notification_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./notification.component */ "./src/app/home/notification/notification.component.ts");
+/* harmony import */ var _chat_management_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./chat-management.component */ "./src/app/home/chat-management/chat-management.component.ts");
 
 
 
 
-const routes = [{
-        path: '', component: _notification_component__WEBPACK_IMPORTED_MODULE_3__["NotificationComponent"]
-    }];
-let NotificationRoutingModule = class NotificationRoutingModule {
+const routes = [{ path: '', component: _chat_management_component__WEBPACK_IMPORTED_MODULE_3__["ChatManagementComponent"] }];
+let ChatManagementRoutingModule = class ChatManagementRoutingModule {
 };
-NotificationRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+ChatManagementRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], NotificationRoutingModule);
+], ChatManagementRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/notification/notification.component.scss":
-/*!***************************************************************!*\
-  !*** ./src/app/home/notification/notification.component.scss ***!
-  \***************************************************************/
+/***/ "./src/app/home/chat-management/chat-management.component.scss":
+/*!*********************************************************************!*\
+  !*** ./src/app/home/chat-management/chat-management.component.scss ***!
+  \*********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvbm90aWZpY2F0aW9uL25vdGlmaWNhdGlvbi5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvY2hhdC1tYW5hZ2VtZW50L2NoYXQtbWFuYWdlbWVudC5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
-/***/ "./src/app/home/notification/notification.component.ts":
-/*!*************************************************************!*\
-  !*** ./src/app/home/notification/notification.component.ts ***!
-  \*************************************************************/
-/*! exports provided: NotificationComponent */
+/***/ "./src/app/home/chat-management/chat-management.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/home/chat-management/chat-management.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: ChatManagementComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationComponent", function() { return NotificationComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatManagementComponent", function() { return ChatManagementComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 
 
-let NotificationComponent = class NotificationComponent {
+let ChatManagementComponent = class ChatManagementComponent {
     constructor() { }
     ngOnInit() {
     }
 };
-NotificationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+ChatManagementComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-notification',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./notification.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./notification.component.scss */ "./src/app/home/notification/notification.component.scss")).default]
+        selector: 'app-chat-management',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./chat-management.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./chat-management.component.scss */ "./src/app/home/chat-management/chat-management.component.scss")).default]
     })
-], NotificationComponent);
+], ChatManagementComponent);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/notification/notification.module.ts":
-/*!**********************************************************!*\
-  !*** ./src/app/home/notification/notification.module.ts ***!
-  \**********************************************************/
-/*! exports provided: NotificationModule */
+/***/ "./src/app/home/chat-management/chat-management.module.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/home/chat-management/chat-management.module.ts ***!
+  \****************************************************************/
+/*! exports provided: ChatManagementModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NotificationModule", function() { return NotificationModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatManagementModule", function() { return ChatManagementModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _notification_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./notification-routing.module */ "./src/app/home/notification/notification-routing.module.ts");
-/* harmony import */ var _notification_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./notification.component */ "./src/app/home/notification/notification.component.ts");
-/* harmony import */ var src_app_shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/breadcrumb/breadcrumb.module */ "./src/app/shared/breadcrumb/breadcrumb.module.ts");
+/* harmony import */ var _chat_management_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./chat-management-routing.module */ "./src/app/home/chat-management/chat-management-routing.module.ts");
+/* harmony import */ var _chat_management_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./chat-management.component */ "./src/app/home/chat-management/chat-management.component.ts");
 
 
 
 
 
-
-let NotificationModule = class NotificationModule {
+let ChatManagementModule = class ChatManagementModule {
 };
-NotificationModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+ChatManagementModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_notification_component__WEBPACK_IMPORTED_MODULE_4__["NotificationComponent"]],
+        declarations: [_chat_management_component__WEBPACK_IMPORTED_MODULE_4__["ChatManagementComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _notification_routing_module__WEBPACK_IMPORTED_MODULE_3__["NotificationRoutingModule"],
-            src_app_shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_5__["BreadcrumbModule"]
+            _chat_management_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChatManagementRoutingModule"]
         ]
     })
-], NotificationModule);
+], ChatManagementModule);
 
 
 

@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[16], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html":
-  /*!***********************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html ***!
-    \***********************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookings.component.html":
+  /*!*********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookings.component.html ***!
+    \*********************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeChatManagementChatManagementComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeBookingsBookingsComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<hr>\n<h1>Will deliver in next milestone.</h1>\n<hr>\n<h2>Thank you</h2>";
+    __webpack_exports__["default"] = "<router-outlet></router-outlet>\n";
     /***/
   },
 
   /***/
-  "./src/app/home/chat-management/chat-management-routing.module.ts":
-  /*!************************************************************************!*\
-    !*** ./src/app/home/chat-management/chat-management-routing.module.ts ***!
-    \************************************************************************/
+  "./src/app/home/bookings/bookings-routing.module.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/bookings/bookings-routing.module.ts ***!
+    \**********************************************************/
 
-  /*! exports provided: ChatManagementRoutingModule */
+  /*! exports provided: BookingsRoutingModule */
 
   /***/
-  function srcAppHomeChatManagementChatManagementRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingsRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ChatManagementRoutingModule", function () {
-      return ChatManagementRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "BookingsRoutingModule", function () {
+      return BookingsRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,100 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _chat_management_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./chat-management.component */
-    "./src/app/home/chat-management/chat-management.component.ts");
+    var _bookings_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./bookings.component */
+    "./src/app/home/bookings/bookings.component.ts");
 
     var routes = [{
       path: '',
-      component: _chat_management_component__WEBPACK_IMPORTED_MODULE_3__["ChatManagementComponent"]
+      component: _bookings_component__WEBPACK_IMPORTED_MODULE_3__["BookingsComponent"],
+      data: {
+        title: "Booking"
+      },
+      children: [{
+        path: '',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() */
+          13).then(__webpack_require__.bind(null,
+          /*! ./list/list.module */
+          "./src/app/home/bookings/list/list.module.ts")).then(function (mod) {
+            return mod.ListModule;
+          });
+        },
+        data: {
+          title: "List",
+          status: false
+        }
+      }, // { path: 'add', loadChildren: () => import('./addstaff/addstaff.module').then(mod => mod.AddstaffModule), data: { title: "Add", status: false } },
+      // { path: 'edit', loadChildren: () => import('./editstaff/editstaff.module').then(mod => mod.EditstaffModule), data: { title: "Edit", status: false } },
+      {
+        path: 'info',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() */
+          12).then(__webpack_require__.bind(null,
+          /*! ./bookingdetail/bookingdetail.module */
+          "./src/app/home/bookings/bookingdetail/bookingdetail.module.ts")).then(function (mod) {
+            return mod.BookingdetailModule;
+          });
+        },
+        data: {
+          title: "Info",
+          status: false
+        }
+      }]
     }];
 
-    var ChatManagementRoutingModule = function ChatManagementRoutingModule() {
-      _classCallCheck(this, ChatManagementRoutingModule);
+    var BookingsRoutingModule = function BookingsRoutingModule() {
+      _classCallCheck(this, BookingsRoutingModule);
     };
 
-    ChatManagementRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    BookingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], ChatManagementRoutingModule);
+    })], BookingsRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/chat-management/chat-management.component.scss":
-  /*!*********************************************************************!*\
-    !*** ./src/app/home/chat-management/chat-management.component.scss ***!
-    \*********************************************************************/
+  "./src/app/home/bookings/bookings.component.scss":
+  /*!*******************************************************!*\
+    !*** ./src/app/home/bookings/bookings.component.scss ***!
+    \*******************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeChatManagementChatManagementComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingsComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvY2hhdC1tYW5hZ2VtZW50L2NoYXQtbWFuYWdlbWVudC5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvYm9va2luZ3MvYm9va2luZ3MuY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
   /***/
-  "./src/app/home/chat-management/chat-management.component.ts":
-  /*!*******************************************************************!*\
-    !*** ./src/app/home/chat-management/chat-management.component.ts ***!
-    \*******************************************************************/
+  "./src/app/home/bookings/bookings.component.ts":
+  /*!*****************************************************!*\
+    !*** ./src/app/home/bookings/bookings.component.ts ***!
+    \*****************************************************/
 
-  /*! exports provided: ChatManagementComponent */
+  /*! exports provided: BookingsComponent */
 
   /***/
-  function srcAppHomeChatManagementChatManagementComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingsComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ChatManagementComponent", function () {
-      return ChatManagementComponent;
+    __webpack_require__.d(__webpack_exports__, "BookingsComponent", function () {
+      return BookingsComponent;
     });
     /* harmony import */
 
@@ -137,51 +173,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var ChatManagementComponent =
+    var BookingsComponent =
     /*#__PURE__*/
     function () {
-      function ChatManagementComponent() {
-        _classCallCheck(this, ChatManagementComponent);
+      function BookingsComponent() {
+        _classCallCheck(this, BookingsComponent);
       }
 
-      _createClass(ChatManagementComponent, [{
+      _createClass(BookingsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return ChatManagementComponent;
+      return BookingsComponent;
     }();
 
-    ChatManagementComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-chat-management',
+    BookingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-bookings',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./chat-management.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html")).default,
+      /*! raw-loader!./bookings.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookings.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./chat-management.component.scss */
-      "./src/app/home/chat-management/chat-management.component.scss")).default]
-    })], ChatManagementComponent);
+      /*! ./bookings.component.scss */
+      "./src/app/home/bookings/bookings.component.scss")).default]
+    })], BookingsComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/chat-management/chat-management.module.ts":
-  /*!****************************************************************!*\
-    !*** ./src/app/home/chat-management/chat-management.module.ts ***!
-    \****************************************************************/
+  "./src/app/home/bookings/bookings.module.ts":
+  /*!**************************************************!*\
+    !*** ./src/app/home/bookings/bookings.module.ts ***!
+    \**************************************************/
 
-  /*! exports provided: ChatManagementModule */
+  /*! exports provided: BookingsModule */
 
   /***/
-  function srcAppHomeChatManagementChatManagementModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingsModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ChatManagementModule", function () {
-      return ChatManagementModule;
+    __webpack_require__.d(__webpack_exports__, "BookingsModule", function () {
+      return BookingsModule;
     });
     /* harmony import */
 
@@ -204,24 +240,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _chat_management_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./chat-management-routing.module */
-    "./src/app/home/chat-management/chat-management-routing.module.ts");
+    var _bookings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./bookings-routing.module */
+    "./src/app/home/bookings/bookings-routing.module.ts");
     /* harmony import */
 
 
-    var _chat_management_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./chat-management.component */
-    "./src/app/home/chat-management/chat-management.component.ts");
+    var _bookings_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./bookings.component */
+    "./src/app/home/bookings/bookings.component.ts");
+    /* harmony import */
 
-    var ChatManagementModule = function ChatManagementModule() {
-      _classCallCheck(this, ChatManagementModule);
+
+    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/shared.module */
+    "./src/app/shared/shared.module.ts");
+
+    var BookingsModule = function BookingsModule() {
+      _classCallCheck(this, BookingsModule);
     };
 
-    ChatManagementModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_chat_management_component__WEBPACK_IMPORTED_MODULE_4__["ChatManagementComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _chat_management_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChatManagementRoutingModule"]]
-    })], ChatManagementModule);
+    BookingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_bookings_component__WEBPACK_IMPORTED_MODULE_4__["BookingsComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _bookings_routing_module__WEBPACK_IMPORTED_MODULE_3__["BookingsRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
+    })], BookingsModule);
     /***/
   }
 }]);

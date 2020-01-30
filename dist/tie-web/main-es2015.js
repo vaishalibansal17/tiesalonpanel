@@ -589,7 +589,7 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomeModule), canActivate: [_shared_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'auth', loadChildren: () => __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ./auth/auth.module */ "./src/app/auth/auth.module.ts")).then(m => m.AuthModule), canActivate: [_shared_guard_login_guard__WEBPACK_IMPORTED_MODULE_4__["LoginGuard"]] },
+    { path: 'auth', loadChildren: () => __webpack_require__.e(/*! import() */ 35).then(__webpack_require__.bind(null, /*! ./auth/auth.module */ "./src/app/auth/auth.module.ts")).then(m => m.AuthModule), canActivate: [_shared_guard_login_guard__WEBPACK_IMPORTED_MODULE_4__["LoginGuard"]] },
     { path: '**', component: _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__["PageNotFoundComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -707,7 +707,6 @@ function HttpLoaderFactory(httpClient) {
     return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_15__["TranslateHttpLoader"](httpClient);
 }
 function setupTranslateFactory(service) {
-    debugger;
     return () => service.use('en');
 }
 let AppModule = class AppModule {

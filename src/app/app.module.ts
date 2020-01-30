@@ -27,7 +27,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 
 export function setupTranslateFactory(
   service: TranslateService): Function {
-    debugger
   return () => service.use('en');
 }
 @NgModule({
