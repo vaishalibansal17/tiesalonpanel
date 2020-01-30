@@ -627,7 +627,7 @@ body.nav-close{
 }
 
 /*----------edit-profile------------*/
-label.custom_label{color: #7C42FF;font-size: 14px;margin: 5px 0px 15px;}
+label.custom_label{color: #7C42FF;font-size: 14px;margin: 5px 0px 15px;position: relative;cursor: pointer;}
 img.full_width{width:100%;margin-bottom: 20px;}
 .work_gallery ul li {display: inline-block;margin: 5px 10px;}
 .work_gallery ul li:first-child {margin-left: 0px;}
