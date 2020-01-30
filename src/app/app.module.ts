@@ -19,6 +19,7 @@ import { ApplicationpipeModule } from './shared/module/applicationpipe/applicati
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+// import { ToastrModule } from 'ngx-toastr';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
@@ -26,6 +27,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 
 export function setupTranslateFactory(
   service: TranslateService): Function {
+    debugger
   return () => service.use('en');
 }
 @NgModule({

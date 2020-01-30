@@ -6,6 +6,8 @@ import { Helper } from 'src/app/shared/service/helper.service';
 import { PassValid, ValidationService, passValidator } from 'src/app/shared/service/validation-service';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { ErrorService } from 'src/app/shared/service/error.service';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-changepassword',
@@ -16,7 +18,8 @@ export class ChangepasswordComponent implements OnInit {
   ohide = true;
   chide = true;
   nhide = true;
-  organiserChangePassword: FormGroup
+  unsubscribeAll: Subject<any>;
+  change: FormGroup
   submitted: boolean;
   public profileImage: any = '../../../assets/images/profile.png';
   userDetails: any;
@@ -30,28 +33,35 @@ export class ChangepasswordComponent implements OnInit {
     private fb: FormBuilder,
     private helper: Helper,
     private trns : TranslatePipe, 
-    private error : ErrorService) { }
+    private error : ErrorService) { 
+      this.unsubscribeAll = new Subject;
+    }
 
   ngOnInit() {
 
     this.userDetails = this.helper.parseObject(localStorage.getItem('userDetails'));
-    this.organiserChangePassword = this.fb.group({
+    this.change = this.fb.group({
       oldPassword: new FormControl(null, [Validators.required]),
       newPassword: new FormControl(null, [Validators.required, ValidationService.passwordValidator]),
       confirmPassword: new FormControl(null, [Validators.required, passValidator]),
     }
     );
+    this.change.get('newPassword').valueChanges
+    .pipe(takeUntil(this.unsubscribeAll))
+    .subscribe(() => {
+      this.change.get('confirmPassword').updateValueAndValidity();
+    });
   }
 
-  get getControl() { return this.organiserChangePassword.controls; }
+  get getControl() { return this.change.controls; }
   changePassword() {
     this.submitted = true;
-    if (this.organiserChangePassword.invalid) {
+    if (this.change.invalid) {
       return;
     } else {
-      this.organiserChangePassword.value['new_pass'] = this.organiserChangePassword.value.newPassword;
-      this.organiserChangePassword.value['old_pass'] = this.organiserChangePassword.value.oldPassword;
-      this.httpService.getRequest('PUT', 'CHANGEPASS', this.organiserChangePassword.value, '').subscribe((response: any) => {
+      this.change.value['new_pass'] = this.change.value.newPassword;
+      this.change.value['old_pass'] = this.change.value.oldPassword;
+      this.httpService.getRequest('PUT', 'CHANGEPASS', this.change.value, '').subscribe((response: any) => {
         if (response.status=== 1) {
           this.submitted = true;
           this.router.navigateByUrl('/')

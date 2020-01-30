@@ -2,7 +2,6 @@ import { Injectable, Injector } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { HttpRequestService } from '../service/http-request.service';
 
 /**
@@ -11,7 +10,6 @@ import { HttpRequestService } from '../service/http-request.service';
 @Injectable()
 export class ApiPrefixInterceptor implements HttpInterceptor {
   constructor(
-    private toastr: ToastrService,
     private HttpService: HttpRequestService
   ) { }
 

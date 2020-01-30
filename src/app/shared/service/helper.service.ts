@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import moment from 'moment-timezone';
-import { ToastrService } from 'ngx-toastr';
 import { MessageService } from 'primeng/api';
 
 @Injectable()
 
 export class Helper {
-    constructor(private toastr: ToastrService, private messageService: MessageService) { }
+    constructor( private messageService: MessageService) { }
 
     convertTimestampToISODate(value) {
         let year = new Date(value).getFullYear();

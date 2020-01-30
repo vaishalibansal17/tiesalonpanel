@@ -5,7 +5,7 @@
           <h1>{{'WELCOMETOOUR'| translate}} {{detail? detail.name : ''}} Admin</h1>
           <div class="top-right">
             <ul>
-              <li> 
+              <li>
                 <button mat-button [matMenuTriggerFor]="lan_menu" [disableRipple]="true">{{lang=='en'?"En":"Ar"}} <img src="{{lang=='en'?'assets/images/flag_en.png':'assets/images/flag_ar.png'}}" alt="England">
                   <img class="drop_img" src="assets/images/dropdown_grey.png" alt=""></button>
                 <mat-menu #lan_menu="matMenu" xPosition="before">

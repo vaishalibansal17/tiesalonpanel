@@ -36,7 +36,9 @@ export class HttpRequestService {
 	 */
 	logout() {
 		// Customize credentials invalidation here
+		let lang = localStorage.getItem('lang');
 		localStorage.clear();
+		localStorage.setItem('lang', lang)
 		this.myRoute.navigate(['/auth']);
 	}
 

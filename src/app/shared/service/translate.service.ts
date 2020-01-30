@@ -10,8 +10,8 @@ export class TranslateService {
   use(lang: string): Promise<{}> {
     console.log(localStorage.getItem('lang'), lang,'-----------');
     return new Promise<{}>((resolve, reject) => {
-      lang = localStorage.getItem('lang');
-      const langPath = `assets/i18n/${lang || 'en'}.json`;
+      // lang = localStorage.getItem('lang');
+      const langPath = `assets/i18n/${lang||'en'}.json`;
       this.http.get<{}>(langPath).subscribe(
         translation => {
           this.data = Object.assign({}, translation || {});

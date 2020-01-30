@@ -63,6 +63,8 @@ export class LoginComponent implements OnInit {
             this.isLoading = !this.isLoading;
             this.router.navigate(['/']).then(() => this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('LOGINSUCCESS')))
           } else {
+            console.log(data.err);
+            
             this.error.handleError(data.err.errCode);
           }
         }, (error) => {
