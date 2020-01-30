@@ -246,7 +246,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 _this2.submitted = true;
 
                 _this2.router.navigateByUrl('/').then(function () {
-                  _this2.helper.sucsTostr(_this2.trns.transform('SUCCESS'), _this2.trns.transform('RESETPASSSUCC'));
+                  _this2.httpService.sucsTostr(_this2.trns.transform('SUCCESS'), _this2.trns.transform('RESETPASSSUCC'));
                 });
               } else {
                 _this2.error.handleError(response.err.errCode);
@@ -475,6 +475,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             case 31:
               this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+
+            case 39:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
               break;
 
             default:

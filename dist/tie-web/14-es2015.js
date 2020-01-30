@@ -137,7 +137,7 @@ let ChangepasswordComponent = class ChangepasswordComponent {
                     this.submitted = true;
                     this.router.navigateByUrl('/')
                         .then(() => {
-                        this.helper.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('RESETPASSSUCC'));
+                        this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('RESETPASSSUCC'));
                     });
                 }
                 else {
@@ -270,6 +270,8 @@ let ErrorService = class ErrorService {
                 break;
             case 31:
                 this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+            case 39:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
                 break;
             default:
                 break;

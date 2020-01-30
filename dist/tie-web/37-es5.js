@@ -59,7 +59,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return __webpack_require__.e(
         /*! import() */
-        24).then(__webpack_require__.bind(null,
+        25).then(__webpack_require__.bind(null,
         /*! ./addstaff/addstaff.module */
         "./src/app/home/staff/addstaff/addstaff.module.ts")).then(function (mod) {
           return mod.AddstaffModule;
@@ -74,7 +74,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return __webpack_require__.e(
         /*! import() */
-        25).then(__webpack_require__.bind(null,
+        26).then(__webpack_require__.bind(null,
         /*! ./editstaff/editstaff.module */
         "./src/app/home/staff/editstaff/editstaff.module.ts")).then(function (mod) {
           return mod.EditstaffModule;
@@ -89,7 +89,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return __webpack_require__.e(
         /*! import() */
-        26).then(__webpack_require__.bind(null,
+        27).then(__webpack_require__.bind(null,
         /*! ./staffdetail/staffdetail.module */
         "./src/app/home/staff/staffdetail/staffdetail.module.ts")).then(function (mod) {
           return mod.StaffdetailModule;
@@ -104,7 +104,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return __webpack_require__.e(
         /*! import() */
-        27).then(__webpack_require__.bind(null,
+        28).then(__webpack_require__.bind(null,
         /*! ./staffreview/staffreview.module */
         "./src/app/home/staff/staffreview/staffreview.module.ts")).then(function (mod) {
           return mod.StaffreviewModule;

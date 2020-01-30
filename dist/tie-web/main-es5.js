@@ -2369,6 +2369,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           // Customize credentials invalidation here
           var lang = localStorage.getItem('lang');
           localStorage.clear();
+          console.log(lang);
           localStorage.setItem('lang', lang);
           this.myRoute.navigate(['/auth']);
         }

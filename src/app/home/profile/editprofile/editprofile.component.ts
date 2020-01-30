@@ -141,7 +141,11 @@ export class EditprofileComponent implements OnInit {
     this.submitted = true;
     // return false
     this.formData = new FormData();
-    if (this.profile.valid) {
+    if (this.salonImageArray.length > 10) {
+      this.errorserv.handleError(39);
+      return
+    }
+    else if (this.profile.valid) {
       if (this.profileImage)
         this.formData.append('salon_logo', this.profileImage, this.profileImage.name);
       for (let i = 0; i < this.salonImageArray.length; i++) {

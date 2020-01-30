@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 let AuthHeaderComponent = class AuthHeaderComponent {
     constructor(trns) {
         this.trns = trns;
-        this.lang = localStorage.getItem('lang');
+        this.lang = localStorage.getItem('lang') || 'en';
     }
     ngOnInit() {
         console.log("dfghjkl;");

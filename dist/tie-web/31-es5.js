@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[31], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calenderdetail/calenderdetail.component.html":
-  /*!**********************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calenderdetail/calenderdetail.component.html ***!
-    \**********************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calender/calender.component.html":
+  /*!**********************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calender/calender.component.html ***!
+    \**********************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserCalenderdetailCalenderdetailComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserCalenderCalenderComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>calenderdetail works!</p>\n";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <h1>Manage Calender</h1>\n    <p>It will set up in further milestone.</p>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/calenderdetail/calenderdetail-routing.module.ts":
-  /*!***********************************************************************************!*\
-    !*** ./src/app/home/walking-user/calenderdetail/calenderdetail-routing.module.ts ***!
-    \***********************************************************************************/
+  "./src/app/home/walking-user/calender/calender-routing.module.ts":
+  /*!***********************************************************************!*\
+    !*** ./src/app/home/walking-user/calender/calender-routing.module.ts ***!
+    \***********************************************************************/
 
-  /*! exports provided: CalenderdetailRoutingModule */
+  /*! exports provided: CalenderRoutingModule */
 
   /***/
-  function srcAppHomeWalkingUserCalenderdetailCalenderdetailRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserCalenderCalenderRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CalenderdetailRoutingModule", function () {
-      return CalenderdetailRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "CalenderRoutingModule", function () {
+      return CalenderRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _calenderdetail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./calenderdetail.component */
-    "./src/app/home/walking-user/calenderdetail/calenderdetail.component.ts");
+    var _calender_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./calender.component */
+    "./src/app/home/walking-user/calender/calender.component.ts");
 
     var routes = [{
       path: '',
-      component: _calenderdetail_component__WEBPACK_IMPORTED_MODULE_3__["CalenderdetailComponent"]
+      component: _calender_component__WEBPACK_IMPORTED_MODULE_3__["CalenderComponent"]
     }];
 
-    var CalenderdetailRoutingModule = function CalenderdetailRoutingModule() {
-      _classCallCheck(this, CalenderdetailRoutingModule);
+    var CalenderRoutingModule = function CalenderRoutingModule() {
+      _classCallCheck(this, CalenderRoutingModule);
     };
 
-    CalenderdetailRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    CalenderRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], CalenderdetailRoutingModule);
+    })], CalenderRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/calenderdetail/calenderdetail.component.scss":
-  /*!********************************************************************************!*\
-    !*** ./src/app/home/walking-user/calenderdetail/calenderdetail.component.scss ***!
-    \********************************************************************************/
+  "./src/app/home/walking-user/calender/calender.component.scss":
+  /*!********************************************************************!*\
+    !*** ./src/app/home/walking-user/calender/calender.component.scss ***!
+    \********************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeWalkingUserCalenderdetailCalenderdetailComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserCalenderCalenderComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL2NhbGVuZGVyZGV0YWlsL2NhbGVuZGVyZGV0YWlsLmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL2NhbGVuZGVyL2NhbGVuZGVyLmNvbXBvbmVudC5zY3NzIn0= */";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/calenderdetail/calenderdetail.component.ts":
-  /*!******************************************************************************!*\
-    !*** ./src/app/home/walking-user/calenderdetail/calenderdetail.component.ts ***!
-    \******************************************************************************/
+  "./src/app/home/walking-user/calender/calender.component.ts":
+  /*!******************************************************************!*\
+    !*** ./src/app/home/walking-user/calender/calender.component.ts ***!
+    \******************************************************************/
 
-  /*! exports provided: CalenderdetailComponent */
+  /*! exports provided: CalenderComponent */
 
   /***/
-  function srcAppHomeWalkingUserCalenderdetailCalenderdetailComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserCalenderCalenderComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CalenderdetailComponent", function () {
-      return CalenderdetailComponent;
+    __webpack_require__.d(__webpack_exports__, "CalenderComponent", function () {
+      return CalenderComponent;
     });
     /* harmony import */
 
@@ -137,51 +137,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var CalenderdetailComponent =
+    var CalenderComponent =
     /*#__PURE__*/
     function () {
-      function CalenderdetailComponent() {
-        _classCallCheck(this, CalenderdetailComponent);
+      function CalenderComponent() {
+        _classCallCheck(this, CalenderComponent);
       }
 
-      _createClass(CalenderdetailComponent, [{
+      _createClass(CalenderComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return CalenderdetailComponent;
+      return CalenderComponent;
     }();
 
-    CalenderdetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-calenderdetail',
+    CalenderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-calender',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./calenderdetail.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calenderdetail/calenderdetail.component.html")).default,
+      /*! raw-loader!./calender.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calender/calender.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./calenderdetail.component.scss */
-      "./src/app/home/walking-user/calenderdetail/calenderdetail.component.scss")).default]
-    })], CalenderdetailComponent);
+      /*! ./calender.component.scss */
+      "./src/app/home/walking-user/calender/calender.component.scss")).default]
+    })], CalenderComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/calenderdetail/calenderdetail.module.ts":
-  /*!***************************************************************************!*\
-    !*** ./src/app/home/walking-user/calenderdetail/calenderdetail.module.ts ***!
-    \***************************************************************************/
+  "./src/app/home/walking-user/calender/calender.module.ts":
+  /*!***************************************************************!*\
+    !*** ./src/app/home/walking-user/calender/calender.module.ts ***!
+    \***************************************************************/
 
-  /*! exports provided: CalenderdetailModule */
+  /*! exports provided: CalenderModule */
 
   /***/
-  function srcAppHomeWalkingUserCalenderdetailCalenderdetailModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserCalenderCalenderModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CalenderdetailModule", function () {
-      return CalenderdetailModule;
+    __webpack_require__.d(__webpack_exports__, "CalenderModule", function () {
+      return CalenderModule;
     });
     /* harmony import */
 
@@ -204,24 +204,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _calenderdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./calenderdetail-routing.module */
-    "./src/app/home/walking-user/calenderdetail/calenderdetail-routing.module.ts");
+    var _calender_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./calender-routing.module */
+    "./src/app/home/walking-user/calender/calender-routing.module.ts");
     /* harmony import */
 
 
-    var _calenderdetail_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./calenderdetail.component */
-    "./src/app/home/walking-user/calenderdetail/calenderdetail.component.ts");
+    var _calender_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./calender.component */
+    "./src/app/home/walking-user/calender/calender.component.ts");
 
-    var CalenderdetailModule = function CalenderdetailModule() {
-      _classCallCheck(this, CalenderdetailModule);
+    var CalenderModule = function CalenderModule() {
+      _classCallCheck(this, CalenderModule);
     };
 
-    CalenderdetailModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_calenderdetail_component__WEBPACK_IMPORTED_MODULE_4__["CalenderdetailComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _calenderdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__["CalenderdetailRoutingModule"]]
-    })], CalenderdetailModule);
+    CalenderModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_calender_component__WEBPACK_IMPORTED_MODULE_4__["CalenderComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _calender_routing_module__WEBPACK_IMPORTED_MODULE_3__["CalenderRoutingModule"]]
+    })], CalenderModule);
     /***/
   }
 }]);

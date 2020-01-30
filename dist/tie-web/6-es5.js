@@ -3688,6 +3688,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
             case 31:
               this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+
+            case 39:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
               break;
 
             default:

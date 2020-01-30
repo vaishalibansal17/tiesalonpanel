@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[30], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calender/calender.component.html":
-  /*!**********************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calender/calender.component.html ***!
-    \**********************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html":
+  /*!****************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html ***!
+    \****************************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserCalenderCalenderComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserAddbookingsAddbookingsComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>calender works!</p>\n";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form action=\"\">\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/category_form.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Category\" class=\"form-control\">\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/service.png\" alt=\"envelope\"></span>\n                <mat-label>Service At</mat-label>\n                <mat-select>\n                  <mat-option *ngFor=\"let service of services\" [value]=\"service.value\">\n                    {{service.viewValue}}\n                  </mat-option>\n                </mat-select>\n              </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/price_form.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Price\" class=\"form-control\">\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/calendar_form.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Date & Time\" class=\"form-control\">\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/edit-staff.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Assigned Staff\" class=\"form-control\">\n            </mat-form-field>\n            <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Save</button>\n            </div>\n        </form>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/calender/calender-routing.module.ts":
-  /*!***********************************************************************!*\
-    !*** ./src/app/home/walking-user/calender/calender-routing.module.ts ***!
-    \***********************************************************************/
+  "./src/app/home/walking-user/addbookings/addbookings-routing.module.ts":
+  /*!*****************************************************************************!*\
+    !*** ./src/app/home/walking-user/addbookings/addbookings-routing.module.ts ***!
+    \*****************************************************************************/
 
-  /*! exports provided: CalenderRoutingModule */
+  /*! exports provided: AddbookingsRoutingModule */
 
   /***/
-  function srcAppHomeWalkingUserCalenderCalenderRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddbookingsAddbookingsRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CalenderRoutingModule", function () {
-      return CalenderRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "AddbookingsRoutingModule", function () {
+      return AddbookingsRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _calender_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./calender.component */
-    "./src/app/home/walking-user/calender/calender.component.ts");
+    var _addbookings_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./addbookings.component */
+    "./src/app/home/walking-user/addbookings/addbookings.component.ts");
 
     var routes = [{
       path: '',
-      component: _calender_component__WEBPACK_IMPORTED_MODULE_3__["CalenderComponent"]
+      component: _addbookings_component__WEBPACK_IMPORTED_MODULE_3__["AddbookingsComponent"]
     }];
 
-    var CalenderRoutingModule = function CalenderRoutingModule() {
-      _classCallCheck(this, CalenderRoutingModule);
+    var AddbookingsRoutingModule = function AddbookingsRoutingModule() {
+      _classCallCheck(this, AddbookingsRoutingModule);
     };
 
-    CalenderRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    AddbookingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], CalenderRoutingModule);
+    })], AddbookingsRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/calender/calender.component.scss":
-  /*!********************************************************************!*\
-    !*** ./src/app/home/walking-user/calender/calender.component.scss ***!
-    \********************************************************************/
+  "./src/app/home/walking-user/addbookings/addbookings.component.scss":
+  /*!**************************************************************************!*\
+    !*** ./src/app/home/walking-user/addbookings/addbookings.component.scss ***!
+    \**************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeWalkingUserCalenderCalenderComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddbookingsAddbookingsComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL2NhbGVuZGVyL2NhbGVuZGVyLmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = ".custom_form span.email-img.pass {\n  top: 15px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvYWRkYm9va2luZ3MvYWRkYm9va2luZ3MuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL2FkZGJvb2tpbmdzL2FkZGJvb2tpbmdzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQWtDLG9CQUFBO0FDRWxDIiwiZmlsZSI6InNyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvYWRkYm9va2luZ3MvYWRkYm9va2luZ3MuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY3VzdG9tX2Zvcm0gc3Bhbi5lbWFpbC1pbWcucGFzcyB7dG9wOiAxNXB4ICFpbXBvcnRhbnQ7fSIsIi5jdXN0b21fZm9ybSBzcGFuLmVtYWlsLWltZy5wYXNzIHtcbiAgdG9wOiAxNXB4ICFpbXBvcnRhbnQ7XG59Il19 */";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/calender/calender.component.ts":
-  /*!******************************************************************!*\
-    !*** ./src/app/home/walking-user/calender/calender.component.ts ***!
-    \******************************************************************/
+  "./src/app/home/walking-user/addbookings/addbookings.component.ts":
+  /*!************************************************************************!*\
+    !*** ./src/app/home/walking-user/addbookings/addbookings.component.ts ***!
+    \************************************************************************/
 
-  /*! exports provided: CalenderComponent */
+  /*! exports provided: AddbookingsComponent */
 
   /***/
-  function srcAppHomeWalkingUserCalenderCalenderComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddbookingsAddbookingsComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CalenderComponent", function () {
-      return CalenderComponent;
+    __webpack_require__.d(__webpack_exports__, "AddbookingsComponent", function () {
+      return AddbookingsComponent;
     });
     /* harmony import */
 
@@ -137,51 +137,59 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var CalenderComponent =
+    var AddbookingsComponent =
     /*#__PURE__*/
     function () {
-      function CalenderComponent() {
-        _classCallCheck(this, CalenderComponent);
+      function AddbookingsComponent() {
+        _classCallCheck(this, AddbookingsComponent);
+
+        this.servicea = [{
+          value: '1',
+          viewValue: 'Hair Spa'
+        }, {
+          value: '2',
+          viewValue: 'Spa'
+        }];
       }
 
-      _createClass(CalenderComponent, [{
+      _createClass(AddbookingsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return CalenderComponent;
+      return AddbookingsComponent;
     }();
 
-    CalenderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-calender',
+    AddbookingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-addbookings',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./calender.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calender/calender.component.html")).default,
+      /*! raw-loader!./addbookings.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./calender.component.scss */
-      "./src/app/home/walking-user/calender/calender.component.scss")).default]
-    })], CalenderComponent);
+      /*! ./addbookings.component.scss */
+      "./src/app/home/walking-user/addbookings/addbookings.component.scss")).default]
+    })], AddbookingsComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/calender/calender.module.ts":
-  /*!***************************************************************!*\
-    !*** ./src/app/home/walking-user/calender/calender.module.ts ***!
-    \***************************************************************/
+  "./src/app/home/walking-user/addbookings/addbookings.module.ts":
+  /*!*********************************************************************!*\
+    !*** ./src/app/home/walking-user/addbookings/addbookings.module.ts ***!
+    \*********************************************************************/
 
-  /*! exports provided: CalenderModule */
+  /*! exports provided: AddbookingsModule */
 
   /***/
-  function srcAppHomeWalkingUserCalenderCalenderModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddbookingsAddbookingsModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CalenderModule", function () {
-      return CalenderModule;
+    __webpack_require__.d(__webpack_exports__, "AddbookingsModule", function () {
+      return AddbookingsModule;
     });
     /* harmony import */
 
@@ -204,24 +212,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _calender_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./calender-routing.module */
-    "./src/app/home/walking-user/calender/calender-routing.module.ts");
+    var _addbookings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./addbookings-routing.module */
+    "./src/app/home/walking-user/addbookings/addbookings-routing.module.ts");
     /* harmony import */
 
 
-    var _calender_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./calender.component */
-    "./src/app/home/walking-user/calender/calender.component.ts");
+    var _addbookings_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./addbookings.component */
+    "./src/app/home/walking-user/addbookings/addbookings.component.ts");
+    /* harmony import */
 
-    var CalenderModule = function CalenderModule() {
-      _classCallCheck(this, CalenderModule);
+
+    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/shared.module */
+    "./src/app/shared/shared.module.ts");
+
+    var AddbookingsModule = function AddbookingsModule() {
+      _classCallCheck(this, AddbookingsModule);
     };
 
-    CalenderModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_calender_component__WEBPACK_IMPORTED_MODULE_4__["CalenderComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _calender_routing_module__WEBPACK_IMPORTED_MODULE_3__["CalenderRoutingModule"]]
-    })], CalenderModule);
+    AddbookingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_addbookings_component__WEBPACK_IMPORTED_MODULE_4__["AddbookingsComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _addbookings_routing_module__WEBPACK_IMPORTED_MODULE_3__["AddbookingsRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
+    })], AddbookingsModule);
     /***/
   }
 }]);

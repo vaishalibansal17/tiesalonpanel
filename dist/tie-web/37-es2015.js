@@ -18,10 +18,10 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     { path: '', loadChildren: () => __webpack_require__.e(/*! import() */ 15).then(__webpack_require__.bind(null, /*! ./list/list.module */ "./src/app/home/staff/list/list.module.ts")).then(mod => mod.ListModule), data: { title: "List", status: false } },
-    { path: 'add', loadChildren: () => __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ./addstaff/addstaff.module */ "./src/app/home/staff/addstaff/addstaff.module.ts")).then(mod => mod.AddstaffModule), data: { title: "Add", status: false } },
-    { path: 'edit', loadChildren: () => __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./editstaff/editstaff.module */ "./src/app/home/staff/editstaff/editstaff.module.ts")).then(mod => mod.EditstaffModule), data: { title: "Edit", status: false } },
-    { path: 'info', loadChildren: () => __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ./staffdetail/staffdetail.module */ "./src/app/home/staff/staffdetail/staffdetail.module.ts")).then(mod => mod.StaffdetailModule), data: { title: "Info", status: false } },
-    { path: 'info/review', loadChildren: () => __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ./staffreview/staffreview.module */ "./src/app/home/staff/staffreview/staffreview.module.ts")).then(mod => mod.StaffreviewModule), data: { title: "Info / Review", status: false } },
+    { path: 'add', loadChildren: () => __webpack_require__.e(/*! import() */ 25).then(__webpack_require__.bind(null, /*! ./addstaff/addstaff.module */ "./src/app/home/staff/addstaff/addstaff.module.ts")).then(mod => mod.AddstaffModule), data: { title: "Add", status: false } },
+    { path: 'edit', loadChildren: () => __webpack_require__.e(/*! import() */ 26).then(__webpack_require__.bind(null, /*! ./editstaff/editstaff.module */ "./src/app/home/staff/editstaff/editstaff.module.ts")).then(mod => mod.EditstaffModule), data: { title: "Edit", status: false } },
+    { path: 'info', loadChildren: () => __webpack_require__.e(/*! import() */ 27).then(__webpack_require__.bind(null, /*! ./staffdetail/staffdetail.module */ "./src/app/home/staff/staffdetail/staffdetail.module.ts")).then(mod => mod.StaffdetailModule), data: { title: "Info", status: false } },
+    { path: 'info/review', loadChildren: () => __webpack_require__.e(/*! import() */ 28).then(__webpack_require__.bind(null, /*! ./staffreview/staffreview.module */ "./src/app/home/staff/staffreview/staffreview.module.ts")).then(mod => mod.StaffreviewModule), data: { title: "Info / Review", status: false } },
 ];
 let StaffRoutingModule = class StaffRoutingModule {
 };

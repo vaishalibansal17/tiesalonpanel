@@ -21,6 +21,8 @@
   "VIEWALL": "عرض الكل",
   "CONTINUE":"استمر",
 
+  "SAVE":"حفظ", 
+  "MAXFILE" :"يُسمح بتحميل 10 صور كحد أقصى",
   "RESETPASSNOTMATCH": "كلمة المرور الجديدة وتأكيد كلمة المرور غير متطابقتين.",
   "RESETPASSREQ": "الرجاء إدخال كلمة مرور جديدة",
   "RESETPASSCNFREQ": "الرجاء إدخال تأكيد كلمة المرور.",
@@ -33,8 +35,9 @@
   "PLACEHOLDERLNPASS":"كلمة مرور جديدة",
   "PLACEHOLDERLCONFIRMPASS":"تأكيد كلمة المرور الجديدة",
   "RESTPLACEHOLDERLCONFIRMPASS":"تأكيد كلمة المرور",
-
-
+  "LOGINBTN":"تسجيل الدخول",
+  "NUMOFMEM":"عدد من أعضاء",
+  "NUMOFBOOKING":"عدد الحجوزات",
   "PLACEHOLDERLPASS":"ادخل رقمك السري",
   "PLACEHOLDERLEMAIL":"البريد الإلكتروني",
   "LOGINEMAIL":"الرجاء إدخال عنوان البريد الإلكتروني",

@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[18],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html":
-/*!***********************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html ***!
-  \***********************************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancellation-policy.component.html":
+/*!*******************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancellation-policy.component.html ***!
+  \*******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -13,113 +13,113 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/app/home/chat-management/chat-management-routing.module.ts":
-/*!************************************************************************!*\
-  !*** ./src/app/home/chat-management/chat-management-routing.module.ts ***!
-  \************************************************************************/
-/*! exports provided: ChatManagementRoutingModule */
+/***/ "./src/app/home/cancellation-policy/cancellation-policy-routing.module.ts":
+/*!********************************************************************************!*\
+  !*** ./src/app/home/cancellation-policy/cancellation-policy-routing.module.ts ***!
+  \********************************************************************************/
+/*! exports provided: CancellationPolicyRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatManagementRoutingModule", function() { return ChatManagementRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CancellationPolicyRoutingModule", function() { return CancellationPolicyRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _chat_management_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./chat-management.component */ "./src/app/home/chat-management/chat-management.component.ts");
+/* harmony import */ var _cancellation_policy_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./cancellation-policy.component */ "./src/app/home/cancellation-policy/cancellation-policy.component.ts");
 
 
 
 
-const routes = [{ path: '', component: _chat_management_component__WEBPACK_IMPORTED_MODULE_3__["ChatManagementComponent"] }];
-let ChatManagementRoutingModule = class ChatManagementRoutingModule {
+const routes = [{ path: '', component: _cancellation_policy_component__WEBPACK_IMPORTED_MODULE_3__["CancellationPolicyComponent"] }];
+let CancellationPolicyRoutingModule = class CancellationPolicyRoutingModule {
 };
-ChatManagementRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+CancellationPolicyRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], ChatManagementRoutingModule);
+], CancellationPolicyRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/chat-management/chat-management.component.scss":
-/*!*********************************************************************!*\
-  !*** ./src/app/home/chat-management/chat-management.component.scss ***!
-  \*********************************************************************/
+/***/ "./src/app/home/cancellation-policy/cancellation-policy.component.scss":
+/*!*****************************************************************************!*\
+  !*** ./src/app/home/cancellation-policy/cancellation-policy.component.scss ***!
+  \*****************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvY2hhdC1tYW5hZ2VtZW50L2NoYXQtbWFuYWdlbWVudC5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvY2FuY2VsbGF0aW9uLXBvbGljeS9jYW5jZWxsYXRpb24tcG9saWN5LmNvbXBvbmVudC5zY3NzIn0= */");
 
 /***/ }),
 
-/***/ "./src/app/home/chat-management/chat-management.component.ts":
-/*!*******************************************************************!*\
-  !*** ./src/app/home/chat-management/chat-management.component.ts ***!
-  \*******************************************************************/
-/*! exports provided: ChatManagementComponent */
+/***/ "./src/app/home/cancellation-policy/cancellation-policy.component.ts":
+/*!***************************************************************************!*\
+  !*** ./src/app/home/cancellation-policy/cancellation-policy.component.ts ***!
+  \***************************************************************************/
+/*! exports provided: CancellationPolicyComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatManagementComponent", function() { return ChatManagementComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CancellationPolicyComponent", function() { return CancellationPolicyComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 
 
-let ChatManagementComponent = class ChatManagementComponent {
+let CancellationPolicyComponent = class CancellationPolicyComponent {
     constructor() { }
     ngOnInit() {
     }
 };
-ChatManagementComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+CancellationPolicyComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-chat-management',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./chat-management.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./chat-management.component.scss */ "./src/app/home/chat-management/chat-management.component.scss")).default]
+        selector: 'app-cancellation-policy',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./cancellation-policy.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancellation-policy.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./cancellation-policy.component.scss */ "./src/app/home/cancellation-policy/cancellation-policy.component.scss")).default]
     })
-], ChatManagementComponent);
+], CancellationPolicyComponent);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/chat-management/chat-management.module.ts":
-/*!****************************************************************!*\
-  !*** ./src/app/home/chat-management/chat-management.module.ts ***!
-  \****************************************************************/
-/*! exports provided: ChatManagementModule */
+/***/ "./src/app/home/cancellation-policy/cancellation-policy.module.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/home/cancellation-policy/cancellation-policy.module.ts ***!
+  \************************************************************************/
+/*! exports provided: CancellationPolicyModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatManagementModule", function() { return ChatManagementModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CancellationPolicyModule", function() { return CancellationPolicyModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _chat_management_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./chat-management-routing.module */ "./src/app/home/chat-management/chat-management-routing.module.ts");
-/* harmony import */ var _chat_management_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./chat-management.component */ "./src/app/home/chat-management/chat-management.component.ts");
+/* harmony import */ var _cancellation_policy_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./cancellation-policy-routing.module */ "./src/app/home/cancellation-policy/cancellation-policy-routing.module.ts");
+/* harmony import */ var _cancellation_policy_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./cancellation-policy.component */ "./src/app/home/cancellation-policy/cancellation-policy.component.ts");
 
 
 
 
 
-let ChatManagementModule = class ChatManagementModule {
+let CancellationPolicyModule = class CancellationPolicyModule {
 };
-ChatManagementModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+CancellationPolicyModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_chat_management_component__WEBPACK_IMPORTED_MODULE_4__["ChatManagementComponent"]],
+        declarations: [_cancellation_policy_component__WEBPACK_IMPORTED_MODULE_4__["CancellationPolicyComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _chat_management_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChatManagementRoutingModule"]
+            _cancellation_policy_routing_module__WEBPACK_IMPORTED_MODULE_3__["CancellationPolicyRoutingModule"]
         ]
     })
-], ChatManagementModule);
+], CancellationPolicyModule);
 
 
 

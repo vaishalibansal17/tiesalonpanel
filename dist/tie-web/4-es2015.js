@@ -103,7 +103,7 @@ let HeaderComponent = class HeaderComponent {
         this.httpservice = httpservice;
         this.message = message;
         this.trns = trns;
-        this.lang = localStorage.getItem('lang');
+        this.lang = localStorage.getItem('lang') || 'en';
     }
     ngOnInit() {
         this.detail = JSON.parse(localStorage.getItem('salon'));
@@ -163,19 +163,19 @@ const routes = [{
         children: [
             { path: '', loadChildren: () => __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./dashboard/dashboard.module */ "./src/app/home/dashboard/dashboard.module.ts")).then(mod => mod.DashboardModule), data: { title: "Dashboard", status: false } },
             { path: 'dashboard', loadChildren: () => __webpack_require__.e(/*! import() */ 1).then(__webpack_require__.bind(null, /*! ./dashboard/dashboard.module */ "./src/app/home/dashboard/dashboard.module.ts")).then(mod => mod.DashboardModule), data: { title: "Dashboard", status: false } },
-            { path: 'notification', loadChildren: () => __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./notification/notification.module */ "./src/app/home/notification/notification.module.ts")).then(mod => mod.NotificationModule), data: { title: "Notification", status: false } },
+            { path: 'notification', loadChildren: () => __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./notification/notification.module */ "./src/app/home/notification/notification.module.ts")).then(mod => mod.NotificationModule), data: { title: "Notification", status: false } },
             { path: 'profile', loadChildren: () => __webpack_require__.e(/*! import() */ 36).then(__webpack_require__.bind(null, /*! ./profile/profile.module */ "./src/app/home/profile/profile.module.ts")).then(mod => mod.ProfileModule), data: { title: "Profile", status: true } },
             { path: 'settings', loadChildren: () => __webpack_require__.e(/*! import() */ 8).then(__webpack_require__.bind(null, /*! ./settings/settings.module */ "./src/app/home/settings/settings.module.ts")).then(mod => mod.SettingsModule), data: { title: "Settings", status: true } },
             { path: 'staff', loadChildren: () => __webpack_require__.e(/*! import() */ 37).then(__webpack_require__.bind(null, /*! ./staff/staff.module */ "./src/app/home/staff/staff.module.ts")).then(mod => mod.StaffModule), data: { title: "Staff", status: true } },
-            { path: 'report', loadChildren: () => __webpack_require__.e(/*! import() */ 22).then(__webpack_require__.bind(null, /*! ./report/report.module */ "./src/app/home/report/report.module.ts")).then(mod => mod.ReportModule), data: { title: "Report", status: true } },
-            { path: 'manage-calender', loadChildren: () => __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./manage-calender/manage-calender.module */ "./src/app/home/manage-calender/manage-calender.module.ts")).then(mod => mod.ManageCalenderModule), data: { title: "Notification", status: true } },
-            { path: 'booking', loadChildren: () => __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./bookings/bookings.module */ "./src/app/home/bookings/bookings.module.ts")).then(mod => mod.BookingsModule) },
+            { path: 'report', loadChildren: () => __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./report/report.module */ "./src/app/home/report/report.module.ts")).then(mod => mod.ReportModule), data: { title: "Report", status: true } },
+            { path: 'manage-calender', loadChildren: () => __webpack_require__.e(/*! import() */ 20).then(__webpack_require__.bind(null, /*! ./manage-calender/manage-calender.module */ "./src/app/home/manage-calender/manage-calender.module.ts")).then(mod => mod.ManageCalenderModule), data: { title: "Notification", status: true } },
+            { path: 'booking', loadChildren: () => __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./bookings/bookings.module */ "./src/app/home/bookings/bookings.module.ts")).then(mod => mod.BookingsModule) },
             { path: 'promocode', loadChildren: () => __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./promocode/promocode.module */ "./src/app/home/promocode/promocode.module.ts")).then(mod => mod.PromocodeModule), data: { title: "Promocode", status: true } },
             { path: 'walking-user', loadChildren: () => __webpack_require__.e(/*! import() */ 33).then(__webpack_require__.bind(null, /*! ./walking-user/walking-user.module */ "./src/app/home/walking-user/walking-user.module.ts")).then(mod => mod.WalkingUserModule) },
-            { path: 'chat', loadChildren: () => __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./chat-management/chat-management.module */ "./src/app/home/chat-management/chat-management.module.ts")).then(mod => mod.ChatManagementModule), data: { title: "Chat Management", status: true } },
+            { path: 'chat', loadChildren: () => __webpack_require__.e(/*! import() */ 19).then(__webpack_require__.bind(null, /*! ./chat-management/chat-management.module */ "./src/app/home/chat-management/chat-management.module.ts")).then(mod => mod.ChatManagementModule), data: { title: "Chat Management", status: true } },
             { path: 'promocode', loadChildren: () => __webpack_require__.e(/*! import() */ 2).then(__webpack_require__.bind(null, /*! ./promocode/promocode.module */ "./src/app/home/promocode/promocode.module.ts")).then(mod => mod.PromocodeModule), data: { title: "Promocode", status: true } },
-            { path: 'cancellation-policy', loadChildren: () => __webpack_require__.e(/*! import() */ 17).then(__webpack_require__.bind(null, /*! ./cancellation-policy/cancellation-policy.module */ "./src/app/home/cancellation-policy/cancellation-policy.module.ts")).then(mod => mod.CancellationPolicyModule), data: { title: "Cancellation Policy", status: true } },
-            { path: 'reviews', loadChildren: () => __webpack_require__.e(/*! import() */ 23).then(__webpack_require__.bind(null, /*! ./reviews/reviews.module */ "./src/app/home/reviews/reviews.module.ts")).then(mod => mod.ReviewsModule) }
+            { path: 'cancellation-policy', loadChildren: () => __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./cancellation-policy/cancellation-policy.module */ "./src/app/home/cancellation-policy/cancellation-policy.module.ts")).then(mod => mod.CancellationPolicyModule), data: { title: "Cancellation Policy", status: true } },
+            { path: 'reviews', loadChildren: () => __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ./reviews/reviews.module */ "./src/app/home/reviews/reviews.module.ts")).then(mod => mod.ReviewsModule) }
         ]
     },];
 let HomeRoutingModule = class HomeRoutingModule {

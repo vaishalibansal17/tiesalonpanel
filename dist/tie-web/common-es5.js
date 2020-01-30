@@ -90,7 +90,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _classCallCheck(this, AuthHeaderComponent);
 
         this.trns = trns;
-        this.lang = localStorage.getItem('lang');
+        this.lang = localStorage.getItem('lang') || 'en';
       }
 
       _createClass(AuthHeaderComponent, [{

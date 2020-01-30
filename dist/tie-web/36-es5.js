@@ -45,7 +45,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(3), __webpack_require__.e(21)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(3), __webpack_require__.e(22)]).then(__webpack_require__.bind(null,
         /*! ./viewprofile/viewprofile.module */
         "./src/app/home/profile/viewprofile/viewprofile.module.ts")).then(function (mod) {
           return mod.ViewprofileModule;

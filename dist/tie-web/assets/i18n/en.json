@@ -16,6 +16,10 @@
   "VIEWALL" : "View All", 
   "CONTINUE":"Continue",
 
+  "LOGINBTN":"Log In",
+  "NUMOFMEM":"No. of Members",
+  "NUMOFBOOKING":"No. of Bookings",
+
   "STAFF": "STAFF",
   "BOOKING": "BOOKINGS",
   "WALKUSR": "WALKING USERS",
@@ -54,7 +58,7 @@
   "INVALIDOLDPASS":"Old Password is invalid.",
   "LINKEXP":"Your Reset passowrd link is expired.",
   "INVALIDLINK":"Your Reset passowrd link is incorrect.",
-  
+  "SAVE":"Save",
   "MOBILENUMBER":"Mobile Number",
   "LOCATION":"Location",
   "BUSINESSHOURS":"Business Hours",
@@ -75,7 +79,7 @@
   "ENTRNWPASS":"Please enter your new password",
 
   "FREERESETPASS":"Freelancer Reset Password",
-
+  "MAXFILE" :"Maximum 10 images are allowed to upload.",
   "PHNREQ":"Please enter phone number.",
   "PHNLNGTH":"Phone number should be between 7 to 12 digits.",
   "LOCREQ":"Please enter location.",

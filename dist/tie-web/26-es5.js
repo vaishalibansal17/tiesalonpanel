@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[26], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffdetail/staffdetail.component.html":
-  /*!*********************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffdetail/staffdetail.component.html ***!
-    \*********************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/editstaff/editstaff.component.html":
+  /*!*****************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/editstaff/editstaff.component.html ***!
+    \*****************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeStaffStaffdetailStaffdetailComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeStaffEditstaffEditstaffComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<router-outlet></router-outlet>\n<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-12 top_view\"><img src=\"assets/images/change.png\" alt=\"\"><span class=\"user_name\">Jane Doe</span></div>\n        <div class=\"col-md-3 label\">Email:</div>\n        <div class=\"col-md-9 description\">jane@gmail.com</div>\n        <div class=\"col-md-3 label\">Mobile Number:</div>\n        <div class=\"col-md-9 description\">+91 99999 99999</div>\n        <div class=\"col-md-3 label\">Reviews:</div>\n        <div class=\"col-md-9 description\"><img src=\"assets/images/reviews-star.png\" alt=\"Review\"></div>\n        <div class=\"col-md-3 label\">Description:</div>\n        <div class=\"col-md-9 description\">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget\n            dolor. Aenean massa. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</div>\n        <div class=\"col-md-12 alignright\"><a [routerLink]=\"['review']\" class=\"btn btn-link\">View All</a></div>\n        <div class=\"col-md-12\">\n            <h3>Reviews:</h3>\n        </div>\n        <div class=\"staffdetail_notifi\">\n            <div class=\"notifi_list\">\n                <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n                <div class=\"noti_right\">\n                    <div class=\"author-review\">\n                    <div class=\"author\">James Walker</div>\n                    <div class=\"reviews\"><img src=\"assets/images/reviews-star.png\" alt=\"Review\"></div>\n                </div>\n                    Lorem ipsum is placeholder text commonly used in the graphic, print.\n                </div>\n            </div>\n            <div class=\"notifi_list\">\n                <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n                <div class=\"noti_right\">\n                    <div class=\"author-review\">\n                    <div class=\"author\">James Walker</div>\n                    <div class=\"reviews\"><img src=\"assets/images/reviews-star.png\" alt=\"Review\"></div>\n                </div>\n                Lorem ipsum is placeholder text commonly used in the graphic, print. Lorem ipsum is placeholder text.\n                </div>\n            </div>\n            <div class=\"notifi_list\">\n                <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n                <div class=\"noti_right\">\n                    <div class=\"author-review\">\n                    <div class=\"author\">James Walker</div>\n                    <div class=\"reviews\"><img src=\"assets/images/reviews-star.png\" alt=\"Review\"></div>\n                </div>\n                    Lorem ipsum is placeholder text commonly used in the graphic, print.\n                </div>\n            </div>\n            <div class=\"notifi_list\">\n                <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n                <div class=\"noti_right\">\n                    <div class=\"author-review\">\n                    <div class=\"author\">James Walker</div>\n                    <div class=\"reviews\"><img src=\"assets/images/reviews-star.png\" alt=\"Review\"></div>\n                </div>\n                Lorem ipsum is placeholder text commonly used in the graphic, print. Lorem ipsum is placeholder text.\n                </div>\n            </div>\n            <div class=\"notifi_list\">\n                <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n                <div class=\"noti_right\">\n                    <div class=\"author-review\">\n                    <div class=\"author\">James Walker</div>\n                    <div class=\"reviews\"><img src=\"assets/images/reviews-star.png\" alt=\"Review\"></div>\n                </div>\n                    Lorem ipsum is placeholder text commonly used in the graphic, print.\n                </div>\n            </div>\n\n        </div>\n    </div>\n</div>\n";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form action=\"\">\n            <div class=\"text-center\">\n                <div class=\"file_input\">\n                    <img src=\"assets/images/change.png\" alt=\"\">\n                </div>\n                <label for=\"\" class=\"custom_label\">Change Profile Photo</label>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/edit-user.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Full Name\" class=\"form-control\">\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/email.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Email\" class=\"form-control\">\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img phone\"><img src=\"assets/images/mobile.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Mobile Number\" class=\"form-control\">\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/service.png\" alt=\"envelope\"></span>\n                <mat-label>Service At</mat-label>\n                <mat-select>\n                  <mat-option *ngFor=\"let service of services\" [value]=\"service.value\">\n                    {{service.viewValue}}\n                  </mat-option>\n                </mat-select>\n              </mat-form-field>\n              <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/description.png\" alt=\"envelope\"></span>\n                <textarea matInput placeholder=\"Description\" class=\"form-control\"></textarea>\n            </mat-form-field>\n            \n            <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Save</button>\n            </div>\n        </form>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffdetail/staffdetail-routing.module.ts":
-  /*!**********************************************************************!*\
-    !*** ./src/app/home/staff/staffdetail/staffdetail-routing.module.ts ***!
-    \**********************************************************************/
+  "./src/app/home/staff/editstaff/editstaff-routing.module.ts":
+  /*!******************************************************************!*\
+    !*** ./src/app/home/staff/editstaff/editstaff-routing.module.ts ***!
+    \******************************************************************/
 
-  /*! exports provided: StaffdetailRoutingModule */
+  /*! exports provided: EditstaffRoutingModule */
 
   /***/
-  function srcAppHomeStaffStaffdetailStaffdetailRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeStaffEditstaffEditstaffRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffdetailRoutingModule", function () {
-      return StaffdetailRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "EditstaffRoutingModule", function () {
+      return EditstaffRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _staffdetail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./staffdetail.component */
-    "./src/app/home/staff/staffdetail/staffdetail.component.ts");
+    var _editstaff_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./editstaff.component */
+    "./src/app/home/staff/editstaff/editstaff.component.ts");
 
     var routes = [{
       path: '',
-      component: _staffdetail_component__WEBPACK_IMPORTED_MODULE_3__["StaffdetailComponent"]
+      component: _editstaff_component__WEBPACK_IMPORTED_MODULE_3__["EditstaffComponent"]
     }];
 
-    var StaffdetailRoutingModule = function StaffdetailRoutingModule() {
-      _classCallCheck(this, StaffdetailRoutingModule);
+    var EditstaffRoutingModule = function EditstaffRoutingModule() {
+      _classCallCheck(this, EditstaffRoutingModule);
     };
 
-    StaffdetailRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    EditstaffRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], StaffdetailRoutingModule);
+    })], EditstaffRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffdetail/staffdetail.component.scss":
-  /*!*******************************************************************!*\
-    !*** ./src/app/home/staff/staffdetail/staffdetail.component.scss ***!
-    \*******************************************************************/
+  "./src/app/home/staff/editstaff/editstaff.component.scss":
+  /*!***************************************************************!*\
+    !*** ./src/app/home/staff/editstaff/editstaff.component.scss ***!
+    \***************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeStaffStaffdetailStaffdetailComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeStaffEditstaffEditstaffComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvc3RhZmYvc3RhZmZkZXRhaWwvc3RhZmZkZXRhaWwuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvc3RhZmYvZWRpdHN0YWZmL2VkaXRzdGFmZi5jb21wb25lbnQuc2NzcyJ9 */";
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffdetail/staffdetail.component.ts":
-  /*!*****************************************************************!*\
-    !*** ./src/app/home/staff/staffdetail/staffdetail.component.ts ***!
-    \*****************************************************************/
+  "./src/app/home/staff/editstaff/editstaff.component.ts":
+  /*!*************************************************************!*\
+    !*** ./src/app/home/staff/editstaff/editstaff.component.ts ***!
+    \*************************************************************/
 
-  /*! exports provided: StaffdetailComponent */
+  /*! exports provided: EditstaffComponent */
 
   /***/
-  function srcAppHomeStaffStaffdetailStaffdetailComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeStaffEditstaffEditstaffComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffdetailComponent", function () {
-      return StaffdetailComponent;
+    __webpack_require__.d(__webpack_exports__, "EditstaffComponent", function () {
+      return EditstaffComponent;
     });
     /* harmony import */
 
@@ -137,51 +137,59 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var StaffdetailComponent =
+    var EditstaffComponent =
     /*#__PURE__*/
     function () {
-      function StaffdetailComponent() {
-        _classCallCheck(this, StaffdetailComponent);
+      function EditstaffComponent() {
+        _classCallCheck(this, EditstaffComponent);
+
+        this.services = [{
+          value: 'hair-cut',
+          viewValue: 'Hair Cut'
+        }, {
+          value: 'spa',
+          viewValue: 'Spa'
+        }];
       }
 
-      _createClass(StaffdetailComponent, [{
+      _createClass(EditstaffComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return StaffdetailComponent;
+      return EditstaffComponent;
     }();
 
-    StaffdetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-staffdetail',
+    EditstaffComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-editstaff',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./staffdetail.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffdetail/staffdetail.component.html")).default,
+      /*! raw-loader!./editstaff.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/editstaff/editstaff.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./staffdetail.component.scss */
-      "./src/app/home/staff/staffdetail/staffdetail.component.scss")).default]
-    })], StaffdetailComponent);
+      /*! ./editstaff.component.scss */
+      "./src/app/home/staff/editstaff/editstaff.component.scss")).default]
+    })], EditstaffComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffdetail/staffdetail.module.ts":
-  /*!**************************************************************!*\
-    !*** ./src/app/home/staff/staffdetail/staffdetail.module.ts ***!
-    \**************************************************************/
+  "./src/app/home/staff/editstaff/editstaff.module.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/staff/editstaff/editstaff.module.ts ***!
+    \**********************************************************/
 
-  /*! exports provided: StaffdetailModule */
+  /*! exports provided: EditstaffModule */
 
   /***/
-  function srcAppHomeStaffStaffdetailStaffdetailModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeStaffEditstaffEditstaffModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffdetailModule", function () {
-      return StaffdetailModule;
+    __webpack_require__.d(__webpack_exports__, "EditstaffModule", function () {
+      return EditstaffModule;
     });
     /* harmony import */
 
@@ -204,24 +212,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _staffdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./staffdetail-routing.module */
-    "./src/app/home/staff/staffdetail/staffdetail-routing.module.ts");
+    var _editstaff_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./editstaff-routing.module */
+    "./src/app/home/staff/editstaff/editstaff-routing.module.ts");
     /* harmony import */
 
 
-    var _staffdetail_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./staffdetail.component */
-    "./src/app/home/staff/staffdetail/staffdetail.component.ts");
+    var _editstaff_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./editstaff.component */
+    "./src/app/home/staff/editstaff/editstaff.component.ts");
+    /* harmony import */
 
-    var StaffdetailModule = function StaffdetailModule() {
-      _classCallCheck(this, StaffdetailModule);
+
+    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/shared.module */
+    "./src/app/shared/shared.module.ts");
+
+    var EditstaffModule = function EditstaffModule() {
+      _classCallCheck(this, EditstaffModule);
     };
 
-    StaffdetailModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_staffdetail_component__WEBPACK_IMPORTED_MODULE_4__["StaffdetailComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _staffdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffdetailRoutingModule"]]
-    })], StaffdetailModule);
+    EditstaffModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_editstaff_component__WEBPACK_IMPORTED_MODULE_4__["EditstaffComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _editstaff_routing_module__WEBPACK_IMPORTED_MODULE_3__["EditstaffRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
+    })], EditstaffModule);
     /***/
   }
 }]);

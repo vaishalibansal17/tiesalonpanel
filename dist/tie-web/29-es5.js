@@ -6,15 +6,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[29], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html":
-  /*!****************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html ***!
-    \****************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/add/add.component.html":
+  /*!************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/add/add.component.html ***!
+    \************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserAddbookingsAddbookingsComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserAddAddComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -26,23 +26,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/home/walking-user/addbookings/addbookings-routing.module.ts":
-  /*!*****************************************************************************!*\
-    !*** ./src/app/home/walking-user/addbookings/addbookings-routing.module.ts ***!
-    \*****************************************************************************/
+  "./src/app/home/walking-user/add/add-routing.module.ts":
+  /*!*************************************************************!*\
+    !*** ./src/app/home/walking-user/add/add-routing.module.ts ***!
+    \*************************************************************/
 
-  /*! exports provided: AddbookingsRoutingModule */
+  /*! exports provided: AddRoutingModule */
 
   /***/
-  function srcAppHomeWalkingUserAddbookingsAddbookingsRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddAddRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AddbookingsRoutingModule", function () {
-      return AddbookingsRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "AddRoutingModule", function () {
+      return AddRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _addbookings_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./addbookings.component */
-    "./src/app/home/walking-user/addbookings/addbookings.component.ts");
+    var _add_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./add.component */
+    "./src/app/home/walking-user/add/add.component.ts");
 
     var routes = [{
       path: '',
-      component: _addbookings_component__WEBPACK_IMPORTED_MODULE_3__["AddbookingsComponent"]
+      component: _add_component__WEBPACK_IMPORTED_MODULE_3__["AddComponent"]
     }];
 
-    var AddbookingsRoutingModule = function AddbookingsRoutingModule() {
-      _classCallCheck(this, AddbookingsRoutingModule);
+    var AddRoutingModule = function AddRoutingModule() {
+      _classCallCheck(this, AddRoutingModule);
     };
 
-    AddbookingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    AddRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], AddbookingsRoutingModule);
+    })], AddRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/addbookings/addbookings.component.scss":
-  /*!**************************************************************************!*\
-    !*** ./src/app/home/walking-user/addbookings/addbookings.component.scss ***!
-    \**************************************************************************/
+  "./src/app/home/walking-user/add/add.component.scss":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/walking-user/add/add.component.scss ***!
+    \**********************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeWalkingUserAddbookingsAddbookingsComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddAddComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL2FkZGJvb2tpbmdzL2FkZGJvb2tpbmdzLmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL2FkZC9hZGQuY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/addbookings/addbookings.component.ts":
-  /*!************************************************************************!*\
-    !*** ./src/app/home/walking-user/addbookings/addbookings.component.ts ***!
-    \************************************************************************/
+  "./src/app/home/walking-user/add/add.component.ts":
+  /*!********************************************************!*\
+    !*** ./src/app/home/walking-user/add/add.component.ts ***!
+    \********************************************************/
 
-  /*! exports provided: AddbookingsComponent */
+  /*! exports provided: AddComponent */
 
   /***/
-  function srcAppHomeWalkingUserAddbookingsAddbookingsComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddAddComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AddbookingsComponent", function () {
-      return AddbookingsComponent;
+    __webpack_require__.d(__webpack_exports__, "AddComponent", function () {
+      return AddComponent;
     });
     /* harmony import */
 
@@ -137,51 +137,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var AddbookingsComponent =
+    var AddComponent =
     /*#__PURE__*/
     function () {
-      function AddbookingsComponent() {
-        _classCallCheck(this, AddbookingsComponent);
+      function AddComponent() {
+        _classCallCheck(this, AddComponent);
       }
 
-      _createClass(AddbookingsComponent, [{
+      _createClass(AddComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return AddbookingsComponent;
+      return AddComponent;
     }();
 
-    AddbookingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-addbookings',
+    AddComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-add',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./addbookings.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html")).default,
+      /*! raw-loader!./add.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/add/add.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./addbookings.component.scss */
-      "./src/app/home/walking-user/addbookings/addbookings.component.scss")).default]
-    })], AddbookingsComponent);
+      /*! ./add.component.scss */
+      "./src/app/home/walking-user/add/add.component.scss")).default]
+    })], AddComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/addbookings/addbookings.module.ts":
-  /*!*********************************************************************!*\
-    !*** ./src/app/home/walking-user/addbookings/addbookings.module.ts ***!
-    \*********************************************************************/
+  "./src/app/home/walking-user/add/add.module.ts":
+  /*!*****************************************************!*\
+    !*** ./src/app/home/walking-user/add/add.module.ts ***!
+    \*****************************************************/
 
-  /*! exports provided: AddbookingsModule */
+  /*! exports provided: AddModule */
 
   /***/
-  function srcAppHomeWalkingUserAddbookingsAddbookingsModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddAddModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AddbookingsModule", function () {
-      return AddbookingsModule;
+    __webpack_require__.d(__webpack_exports__, "AddModule", function () {
+      return AddModule;
     });
     /* harmony import */
 
@@ -204,15 +204,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _addbookings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./addbookings-routing.module */
-    "./src/app/home/walking-user/addbookings/addbookings-routing.module.ts");
+    var _add_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./add-routing.module */
+    "./src/app/home/walking-user/add/add-routing.module.ts");
     /* harmony import */
 
 
-    var _addbookings_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./addbookings.component */
-    "./src/app/home/walking-user/addbookings/addbookings.component.ts");
+    var _add_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./add.component */
+    "./src/app/home/walking-user/add/add.component.ts");
     /* harmony import */
 
 
@@ -220,14 +220,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! src/app/shared/shared.module */
     "./src/app/shared/shared.module.ts");
 
-    var AddbookingsModule = function AddbookingsModule() {
-      _classCallCheck(this, AddbookingsModule);
+    var AddModule = function AddModule() {
+      _classCallCheck(this, AddModule);
     };
 
-    AddbookingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_addbookings_component__WEBPACK_IMPORTED_MODULE_4__["AddbookingsComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _addbookings_routing_module__WEBPACK_IMPORTED_MODULE_3__["AddbookingsRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
-    })], AddbookingsModule);
+    AddModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_add_component__WEBPACK_IMPORTED_MODULE_4__["AddComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _add_routing_module__WEBPACK_IMPORTED_MODULE_3__["AddRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
+    })], AddModule);
     /***/
   }
 }]);

@@ -95,7 +95,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          28).then(__webpack_require__.bind(null,
+          29).then(__webpack_require__.bind(null,
           /*! ./add/add.module */
           "./src/app/home/walking-user/add/add.module.ts")).then(function (mod) {
             return mod.AddModule;
@@ -110,7 +110,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          29).then(__webpack_require__.bind(null,
+          30).then(__webpack_require__.bind(null,
           /*! ./addbookings/addbookings.module */
           "./src/app/home/walking-user/addbookings/addbookings.module.ts")).then(function (mod) {
             return mod.AddbookingsModule;
@@ -125,14 +125,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          30).then(__webpack_require__.bind(null,
+          31).then(__webpack_require__.bind(null,
           /*! ./calender/calender.module */
           "./src/app/home/walking-user/calender/calender.module.ts")).then(function (mod) {
             return mod.CalenderModule;
           });
         },
         data: {
-          title: "Calender",
+          title: "Manage Calender",
           status: false
         }
       }, {
@@ -140,7 +140,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          32).then(__webpack_require__.bind(null,
+          16).then(__webpack_require__.bind(null,
           /*! ./calenderlist/calenderlist.module */
           "./src/app/home/walking-user/calenderlist/calenderlist.module.ts")).then(function (mod) {
             return mod.CalenderlistModule;
@@ -155,7 +155,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          31).then(__webpack_require__.bind(null,
+          32).then(__webpack_require__.bind(null,
           /*! ./calenderdetail/calenderdetail.module */
           "./src/app/home/walking-user/calenderdetail/calenderdetail.module.ts")).then(function (mod) {
             return mod.CalenderdetailModule;

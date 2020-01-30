@@ -6,15 +6,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[17], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancellation-policy.component.html":
-  /*!*******************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancellation-policy.component.html ***!
-    \*******************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookings.component.html":
+  /*!*********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookings.component.html ***!
+    \*********************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeCancellationPolicyCancellationPolicyComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeBookingsBookingsComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
@@ -26,23 +26,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
-  "./src/app/home/cancellation-policy/cancellation-policy-routing.module.ts":
-  /*!********************************************************************************!*\
-    !*** ./src/app/home/cancellation-policy/cancellation-policy-routing.module.ts ***!
-    \********************************************************************************/
+  "./src/app/home/bookings/bookings-routing.module.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/bookings/bookings-routing.module.ts ***!
+    \**********************************************************/
 
-  /*! exports provided: CancellationPolicyRoutingModule */
+  /*! exports provided: BookingsRoutingModule */
 
   /***/
-  function srcAppHomeCancellationPolicyCancellationPolicyRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingsRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CancellationPolicyRoutingModule", function () {
-      return CancellationPolicyRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "BookingsRoutingModule", function () {
+      return BookingsRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,100 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _cancellation_policy_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./cancellation-policy.component */
-    "./src/app/home/cancellation-policy/cancellation-policy.component.ts");
+    var _bookings_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./bookings.component */
+    "./src/app/home/bookings/bookings.component.ts");
 
     var routes = [{
       path: '',
-      component: _cancellation_policy_component__WEBPACK_IMPORTED_MODULE_3__["CancellationPolicyComponent"]
+      component: _bookings_component__WEBPACK_IMPORTED_MODULE_3__["BookingsComponent"],
+      data: {
+        title: "Booking"
+      },
+      children: [{
+        path: '',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() */
+          13).then(__webpack_require__.bind(null,
+          /*! ./list/list.module */
+          "./src/app/home/bookings/list/list.module.ts")).then(function (mod) {
+            return mod.ListModule;
+          });
+        },
+        data: {
+          title: "List",
+          status: false
+        }
+      }, // { path: 'add', loadChildren: () => import('./addstaff/addstaff.module').then(mod => mod.AddstaffModule), data: { title: "Add", status: false } },
+      // { path: 'edit', loadChildren: () => import('./editstaff/editstaff.module').then(mod => mod.EditstaffModule), data: { title: "Edit", status: false } },
+      {
+        path: 'info',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() */
+          12).then(__webpack_require__.bind(null,
+          /*! ./bookingdetail/bookingdetail.module */
+          "./src/app/home/bookings/bookingdetail/bookingdetail.module.ts")).then(function (mod) {
+            return mod.BookingdetailModule;
+          });
+        },
+        data: {
+          title: "Info",
+          status: false
+        }
+      }]
     }];
 
-    var CancellationPolicyRoutingModule = function CancellationPolicyRoutingModule() {
-      _classCallCheck(this, CancellationPolicyRoutingModule);
+    var BookingsRoutingModule = function BookingsRoutingModule() {
+      _classCallCheck(this, BookingsRoutingModule);
     };
 
-    CancellationPolicyRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    BookingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], CancellationPolicyRoutingModule);
+    })], BookingsRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/cancellation-policy/cancellation-policy.component.scss":
-  /*!*****************************************************************************!*\
-    !*** ./src/app/home/cancellation-policy/cancellation-policy.component.scss ***!
-    \*****************************************************************************/
+  "./src/app/home/bookings/bookings.component.scss":
+  /*!*******************************************************!*\
+    !*** ./src/app/home/bookings/bookings.component.scss ***!
+    \*******************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeCancellationPolicyCancellationPolicyComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingsComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvY2FuY2VsbGF0aW9uLXBvbGljeS9jYW5jZWxsYXRpb24tcG9saWN5LmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvYm9va2luZ3MvYm9va2luZ3MuY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
   /***/
-  "./src/app/home/cancellation-policy/cancellation-policy.component.ts":
-  /*!***************************************************************************!*\
-    !*** ./src/app/home/cancellation-policy/cancellation-policy.component.ts ***!
-    \***************************************************************************/
+  "./src/app/home/bookings/bookings.component.ts":
+  /*!*****************************************************!*\
+    !*** ./src/app/home/bookings/bookings.component.ts ***!
+    \*****************************************************/
 
-  /*! exports provided: CancellationPolicyComponent */
+  /*! exports provided: BookingsComponent */
 
   /***/
-  function srcAppHomeCancellationPolicyCancellationPolicyComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingsComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CancellationPolicyComponent", function () {
-      return CancellationPolicyComponent;
+    __webpack_require__.d(__webpack_exports__, "BookingsComponent", function () {
+      return BookingsComponent;
     });
     /* harmony import */
 
@@ -137,51 +173,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var CancellationPolicyComponent =
+    var BookingsComponent =
     /*#__PURE__*/
     function () {
-      function CancellationPolicyComponent() {
-        _classCallCheck(this, CancellationPolicyComponent);
+      function BookingsComponent() {
+        _classCallCheck(this, BookingsComponent);
       }
 
-      _createClass(CancellationPolicyComponent, [{
+      _createClass(BookingsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return CancellationPolicyComponent;
+      return BookingsComponent;
     }();
 
-    CancellationPolicyComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-cancellation-policy',
+    BookingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-bookings',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./cancellation-policy.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancellation-policy.component.html")).default,
+      /*! raw-loader!./bookings.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookings.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./cancellation-policy.component.scss */
-      "./src/app/home/cancellation-policy/cancellation-policy.component.scss")).default]
-    })], CancellationPolicyComponent);
+      /*! ./bookings.component.scss */
+      "./src/app/home/bookings/bookings.component.scss")).default]
+    })], BookingsComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/cancellation-policy/cancellation-policy.module.ts":
-  /*!************************************************************************!*\
-    !*** ./src/app/home/cancellation-policy/cancellation-policy.module.ts ***!
-    \************************************************************************/
+  "./src/app/home/bookings/bookings.module.ts":
+  /*!**************************************************!*\
+    !*** ./src/app/home/bookings/bookings.module.ts ***!
+    \**************************************************/
 
-  /*! exports provided: CancellationPolicyModule */
+  /*! exports provided: BookingsModule */
 
   /***/
-  function srcAppHomeCancellationPolicyCancellationPolicyModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingsModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CancellationPolicyModule", function () {
-      return CancellationPolicyModule;
+    __webpack_require__.d(__webpack_exports__, "BookingsModule", function () {
+      return BookingsModule;
     });
     /* harmony import */
 
@@ -204,24 +240,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _cancellation_policy_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./cancellation-policy-routing.module */
-    "./src/app/home/cancellation-policy/cancellation-policy-routing.module.ts");
+    var _bookings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./bookings-routing.module */
+    "./src/app/home/bookings/bookings-routing.module.ts");
     /* harmony import */
 
 
-    var _cancellation_policy_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./cancellation-policy.component */
-    "./src/app/home/cancellation-policy/cancellation-policy.component.ts");
+    var _bookings_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./bookings.component */
+    "./src/app/home/bookings/bookings.component.ts");
+    /* harmony import */
 
-    var CancellationPolicyModule = function CancellationPolicyModule() {
-      _classCallCheck(this, CancellationPolicyModule);
+
+    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/shared.module */
+    "./src/app/shared/shared.module.ts");
+
+    var BookingsModule = function BookingsModule() {
+      _classCallCheck(this, BookingsModule);
     };
 
-    CancellationPolicyModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_cancellation_policy_component__WEBPACK_IMPORTED_MODULE_4__["CancellationPolicyComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _cancellation_policy_routing_module__WEBPACK_IMPORTED_MODULE_3__["CancellationPolicyRoutingModule"]]
-    })], CancellationPolicyModule);
+    BookingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_bookings_component__WEBPACK_IMPORTED_MODULE_4__["BookingsComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _bookings_routing_module__WEBPACK_IMPORTED_MODULE_3__["BookingsRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
+    })], BookingsModule);
     /***/
   }
 }]);

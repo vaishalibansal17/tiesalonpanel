@@ -184,7 +184,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.httpservice = httpservice;
         this.message = message;
         this.trns = trns;
-        this.lang = localStorage.getItem('lang');
+        this.lang = localStorage.getItem('lang') || 'en';
       }
 
       _createClass(HeaderComponent, [{
@@ -321,7 +321,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          20).then(__webpack_require__.bind(null,
+          21).then(__webpack_require__.bind(null,
           /*! ./notification/notification.module */
           "./src/app/home/notification/notification.module.ts")).then(function (mod) {
             return mod.NotificationModule;
@@ -381,7 +381,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          22).then(__webpack_require__.bind(null,
+          23).then(__webpack_require__.bind(null,
           /*! ./report/report.module */
           "./src/app/home/report/report.module.ts")).then(function (mod) {
             return mod.ReportModule;
@@ -396,7 +396,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          19).then(__webpack_require__.bind(null,
+          20).then(__webpack_require__.bind(null,
           /*! ./manage-calender/manage-calender.module */
           "./src/app/home/manage-calender/manage-calender.module.ts")).then(function (mod) {
             return mod.ManageCalenderModule;
@@ -411,7 +411,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          16).then(__webpack_require__.bind(null,
+          17).then(__webpack_require__.bind(null,
           /*! ./bookings/bookings.module */
           "./src/app/home/bookings/bookings.module.ts")).then(function (mod) {
             return mod.BookingsModule;
@@ -448,7 +448,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          18).then(__webpack_require__.bind(null,
+          19).then(__webpack_require__.bind(null,
           /*! ./chat-management/chat-management.module */
           "./src/app/home/chat-management/chat-management.module.ts")).then(function (mod) {
             return mod.ChatManagementModule;
@@ -478,7 +478,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          17).then(__webpack_require__.bind(null,
+          18).then(__webpack_require__.bind(null,
           /*! ./cancellation-policy/cancellation-policy.module */
           "./src/app/home/cancellation-policy/cancellation-policy.module.ts")).then(function (mod) {
             return mod.CancellationPolicyModule;
@@ -493,7 +493,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          23).then(__webpack_require__.bind(null,
+          24).then(__webpack_require__.bind(null,
           /*! ./reviews/reviews.module */
           "./src/app/home/reviews/reviews.module.ts")).then(function (mod) {
             return mod.ReviewsModule;
