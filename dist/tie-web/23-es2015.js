@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<hr>\n<h1>Will deliver in next milestone.</h1>\n<hr>\n<h2>Thank you</h2>");
+/* harmony default export */ __webpack_exports__["default"] = ("<hr>\n<h1>Under Development.</h1>\n<hr>\n<h2>Thank you</h2>");
 
 /***/ }),
 

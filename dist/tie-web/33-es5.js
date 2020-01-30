@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<router-outlet></router-outlet>";
+    __webpack_exports__["default"] = "<!-- <router-outlet></router-outlet> -->\n\n<hr>\n<h1>Under Development.</h1>\n<hr>\n<h2>Thank you</h2>";
     /***/
   },
 

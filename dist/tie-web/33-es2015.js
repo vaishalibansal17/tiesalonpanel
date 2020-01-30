@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <router-outlet></router-outlet> -->\n\n<hr>\n<h1>Under Development.</h1>\n<hr>\n<h2>Thank you</h2>");
 
 /***/ }),
 

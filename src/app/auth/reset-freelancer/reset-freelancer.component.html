@@ -19,9 +19,10 @@
                 <app-auth-header></app-auth-header>
                 <div class="full-vertical custom-width">
                     <div class="logo"><img src="assets/images/tie_logo.png" alt="Logo"></div>
-                    <h1 class="head">{{'FREERESETPASS'| translate}}</h1>
-                    <p class="text-center">{{'ENTRNWPASS'| translate}}</p>
-                    <div class="login-form">
+                    <h1 class="head" *ngIf="!isSuccess">{{'FREERESETPASS'| translate}}</h1>
+                    <p class="text-center" *ngIf="!isSuccess">{{'ENTRNWPASS'| translate}}</p>
+                    <h1 class="head" style="color:darkgreen; text-transform: unset;" *ngIf="isSuccess">{{'SUCCESSRESET'| translate}}</h1>
+                    <div class="login-form" *ngIf="!isSuccess">
                         <form name="reset" (ngSubmit)="resetPassword()" [formGroup]="reset">
                             <mat-form-field>
                                 <span class="email-img pass"><img src="assets/images/password-free.png"
@@ -64,6 +65,7 @@
                             <button type="submit" class="btn btn-submit">{{'RESET' | translate}}</button>
                         </form>
                     </div>
+
                 </div>
             </div>
         </div>

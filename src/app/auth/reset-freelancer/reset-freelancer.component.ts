@@ -24,6 +24,7 @@ export class ResetFreelancerComponent implements OnInit {
   isLoading = false;
   passShow = true;
   cPassShow = true;
+  isSuccess = false;
   public formData = new FormData();
   constructor(private httpService: HttpRequestService, 
     private router: Router, private fb: FormBuilder, 
@@ -58,10 +59,11 @@ export class ResetFreelancerComponent implements OnInit {
     } else {
       this.httpService.getRequest('POST', 'FREELNCERESET', { pass: this.reset.value.newPassword, tkn: this.token }).subscribe((response: any) => {
         if (response.status === 1) {
-          this.router.navigateByUrl('/auth')
-            .then(() => {
-              this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('RESETPASSSUCC'))
-            });
+          this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('RESETPASSSUCC'));
+          this.isSuccess=true;
+          // this.router.navigateByUrl('/auth')
+          //   .then(() => {
+          //   });
         } else {
           if (response.err) {
               this.error.handleError(response.err.errCode)
