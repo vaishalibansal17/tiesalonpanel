@@ -141,7 +141,7 @@ export class EditprofileComponent implements OnInit {
     this.submitted = true;
     // return false
     this.formData = new FormData();
-    if (this.salonImageArray.length > 10) {
+    if (this.salonImageUrlArray.length > 10) {
       this.errorserv.handleError(39);
       return
     }
@@ -213,6 +213,8 @@ export class EditprofileComponent implements OnInit {
         let image = item.split("/").pop();
         this.deletedImageArray.push(image)
       }
+      console.log(this.salonImageUrlArray );
+      
       return index !== itemIndex
     })
     if (typeof this.salonImageArray[itemIndex] === 'object') {

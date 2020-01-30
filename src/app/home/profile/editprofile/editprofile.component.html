@@ -11,7 +11,7 @@
             </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/edit-user.png" alt="envelope"></span>
-                <input matInput placeholder="User Name" class="form-control" formControlName="name" maxlength="100">
+                <input matInput placeholder="Salon Name" class="form-control" formControlName="name" maxlength="100">
             </mat-form-field>
             <div *ngIf="(submitted || getControl.name.dirty|| getControl.name.touched) && getControl.name.errors">
                 <p class="color" *ngIf="getControl.name.errors.required">{{'LOGINEMAIL'| translate}}</p>
@@ -72,7 +72,7 @@
 
                     <label class="detail_content">
                         <a class="margin_top"
-                            *ngFor="let image of salonImageUrlArray; index as i" (click)="openModal(template)">
+                            *ngFor="let image of salonImageUrlArray; index as i">
                             <img class="file_upload2" [src]="image" alt="Upload">
                             <span (click)="removeSalonImages(image,i)">x</span> </a>
                     </label>
