@@ -16,7 +16,7 @@
             <div *ngIf="(submitted || getControl.name.dirty|| getControl.name.touched) && getControl.name.errors">
                 <p class="color" *ngIf="getControl.name.errors.required">{{'LOGINEMAIL'| translate}}</p>
                 <p class="color" *ngIf="!getControl.name.errors.required && getControl.name.errors.invalidName">
-                    {{'LOGINVALIDEMAIL'| translate}}</p>
+                    {{'INCRTSALONNAME'| translate}}</p>
             </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/email.png" alt="envelope"></span>

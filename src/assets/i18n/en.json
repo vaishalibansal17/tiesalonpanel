@@ -48,6 +48,7 @@
 
   "PLACEHOLDERLPASS":"Enter your password",
   "PLACEHOLDERLEMAIL":"Email",
+  "INCRTSALONNAME":"Please enter Salon name.",
   "LOGINEMAIL":"Please enter email address.",
   "LOGINVALIDEMAIL":"Please enter a valid email address.",
   "LOGINPASS" : "Please enter password.",
