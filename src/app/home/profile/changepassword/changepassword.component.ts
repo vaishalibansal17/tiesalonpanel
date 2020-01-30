@@ -66,7 +66,7 @@ export class ChangepasswordComponent implements OnInit {
           this.submitted = true;
           this.router.navigateByUrl('/')
             .then(() => {
-              this.helper.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('RESETPASSSUCC'));
+              this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('RESETPASSSUCC'));
             });
         } else {
             this.error.handleError(response.err.errCode)

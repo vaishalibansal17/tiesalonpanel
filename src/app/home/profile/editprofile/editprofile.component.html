@@ -69,16 +69,16 @@
             <div class="work_gallery">
                 <label for="">{{'WORKGALLERY'| translate}}</label>
                 <div class="form-group form-primary custom_formgroup">
-                    <input type="file" class="custom_upload1" multiple
-                        accept="image/x-png,image/gif,image/jpeg,image/jpg" (change)="readUrlMultipleImage($event)"
-                        formControlName='multiImage'>
-
+                    
                     <label class="detail_content"><a class="margin_top"
                             *ngFor="let image of salonImageUrlArray; index as i" (click)="openModal(template)">
                             <img class="file_upload2" [src]="image" alt="Upload">
                             <span (click)="removeSalonImages(image,i)">x</span> </a>
+                        </label>
                         <img class="file_upload1" src="assets/images/add-edit.png" alt="Upload">
-                    </label>
+                        <input type="file" class="custom_upload1" multiple
+                        accept="image/x-png,image/gif,image/jpeg,image/jpg" (change)="readUrlMultipleImage($event)"
+                    formControlName='multiImage'>
                     <br>
                 </div>
             </div>
@@ -113,7 +113,7 @@
             </a>
 
             <div class="text-center">
-                <button type="submit" class="btn btn-submit">Save</button>
+                <button type="submit" class="btn btn-submit">{{'SAVE'| translate}}</button>
             </div>
         </form>
     </div>

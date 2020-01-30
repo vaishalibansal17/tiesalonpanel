@@ -9,7 +9,7 @@ import { TranslateService } from 'src/app/shared/service/translate.service';
 export class AuthHeaderComponent implements OnInit {
   
   detail: any;
-  lang: string = localStorage.getItem('lang');
+  lang: string = localStorage.getItem('lang')|| 'en';
 
   constructor(private trns: TranslateService ){}
 

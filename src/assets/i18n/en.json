@@ -16,6 +16,10 @@
   "VIEWALL" : "View All", 
   "CONTINUE":"Continue",
 
+  "LOGINBTN":"Log In",
+  "NUMOFMEM":"No. of Members",
+  "NUMOFBOOKING":"No. of Bookings",
+
   "STAFF": "STAFF",
   "BOOKING": "BOOKINGS",
   "WALKUSR": "WALKING USERS",
@@ -54,7 +58,7 @@
   "INVALIDOLDPASS":"Old Password is invalid.",
   "LINKEXP":"Your Reset passowrd link is expired.",
   "INVALIDLINK":"Your Reset passowrd link is incorrect.",
-  
+  "SAVE":"Save",
   "MOBILENUMBER":"Mobile Number",
   "LOCATION":"Location",
   "BUSINESSHOURS":"Business Hours",

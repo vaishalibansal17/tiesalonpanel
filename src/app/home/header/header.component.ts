@@ -10,7 +10,7 @@ import { TranslateService } from 'src/app/shared/service/translate.service';
 })
 export class HeaderComponent implements OnInit {
   detail: any;
-  lang: string = localStorage.getItem('lang');
+  lang: string = localStorage.getItem('lang')||'en';
 
   constructor(private httpservice: HttpRequestService, private message: MessageService,private trns: TranslateService, ) { }
 
