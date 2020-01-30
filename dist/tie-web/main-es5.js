@@ -1243,6 +1243,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
     /*! ./page-not-found/page-not-found.component */
     "./src/app/page-not-found/page-not-found.component.ts"); // import { ToastrModule } from 'ngx-toastr';
+    // import { ToastrModule } from 'ngx-toastr';
 
 
     function HttpLoaderFactory(httpClient) {
@@ -1250,6 +1251,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }
 
     function setupTranslateFactory(service) {
+      debugger;
       return function () {
         return service.use('en');
       };
@@ -1699,13 +1701,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var ngx_toastr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ngx-toastr */
-    "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
-    /* harmony import */
-
-
-    var _service_http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var _service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ../service/http-request.service */
     "./src/app/shared/service/http-request.service.ts");
     /**
@@ -1716,10 +1712,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var ApiPrefixInterceptor =
     /*#__PURE__*/
     function () {
-      function ApiPrefixInterceptor(toastr, HttpService) {
+      function ApiPrefixInterceptor(HttpService) {
         _classCallCheck(this, ApiPrefixInterceptor);
 
-        this.toastr = toastr;
         this.HttpService = HttpService;
       }
 
@@ -1743,9 +1738,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     ApiPrefixInterceptor.ctorParameters = function () {
       return [{
-        type: ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrService"]
-      }, {
-        type: _service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
+        type: _service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"]
       }];
     };
 
@@ -1976,23 +1969,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ngx-toastr */
-    "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
-    /* harmony import */
-
-
-    var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! primeng/api */
     "./node_modules/primeng/fesm2015/primeng-api.js");
 
     var OfflineInterceptor =
     /*#__PURE__*/
     function () {
-      function OfflineInterceptor(toastr, messageService) {
+      function OfflineInterceptor(messageService) {
         _classCallCheck(this, OfflineInterceptor);
 
-        this.toastr = toastr;
         this.messageService = messageService;
       }
 
@@ -2008,15 +1994,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             });
             return Object(rxjs_observable_throw__WEBPACK_IMPORTED_MODULE_3__["_throw"])(new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpErrorResponse"]({
               error: 'Internet is required.'
-            })); // this.toastr.error('No Internet Connection.', 'Please check your internet connection and try again.',
-            //     {
-            //         timeOut: 10000,
-            //         closeButton: true,
-            //         progressBar: true,
-            //         progressAnimation: 'decreasing',
-            //         positionClass: 'toast-bottom-right'
-            //     });
-            // return _throw(new HttpErrorResponse({ error: 'Internet is required.' }));
+            })); // return _throw(new HttpErrorResponse({ error: 'Internet is required.' }));
           } else {
             // else return the normal request
             return next.handle(request);
@@ -2029,9 +2007,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     OfflineInterceptor.ctorParameters = function () {
       return [{
-        type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"]
-      }, {
-        type: primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"]
+        type: primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"]
       }];
     };
 
@@ -2136,23 +2112,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ngx-toastr */
-    "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
-    /* harmony import */
-
-
-    var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var primeng_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! primeng/api */
     "./node_modules/primeng/fesm2015/primeng-api.js");
 
     var Helper =
     /*#__PURE__*/
     function () {
-      function Helper(toastr, messageService) {
+      function Helper(messageService) {
         _classCallCheck(this, Helper);
 
-        this.toastr = toastr;
         this.messageService = messageService;
       }
 
@@ -2291,9 +2260,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     Helper.ctorParameters = function () {
       return [{
-        type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"]
-      }, {
-        type: primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"]
+        type: primeng_api__WEBPACK_IMPORTED_MODULE_3__["MessageService"]
       }];
     };
 
@@ -2401,7 +2368,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "logout",
         value: function logout() {
           // Customize credentials invalidation here
+          var lang = localStorage.getItem('lang');
           localStorage.clear();
+          localStorage.setItem('lang', lang);
           this.myRoute.navigate(['/auth']);
         }
       }, {
@@ -2508,7 +2477,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           console.log(localStorage.getItem('lang'), lang, '-----------');
           return new Promise(function (resolve, reject) {
-            lang = localStorage.getItem('lang');
+            // lang = localStorage.getItem('lang');
             var langPath = "assets/i18n/".concat(lang || 'en', ".json");
 
             _this2.http.get(langPath).subscribe(function (translation) {

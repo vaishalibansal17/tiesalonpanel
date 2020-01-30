@@ -9,7 +9,7 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form [formGroup]='organiserChangePassword' (ngSubmit)='changePassword()'>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLCPASS'| translate}}\" [type]=\"ohide ? 'password' : 'text'\" maxlength=\"20\" class=\"form-control pass-space\" formControlName='oldPassword'>\n                <button mat-icon-button matSuffix (click)=\"ohide = !ohide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{ohide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted) && getControl.oldPassword.errors\">\n                <p class=\"color\" *ngIf=\"getControl.oldPassword.errors.required\">{{'CURRENTPASS'| translate}} </p>\n              </div>\n              <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLNPASS'| translate}}\" [type]=\"nhide ? 'password' : 'text'\" maxlength=\"20\" formControlName='newPassword' class=\"form-control pass-space\">\n                <button mat-icon-button matSuffix (click)=\"nhide = !nhide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{nhide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted ) && getControl.newPassword.errors\">\n                <p class=\"color\" *ngIf=\"getControl.newPassword.errors.required\">{{'RESETPASSREQ'| translate}}</p>\n                <!-- <p class=\"color\" *ngIf=\"getControl.newPassword.errors.minlength\">{{'PASSPATTERN'| translate}}</p> -->\n                <span *ngIf=\"!getControl.newPassword.errors.required\">\n                  <p class=\"color\" *ngIf=\"getControl.newPassword.errors.invalidPassword\">{{'PASSPATTERN'| translate}}</p>\n                </span>\n              </div>\n              <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLCONFIRMPASS'| translate}}\" [type]=\"chide ? 'password' : 'text'\" maxlength=\"20\"  formControlName='confirmPassword' class=\"form-control pass-space\">\n                <button mat-icon-button matSuffix (click)=\"chide = !chide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{chide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted) && getControl.confirmPassword.errors\">\n                <p class=\"color\" *ngIf=\"getControl.confirmPassword.errors.required\">{{'RESETPASSCNFREQ'| translate}}</p>\n                <span *ngIf=\"!getControl.confirmPassword.errors.required\">\n                  <p class=\"color\" *ngIf=\"(getControl.confirmPassword.invalid)\">{{'RESETPASSNOTMATCH'| translate}}</p>\n                </span>\n              </div>\n              <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Save</button>\n              </div>\n            </form>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form [formGroup]='change' (ngSubmit)='changePassword()'>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLCPASS'| translate}}\" [type]=\"ohide ? 'password' : 'text'\" maxlength=\"20\" class=\"form-control pass-space\" formControlName='oldPassword'>\n                <button mat-icon-button matSuffix (click)=\"ohide = !ohide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{ohide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted) && getControl.oldPassword.errors\">\n                <p class=\"color\" *ngIf=\"getControl.oldPassword.errors.required\">{{'CURRENTPASS'| translate}} </p>\n              </div>\n              <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLNPASS'| translate}}\" [type]=\"nhide ? 'password' : 'text'\" maxlength=\"20\" formControlName='newPassword' class=\"form-control pass-space\">\n                <button mat-icon-button matSuffix (click)=\"nhide = !nhide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{nhide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted ) && getControl.newPassword.errors\">\n                <p class=\"color\" *ngIf=\"getControl.newPassword.errors.required\">{{'RESETPASSREQ'| translate}}</p>\n                <!-- <p class=\"color\" *ngIf=\"getControl.newPassword.errors.minlength\">{{'PASSPATTERN'| translate}}</p> -->\n                <span *ngIf=\"!getControl.newPassword.errors.required\">\n                  <p class=\"color\" *ngIf=\"getControl.newPassword.errors.invalidPassword\">{{'PASSPATTERN'| translate}}</p>\n                </span>\n              </div>\n              <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLCONFIRMPASS'| translate}}\" [type]=\"chide ? 'password' : 'text'\" maxlength=\"20\"  formControlName='confirmPassword' class=\"form-control pass-space\">\n                <button mat-icon-button matSuffix (click)=\"chide = !chide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{chide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted) && getControl.confirmPassword.errors\">\n                <p class=\"color\" *ngIf=\"getControl.confirmPassword.errors.required\">{{'RESETPASSCNFREQ'| translate}}</p>\n                <span *ngIf=\"!getControl.confirmPassword.errors.required\">\n                  <p class=\"color\" *ngIf=\"(getControl.confirmPassword.invalid)\">{{'RESETPASSNOTMATCH'| translate}}</p>\n                </span>\n              </div>\n              <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Save</button>\n              </div>\n            </form>\n    </div>\n</div>");
 
 /***/ }),
 
@@ -79,6 +79,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/service/validation-service */ "./src/app/shared/service/validation-service.ts");
 /* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
 /* harmony import */ var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/service/error.service */ "./src/app/shared/service/error.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
 
 
 
@@ -104,25 +108,31 @@ let ChangepasswordComponent = class ChangepasswordComponent {
         this.cPassShow = true;
         this.nPassShow = true;
         this.isEqualNewPass = false;
+        this.unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_9__["Subject"];
     }
     ngOnInit() {
         this.userDetails = this.helper.parseObject(localStorage.getItem('userDetails'));
-        this.organiserChangePassword = this.fb.group({
+        this.change = this.fb.group({
             oldPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
             newPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__["ValidationService"].passwordValidator]),
             confirmPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__["passValidator"]]),
         });
+        this.change.get('newPassword').valueChanges
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["takeUntil"])(this.unsubscribeAll))
+            .subscribe(() => {
+            this.change.get('confirmPassword').updateValueAndValidity();
+        });
     }
-    get getControl() { return this.organiserChangePassword.controls; }
+    get getControl() { return this.change.controls; }
     changePassword() {
         this.submitted = true;
-        if (this.organiserChangePassword.invalid) {
+        if (this.change.invalid) {
             return;
         }
         else {
-            this.organiserChangePassword.value['new_pass'] = this.organiserChangePassword.value.newPassword;
-            this.organiserChangePassword.value['old_pass'] = this.organiserChangePassword.value.oldPassword;
-            this.httpService.getRequest('PUT', 'CHANGEPASS', this.organiserChangePassword.value, '').subscribe((response) => {
+            this.change.value['new_pass'] = this.change.value.newPassword;
+            this.change.value['old_pass'] = this.change.value.oldPassword;
+            this.httpService.getRequest('PUT', 'CHANGEPASS', this.change.value, '').subscribe((response) => {
                 if (response.status === 1) {
                     this.submitted = true;
                     this.router.navigateByUrl('/')

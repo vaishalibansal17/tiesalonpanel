@@ -245,6 +245,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   return _this.httpService.sucsTostr(_this.trns.transform('SUCCESS'), _this.trns.transform('LOGINSUCCESS'));
                 });
               } else {
+                console.log(data.err);
+
                 _this.error.handleError(data.err.errCode);
               }
             }, function (error) {

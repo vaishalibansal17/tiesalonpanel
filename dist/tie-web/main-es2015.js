@@ -702,10 +702,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// import { ToastrModule } from 'ngx-toastr';
 function HttpLoaderFactory(httpClient) {
     return new _ngx_translate_http_loader__WEBPACK_IMPORTED_MODULE_15__["TranslateHttpLoader"](httpClient);
 }
 function setupTranslateFactory(service) {
+    debugger;
     return () => service.use('en');
 }
 let AppModule = class AppModule {
@@ -966,9 +968,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApiPrefixInterceptor", function() { return ApiPrefixInterceptor; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
-/* harmony import */ var _service_http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
-
+/* harmony import */ var _service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
 
 
 
@@ -976,8 +976,7 @@ __webpack_require__.r(__webpack_exports__);
  * Prefixes all requests with `environment.serverUrl`.
  */
 let ApiPrefixInterceptor = class ApiPrefixInterceptor {
-    constructor(toastr, HttpService) {
-        this.toastr = toastr;
+    constructor(HttpService) {
         this.HttpService = HttpService;
     }
     intercept(request, next) {
@@ -993,8 +992,7 @@ let ApiPrefixInterceptor = class ApiPrefixInterceptor {
     }
 };
 ApiPrefixInterceptor.ctorParameters = () => [
-    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_2__["ToastrService"] },
-    { type: _service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"] }
+    { type: _service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"] }
 ];
 ApiPrefixInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
@@ -1114,31 +1112,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var rxjs_observable_throw__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/observable/throw */ "./node_modules/rxjs-compat/_esm2015/observable/throw.js");
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
-
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
 
 
 
 
 
 let OfflineInterceptor = class OfflineInterceptor {
-    constructor(toastr, messageService) {
-        this.toastr = toastr;
+    constructor(messageService) {
         this.messageService = messageService;
     }
     intercept(request, next) {
         if (!window.navigator.onLine) {
             this.messageService.add({ key: 'myKey1', severity: 'warn', summary: 'No Internet Connection.', detail: 'Please check your internet connection and try again.' });
             return Object(rxjs_observable_throw__WEBPACK_IMPORTED_MODULE_3__["_throw"])(new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpErrorResponse"]({ error: 'Internet is required.' }));
-            // this.toastr.error('No Internet Connection.', 'Please check your internet connection and try again.',
-            //     {
-            //         timeOut: 10000,
-            //         closeButton: true,
-            //         progressBar: true,
-            //         progressAnimation: 'decreasing',
-            //         positionClass: 'toast-bottom-right'
-            //     });
             // return _throw(new HttpErrorResponse({ error: 'Internet is required.' }));
         }
         else {
@@ -1148,8 +1135,7 @@ let OfflineInterceptor = class OfflineInterceptor {
     }
 };
 OfflineInterceptor.ctorParameters = () => [
-    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_4__["ToastrService"] },
-    { type: primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"] }
+    { type: primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"] }
 ];
 OfflineInterceptor = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
@@ -1209,16 +1195,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
 /* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var ngx_toastr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-toastr */ "./node_modules/ngx-toastr/fesm2015/ngx-toastr.js");
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
-
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
 
 
 
 
 let Helper = class Helper {
-    constructor(toastr, messageService) {
-        this.toastr = toastr;
+    constructor(messageService) {
         this.messageService = messageService;
     }
     convertTimestampToISODate(value) {
@@ -1299,8 +1282,7 @@ let Helper = class Helper {
     }
 };
 Helper.ctorParameters = () => [
-    { type: ngx_toastr__WEBPACK_IMPORTED_MODULE_3__["ToastrService"] },
-    { type: primeng_api__WEBPACK_IMPORTED_MODULE_4__["MessageService"] }
+    { type: primeng_api__WEBPACK_IMPORTED_MODULE_3__["MessageService"] }
 ];
 Helper = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
@@ -1368,7 +1350,9 @@ let HttpRequestService = class HttpRequestService {
      */
     logout() {
         // Customize credentials invalidation here
+        let lang = localStorage.getItem('lang');
         localStorage.clear();
+        localStorage.setItem('lang', lang);
         this.myRoute.navigate(['/auth']);
     }
     isLoggednIn() {
@@ -1423,7 +1407,7 @@ let TranslateService = class TranslateService {
     use(lang) {
         console.log(localStorage.getItem('lang'), lang, '-----------');
         return new Promise((resolve, reject) => {
-            lang = localStorage.getItem('lang');
+            // lang = localStorage.getItem('lang');
             const langPath = `assets/i18n/${lang || 'en'}.json`;
             this.http.get(langPath).subscribe(translation => {
                 this.data = Object.assign({}, translation || {});
