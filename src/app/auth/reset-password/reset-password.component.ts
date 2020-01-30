@@ -56,15 +56,13 @@ export class ResetPasswordComponent implements OnInit {
   get getControl() { return this.reset.controls; }
 
   resetPassword() {
-    this.isLoading = true;
+    
     this.submitted = true;
     if (!this.reset.valid) {
-      this.isLoading = false;
       return;
     } else {
       this.httpService.getRequest('POST', 'RESET', { pass: this.reset.value.newPassword, tkn: this.token }).subscribe((response: any) => {
         if (response.status === 1) {
-          this.isLoading = false;
           this.router.navigateByUrl('/auth')
             .then(() => {
               this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('RESETPASSSUCC'))

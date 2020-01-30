@@ -72,7 +72,6 @@ export class LoginComponent implements OnInit {
         );
     } else {
       // this.spinner.hide();
-      this.isLoading = !this.isLoading;
     }
   }
 

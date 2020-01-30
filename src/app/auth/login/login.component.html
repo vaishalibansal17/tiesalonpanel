@@ -27,7 +27,7 @@
                                     maxlength="50">
                             </mat-form-field>
                             <div
-                                *ngIf="(submitted || getControl.email.dirty|| getControl.email.touched) && getControl.email.errors">
+                                *ngIf="(submitted) && getControl.email.errors">
                                 <p class="color" *ngIf="getControl.email.errors.required">{{'LOGINEMAIL'| translate}}</p>
                                 <p class="color" *ngIf="!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress">{{'LOGINVALIDEMAIL'| translate}}</p>
                             </div>
@@ -41,7 +41,7 @@
                                 </button>
                             </mat-form-field>
                             <div
-                                *ngIf="(submitted || getControl.pass.dirty|| getControl.pass.touched) && getControl.pass.errors">
+                                *ngIf="(submitted) && getControl.pass.errors">
                                 <p class="color" *ngIf="getControl.pass.errors.required">{{'LOGINPASS'| translate}}</p>
                                 <!-- <p class="color" *ngIf="getControl.pass.errors.minlength ">Incorrect password or
                                     email.</p> -->

@@ -1,13 +1,13 @@
 <div class="main-card">
     <div class="setting_list">
         <div class="row">
-            <div class="col-md-6">Notifications</div>
+            <div class="col-md-6">{{'NOTIFICATION'| translate}}</div>
             <div class="col-md-6 alignright"><mat-slide-toggle></mat-slide-toggle></div>
         </div>
     </div>
     <div class="setting_list">
         <div class="row">
-            <div class="col-md-6">Language</div>
+            <div class="col-md-6">{{'LANG'| translate}}</div>
             <div class="col-md-6 alignright">
                 <ul>
                     <li class="active">En <img src="assets/images/flag_en.png" alt="English"></li>
@@ -18,16 +18,16 @@
     </div>
     <div class="setting_list">
         <div class="row">
-            <div class="col-md-6">Online Booking</div>
+            <div class="col-md-6">{{'ONLINBOOKING'| translate}}</div>
             <div class="col-md-6 alignright"><mat-slide-toggle></mat-slide-toggle></div>
         </div>
     </div>
     <div class="setting_list">
         <div class="row">
-            <div class="col-md-8">Schedule Appointments <button mat-raised-button matTooltip="Schedule Appointment" [matTooltipPosition]="position.value" aria-label="Button that displays a tooltip in various positions"><img src="assets/images/info.png" alt="Info"></button></div>
+            <div class="col-md-8">{{'SCHEDULEAPPT'| translate}} <button mat-raised-button matTooltip="{{'SCHEDULEAPPT'| translate}}" [matTooltipPosition]="position.value" aria-label="Button that displays a tooltip in various positions"><img src="assets/images/info.png" alt="Info"></button></div>
             <div class="col-md-4 alignright">  
              <mat-form-field>
-                <mat-label>Schedule Appointments</mat-label>
+                <mat-label>{{'SCHEDULEAPPT'| translate}}</mat-label>
                 <mat-select (click)="openDialog()" [disableRipple]="true">
                   <mat-option *ngFor="let appointment of appointments" [value]="appointment.value">
                     {{appointment.viewValue}}
@@ -38,31 +38,31 @@
     </div>
     <div class="setting_list">
         <div class="row">
-            <div class="col-md-6">Allow Multi-Service Bookings</div>
+            <div class="col-md-6">{{'ALLOWMULTISETTINGS'| translate}}</div>
             <div class="col-md-6 alignright"><mat-slide-toggle></mat-slide-toggle></div>
         </div>
     </div>
     <div class="setting_list">
         <div class="row">
-            <div class="col-md-6">Hours Notice for Online Bookings</div>
+            <div class="col-md-6">{{'HOURSPRIORBOOKING'| translate}}</div>
             <div class="col-md-6 alignright">3</div>
         </div>
     </div>
     <div class="setting_list">
         <div class="row">
-            <div class="col-md-6"><button mat-raised-button (click)="openDialog2()" [disableRipple]="true">Number of Bookings</button></div>
+            <div class="col-md-6"><button mat-raised-button (click)="openDialog2()" [disableRipple]="true">{{'NUMOFBOOK'| translate}}</button></div>
             <div class="col-md-6 alignright">8</div>
         </div>
     </div>
     <div class="setting_list">
         <div class="row">
-            <div class="col-md-6">Deactivate Account 
-                <button  [disableRipple]="true" mat-raised-button matTooltip="You can deactivate your account for weeks or months, based on your availability. Users will not be able to see you while your account is deactivated." [matTooltipPosition]="position.value" aria-label="Button that displays a tooltip in various positions"><img src="assets/images/info.png" alt="Info"></button>
+            <div class="col-md-6">{{'DEACACC'| translate}} 
+                <button  [disableRipple]="true" mat-raised-button matTooltip="{{'DEACTEXT'| translate}}" [matTooltipPosition]="position.value" aria-label="Button that displays a tooltip in various positions"><img src="assets/images/info.png" alt="Info"></button>
             </div>
             <div class="col-md-6 alignright"><mat-slide-toggle></mat-slide-toggle></div>
         </div>
     </div>
-    <div class="text-center"><a href="#" class="link">Delete Account</a></div>
+    <div class="text-center"><a href="#" class="link">{{'DELACC'| translate}}</a></div>
 </div>
 
 

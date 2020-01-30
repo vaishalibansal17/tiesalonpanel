@@ -36,12 +36,12 @@
                                 </button>
                             </mat-form-field>
                             <div
-                                *ngIf="(submitted || getControl.newPassword.dirty|| getControl.newPassword.touched) && getControl.newPassword.errors">
+                                *ngIf="(submitted) && getControl.newPassword.errors">
                                 <p class="color" *ngIf="getControl.newPassword.errors.required">{{'RESETPASSREQ'| translate}}
                                 </p>
-                                <p class="color" *ngIf="getControl.newPassword.errors.minlength ">{{'PASSPATTERN'| translate}}</p>
-                                <span *ngIf="!getControl.newPassword.errors.minlength">
-                                    <p class="color" *ngIf="getControl.newPassword.errors.pattern">{{'PASSPATTERN'| translate}}</p>
+                                <!-- <p class="color" *ngIf="getControl.newPassword.errors.minlength ">{{'PASSPATTERN'| translate}}</p> -->
+                                <span *ngIf="!getControl.newPassword.errors.required">
+                                    <p class="color" *ngIf="getControl.newPassword.errors.invalidPassword">{{'PASSPATTERN'| translate}}</p>
                                 </span>
                             </div>
                             <mat-form-field>
@@ -55,7 +55,7 @@
                                 </button>
                             </mat-form-field>
                             <div
-                                *ngIf="(submitted || getControl.confirmPassword.dirty|| getControl.confirmPassword.touched) && getControl.confirmPassword.errors">
+                                *ngIf="(submitted) && getControl.confirmPassword.errors">
                                 <p class="color" *ngIf="getControl.confirmPassword.errors.required">{{'RESETPASSCNFREQ'| translate}}</p>
                                 <span *ngIf="!getControl.confirmPassword.errors.required">
                                     <p class="color" *ngIf="getControl.confirmPassword.invalid">{{'RESETPASSNOTMATCH'| translate}}</p>

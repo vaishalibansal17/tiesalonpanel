@@ -37,7 +37,7 @@ export class ChangepasswordComponent implements OnInit {
     this.userDetails = this.helper.parseObject(localStorage.getItem('userDetails'));
     this.organiserChangePassword = this.fb.group({
       oldPassword: new FormControl(null, [Validators.required]),
-      newPassword: new FormControl(null, [Validators.required, Validators.minLength(6), ValidationService.passwordValidator]),
+      newPassword: new FormControl(null, [Validators.required, ValidationService.passwordValidator]),
       confirmPassword: new FormControl(null, [Validators.required, passValidator]),
     }
     );

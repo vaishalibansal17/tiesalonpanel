@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ErrorService } from 'src/app/shared/service/error.service';
 import { Helper } from 'src/app/shared/service/helper.service';
 import { MESSAGE, DELETE } from 'src/app/shared/constants/constant';
+import { ValidationService } from 'src/app/shared/service/validation-service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -25,7 +26,7 @@ export class ForgotPasswordComponent implements OnInit {
     this.forgetPasswordForm = new FormGroup({
       email: new FormControl(null, [
         Validators.required,
-        Validators.pattern('^[A-Z0-9a-z_.~+-{|}!#$%&()/:;<=>?@`\'",]{1,}@[A-Z0-9a-z]{2,}[.]{1}[A-Za-z.]{2,}$')
+        ValidationService.validateEmail
       ]),
     });
 

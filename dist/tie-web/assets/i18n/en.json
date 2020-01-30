@@ -71,7 +71,7 @@
   "WELCOMETOOUR":"Welcome to our",
   "FRGTPASS":"Forgot Password",
   "RSTPASS":"Reset Password",
-  "ENTREGISTRMAIL":"Please enter your Registered Email to Reset",
+  "ENTREGISTRMAIL":"Please enter your Registered Email to Reset Password",
   "ENTRNWPASS":"Please enter your new password",
 
   "FREERESETPASS":"Freelancer Reset Password",
@@ -82,6 +82,17 @@
   "DESCREQ":"Please enter description.",
   "DESCLNGTH":"Description should be between 2 to 500 characters.",
   "WBSTINVLD":"Website is not valid.",
+
+  "NOTIFICATION":"Notifications",
+  "LANG":"Language",
+  "ONLINBOOKING":"Online Booking",
+  "SCHEDULEAPPT":"Schedule Appointments",
+  "ALLOWMULTISETTINGS":"Allow Multi-Service Bookings",
+  "HOURSPRIORBOOKING":"Hours Notice for Online Bookings",
+  "NUMOFBOOK":"Number of Bookings",
+  "DEACACC":"Deactivate Account",
+  "DEACTEXT":"You can deactivate your account for weeks or months, based on your availability. Users will not be able to see you while your account is deactivated.",
+  "DELACC":"Delete Account",
 
   "UI ELEMENT": "Modules",
   "NAVIGATION": "Navigation",
