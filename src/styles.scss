@@ -38,7 +38,7 @@ agm-map {
     margin: 20px 0px;
   }
 body{font-size:14px !important;line-height:24px !important;font-family: 'Conv_GothamRounded-Book' !important;}
-button,.mat-table{font-family: 'Conv_GothamRounded-Book' !important;}
+button,.mat-table,.mat-form-field-infix,.mat-form-field,.mat-select-value{font-family: 'Conv_GothamRounded-Book' !important;}
 ul{list-style: none;margin: 0;padding: 0;}
 .form-control:focus{box-shadow: none !important;border:none !important;outline: none !important;}
 a:hover{text-decoration: none !important;}
@@ -52,6 +52,20 @@ a.link{font-size: 16px;text-decoration: underline;color: #999999;padding-top: 20
 .mat-raised-button:not([disabled]):active:not([class*=mat-elevation-z]){box-shadow: none;}
 .mat-button-focus-overlay{background: transparent;}
 a.link:hover,ol.breadcrumb li a{color: #f96bb3;}
+.btn.btn-submit{
+    margin: 20px auto 10px;
+    background: #f96bb3;
+    font-size: 16px;
+    text-align: center;
+    padding: 12px 70px;
+    border-radius: 30px;
+    color: #fff;box-shadow: 0px 2px 9px #a0a0a0cc;
+    &:hover{
+        background: transparent;
+        color: #808AA5;
+        border:1px solid #808AA5;
+    }
+}
 .alignright{text-align: right;}
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
@@ -577,7 +591,7 @@ body.nav-close{
 .custom_form{
     width: 50%;
     margin: 0 auto;
-    .mat-form-field-infix,.mat-form-field{width:100%;margin: 0;padding:0;border-top: none;font-family: 'Conv_GothamRounded-Book' !important;}
+    .mat-form-field-infix,.mat-form-field{width:100%;margin: 0;padding:0;border-top: none;    }
     .mat-form-field-appearance-legacy .mat-form-field-underline,.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label,.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{display: none;}
     .mat-form-field-appearance-legacy .mat-form-field-wrapper{padding-bottom: 0px;}
     button.mat-icon-button.mat-button-base {position: absolute; top: -16px;right: 15px;}
@@ -624,6 +638,7 @@ img.full_width{width:100%;margin-bottom: 20px;}
 .main-card{
     .top_view{margin-bottom: 20px;}
     .label,.description{margin-bottom: 5px;}
+    .description span,.label span{display: block;color: #999999;font-size: 13px;}
     span.user_name{margin-left: 15px;}
     a.btn.btn-edit{
         font-size: 14px;
@@ -681,7 +696,7 @@ img.full_width{width:100%;margin-bottom: 20px;}
         padding: 0px;
         font-size: 15px;
     }
-    .mat-form-field-infix,.mat-form-field{width:100%;margin: 0;padding:0;border-top: none;font-family: 'Conv_GothamRounded-Book' !important;}
+    .mat-form-field-infix,.mat-form-field{width:100%;margin: 0;padding:0;border-top: none;}
     .mat-form-field-appearance-legacy .mat-form-field-underline,.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label,.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{display: none;}
     .mat-form-field-appearance-legacy .mat-form-field-wrapper{padding-bottom: 0px;}
     .mat-form-field-appearance-legacy .mat-form-field-label {top: 30px;color: #999;left: 20px;width: calc(100% - 60px);font-size: 14px;}
@@ -745,7 +760,7 @@ img.full_width{width:100%;margin-bottom: 20px;}
             margin-bottom: 5px;
         }
     form{margin-top: 20px;}
-    .mat-form-field-infix,.mat-form-field{width:100%;margin: 0;padding:0;border-top: none;font-family: 'Conv_GothamRounded-Book' !important;}
+    .mat-form-field-infix,.mat-form-field{width:100%;margin: 0;padding:0;border-top: none;}
     .mat-form-field-appearance-legacy .mat-form-field-underline,.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label{display: none;}
     .mat-form-field-appearance-legacy .mat-form-field-wrapper{padding-bottom: 0px;}
     button.mat-icon-button.mat-button-base {position: absolute; top: -16px;right: 15px;}
@@ -753,6 +768,7 @@ img.full_width{width:100%;margin-bottom: 20px;}
     .mat-form-field-appearance-legacy .mat-form-field-label {top: 30px;color: #999;left: 20px;width: calc(100% - 20px);font-size: 14px;}
     .mat-button-wrapper .mat-icon{color: #999;}
     input.form-control{height: 50px;border: 1px solid #dad9d9;padding:0px 20px;border-radius: 7px;margin-bottom: 20px;font-size:14px}
+    input.form-control.popup{margin-bottom: 0px !important;}
     .form-control:focus {border: 1px solid #dad9d9 !important;}
     button.btn-submit{
             width: 80%;
@@ -820,7 +836,7 @@ img.full_width{width:100%;margin-bottom: 20px;}
             text-align: center;
             text-transform: lowercase;
         }
-        .mat-form-field-infix,.mat-form-field{width:100%;margin: 0;padding:0;border-top: none;font-family: 'Conv_GothamRounded-Book' !important;}
+        .mat-form-field-infix,.mat-form-field{width:100%;margin: 0;padding:0;border-top: none;}
         .mat-form-field-appearance-legacy .mat-form-field-underline,.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label,.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{display: none;}
         .mat-form-field-appearance-legacy .mat-form-field-wrapper{padding-bottom: 0px;}
         .mat-form-field-wrapper{margin-bottom: 0px;padding-bottom: 0px;}
@@ -901,6 +917,11 @@ img.full_width{width:100%;margin-bottom: 20px;}
         .mat-column-action {
             min-width: 120px;
         }
+        a{color: #F96BB3;
+        &:hover{
+            color: #000;
+        }
+    }
     }
 
     table tr:last-child td.mat-cell{border-bottom: 1px solid #efefef;}
@@ -919,6 +940,30 @@ img.full_width{width:100%;margin-bottom: 20px;}
         overflow-x: auto;
         .table_scroll{
         }
+    }
+    ul.inline{
+        li{
+            display: inline-block;
+            margin: 0px 10px;
+            &:last-child{
+                margin-right: 0px;
+            }
+            button{
+                background: transparent;
+                border:none;
+            }
+        }
+    }
+
+    form.list_booking{
+        .mat-form-field-infix,.mat-form-field{margin: 0;padding:0;border-top: none;}
+        .mat-form-field-appearance-legacy .mat-form-field-underline,.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label,.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{display: none;}
+        .mat-form-field-appearance-legacy .mat-form-field-label {top: 29px;color: #999;left: 15px;width: calc(100% - 85px);font-size: 14px;}
+        .mat-button-wrapper .mat-icon{color: #999;}
+        mat-form-field.mat-form-field-type-mat-select.mat-form-field-can-float.mat-form-field-has-label {height: 50px;border: 1px solid #dad9d9;border-radius: 5px;margin-bottom: 0px;}
+        .mat-select-value {padding-left: 15px;padding-top: 15px;color: #999;}
+        .mat-select-arrow-wrapper{padding: 20px 5px;}
+        .mat-select-arrow{color: rgb(249, 107, 179) !important;}
     }
 }
 
@@ -1141,5 +1186,13 @@ body.nav-open .main-header, body.nav-close .main-header {padding: 10px ;}
     .alignright{text-align: left;}
     .main-card .top_view{margin-bottom: 0px;}
     .main-card a.btn.btn-edit {margin: 10px 0px;}
-    span.mobile_hidden{display: none;}
+    .mobile_hidden{display: none;}
+    .main-card .add,.main-card .top_view {text-align: center;margin-bottom: 20px;}
+    .main-card .label {margin-top: 10px;font-weight: 600;}
+    .cdk-overlay-pane .mat-dialog-container {padding: 15px 10px;}
+}
+
+
+@media(max-width:640px){
+.main-card table .mat-column-action {min-width: 170px;}
 }
