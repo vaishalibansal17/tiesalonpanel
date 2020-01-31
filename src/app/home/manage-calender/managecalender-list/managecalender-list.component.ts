@@ -14,11 +14,11 @@ export interface PeriodicElement {
 }
 
 @Component({
-  selector: 'app-calenderlist',
-  templateUrl: './calenderlist.component.html',
-  styleUrls: ['./calenderlist.component.scss']
+  selector: 'app-managecalender-list',
+  templateUrl: './managecalender-list.component.html',
+  styleUrls: ['./managecalender-list.component.scss']
 })
-export class CalenderlistComponent implements OnInit {
+export class ManagecalenderListComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'service', 'serviceat', 'staff', 'number', 'status', 'time', 'bookingid', 'date', 'action' ];
   dataSource = ELEMENT_DATA;
 
