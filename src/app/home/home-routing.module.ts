@@ -19,8 +19,10 @@ const routes: Routes = [{
     { path: 'walking-user', loadChildren: () => import('./walking-user/walking-user.module').then(mod => mod.WalkingUserModule)},
     { path: 'chat', loadChildren: () => import('./chat-management/chat-management.module').then(mod => mod.ChatManagementModule), data: { title: "Chat Management", status: true } },   
     { path: 'promocode', loadChildren: () => import('./promocode/promocode.module').then(mod => mod.PromocodeModule), data: { title: "Promocode", status: true } },
-    { path: 'cancellation-policy', loadChildren: () => import('./cancellation-policy/cancellation-policy.module').then(mod => mod.CancellationPolicyModule), data: { title: "Cancellation Policy", status: true } },
-    { path: 'reviews', loadChildren: () => import('./reviews/reviews.module').then(mod => mod.ReviewsModule) }
+    { path: 'cancellation-policy', loadChildren: () => import('./cancellation-policy/cancellation-policy.module').then(mod => mod.CancellationPolicyModule), },
+    { path: 'reviews', loadChildren: () => import('./reviews/reviews.module').then(mod => mod.ReviewsModule), },
+    { path: 'feedback', loadChildren: () => import('./feedback/feedback.module').then(mod => mod.FeedbackModule), data: { title: "Feedback", status: true } },   
+    { path: 'about-us', loadChildren: () => import('./aboutus/aboutus.module').then(mod => mod.AboutusModule), data: { title: "About Us", status: true } },   
   ]
 },];
 
