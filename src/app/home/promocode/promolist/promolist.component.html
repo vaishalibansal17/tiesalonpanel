@@ -1,0 +1,70 @@
+<div class="main-card">
+    <div class="row">
+        <div class="col-md-6 add"><a [routerLink]="['/promocode/promocode-add']"><img src="assets/images/add.png" alt="Add">Add Promo code</a></div>
+        <div class="col-md-6 alignright"><a href="#" class="btn btn-export">Export</a></div>
+    </div>
+    <div class="table_wrap">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let element">{{element.position}}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="coupon">
+          <th mat-header-cell *matHeaderCellDef>Coupon Code</th>
+          <td mat-cell *matCellDef="let element">{{element.coupon}}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="discount">
+          <th mat-header-cell *matHeaderCellDef>Discount</th>
+          <td mat-cell *matCellDef="let element">{{element.discount}}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="service">
+          <th mat-header-cell *matHeaderCellDef>Service</th>
+          <td mat-cell *matCellDef="let element">{{element.service}}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="added">
+          <th mat-header-cell *matHeaderCellDef>Added By</th>
+          <td mat-cell *matCellDef="let element">{{element.added}}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="uses">
+          <th mat-header-cell *matHeaderCellDef>Total Uses</th>
+          <td mat-cell *matCellDef="let element">{{element.uses}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="from">
+            <th mat-header-cell *matHeaderCellDef>From</th>
+            <td mat-cell *matCellDef="let element">{{element.from}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="to">
+            <th mat-header-cell *matHeaderCellDef>To</th>
+            <td mat-cell *matCellDef="let element">{{element.to}}</td>
+        </ng-container>
+      
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let user"> 
+          <button class="action_btn pink"><a [routerLink]="['/promocode/promocode-info']"><img src="assets/images/view.png" alt="View"></a></button>  
+          <button class="action_btn black"><a><img src="assets/images/edit.png" alt="Edit"></a></button>  
+          <button class="action_btn red" (click)="openDialog()"><img src="assets/images/delete.png" alt="Delete"></button>  
+          </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+      <ul class="pagination">
+        <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+        <li class="active"><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+      </ul>
+  </div>
