@@ -16,6 +16,10 @@ export interface Service {
   value: string;
   viewValue: string;
 }
+export interface Clinic {
+  value: string;
+  viewValue: string;
+}
 
 declare var google;
 interface SalonServices {
@@ -59,6 +63,15 @@ export class EditprofileComponent implements OnInit {
     { value: '2', viewValue: 'Home' },
     { value: '3', viewValue: 'Both' },
   ];
+
+  clinics: Clinic[] = [
+    { value: '1', viewValue: 'Salon' },
+    { value: '2', viewValue: 'Home' },
+    { value: '3', viewValue: 'Both' },
+  ];
+
+
+  
   // google map
   @ViewChild("search", { static: false })
   public searchElementRef: ElementRef;

@@ -93,6 +93,15 @@
             <p class="color error" *ngIf="getControl.website.errors.invalidWebsite ">{{'WBSTINVLD' | translate}}</p>
         </div>
             <mat-form-field>
+                <span class="email-img setting"><img src="assets/images/settings.png" alt="envelope"></span>
+                <mat-label>Clinic</mat-label>
+                <mat-select formControlName='clinic'>
+                    <mat-option *ngFor="let clinic of clinics" [value]="clinic.value">
+                        {{clinic.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
                 <mat-label>Service At</mat-label>
                 <mat-select formControlName='serviceat'>
