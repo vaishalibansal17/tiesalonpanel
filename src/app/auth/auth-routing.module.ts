@@ -9,9 +9,10 @@ const routes: Routes = [
     path: 'reset/:token', loadChildren: () => import('./reset-password/reset-password.module').then(m => m.ResetPasswordModule)
   }, {
     path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
-  },{
-    path: 'reset-freelancer/:token', loadChildren:() => import('./reset-freelancer/reset-freelancer.module').then(m => m.ResetFreelancerModule)
-  }
+  },
+  // {
+  //   path: 'reset-freelancer/:token', loadChildren:() => import('../reset-freelancer/reset-freelancer.module').then(m => m.ResetFreelancerModule)
+  // }
 ];
 
 @NgModule({

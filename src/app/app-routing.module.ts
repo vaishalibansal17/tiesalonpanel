@@ -8,6 +8,7 @@ const routes: Routes = [
   // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   { path: '', loadChildren: () => import('./home/home.module').then(m => m.HomeModule), canActivate: [AuthGuard] },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule), canActivate: [LoginGuard] },
+  { path: 'reset-freelancer/:token', loadChildren: () => import('./reset-freelancer/reset-freelancer.module').then(m => m.ResetFreelancerModule) },
   { path: '**', component: PageNotFoundComponent }
 
 ];

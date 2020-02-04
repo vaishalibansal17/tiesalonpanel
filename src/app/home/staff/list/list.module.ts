@@ -6,6 +6,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ListComponent, StaffDeleteDialogBox,  } from './list.component';
 import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/applicationpipe.module';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
+
 import { NgxStarsModule } from 'ngx-stars';
 
 

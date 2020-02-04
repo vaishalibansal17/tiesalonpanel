@@ -25,7 +25,7 @@ export class ListService {
     return this.httpService.getRequest('GET', dataObj.api,queryParams)
       .pipe(
         map((res: any) => {
-          res.res.list = res.res['staffs'] || res.res['walk_user'];
+          res.res.list = res.res['staffs'] || res.res['wlkUsr'];
           delete res.res['staffs'];
           return res;
         }),

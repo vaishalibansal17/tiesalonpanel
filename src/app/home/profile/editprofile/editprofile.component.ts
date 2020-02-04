@@ -154,7 +154,7 @@ export class EditprofileComponent implements OnInit {
       if (this.deletedImageArray.length)
         this.formData.append('del_imgs', JSON.stringify(this.deletedImageArray));
       this.formData.append('name', this.profile.value.name);
-      this.formData.append('email', this.profile.value.email);
+      // this.formData.append('email', this.profile.value.email);
       this.formData.append('phone', this.profile.value.phone);
       this.formData.append('website', this.profile.value.website ? this.profile.value.website : '');
       this.formData.append('desc', this.profile.value.description ? this.profile.value.description : '');
@@ -312,9 +312,9 @@ export class EditprofileComponent implements OnInit {
               this.location.address_state = place.address_components[i].long_name
             }
           }
-          console.log(this.location.address_level_2);
+          // console.log(this.location.address_level_2);
 
-          console.log(place);
+          // console.log(place);
 
           if (place.formatted_address) {
             this.location.full_address = place.formatted_address

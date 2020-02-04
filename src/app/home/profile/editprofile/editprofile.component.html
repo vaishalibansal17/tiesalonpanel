@@ -21,7 +21,7 @@
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/email.png" alt="envelope"></span>
                 <input matInput placeholder="{{'EMAIL'| translate | titlecase}}" class="form-control"
-                    formControlName="email" maxlength="100">
+                    formControlName="email" maxlength="100" readonly >
             </mat-form-field>
             <div *ngIf="(submitted || getControl.email.dirty|| getControl.email.touched) && getControl.email.errors">
                 <p class="color" *ngIf="getControl.email.errors.required">{{'LOGINEMAIL'| translate}}</p>

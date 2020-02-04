@@ -36,6 +36,7 @@ export class AddstaffComponent implements OnInit {
   dataSource = [];
   selectable = true;
   removable = true;
+  sendServ = [];
   constructor(private httpService: HttpRequestService, private router: Router,
     private routes: ActivatedRoute, private helper: Helper,
     private errorserv: ErrorService,
@@ -44,7 +45,7 @@ export class AddstaffComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.routes.snapshot.params.id;
-    console.log(this.getServices());
+    this.getServices();
 
     this.profile = new FormGroup({
       name: new FormControl(null, [
@@ -89,7 +90,7 @@ export class AddstaffComponent implements OnInit {
   add() {
     this.submitted = true;
     // return false
-    this.formData = new FormData(); 
+    this.formData = new FormData();
     if (this.profile.valid) {
       if (this.profileImage)
         this.formData.append('staff_img', this.profileImage, this.profileImage.name);
@@ -97,7 +98,7 @@ export class AddstaffComponent implements OnInit {
       this.formData.append('email', this.profile.value.email);
       this.formData.append('phone', this.profile.value.phone);
       this.formData.append('desc', this.profile.value.description ? this.profile.value.description : '');
-      this.formData.append('services', '[]');
+      this.formData.append('services', JSON.stringify(this.sendServ));
       this.httpService.getRequest('POST', 'STAFF', this.formData, this.id)
         .subscribe((response: any) => {
           if (response.status === 1) {
@@ -133,20 +134,14 @@ export class AddstaffComponent implements OnInit {
   }
 
   slctsrv(state: any) {
-    this.chips.push({ id: state._id, name: _.startCase(_.camelCase(state.cat_name)) })
+    this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
+    this.sendServ.push(state._id)
   }
 
 
   remove(service: string): void {
-    console.log('00000000-----', service, this.chips);
-    
     const index = this.chips.indexOf(service);
-
     this.chips.splice(index, 1);
-    if (index >= 0) {
-      console.log('===============', this.chips);
-    }
-
+    this.sendServ.splice(index, 1);
   }
-
 }

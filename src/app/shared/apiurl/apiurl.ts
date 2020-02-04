@@ -14,6 +14,9 @@ export const APIURLS = {
     STAFF : BASE_URL + 'staff',
     STAFF_REVIEW : BASE_URL + 'staff/user/review',
     STAFF_DETAIL : BASE_URL + 'staff/detail',
-    SERVICES: BASE_URL + 'service'
+    SERVICES: BASE_URL + 'service',
+    WALKING:BASE_URL + 'user/walking',
+    WALKING_CHK:BASE_URL + 'user/walking/check',
+    WALKING_ADD:BASE_URL + 'user/walking/add'
 
 };

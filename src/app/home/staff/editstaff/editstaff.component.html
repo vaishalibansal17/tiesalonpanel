@@ -1,6 +1,6 @@
 <div class="main-card">
     <div class="custom_form">
-        <form  [formGroup]='profile' (ngSubmit)='update()'>
+        <form [formGroup]='profile' (ngSubmit)='update()'>
             <div class="text-center">
                 <div class="file_input">
                     <img [src]="url" alt="">
@@ -21,7 +21,7 @@
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/email.png" alt="envelope"></span>
                 <input matInput placeholder="{{'EMAIL'| translate | titlecase}}" class="form-control"
-                formControlName="email" maxlength="100">
+                    formControlName="email" maxlength="100">
             </mat-form-field>
             <div *ngIf="(submitted || getControl.email.dirty|| getControl.email.touched) && getControl.email.errors">
                 <p class="color" *ngIf="getControl.email.errors.required">{{'LOGINEMAIL'| translate}}</p>
@@ -37,18 +37,22 @@
             </mat-form-field>
             <div *ngIf="(submitted || getControl.phone.dirty|| getControl.phone.touched) && getControl.phone.errors">
                 <p class="color" *ngIf="getControl.phone.errors.required">{{'PHNREQ'|translate}}</p>
-                <p class="color" *ngIf="!getControl.phone.errors.required && getControl.phone.errors.Invalidphone ">{{'PHNLNGTH'|translate}}</p>
+                <p class="color" *ngIf="!getControl.phone.errors.required && getControl.phone.errors.Invalidphone ">
+                    {{'PHNLNGTH'|translate}}</p>
             </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
-                <mat-label>Service At</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let service of services" [value]="service.value">
-                        {{service.viewValue}}
+                <mat-label>Services</mat-label>
+                <mat-select (selectionChange)="slctsrv($event.value)">
+                    <mat-option *ngFor="let service of services" [value]="service">
+                        {{service.cat_name | titlecase}}
                     </mat-option>
                 </mat-select>
                 <mat-chip-list aria-label="Fish selection">
-                    <mat-chip *ngFor="let chip of chips; let i =index">{{chip}}</mat-chip>
+                    <mat-chip *ngFor="let chip of chips; let i =index" [selectable]="selectable" [removable]="removable"
+                        (removed)="remove(i)">{{chip.cat_name | titlecase}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
                     <!-- <mat-chip>Two fish</mat-chip>
                     <mat-chip color="primary" selected>Primary fish</mat-chip>
                     <mat-chip color="accent" selected>Accent fish</mat-chip> -->
