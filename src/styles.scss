@@ -15,23 +15,36 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import '../node_modules/ngx-toastr/toastr.css';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+p.color.error {
+    position: relative;
+    top: -17px;
+    margin-bottom: 0px;
+    font-size: 12px;
+    color: #d91e29;
+}
+
+.mat-chip{overflow: initial !important;}
+.mat-standard-chip .mat-chip-remove.mat-icon {width: 20px; height: 20px;position: absolute;top: -7px;right: -5px;opacity: 1;margin-left: 0px;}
+    .mat-chip.mat-standard-chip .mat-chip-remove {color: #000;background: #fff;border-radius: 100%;}
+    .mat-standard-chip.mat-chip-with-trailing-icon{padding: 6px 15px !important;}
+.mat-standard-chip.mat-chip-with-trailing-icon {padding-top: 6px;padding-bottom: 6px;padding-right: 15px;padding-left: 15px;font-size: 12px;}
 
 span.star.star-empty, .star-full {
-    height: 26px !important;
+    height: 21px !important;
     width: 21px !important;
 }
 
 .top_view img{
     border-radius: 50%;
-    height: 153px;
-    width: 153px;
-    border: 5px solid whitesmoke;
+    height: 110px;
+    width: 110px;
+    border: 5px solid #e0e0e0;
 }
  .noti_left img{
     border-radius: 50%;
-    height: 70px;
-    width: 70px;
-    border: 3px solid whitesmoke;
+    height: 55px;
+    width: 55px;
+    border: 3px solid #e0e0e0;
 }
 
 .ui-toast{
@@ -56,6 +69,10 @@ agm-map {
     border-radius: 7px;
     margin: 20px 0px;
   }
+
+  .mat-chip.mat-standard-chip {
+    background-color: #72E1D1;
+}
 body{font-size:14px !important;line-height:24px !important;font-family: 'Conv_GothamRounded-Book' !important;}
 button,.mat-table,.mat-form-field-infix,.mat-form-field,.mat-select-value{font-family: 'Conv_GothamRounded-Book' !important;}
 ul{list-style: none;margin: 0;padding: 0;}
@@ -659,7 +676,7 @@ img.full_width{width:100%;margin-bottom: 20px;}
     .top_view{margin-bottom: 20px;}
     .label,.description{margin-bottom: 5px;}
     .description span,.label span{display: block;color: #999999;font-size: 13px;}
-    span.user_name{margin-left: 15px;font-size: 30px;font-weight: 600;}
+    span.user_name{margin-left: 15px;font-size: 22px;font-weight: 600;}
     a.btn.btn-edit{
         font-size: 14px;
         border-radius: 30px;
@@ -942,6 +959,9 @@ img.full_width{width:100%;margin-bottom: 20px;}
             color: #000;
         }
     }
+    .staff_star{
+         .stars-line{top: 7px !important;}
+    }
     }
 
     table tr:last-child td.mat-cell{border-bottom: 1px solid #efefef;}
@@ -996,17 +1016,20 @@ img.full_width{width:100%;margin-bottom: 20px;}
 .main-card{
     h3{
         font-size: 20px;
-        margin-bottom: 15px;
+        margin-bottom: 25px;
     }
     .staffdetail_notifi{
     .notifi_list{
         .noti_right{
             padding: 0px 0px 15px;
             margin-bottom: 5px;
+            font-size: 14px;
+            color: #999;
             .author-review{
                 display: inline-flex;
                 clear: both;
                 width: 100%;
+                color: #000;
                 .author{
                     min-width: 160px;
                     font-size: 16px;
@@ -1015,6 +1038,11 @@ img.full_width{width:100%;margin-bottom: 20px;}
                 .reviews{
                     position: relative;
                     top: -3px;
+                    .staffdetail_staff{
+                        .stars-line{
+                            top: 5px !important
+                        }
+                    }
                 }
             }
             }

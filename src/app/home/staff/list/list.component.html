@@ -40,7 +40,7 @@
 
       <ng-container matColumnDef="review">
         <th mat-header-cell *matHeaderCellDef> Ratings </th>
-        <td mat-cell *matCellDef="let element"> <ngx-stars [readonly]="true" [color]="'#f7c133'" [size]="5" [initialStars]="element.avg_rating | round"></ngx-stars> </td>
+        <td mat-cell *matCellDef="let element"> <div class="staff_star"><ngx-stars [readonly]="true" [color]="'#f7c133'" [size]="5" [initialStars]="element.avg_rating | round"></ngx-stars> </div></td>
       </ng-container>
 
       <ng-container matColumnDef="Action">

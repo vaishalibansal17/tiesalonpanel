@@ -28,8 +28,8 @@
                             </mat-form-field>
                             <div
                                 *ngIf="(submitted) && getControl.email.errors">
-                                <p class="color" *ngIf="getControl.email.errors.required">{{'LOGINEMAIL'| translate}}</p>
-                                <p class="color" *ngIf="!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress">{{'LOGINVALIDEMAIL'| translate}}</p>
+                                <p class="color error" *ngIf="getControl.email.errors.required">{{'LOGINEMAIL'| translate}}</p>
+                                <p class="color error" *ngIf="!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress">{{'LOGINVALIDEMAIL'| translate}}</p>
                             </div>
                             <mat-form-field>
                                 <span class="email-img pass"><img src="assets/images/lock.png" alt="envelope"></span>
@@ -42,8 +42,8 @@
                             </mat-form-field>
                             <div
                                 *ngIf="(submitted) && getControl.pass.errors">
-                                <p class="color" *ngIf="getControl.pass.errors.required">{{'LOGINPASS'| translate}}</p>
-                                <!-- <p class="color" *ngIf="getControl.pass.errors.minlength ">Incorrect password or
+                                <p class="color error" *ngIf="getControl.pass.errors.required">{{'LOGINPASS'| translate}}</p>
+                                <!-- <p class="color error" *ngIf="getControl.pass.errors.minlength ">Incorrect password or
                                     email.</p> -->
                             </div>
                             <p class="right"><a [routerLink]="['/auth/forgot']">{{'FRGTPASS' |  translate}}?</a></p>
