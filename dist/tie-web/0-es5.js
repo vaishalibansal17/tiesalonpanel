@@ -114027,6 +114027,116 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
   },
 
   /***/
+  "./src/app/shared/_pipes/percent.pipe.ts":
+  /*!***********************************************!*\
+    !*** ./src/app/shared/_pipes/percent.pipe.ts ***!
+    \***********************************************/
+
+  /*! exports provided: PercentPipe */
+
+  /***/
+  function srcAppShared_pipesPercentPipeTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "PercentPipe", function () {
+      return PercentPipe;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var PercentPipe =
+    /*#__PURE__*/
+    function () {
+      function PercentPipe() {
+        _classCallCheck(this, PercentPipe);
+      }
+
+      _createClass(PercentPipe, [{
+        key: "transform",
+        value: function transform(value) {
+          return Math.round(Math.round(value) / 5 * 100);
+        }
+      }]);
+
+      return PercentPipe;
+    }();
+
+    PercentPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+      name: 'prcnt'
+    })], PercentPipe);
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/_pipes/round.pipe.ts":
+  /*!*********************************************!*\
+    !*** ./src/app/shared/_pipes/round.pipe.ts ***!
+    \*********************************************/
+
+  /*! exports provided: RoundPipe */
+
+  /***/
+  function srcAppShared_pipesRoundPipeTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "RoundPipe", function () {
+      return RoundPipe;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+
+    var RoundPipe =
+    /*#__PURE__*/
+    function () {
+      function RoundPipe() {
+        _classCallCheck(this, RoundPipe);
+      }
+
+      _createClass(RoundPipe, [{
+        key: "transform",
+        value: function transform(value) {
+          return Math.round(value);
+        }
+      }]);
+
+      return RoundPipe;
+    }();
+
+    RoundPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+      name: 'round'
+    })], RoundPipe);
+    /***/
+  },
+
+  /***/
   "./src/app/shared/_pipes/safe.pipe.ts":
   /*!********************************************!*\
     !*** ./src/app/shared/_pipes/safe.pipe.ts ***!
@@ -114461,6 +114571,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     var _material_material_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ./material/material.module */
     "./src/app/shared/material/material.module.ts");
+    /* harmony import */
+
+
+    var _pipes_percent_pipe__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! ./_pipes/percent.pipe */
+    "./src/app/shared/_pipes/percent.pipe.ts");
+    /* harmony import */
+
+
+    var _pipes_round_pipe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! ./_pipes/round.pipe */
+    "./src/app/shared/_pipes/round.pipe.ts");
 
     var SharedModule = function SharedModule() {
       _classCallCheck(this, SharedModule);
@@ -114468,8 +114590,8 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
     SharedModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"], _material_material_module__WEBPACK_IMPORTED_MODULE_10__["MaterialModule"]],
-      exports: [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"], _elements_data_filter_pipe__WEBPACK_IMPORTED_MODULE_4__["DataFilterPipe"], _pipes_btoa_pipe__WEBPACK_IMPORTED_MODULE_5__["BtoaPipe"], _pipes_date_pipe__WEBPACK_IMPORTED_MODULE_6__["DatePipe"], _pipes_stamptoDate_pipe__WEBPACK_IMPORTED_MODULE_7__["StampToDate"], _pipes_time_pipe__WEBPACK_IMPORTED_MODULE_8__["TimePipe"], _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_9__["SafePipe"], _material_material_module__WEBPACK_IMPORTED_MODULE_10__["MaterialModule"]],
-      declarations: [_elements_data_filter_pipe__WEBPACK_IMPORTED_MODULE_4__["DataFilterPipe"], _pipes_btoa_pipe__WEBPACK_IMPORTED_MODULE_5__["BtoaPipe"], _pipes_date_pipe__WEBPACK_IMPORTED_MODULE_6__["DatePipe"], _pipes_stamptoDate_pipe__WEBPACK_IMPORTED_MODULE_7__["StampToDate"], _pipes_time_pipe__WEBPACK_IMPORTED_MODULE_8__["TimePipe"], _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_9__["SafePipe"]],
+      exports: [_angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"], _elements_data_filter_pipe__WEBPACK_IMPORTED_MODULE_4__["DataFilterPipe"], _pipes_btoa_pipe__WEBPACK_IMPORTED_MODULE_5__["BtoaPipe"], _pipes_date_pipe__WEBPACK_IMPORTED_MODULE_6__["DatePipe"], _pipes_stamptoDate_pipe__WEBPACK_IMPORTED_MODULE_7__["StampToDate"], _pipes_time_pipe__WEBPACK_IMPORTED_MODULE_8__["TimePipe"], _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_9__["SafePipe"], _material_material_module__WEBPACK_IMPORTED_MODULE_10__["MaterialModule"], _pipes_percent_pipe__WEBPACK_IMPORTED_MODULE_11__["PercentPipe"], _pipes_round_pipe__WEBPACK_IMPORTED_MODULE_12__["RoundPipe"]],
+      declarations: [_elements_data_filter_pipe__WEBPACK_IMPORTED_MODULE_4__["DataFilterPipe"], _pipes_btoa_pipe__WEBPACK_IMPORTED_MODULE_5__["BtoaPipe"], _pipes_date_pipe__WEBPACK_IMPORTED_MODULE_6__["DatePipe"], _pipes_stamptoDate_pipe__WEBPACK_IMPORTED_MODULE_7__["StampToDate"], _pipes_time_pipe__WEBPACK_IMPORTED_MODULE_8__["TimePipe"], _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_9__["SafePipe"], _pipes_percent_pipe__WEBPACK_IMPORTED_MODULE_11__["PercentPipe"], _pipes_round_pipe__WEBPACK_IMPORTED_MODULE_12__["RoundPipe"]],
       providers: [],
       schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]]
     })], SharedModule);

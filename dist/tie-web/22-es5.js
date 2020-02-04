@@ -1,11 +1,3 @@
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -14,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[22], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/viewprofile/viewprofile.component.html":
-  /*!***********************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/viewprofile/viewprofile.component.html ***!
-    \***********************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/list/list.component.html":
+  /*!**************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/list/list.component.html ***!
+    \**************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeProfileViewprofileViewprofileComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserListListComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n\n    <div class=\"row\">\n        <div class=\"col-md-6 top_view\"><img [src]=\"url\" alt=\"\"><span class=\"user_name\">{{detail?.name}}</span></div>\n        <div class=\"col-md-6 alignright\"><a class=\"btn btn-edit\" [routerLink]=\"['/profile/edit']\"> {{'EDITPROF'| translate}}</a></div>\n        <div class=\"col-md-3 label\">{{'EMAIL'| translate | titlecase}}:</div>\n        <div class=\"col-md-9 description\">{{detail?.email}}</div>\n        <div class=\"col-md-3 label\">{{'MOBILENUMBER'| translate}}:</div>\n        <div class=\"col-md-9 description\">{{detail?.phone}}</div>\n        <div class=\"col-md-3 label\">{{'LOCATION'| translate}}:</div>\n        <div class=\"col-md-9 description\">{{detail?.address}}\n            <!-- <img src=\"assets/images/maps.png\" alt=\"map\" class=\"full_width\"> -->\n            <div class=\"map full_width\">\n                <agm-map [latitude]=\"detail?.lat\" [longitude]=\"detail?.lng\"\n                    [zoomControl]=\"true\">\n                    <agm-marker [latitude]=\"detail?.lat\" [longitude]=\"detail?.lng\"></agm-marker>\n                </agm-map>\n            </div>\n        </div>\n        <div class=\"col-md-3 label\">{{'BUSINESSHOURS'| translate}}:</div>\n        <div class=\"col-md-9 description\">NA</div>\n        <div class=\"col-md-3 label\">{{'REVIEWS'| translate}}:</div>\n        <div class=\"col-md-9 description\"><img src=\"assets/images/reviews.png\" alt=\"Review\"></div>\n        <div class=\"col-md-3 label\">{{'DESCRIPTION'| translate}}:</div>\n        <div class=\"col-md-9 description\">{{detail?.desc}}</div>\n        <div class=\"col-md-3 label\">{{'WORKGALLERY'| translate}}:</div>\n        <div class=\"col-md-9 description\">\n            <div class=\"work_gallery\">\n                <label class=\"detail_content\"><a class=\"margin_top\"\n                    *ngFor=\"let image of salonImageUrlArray; index as i\">\n                    <img class=\"file_upload2\" [src]=\"image\" alt=\"Upload\">\n                     </a>\n                    <!-- <img class=\"file_upload1\" src=\"assets/images/add-edit.png\" alt=\"Upload\"> -->\n                </label>\n            </div>\n        </div>\n        <div class=\"col-md-3 label\">{{'WEBSITE'| translate}}:</div>\n        <div class=\"col-md-9 description\">{{detail?.website}}</div>\n        <div class=\"col-md-3 label\">{{'SERVICEAT'| translate}}:</div>\n        <div class=\"col-md-9 description\">{{detail?.service_at == 1?'Salon': detail?.service_at==2?'Home':'Both'}}</div>\n        <div class=\"col-md-3 label\">{{'STAFFNAME'| translate}}:</div>\n        <div class=\"col-md-9 description\">\n            {{'NA'}}\n            <!-- <ul class=\"staff_name\">\n                <li>Allen</li>\n                <li>James</li>\n                <li>Jane</li>\n                <li>Doe</li>\n            </ul> -->\n        </div>\n    </div>\n</div>\n\n\n\n\n\n\n\n\n\n\n\n";
+    __webpack_exports__["default"] = "<hr>\n<h1>Under Development.</h1>\n<hr>\n<h2>Thank you</h2>\n\n<!-- <div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-6 add\">\n            <form action=\"\" class=\"list_booking\">\n                <mat-form-field>\n                    <mat-label>All Bookings</mat-label>\n                    <mat-select formControlName='walkinglist'>\n                        <mat-option *ngFor=\"let walkinglist of walkinglists\" [value]=\"walkinglist.value\">\n                            {{walkinglist.viewValue}}\n                        </mat-option>\n                    </mat-select>\n                </mat-form-field>\n            </form>\n\n        </div>\n        <div class=\"col-md-6 alignright\">\n            <ul class=\"inline\">\n                <li class=\"add\"><a [routerLink]=\"['/walking-user/add-user']\"><img src=\"assets/images/add.png\" alt=\"Add\"> Add Users</a></li>\n                <li><a href=\"#\" class=\"btn btn-export\">Export</a></li>\n            </ul>\n        </div>\n    </div>\n    <div class=\"table_wrap\"  [hidden]=\"(dataSource.loading$ | async)\">\n    <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8 table_scroll\" matSort>\n        <ng-container matColumnDef=\"position\">\n          <th mat-header-cell *matHeaderCellDef> No. </th>\n          <td mat-cell *matCellDef=\"let post; let i =index;\"> {{(paginator.pageIndex * paginator.pageSize)+i + 1}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"name\">\n          <th mat-header-cell *matHeaderCellDef> User Name </th>\n          <td mat-cell *matCellDef=\"let element\"> <a>{{element.fullname}}</a> </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"service\">\n          <th mat-header-cell *matHeaderCellDef>Service</th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.service}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"staff\">\n          <th mat-header-cell *matHeaderCellDef>Staff Name </th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.staff}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"number\">\n          <th mat-header-cell *matHeaderCellDef>Mobile Number</th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.pno}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"status\">\n          <th mat-header-cell *matHeaderCellDef>Status</th> -->\n          <!--Please add class for status for diefferent colors ->  confirmed, pending, completed, rejected-->\n          <!-- <td mat-cell *matCellDef=\"let element\"> {{element.status}}  -->\n            <!-- <span class=\"confirmed\">Confirmed</span> \n            <span class=\"completed\">completed</span> \n            <span class=\"pending\">pending</span> \n            <span class=\"rejected\">rejected</span> -->\n          <!-- </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"time\">\n          <th mat-header-cell *matHeaderCellDef>Time</th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.time}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"bookingid\">\n          <th mat-header-cell *matHeaderCellDef>Booking ID</th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.bookingid}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"date\">\n          <th mat-header-cell *matHeaderCellDef> Date </th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.date}} </td>\n        </ng-container>\n      \n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n      </table>\n      <mat-paginator [length]=\"dataSource.totalCount$ | async\" [pageSize]=\"limitPage[0]\" [pageSizeOptions]=\"limitPage\">\n      </mat-paginator> -->\n    <!-- </div> -->\n      <!-- <ul class=\"pagination\">\n        <li><a href=\"#\"><i class=\"fa fa-angle-left\"></i></a></li>\n        <li class=\"active\"><a href=\"#\">1</a></li>\n        <li><a href=\"#\">2</a></li>\n        <li><a href=\"#\">3</a></li>\n        <li><a href=\"#\">4</a></li>\n        <li><a href=\"#\">5</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-angle-right\"></i></a></li>\n      </ul> -->\n  <!-- </div> -->";
     /***/
   },
 
   /***/
-  "./src/app/home/profile/viewprofile/viewprofile-routing.module.ts":
-  /*!************************************************************************!*\
-    !*** ./src/app/home/profile/viewprofile/viewprofile-routing.module.ts ***!
-    \************************************************************************/
+  "./src/app/home/walking-user/list/list-routing.module.ts":
+  /*!***************************************************************!*\
+    !*** ./src/app/home/walking-user/list/list-routing.module.ts ***!
+    \***************************************************************/
 
-  /*! exports provided: ViewprofileRoutingModule */
+  /*! exports provided: WalkinglistRoutingModule */
 
   /***/
-  function srcAppHomeProfileViewprofileViewprofileRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserListListRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ViewprofileRoutingModule", function () {
-      return ViewprofileRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "WalkinglistRoutingModule", function () {
+      return WalkinglistRoutingModule;
     });
     /* harmony import */
 
@@ -73,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _viewprofile_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./viewprofile.component */
-    "./src/app/home/profile/viewprofile/viewprofile.component.ts");
+    var _list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./list.component */
+    "./src/app/home/walking-user/list/list.component.ts");
 
     var routes = [{
       path: '',
-      component: _viewprofile_component__WEBPACK_IMPORTED_MODULE_3__["ViewprofileComponent"]
+      component: _list_component__WEBPACK_IMPORTED_MODULE_3__["ListComponent"]
     }];
 
-    var ViewprofileRoutingModule = function ViewprofileRoutingModule() {
-      _classCallCheck(this, ViewprofileRoutingModule);
+    var WalkinglistRoutingModule = function WalkinglistRoutingModule() {
+      _classCallCheck(this, WalkinglistRoutingModule);
     };
 
-    ViewprofileRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    WalkinglistRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], ViewprofileRoutingModule);
+    })], WalkinglistRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/profile/viewprofile/viewprofile.component.scss":
-  /*!*********************************************************************!*\
-    !*** ./src/app/home/profile/viewprofile/viewprofile.component.scss ***!
-    \*********************************************************************/
+  "./src/app/home/walking-user/list/list.component.scss":
+  /*!************************************************************!*\
+    !*** ./src/app/home/walking-user/list/list.component.scss ***!
+    \************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeProfileViewprofileViewprofileComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserListListComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "img.file_upload2 {\n  height: 100px !important;\n  width: 100px !important;\n  margin: 5px !important;\n  margin-left: 0px !important;\n  border: 5px solid whitesmoke;\n  position: relative;\n  border-radius: 7px;\n}\n\n.custom_upload1 {\n  position: absolute;\n  width: 10%;\n  height: 100%;\n  cursor: pointer;\n  opacity: 0;\n  text-indent: -100px;\n}\n\n.detail_content a.btn {\n  position: relative;\n  background: #f96ab3;\n  color: #fff !important;\n  margin: 0;\n  font-size: 17px;\n  margin-right: 15px;\n  padding: 5px 20px;\n  box-shadow: 2px 2px 7px #f96ab3;\n  margin-bottom: 15px;\n}\n\n.detail_content a.btn span {\n  position: absolute;\n  top: -9px;\n  right: -8px;\n  background: #e42525;\n  height: 20px;\n  width: 20px;\n  border-radius: 50%;\n  font-size: 13px;\n  font-weight: 600;\n}\n\n.detail_content a.margin_top {\n  position: relative;\n  color: #fff !important;\n  margin: 0;\n  font-size: 17px;\n  margin-right: 15px;\n  margin-bottom: 15px;\n}\n\n.detail_content a.margin_top span {\n  cursor: pointer;\n  position: absolute;\n  right: 7px;\n  background: #e42525;\n  height: 20px;\n  width: 20px;\n  border-radius: 50%;\n  font-size: 13px;\n  font-weight: 600;\n  padding-left: 7px;\n}\n\n.top_view img {\n  border-radius: 50%;\n  height: 135px;\n  width: 135px;\n  border: 3px solid #f5f5f5;\n}\n\nagm-map {\n  height: 200px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9wcm9maWxlL3ZpZXdwcm9maWxlL3ZpZXdwcm9maWxlLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9ob21lL3Byb2ZpbGUvdmlld3Byb2ZpbGUvdmlld3Byb2ZpbGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBaUIsd0JBQUE7RUFBeUIsdUJBQUE7RUFBMEIsc0JBQUE7RUFBd0IsMkJBQUE7RUFBNkIsNEJBQUE7RUFFckgsa0JBQUE7RUFDQSxrQkFBQTtBQ0tKOztBREpBO0VBQWdCLGtCQUFBO0VBQW1CLFVBQUE7RUFBVyxZQUFBO0VBQWEsZUFBQTtFQUFnQixVQUFBO0VBQVcsbUJBQUE7QUNhdEY7O0FEWEE7RUFBc0Isa0JBQUE7RUFBa0IsbUJBQUE7RUFBb0Isc0JBQUE7RUFBd0IsU0FBQTtFQUFVLGVBQUE7RUFBZ0Isa0JBQUE7RUFBbUIsaUJBQUE7RUFBa0IsK0JBQUE7RUFBZ0MsbUJBQUE7QUN1Qm5MOztBRHRCQTtFQUEyQixrQkFBQTtFQUFtQixTQUFBO0VBQVUsV0FBQTtFQUFZLG1CQUFBO0VBQW9CLFlBQUE7RUFBYSxXQUFBO0VBQVksa0JBQUE7RUFBbUIsZUFBQTtFQUFnQixnQkFBQTtBQ2tDcEo7O0FEaENBO0VBQTZCLGtCQUFBO0VBQWtCLHNCQUFBO0VBQXdCLFNBQUE7RUFBVSxlQUFBO0VBQWdCLGtCQUFBO0VBQW1CLG1CQUFBO0FDeUNwSDs7QUR4Q0E7RUFBbUMsZUFBQTtFQUFtQixrQkFBQTtFQUFtQixVQUFBO0VBQVcsbUJBQUE7RUFBb0IsWUFBQTtFQUFhLFdBQUE7RUFBWSxrQkFBQTtFQUFtQixlQUFBO0VBQWdCLGdCQUFBO0VBQWlCLGlCQUFBO0FDcURyTDs7QURwREE7RUFDSSxrQkFBQTtFQUNBLGFBQUE7RUFDQSxZQUFBO0VBQ0EseUJBQUE7QUN1REo7O0FEckRBO0VBQ0ksYUFBQTtBQ3dESiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcHJvZmlsZS92aWV3cHJvZmlsZS92aWV3cHJvZmlsZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImltZy5maWxlX3VwbG9hZDJ7aGVpZ2h0OiAxMDBweCAhaW1wb3J0YW50O3dpZHRoOiAxMDBweCAhaW1wb3J0YW50OyAgbWFyZ2luOiA1cHggIWltcG9ydGFudDsgbWFyZ2luLWxlZnQ6IDBweCAhaW1wb3J0YW50OyBib3JkZXI6IDVweCBzb2xpZCB3aGl0ZXNtb2tlO1xuICAgIC8vIGJveC1zaGFkb3c6IDJweCAycHggMnB4IDJweCAjODg4ODg4O1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBib3JkZXItcmFkaXVzOiA3cHg7fVxuLmN1c3RvbV91cGxvYWQxe3Bvc2l0aW9uOiBhYnNvbHV0ZTt3aWR0aDogMTAlO2hlaWdodDogMTAwJTtjdXJzb3I6IHBvaW50ZXI7b3BhY2l0eTogMDt0ZXh0LWluZGVudDogLTEwMHB4O31cblxuLmRldGFpbF9jb250ZW50IGEuYnRue3Bvc2l0aW9uOnJlbGF0aXZlO2JhY2tncm91bmQ6ICNmOTZhYjM7Y29sb3I6ICNmZmYgIWltcG9ydGFudDsgbWFyZ2luOiAwO2ZvbnQtc2l6ZTogMTdweDttYXJnaW4tcmlnaHQ6IDE1cHg7cGFkZGluZzogNXB4IDIwcHg7Ym94LXNoYWRvdzogMnB4IDJweCA3cHggI2Y5NmFiMzttYXJnaW4tYm90dG9tOiAxNXB4O31cbi5kZXRhaWxfY29udGVudCBhLmJ0biBzcGFue3Bvc2l0aW9uOiBhYnNvbHV0ZTt0b3A6IC05cHg7cmlnaHQ6IC04cHg7YmFja2dyb3VuZDogI2U0MjUyNTtoZWlnaHQ6IDIwcHg7d2lkdGg6IDIwcHg7Ym9yZGVyLXJhZGl1czogNTAlO2ZvbnQtc2l6ZTogMTNweDtmb250LXdlaWdodDogNjAwO31cblxuLmRldGFpbF9jb250ZW50IGEubWFyZ2luX3RvcHtwb3NpdGlvbjpyZWxhdGl2ZTtjb2xvcjogI2ZmZiAhaW1wb3J0YW50OyBtYXJnaW46IDA7Zm9udC1zaXplOiAxN3B4O21hcmdpbi1yaWdodDogMTVweDttYXJnaW4tYm90dG9tOiAxNXB4O31cbi5kZXRhaWxfY29udGVudCBhLm1hcmdpbl90b3Agc3BhbnsgY3Vyc29yOiBwb2ludGVyOyAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtyaWdodDogN3B4O2JhY2tncm91bmQ6ICNlNDI1MjU7aGVpZ2h0OiAyMHB4O3dpZHRoOiAyMHB4O2JvcmRlci1yYWRpdXM6IDUwJTtmb250LXNpemU6IDEzcHg7Zm9udC13ZWlnaHQ6IDYwMDtwYWRkaW5nLWxlZnQ6IDdweDt9XG4udG9wX3ZpZXcgaW1ne1xuICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgICBoZWlnaHQ6IDEzNXB4O1xuICAgIHdpZHRoOiAxMzVweDtcbiAgICBib3JkZXI6IDNweCBzb2xpZCAjZjVmNWY1O1xufVxuYWdtLW1hcCB7XG4gICAgaGVpZ2h0OiAyMDBweDtcbn0iLCJpbWcuZmlsZV91cGxvYWQyIHtcbiAgaGVpZ2h0OiAxMDBweCAhaW1wb3J0YW50O1xuICB3aWR0aDogMTAwcHggIWltcG9ydGFudDtcbiAgbWFyZ2luOiA1cHggIWltcG9ydGFudDtcbiAgbWFyZ2luLWxlZnQ6IDBweCAhaW1wb3J0YW50O1xuICBib3JkZXI6IDVweCBzb2xpZCB3aGl0ZXNtb2tlO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJvcmRlci1yYWRpdXM6IDdweDtcbn1cblxuLmN1c3RvbV91cGxvYWQxIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB3aWR0aDogMTAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgb3BhY2l0eTogMDtcbiAgdGV4dC1pbmRlbnQ6IC0xMDBweDtcbn1cblxuLmRldGFpbF9jb250ZW50IGEuYnRuIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBiYWNrZ3JvdW5kOiAjZjk2YWIzO1xuICBjb2xvcjogI2ZmZiAhaW1wb3J0YW50O1xuICBtYXJnaW46IDA7XG4gIGZvbnQtc2l6ZTogMTdweDtcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xuICBwYWRkaW5nOiA1cHggMjBweDtcbiAgYm94LXNoYWRvdzogMnB4IDJweCA3cHggI2Y5NmFiMztcbiAgbWFyZ2luLWJvdHRvbTogMTVweDtcbn1cblxuLmRldGFpbF9jb250ZW50IGEuYnRuIHNwYW4ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogLTlweDtcbiAgcmlnaHQ6IC04cHg7XG4gIGJhY2tncm91bmQ6ICNlNDI1MjU7XG4gIGhlaWdodDogMjBweDtcbiAgd2lkdGg6IDIwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgZm9udC1zaXplOiAxM3B4O1xuICBmb250LXdlaWdodDogNjAwO1xufVxuXG4uZGV0YWlsX2NvbnRlbnQgYS5tYXJnaW5fdG9wIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBjb2xvcjogI2ZmZiAhaW1wb3J0YW50O1xuICBtYXJnaW46IDA7XG4gIGZvbnQtc2l6ZTogMTdweDtcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xufVxuXG4uZGV0YWlsX2NvbnRlbnQgYS5tYXJnaW5fdG9wIHNwYW4ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcmlnaHQ6IDdweDtcbiAgYmFja2dyb3VuZDogI2U0MjUyNTtcbiAgaGVpZ2h0OiAyMHB4O1xuICB3aWR0aDogMjBweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBmb250LXNpemU6IDEzcHg7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIHBhZGRpbmctbGVmdDogN3B4O1xufVxuXG4udG9wX3ZpZXcgaW1nIHtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBoZWlnaHQ6IDEzNXB4O1xuICB3aWR0aDogMTM1cHg7XG4gIGJvcmRlcjogM3B4IHNvbGlkICNmNWY1ZjU7XG59XG5cbmFnbS1tYXAge1xuICBoZWlnaHQ6IDIwMHB4O1xufSJdfQ== */";
+    __webpack_exports__["default"] = ".main-card ul.inline li.add {\n  margin: 0 25px 0px 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvbGlzdC9saXN0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9ob21lL3dhbGtpbmctdXNlci9saXN0L2xpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBNEIsdUJBQUE7QUNFNUIiLCJmaWxlIjoic3JjL2FwcC9ob21lL3dhbGtpbmctdXNlci9saXN0L2xpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbi1jYXJkIHVsLmlubGluZSBsaS5hZGR7bWFyZ2luOiAwIDI1cHggMHB4IDEwcHg7fSIsIi5tYWluLWNhcmQgdWwuaW5saW5lIGxpLmFkZCB7XG4gIG1hcmdpbjogMCAyNXB4IDBweCAxMHB4O1xufSJdfQ== */";
     /***/
   },
 
   /***/
-  "./src/app/home/profile/viewprofile/viewprofile.component.ts":
-  /*!*******************************************************************!*\
-    !*** ./src/app/home/profile/viewprofile/viewprofile.component.ts ***!
-    \*******************************************************************/
+  "./src/app/home/walking-user/list/list.component.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/walking-user/list/list.component.ts ***!
+    \**********************************************************/
 
-  /*! exports provided: ViewprofileComponent */
+  /*! exports provided: ListComponent */
 
   /***/
-  function srcAppHomeProfileViewprofileViewprofileComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserListListComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ViewprofileComponent", function () {
-      return ViewprofileComponent;
+    __webpack_require__.d(__webpack_exports__, "ListComponent", function () {
+      return ListComponent;
     });
     /* harmony import */
 
@@ -147,111 +139,254 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var src_app_shared_service_list_list_dataSource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/shared/service/list/list.dataSource */
+    "./src/app/shared/service/list/list.dataSource.ts");
+    /* harmony import */
+
+
+    var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/material */
+    "./node_modules/@angular/material/esm2015/material.js");
+    /* harmony import */
+
+
+    var src_app_shared_service_list_list_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/service/list/list.service */
+    "./src/app/shared/service/list/list.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/shared/service/http-request.service */
     "./src/app/shared/service/http-request.service.ts");
     /* harmony import */
 
 
-    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/shared/service/error.service */
-    "./src/app/shared/service/error.service.ts");
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+    /* harmony import */
 
-    var ViewprofileComponent =
+
+    var _staff_list_list_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ../../staff/list/list.component */
+    "./src/app/home/staff/list/list.component.ts");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
+    /* harmony import */
+
+
+    var angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! angular5-csv/dist/Angular5-csv */
+    "./node_modules/angular5-csv/dist/Angular5-csv.js");
+    /* harmony import */
+
+
+    var angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_10___default =
+    /*#__PURE__*/
+    __webpack_require__.n(angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_10__);
+
+    var ListComponent =
     /*#__PURE__*/
     function () {
-      function ViewprofileComponent(httpService, error) {
-        _classCallCheck(this, ViewprofileComponent);
+      function ListComponent(dialog, list, httpservice, trns) {
+        _classCallCheck(this, ListComponent);
 
-        this.httpService = httpService;
-        this.error = error;
+        this.dialog = dialog;
+        this.list = list;
+        this.httpservice = httpservice;
+        this.trns = trns;
+        this.displayedColumns = ['position', 'name', 'service', 'staff', 'number', 'status', 'time', 'bookingid', 'date'];
+        this.limitPage = [10, 20, 30];
+        this.sortData = {};
         this.url = 'assets/images/change.png';
-        this.salonImageUrlArray = [];
-        this.slide = [];
+        this.walkinglists = [{
+          value: '1',
+          viewValue: 'All Bookings'
+        }, {
+          value: '2',
+          viewValue: 'New Bookings'
+        }, {
+          value: '3',
+          viewValue: 'Accepted Bookings'
+        }, {
+          value: '4',
+          viewValue: 'In-Process Bookings'
+        }, {
+          value: '5',
+          viewValue: 'Completed Bookings'
+        }];
+        this.isApplied = false;
       }
 
-      _createClass(ViewprofileComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {
-          this.getUserProfile();
-        }
-      }, {
-        key: "getUserProfile",
-        value: function getUserProfile() {
+      _createClass(ListComponent, [{
+        key: "openDialog",
+        value: function openDialog(id) {
           var _this = this;
 
-          this.httpService.getRequest('GET', 'PROFILE', '').subscribe(function (response) {
-            if (response.status === 1) {
-              _this.detail = response.res;
-              _this.url = _this.detail.logo ? _this.detail.logo : _this.url;
-
-              if (_this.detail && _this.detail.imgs) {
-                _this.detail.imgs.map(function (item) {
-                  item = _this.detail.bp + item;
-
-                  _this.salonImageUrlArray.push(item);
-
-                  _this.slide = [].concat(_toConsumableArray(_this.slide), [{
-                    'url': item,
-                    clickAction: function clickAction() {
-                      return alert('custom click function');
-                    }
-                  }]);
-                });
-              }
-            } else {
-              if (response.err) {
-                _this.error.handleError(response.err.errCode);
-              }
+          var dialogRef = this.dialog.open(_staff_list_list_component__WEBPACK_IMPORTED_MODULE_7__["StaffDeleteDialogBox"], {
+            width: '500px',
+            disableClose: true,
+            data: {
+              id: id
             }
-          }, function (error) {
-            _this.error.handleError(0); // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
-
           });
+          dialogRef.afterClosed().subscribe(function () {
+            return _this.getSalonStaff();
+          });
+        }
+      }, {
+        key: "ngOnInit",
+        value: function ngOnInit() {} // this.getSalonStaff();
+        // ********************** Account Manager List Api Integration with search ******************
+
+      }, {
+        key: "getSalonStaff",
+        value: function getSalonStaff() {
+          this.dataSource = new src_app_shared_service_list_list_dataSource__WEBPACK_IMPORTED_MODULE_2__["ListDataSource"](this.list);
+          this.loadStaffList();
+          console.log(this.dataSource);
+        }
+      }, {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          var _this2 = this;
+
+          this.sort.sortChange.subscribe(function () {
+            return _this2.paginator.pageIndex = 0;
+          });
+          Object(rxjs__WEBPACK_IMPORTED_MODULE_8__["merge"])(this.sort.sortChange, this.paginator.page).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_9__["tap"])(function () {
+            return _this2.loadStaffList();
+          })).subscribe();
+        }
+      }, {
+        key: "loadStaffList",
+        value: function loadStaffList() {
+          if (this.sort.active == 'name') {
+            this.sortData.sortValue = '1';
+          } else if (this.sort.active == 'email') {
+            this.sortData.sortValue = '2';
+          } else {
+            this.sortData.sortValue = '3';
+          }
+
+          this.sortData.direction = this.sort.direction || null;
+          var listObj = {
+            page: this.paginator.pageIndex - 1 + 1,
+            limit: this.paginator.pageSize || this.limitPage[0],
+            sort_val: this.sortData.sortValue,
+            dir: this.sortData.direction == 'asc' ? '1' : '-1'
+          };
+          if (this.search) listObj['srch'] = this.search;
+          this.dataSource.load(listObj, {
+            api: 'WALKING'
+          });
+        }
+      }, {
+        key: "applyFilters",
+        value: function applyFilters() {
+          this.loadStaffList();
+          this.isApplied = true;
+        } // ********************** Account Manager List Api Integration with search End******************
+
+      }, {
+        key: "exportCSV",
+        value: function exportCSV(data) {
+          var _this3 = this;
+
+          var finalData = [];
+          var obj;
+          var i = 0;
+          data.usersData.subscribe(function (rs) {
+            rs.forEach(function (element) {
+              obj = {
+                "Serial": ++i,
+                "Name": element.name,
+                "Email": element.email
+              };
+              finalData.push(obj);
+            });
+            var options = {
+              noDownload: false,
+              headers: ["Serial", "Name", "Email"]
+            };
+            new angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_10__["Angular5Csv"](finalData, 'staff_list', options);
+
+            _this3.httpservice.sucsTostr(_this3.trns.transform('SUCCESS'), _this3.trns.transform('EXPORTD'));
+          });
+        }
+      }, {
+        key: "matPaginator",
+        set: function set(mp) {
+          this.paginator = mp;
         }
       }]);
 
-      return ViewprofileComponent;
+      return ListComponent;
     }();
 
-    ViewprofileComponent.ctorParameters = function () {
+    ListComponent.ctorParameters = function () {
       return [{
-        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"]
+        type: _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
       }, {
-        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_3__["ErrorService"]
+        type: src_app_shared_service_list_list_service__WEBPACK_IMPORTED_MODULE_4__["ListService"]
+      }, {
+        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_5__["HttpRequestService"]
+      }, {
+        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__["TranslatePipe"]
       }];
     };
 
-    ViewprofileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-viewprofile',
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"], {
+      static: true
+    })], ListComponent.prototype, "matPaginator", null);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"], {
+      static: true
+    })], ListComponent.prototype, "sort", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('input', {
+      static: true
+    })], ListComponent.prototype, "input", void 0);
+    ListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-list',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./viewprofile.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/viewprofile/viewprofile.component.html")).default,
+      /*! raw-loader!./list.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/list/list.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./viewprofile.component.scss */
-      "./src/app/home/profile/viewprofile/viewprofile.component.scss")).default]
-    })], ViewprofileComponent);
+      /*! ./list.component.scss */
+      "./src/app/home/walking-user/list/list.component.scss")).default]
+    })], ListComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/profile/viewprofile/viewprofile.module.ts":
-  /*!****************************************************************!*\
-    !*** ./src/app/home/profile/viewprofile/viewprofile.module.ts ***!
-    \****************************************************************/
+  "./src/app/home/walking-user/list/list.module.ts":
+  /*!*******************************************************!*\
+    !*** ./src/app/home/walking-user/list/list.module.ts ***!
+    \*******************************************************/
 
-  /*! exports provided: ViewprofileModule */
+  /*! exports provided: ListModule */
 
   /***/
-  function srcAppHomeProfileViewprofileViewprofileModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserListListModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ViewprofileModule", function () {
-      return ViewprofileModule;
+    __webpack_require__.d(__webpack_exports__, "ListModule", function () {
+      return ListModule;
     });
     /* harmony import */
 
@@ -274,46 +409,153 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _viewprofile_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./viewprofile-routing.module */
-    "./src/app/home/profile/viewprofile/viewprofile-routing.module.ts");
+    var _list_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./list-routing.module */
+    "./src/app/home/walking-user/list/list-routing.module.ts");
     /* harmony import */
 
 
-    var _viewprofile_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./viewprofile.component */
-    "./src/app/home/profile/viewprofile/viewprofile.component.ts");
+    var _list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./list.component */
+    "./src/app/home/walking-user/list/list.component.ts");
     /* harmony import */
 
 
-    var _agm_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! @agm/core */
-    "./node_modules/@agm/core/fesm2015/agm-core.js");
-    /* harmony import */
+    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/shared.module */
+    "./src/app/shared/shared.module.ts");
 
-
-    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/app/shared/module/applicationpipe/applicationpipe.module */
-    "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
-    /* harmony import */
-
-
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! src/app/shared/_pipes/translate.pipe */
-    "./src/app/shared/_pipes/translate.pipe.ts");
-
-    var ViewprofileModule = function ViewprofileModule() {
-      _classCallCheck(this, ViewprofileModule);
+    var ListModule = function ListModule() {
+      _classCallCheck(this, ListModule);
     };
 
-    ViewprofileModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_viewprofile_component__WEBPACK_IMPORTED_MODULE_4__["ViewprofileComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _viewprofile_routing_module__WEBPACK_IMPORTED_MODULE_3__["ViewprofileRoutingModule"], _agm_core__WEBPACK_IMPORTED_MODULE_5__["AgmCoreModule"].forRoot({
-        apiKey: 'AIzaSyAFagdwUB5_7TgN2G4Ss6q_qnwgg5BX3Qg',
-        libraries: ["places"]
-      }), src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__["ApplicationpipeModule"]],
-      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]]
-    })], ViewprofileModule);
+    ListModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_list_component__WEBPACK_IMPORTED_MODULE_4__["ListComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _list_routing_module__WEBPACK_IMPORTED_MODULE_3__["WalkinglistRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
+    })], ListModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/service/error.service.ts":
+  /*!*************************************************!*\
+    !*** ./src/app/shared/service/error.service.ts ***!
+    \*************************************************/
+
+  /*! exports provided: ErrorService */
+
+  /***/
+  function srcAppSharedServiceErrorServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ErrorService", function () {
+      return ErrorService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./translate.service */
+    "./src/app/shared/service/translate.service.ts");
+    /* harmony import */
+
+
+    var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./http-request.service */
+    "./src/app/shared/service/http-request.service.ts"); // import { TranslatePipe } from '../_pipes/translate.pipe';
+
+
+    var ErrorService =
+    /*#__PURE__*/
+    function () {
+      function ErrorService(helper, trns) {
+        _classCallCheck(this, ErrorService);
+
+        this.helper = helper;
+        this.trns = trns;
+      }
+
+      _createClass(ErrorService, [{
+        key: "handleError",
+        value: function handleError() {
+          var errCode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+          switch (errCode) {
+            case 0:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 1:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 4:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+              break;
+
+            case 5:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
+              break;
+
+            case 6:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
+              break;
+
+            case 7:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
+              break;
+
+            case 8:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
+              break;
+
+            case 9:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
+              break;
+
+            case 31:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+
+            case 39:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
+              break;
+
+            default:
+              break;
+          }
+        }
+      }]);
+
+      return ErrorService;
+    }();
+
+    ErrorService.ctorParameters = function () {
+      return [{
+        type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
+      }, {
+        type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
+      }];
+    };
+
+    ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], ErrorService);
     /***/
   }
 }]);

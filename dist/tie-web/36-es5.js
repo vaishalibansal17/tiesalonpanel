@@ -45,7 +45,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(3), __webpack_require__.e(22)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(5), __webpack_require__.e(29)]).then(__webpack_require__.bind(null,
         /*! ./viewprofile/viewprofile.module */
         "./src/app/home/profile/viewprofile/viewprofile.module.ts")).then(function (mod) {
           return mod.ViewprofileModule;
@@ -56,7 +56,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(3), __webpack_require__.e("common"), __webpack_require__.e(5)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(5), __webpack_require__.e("common"), __webpack_require__.e(7)]).then(__webpack_require__.bind(null,
         /*! ./editprofile/editprofile.module */
         "./src/app/home/profile/editprofile/editprofile.module.ts")).then(function (mod) {
           return mod.EditprofileModule;
@@ -71,7 +71,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e("common"), __webpack_require__.e(14)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("common"), __webpack_require__.e(15)]).then(__webpack_require__.bind(null,
         /*! ./changepassword/changepassword.module */
         "./src/app/home/profile/changepassword/changepassword.module.ts")).then(function (mod) {
           return mod.ChangepasswordModule;
@@ -86,7 +86,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return __webpack_require__.e(
         /*! import() */
-        6).then(__webpack_require__.bind(null,
+        8).then(__webpack_require__.bind(null,
         /*! ./businesshours/businesshours.module */
         "./src/app/home/profile/businesshours/businesshours.module.ts")).then(function (mod) {
           return mod.BusinesshoursModule;

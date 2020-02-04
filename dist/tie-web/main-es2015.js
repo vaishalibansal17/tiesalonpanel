@@ -588,8 +588,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomeModule), canActivate: [_shared_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomeModule), canActivate: [_shared_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'auth', loadChildren: () => __webpack_require__.e(/*! import() */ 35).then(__webpack_require__.bind(null, /*! ./auth/auth.module */ "./src/app/auth/auth.module.ts")).then(m => m.AuthModule), canActivate: [_shared_guard_login_guard__WEBPACK_IMPORTED_MODULE_4__["LoginGuard"]] },
+    { path: 'reset-freelancer/:token', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(23)]).then(__webpack_require__.bind(null, /*! ./reset-freelancer/reset-freelancer.module */ "./src/app/reset-freelancer/reset-freelancer.module.ts")).then(m => m.ResetFreelancerModule) },
     { path: '**', component: _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__["PageNotFoundComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -855,7 +856,14 @@ const APIURLS = {
     PROFILE: BASE_URL + 'salon/detail',
     EDIT: BASE_URL + 'salon',
     WRKNGHRS: BASE_URL + 'salon/working/hour',
-    FREELNCERESET: BASE_URL + 'freelance/reset/pass'
+    FREELNCERESET: BASE_URL + 'freelance/reset/pass',
+    STAFF: BASE_URL + 'staff',
+    STAFF_REVIEW: BASE_URL + 'staff/user/review',
+    STAFF_DETAIL: BASE_URL + 'staff/detail',
+    SERVICES: BASE_URL + 'service',
+    WALKING: BASE_URL + 'user/walking',
+    WALKING_CHK: BASE_URL + 'user/walking/check',
+    WALKING_ADD: BASE_URL + 'user/walking/add'
 };
 
 
@@ -1325,7 +1333,10 @@ let HttpRequestService = class HttpRequestService {
     }
     getRequest(type, requestUrl, data, queryParams) {
         if (type === 'GET') {
-            return this.http.get(this.getApi(requestUrl) + '/' + data);
+            return this.http.get(this.getApi(requestUrl) + '?' + data);
+        }
+        else if (type === 'GET_PARMS') {
+            return this.http.get(this.getApi(requestUrl) + '/' + data + '?' + queryParams);
         }
         else if (type === 'POST') {
             return this.http.post(this.getApi(requestUrl), data);
@@ -1405,7 +1416,7 @@ let TranslateService = class TranslateService {
         this.data = {};
     }
     use(lang) {
-        console.log(localStorage.getItem('lang'), lang, '-----------');
+        // console.log(localStorage.getItem('lang'), lang,'-----------');
         return new Promise((resolve, reject) => {
             // lang = localStorage.getItem('lang');
             const langPath = `assets/i18n/${lang || 'en'}.json`;

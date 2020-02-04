@@ -987,7 +987,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e(4)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null,
         /*! ./home/home.module */
         "./src/app/home/home.module.ts")).then(function (m) {
           return m.HomeModule;
@@ -1006,6 +1006,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         });
       },
       canActivate: [_shared_guard_login_guard__WEBPACK_IMPORTED_MODULE_4__["LoginGuard"]]
+    }, {
+      path: 'reset-freelancer/:token',
+      loadChildren: function loadChildren() {
+        return Promise.all(
+        /*! import() */
+        [__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(23)]).then(__webpack_require__.bind(null,
+        /*! ./reset-freelancer/reset-freelancer.module */
+        "./src/app/reset-freelancer/reset-freelancer.module.ts")).then(function (m) {
+          return m.ResetFreelancerModule;
+        });
+      }
     }, {
       path: '**',
       component: _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__["PageNotFoundComponent"]
@@ -1495,7 +1506,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       PROFILE: BASE_URL + 'salon/detail',
       EDIT: BASE_URL + 'salon',
       WRKNGHRS: BASE_URL + 'salon/working/hour',
-      FREELNCERESET: BASE_URL + 'freelance/reset/pass'
+      FREELNCERESET: BASE_URL + 'freelance/reset/pass',
+      STAFF: BASE_URL + 'staff',
+      STAFF_REVIEW: BASE_URL + 'staff/user/review',
+      STAFF_DETAIL: BASE_URL + 'staff/detail',
+      SERVICES: BASE_URL + 'service',
+      WALKING: BASE_URL + 'user/walking',
+      WALKING_CHK: BASE_URL + 'user/walking/check',
+      WALKING_ADD: BASE_URL + 'user/walking/add'
     };
     /***/
   },
@@ -2344,7 +2362,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "getRequest",
         value: function getRequest(type, requestUrl, data, queryParams) {
           if (type === 'GET') {
-            return this.http.get(this.getApi(requestUrl) + '/' + data);
+            return this.http.get(this.getApi(requestUrl) + '?' + data);
+          } else if (type === 'GET_PARMS') {
+            return this.http.get(this.getApi(requestUrl) + '/' + data + '?' + queryParams);
           } else if (type === 'POST') {
             return this.http.post(this.getApi(requestUrl), data);
             ;
@@ -2475,7 +2495,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function use(lang) {
           var _this2 = this;
 
-          console.log(localStorage.getItem('lang'), lang, '-----------');
+          // console.log(localStorage.getItem('lang'), lang,'-----------');
           return new Promise(function (resolve, reject) {
             // lang = localStorage.getItem('lang');
             var langPath = "assets/i18n/".concat(lang || 'en', ".json");

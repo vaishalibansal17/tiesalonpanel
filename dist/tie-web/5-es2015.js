@@ -1,5305 +1,4691 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[5],{
 
-/***/ "./node_modules/ng-simple-slideshow/ng-simple-slideshow.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/ng-simple-slideshow/ng-simple-slideshow.js ***!
-  \*****************************************************************/
-/*! exports provided: SlideshowModule, ɵa, ɵb */
+/***/ "./node_modules/@agm/core/fesm2015/agm-core.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/@agm/core/fesm2015/agm-core.js ***!
+  \*****************************************************/
+/*! exports provided: AgmBicyclingLayer, AgmCircle, AgmCoreModule, AgmDataLayer, AgmFitBounds, AgmGeocoder, AgmInfoWindow, AgmKmlLayer, AgmMap, AgmMarker, AgmPolygon, AgmPolyline, AgmPolylineIcon, AgmPolylinePoint, AgmRectangle, AgmTransitLayer, CircleManager, ControlPosition, DataLayerManager, FitBoundsAccessor, GeocoderLocationType, GeocoderStatus, GoogleMapsAPIWrapper, GoogleMapsScriptProtocol, InfoWindowManager, KmlLayerManager, LAZY_MAPS_API_CONFIG, LayerManager, LazyMapsAPILoader, MapTypeId, MapsAPILoader, MarkerManager, NoOpMapsAPILoader, PolygonManager, PolylineManager, RectangleManager, ScaleControlStyle, ZoomControlStyle, ɵa, ɵb, ɵc, ɵd, ɵe */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SlideshowModule", function() { return SlideshowModule; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return SlideshowComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵb", function() { return SwipeService; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmBicyclingLayer", function() { return AgmBicyclingLayer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmCircle", function() { return AgmCircle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmCoreModule", function() { return AgmCoreModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmDataLayer", function() { return AgmDataLayer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmFitBounds", function() { return AgmFitBounds; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmGeocoder", function() { return AgmGeocoder; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmInfoWindow", function() { return AgmInfoWindow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmKmlLayer", function() { return AgmKmlLayer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmMap", function() { return AgmMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmMarker", function() { return AgmMarker; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmPolygon", function() { return AgmPolygon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmPolyline", function() { return AgmPolyline; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmPolylineIcon", function() { return AgmPolylineIcon; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmPolylinePoint", function() { return AgmPolylinePoint; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmRectangle", function() { return AgmRectangle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AgmTransitLayer", function() { return AgmTransitLayer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CircleManager", function() { return CircleManager; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ControlPosition", function() { return ControlPosition; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DataLayerManager", function() { return DataLayerManager; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FitBoundsAccessor", function() { return FitBoundsAccessor; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GeocoderLocationType", function() { return GeocoderLocationType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GeocoderStatus", function() { return GeocoderStatus; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GoogleMapsAPIWrapper", function() { return GoogleMapsAPIWrapper; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GoogleMapsScriptProtocol", function() { return GoogleMapsScriptProtocol; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InfoWindowManager", function() { return InfoWindowManager; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KmlLayerManager", function() { return KmlLayerManager; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LAZY_MAPS_API_CONFIG", function() { return LAZY_MAPS_API_CONFIG; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LayerManager", function() { return LayerManager; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LazyMapsAPILoader", function() { return LazyMapsAPILoader; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapTypeId", function() { return MapTypeId; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MapsAPILoader", function() { return MapsAPILoader; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MarkerManager", function() { return MarkerManager; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NoOpMapsAPILoader", function() { return NoOpMapsAPILoader; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PolygonManager", function() { return PolygonManager; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PolylineManager", function() { return PolylineManager; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RectangleManager", function() { return RectangleManager; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ScaleControlStyle", function() { return ScaleControlStyle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ZoomControlStyle", function() { return ZoomControlStyle; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return FitBoundsService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵb", function() { return coreDirectives; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵc", function() { return WindowRef; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵd", function() { return DocumentRef; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵe", function() { return BROWSER_GLOBALS_PROVIDERS; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 
 
 
 
-class SwipeService {
-    /**
-     * \@description detect the direction of the swipe, and return a -1 or 1 if the duration is long enough
-     *              else return a 0 to do nothing
-     * @param {?} e
-     * @param {?} when
-     * @return {?}
-     */
-    swipe(e, when) {
-        const /** @type {?} */ coord = [e.changedTouches[0].pageX, e.changedTouches[0].pageY];
-        const /** @type {?} */ time = new Date().getTime();
-        if (when === 'start') {
-            this._swipeCoord = coord;
-            this._swipeTime = time;
-        }
-        else if (when === 'end') {
-            const /** @type {?} */ direction = [coord[0] - this._swipeCoord[0], coord[1] - this._swipeCoord[1]];
-            const /** @type {?} */ duration = time - this._swipeTime;
-            if (duration < 1000 // Short enough
-                && Math.abs(direction[1]) < Math.abs(direction[0]) // Horizontal enough
-                && Math.abs(direction[0]) > 30) {
-                return direction[0] < 0 ? 1 : -1;
-            }
-        }
-        return 0;
-    }
-}
-SwipeService.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] },
-];
+
+
+let MapsAPILoader = class MapsAPILoader {
+};
+MapsAPILoader = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], MapsAPILoader);
+
 /**
- * @nocollapse
+ * Wrapper class that handles the communication with the Google Maps Javascript
+ * API v3
  */
-SwipeService.ctorParameters = () => [];
+let GoogleMapsAPIWrapper = class GoogleMapsAPIWrapper {
+    constructor(_loader, _zone) {
+        this._loader = _loader;
+        this._zone = _zone;
+        this._map =
+            new Promise((resolve) => { this._mapResolver = resolve; });
+    }
+    createMap(el, mapOptions) {
+        return this._zone.runOutsideAngular(() => {
+            return this._loader.load().then(() => {
+                const map = new google.maps.Map(el, mapOptions);
+                this._mapResolver(map);
+                return;
+            });
+        });
+    }
+    setMapOptions(options) {
+        return this._zone.runOutsideAngular(() => {
+            this._map.then((m) => { m.setOptions(options); });
+        });
+    }
+    /**
+     * Creates a google map marker with the map context
+     */
+    createMarker(options = {}, addToMap = true) {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => {
+                if (addToMap) {
+                    options.map = map;
+                }
+                return new google.maps.Marker(options);
+            });
+        });
+    }
+    createInfoWindow(options) {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then(() => { return new google.maps.InfoWindow(options); });
+        });
+    }
+    /**
+     * Creates a google.map.Circle for the current map.
+     */
+    createCircle(options) {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => {
+                if (typeof options.strokePosition === 'string') {
+                    options.strokePosition = google.maps.StrokePosition[options.strokePosition];
+                }
+                options.map = map;
+                return new google.maps.Circle(options);
+            });
+        });
+    }
+    /**
+     * Creates a google.map.Rectangle for the current map.
+     */
+    createRectangle(options) {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => {
+                options.map = map;
+                return new google.maps.Rectangle(options);
+            });
+        });
+    }
+    createPolyline(options) {
+        return this._zone.runOutsideAngular(() => {
+            return this.getNativeMap().then((map) => {
+                let line = new google.maps.Polyline(options);
+                line.setMap(map);
+                return line;
+            });
+        });
+    }
+    createPolygon(options) {
+        return this._zone.runOutsideAngular(() => {
+            return this.getNativeMap().then((map) => {
+                let polygon = new google.maps.Polygon(options);
+                polygon.setMap(map);
+                return polygon;
+            });
+        });
+    }
+    /**
+     * Creates a new google.map.Data layer for the current map
+     */
+    createDataLayer(options) {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then(m => {
+                let data = new google.maps.Data(options);
+                data.setMap(m);
+                return data;
+            });
+        });
+    }
+    /**
+     * Creates a TransitLayer instance for a map
+     * @param {TransitLayerOptions} options - used for setting layer options
+     * @returns {Promise<TransitLayer>} a new transit layer object
+     */
+    createTransitLayer(options) {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => {
+                let newLayer = new google.maps.TransitLayer();
+                newLayer.setMap(options.visible ? map : null);
+                return newLayer;
+            });
+        });
+    }
+    /**
+     * Creates a BicyclingLayer instance for a map
+     * @param {BicyclingLayerOptions} options - used for setting layer options
+     * @returns {Promise<BicyclingLayer>} a new bicycling layer object
+     */
+    createBicyclingLayer(options) {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => {
+                let newLayer = new google.maps.BicyclingLayer();
+                newLayer.setMap(options.visible ? map : null);
+                return newLayer;
+            });
+        });
+    }
+    /**
+     * Determines if given coordinates are insite a Polygon path.
+     */
+    containsLocation(latLng, polygon) {
+        return google.maps.geometry.poly.containsLocation(latLng, polygon);
+    }
+    subscribeToMapEvent(eventName) {
+        return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((observer) => {
+            this._map.then((m) => {
+                m.addListener(eventName, (arg) => { this._zone.run(() => observer.next(arg)); });
+            });
+        });
+    }
+    clearInstanceListeners() {
+        return this._zone.runOutsideAngular(() => {
+            this._map.then((map) => {
+                google.maps.event.clearInstanceListeners(map);
+            });
+        });
+    }
+    setCenter(latLng) {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => map.setCenter(latLng));
+        });
+    }
+    getZoom() {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => map.getZoom());
+        });
+    }
+    getBounds() {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => map.getBounds());
+        });
+    }
+    getMapTypeId() {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => map.getMapTypeId());
+        });
+    }
+    setZoom(zoom) {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => map.setZoom(zoom));
+        });
+    }
+    getCenter() {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => map.getCenter());
+        });
+    }
+    panTo(latLng) {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => map.panTo(latLng));
+        });
+    }
+    panBy(x, y) {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => map.panBy(x, y));
+        });
+    }
+    fitBounds(latLng, padding) {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => map.fitBounds(latLng, padding));
+        });
+    }
+    panToBounds(latLng, padding) {
+        return this._zone.runOutsideAngular(() => {
+            return this._map.then((map) => map.panToBounds(latLng, padding));
+        });
+    }
+    /**
+     * Returns the native Google Maps Map instance. Be careful when using this instance directly.
+     */
+    getNativeMap() { return this._map; }
+    /**
+     * Triggers the given event name on the map instance.
+     */
+    triggerMapEvent(eventName) {
+        return this._map.then((m) => google.maps.event.trigger(m, eventName));
+    }
+};
+GoogleMapsAPIWrapper.ctorParameters = () => [
+    { type: MapsAPILoader },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] }
+];
+GoogleMapsAPIWrapper = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [MapsAPILoader, _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
+], GoogleMapsAPIWrapper);
 
-const FIRST_SLIDE_KEY = Object(_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["makeStateKey"])('firstSlide');
-class SlideshowComponent {
-    /**
-     * @param {?} _swipeService
-     * @param {?} _renderer
-     * @param {?} _transferState
-     * @param {?} _ngZone
-     * @param {?} sanitizer
-     * @param {?} platform_id
-     * @param {?} document
-     */
-    constructor(_swipeService, _renderer, _transferState, _ngZone, sanitizer, platform_id, document) {
-        this._swipeService = _swipeService;
-        this._renderer = _renderer;
-        this._transferState = _transferState;
-        this._ngZone = _ngZone;
-        this.sanitizer = sanitizer;
-        this.platform_id = platform_id;
-        this.document = document;
-        this.slideIndex = -1;
-        this.slides = [];
-        this._initial = true;
-        this._isHidden = false;
-        this.imageUrls = [];
-        this.height = '100%';
-        this.showArrows = true;
-        this.disableSwiping = false;
-        this.autoPlay = false;
-        this.autoPlayInterval = 3333;
-        this.stopAutoPlayOnSlide = true;
-        this.autoPlayWaitForLazyLoad = false;
-        this.backgroundSize = 'cover';
-        this.backgroundPosition = 'center center';
-        this.backgroundRepeat = 'no-repeat';
-        this.showDots = false;
-        this.dotColor = '#FFF';
-        this.showCaptions = true;
-        this.captionColor = '#FFF';
-        this.captionBackground = 'rgba(0, 0, 0, .35)';
-        this.lazyLoad = false;
-        this.hideOnNoSlides = false;
-        this.fullscreen = false;
-        this.onSlideLeft = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onSlideRight = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onSwipeLeft = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onSwipeRight = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onFullscreenExit = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onIndexChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+/**
+ * This class manages Transit and Bicycling Layers for a Google Map instance.
+ */
+let LayerManager = class LayerManager {
+    constructor(_wrapper) {
+        this._wrapper = _wrapper;
+        this._layers = new Map();
     }
     /**
-     * @return {?}
+     * Adds a transit layer to a map instance.
+     * @param {AgmTransitLayer} layer - a TransitLayer object
+     * @param {TransitLayerOptions} options - TransitLayerOptions options
+     * @returns void
      */
-    get safeStyleDotColor() {
-        return this.sanitizer.bypassSecurityTrustStyle(`--dot-color: ${this.dotColor}`);
+    addTransitLayer(layer, options) {
+        const newLayer = this._wrapper.createTransitLayer(options);
+        this._layers.set(layer, newLayer);
     }
     /**
-     * @return {?}
+     * Adds a bicycling layer to a map instance.
+     * @param {AgmBicyclingLayer} layer - a bicycling layer object
+     * @param {BicyclingLayerOptions} options - BicyclingLayer options
+     * @returns void
      */
-    ngOnInit() {
-        if (this.debug !== undefined) {
-            console.warn('[Deprecation Warning]: The debug input will be removed from ng-simple-slideshow in 1.3.0');
-        }
+    addBicyclingLayer(layer, options) {
+        const newLayer = this._wrapper.createBicyclingLayer(options);
+        this._layers.set(layer, newLayer);
     }
     /**
-     * @return {?}
+     * Deletes a map layer
+     * @param {AgmTransitLayer|AgmBicyclingLayer} layer - the layer to delete
+     * @returns  Promise<void>
      */
-    ngDoCheck() {
-        // if this is the first being called, create a copy of the input
-        if (this.imageUrls && this.imageUrls.length > 0) {
-            if (this._initial === true) {
-                this._urlCache = Array.from(this.imageUrls);
-            }
-            if (this._isHidden === true) {
-                this._renderer.removeStyle(this.container.nativeElement, 'display');
-                this._isHidden = false;
-            }
-            this.setSlides();
-        }
-        else if (this.hideOnNoSlides === true) {
-            this._renderer.setStyle(this.container.nativeElement, 'display', 'none');
-            this._isHidden = true;
-        }
-        this.setStyles();
-        this.handleAutoPlay();
+    deleteLayer(layer) {
+        return this._layers.get(layer).then(currentLayer => {
+            currentLayer.setMap(null);
+            this._layers.delete(layer);
+        });
     }
     /**
-     * \@description this is the function that should be called to make the slides change.
-     *              indexDirection to move back is -1, to move forward is 1, and to stay in place is 0.
-     *              0 is taken into account for failed swipes
-     * @param {?} indexDirection
-     * @param {?=} isSwipe
-     * @return {?}
+     * Hide/Show a google map layer
+     * @param { AgmTransitLayer|AgmBicyclingLayer} layer - the layer to hide/show
+     * @param {TransitLayerOptions|BicyclingLayerOptions} options - used to set visibility of the layer
+     * @returns Promise<void>
      */
-    onSlide(indexDirection, isSwipe) {
-        this.handleAutoPlay(this.stopAutoPlayOnSlide);
-        this.slide(indexDirection, isSwipe);
-    }
-    /**
-     * \@description Use the swipe service to detect swipe events from phone and tablets
-     * @param {?} e
-     * @param {?} when
-     * @return {?}
-     */
-    onSwipe(e, when) {
-        if (this.disableSwiping === true) {
-            return;
-        }
-        const /** @type {?} */ indexDirection = this._swipeService.swipe(e, when);
-        // handle a failed swipe
-        if (indexDirection === 0) {
-            return;
-        }
-        else {
-            this.onSlide(indexDirection, true);
-        }
-    }
-    /**
-     * \@description Redirect to current slide "href" if defined
-     * @param {?} e
-     * @return {?}
-     */
-    onClick(e) {
-        e.preventDefault();
-        const /** @type {?} */ currentSlide = this.slides.length > 0 && this.slides[this.slideIndex];
-        if (currentSlide && currentSlide.image.clickAction) {
-            currentSlide.image.clickAction();
-        }
-        else if (currentSlide && currentSlide.image.href) {
-            this.document.location.href = currentSlide.image.href;
-        }
-    }
-    /**
-     * \@description set the index to the desired index - 1 and simulate a right slide
-     * @param {?} index
-     * @return {?}
-     */
-    goToSlide(index) {
-        const /** @type {?} */ beforeClickIndex = this.slideIndex;
-        this.slideIndex = index - 1;
-        this.setSlideIndex(1);
-        if (!this.slides[this.slideIndex].loaded) {
-            this.loadRemainingSlides();
-        }
-        this.handleAutoPlay(this.stopAutoPlayOnSlide);
-        this.slideRight(beforeClickIndex);
-        this.slides[beforeClickIndex].selected = false;
-        this.slides[this.slideIndex].selected = true;
-    }
-    /**
-     * \@description set the index to the desired index - 1 and simulate a right slide
-     * @param {?} index
-     * @return {?}
-     */
-    getSlideStyle(index) {
-        const /** @type {?} */ slide = this.slides[index];
-        if (slide.loaded) {
-            return {
-                "background-image": 'url(' + slide.image.url + ')',
-                "background-size": slide.image.backgroundSize || this.backgroundSize,
-                "background-position": slide.image.backgroundPosition || this.backgroundPosition,
-                "background-repeat": slide.image.backgroundRepeat || this.backgroundRepeat
-            };
-        }
-        else {
-            // doesn't compile correctly if returning an empty object, sooooo.....
-            return {
-                "background-image": undefined,
-                "background-size": undefined,
-                "background-position": undefined,
-                "background-repeat": undefined
-            };
-        }
-    }
-    /**
-     * @param {?} e
-     * @return {?}
-     */
-    exitFullScreen(e) {
-        e.preventDefault();
-        this.fullscreen = false;
-        this.onFullscreenExit.emit(true);
-    }
-    /**
-     * \@description Set the new slide index, then make the transition happen.
-     * @param {?} indexDirection
-     * @param {?=} isSwipe
-     * @return {?}
-     */
-    slide(indexDirection, isSwipe) {
-        const /** @type {?} */ oldIndex = this.slideIndex;
-        this.setSlideIndex(indexDirection);
-        if (!this.slides[this.slideIndex].loaded) {
-            this.loadRemainingSlides();
-        }
-        if (indexDirection === 1) {
-            this.slideRight(oldIndex, isSwipe);
-        }
-        else {
-            this.slideLeft(oldIndex, isSwipe);
-        }
-        this.slides[oldIndex].selected = false;
-        this.slides[this.slideIndex].selected = true;
-    }
-    /**
-     * \@description This is just treating the url array like a circular list.
-     * @param {?} indexDirection
-     * @return {?}
-     */
-    setSlideIndex(indexDirection) {
-        this.slideIndex += indexDirection;
-        if (this.slideIndex < 0) {
-            this.slideIndex = this.slides.length - 1;
-        }
-        if (this.slideIndex >= this.slides.length) {
-            this.slideIndex = 0;
-        }
-        this.onIndexChanged.emit(this.slideIndex);
-    }
-    /**
-     * \@description This function handles the variables to move the CSS classes around accordingly.
-     *              In order to correctly handle animations, the new slide as well as the slides to
-     *              the left and right are assigned classes.
-     * @param {?} oldIndex
-     * @param {?=} isSwipe
-     * @return {?}
-     */
-    slideLeft(oldIndex, isSwipe) {
-        if (isSwipe === true) {
-            this.onSwipeLeft.emit(this.slideIndex);
-        }
-        else {
-            this.onSlideLeft.emit(this.slideIndex);
-        }
-        this.slides[this.getLeftSideIndex(oldIndex)].leftSide = false;
-        this.slides[oldIndex].leftSide = true;
-        this.slides[oldIndex].action = 'slideOutLeft';
-        this.slides[this.slideIndex].rightSide = false;
-        this.slides[this.getRightSideIndex()].rightSide = true;
-        this.slides[this.slideIndex].action = 'slideInRight';
-    }
-    /**
-     * \@description This function handles the variables to move the CSS classes around accordingly.
-     *              In order to correctly handle animations, the new slide as well as the slides to
-     *              the left and right are assigned classes.
-     * @param {?} oldIndex
-     * @param {?=} isSwipe
-     * @return {?}
-     */
-    slideRight(oldIndex, isSwipe) {
-        if (isSwipe === true) {
-            this.onSwipeRight.emit(this.slideIndex);
-        }
-        else {
-            this.onSlideRight.emit(this.slideIndex);
-        }
-        this.slides[this.getRightSideIndex(oldIndex)].rightSide = false;
-        this.slides[oldIndex].rightSide = true;
-        this.slides[oldIndex].action = 'slideOutRight';
-        this.slides[this.slideIndex].leftSide = false;
-        this.slides[this.getLeftSideIndex()].leftSide = true;
-        this.slides[this.slideIndex].action = 'slideInLeft';
-    }
-    /**
-     * \@description Check to make sure slide images have been set or haven't changed
-     * @return {?}
-     */
-    setSlides() {
-        if (this.imageUrls) {
-            if (this.checkCache() || this._initial === true) {
-                this._initial = false;
-                this._urlCache = Array.from(this.imageUrls);
-                this.slides = [];
-                if (this.lazyLoad === true) {
-                    this.buildLazyLoadSlideArray();
-                }
-                else {
-                    this.buildSlideArray();
-                }
-            }
-        }
-    }
-    /**
-     * \@description create the slides without background urls, which will be added in
-     *              for the "lazy load," then load only the first slide
-     * @return {?}
-     */
-    buildLazyLoadSlideArray() {
-        for (let /** @type {?} */ image of this.imageUrls) {
-            this.slides.push({
-                image: (typeof image === 'string' ? { url: null } : { url: null, href: image.href || '' }),
-                action: '',
-                leftSide: false,
-                rightSide: false,
-                selected: false,
-                loaded: false
-            });
-        }
-        this.slideIndex = 0;
-        this.slides[this.slideIndex].selected = true;
-        this.loadFirstSlide();
-        this.onIndexChanged.emit(this.slideIndex);
-    }
-    /**
-     * \@description create the slides with background urls all at once
-     * @return {?}
-     */
-    buildSlideArray() {
-        for (let /** @type {?} */ image of this.imageUrls) {
-            this.slides.push({
-                image: (typeof image === 'string' ? { url: image } : image),
-                action: '',
-                leftSide: false,
-                rightSide: false,
-                selected: false,
-                loaded: true
-            });
-        }
-        this.slideIndex = 0;
-        this.slides[this.slideIndex].selected = true;
-        this.onIndexChanged.emit(this.slideIndex);
-    }
-    /**
-     * \@description load the first slide image if lazy loading
-     *              this takes server side and browser side into account
-     * @return {?}
-     */
-    loadFirstSlide() {
-        const /** @type {?} */ tmpIndex = this.slideIndex;
-        const /** @type {?} */ tmpImage = this.imageUrls[tmpIndex];
-        // if server side, we don't need to worry about the rest of the slides
-        if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_1__["isPlatformServer"])(this.platform_id)) {
-            this.slides[tmpIndex].image = (typeof tmpImage === 'string' ? { url: tmpImage } : tmpImage);
-            this.slides[tmpIndex].loaded = true;
-            this._transferState.set(FIRST_SLIDE_KEY, this.slides[tmpIndex]);
-        }
-        else {
-            const /** @type {?} */ firstSlideFromTransferState = this._transferState.get(FIRST_SLIDE_KEY, /** @type {?} */ (null));
-            // if the first slide didn't finish loading on the server side, we need to load it
-            if (firstSlideFromTransferState === null) {
-                let /** @type {?} */ loadImage = new Image();
-                loadImage.src = (typeof tmpImage === 'string' ? tmpImage : tmpImage.url);
-                loadImage.addEventListener('load', () => {
-                    this.slides[tmpIndex].image = (typeof tmpImage === 'string' ? { url: tmpImage } : tmpImage);
-                    this.slides[tmpIndex].loaded = true;
-                });
+    toggleLayerVisibility(layer, options) {
+        return this._layers.get(layer).then(currentLayer => {
+            if (!options.visible) {
+                currentLayer.setMap(null);
+                return;
             }
             else {
-                this.slides[tmpIndex] = firstSlideFromTransferState;
-                this._transferState.remove(FIRST_SLIDE_KEY);
-            }
-        }
-    }
-    /**
-     * \@description if lazy loading in browser, start loading remaining slides
-     * \@todo: figure out how to not show the spinner if images are loading fast enough
-     * @return {?}
-     */
-    loadRemainingSlides() {
-        for (let /** @type {?} */ i = 0; i < this.slides.length; i++) {
-            if (!this.slides[i].loaded) {
-                new Promise((resolve) => {
-                    const /** @type {?} */ tmpImage = this.imageUrls[i];
-                    let /** @type {?} */ loadImage = new Image();
-                    loadImage.addEventListener('load', () => {
-                        this.slides[i].image = (typeof tmpImage === 'string' ? { url: tmpImage } : tmpImage);
-                        this.slides[i].loaded = true;
-                        resolve();
-                    });
-                    loadImage.src = (typeof tmpImage === 'string' ? tmpImage : tmpImage.url);
+                return this._wrapper.getNativeMap().then((map) => {
+                    currentLayer.setMap(map);
                 });
             }
-        }
+        });
     }
-    /**
-     * \@description Start or stop autoPlay, don't do it at all server side
-     * @param {?=} stopAutoPlay
-     * @return {?}
-     */
-    handleAutoPlay(stopAutoPlay) {
-        if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_1__["isPlatformServer"])(this.platform_id)) {
+};
+LayerManager.ctorParameters = () => [
+    { type: GoogleMapsAPIWrapper }
+];
+LayerManager = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [GoogleMapsAPIWrapper])
+], LayerManager);
+
+let layerId = 0;
+/*
+ * This directive adds a bicycling layer to a google map instance
+ * <agm-bicycling-layer [visible]="true|false"> <agm-bicycling-layer>
+ * */
+let AgmBicyclingLayer = class AgmBicyclingLayer {
+    constructor(_manager) {
+        this._manager = _manager;
+        this._addedToManager = false;
+        this._id = (layerId++).toString();
+        /**
+         * Hide/show bicycling layer
+         */
+        this.visible = true;
+    }
+    ngOnInit() {
+        if (this._addedToManager) {
             return;
         }
-        if (stopAutoPlay === true || this.autoPlay === false) {
-            if (this._autoplayIntervalId) {
-                this._ngZone.runOutsideAngular(() => clearInterval(this._autoplayIntervalId));
-                this._autoplayIntervalId = null;
-            }
+        this._manager.addBicyclingLayer(this, { visible: this.visible });
+        this._addedToManager = true;
+    }
+    ngOnChanges(changes) {
+        if (!this._addedToManager) {
+            return;
         }
-        else if (!this._autoplayIntervalId) {
-            this._ngZone.runOutsideAngular(() => {
-                this._autoplayIntervalId = setInterval(() => {
-                    if (!this.autoPlayWaitForLazyLoad || (this.autoPlayWaitForLazyLoad && this.slides[this.slideIndex].loaded)) {
-                        this._ngZone.run(() => this.slide(1));
-                    }
-                }, this.autoPlayInterval);
+        if (changes['visible'] != null) {
+            this._manager.toggleLayerVisibility(this, { visible: changes['visible'].currentValue });
+        }
+    }
+    /** @internal */
+    id() { return this._id; }
+    /** @internal */
+    toString() { return `AgmBicyclingLayer-${this._id.toString()}`; }
+    /** @internal */
+    ngOnDestroy() {
+        this._manager.deleteLayer(this);
+    }
+};
+AgmBicyclingLayer.ctorParameters = () => [
+    { type: LayerManager }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmBicyclingLayer.prototype, "visible", void 0);
+AgmBicyclingLayer = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: 'agm-bicycling-layer',
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [LayerManager])
+], AgmBicyclingLayer);
+
+let CircleManager = class CircleManager {
+    constructor(_apiWrapper, _zone) {
+        this._apiWrapper = _apiWrapper;
+        this._zone = _zone;
+        this._circles = new Map();
+    }
+    addCircle(circle) {
+        this._circles.set(circle, this._apiWrapper.createCircle({
+            center: { lat: circle.latitude, lng: circle.longitude },
+            clickable: circle.clickable,
+            draggable: circle.draggable,
+            editable: circle.editable,
+            fillColor: circle.fillColor,
+            fillOpacity: circle.fillOpacity,
+            radius: circle.radius,
+            strokeColor: circle.strokeColor,
+            strokeOpacity: circle.strokeOpacity,
+            strokePosition: circle.strokePosition,
+            strokeWeight: circle.strokeWeight,
+            visible: circle.visible,
+            zIndex: circle.zIndex,
+        }));
+    }
+    /**
+     * Removes the given circle from the map.
+     */
+    removeCircle(circle) {
+        return this._circles.get(circle).then((c) => {
+            c.setMap(null);
+            this._circles.delete(circle);
+        });
+    }
+    setOptions(circle, options) {
+        return this._circles.get(circle).then((c) => {
+            if (typeof options.strokePosition === 'string') {
+                options.strokePosition = google.maps.StrokePosition[options.strokePosition];
+            }
+            c.setOptions(options);
+        });
+    }
+    getBounds(circle) {
+        return this._circles.get(circle).then((c) => c.getBounds());
+    }
+    getCenter(circle) {
+        return this._circles.get(circle).then((c) => c.getCenter());
+    }
+    getRadius(circle) {
+        return this._circles.get(circle).then((c) => c.getRadius());
+    }
+    setCenter(circle) {
+        return this._circles.get(circle).then((c) => { return c.setCenter({ lat: circle.latitude, lng: circle.longitude }); });
+    }
+    setEditable(circle) {
+        return this._circles.get(circle).then((c) => { return c.setEditable(circle.editable); });
+    }
+    setDraggable(circle) {
+        return this._circles.get(circle).then((c) => { return c.setDraggable(circle.draggable); });
+    }
+    setVisible(circle) {
+        return this._circles.get(circle).then((c) => { return c.setVisible(circle.visible); });
+    }
+    setRadius(circle) {
+        return this._circles.get(circle).then((c) => { return c.setRadius(circle.radius); });
+    }
+    getNativeCircle(circle) {
+        return this._circles.get(circle);
+    }
+    createEventObservable(eventName, circle) {
+        return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((observer) => {
+            let listener = null;
+            this._circles.get(circle).then((c) => {
+                listener = c.addListener(eventName, (e) => this._zone.run(() => observer.next(e)));
             });
+            return () => {
+                if (listener !== null) {
+                    listener.remove();
+                }
+            };
+        });
+    }
+};
+CircleManager.ctorParameters = () => [
+    { type: GoogleMapsAPIWrapper },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] }
+];
+CircleManager = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [GoogleMapsAPIWrapper, _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
+], CircleManager);
+
+var AgmCircle_1;
+let AgmCircle = AgmCircle_1 = class AgmCircle {
+    constructor(_manager) {
+        this._manager = _manager;
+        /**
+         * Indicates whether this Circle handles mouse events. Defaults to true.
+         */
+        this.clickable = true;
+        /**
+         * If set to true, the user can drag this circle over the map. Defaults to false.
+         */
+        // tslint:disable-next-line:no-input-rename
+        this.draggable = false;
+        /**
+         * If set to true, the user can edit this circle by dragging the control points shown at
+         * the center and around the circumference of the circle. Defaults to false.
+         */
+        this.editable = false;
+        /**
+         * The radius in meters on the Earth's surface.
+         */
+        this.radius = 0;
+        /**
+         * The stroke position. Defaults to CENTER.
+         * This property is not supported on Internet Explorer 8 and earlier.
+         */
+        this.strokePosition = 'CENTER';
+        /**
+         * The stroke width in pixels.
+         */
+        this.strokeWeight = 0;
+        /**
+         * Whether this circle is visible on the map. Defaults to true.
+         */
+        this.visible = true;
+        /**
+         * This event is fired when the circle's center is changed.
+         */
+        this.centerChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event emitter gets emitted when the user clicks on the circle.
+         */
+        this.circleClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event emitter gets emitted when the user clicks on the circle.
+         */
+        this.circleDblClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is repeatedly fired while the user drags the circle.
+         */
+        this.drag = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the user stops dragging the circle.
+         */
+        this.dragEnd = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the user starts dragging the circle.
+         */
+        this.dragStart = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the DOM mousedown event is fired on the circle.
+         */
+        this.mouseDown = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the DOM mousemove event is fired on the circle.
+         */
+        this.mouseMove = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired on circle mouseout.
+         */
+        this.mouseOut = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired on circle mouseover.
+         */
+        this.mouseOver = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the DOM mouseup event is fired on the circle.
+         */
+        this.mouseUp = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the circle's radius is changed.
+         */
+        this.radiusChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the circle is right-clicked on.
+         */
+        this.rightClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this._circleAddedToManager = false;
+        this._eventSubscriptions = [];
+    }
+    /** @internal */
+    ngOnInit() {
+        this._manager.addCircle(this);
+        this._circleAddedToManager = true;
+        this._registerEventListeners();
+    }
+    /** @internal */
+    ngOnChanges(changes) {
+        if (!this._circleAddedToManager) {
+            return;
+        }
+        if (changes['latitude'] || changes['longitude']) {
+            this._manager.setCenter(this);
+        }
+        if (changes['editable']) {
+            this._manager.setEditable(this);
+        }
+        if (changes['draggable']) {
+            this._manager.setDraggable(this);
+        }
+        if (changes['visible']) {
+            this._manager.setVisible(this);
+        }
+        if (changes['radius']) {
+            this._manager.setRadius(this);
+        }
+        this._updateCircleOptionsChanges(changes);
+    }
+    _updateCircleOptionsChanges(changes) {
+        let options = {};
+        let optionKeys = Object.keys(changes).filter(k => AgmCircle_1._mapOptions.indexOf(k) !== -1);
+        optionKeys.forEach((k) => { options[k] = changes[k].currentValue; });
+        if (optionKeys.length > 0) {
+            this._manager.setOptions(this, options);
+        }
+    }
+    _registerEventListeners() {
+        let events = new Map();
+        events.set('center_changed', this.centerChange);
+        events.set('click', this.circleClick);
+        events.set('dblclick', this.circleDblClick);
+        events.set('drag', this.drag);
+        events.set('dragend', this.dragEnd);
+        events.set('dragstart', this.dragStart);
+        events.set('mousedown', this.mouseDown);
+        events.set('mousemove', this.mouseMove);
+        events.set('mouseout', this.mouseOut);
+        events.set('mouseover', this.mouseOver);
+        events.set('mouseup', this.mouseUp);
+        events.set('radius_changed', this.radiusChange);
+        events.set('rightclick', this.rightClick);
+        events.forEach((eventEmitter, eventName) => {
+            this._eventSubscriptions.push(this._manager.createEventObservable(eventName, this).subscribe((value) => {
+                switch (eventName) {
+                    case 'radius_changed':
+                        this._manager.getRadius(this).then((radius) => eventEmitter.emit(radius));
+                        break;
+                    case 'center_changed':
+                        this._manager.getCenter(this).then((center) => eventEmitter.emit({ lat: center.lat(), lng: center.lng() }));
+                        break;
+                    default:
+                        eventEmitter.emit({ coords: { lat: value.latLng.lat(), lng: value.latLng.lng() } });
+                }
+            }));
+        });
+    }
+    /** @internal */
+    ngOnDestroy() {
+        this._eventSubscriptions.forEach(function (s) { s.unsubscribe(); });
+        this._eventSubscriptions = null;
+        this._manager.removeCircle(this);
+    }
+    /**
+     * Gets the LatLngBounds of this Circle.
+     */
+    getBounds() { return this._manager.getBounds(this); }
+    getCenter() { return this._manager.getCenter(this); }
+};
+AgmCircle._mapOptions = [
+    'fillColor', 'fillOpacity', 'strokeColor', 'strokeOpacity', 'strokePosition', 'strokeWeight',
+    'visible', 'zIndex', 'clickable',
+];
+AgmCircle.ctorParameters = () => [
+    { type: CircleManager }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmCircle.prototype, "latitude", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmCircle.prototype, "longitude", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmCircle.prototype, "clickable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('circleDraggable'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmCircle.prototype, "draggable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmCircle.prototype, "editable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmCircle.prototype, "fillColor", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmCircle.prototype, "fillOpacity", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmCircle.prototype, "radius", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmCircle.prototype, "strokeColor", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmCircle.prototype, "strokeOpacity", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmCircle.prototype, "strokePosition", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmCircle.prototype, "strokeWeight", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmCircle.prototype, "visible", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmCircle.prototype, "zIndex", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmCircle.prototype, "centerChange", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmCircle.prototype, "circleClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmCircle.prototype, "circleDblClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmCircle.prototype, "drag", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmCircle.prototype, "dragEnd", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmCircle.prototype, "dragStart", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmCircle.prototype, "mouseDown", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmCircle.prototype, "mouseMove", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmCircle.prototype, "mouseOut", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmCircle.prototype, "mouseOver", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmCircle.prototype, "mouseUp", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmCircle.prototype, "radiusChange", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmCircle.prototype, "rightClick", void 0);
+AgmCircle = AgmCircle_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: 'agm-circle',
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [CircleManager])
+], AgmCircle);
+
+/**
+ * Manages all Data Layers for a Google Map instance.
+ */
+let DataLayerManager = class DataLayerManager {
+    constructor(_wrapper, _zone) {
+        this._wrapper = _wrapper;
+        this._zone = _zone;
+        this._layers = new Map();
+    }
+    /**
+     * Adds a new Data Layer to the map.
+     */
+    addDataLayer(layer) {
+        const newLayer = this._wrapper.createDataLayer({
+            style: layer.style,
+        })
+            .then(d => {
+            if (layer.geoJson) {
+                this.getDataFeatures(d, layer.geoJson).then(features => d.features = features);
+            }
+            return d;
+        });
+        this._layers.set(layer, newLayer);
+    }
+    deleteDataLayer(layer) {
+        this._layers.get(layer).then(l => {
+            l.setMap(null);
+            this._layers.delete(layer);
+        });
+    }
+    updateGeoJson(layer, geoJson) {
+        this._layers.get(layer).then(l => {
+            l.forEach(function (feature) {
+                l.remove(feature);
+                var index = l.features.indexOf(feature, 0);
+                if (index > -1) {
+                    l.features.splice(index, 1);
+                }
+            });
+            this.getDataFeatures(l, geoJson).then(features => l.features = features);
+        });
+    }
+    setDataOptions(layer, options) {
+        this._layers.get(layer).then(l => {
+            l.setControlPosition(options.controlPosition);
+            l.setControls(options.controls);
+            l.setDrawingMode(options.drawingMode);
+            l.setStyle(options.style);
+        });
+    }
+    /**
+     * Creates a Google Maps event listener for the given DataLayer as an Observable
+     */
+    createEventObservable(eventName, layer) {
+        return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((observer) => {
+            this._layers.get(layer).then((d) => {
+                d.addListener(eventName, (e) => this._zone.run(() => observer.next(e)));
+            });
+        });
+    }
+    /**
+     * Extract features from a geoJson using google.maps Data Class
+     * @param d : google.maps.Data class instance
+     * @param geoJson : url or geojson object
+     */
+    getDataFeatures(d, geoJson) {
+        return new Promise((resolve, reject) => {
+            if (typeof geoJson === 'object') {
+                try {
+                    const features = d.addGeoJson(geoJson);
+                    resolve(features);
+                }
+                catch (e) {
+                    reject(e);
+                }
+            }
+            else if (typeof geoJson === 'string') {
+                d.loadGeoJson(geoJson, null, resolve);
+            }
+            else {
+                reject(`Impossible to extract features from geoJson: wrong argument type`);
+            }
+        });
+    }
+};
+DataLayerManager.ctorParameters = () => [
+    { type: GoogleMapsAPIWrapper },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] }
+];
+DataLayerManager = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [GoogleMapsAPIWrapper, _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
+], DataLayerManager);
+
+var AgmDataLayer_1;
+let layerId$1 = 0;
+/**
+ * AgmDataLayer enables the user to add data layers to the map.
+ *
+ * ### Example
+ * ```typescript
+ * import { Component } from 'angular2/core';
+ * import { AgmMap, AgmDataLayer } from
+ * 'angular-google-maps/core';
+ *
+ * @Component({
+ *  selector: 'my-map-cmp',
+ *  directives: [AgmMap, AgmDataLayer],
+ *  styles: [`
+ *    .agm-container {
+ *      height: 300px;
+ *    }
+ * `],
+ *  template: `
+ * <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+ * 	  <agm-data-layer [geoJson]="geoJsonObject" (layerClick)="clicked($event)" [style]="styleFunc">
+ * 	  </agm-data-layer>
+ * </agm-map>
+ *  `
+ * })
+ * export class MyMapCmp {
+ *   lat: number = -25.274449;
+ *   lng: number = 133.775060;
+ *   zoom: number = 5;
+ *
+ * clicked(clickEvent) {
+ *    console.log(clickEvent);
+ *  }
+ *
+ *  styleFunc(feature) {
+ *    return ({
+ *      clickable: false,
+ *      fillColor: feature.getProperty('color'),
+ *      strokeWeight: 1
+ *    });
+ *  }
+ *
+ *  geoJsonObject: Object = {
+ *    "type": "FeatureCollection",
+ *    "features": [
+ *      {
+ *        "type": "Feature",
+ *        "properties": {
+ *          "letter": "G",
+ *          "color": "blue",
+ *          "rank": "7",
+ *          "ascii": "71"
+ *        },
+ *        "geometry": {
+ *          "type": "Polygon",
+ *          "coordinates": [
+ *            [
+ *              [123.61, -22.14], [122.38, -21.73], [121.06, -21.69], [119.66, -22.22], [119.00, -23.40],
+ *              [118.65, -24.76], [118.43, -26.07], [118.78, -27.56], [119.22, -28.57], [120.23, -29.49],
+ *              [121.77, -29.87], [123.57, -29.64], [124.45, -29.03], [124.71, -27.95], [124.80, -26.70],
+ *              [124.80, -25.60], [123.61, -25.64], [122.56, -25.64], [121.72, -25.72], [121.81, -26.62],
+ *              [121.86, -26.98], [122.60, -26.90], [123.57, -27.05], [123.57, -27.68], [123.35, -28.18],
+ *              [122.51, -28.38], [121.77, -28.26], [121.02, -27.91], [120.49, -27.21], [120.14, -26.50],
+ *              [120.10, -25.64], [120.27, -24.52], [120.67, -23.68], [121.72, -23.32], [122.43, -23.48],
+ *              [123.04, -24.04], [124.54, -24.28], [124.58, -23.20], [123.61, -22.14]
+ *            ]
+ *          ]
+ *        }
+ *      },
+ *      {
+ *        "type": "Feature",
+ *        "properties": {
+ *          "letter": "o",
+ *          "color": "red",
+ *          "rank": "15",
+ *          "ascii": "111"
+ *        },
+ *        "geometry": {
+ *          "type": "Polygon",
+ *          "coordinates": [
+ *            [
+ *              [128.84, -25.76], [128.18, -25.60], [127.96, -25.52], [127.88, -25.52], [127.70, -25.60],
+ *              [127.26, -25.79], [126.60, -26.11], [126.16, -26.78], [126.12, -27.68], [126.21, -28.42],
+ *              [126.69, -29.49], [127.74, -29.80], [128.80, -29.72], [129.41, -29.03], [129.72, -27.95],
+ *              [129.68, -27.21], [129.33, -26.23], [128.84, -25.76]
+ *            ],
+ *            [
+ *              [128.45, -27.44], [128.32, -26.94], [127.70, -26.82], [127.35, -27.05], [127.17, -27.80],
+ *              [127.57, -28.22], [128.10, -28.42], [128.49, -27.80], [128.45, -27.44]
+ *            ]
+ *          ]
+ *        }
+ *      },
+ *      {
+ *        "type": "Feature",
+ *        "properties": {
+ *          "letter": "o",
+ *          "color": "yellow",
+ *          "rank": "15",
+ *          "ascii": "111"
+ *        },
+ *        "geometry": {
+ *          "type": "Polygon",
+ *          "coordinates": [
+ *            [
+ *              [131.87, -25.76], [131.35, -26.07], [130.95, -26.78], [130.82, -27.64], [130.86, -28.53],
+ *              [131.26, -29.22], [131.92, -29.76], [132.45, -29.87], [133.06, -29.76], [133.72, -29.34],
+ *              [134.07, -28.80], [134.20, -27.91], [134.07, -27.21], [133.81, -26.31], [133.37, -25.83],
+ *              [132.71, -25.64], [131.87, -25.76]
+ *            ],
+ *            [
+ *              [133.15, -27.17], [132.71, -26.86], [132.09, -26.90], [131.74, -27.56], [131.79, -28.26],
+ *              [132.36, -28.45], [132.93, -28.34], [133.15, -27.76], [133.15, -27.17]
+ *            ]
+ *          ]
+ *        }
+ *      },
+ *      {
+ *        "type": "Feature",
+ *        "properties": {
+ *          "letter": "g",
+ *          "color": "blue",
+ *          "rank": "7",
+ *          "ascii": "103"
+ *        },
+ *        "geometry": {
+ *          "type": "Polygon",
+ *          "coordinates": [
+ *            [
+ *              [138.12, -25.04], [136.84, -25.16], [135.96, -25.36], [135.26, -25.99], [135, -26.90],
+ *              [135.04, -27.91], [135.26, -28.88], [136.05, -29.45], [137.02, -29.49], [137.81, -29.49],
+ *              [137.94, -29.99], [137.90, -31.20], [137.85, -32.24], [136.88, -32.69], [136.45, -32.36],
+ *              [136.27, -31.80], [134.95, -31.84], [135.17, -32.99], [135.52, -33.43], [136.14, -33.76],
+ *              [137.06, -33.83], [138.12, -33.65], [138.86, -33.21], [139.30, -32.28], [139.30, -31.24],
+ *              [139.30, -30.14], [139.21, -28.96], [139.17, -28.22], [139.08, -27.41], [139.08, -26.47],
+ *              [138.99, -25.40], [138.73, -25.00], [138.12, -25.04]
+ *            ],
+ *            [
+ *              [137.50, -26.54], [136.97, -26.47], [136.49, -26.58], [136.31, -27.13], [136.31, -27.72],
+ *              [136.58, -27.99], [137.50, -28.03], [137.68, -27.68], [137.59, -26.78], [137.50, -26.54]
+ *            ]
+ *          ]
+ *        }
+ *      },
+ *      {
+ *        "type": "Feature",
+ *        "properties": {
+ *          "letter": "l",
+ *          "color": "green",
+ *          "rank": "12",
+ *          "ascii": "108"
+ *        },
+ *        "geometry": {
+ *          "type": "Polygon",
+ *          "coordinates": [
+ *            [
+ *              [140.14, -21.04], [140.31, -29.42], [141.67, -29.49], [141.59, -20.92], [140.14, -21.04]
+ *            ]
+ *          ]
+ *        }
+ *      },
+ *      {
+ *        "type": "Feature",
+ *        "properties": {
+ *          "letter": "e",
+ *          "color": "red",
+ *          "rank": "5",
+ *          "ascii": "101"
+ *        },
+ *        "geometry": {
+ *          "type": "Polygon",
+ *          "coordinates": [
+ *            [
+ *              [144.14, -27.41], [145.67, -27.52], [146.86, -27.09], [146.82, -25.64], [146.25, -25.04],
+ *              [145.45, -24.68], [144.66, -24.60], [144.09, -24.76], [143.43, -25.08], [142.99, -25.40],
+ *              [142.64, -26.03], [142.64, -27.05], [142.64, -28.26], [143.30, -29.11], [144.18, -29.57],
+ *              [145.41, -29.64], [146.46, -29.19], [146.64, -28.72], [146.82, -28.14], [144.84, -28.42],
+ *              [144.31, -28.26], [144.14, -27.41]
+ *            ],
+ *            [
+ *              [144.18, -26.39], [144.53, -26.58], [145.19, -26.62], [145.72, -26.35], [145.81, -25.91],
+ *              [145.41, -25.68], [144.97, -25.68], [144.49, -25.64], [144, -25.99], [144.18, -26.39]
+ *            ]
+ *          ]
+ *        }
+ *      }
+ *    ]
+ *  };
+ * }
+ * ```
+ */
+let AgmDataLayer = AgmDataLayer_1 = class AgmDataLayer {
+    constructor(_manager) {
+        this._manager = _manager;
+        this._addedToManager = false;
+        this._id = (layerId$1++).toString();
+        this._subscriptions = [];
+        /**
+         * This event is fired when a feature in the layer is clicked.
+         */
+        this.layerClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * The geoJson to be displayed
+         */
+        this.geoJson = null;
+    }
+    ngOnInit() {
+        if (this._addedToManager) {
+            return;
+        }
+        this._manager.addDataLayer(this);
+        this._addedToManager = true;
+        this._addEventListeners();
+    }
+    _addEventListeners() {
+        const listeners = [
+            { name: 'click', handler: (ev) => this.layerClick.emit(ev) },
+        ];
+        listeners.forEach((obj) => {
+            const os = this._manager.createEventObservable(obj.name, this).subscribe(obj.handler);
+            this._subscriptions.push(os);
+        });
+    }
+    /** @internal */
+    id() { return this._id; }
+    /** @internal */
+    toString() { return `AgmDataLayer-${this._id.toString()}`; }
+    /** @internal */
+    ngOnDestroy() {
+        this._manager.deleteDataLayer(this);
+        // unsubscribe all registered observable subscriptions
+        this._subscriptions.forEach(s => s.unsubscribe());
+    }
+    /** @internal */
+    ngOnChanges(changes) {
+        if (!this._addedToManager) {
+            return;
+        }
+        var geoJsonChange = changes['geoJson'];
+        if (geoJsonChange) {
+            this._manager.updateGeoJson(this, geoJsonChange.currentValue);
+        }
+        let dataOptions = {};
+        AgmDataLayer_1._dataOptionsAttributes.forEach(k => dataOptions[k] = changes.hasOwnProperty(k) ? changes[k].currentValue : this[k]);
+        this._manager.setDataOptions(this, dataOptions);
+    }
+};
+AgmDataLayer._dataOptionsAttributes = ['style'];
+AgmDataLayer.ctorParameters = () => [
+    { type: DataLayerManager }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmDataLayer.prototype, "layerClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmDataLayer.prototype, "geoJson", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Function)
+], AgmDataLayer.prototype, "style", void 0);
+AgmDataLayer = AgmDataLayer_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: 'agm-data-layer',
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [DataLayerManager])
+], AgmDataLayer);
+
+/**
+ * Class to implement when you what to be able to make it work with the auto fit bounds feature
+ * of AGM.
+ */
+class FitBoundsAccessor {
+}
+/**
+ * The FitBoundsService is responsible for computing the bounds of the a single map.
+ */
+let FitBoundsService = class FitBoundsService {
+    constructor(loader) {
+        this._boundsChangeSampleTime$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](200);
+        this._includeInBounds$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](new Map());
+        this.bounds$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["from"])(loader.load()).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["flatMap"])(() => this._includeInBounds$), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["sample"])(this._boundsChangeSampleTime$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(time => Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["timer"])(0, time)))), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(includeInBounds => this._generateBounds(includeInBounds)), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["shareReplay"])(1));
+    }
+    _generateBounds(includeInBounds) {
+        const bounds = new google.maps.LatLngBounds();
+        includeInBounds.forEach(b => bounds.extend(b));
+        return bounds;
+    }
+    addToBounds(latLng) {
+        const id = this._createIdentifier(latLng);
+        if (this._includeInBounds$.value.has(id)) {
+            return;
+        }
+        const map = this._includeInBounds$.value;
+        map.set(id, latLng);
+        this._includeInBounds$.next(map);
+    }
+    removeFromBounds(latLng) {
+        const map = this._includeInBounds$.value;
+        map.delete(this._createIdentifier(latLng));
+        this._includeInBounds$.next(map);
+    }
+    changeFitBoundsChangeSampleTime(timeMs) {
+        this._boundsChangeSampleTime$.next(timeMs);
+    }
+    getBounds$() {
+        return this.bounds$;
+    }
+    _createIdentifier(latLng) {
+        return `${latLng.lat}+${latLng.lng}`;
+    }
+};
+FitBoundsService.ctorParameters = () => [
+    { type: MapsAPILoader }
+];
+FitBoundsService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [MapsAPILoader])
+], FitBoundsService);
+
+/**
+ * Adds the given directive to the auto fit bounds feature when the value is true.
+ * To make it work with you custom AGM component, you also have to implement the {@link FitBoundsAccessor} abstract class.
+ * @example
+ * <agm-marker [agmFitBounds]="true"></agm-marker>
+ */
+let AgmFitBounds = class AgmFitBounds {
+    constructor(_fitBoundsAccessor, _fitBoundsService) {
+        this._fitBoundsAccessor = _fitBoundsAccessor;
+        this._fitBoundsService = _fitBoundsService;
+        /**
+         * If the value is true, the element gets added to the bounds of the map.
+         * Default: true.
+         */
+        this.agmFitBounds = true;
+        this._destroyed$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this._latestFitBoundsDetails = null;
+    }
+    /**
+     * @internal
+     */
+    ngOnChanges() {
+        this._updateBounds();
+    }
+    /**
+     * @internal
+     */
+    ngOnInit() {
+        this._fitBoundsAccessor
+            .getFitBoundsDetails$()
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["distinctUntilChanged"])((x, y) => x.latLng.lat === y.latLng.lat && x.latLng.lng === y.latLng.lng), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["takeUntil"])(this._destroyed$))
+            .subscribe(details => this._updateBounds(details));
+    }
+    /*
+     Either the location changed, or visible status changed.
+     Possible state changes are
+     invisible -> visible
+     visible -> invisible
+     visible -> visible (new location)
+    */
+    _updateBounds(newFitBoundsDetails) {
+        // either visibility will change, or location, so remove the old one anyway
+        if (this._latestFitBoundsDetails) {
+            this._fitBoundsService.removeFromBounds(this._latestFitBoundsDetails.latLng);
+            // don't set latestFitBoundsDetails to null, because we can toggle visibility from
+            // true -> false -> true, in which case we still need old value cached here
+        }
+        if (newFitBoundsDetails) {
+            this._latestFitBoundsDetails = newFitBoundsDetails;
+        }
+        if (!this._latestFitBoundsDetails) {
+            return;
+        }
+        if (this.agmFitBounds === true) {
+            this._fitBoundsService.addToBounds(this._latestFitBoundsDetails.latLng);
         }
     }
     /**
-     * \@description Keep the styles up to date with the input
-     * @return {?}
+     * @internal
      */
-    setStyles() {
-        if (this.fullscreen) {
-            this._renderer.setStyle(this.container.nativeElement, 'height', '100%');
-            // Would be nice to make it configurable
-            this._renderer.setStyle(this.container.nativeElement, 'background-color', 'white');
+    ngOnDestroy() {
+        this._destroyed$.next();
+        this._destroyed$.complete();
+        if (this._latestFitBoundsDetails !== null) {
+            this._fitBoundsService.removeFromBounds(this._latestFitBoundsDetails.latLng);
+        }
+    }
+};
+AgmFitBounds.ctorParameters = () => [
+    { type: FitBoundsAccessor, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Self"] }] },
+    { type: FitBoundsService }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmFitBounds.prototype, "agmFitBounds", void 0);
+AgmFitBounds = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: '[agmFitBounds]',
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Self"])()),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [FitBoundsAccessor,
+        FitBoundsService])
+], AgmFitBounds);
+
+let MarkerManager = class MarkerManager {
+    constructor(_mapsWrapper, _zone) {
+        this._mapsWrapper = _mapsWrapper;
+        this._zone = _zone;
+        this._markers = new Map();
+    }
+    convertAnimation(uiAnim) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            if (uiAnim === null) {
+                return null;
+            }
+            else {
+                return this._mapsWrapper.getNativeMap().then(() => google.maps.Animation[uiAnim]);
+            }
+        });
+    }
+    deleteMarker(marker) {
+        const m = this._markers.get(marker);
+        if (m == null) {
+            // marker already deleted
+            return Promise.resolve();
+        }
+        return m.then((m) => {
+            return this._zone.run(() => {
+                m.setMap(null);
+                this._markers.delete(marker);
+            });
+        });
+    }
+    updateMarkerPosition(marker) {
+        return this._markers.get(marker).then((m) => m.setPosition({ lat: marker.latitude, lng: marker.longitude }));
+    }
+    updateTitle(marker) {
+        return this._markers.get(marker).then((m) => m.setTitle(marker.title));
+    }
+    updateLabel(marker) {
+        return this._markers.get(marker).then((m) => { m.setLabel(marker.label); });
+    }
+    updateDraggable(marker) {
+        return this._markers.get(marker).then((m) => m.setDraggable(marker.draggable));
+    }
+    updateIcon(marker) {
+        return this._markers.get(marker).then((m) => m.setIcon(marker.iconUrl));
+    }
+    updateOpacity(marker) {
+        return this._markers.get(marker).then((m) => m.setOpacity(marker.opacity));
+    }
+    updateVisible(marker) {
+        return this._markers.get(marker).then((m) => m.setVisible(marker.visible));
+    }
+    updateZIndex(marker) {
+        return this._markers.get(marker).then((m) => m.setZIndex(marker.zIndex));
+    }
+    updateClickable(marker) {
+        return this._markers.get(marker).then((m) => m.setClickable(marker.clickable));
+    }
+    updateAnimation(marker) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const m = yield this._markers.get(marker);
+            m.setAnimation(yield this.convertAnimation(marker.animation));
+        });
+    }
+    addMarker(marker) {
+        const markerPromise = new Promise((resolve) => Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return this._mapsWrapper.createMarker({
+                position: { lat: marker.latitude, lng: marker.longitude },
+                label: marker.label,
+                draggable: marker.draggable,
+                icon: marker.iconUrl,
+                opacity: marker.opacity,
+                visible: marker.visible,
+                zIndex: marker.zIndex,
+                title: marker.title,
+                clickable: marker.clickable,
+                animation: yield this.convertAnimation(marker.animation),
+            }).then(resolve);
+        }));
+        this._markers.set(marker, markerPromise);
+    }
+    getNativeMarker(marker) {
+        return this._markers.get(marker);
+    }
+    createEventObservable(eventName, marker) {
+        return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((observer) => {
+            this._markers.get(marker).then((m) => {
+                m.addListener(eventName, (e) => this._zone.run(() => observer.next(e)));
+            });
+        });
+    }
+};
+MarkerManager.ctorParameters = () => [
+    { type: GoogleMapsAPIWrapper },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] }
+];
+MarkerManager = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [GoogleMapsAPIWrapper, _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
+], MarkerManager);
+
+let InfoWindowManager = class InfoWindowManager {
+    constructor(_mapsWrapper, _zone, _markerManager) {
+        this._mapsWrapper = _mapsWrapper;
+        this._zone = _zone;
+        this._markerManager = _markerManager;
+        this._infoWindows = new Map();
+    }
+    deleteInfoWindow(infoWindow) {
+        const iWindow = this._infoWindows.get(infoWindow);
+        if (iWindow == null) {
+            // info window already deleted
+            return Promise.resolve();
+        }
+        return iWindow.then((i) => {
+            return this._zone.run(() => {
+                i.close();
+                this._infoWindows.delete(infoWindow);
+            });
+        });
+    }
+    setPosition(infoWindow) {
+        return this._infoWindows.get(infoWindow).then((i) => i.setPosition({
+            lat: infoWindow.latitude,
+            lng: infoWindow.longitude,
+        }));
+    }
+    setZIndex(infoWindow) {
+        return this._infoWindows.get(infoWindow)
+            .then((i) => i.setZIndex(infoWindow.zIndex));
+    }
+    open(infoWindow) {
+        return this._infoWindows.get(infoWindow).then((w) => {
+            if (infoWindow.hostMarker != null) {
+                return this._markerManager.getNativeMarker(infoWindow.hostMarker).then((marker) => {
+                    return this._mapsWrapper.getNativeMap().then((map) => w.open(map, marker));
+                });
+            }
+            return this._mapsWrapper.getNativeMap().then((map) => w.open(map));
+        });
+    }
+    close(infoWindow) {
+        return this._infoWindows.get(infoWindow).then((w) => w.close());
+    }
+    setOptions(infoWindow, options) {
+        return this._infoWindows.get(infoWindow).then((i) => i.setOptions(options));
+    }
+    addInfoWindow(infoWindow) {
+        const options = {
+            content: infoWindow.content,
+            maxWidth: infoWindow.maxWidth,
+            zIndex: infoWindow.zIndex,
+            disableAutoPan: infoWindow.disableAutoPan,
+        };
+        if (typeof infoWindow.latitude === 'number' && typeof infoWindow.longitude === 'number') {
+            options.position = { lat: infoWindow.latitude, lng: infoWindow.longitude };
+        }
+        const infoWindowPromise = this._mapsWrapper.createInfoWindow(options);
+        this._infoWindows.set(infoWindow, infoWindowPromise);
+    }
+    /**
+     * Creates a Google Maps event listener for the given InfoWindow as an Observable
+     */
+    createEventObservable(eventName, infoWindow) {
+        return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((observer) => {
+            this._infoWindows.get(infoWindow).then((i) => {
+                i.addListener(eventName, (e) => this._zone.run(() => observer.next(e)));
+            });
+        });
+    }
+};
+InfoWindowManager.ctorParameters = () => [
+    { type: GoogleMapsAPIWrapper },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] },
+    { type: MarkerManager }
+];
+InfoWindowManager = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [GoogleMapsAPIWrapper, _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"],
+        MarkerManager])
+], InfoWindowManager);
+
+var AgmInfoWindow_1;
+let infoWindowId = 0;
+/**
+ * AgmInfoWindow renders a info window inside a {@link AgmMarker} or standalone.
+ *
+ * ### Example
+ * ```typescript
+ * import { Component } from '@angular/core';
+ *
+ * @Component({
+ *  selector: 'my-map-cmp',
+ *  styles: [`
+ *    .agm-map-container {
+ *      height: 300px;
+ *    }
+ * `],
+ *  template: `
+ *    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+ *      <agm-marker [latitude]="lat" [longitude]="lng" [label]="'M'">
+ *        <agm-info-window [disableAutoPan]="true">
+ *          Hi, this is the content of the <strong>info window</strong>
+ *        </agm-info-window>
+ *      </agm-marker>
+ *    </agm-map>
+ *  `
+ * })
+ * ```
+ */
+let AgmInfoWindow = AgmInfoWindow_1 = class AgmInfoWindow {
+    constructor(_infoWindowManager, _el) {
+        this._infoWindowManager = _infoWindowManager;
+        this._el = _el;
+        /**
+         * Sets the open state for the InfoWindow. You can also call the open() and close() methods.
+         */
+        this.isOpen = false;
+        /**
+         * Emits an event when the info window is closed.
+         */
+        this.infoWindowClose = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this._infoWindowAddedToManager = false;
+        this._id = (infoWindowId++).toString();
+    }
+    ngOnInit() {
+        this.content = this._el.nativeElement.querySelector('.agm-info-window-content');
+        this._infoWindowManager.addInfoWindow(this);
+        this._infoWindowAddedToManager = true;
+        this._updateOpenState();
+        this._registerEventListeners();
+    }
+    /** @internal */
+    ngOnChanges(changes) {
+        if (!this._infoWindowAddedToManager) {
+            return;
+        }
+        if ((changes['latitude'] || changes['longitude']) && typeof this.latitude === 'number' &&
+            typeof this.longitude === 'number') {
+            this._infoWindowManager.setPosition(this);
+        }
+        if (changes['zIndex']) {
+            this._infoWindowManager.setZIndex(this);
+        }
+        if (changes['isOpen']) {
+            this._updateOpenState();
+        }
+        this._setInfoWindowOptions(changes);
+    }
+    _registerEventListeners() {
+        this._infoWindowManager.createEventObservable('closeclick', this).subscribe(() => {
+            this.isOpen = false;
+            this.infoWindowClose.emit();
+        });
+    }
+    _updateOpenState() {
+        this.isOpen ? this.open() : this.close();
+    }
+    _setInfoWindowOptions(changes) {
+        let options = {};
+        let optionKeys = Object.keys(changes).filter(k => AgmInfoWindow_1._infoWindowOptionsInputs.indexOf(k) !== -1);
+        optionKeys.forEach((k) => { options[k] = changes[k].currentValue; });
+        this._infoWindowManager.setOptions(this, options);
+    }
+    /**
+     * Opens the info window.
+     */
+    open() { return this._infoWindowManager.open(this); }
+    /**
+     * Closes the info window.
+     */
+    close() {
+        return this._infoWindowManager.close(this).then(() => { this.infoWindowClose.emit(); });
+    }
+    /** @internal */
+    id() { return this._id; }
+    /** @internal */
+    toString() { return 'AgmInfoWindow-' + this._id.toString(); }
+    /** @internal */
+    ngOnDestroy() { this._infoWindowManager.deleteInfoWindow(this); }
+};
+AgmInfoWindow._infoWindowOptionsInputs = ['disableAutoPan', 'maxWidth'];
+AgmInfoWindow.ctorParameters = () => [
+    { type: InfoWindowManager },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmInfoWindow.prototype, "latitude", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmInfoWindow.prototype, "longitude", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Boolean)
+], AgmInfoWindow.prototype, "disableAutoPan", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmInfoWindow.prototype, "zIndex", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmInfoWindow.prototype, "maxWidth", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmInfoWindow.prototype, "isOpen", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmInfoWindow.prototype, "infoWindowClose", void 0);
+AgmInfoWindow = AgmInfoWindow_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'agm-info-window',
+        template: `<div class='agm-info-window-content'>
+      <ng-content></ng-content>
+    </div>
+  `
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [InfoWindowManager, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]])
+], AgmInfoWindow);
+
+/**
+ * Manages all KML Layers for a Google Map instance.
+ */
+let KmlLayerManager = class KmlLayerManager {
+    constructor(_wrapper, _zone) {
+        this._wrapper = _wrapper;
+        this._zone = _zone;
+        this._layers = new Map();
+    }
+    /**
+     * Adds a new KML Layer to the map.
+     */
+    addKmlLayer(layer) {
+        const newLayer = this._wrapper.getNativeMap().then(m => {
+            return new google.maps.KmlLayer({
+                clickable: layer.clickable,
+                map: m,
+                preserveViewport: layer.preserveViewport,
+                screenOverlays: layer.screenOverlays,
+                suppressInfoWindows: layer.suppressInfoWindows,
+                url: layer.url,
+                zIndex: layer.zIndex,
+            });
+        });
+        this._layers.set(layer, newLayer);
+    }
+    setOptions(layer, options) {
+        this._layers.get(layer).then(l => l.setOptions(options));
+    }
+    deleteKmlLayer(layer) {
+        this._layers.get(layer).then(l => {
+            l.setMap(null);
+            this._layers.delete(layer);
+        });
+    }
+    /**
+     * Creates a Google Maps event listener for the given KmlLayer as an Observable
+     */
+    createEventObservable(eventName, layer) {
+        return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((observer) => {
+            this._layers.get(layer).then((m) => {
+                m.addListener(eventName, (e) => this._zone.run(() => observer.next(e)));
+            });
+        });
+    }
+};
+KmlLayerManager.ctorParameters = () => [
+    { type: GoogleMapsAPIWrapper },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] }
+];
+KmlLayerManager = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [GoogleMapsAPIWrapper, _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
+], KmlLayerManager);
+
+var AgmKmlLayer_1;
+let layerId$2 = 0;
+let AgmKmlLayer = AgmKmlLayer_1 = class AgmKmlLayer {
+    constructor(_manager) {
+        this._manager = _manager;
+        this._addedToManager = false;
+        this._id = (layerId$2++).toString();
+        this._subscriptions = [];
+        /**
+         * If true, the layer receives mouse events. Default value is true.
+         */
+        this.clickable = true;
+        /**
+         * By default, the input map is centered and zoomed to the bounding box of the contents of the
+         * layer.
+         * If this option is set to true, the viewport is left unchanged, unless the map's center and zoom
+         * were never set.
+         */
+        this.preserveViewport = false;
+        /**
+         * Whether to render the screen overlays. Default true.
+         */
+        this.screenOverlays = true;
+        /**
+         * Suppress the rendering of info windows when layer features are clicked.
+         */
+        this.suppressInfoWindows = false;
+        /**
+         * The URL of the KML document to display.
+         */
+        this.url = null;
+        /**
+         * The z-index of the layer.
+         */
+        this.zIndex = null;
+        /**
+         * This event is fired when a feature in the layer is clicked.
+         */
+        this.layerClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the KML layers default viewport has changed.
+         */
+        this.defaultViewportChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the KML layer has finished loading.
+         * At this point it is safe to read the status property to determine if the layer loaded
+         * successfully.
+         */
+        this.statusChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    ngOnInit() {
+        if (this._addedToManager) {
+            return;
+        }
+        this._manager.addKmlLayer(this);
+        this._addedToManager = true;
+        this._addEventListeners();
+    }
+    ngOnChanges(changes) {
+        if (!this._addedToManager) {
+            return;
+        }
+        this._updatePolygonOptions(changes);
+    }
+    _updatePolygonOptions(changes) {
+        const options = Object.keys(changes)
+            .filter(k => AgmKmlLayer_1._kmlLayerOptions.indexOf(k) !== -1)
+            .reduce((obj, k) => {
+            obj[k] = changes[k].currentValue;
+            return obj;
+        }, {});
+        if (Object.keys(options).length > 0) {
+            this._manager.setOptions(this, options);
+        }
+    }
+    _addEventListeners() {
+        const listeners = [
+            { name: 'click', handler: (ev) => this.layerClick.emit(ev) },
+            { name: 'defaultviewport_changed', handler: () => this.defaultViewportChange.emit() },
+            { name: 'status_changed', handler: () => this.statusChange.emit() },
+        ];
+        listeners.forEach((obj) => {
+            const os = this._manager.createEventObservable(obj.name, this).subscribe(obj.handler);
+            this._subscriptions.push(os);
+        });
+    }
+    /** @internal */
+    id() { return this._id; }
+    /** @internal */
+    toString() { return `AgmKmlLayer-${this._id.toString()}`; }
+    /** @internal */
+    ngOnDestroy() {
+        this._manager.deleteKmlLayer(this);
+        // unsubscribe all registered observable subscriptions
+        this._subscriptions.forEach(s => s.unsubscribe());
+    }
+};
+AgmKmlLayer._kmlLayerOptions = ['clickable', 'preserveViewport', 'screenOverlays', 'suppressInfoWindows', 'url', 'zIndex'];
+AgmKmlLayer.ctorParameters = () => [
+    { type: KmlLayerManager }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmKmlLayer.prototype, "clickable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmKmlLayer.prototype, "preserveViewport", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmKmlLayer.prototype, "screenOverlays", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmKmlLayer.prototype, "suppressInfoWindows", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmKmlLayer.prototype, "url", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmKmlLayer.prototype, "zIndex", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmKmlLayer.prototype, "layerClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmKmlLayer.prototype, "defaultViewportChange", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmKmlLayer.prototype, "statusChange", void 0);
+AgmKmlLayer = AgmKmlLayer_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: 'agm-kml-layer',
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [KmlLayerManager])
+], AgmKmlLayer);
+
+function createMVCEventObservable(array) {
+    const eventNames = ['insert_at', 'remove_at', 'set_at'];
+    return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEventPattern"])((handler) => eventNames.map(evName => array.addListener(evName, (index, previous) => handler.apply(array, [{ 'newArr': array.getArray(), evName, index, previous }]))), (_handler, evListeners) => evListeners.forEach(evListener => evListener.remove()));
+}
+class MvcArrayMock {
+    constructor() {
+        this.vals = [];
+        this.listeners = {
+            'remove_at': [],
+            'insert_at': [],
+            'set_at': [],
+        };
+    }
+    clear() {
+        for (let i = this.vals.length - 1; i >= 0; i--) {
+            this.removeAt(i);
+        }
+    }
+    getArray() {
+        return [...this.vals];
+    }
+    getAt(i) {
+        return this.vals[i];
+    }
+    getLength() {
+        return this.vals.length;
+    }
+    insertAt(i, elem) {
+        this.vals.splice(i, 0, elem);
+        this.listeners.insert_at.map(listener => listener(i));
+    }
+    pop() {
+        const deleted = this.vals.pop();
+        this.listeners.remove_at.map(listener => listener(this.vals.length, deleted));
+        return deleted;
+    }
+    push(elem) {
+        this.vals.push(elem);
+        this.listeners.insert_at.map(listener => listener(this.vals.length - 1));
+        return this.vals.length;
+    }
+    removeAt(i) {
+        const deleted = this.vals.splice(i, 1)[0];
+        this.listeners.remove_at.map(listener => listener(i, deleted));
+        return deleted;
+    }
+    setAt(i, elem) {
+        const deleted = this.vals[i];
+        this.vals[i] = elem;
+        this.listeners.set_at.map(listener => listener(i, deleted));
+    }
+    forEach(callback) {
+        this.vals.forEach(callback);
+    }
+    addListener(eventName, handler) {
+        const listenerArr = this.listeners[eventName];
+        listenerArr.push(handler);
+        return {
+            remove: () => {
+                listenerArr.splice(listenerArr.indexOf(handler), 1);
+            },
+        };
+    }
+}
+
+let PolygonManager = class PolygonManager {
+    constructor(_mapsWrapper, _zone) {
+        this._mapsWrapper = _mapsWrapper;
+        this._zone = _zone;
+        this._polygons = new Map();
+    }
+    addPolygon(path) {
+        const polygonPromise = this._mapsWrapper.createPolygon({
+            clickable: path.clickable,
+            draggable: path.draggable,
+            editable: path.editable,
+            fillColor: path.fillColor,
+            fillOpacity: path.fillOpacity,
+            geodesic: path.geodesic,
+            paths: path.paths,
+            strokeColor: path.strokeColor,
+            strokeOpacity: path.strokeOpacity,
+            strokeWeight: path.strokeWeight,
+            visible: path.visible,
+            zIndex: path.zIndex,
+        });
+        this._polygons.set(path, polygonPromise);
+    }
+    updatePolygon(polygon) {
+        const m = this._polygons.get(polygon);
+        if (m == null) {
+            return Promise.resolve();
+        }
+        return m.then((l) => this._zone.run(() => { l.setPaths(polygon.paths); }));
+    }
+    setPolygonOptions(path, options) {
+        return this._polygons.get(path).then((l) => { l.setOptions(options); });
+    }
+    deletePolygon(paths) {
+        const m = this._polygons.get(paths);
+        if (m == null) {
+            return Promise.resolve();
+        }
+        return m.then((l) => {
+            return this._zone.run(() => {
+                l.setMap(null);
+                this._polygons.delete(paths);
+            });
+        });
+    }
+    getPath(polygon) {
+        return this._polygons.get(polygon)
+            .then((polygon) => polygon.getPath().getArray());
+    }
+    getPaths(polygon) {
+        return this._polygons.get(polygon)
+            .then((polygon) => polygon.getPaths().getArray().map((p) => p.getArray()));
+    }
+    createEventObservable(eventName, path) {
+        return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((observer) => {
+            this._polygons.get(path).then((l) => {
+                l.addListener(eventName, (e) => this._zone.run(() => observer.next(e)));
+            });
+        });
+    }
+    createPathEventObservable(agmPolygon) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const polygon = yield this._polygons.get(agmPolygon);
+            const paths = polygon.getPaths();
+            const pathsChanges$ = createMVCEventObservable(paths);
+            return pathsChanges$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])({ newArr: paths.getArray() }), // in order to subscribe to them all
+            Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(parentMVEvent => Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["merge"])(... // rest parameter
+            parentMVEvent.newArr.map((chMVC, index) => createMVCEventObservable(chMVC)
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(chMVCEvent => ({ parentMVEvent, chMVCEvent, pathIndex: index })))))
+                .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])({ parentMVEvent, chMVCEvent: null, pathIndex: null }))), // start the merged ob with an event signinifing change to parent
+            Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["skip"])(1), // skip the manually added event
+            Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(({ parentMVEvent, chMVCEvent, pathIndex }) => {
+                let retVal;
+                if (!chMVCEvent) {
+                    retVal = {
+                        newArr: parentMVEvent.newArr.map(subArr => subArr.getArray().map(latLng => latLng.toJSON())),
+                        eventName: parentMVEvent.evName,
+                        index: parentMVEvent.index,
+                    };
+                    if (parentMVEvent.previous) {
+                        retVal.previous = parentMVEvent.previous.getArray();
+                    }
+                }
+                else {
+                    retVal = {
+                        newArr: parentMVEvent.newArr.map(subArr => subArr.getArray().map(latLng => latLng.toJSON())),
+                        pathIndex,
+                        eventName: chMVCEvent.evName,
+                        index: chMVCEvent.index,
+                    };
+                    if (chMVCEvent.previous) {
+                        retVal.previous = chMVCEvent.previous;
+                    }
+                }
+                return retVal;
+            }));
+        });
+    }
+};
+PolygonManager.ctorParameters = () => [
+    { type: GoogleMapsAPIWrapper },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] }
+];
+PolygonManager = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [GoogleMapsAPIWrapper, _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
+], PolygonManager);
+
+var PolylineManager_1;
+let PolylineManager = PolylineManager_1 = class PolylineManager {
+    constructor(_mapsWrapper, _zone) {
+        this._mapsWrapper = _mapsWrapper;
+        this._zone = _zone;
+        this._polylines = new Map();
+    }
+    static _convertPoints(line) {
+        const path = line._getPoints().map((point) => {
+            return { lat: point.latitude, lng: point.longitude };
+        });
+        return path;
+    }
+    static _convertPath(path) {
+        const symbolPath = google.maps.SymbolPath[path];
+        if (typeof symbolPath === 'number') {
+            return symbolPath;
         }
         else {
-            // Would be nice to make it configurable
-            this._renderer.removeStyle(this.container.nativeElement, 'background-color');
-            if (this.height) {
-                this._renderer.setStyle(this.container.nativeElement, 'height', this.height);
+            return path;
+        }
+    }
+    static _convertIcons(line) {
+        const icons = line._getIcons().map(agmIcon => ({
+            fixedRotation: agmIcon.fixedRotation,
+            offset: agmIcon.offset,
+            repeat: agmIcon.repeat,
+            icon: {
+                anchor: new google.maps.Point(agmIcon.anchorX, agmIcon.anchorY),
+                fillColor: agmIcon.fillColor,
+                fillOpacity: agmIcon.fillOpacity,
+                path: PolylineManager_1._convertPath(agmIcon.path),
+                rotation: agmIcon.rotation,
+                scale: agmIcon.scale,
+                strokeColor: agmIcon.strokeColor,
+                strokeOpacity: agmIcon.strokeOpacity,
+                strokeWeight: agmIcon.strokeWeight,
+            },
+        }));
+        // prune undefineds;
+        icons.forEach(icon => {
+            Object.entries(icon).forEach(([key, val]) => {
+                if (typeof val === 'undefined') {
+                    delete icon[key];
+                }
+            });
+            if (typeof icon.icon.anchor.x === 'undefined' ||
+                typeof icon.icon.anchor.y === 'undefined') {
+                delete icon.icon.anchor;
             }
-            if (this.minHeight) {
-                this._renderer.setStyle(this.container.nativeElement, 'min-height', this.minHeight);
+        });
+        return icons;
+    }
+    addPolyline(line) {
+        const polylinePromise = this._mapsWrapper.getNativeMap()
+            .then(() => [PolylineManager_1._convertPoints(line),
+            PolylineManager_1._convertIcons(line)])
+            .then(([path, icons]) => this._mapsWrapper.createPolyline({
+            clickable: line.clickable,
+            draggable: line.draggable,
+            editable: line.editable,
+            geodesic: line.geodesic,
+            strokeColor: line.strokeColor,
+            strokeOpacity: line.strokeOpacity,
+            strokeWeight: line.strokeWeight,
+            visible: line.visible,
+            zIndex: line.zIndex,
+            path: path,
+            icons: icons,
+        }));
+        this._polylines.set(line, polylinePromise);
+    }
+    updatePolylinePoints(line) {
+        const path = PolylineManager_1._convertPoints(line);
+        const m = this._polylines.get(line);
+        if (m == null) {
+            return Promise.resolve();
+        }
+        return m.then((l) => { return this._zone.run(() => { l.setPath(path); }); });
+    }
+    updateIconSequences(line) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            yield this._mapsWrapper.getNativeMap();
+            const icons = PolylineManager_1._convertIcons(line);
+            const m = this._polylines.get(line);
+            if (m == null) {
+                return;
             }
-        }
-        if (this.arrowSize) {
-            this._renderer.setStyle(this.prevArrow.nativeElement, 'height', this.arrowSize);
-            this._renderer.setStyle(this.prevArrow.nativeElement, 'width', this.arrowSize);
-            this._renderer.setStyle(this.nextArrow.nativeElement, 'height', this.arrowSize);
-            this._renderer.setStyle(this.nextArrow.nativeElement, 'width', this.arrowSize);
-        }
+            return m.then(l => this._zone.run(() => l.setOptions({ icons: icons })));
+        });
     }
-    /**
-     * \@description compare image array to the cache, returns false if no changes
-     * @return {?}
-     */
-    checkCache() {
-        return !(this._urlCache.length === this.imageUrls.length && this._urlCache.every((cacheElement, i) => cacheElement === this.imageUrls[i]));
+    setPolylineOptions(line, options) {
+        return this._polylines.get(line).then((l) => { l.setOptions(options); });
     }
-    /**
-     * \@description get the index for the slide to the left of the new slide
-     * @param {?=} i
-     * @return {?}
-     */
-    getLeftSideIndex(i) {
-        if (i === undefined) {
-            i = this.slideIndex;
+    deletePolyline(line) {
+        const m = this._polylines.get(line);
+        if (m == null) {
+            return Promise.resolve();
         }
-        if (--i < 0) {
-            i = this.slides.length - 1;
-        }
-        return i;
+        return m.then((l) => {
+            return this._zone.run(() => {
+                l.setMap(null);
+                this._polylines.delete(line);
+            });
+        });
     }
-    /**
-     * \@description get the index for the slide to the right of the new slide
-     * @param {?=} i
-     * @return {?}
-     */
-    getRightSideIndex(i) {
-        if (i === undefined) {
-            i = this.slideIndex;
-        }
-        if (++i >= this.slides.length) {
-            i = 0;
-        }
-        return i;
+    getMVCPath(agmPolyline) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const polyline = yield this._polylines.get(agmPolyline);
+            return polyline.getPath();
+        });
     }
-    /**
-     * \@description a trackBy function for the ngFor loops
-     * @param {?} index
-     * @param {?} slide
-     * @return {?}
-     */
-    trackByFn(index, slide) {
-        return slide.image;
+    getPath(agmPolyline) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            return (yield this.getMVCPath(agmPolyline)).getArray();
+        });
     }
-}
-SlideshowComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
-                selector: 'slideshow',
-                template: `
-    <!-- fullscreen bar -->
-    <div [class.display-none]="!fullscreen"
-         class="fs-container"
-         (click)="exitFullScreen($event)">
-      <i title="Back"
-         class="arrow-exitfs prev"></i>
-    </div>
-    <div #container
-         (touchstart)="onSwipe($event, 'start')"
-         (touchend)="onSwipe($event, 'end')"
-         class="slideshow-container"
-         [class.slideshow-container-fs]="fullscreen">
-      <!-- slides -->
-      <a *ngFor="let slide of slides; index as i; trackBy: trackByFn"
-         class="slides"
-         href="{{slide?.image?.clickAction ? '#' : slide?.image?.href}}"
-         title="{{slide?.image?.title}}"
-         [ngStyle]="getSlideStyle(i)"
-         [class.selected]="slide?.selected"
-         [class.hide-slide]="!slide?.selected && !slide?.leftSide && !slide?.rightSide"
-         [class.left-side]="slide?.leftSide"
-         [class.right-side]="slide?.rightSide"
-         [class.slide-in-left]="slide?.action === 'slideInLeft'"
-         [class.slide-in-right]="slide?.action === 'slideInRight'"
-         [class.slide-out-left]="slide?.action === 'slideOutLeft'"
-         [class.slide-out-right]="slide?.action === 'slideOutRight'"
-         [class.link]="slide?.image?.clickAction || slide?.image?.href"
-         (click)="onClick($event)">
-        <div class="loader"
-             *ngIf="!slide?.loaded"></div>
-        <div *ngIf="showCaptions && slide?.image?.caption"
-             class="caption"
-             [ngStyle]="{
-               'color': captionColor,
-               'background-color': captionBackground
-              }"
-             [innerHTML]="slide?.image?.caption">
-        </div>
-      </a>
-      <!-- left arrow -->
-      <div [class.display-none]="!this.showArrows"
-           (click)="onSlide(-1)"
-           class="arrow-container prev">
-        <i #prevArrow
-           title="Previous"
-           class="arrow prev"></i>
-      </div>
-      <!-- right arrow -->
-      <div [class.display-none]="!this.showArrows"
-           (click)="onSlide(1)"
-           class="arrow-container next">
-        <i #nextArrow
-           title="Next"
-           class="arrow next"></i>
-      </div>
-      <!-- dots -->
-      <ul class="slick-dots"
-          *ngIf="showDots">
-        <li *ngFor="let slide of slides; index as i; trackBy: trackByFn"
-            (click)="goToSlide(i)"
-            [class.slick-active]="slide.selected">
-          <button type="button"
-                  [attr.style]="safeStyleDotColor">
-            {{i}}
-          </button>
-        </li>
-      </ul>
-    </div>
-  `,
-                styles: [`
-    /*
-     styles adapted from https://www.w3schools.com/w3css/4/w3.css
-     arrow styles adapted from https://codepen.io/minustalent/pen/Frhaw
-     */
-    .display-none {
-      display: none !important; }
-
-    .fs-container {
-      display: block;
-      cursor: pointer;
-      position: fixed;
-      z-index: 1;
-      top: 16px;
-      left: 16px;
-      width: 46px;
-      height: 46px;
-      text-align: center;
-      padding: 0;
-      background-color: rgba(0, 0, 0, 0.2);
-      -webkit-transition: all .2s ease-in-out;
-      transition: all .2s ease-in-out; }
-      .fs-container:hover {
-        background-color: rgba(0, 0, 0, 0.33); }
-      .fs-container .arrow-exitfs {
-        display: block;
-        width: 30px;
-        height: 30px;
-        background: transparent;
-        border-top: 2px solid #f2f2f2;
-        -webkit-transition: all .2s ease-in-out;
-        transition: all .2s ease-in-out; }
-        .fs-container .arrow-exitfs.prev {
-          -webkit-transform: rotate(-45deg);
-                  transform: rotate(-45deg);
-          position: relative;
-          left: 18px;
-          top: 18px; }
-        .fs-container .arrow-exitfs:after {
-          content: '';
-          width: 30px;
-          height: 30px;
-          background: transparent;
-          border-top: 2px solid #f2f2f2;
-          -webkit-transform: rotate(90deg);
-                  transform: rotate(90deg);
-          position: absolute;
-          left: -15px;
-          top: -17px; }
-
-    .slideshow-container.slideshow-container-fs {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%; }
-
-    .slideshow-container {
-      position: relative;
-      display: block;
-      margin: auto;
-      height: 100%;
-      width: 100%;
-      overflow: hidden; }
-      .slideshow-container .hide-slide {
-        visibility: hidden;
-        position: absolute;
-        top: -100vw;
-        left: -100vw;
-        opacity: 0; }
-      .slideshow-container .slides {
-        position: absolute;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        visibility: visible;
-        opacity: 1;
-        display: block; }
-        .slideshow-container .slides.selected {
-          left: 0; }
-        .slideshow-container .slides.left-slide {
-          left: -100%; }
-        .slideshow-container .slides.right-slide {
-          left: 100%; }
-        .slideshow-container .slides.slide-in-left {
-          left: 0;
-          -webkit-animation: slideInLeft 0.5s cubic-bezier(0.42, 0, 0.58, 1);
-                  animation: slideInLeft 0.5s cubic-bezier(0.42, 0, 0.58, 1); }
-        .slideshow-container .slides.slide-in-right {
-          left: 0;
-          -webkit-animation: slideInRight 0.5s cubic-bezier(0.42, 0, 0.58, 1);
-                  animation: slideInRight 0.5s cubic-bezier(0.42, 0, 0.58, 1); }
-        .slideshow-container .slides.slide-out-left {
-          left: -100%;
-          -webkit-animation: slideOutLeft 0.5s cubic-bezier(0.42, 0, 0.58, 1);
-                  animation: slideOutLeft 0.5s cubic-bezier(0.42, 0, 0.58, 1); }
-        .slideshow-container .slides.slide-out-right {
-          left: 100%;
-          -webkit-animation: slideOutRight 0.5s cubic-bezier(0.42, 0, 0.58, 1);
-                  animation: slideOutRight 0.5s cubic-bezier(0.42, 0, 0.58, 1); }
-        .slideshow-container .slides.link {
-          cursor: pointer; }
-        .slideshow-container .slides:not(.link) {
-          cursor: default; }
-      .slideshow-container .caption {
-        position: absolute;
-        bottom: 0;
-        padding: 10px;
-        width: 100%; }
-      .slideshow-container .arrow-container {
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-        position: absolute;
-        top: 0;
-        height: 100%;
-        width: auto;
-        cursor: pointer;
-        background-size: 100%;
-        background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent));
-        background-image: linear-gradient(transparent, transparent);
-        z-index: 100;
-        -webkit-user-select: none;
-           -moz-user-select: none;
-            -ms-user-select: none;
-                user-select: none; }
-        .slideshow-container .arrow-container:before {
-          display: block;
-          height: 100%;
-          position: absolute;
-          top: 0;
-          left: 0;
-          opacity: 0;
-          width: 100%;
-          z-index: -100;
-          -webkit-transition: opacity 0.45s;
-          transition: opacity 0.45s; }
-        .slideshow-container .arrow-container.prev {
-          left: 0; }
-          .slideshow-container .arrow-container.prev:before {
-            background-image: -webkit-gradient(linear, right top, left top, from(transparent), to(rgba(0, 0, 0, 0.75)));
-            background-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.75));
-            content: ''; }
-        .slideshow-container .arrow-container.next {
-          right: 0; }
-          .slideshow-container .arrow-container.next:before {
-            background-image: -webkit-gradient(linear, left top, right top, from(transparent), to(rgba(0, 0, 0, 0.75)));
-            background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.75));
-            content: ''; }
-        .slideshow-container .arrow-container .arrow {
-          display: block;
-          margin: auto;
-          width: 30px;
-          height: 30px;
-          background: transparent;
-          border-top: 2px solid #f2f2f2;
-          border-left: 2px solid #f2f2f2;
-          -webkit-transition: all .2s ease-in-out;
-          transition: all .2s ease-in-out;
-          -webkit-user-select: none;
-             -moz-user-select: none;
-              -ms-user-select: none;
-                  user-select: none; }
-          .slideshow-container .arrow-container .arrow:before {
-            display: block;
-            height: 200%;
-            width: 200%;
-            margin-left: -50%;
-            margin-top: -50%;
-            content: "";
-            -webkit-transform: rotate(45deg);
-                    transform: rotate(45deg); }
-          .slideshow-container .arrow-container .arrow.prev {
-            -webkit-transform: rotate(-45deg);
-                    transform: rotate(-45deg);
-            position: relative;
-            left: 20px;
-            margin-right: 10px; }
-          .slideshow-container .arrow-container .arrow.next {
-            -webkit-transform: rotate(135deg);
-                    transform: rotate(135deg);
-            position: relative;
-            right: 20px;
-            margin-left: 10px; }
-      .slideshow-container .slick-dots {
-        display: block;
-        bottom: 15px;
-        z-index: 1;
-        text-align: center;
-        position: absolute;
-        padding: 0;
-        left: 0;
-        right: 0;
-        margin: 0 auto; }
-        .slideshow-container .slick-dots li {
-          display: inline;
-          margin: 0;
-          padding: 0; }
-          .slideshow-container .slick-dots li button {
-            border: none;
-            background: none;
-            text-indent: -9999px;
-            font-size: 0;
-            width: 20px;
-            height: 20px;
-            outline: none;
-            position: relative;
-            z-index: 1;
-            cursor: pointer; }
-            .slideshow-container .slick-dots li button:before {
-              content: '';
-              width: 4px;
-              height: 4px;
-              background: var(--dot-color, #FFF);
-              border-radius: 4px;
-              display: block;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              -webkit-transform: translate(-50%, -50%);
-                      transform: translate(-50%, -50%);
-              opacity: .7;
-              -webkit-transition: all .5s ease-out;
-              transition: all .5s ease-out; }
-          .slideshow-container .slick-dots li.slick-active button:before {
-            -webkit-transform: translate(-50%, -50%) scale(1.4);
-                    transform: translate(-50%, -50%) scale(1.4);
-            opacity: 1; }
-
-    @media screen and (min-width: 768px) {
-      .slideshow-container .arrow-container:hover:before {
-        opacity: 1; }
-      .slideshow-container .arrow-container:hover .arrow {
-        border-width: 4px; }
-      .slideshow-container .arrow-container .arrow:hover {
-        border-width: 4px; } }
-
-    @-webkit-keyframes slideInRight {
-      0% {
-        left: -100%; }
-      100% {
-        left: 0; } }
-
-    @keyframes slideInRight {
-      0% {
-        left: -100%; }
-      100% {
-        left: 0; } }
-
-    @-webkit-keyframes slideInLeft {
-      0% {
-        left: 100%; }
-      100% {
-        left: 0; } }
-
-    @keyframes slideInLeft {
-      0% {
-        left: 100%; }
-      100% {
-        left: 0; } }
-
-    @-webkit-keyframes slideOutRight {
-      0% {
-        left: 0; }
-      100% {
-        left: -100%; } }
-
-    @keyframes slideOutRight {
-      0% {
-        left: 0; }
-      100% {
-        left: -100%; } }
-
-    @-webkit-keyframes slideOutLeft {
-      0% {
-        left: 0; }
-      100% {
-        left: 100%; } }
-
-    @keyframes slideOutLeft {
-      0% {
-        left: 0; }
-      100% {
-        left: 100%; } }
-
-    .loader {
-      position: absolute;
-      left: 50%;
-      margin-left: -20px;
-      top: 50%;
-      margin-top: -20px;
-      border: 5px solid #f3f3f3;
-      border-top: 5px solid #555;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      -webkit-animation: spin 1s linear infinite;
-              animation: spin 1s linear infinite; }
-
-    @-webkit-keyframes spin {
-      0% {
-        -webkit-transform: rotate(0deg);
-                transform: rotate(0deg); }
-      100% {
-        -webkit-transform: rotate(360deg);
-                transform: rotate(360deg); } }
-
-    @keyframes spin {
-      0% {
-        -webkit-transform: rotate(0deg);
-                transform: rotate(0deg); }
-      100% {
-        -webkit-transform: rotate(360deg);
-                transform: rotate(360deg); } }
-  `]
-            },] },
-];
-/**
- * @nocollapse
- */
-SlideshowComponent.ctorParameters = () => [
-    { type: SwipeService, },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"], },
-    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["TransferState"], },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], },
-    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"], },
-    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"],] },] },
-    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["DOCUMENT"],] },] },
-];
-SlideshowComponent.propDecorators = {
-    'imageUrls': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'height': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'minHeight': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'arrowSize': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'showArrows': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'disableSwiping': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'autoPlay': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'autoPlayInterval': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'stopAutoPlayOnSlide': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'autoPlayWaitForLazyLoad': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'debug': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'backgroundSize': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'backgroundPosition': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'backgroundRepeat': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'showDots': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'dotColor': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'showCaptions': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'captionColor': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'captionBackground': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'lazyLoad': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'hideOnNoSlides': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'fullscreen': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
-    'onSlideLeft': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-    'onSlideRight': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-    'onSwipeLeft': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-    'onSwipeRight': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-    'onFullscreenExit': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-    'onIndexChanged': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
-    'container': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: ['container',] },],
-    'prevArrow': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: ['prevArrow',] },],
-    'nextArrow': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: ['nextArrow',] },],
+    createEventObservable(eventName, line) {
+        return new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"]((observer) => {
+            this._polylines.get(line).then((l) => {
+                l.addListener(eventName, (e) => this._zone.run(() => observer.next(e)));
+            });
+        });
+    }
+    createPathEventObservable(line) {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, function* () {
+            const mvcPath = yield this.getMVCPath(line);
+            return createMVCEventObservable(mvcPath);
+        });
+    }
 };
-
-class SlideshowModule {
-}
-SlideshowModule.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
-                imports: [
-                    _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
-                    _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserTransferStateModule"]
-                ],
-                declarations: [
-                    SlideshowComponent
-                ],
-                exports: [
-                    SlideshowComponent
-                ],
-                providers: [
-                    SwipeService
-                ]
-            },] },
+PolylineManager.ctorParameters = () => [
+    { type: GoogleMapsAPIWrapper },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] }
 ];
+PolylineManager = PolylineManager_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [GoogleMapsAPIWrapper, _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
+], PolylineManager);
+
+let RectangleManager = class RectangleManager {
+    constructor(_apiWrapper, _zone) {
+        this._apiWrapper = _apiWrapper;
+        this._zone = _zone;
+        this._rectangles = new Map();
+    }
+    addRectangle(rectangle) {
+        this._rectangles.set(rectangle, this._apiWrapper.createRectangle({
+            bounds: {
+                north: rectangle.north,
+                east: rectangle.east,
+                south: rectangle.south,
+                west: rectangle.west,
+            },
+            clickable: rectangle.clickable,
+            draggable: rectangle.draggable,
+            editable: rectangle.editable,
+            fillColor: rectangle.fillColor,
+            fillOpacity: rectangle.fillOpacity,
+            strokeColor: rectangle.strokeColor,
+            strokeOpacity: rectangle.strokeOpacity,
+            strokePosition: rectangle.strokePosition,
+            strokeWeight: rectangle.strokeWeight,
+            visible: rectangle.visible,
+            zIndex: rectangle.zIndex,
+        }));
+    }
+    /**
+     * Removes the given rectangle from the map.
+     */
+    removeRectangle(rectangle) {
+        return this._rectangles.get(rectangle).then((r) => {
+            r.setMap(null);
+            this._rectangles.delete(rectangle);
+        });
+    }
+    setOptions(rectangle, options) {
+        return this._rectangles.get(rectangle).then((r) => r.setOptions(options));
+    }
+    getBounds(rectangle) {
+        return this._rectangles.get(rectangle).then((r) => r.getBounds());
+    }
+    setBounds(rectangle) {
+        return this._rectangles.get(rectangle).then((r) => {
+            return r.setBounds({
+                north: rectangle.north,
+                east: rectangle.east,
+                south: rectangle.south,
+                west: rectangle.west,
+            });
+        });
+    }
+    setEditable(rectangle) {
+        return this._rectangles.get(rectangle).then((r) => {
+            return r.setEditable(rectangle.editable);
+        });
+    }
+    setDraggable(rectangle) {
+        return this._rectangles.get(rectangle).then((r) => {
+            return r.setDraggable(rectangle.draggable);
+        });
+    }
+    setVisible(rectangle) {
+        return this._rectangles.get(rectangle).then((r) => {
+            return r.setVisible(rectangle.visible);
+        });
+    }
+    createEventObservable(eventName, rectangle) {
+        return rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].create((observer) => {
+            let listener = null;
+            this._rectangles.get(rectangle).then((r) => {
+                listener = r.addListener(eventName, (e) => this._zone.run(() => observer.next(e)));
+            });
+            return () => {
+                if (listener !== null) {
+                    listener.remove();
+                }
+            };
+        });
+    }
+};
+RectangleManager.ctorParameters = () => [
+    { type: GoogleMapsAPIWrapper },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] }
+];
+RectangleManager = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [GoogleMapsAPIWrapper, _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
+], RectangleManager);
+
+var AgmMap_1;
 /**
- * @nocollapse
+ * AgmMap renders a Google Map.
+ * **Important note**: To be able see a map in the browser, you have to define a height for the
+ * element `agm-map`.
+ *
+ * ### Example
+ * ```typescript
+ * import { Component } from '@angular/core';
+ *
+ * @Component({
+ *  selector: 'my-map-cmp',
+ *  styles: [`
+ *    agm-map {
+ *      height: 300px;
+ *    }
+ * `],
+ *  template: `
+ *    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+ *    </agm-map>
+ *  `
+ * })
+ * ```
  */
-SlideshowModule.ctorParameters = () => [];
+let AgmMap = AgmMap_1 = class AgmMap {
+    constructor(_elem, _mapsWrapper, _platformId, _fitBoundsService, _zone) {
+        this._elem = _elem;
+        this._mapsWrapper = _mapsWrapper;
+        this._platformId = _platformId;
+        this._fitBoundsService = _fitBoundsService;
+        this._zone = _zone;
+        /**
+         * The longitude that defines the center of the map.
+         */
+        this.longitude = 0;
+        /**
+         * The latitude that defines the center of the map.
+         */
+        this.latitude = 0;
+        /**
+         * The zoom level of the map. The default zoom level is 8.
+         */
+        this.zoom = 8;
+        /**
+         * Enables/disables if map is draggable.
+         */
+        // tslint:disable-next-line:no-input-rename
+        this.draggable = true;
+        /**
+         * Enables/disables zoom and center on double click. Enabled by default.
+         */
+        this.disableDoubleClickZoom = false;
+        /**
+         * Enables/disables all default UI of the Google map. Please note: When the map is created, this
+         * value cannot get updated.
+         */
+        this.disableDefaultUI = false;
+        /**
+         * If false, disables scrollwheel zooming on the map. The scrollwheel is enabled by default.
+         */
+        this.scrollwheel = true;
+        /**
+         * If false, prevents the map from being controlled by the keyboard. Keyboard shortcuts are
+         * enabled by default.
+         */
+        this.keyboardShortcuts = true;
+        /**
+         * Styles to apply to each of the default map types. Note that for Satellite/Hybrid and Terrain
+         * modes, these styles will only apply to labels and geometry.
+         */
+        this.styles = [];
+        /**
+         * When true and the latitude and/or longitude values changes, the Google Maps panTo method is
+         * used to
+         * center the map. See: https://developers.google.com/maps/documentation/javascript/reference#Map
+         */
+        this.usePanning = false;
+        /**
+         * Sets the viewport to contain the given bounds.
+         * If this option to `true`, the bounds get automatically computed from all elements that use the {@link AgmFitBounds} directive.
+         */
+        this.fitBounds = false;
+        /**
+         * The initial enabled/disabled state of the Scale control. This is disabled by default.
+         */
+        this.scaleControl = false;
+        /**
+         * The initial enabled/disabled state of the Map type control.
+         */
+        this.mapTypeControl = false;
+        /**
+         * The initial enabled/disabled state of the Pan control.
+         */
+        this.panControl = false;
+        /**
+         * The initial enabled/disabled state of the Rotate control.
+         */
+        this.rotateControl = false;
+        /**
+         * The initial enabled/disabled state of the Fullscreen control.
+         */
+        this.fullscreenControl = false;
+        /**
+         * The map mapTypeId. Defaults to 'roadmap'.
+         */
+        this.mapTypeId = 'roadmap';
+        /**
+         * When false, map icons are not clickable. A map icon represents a point of interest,
+         * also known as a POI. By default map icons are clickable.
+         */
+        this.clickableIcons = true;
+        /**
+         * A map icon represents a point of interest, also known as a POI.
+         * When map icons are clickable by default, an info window is displayed.
+         * When this property is set to false, the info window will not be shown but the click event
+         * will still fire
+         */
+        this.showDefaultInfoWindow = true;
+        /**
+         * This setting controls how gestures on the map are handled.
+         * Allowed values:
+         * - 'cooperative' (Two-finger touch gestures pan and zoom the map. One-finger touch gestures are not handled by the map.)
+         * - 'greedy'      (All touch gestures pan or zoom the map.)
+         * - 'none'        (The map cannot be panned or zoomed by user gestures.)
+         * - 'auto'        [default] (Gesture handling is either cooperative or greedy, depending on whether the page is scrollable or not.
+         */
+        this.gestureHandling = 'auto';
+        /**
+         * Controls the automatic switching behavior for the angle of incidence of
+         * the map. The only allowed values are 0 and 45. The value 0 causes the map
+         * to always use a 0° overhead view regardless of the zoom level and
+         * viewport. The value 45 causes the tilt angle to automatically switch to
+         * 45 whenever 45° imagery is available for the current zoom level and
+         * viewport, and switch back to 0 whenever 45° imagery is not available
+         * (this is the default behavior). 45° imagery is only available for
+         * satellite and hybrid map types, within some locations, and at some zoom
+         * levels. Note: getTilt returns the current tilt angle, not the value
+         * specified by this option. Because getTilt and this option refer to
+         * different things, do not bind() the tilt property; doing so may yield
+         * unpredictable effects. (Default of AGM is 0 (disabled). Enable it with value 45.)
+         */
+        this.tilt = 0;
+        this._observableSubscriptions = [];
+        /**
+         * This event emitter gets emitted when the user clicks on the map (but not when they click on a
+         * marker or infoWindow).
+         */
+        this.mapClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event emitter gets emitted when the user right-clicks on the map (but not when they click
+         * on a marker or infoWindow).
+         */
+        this.mapRightClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event emitter gets emitted when the user double-clicks on the map (but not when they click
+         * on a marker or infoWindow).
+         */
+        this.mapDblClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event emitter is fired when the map center changes.
+         */
+        this.centerChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the viewport bounds have changed.
+         */
+        this.boundsChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the mapTypeId property changes.
+         */
+        this.mapTypeIdChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the map becomes idle after panning or zooming.
+         */
+        this.idle = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the zoom level has changed.
+         */
+        this.zoomChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the google map is fully initialized.
+         * You get the google.maps.Map instance as a result of this EventEmitter.
+         */
+        this.mapReady = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the visible tiles have finished loading.
+         */
+        this.tilesLoaded = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    /** @internal */
+    ngOnInit() {
+        if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_4__["isPlatformServer"])(this._platformId)) {
+            // The code is running on the server, do nothing
+            return;
+        }
+        // todo: this should be solved with a new component and a viewChild decorator
+        const container = this._elem.nativeElement.querySelector('.agm-map-container-inner');
+        this._initMapInstance(container);
+    }
+    _initMapInstance(el) {
+        this._mapsWrapper.createMap(el, {
+            center: { lat: this.latitude || 0, lng: this.longitude || 0 },
+            zoom: this.zoom,
+            minZoom: this.minZoom,
+            maxZoom: this.maxZoom,
+            controlSize: this.controlSize,
+            disableDefaultUI: this.disableDefaultUI,
+            disableDoubleClickZoom: this.disableDoubleClickZoom,
+            scrollwheel: this.scrollwheel,
+            backgroundColor: this.backgroundColor,
+            draggable: this.draggable,
+            draggableCursor: this.draggableCursor,
+            draggingCursor: this.draggingCursor,
+            keyboardShortcuts: this.keyboardShortcuts,
+            styles: this.styles,
+            zoomControl: this.zoomControl,
+            zoomControlOptions: this.zoomControlOptions,
+            streetViewControl: this.streetViewControl,
+            streetViewControlOptions: this.streetViewControlOptions,
+            scaleControl: this.scaleControl,
+            scaleControlOptions: this.scaleControlOptions,
+            mapTypeControl: this.mapTypeControl,
+            mapTypeControlOptions: this.mapTypeControlOptions,
+            panControl: this.panControl,
+            panControlOptions: this.panControlOptions,
+            rotateControl: this.rotateControl,
+            rotateControlOptions: this.rotateControlOptions,
+            fullscreenControl: this.fullscreenControl,
+            fullscreenControlOptions: this.fullscreenControlOptions,
+            mapTypeId: this.mapTypeId,
+            clickableIcons: this.clickableIcons,
+            gestureHandling: this.gestureHandling,
+            tilt: this.tilt,
+            restriction: this.restriction,
+        })
+            .then(() => this._mapsWrapper.getNativeMap())
+            .then(map => this.mapReady.emit(map));
+        // register event listeners
+        this._handleMapCenterChange();
+        this._handleMapZoomChange();
+        this._handleMapMouseEvents();
+        this._handleBoundsChange();
+        this._handleMapTypeIdChange();
+        this._handleTilesLoadedEvent();
+        this._handleIdleEvent();
+    }
+    /** @internal */
+    ngOnDestroy() {
+        // unsubscribe all registered observable subscriptions
+        this._observableSubscriptions.forEach((s) => s.unsubscribe());
+        // remove all listeners from the map instance
+        this._mapsWrapper.clearInstanceListeners();
+        if (this._fitBoundsSubscription) {
+            this._fitBoundsSubscription.unsubscribe();
+        }
+    }
+    /* @internal */
+    ngOnChanges(changes) {
+        this._updateMapOptionsChanges(changes);
+        this._updatePosition(changes);
+    }
+    _updateMapOptionsChanges(changes) {
+        let options = {};
+        let optionKeys = Object.keys(changes).filter(k => AgmMap_1._mapOptionsAttributes.indexOf(k) !== -1);
+        optionKeys.forEach((k) => { options[k] = changes[k].currentValue; });
+        this._mapsWrapper.setMapOptions(options);
+    }
+    /**
+     * Triggers a resize event on the google map instance.
+     * When recenter is true, the of the google map gets called with the current lat/lng values or fitBounds value to recenter the map.
+     * Returns a promise that gets resolved after the event was triggered.
+     */
+    triggerResize(recenter = true) {
+        // Note: When we would trigger the resize event and show the map in the same turn (which is a
+        // common case for triggering a resize event), then the resize event would not
+        // work (to show the map), so we trigger the event in a timeout.
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                return this._mapsWrapper.triggerMapEvent('resize').then(() => {
+                    if (recenter) {
+                        this.fitBounds != null ? this._fitBounds() : this._setCenter();
+                    }
+                    resolve();
+                });
+            });
+        });
+    }
+    _updatePosition(changes) {
+        if (changes['latitude'] == null && changes['longitude'] == null &&
+            !changes['fitBounds']) {
+            // no position update needed
+            return;
+        }
+        // we prefer fitBounds in changes
+        if ('fitBounds' in changes) {
+            this._fitBounds();
+            return;
+        }
+        if (typeof this.latitude !== 'number' || typeof this.longitude !== 'number') {
+            return;
+        }
+        this._setCenter();
+    }
+    _setCenter() {
+        let newCenter = {
+            lat: this.latitude,
+            lng: this.longitude,
+        };
+        if (this.usePanning) {
+            this._mapsWrapper.panTo(newCenter);
+        }
+        else {
+            this._mapsWrapper.setCenter(newCenter);
+        }
+    }
+    _fitBounds() {
+        switch (this.fitBounds) {
+            case true:
+                this._subscribeToFitBoundsUpdates();
+                break;
+            case false:
+                if (this._fitBoundsSubscription) {
+                    this._fitBoundsSubscription.unsubscribe();
+                }
+                break;
+            default:
+                this._updateBounds(this.fitBounds, this.fitBoundsPadding);
+        }
+    }
+    _subscribeToFitBoundsUpdates() {
+        this._zone.runOutsideAngular(() => {
+            this._fitBoundsSubscription = this._fitBoundsService.getBounds$().subscribe(b => {
+                this._zone.run(() => this._updateBounds(b, this.fitBoundsPadding));
+            });
+        });
+    }
+    _updateBounds(bounds, padding) {
+        if (!bounds) {
+            return;
+        }
+        if (this._isLatLngBoundsLiteral(bounds) && typeof google !== 'undefined' && google && google.maps && google.maps.LatLngBounds) {
+            const newBounds = new google.maps.LatLngBounds();
+            newBounds.union(bounds);
+            bounds = newBounds;
+        }
+        if (this.usePanning) {
+            this._mapsWrapper.panToBounds(bounds, padding);
+            return;
+        }
+        this._mapsWrapper.fitBounds(bounds, padding);
+    }
+    _isLatLngBoundsLiteral(bounds) {
+        return bounds != null && bounds.extend === undefined;
+    }
+    _handleMapCenterChange() {
+        const s = this._mapsWrapper.subscribeToMapEvent('center_changed').subscribe(() => {
+            this._mapsWrapper.getCenter().then((center) => {
+                this.latitude = center.lat();
+                this.longitude = center.lng();
+                this.centerChange.emit({ lat: this.latitude, lng: this.longitude });
+            });
+        });
+        this._observableSubscriptions.push(s);
+    }
+    _handleBoundsChange() {
+        const s = this._mapsWrapper.subscribeToMapEvent('bounds_changed').subscribe(() => {
+            this._mapsWrapper.getBounds().then((bounds) => { this.boundsChange.emit(bounds); });
+        });
+        this._observableSubscriptions.push(s);
+    }
+    _handleMapTypeIdChange() {
+        const s = this._mapsWrapper.subscribeToMapEvent('maptypeid_changed').subscribe(() => {
+            this._mapsWrapper.getMapTypeId().then((mapTypeId) => { this.mapTypeIdChange.emit(mapTypeId); });
+        });
+        this._observableSubscriptions.push(s);
+    }
+    _handleMapZoomChange() {
+        const s = this._mapsWrapper.subscribeToMapEvent('zoom_changed').subscribe(() => {
+            this._mapsWrapper.getZoom().then((z) => {
+                this.zoom = z;
+                this.zoomChange.emit(z);
+            });
+        });
+        this._observableSubscriptions.push(s);
+    }
+    _handleIdleEvent() {
+        const s = this._mapsWrapper.subscribeToMapEvent('idle').subscribe(() => { this.idle.emit(void 0); });
+        this._observableSubscriptions.push(s);
+    }
+    _handleTilesLoadedEvent() {
+        const s = this._mapsWrapper.subscribeToMapEvent('tilesloaded').subscribe(() => this.tilesLoaded.emit(void 0));
+        this._observableSubscriptions.push(s);
+    }
+    _handleMapMouseEvents() {
+        const events = [
+            { name: 'click', emitter: this.mapClick },
+            { name: 'rightclick', emitter: this.mapRightClick },
+            { name: 'dblclick', emitter: this.mapDblClick },
+        ];
+        events.forEach((e) => {
+            const s = this._mapsWrapper.subscribeToMapEvent(e.name).subscribe((event) => {
+                let value = {
+                    coords: {
+                        lat: event.latLng.lat(),
+                        lng: event.latLng.lng(),
+                    },
+                    placeId: event.placeId,
+                };
+                // the placeId will be undefined in case the event was not an IconMouseEvent (google types)
+                if (value.placeId && !this.showDefaultInfoWindow) {
+                    event.stop();
+                }
+                e.emitter.emit(value);
+            });
+            this._observableSubscriptions.push(s);
+        });
+    }
+};
+/**
+ * Map option attributes that can change over time
+ */
+AgmMap._mapOptionsAttributes = [
+    'disableDoubleClickZoom', 'scrollwheel', 'draggable', 'draggableCursor', 'draggingCursor',
+    'keyboardShortcuts', 'zoomControl', 'zoomControlOptions', 'styles', 'streetViewControl',
+    'streetViewControlOptions', 'zoom', 'mapTypeControl', 'mapTypeControlOptions', 'minZoom',
+    'maxZoom', 'panControl', 'panControlOptions', 'rotateControl', 'rotateControlOptions',
+    'fullscreenControl', 'fullscreenControlOptions', 'scaleControl', 'scaleControlOptions',
+    'mapTypeId', 'clickableIcons', 'gestureHandling', 'tilt', 'restriction',
+];
+AgmMap.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },
+    { type: GoogleMapsAPIWrapper },
+    { type: Object, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"],] }] },
+    { type: FitBoundsService },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "longitude", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "latitude", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "zoom", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmMap.prototype, "minZoom", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmMap.prototype, "maxZoom", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmMap.prototype, "controlSize", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('mapDraggable'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "draggable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "disableDoubleClickZoom", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "disableDefaultUI", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "scrollwheel", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmMap.prototype, "backgroundColor", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmMap.prototype, "draggableCursor", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmMap.prototype, "draggingCursor", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "keyboardShortcuts", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Boolean)
+], AgmMap.prototype, "zoomControl", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "zoomControlOptions", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Array)
+], AgmMap.prototype, "styles", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "usePanning", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Boolean)
+], AgmMap.prototype, "streetViewControl", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "streetViewControlOptions", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "fitBounds", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "fitBoundsPadding", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "scaleControl", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "scaleControlOptions", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "mapTypeControl", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "mapTypeControlOptions", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "panControl", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "panControlOptions", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "rotateControl", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "rotateControlOptions", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "fullscreenControl", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "fullscreenControlOptions", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmMap.prototype, "mapTypeId", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "clickableIcons", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "showDefaultInfoWindow", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmMap.prototype, "gestureHandling", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "tilt", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMap.prototype, "restriction", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMap.prototype, "mapClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMap.prototype, "mapRightClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMap.prototype, "mapDblClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMap.prototype, "centerChange", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMap.prototype, "boundsChange", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMap.prototype, "mapTypeIdChange", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMap.prototype, "idle", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMap.prototype, "zoomChange", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMap.prototype, "mapReady", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMap.prototype, "tilesLoaded", void 0);
+AgmMap = AgmMap_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'agm-map',
+        providers: [
+            CircleManager,
+            DataLayerManager,
+            DataLayerManager,
+            FitBoundsService,
+            GoogleMapsAPIWrapper,
+            InfoWindowManager,
+            KmlLayerManager,
+            LayerManager,
+            MarkerManager,
+            PolygonManager,
+            PolylineManager,
+            RectangleManager,
+        ],
+        host: {
+            // todo: deprecated - we will remove it with the next version
+            '[class.sebm-google-map-container]': 'true',
+        },
+        template: `
+              <div class='agm-map-container-inner sebm-google-map-container-inner'></div>
+              <div class='agm-map-content'>
+                <ng-content></ng-content>
+              </div>
+  `,
+        styles: [`
+    .agm-map-container-inner {
+      width: inherit;
+      height: inherit;
+    }
+    .agm-map-content {
+      display:none;
+    }
+  `]
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(2, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["PLATFORM_ID"])),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"],
+        GoogleMapsAPIWrapper,
+        Object,
+        FitBoundsService,
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"]])
+], AgmMap);
+
+var AgmMarker_1;
+let markerId = 0;
+/**
+ * AgmMarker renders a map marker inside a {@link AgmMap}.
+ *
+ * ### Example
+ * ```typescript
+ * import { Component } from '@angular/core';
+ *
+ * @Component({
+ *  selector: 'my-map-cmp',
+ *  styles: [`
+ *    .agm-map-container {
+ *      height: 300px;
+ *    }
+ * `],
+ *  template: `
+ *    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+ *      <agm-marker [latitude]="lat" [longitude]="lng" [label]="'M'">
+ *      </agm-marker>
+ *    </agm-map>
+ *  `
+ * })
+ * ```
+ */
+let AgmMarker = AgmMarker_1 = class AgmMarker {
+    constructor(_markerManager) {
+        this._markerManager = _markerManager;
+        /**
+         * If true, the marker can be dragged. Default value is false.
+         */
+        // tslint:disable-next-line:no-input-rename
+        this.draggable = false;
+        /**
+         * If true, the marker is visible
+         */
+        this.visible = true;
+        /**
+         * Whether to automatically open the child info window when the marker is clicked.
+         */
+        this.openInfoWindow = true;
+        /**
+         * The marker's opacity between 0.0 and 1.0.
+         */
+        this.opacity = 1;
+        /**
+         * All markers are displayed on the map in order of their zIndex, with higher values displaying in
+         * front of markers with lower values. By default, markers are displayed according to their
+         * vertical position on screen, with lower markers appearing in front of markers further up the
+         * screen.
+         */
+        this.zIndex = 1;
+        /**
+         * If true, the marker can be clicked. Default value is true.
+         */
+        // tslint:disable-next-line:no-input-rename
+        this.clickable = true;
+        /**
+         * This event is fired when the marker's animation property changes.
+         *
+         * @memberof AgmMarker
+         */
+        this.animationChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event emitter gets emitted when the user clicks on the marker.
+         */
+        this.markerClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event emitter gets emitted when the user clicks twice on the marker.
+         */
+        this.markerDblClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the user rightclicks on the marker.
+         */
+        this.markerRightClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the user starts dragging the marker.
+         */
+        this.dragStart = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is repeatedly fired while the user drags the marker.
+         */
+        this.drag = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the user stops dragging the marker.
+         */
+        this.dragEnd = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the user mouses over the marker.
+         */
+        this.mouseOver = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the user mouses outside the marker.
+         */
+        this.mouseOut = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /** @internal */
+        this.infoWindow = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["QueryList"]();
+        this._markerAddedToManger = false;
+        this._observableSubscriptions = [];
+        this._fitBoundsDetails$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["ReplaySubject"](1);
+        this._id = (markerId++).toString();
+    }
+    /* @internal */
+    ngAfterContentInit() {
+        this.handleInfoWindowUpdate();
+        this.infoWindow.changes.subscribe(() => this.handleInfoWindowUpdate());
+    }
+    handleInfoWindowUpdate() {
+        if (this.infoWindow.length > 1) {
+            throw new Error('Expected no more than one info window.');
+        }
+        this.infoWindow.forEach(marker => {
+            marker.hostMarker = this;
+        });
+    }
+    /** @internal */
+    ngOnChanges(changes) {
+        if (typeof this.latitude === 'string') {
+            this.latitude = Number(this.latitude);
+        }
+        if (typeof this.longitude === 'string') {
+            this.longitude = Number(this.longitude);
+        }
+        if (typeof this.latitude !== 'number' || typeof this.longitude !== 'number') {
+            return;
+        }
+        if (!this._markerAddedToManger) {
+            this._markerManager.addMarker(this);
+            this._updateFitBoundsDetails();
+            this._markerAddedToManger = true;
+            this._addEventListeners();
+            return;
+        }
+        if (changes['latitude'] || changes['longitude']) {
+            this._markerManager.updateMarkerPosition(this);
+            this._updateFitBoundsDetails();
+        }
+        if (changes['title']) {
+            this._markerManager.updateTitle(this);
+        }
+        if (changes['label']) {
+            this._markerManager.updateLabel(this);
+        }
+        if (changes['draggable']) {
+            this._markerManager.updateDraggable(this);
+        }
+        if (changes['iconUrl']) {
+            this._markerManager.updateIcon(this);
+        }
+        if (changes['opacity']) {
+            this._markerManager.updateOpacity(this);
+        }
+        if (changes['visible']) {
+            this._markerManager.updateVisible(this);
+        }
+        if (changes['zIndex']) {
+            this._markerManager.updateZIndex(this);
+        }
+        if (changes['clickable']) {
+            this._markerManager.updateClickable(this);
+        }
+        if (changes['animation']) {
+            this._markerManager.updateAnimation(this);
+        }
+    }
+    /** @internal */
+    getFitBoundsDetails$() {
+        return this._fitBoundsDetails$.asObservable();
+    }
+    _updateFitBoundsDetails() {
+        this._fitBoundsDetails$.next({ latLng: { lat: this.latitude, lng: this.longitude } });
+    }
+    _addEventListeners() {
+        const cs = this._markerManager.createEventObservable('click', this).subscribe(() => {
+            if (this.openInfoWindow) {
+                this.infoWindow.forEach(infoWindow => infoWindow.open());
+            }
+            this.markerClick.emit(this);
+        });
+        this._observableSubscriptions.push(cs);
+        const dcs = this._markerManager.createEventObservable('dblclick', this).subscribe(() => {
+            this.markerDblClick.emit(null);
+        });
+        this._observableSubscriptions.push(dcs);
+        const rc = this._markerManager.createEventObservable('rightclick', this).subscribe(() => {
+            this.markerRightClick.emit(null);
+        });
+        this._observableSubscriptions.push(rc);
+        const ds = this._markerManager.createEventObservable('dragstart', this)
+            .subscribe((e) => {
+            this.dragStart.emit({ coords: { lat: e.latLng.lat(), lng: e.latLng.lng() } });
+        });
+        this._observableSubscriptions.push(ds);
+        const d = this._markerManager.createEventObservable('drag', this)
+            .subscribe((e) => {
+            this.drag.emit({ coords: { lat: e.latLng.lat(), lng: e.latLng.lng() } });
+        });
+        this._observableSubscriptions.push(d);
+        const de = this._markerManager.createEventObservable('dragend', this)
+            .subscribe((e) => {
+            this.dragEnd.emit({ coords: { lat: e.latLng.lat(), lng: e.latLng.lng() } });
+        });
+        this._observableSubscriptions.push(de);
+        const mover = this._markerManager.createEventObservable('mouseover', this)
+            .subscribe((e) => {
+            this.mouseOver.emit({ coords: { lat: e.latLng.lat(), lng: e.latLng.lng() } });
+        });
+        this._observableSubscriptions.push(mover);
+        const mout = this._markerManager.createEventObservable('mouseout', this)
+            .subscribe((e) => {
+            this.mouseOut.emit({ coords: { lat: e.latLng.lat(), lng: e.latLng.lng() } });
+        });
+        this._observableSubscriptions.push(mout);
+        const anChng = this._markerManager.createEventObservable('animation_changed', this)
+            .subscribe(() => {
+            this.animationChange.emit(this.animation);
+        });
+        this._observableSubscriptions.push(anChng);
+    }
+    /** @internal */
+    id() { return this._id; }
+    /** @internal */
+    toString() { return 'AgmMarker-' + this._id.toString(); }
+    /** @internal */
+    ngOnDestroy() {
+        this._markerManager.deleteMarker(this);
+        // unsubscribe all registered observable subscriptions
+        this._observableSubscriptions.forEach((s) => s.unsubscribe());
+    }
+};
+AgmMarker.ctorParameters = () => [
+    { type: MarkerManager }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmMarker.prototype, "latitude", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmMarker.prototype, "longitude", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmMarker.prototype, "title", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMarker.prototype, "label", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('markerDraggable'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMarker.prototype, "draggable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmMarker.prototype, "iconUrl", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMarker.prototype, "visible", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMarker.prototype, "openInfoWindow", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMarker.prototype, "opacity", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMarker.prototype, "zIndex", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('markerClickable'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMarker.prototype, "clickable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmMarker.prototype, "animation", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmMarker.prototype, "animationChange", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMarker.prototype, "markerClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMarker.prototype, "markerDblClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMarker.prototype, "markerRightClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMarker.prototype, "dragStart", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMarker.prototype, "drag", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMarker.prototype, "dragEnd", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMarker.prototype, "mouseOver", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmMarker.prototype, "mouseOut", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChildren"])(AgmInfoWindow),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["QueryList"])
+], AgmMarker.prototype, "infoWindow", void 0);
+AgmMarker = AgmMarker_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: 'agm-marker',
+        providers: [
+            { provide: FitBoundsAccessor, useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(() => AgmMarker_1) },
+        ],
+        inputs: [
+            'latitude', 'longitude', 'title', 'label', 'draggable: markerDraggable', 'iconUrl',
+            'openInfoWindow', 'opacity', 'visible', 'zIndex', 'animation',
+        ],
+        outputs: ['markerClick', 'dragStart', 'drag', 'dragEnd', 'mouseOver', 'mouseOut'],
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [MarkerManager])
+], AgmMarker);
+
+var AgmPolygon_1;
+/**
+ * AgmPolygon renders a polygon on a {@link AgmMap}
+ *
+ * ### Example
+ * ```typescript
+ * import { Component } from '@angular/core';
+ *
+ * @Component({
+ *  selector: 'my-map-cmp',
+ *  styles: [`
+ *    agm-map {
+ *      height: 300px;
+ *    }
+ * `],
+ *  template: `
+ *    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+ *      <agm-polygon [paths]="paths">
+ *      </agm-polygon>
+ *    </agm-map>
+ *  `
+ * })
+ * export class MyMapCmp {
+ *   lat: number = 0;
+ *   lng: number = 0;
+ *   zoom: number = 10;
+ *   paths: Array<LatLngLiteral> = [
+ *     { lat: 0,  lng: 10 },
+ *     { lat: 0,  lng: 20 },
+ *     { lat: 10, lng: 20 },
+ *     { lat: 10, lng: 10 },
+ *     { lat: 0,  lng: 10 }
+ *   ]
+ *   // Nesting paths will create a hole where they overlap;
+ *   nestedPaths: Array<Array<LatLngLiteral>> = [[
+ *     { lat: 0,  lng: 10 },
+ *     { lat: 0,  lng: 20 },
+ *     { lat: 10, lng: 20 },
+ *     { lat: 10, lng: 10 },
+ *     { lat: 0,  lng: 10 }
+ *   ], [
+ *     { lat: 0, lng: 15 },
+ *     { lat: 0, lng: 20 },
+ *     { lat: 5, lng: 20 },
+ *     { lat: 5, lng: 15 },
+ *     { lat: 0, lng: 15 }
+ *   ]]
+ * }
+ * ```
+ */
+let AgmPolygon = AgmPolygon_1 = class AgmPolygon {
+    constructor(_polygonManager) {
+        this._polygonManager = _polygonManager;
+        /**
+         * Indicates whether this Polygon handles mouse events. Defaults to true.
+         */
+        this.clickable = true;
+        /**
+         * If set to true, the user can drag this shape over the map. The geodesic
+         * property defines the mode of dragging. Defaults to false.
+         */
+        // tslint:disable-next-line:no-input-rename
+        this.draggable = false;
+        /**
+         * If set to true, the user can edit this shape by dragging the control
+         * points shown at the vertices and on each segment. Defaults to false.
+         */
+        this.editable = false;
+        /**
+         * When true, edges of the polygon are interpreted as geodesic and will
+         * follow the curvature of the Earth. When false, edges of the polygon are
+         * rendered as straight lines in screen space. Note that the shape of a
+         * geodesic polygon may appear to change when dragged, as the dimensions
+         * are maintained relative to the surface of the earth. Defaults to false.
+         */
+        this.geodesic = false;
+        /**
+         * The ordered sequence of coordinates that designates a closed loop.
+         * Unlike polylines, a polygon may consist of one or more paths.
+         *  As a result, the paths property may specify one or more arrays of
+         * LatLng coordinates. Paths are closed automatically; do not repeat the
+         * first vertex of the path as the last vertex. Simple polygons may be
+         * defined using a single array of LatLngs. More complex polygons may
+         * specify an array of arrays. Any simple arrays are converted into Arrays.
+         * Inserting or removing LatLngs from the Array will automatically update
+         * the polygon on the map.
+         */
+        this.paths = [];
+        /**
+         * This event is fired when the DOM click event is fired on the Polygon.
+         */
+        this.polyClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the DOM dblclick event is fired on the Polygon.
+         */
+        this.polyDblClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is repeatedly fired while the user drags the polygon.
+         */
+        this.polyDrag = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the user stops dragging the polygon.
+         */
+        this.polyDragEnd = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the user starts dragging the polygon.
+         */
+        this.polyDragStart = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the DOM mousedown event is fired on the Polygon.
+         */
+        this.polyMouseDown = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the DOM mousemove event is fired on the Polygon.
+         */
+        this.polyMouseMove = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired on Polygon mouseout.
+         */
+        this.polyMouseOut = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired on Polygon mouseover.
+         */
+        this.polyMouseOver = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired whe the DOM mouseup event is fired on the Polygon
+         */
+        this.polyMouseUp = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the Polygon is right-clicked on.
+         */
+        this.polyRightClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired after Polygon first path changes.
+         */
+        this.polyPathsChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this._polygonAddedToManager = false;
+        this._subscriptions = [];
+    }
+    /** @internal */
+    ngAfterContentInit() {
+        if (!this._polygonAddedToManager) {
+            this._init();
+        }
+    }
+    ngOnChanges(changes) {
+        if (!this._polygonAddedToManager) {
+            this._init();
+            return;
+        }
+        this._polygonManager.setPolygonOptions(this, this._updatePolygonOptions(changes));
+    }
+    _init() {
+        this._polygonManager.addPolygon(this);
+        this._polygonAddedToManager = true;
+        this._addEventListeners();
+    }
+    _addEventListeners() {
+        const handlers = [
+            { name: 'click', handler: (ev) => this.polyClick.emit(ev) },
+            { name: 'dblclick', handler: (ev) => this.polyDblClick.emit(ev) },
+            { name: 'drag', handler: (ev) => this.polyDrag.emit(ev) },
+            { name: 'dragend', handler: (ev) => this.polyDragEnd.emit(ev) },
+            { name: 'dragstart', handler: (ev) => this.polyDragStart.emit(ev) },
+            { name: 'mousedown', handler: (ev) => this.polyMouseDown.emit(ev) },
+            { name: 'mousemove', handler: (ev) => this.polyMouseMove.emit(ev) },
+            { name: 'mouseout', handler: (ev) => this.polyMouseOut.emit(ev) },
+            { name: 'mouseover', handler: (ev) => this.polyMouseOver.emit(ev) },
+            { name: 'mouseup', handler: (ev) => this.polyMouseUp.emit(ev) },
+            { name: 'rightclick', handler: (ev) => this.polyRightClick.emit(ev) },
+        ];
+        handlers.forEach((obj) => {
+            const os = this._polygonManager.createEventObservable(obj.name, this).subscribe(obj.handler);
+            this._subscriptions.push(os);
+        });
+        this._polygonManager.createPathEventObservable(this)
+            .then(paths$ => {
+            const os = paths$.subscribe(pathEvent => this.polyPathsChange.emit(pathEvent));
+            this._subscriptions.push(os);
+        });
+    }
+    _updatePolygonOptions(changes) {
+        return Object.keys(changes)
+            .filter(k => AgmPolygon_1._polygonOptionsAttributes.indexOf(k) !== -1)
+            .reduce((obj, k) => {
+            obj[k] = changes[k].currentValue;
+            return obj;
+        }, {});
+    }
+    /** @internal */
+    id() { return this._id; }
+    /** @internal */
+    ngOnDestroy() {
+        this._polygonManager.deletePolygon(this);
+        // unsubscribe all registered observable subscriptions
+        this._subscriptions.forEach((s) => s.unsubscribe());
+    }
+    getPath() {
+        return this._polygonManager.getPath(this);
+    }
+    getPaths() {
+        return this._polygonManager.getPaths(this);
+    }
+};
+AgmPolygon._polygonOptionsAttributes = [
+    'clickable', 'draggable', 'editable', 'fillColor', 'fillOpacity', 'geodesic', 'icon', 'map',
+    'paths', 'strokeColor', 'strokeOpacity', 'strokeWeight', 'visible', 'zIndex', 'draggable',
+    'editable', 'visible',
+];
+AgmPolygon.ctorParameters = () => [
+    { type: PolygonManager }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmPolygon.prototype, "clickable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('polyDraggable'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmPolygon.prototype, "draggable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmPolygon.prototype, "editable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmPolygon.prototype, "fillColor", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolygon.prototype, "fillOpacity", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmPolygon.prototype, "geodesic", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Array)
+], AgmPolygon.prototype, "paths", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmPolygon.prototype, "strokeColor", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolygon.prototype, "strokeOpacity", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolygon.prototype, "strokeWeight", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Boolean)
+], AgmPolygon.prototype, "visible", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolygon.prototype, "zIndex", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolygon.prototype, "polyClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolygon.prototype, "polyDblClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolygon.prototype, "polyDrag", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolygon.prototype, "polyDragEnd", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolygon.prototype, "polyDragStart", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolygon.prototype, "polyMouseDown", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolygon.prototype, "polyMouseMove", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolygon.prototype, "polyMouseOut", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolygon.prototype, "polyMouseOver", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolygon.prototype, "polyMouseUp", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolygon.prototype, "polyRightClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmPolygon.prototype, "polyPathsChange", void 0);
+AgmPolygon = AgmPolygon_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: 'agm-polygon',
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [PolygonManager])
+], AgmPolygon);
+
+/**
+ * AgmPolylineIcon enables to add polyline sequences to add arrows, circle,
+ * or custom icons either along the entire line, or in a specific part of it.
+ * See https://developers.google.com/maps/documentation/javascript/shapes#polyline_customize
+ *
+ * ### Example
+ * ```html
+ *    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+ *      <agm-polyline>
+ *          <agm-icon-sequence [fixedRotation]="true" [path]="'FORWARD_OPEN_ARROW'">
+ *          </agm-icon-sequence>
+ *      </agm-polyline>
+ *    </agm-map>
+ * ```
+ *
+ * @export
+ * @class AgmPolylineIcon
+ */
+let AgmPolylineIcon = class AgmPolylineIcon {
+    ngOnInit() {
+        if (this.path == null) {
+            throw new Error('Icon Sequence path is required');
+        }
+    }
+};
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Boolean)
+], AgmPolylineIcon.prototype, "fixedRotation", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmPolylineIcon.prototype, "offset", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmPolylineIcon.prototype, "repeat", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolylineIcon.prototype, "anchorX", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolylineIcon.prototype, "anchorY", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmPolylineIcon.prototype, "fillColor", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolylineIcon.prototype, "fillOpacity", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmPolylineIcon.prototype, "path", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolylineIcon.prototype, "rotation", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolylineIcon.prototype, "scale", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmPolylineIcon.prototype, "strokeColor", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolylineIcon.prototype, "strokeOpacity", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolylineIcon.prototype, "strokeWeight", void 0);
+AgmPolylineIcon = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({ selector: 'agm-polyline agm-icon-sequence' })
+], AgmPolylineIcon);
+
+var AgmPolylinePoint_1;
+/**
+ * AgmPolylinePoint represents one element of a polyline within a  {@link
+ * AgmPolyline}
+ */
+let AgmPolylinePoint = AgmPolylinePoint_1 = class AgmPolylinePoint {
+    constructor() {
+        /**
+         * This event emitter gets emitted when the position of the point changed.
+         */
+        this.positionChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
+    ngOnChanges(changes) {
+        if (changes['latitude'] || changes['longitude']) {
+            const position = {
+                lat: changes['latitude'] ? changes['latitude'].currentValue : this.latitude,
+                lng: changes['longitude'] ? changes['longitude'].currentValue : this.longitude,
+            };
+            this.positionChanged.emit(position);
+        }
+    }
+    /** @internal */
+    getFitBoundsDetails$() {
+        return this.positionChanged.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["startWith"])({ lat: this.latitude, lng: this.longitude }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(position => ({ latLng: position })));
+    }
+};
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolylinePoint.prototype, "latitude", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolylinePoint.prototype, "longitude", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolylinePoint.prototype, "positionChanged", void 0);
+AgmPolylinePoint = AgmPolylinePoint_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: 'agm-polyline-point',
+        providers: [
+            { provide: FitBoundsAccessor, useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(() => AgmPolylinePoint_1) },
+        ],
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [])
+], AgmPolylinePoint);
+
+var AgmPolyline_1;
+let polylineId = 0;
+/**
+ * AgmPolyline renders a polyline on a {@link AgmMap}
+ *
+ * ### Example
+ * ```typescript
+ * import { Component } from '@angular/core';
+ *
+ * @Component({
+ *  selector: 'my-map-cmp',
+ *  styles: [`
+ *    .agm-map-container {
+ *      height: 300px;
+ *    }
+ * `],
+ *  template: `
+ *    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+ *      <agm-polyline>
+ *          <agm-polyline-point [latitude]="latA" [longitude]="lngA">
+ *          </agm-polyline-point>
+ *          <agm-polyline-point [latitude]="latB" [longitude]="lngB">
+ *          </agm-polyline-point>
+ *      </agm-polyline>
+ *    </agm-map>
+ *  `
+ * })
+ * ```
+ */
+let AgmPolyline = AgmPolyline_1 = class AgmPolyline {
+    constructor(_polylineManager) {
+        this._polylineManager = _polylineManager;
+        /**
+         * Indicates whether this Polyline handles mouse events. Defaults to true.
+         */
+        this.clickable = true;
+        /**
+         * If set to true, the user can drag this shape over the map. The geodesic property defines the
+         * mode of dragging. Defaults to false.
+         */
+        // tslint:disable-next-line:no-input-rename
+        this.draggable = false;
+        /**
+         * If set to true, the user can edit this shape by dragging the control points shown at the
+         * vertices and on each segment. Defaults to false.
+         */
+        this.editable = false;
+        /**
+         * When true, edges of the polygon are interpreted as geodesic and will follow the curvature of
+         * the Earth. When false, edges of the polygon are rendered as straight lines in screen space.
+         * Note that the shape of a geodesic polygon may appear to change when dragged, as the dimensions
+         * are maintained relative to the surface of the earth. Defaults to false.
+         */
+        this.geodesic = false;
+        /**
+         * Whether this polyline is visible on the map. Defaults to true.
+         */
+        this.visible = true;
+        /**
+         * This event is fired when the DOM click event is fired on the Polyline.
+         */
+        this.lineClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the DOM dblclick event is fired on the Polyline.
+         */
+        this.lineDblClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is repeatedly fired while the user drags the polyline.
+         */
+        this.lineDrag = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the user stops dragging the polyline.
+         */
+        this.lineDragEnd = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the user starts dragging the polyline.
+         */
+        this.lineDragStart = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the DOM mousedown event is fired on the Polyline.
+         */
+        this.lineMouseDown = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the DOM mousemove event is fired on the Polyline.
+         */
+        this.lineMouseMove = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired on Polyline mouseout.
+         */
+        this.lineMouseOut = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired on Polyline mouseover.
+         */
+        this.lineMouseOver = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired whe the DOM mouseup event is fired on the Polyline
+         */
+        this.lineMouseUp = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the Polyline is right-clicked on.
+         */
+        this.lineRightClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired after Polyline's path changes.
+         */
+        this.polyPathChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this._polylineAddedToManager = false;
+        this._subscriptions = [];
+        this._id = (polylineId++).toString();
+    }
+    /** @internal */
+    ngAfterContentInit() {
+        if (this.points.length) {
+            this.points.forEach((point) => {
+                const s = point.positionChanged.subscribe(() => { this._polylineManager.updatePolylinePoints(this); });
+                this._subscriptions.push(s);
+            });
+        }
+        if (!this._polylineAddedToManager) {
+            this._init();
+        }
+        const pointSub = this.points.changes.subscribe(() => this._polylineManager.updatePolylinePoints(this));
+        this._subscriptions.push(pointSub);
+        this._polylineManager.updatePolylinePoints(this);
+        const iconSub = this.iconSequences.changes.subscribe(() => this._polylineManager.updateIconSequences(this));
+        this._subscriptions.push(iconSub);
+    }
+    ngOnChanges(changes) {
+        if (!this._polylineAddedToManager) {
+            this._init();
+            return;
+        }
+        let options = {};
+        const optionKeys = Object.keys(changes).filter(k => AgmPolyline_1._polylineOptionsAttributes.indexOf(k) !== -1);
+        optionKeys.forEach(k => options[k] = changes[k].currentValue);
+        this._polylineManager.setPolylineOptions(this, options);
+    }
+    getPath() {
+        return this._polylineManager.getPath(this);
+    }
+    _init() {
+        this._polylineManager.addPolyline(this);
+        this._polylineAddedToManager = true;
+        this._addEventListeners();
+    }
+    _addEventListeners() {
+        const handlers = [
+            { name: 'click', handler: (ev) => this.lineClick.emit(ev) },
+            { name: 'dblclick', handler: (ev) => this.lineDblClick.emit(ev) },
+            { name: 'drag', handler: (ev) => this.lineDrag.emit(ev) },
+            { name: 'dragend', handler: (ev) => this.lineDragEnd.emit(ev) },
+            { name: 'dragstart', handler: (ev) => this.lineDragStart.emit(ev) },
+            { name: 'mousedown', handler: (ev) => this.lineMouseDown.emit(ev) },
+            { name: 'mousemove', handler: (ev) => this.lineMouseMove.emit(ev) },
+            { name: 'mouseout', handler: (ev) => this.lineMouseOut.emit(ev) },
+            { name: 'mouseover', handler: (ev) => this.lineMouseOver.emit(ev) },
+            { name: 'mouseup', handler: (ev) => this.lineMouseUp.emit(ev) },
+            { name: 'rightclick', handler: (ev) => this.lineRightClick.emit(ev) },
+        ];
+        handlers.forEach((obj) => {
+            const os = this._polylineManager.createEventObservable(obj.name, this).subscribe(obj.handler);
+            this._subscriptions.push(os);
+        });
+        this._polylineManager.createPathEventObservable(this).then((ob$) => {
+            const os = ob$.subscribe(pathEvent => this.polyPathChange.emit(pathEvent));
+            this._subscriptions.push(os);
+        });
+    }
+    /** @internal */
+    _getPoints() {
+        if (this.points) {
+            return this.points.toArray();
+        }
+        return [];
+    }
+    _getIcons() {
+        if (this.iconSequences) {
+            return this.iconSequences.toArray();
+        }
+        return [];
+    }
+    /** @internal */
+    id() { return this._id; }
+    /** @internal */
+    ngOnDestroy() {
+        this._polylineManager.deletePolyline(this);
+        // unsubscribe all registered observable subscriptions
+        this._subscriptions.forEach((s) => s.unsubscribe());
+    }
+};
+AgmPolyline._polylineOptionsAttributes = [
+    'draggable', 'editable', 'visible', 'geodesic', 'strokeColor', 'strokeOpacity', 'strokeWeight',
+    'zIndex',
+];
+AgmPolyline.ctorParameters = () => [
+    { type: PolylineManager }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmPolyline.prototype, "clickable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('polylineDraggable'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmPolyline.prototype, "draggable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmPolyline.prototype, "editable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmPolyline.prototype, "geodesic", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmPolyline.prototype, "strokeColor", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolyline.prototype, "strokeOpacity", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolyline.prototype, "strokeWeight", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmPolyline.prototype, "visible", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmPolyline.prototype, "zIndex", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolyline.prototype, "lineClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolyline.prototype, "lineDblClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolyline.prototype, "lineDrag", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolyline.prototype, "lineDragEnd", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolyline.prototype, "lineDragStart", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolyline.prototype, "lineMouseDown", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolyline.prototype, "lineMouseMove", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolyline.prototype, "lineMouseOut", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolyline.prototype, "lineMouseOver", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolyline.prototype, "lineMouseUp", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmPolyline.prototype, "lineRightClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmPolyline.prototype, "polyPathChange", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChildren"])(AgmPolylinePoint),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["QueryList"])
+], AgmPolyline.prototype, "points", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ContentChildren"])(AgmPolylineIcon),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["QueryList"])
+], AgmPolyline.prototype, "iconSequences", void 0);
+AgmPolyline = AgmPolyline_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: 'agm-polyline',
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [PolylineManager])
+], AgmPolyline);
+
+var AgmRectangle_1;
+let AgmRectangle = AgmRectangle_1 = class AgmRectangle {
+    constructor(_manager) {
+        this._manager = _manager;
+        /**
+         * Indicates whether this Rectangle handles mouse events. Defaults to true.
+         */
+        this.clickable = true;
+        /**
+         * If set to true, the user can drag this rectangle over the map. Defaults to false.
+         */
+        // tslint:disable-next-line:no-input-rename
+        this.draggable = false;
+        /**
+         * If set to true, the user can edit this rectangle by dragging the control points shown at
+         * the center and around the circumference of the rectangle. Defaults to false.
+         */
+        this.editable = false;
+        /**
+         * The stroke position. Defaults to CENTER.
+         * This property is not supported on Internet Explorer 8 and earlier.
+         */
+        this.strokePosition = 'CENTER';
+        /**
+         * The stroke width in pixels.
+         */
+        this.strokeWeight = 0;
+        /**
+         * Whether this rectangle is visible on the map. Defaults to true.
+         */
+        this.visible = true;
+        /**
+         * This event is fired when the rectangle's is changed.
+         */
+        this.boundsChange = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event emitter gets emitted when the user clicks on the rectangle.
+         */
+        this.rectangleClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event emitter gets emitted when the user clicks on the rectangle.
+         */
+        this.rectangleDblClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is repeatedly fired while the user drags the rectangle.
+         */
+        this.drag = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the user stops dragging the rectangle.
+         */
+        this.dragEnd = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the user starts dragging the rectangle.
+         */
+        this.dragStart = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the DOM mousedown event is fired on the rectangle.
+         */
+        this.mouseDown = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the DOM mousemove event is fired on the rectangle.
+         */
+        this.mouseMove = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired on rectangle mouseout.
+         */
+        this.mouseOut = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired on rectangle mouseover.
+         */
+        this.mouseOver = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the DOM mouseup event is fired on the rectangle.
+         */
+        this.mouseUp = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        /**
+         * This event is fired when the rectangle is right-clicked on.
+         */
+        this.rightClick = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+        this._rectangleAddedToManager = false;
+        this._eventSubscriptions = [];
+    }
+    /** @internal */
+    ngOnInit() {
+        this._manager.addRectangle(this);
+        this._rectangleAddedToManager = true;
+        this._registerEventListeners();
+    }
+    /** @internal */
+    ngOnChanges(changes) {
+        if (!this._rectangleAddedToManager) {
+            return;
+        }
+        if (changes['north'] ||
+            changes['east'] ||
+            changes['south'] ||
+            changes['west']) {
+            this._manager.setBounds(this);
+        }
+        if (changes['editable']) {
+            this._manager.setEditable(this);
+        }
+        if (changes['draggable']) {
+            this._manager.setDraggable(this);
+        }
+        if (changes['visible']) {
+            this._manager.setVisible(this);
+        }
+        this._updateRectangleOptionsChanges(changes);
+    }
+    _updateRectangleOptionsChanges(changes) {
+        let options = {};
+        let optionKeys = Object.keys(changes).filter(k => AgmRectangle_1._mapOptions.indexOf(k) !== -1);
+        optionKeys.forEach(k => {
+            options[k] = changes[k].currentValue;
+        });
+        if (optionKeys.length > 0) {
+            this._manager.setOptions(this, options);
+        }
+    }
+    _registerEventListeners() {
+        let events = new Map();
+        events.set('bounds_changed', this.boundsChange);
+        events.set('click', this.rectangleClick);
+        events.set('dblclick', this.rectangleDblClick);
+        events.set('drag', this.drag);
+        events.set('dragend', this.dragEnd);
+        events.set('dragStart', this.dragStart);
+        events.set('mousedown', this.mouseDown);
+        events.set('mousemove', this.mouseMove);
+        events.set('mouseout', this.mouseOut);
+        events.set('mouseover', this.mouseOver);
+        events.set('mouseup', this.mouseUp);
+        events.set('rightclick', this.rightClick);
+        events.forEach((eventEmitter, eventName) => {
+            this._eventSubscriptions.push(this._manager
+                .createEventObservable(eventName, this)
+                .subscribe(value => {
+                switch (eventName) {
+                    case 'bounds_changed':
+                        this._manager.getBounds(this).then(bounds => eventEmitter.emit({
+                            north: bounds.getNorthEast().lat(),
+                            east: bounds.getNorthEast().lng(),
+                            south: bounds.getSouthWest().lat(),
+                            west: bounds.getSouthWest().lng(),
+                        }));
+                        break;
+                    default:
+                        eventEmitter.emit({
+                            coords: { lat: value.latLng.lat(), lng: value.latLng.lng() },
+                        });
+                }
+            }));
+        });
+    }
+    /** @internal */
+    ngOnDestroy() {
+        this._eventSubscriptions.forEach(function (s) {
+            s.unsubscribe();
+        });
+        this._eventSubscriptions = null;
+        this._manager.removeRectangle(this);
+    }
+    /**
+     * Gets the LatLngBounds of this Rectangle.
+     */
+    getBounds() {
+        return this._manager.getBounds(this);
+    }
+};
+AgmRectangle._mapOptions = [
+    'fillColor',
+    'fillOpacity',
+    'strokeColor',
+    'strokeOpacity',
+    'strokePosition',
+    'strokeWeight',
+    'visible',
+    'zIndex',
+    'clickable',
+];
+AgmRectangle.ctorParameters = () => [
+    { type: RectangleManager }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmRectangle.prototype, "north", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmRectangle.prototype, "east", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmRectangle.prototype, "south", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmRectangle.prototype, "west", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmRectangle.prototype, "clickable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])('rectangleDraggable'),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmRectangle.prototype, "draggable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmRectangle.prototype, "editable", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmRectangle.prototype, "fillColor", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmRectangle.prototype, "fillOpacity", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmRectangle.prototype, "strokeColor", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmRectangle.prototype, "strokeOpacity", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", String)
+], AgmRectangle.prototype, "strokePosition", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmRectangle.prototype, "strokeWeight", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmRectangle.prototype, "visible", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Number)
+], AgmRectangle.prototype, "zIndex", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmRectangle.prototype, "boundsChange", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmRectangle.prototype, "rectangleClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmRectangle.prototype, "rectangleDblClick", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmRectangle.prototype, "drag", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmRectangle.prototype, "dragEnd", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmRectangle.prototype, "dragStart", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmRectangle.prototype, "mouseDown", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmRectangle.prototype, "mouseMove", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmRectangle.prototype, "mouseOut", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmRectangle.prototype, "mouseOver", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmRectangle.prototype, "mouseUp", void 0);
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"])
+], AgmRectangle.prototype, "rightClick", void 0);
+AgmRectangle = AgmRectangle_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: 'agm-rectangle',
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [RectangleManager])
+], AgmRectangle);
+
+let layerId$3 = 0;
+/*
+ * This directive adds a transit layer to a google map instance
+ * <agm-transit-layer [visible]="true|false"> <agm-transit-layer>
+ * */
+let AgmTransitLayer = class AgmTransitLayer {
+    constructor(_manager) {
+        this._manager = _manager;
+        this._addedToManager = false;
+        this._id = (layerId$3++).toString();
+        /**
+         * Hide/show transit layer
+         */
+        this.visible = true;
+    }
+    ngOnInit() {
+        if (this._addedToManager) {
+            return;
+        }
+        this._manager.addTransitLayer(this, { visible: this.visible });
+        this._addedToManager = true;
+    }
+    ngOnChanges(changes) {
+        if (!this._addedToManager) {
+            return;
+        }
+        if (changes['visible'] != null) {
+            this._manager.toggleLayerVisibility(this, { visible: changes['visible'].currentValue });
+        }
+    }
+    /** @internal */
+    id() { return this._id; }
+    /** @internal */
+    toString() { return `AgmTransitLayer-${this._id.toString()}`; }
+    /** @internal */
+    ngOnDestroy() {
+        this._manager.deleteLayer(this);
+    }
+};
+AgmTransitLayer.ctorParameters = () => [
+    { type: LayerManager }
+];
+Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:type", Object)
+], AgmTransitLayer.prototype, "visible", void 0);
+AgmTransitLayer = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Directive"])({
+        selector: 'agm-transit-layer',
+    }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [LayerManager])
+], AgmTransitLayer);
+
+var google$1;
+var SymbolPath;
+(function (SymbolPath) {
+    SymbolPath[SymbolPath["BACKWARD_CLOSED_ARROW"] = 3] = "BACKWARD_CLOSED_ARROW";
+    SymbolPath[SymbolPath["BACKWARD_OPEN_ARROW"] = 4] = "BACKWARD_OPEN_ARROW";
+    SymbolPath[SymbolPath["CIRCLE"] = 0] = "CIRCLE";
+    SymbolPath[SymbolPath["FORWARD_CLOSED_ARROW"] = 1] = "FORWARD_CLOSED_ARROW";
+    SymbolPath[SymbolPath["FORWARD_OPEN_ARROW"] = 2] = "FORWARD_OPEN_ARROW";
+})(SymbolPath || (SymbolPath = {}));
+/**
+ * Identifiers used to specify the placement of controls on the map. Controls are
+ * positioned relative to other controls in the same layout position. Controls that
+ * are added first are positioned closer to the edge of the map.
+ */
+var ControlPosition;
+(function (ControlPosition) {
+    ControlPosition[ControlPosition["RIGHT_BOTTOM"] = 0] = "RIGHT_BOTTOM";
+    ControlPosition[ControlPosition["TOP_LEFT"] = 1] = "TOP_LEFT";
+    ControlPosition[ControlPosition["TOP_CENTER"] = 2] = "TOP_CENTER";
+    ControlPosition[ControlPosition["TOP_RIGHT"] = 3] = "TOP_RIGHT";
+    ControlPosition[ControlPosition["LEFT_CENTER"] = 4] = "LEFT_CENTER";
+    ControlPosition[ControlPosition["LEFT_TOP"] = 5] = "LEFT_TOP";
+    ControlPosition[ControlPosition["LEFT_BOTTOM"] = 6] = "LEFT_BOTTOM";
+    ControlPosition[ControlPosition["RIGHT_TOP"] = 7] = "RIGHT_TOP";
+    ControlPosition[ControlPosition["RIGHT_CENTER"] = 8] = "RIGHT_CENTER";
+    ControlPosition[ControlPosition["BOTTOM_RIGHT"] = 9] = "BOTTOM_RIGHT";
+    ControlPosition[ControlPosition["BOTTOM_LEFT"] = 10] = "BOTTOM_LEFT";
+    ControlPosition[ControlPosition["BOTTOM_CENTER"] = 11] = "BOTTOM_CENTER";
+})(ControlPosition || (ControlPosition = {}));
+var MapTypeId;
+(function (MapTypeId) {
+    /** This map type displays a transparent layer of major streets on satellite images. */
+    MapTypeId[MapTypeId["HYBRID"] = 0] = "HYBRID";
+    /** This map type displays a normal street map. */
+    MapTypeId[MapTypeId["ROADMAP"] = 1] = "ROADMAP";
+    /** This map type displays satellite images. */
+    MapTypeId[MapTypeId["SATELLITE"] = 2] = "SATELLITE";
+    /** This map type displays maps with physical features such as terrain and vegetation. */
+    MapTypeId[MapTypeId["TERRAIN"] = 3] = "TERRAIN";
+})(MapTypeId || (MapTypeId = {}));
+var MapTypeControlStyle;
+(function (MapTypeControlStyle) {
+    MapTypeControlStyle[MapTypeControlStyle["DEFAULT"] = 0] = "DEFAULT";
+    MapTypeControlStyle[MapTypeControlStyle["DROPDOWN_MENU"] = 2] = "DROPDOWN_MENU";
+    MapTypeControlStyle[MapTypeControlStyle["HORIZONTAL_BAR"] = 1] = "HORIZONTAL_BAR";
+})(MapTypeControlStyle || (MapTypeControlStyle = {}));
+var ScaleControlStyle;
+(function (ScaleControlStyle) {
+    ScaleControlStyle[ScaleControlStyle["DEFAULT"] = 0] = "DEFAULT";
+})(ScaleControlStyle || (ScaleControlStyle = {}));
+var ZoomControlStyle;
+(function (ZoomControlStyle) {
+    ZoomControlStyle[ZoomControlStyle["DEFAULT"] = 0] = "DEFAULT";
+    ZoomControlStyle[ZoomControlStyle["LARGE"] = 1] = "LARGE";
+    ZoomControlStyle[ZoomControlStyle["SMALL"] = 2] = "SMALL";
+})(ZoomControlStyle || (ZoomControlStyle = {}));
+var GeocoderLocationType;
+(function (GeocoderLocationType) {
+    GeocoderLocationType["APPROXIMATE"] = "APPROXIMATE";
+    GeocoderLocationType["GEOMETRIC_CENTER"] = "GEOMETRIC_CENTER";
+    GeocoderLocationType["RANGE_INTERPOLATED"] = "RANGE_INTERPOLATED";
+    GeocoderLocationType["ROOFTOP"] = "ROOFTOP";
+})(GeocoderLocationType || (GeocoderLocationType = {}));
+var GeocoderStatus;
+(function (GeocoderStatus) {
+    GeocoderStatus["ERROR"] = "ERROR";
+    GeocoderStatus["INVALID_REQUEST"] = "INVALID_REQUEST";
+    GeocoderStatus["OK"] = "OK";
+    GeocoderStatus["OVER_QUERY_LIMIT"] = "OVER_QUERY_LIMIT";
+    GeocoderStatus["REQUEST_DENIED"] = "REQUEST_DENIED";
+    GeocoderStatus["UNKNOWN_ERROR"] = "UNKNOWN_ERROR";
+    GeocoderStatus["ZERO_RESULTS"] = "ZERO_RESULTS";
+})(GeocoderStatus || (GeocoderStatus = {}));
+
+let AgmGeocoder = class AgmGeocoder {
+    constructor(loader) {
+        const connectableGeocoder$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"](subscriber => {
+            loader.load().then(() => subscriber.next());
+        })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(() => this._createGeocoder()), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["multicast"])(new rxjs__WEBPACK_IMPORTED_MODULE_2__["ReplaySubject"](1)));
+        connectableGeocoder$.connect(); // ignore the subscription
+        // since we will remain subscribed till application exits
+        this.geocoder$ = connectableGeocoder$;
+    }
+    geocode(request) {
+        return this.geocoder$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])((geocoder) => this._getGoogleResults(geocoder, request)));
+    }
+    _getGoogleResults(geocoder, request) {
+        const geocodeObservable = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["bindCallback"])(geocoder.geocode);
+        return geocodeObservable(request).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["switchMap"])(([results, status]) => {
+            if (status === GeocoderStatus.OK) {
+                return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(results);
+            }
+            return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(status);
+        }));
+    }
+    _createGeocoder() {
+        return new google.maps.Geocoder();
+    }
+};
+AgmGeocoder.ctorParameters = () => [
+    { type: MapsAPILoader }
+];
+AgmGeocoder.ngInjectableDef = Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"])({ factory: function AgmGeocoder_Factory() { return new AgmGeocoder(Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵinject"])(MapsAPILoader)); }, token: AgmGeocoder, providedIn: "root" });
+AgmGeocoder = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ providedIn: 'root' }),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [MapsAPILoader])
+], AgmGeocoder);
+
+class WindowRef {
+    getNativeWindow() { return window; }
+}
+class DocumentRef {
+    getNativeDocument() { return document; }
+}
+const BROWSER_GLOBALS_PROVIDERS = [WindowRef, DocumentRef];
+
+var GoogleMapsScriptProtocol;
+(function (GoogleMapsScriptProtocol) {
+    GoogleMapsScriptProtocol[GoogleMapsScriptProtocol["HTTP"] = 1] = "HTTP";
+    GoogleMapsScriptProtocol[GoogleMapsScriptProtocol["HTTPS"] = 2] = "HTTPS";
+    GoogleMapsScriptProtocol[GoogleMapsScriptProtocol["AUTO"] = 3] = "AUTO";
+})(GoogleMapsScriptProtocol || (GoogleMapsScriptProtocol = {}));
+/**
+ * Token for the config of the LazyMapsAPILoader. Please provide an object of type {@link
+ * LazyMapsAPILoaderConfig}.
+ */
+const LAZY_MAPS_API_CONFIG = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["InjectionToken"]('angular-google-maps LAZY_MAPS_API_CONFIG');
+let LazyMapsAPILoader = class LazyMapsAPILoader extends MapsAPILoader {
+    constructor(config = null, w, d, localeId) {
+        super();
+        this.localeId = localeId;
+        this._SCRIPT_ID = 'agmGoogleMapsApiScript';
+        this.callbackName = `agmLazyMapsAPILoader`;
+        this._config = config || {};
+        this._windowRef = w;
+        this._documentRef = d;
+    }
+    load() {
+        const window = this._windowRef.getNativeWindow();
+        if (window.google && window.google.maps) {
+            // Google maps already loaded on the page.
+            return Promise.resolve();
+        }
+        if (this._scriptLoadingPromise) {
+            return this._scriptLoadingPromise;
+        }
+        // this can happen in HMR situations or Stackblitz.io editors.
+        const scriptOnPage = this._documentRef.getNativeDocument().getElementById(this._SCRIPT_ID);
+        if (scriptOnPage) {
+            this._assignScriptLoadingPromise(scriptOnPage);
+            return this._scriptLoadingPromise;
+        }
+        const script = this._documentRef.getNativeDocument().createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.defer = true;
+        script.id = this._SCRIPT_ID;
+        script.src = this._getScriptSrc(this.callbackName);
+        this._assignScriptLoadingPromise(script);
+        this._documentRef.getNativeDocument().body.appendChild(script);
+        return this._scriptLoadingPromise;
+    }
+    _assignScriptLoadingPromise(scriptElem) {
+        this._scriptLoadingPromise = new Promise((resolve, reject) => {
+            this._windowRef.getNativeWindow()[this.callbackName] = () => {
+                resolve();
+            };
+            scriptElem.onerror = (error) => {
+                reject(error);
+            };
+        });
+    }
+    _getScriptSrc(callbackName) {
+        let protocolType = (this._config && this._config.protocol) || GoogleMapsScriptProtocol.HTTPS;
+        let protocol;
+        switch (protocolType) {
+            case GoogleMapsScriptProtocol.AUTO:
+                protocol = '';
+                break;
+            case GoogleMapsScriptProtocol.HTTP:
+                protocol = 'http:';
+                break;
+            case GoogleMapsScriptProtocol.HTTPS:
+                protocol = 'https:';
+                break;
+        }
+        const hostAndPath = this._config.hostAndPath || 'maps.googleapis.com/maps/api/js';
+        const queryParams = {
+            v: this._config.apiVersion || 'quarterly',
+            callback: callbackName,
+            key: this._config.apiKey,
+            client: this._config.clientId,
+            channel: this._config.channel,
+            libraries: this._config.libraries,
+            region: this._config.region,
+            language: this._config.language || this.localeId !== 'en-US' ? this.localeId : null,
+        };
+        const params = Object.keys(queryParams)
+            .filter((k) => queryParams[k] != null)
+            .filter((k) => {
+            // remove empty arrays
+            return !Array.isArray(queryParams[k]) ||
+                (Array.isArray(queryParams[k]) && queryParams[k].length > 0);
+        })
+            .map((k) => {
+            // join arrays as comma seperated strings
+            let i = queryParams[k];
+            if (Array.isArray(i)) {
+                return { key: k, value: i.join(',') };
+            }
+            return { key: k, value: queryParams[k] };
+        })
+            .map((entry) => {
+            return `${entry.key}=${entry.value}`;
+        })
+            .join('&');
+        return `${protocol}//${hostAndPath}?${params}`;
+    }
+};
+LazyMapsAPILoader.ctorParameters = () => [
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"] }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [LAZY_MAPS_API_CONFIG,] }] },
+    { type: WindowRef },
+    { type: DocumentRef },
+    { type: String, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["LOCALE_ID"],] }] }
+];
+LazyMapsAPILoader = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Optional"])()), Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(0, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(LAZY_MAPS_API_CONFIG)),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__param"])(3, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_core__WEBPACK_IMPORTED_MODULE_1__["LOCALE_ID"])),
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"])("design:paramtypes", [Object, WindowRef, DocumentRef, String])
+], LazyMapsAPILoader);
+
+/**
+ * When using the NoOpMapsAPILoader, the Google Maps API must be added to the page via a `<script>`
+ * Tag.
+ * It's important that the Google Maps API script gets loaded first on the page.
+ */
+class NoOpMapsAPILoader {
+    load() {
+        if (!window.google || !window.google.maps) {
+            throw new Error('Google Maps API not loaded on page. Make sure window.google.maps is available!');
+        }
+        return Promise.resolve();
+    }
+}
+
+// exported map types
+
+var AgmCoreModule_1;
+/**
+ * @internal
+ */
+function coreDirectives() {
+    return [
+        AgmBicyclingLayer,
+        AgmCircle,
+        AgmDataLayer,
+        AgmFitBounds,
+        AgmInfoWindow,
+        AgmKmlLayer,
+        AgmMap,
+        AgmMarker,
+        AgmPolygon,
+        AgmPolyline,
+        AgmPolylineIcon,
+        AgmPolylinePoint,
+        AgmRectangle,
+        AgmTransitLayer,
+    ];
+}
+/**
+ * The angular-google-maps core module. Contains all Directives/Services/Pipes
+ * of the core module. Please use `AgmCoreModule.forRoot()` in your app module.
+ */
+let AgmCoreModule = AgmCoreModule_1 = class AgmCoreModule {
+    /**
+     * Please use this method when you register the module at the root level.
+     */
+    static forRoot(lazyMapsAPILoaderConfig) {
+        return {
+            ngModule: AgmCoreModule_1,
+            providers: [
+                ...BROWSER_GLOBALS_PROVIDERS, { provide: MapsAPILoader, useClass: LazyMapsAPILoader },
+                { provide: LAZY_MAPS_API_CONFIG, useValue: lazyMapsAPILoaderConfig },
+            ],
+        };
+    }
+};
+AgmCoreModule = AgmCoreModule_1 = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({ declarations: coreDirectives(), exports: coreDirectives() })
+], AgmCoreModule);
+
+// main modules
 
 /**
  * Generated bundle index. Do not edit.
  */
 
 
-//# sourceMappingURL=ng-simple-slideshow.js.map
+//# sourceMappingURL=agm-core.js.map
 
 
 /***/ }),
 
-/***/ "./node_modules/ngx-bootstrap/component-loader/fesm2015/ngx-bootstrap-component-loader.js":
-/*!************************************************************************************************!*\
-  !*** ./node_modules/ngx-bootstrap/component-loader/fesm2015/ngx-bootstrap-component-loader.js ***!
-  \************************************************************************************************/
-/*! exports provided: BsComponentRef, ComponentLoader, ComponentLoaderFactory, ContentRef */
+/***/ "./src/app/shared/service/error.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/shared/service/error.service.ts ***!
+  \*************************************************/
+/*! exports provided: ErrorService */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsComponentRef", function() { return BsComponentRef; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentLoader", function() { return ComponentLoader; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentLoaderFactory", function() { return ComponentLoaderFactory; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContentRef", function() { return ContentRef; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ngx-bootstrap/utils */ "./node_modules/ngx-bootstrap/utils/fesm2015/ngx-bootstrap-utils.js");
-/* harmony import */ var ngx_bootstrap_positioning__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-bootstrap/positioning */ "./node_modules/ngx-bootstrap/positioning/fesm2015/ngx-bootstrap-positioning.js");
-
-
-
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @template T
- */
-class BsComponentRef {
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @copyright Valor Software
- * @copyright Angular ng-bootstrap team
- */
-class ContentRef {
-    /**
-     * @param {?} nodes
-     * @param {?=} viewRef
-     * @param {?=} componentRef
-     */
-    constructor(
-    /* tslint:disable-next-line: no-any */
-    nodes, viewRef, 
-    /* tslint:disable-next-line: no-any */
-    componentRef) {
-        this.nodes = nodes;
-        this.viewRef = viewRef;
-        this.componentRef = componentRef;
-    }
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @template T
- */
-class ComponentLoader {
-    /**
-     * Do not use this directly, it should be instanced via
-     * `ComponentLoadFactory.attach`
-     * \@internal
-     * @param {?} _viewContainerRef
-     * @param {?} _renderer
-     * @param {?} _elementRef
-     * @param {?} _injector
-     * @param {?} _componentFactoryResolver
-     * @param {?} _ngZone
-     * @param {?} _applicationRef
-     * @param {?} _posService
-     */
-    // tslint:disable-next-line
-    constructor(_viewContainerRef, _renderer, _elementRef, _injector, _componentFactoryResolver, _ngZone, _applicationRef, _posService) {
-        this._viewContainerRef = _viewContainerRef;
-        this._renderer = _renderer;
-        this._elementRef = _elementRef;
-        this._injector = _injector;
-        this._componentFactoryResolver = _componentFactoryResolver;
-        this._ngZone = _ngZone;
-        this._applicationRef = _applicationRef;
-        this._posService = _posService;
-        this.onBeforeShow = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /* tslint:disable-next-line: no-any*/
-        this.onShown = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /* tslint:disable-next-line: no-any*/
-        this.onBeforeHide = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onHidden = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this._providers = [];
-        this._isHiding = false;
-        /**
-         * A selector used if container element was not found
-         */
-        this.containerDefaultSelector = 'body';
-        this._listenOpts = {};
-        this._globalListener = Function.prototype;
-    }
-    /**
-     * @return {?}
-     */
-    get isShown() {
-        if (this._isHiding) {
-            return false;
-        }
-        return !!this._componentRef;
-    }
-    /**
-     * @param {?} compType
-     * @return {?}
-     */
-    attach(compType) {
-        this._componentFactory = this._componentFactoryResolver
-            .resolveComponentFactory(compType);
-        return this;
-    }
-    // todo: add behaviour: to target element, `body`, custom element
-    /**
-     * @param {?=} container
-     * @return {?}
-     */
-    to(container) {
-        this.container = container || this.container;
-        return this;
-    }
-    /**
-     * @param {?=} opts
-     * @return {?}
-     */
-    position(opts) {
-        this.attachment = opts.attachment || this.attachment;
-        /* tslint:disable-next-line: no-unnecessary-type-assertion */
-        this._elementRef = ((/** @type {?} */ (opts.target))) || this._elementRef;
-        return this;
-    }
-    /**
-     * @param {?} provider
-     * @return {?}
-     */
-    provide(provider) {
-        this._providers.push(provider);
-        return this;
-    }
-    // todo: appendChild to element or document.querySelector(this.container)
-    /**
-     * @param {?=} opts
-     * @return {?}
-     */
-    show(opts = {}) {
-        this._subscribePositioning();
-        this._innerComponent = null;
-        if (!this._componentRef) {
-            this.onBeforeShow.emit();
-            this._contentRef = this._getContentRef(opts.content, opts.context, opts.initialState);
-            /** @type {?} */
-            const injector = _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injector"].create({
-                providers: this._providers,
-                parent: this._injector
-            });
-            this._componentRef = this._componentFactory.create(injector, this._contentRef.nodes);
-            this._applicationRef.attachView(this._componentRef.hostView);
-            // this._componentRef = this._viewContainerRef
-            //   .createComponent(this._componentFactory, 0, injector, this._contentRef.nodes);
-            this.instance = this._componentRef.instance;
-            Object.assign(this._componentRef.instance, opts);
-            if (this.container instanceof _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]) {
-                this.container.nativeElement.appendChild(this._componentRef.location.nativeElement);
-            }
-            if (typeof this.container === 'string' && typeof document !== 'undefined') {
-                /** @type {?} */
-                const selectedElement = document.querySelector(this.container) ||
-                    document.querySelector(this.containerDefaultSelector);
-                selectedElement.appendChild(this._componentRef.location.nativeElement);
-            }
-            if (!this.container &&
-                this._elementRef &&
-                this._elementRef.nativeElement.parentElement) {
-                this._elementRef.nativeElement.parentElement.appendChild(this._componentRef.location.nativeElement);
-            }
-            // we need to manually invoke change detection since events registered
-            // via
-            // Renderer::listen() are not picked up by change detection with the
-            // OnPush strategy
-            if (this._contentRef.componentRef) {
-                this._innerComponent = this._contentRef.componentRef.instance;
-                this._contentRef.componentRef.changeDetectorRef.markForCheck();
-                this._contentRef.componentRef.changeDetectorRef.detectChanges();
-            }
-            this._componentRef.changeDetectorRef.markForCheck();
-            this._componentRef.changeDetectorRef.detectChanges();
-            this.onShown.emit(this._componentRef.instance);
-        }
-        this._registerOutsideClick();
-        return this._componentRef;
-    }
-    /**
-     * @return {?}
-     */
-    hide() {
-        if (!this._componentRef) {
-            return this;
-        }
-        this._posService.deletePositionElement(this._componentRef.location);
-        this.onBeforeHide.emit(this._componentRef.instance);
-        /** @type {?} */
-        const componentEl = this._componentRef.location.nativeElement;
-        componentEl.parentNode.removeChild(componentEl);
-        if (this._contentRef.componentRef) {
-            this._contentRef.componentRef.destroy();
-        }
-        this._componentRef.destroy();
-        if (this._viewContainerRef && this._contentRef.viewRef) {
-            this._viewContainerRef.remove(this._viewContainerRef.indexOf(this._contentRef.viewRef));
-        }
-        if (this._contentRef.viewRef) {
-            this._contentRef.viewRef.destroy();
-        }
-        this._contentRef = null;
-        this._componentRef = null;
-        this._removeGlobalListener();
-        this.onHidden.emit();
-        return this;
-    }
-    /**
-     * @return {?}
-     */
-    toggle() {
-        if (this.isShown) {
-            this.hide();
-            return;
-        }
-        this.show();
-    }
-    /**
-     * @return {?}
-     */
-    dispose() {
-        if (this.isShown) {
-            this.hide();
-        }
-        this._unsubscribePositioning();
-        if (this._unregisterListenersFn) {
-            this._unregisterListenersFn();
-        }
-    }
-    /**
-     * @param {?} listenOpts
-     * @return {?}
-     */
-    listen(listenOpts) {
-        this.triggers = listenOpts.triggers || this.triggers;
-        this._listenOpts.outsideClick = listenOpts.outsideClick;
-        this._listenOpts.outsideEsc = listenOpts.outsideEsc;
-        listenOpts.target = listenOpts.target || this._elementRef.nativeElement;
-        /** @type {?} */
-        const hide = (this._listenOpts.hide = (/**
-         * @return {?}
-         */
-        () => listenOpts.hide ? listenOpts.hide() : void this.hide()));
-        /** @type {?} */
-        const show = (this._listenOpts.show = (/**
-         * @param {?} registerHide
-         * @return {?}
-         */
-        (registerHide) => {
-            listenOpts.show ? listenOpts.show(registerHide) : this.show(registerHide);
-            registerHide();
-        }));
-        /** @type {?} */
-        const toggle = (/**
-         * @param {?} registerHide
-         * @return {?}
-         */
-        (registerHide) => {
-            this.isShown ? hide() : show(registerHide);
-        });
-        this._unregisterListenersFn = Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["listenToTriggersV2"])(this._renderer, {
-            target: listenOpts.target,
-            triggers: listenOpts.triggers,
-            show,
-            hide,
-            toggle
-        });
-        return this;
-    }
-    /**
-     * @return {?}
-     */
-    _removeGlobalListener() {
-        if (this._globalListener) {
-            this._globalListener();
-            this._globalListener = null;
-        }
-    }
-    /**
-     * @param {?} vRef
-     * @param {?} template
-     * @return {?}
-     */
-    attachInline(vRef, 
-    /* tslint:disable-next-line: no-any*/
-    template) {
-        this._inlineViewRef = vRef.createEmbeddedView(template);
-        return this;
-    }
-    /**
-     * @return {?}
-     */
-    _registerOutsideClick() {
-        if (!this._componentRef || !this._componentRef.location) {
-            return;
-        }
-        // why: should run after first event bubble
-        if (this._listenOpts.outsideClick) {
-            /** @type {?} */
-            const target = this._componentRef.location.nativeElement;
-            setTimeout((/**
-             * @return {?}
-             */
-            () => {
-                this._globalListener = Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["registerOutsideClick"])(this._renderer, {
-                    targets: [target, this._elementRef.nativeElement],
-                    outsideClick: this._listenOpts.outsideClick,
-                    hide: (/**
-                     * @return {?}
-                     */
-                    () => this._listenOpts.hide())
-                });
-            }));
-        }
-        if (this._listenOpts.outsideEsc) {
-            /** @type {?} */
-            const target = this._componentRef.location.nativeElement;
-            this._globalListener = Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["registerEscClick"])(this._renderer, {
-                targets: [target, this._elementRef.nativeElement],
-                outsideEsc: this._listenOpts.outsideEsc,
-                hide: (/**
-                 * @return {?}
-                 */
-                () => this._listenOpts.hide())
-            });
-        }
-    }
-    /**
-     * @return {?}
-     */
-    getInnerComponent() {
-        return this._innerComponent;
-    }
-    /**
-     * @private
-     * @return {?}
-     */
-    _subscribePositioning() {
-        if (this._zoneSubscription || !this.attachment) {
-            return;
-        }
-        this.onShown.subscribe((/**
-         * @return {?}
-         */
-        () => {
-            this._posService.position({
-                element: this._componentRef.location,
-                target: this._elementRef,
-                attachment: this.attachment,
-                appendToBody: this.container === 'body'
-            });
-        }));
-        this._zoneSubscription = this._ngZone.onStable.subscribe((/**
-         * @return {?}
-         */
-        () => {
-            if (!this._componentRef) {
-                return;
-            }
-            this._posService.calcPosition();
-        }));
-    }
-    /**
-     * @private
-     * @return {?}
-     */
-    _unsubscribePositioning() {
-        if (!this._zoneSubscription) {
-            return;
-        }
-        this._zoneSubscription.unsubscribe();
-        this._zoneSubscription = null;
-    }
-    /**
-     * @private
-     * @param {?} content
-     * @param {?=} context
-     * @param {?=} initialState
-     * @return {?}
-     */
-    _getContentRef(
-    /* tslint:disable-next-line: no-any*/
-    content, 
-    /* tslint:disable-next-line: no-any*/
-    context, 
-    /* tslint:disable-next-line: no-any*/
-    initialState) {
-        if (!content) {
-            return new ContentRef([]);
-        }
-        if (content instanceof _angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"]) {
-            if (this._viewContainerRef) {
-                /** @type {?} */
-                const _viewRef = this._viewContainerRef
-                    .createEmbeddedView(content, context);
-                _viewRef.markForCheck();
-                return new ContentRef([_viewRef.rootNodes], _viewRef);
-            }
-            /** @type {?} */
-            const viewRef = content.createEmbeddedView({});
-            this._applicationRef.attachView(viewRef);
-            return new ContentRef([viewRef.rootNodes], viewRef);
-        }
-        if (typeof content === 'function') {
-            /** @type {?} */
-            const contentCmptFactory = this._componentFactoryResolver.resolveComponentFactory(content);
-            /** @type {?} */
-            const modalContentInjector = _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injector"].create({
-                providers: this._providers,
-                parent: this._injector
-            });
-            /** @type {?} */
-            const componentRef = contentCmptFactory.create(modalContentInjector);
-            Object.assign(componentRef.instance, initialState);
-            this._applicationRef.attachView(componentRef.hostView);
-            return new ContentRef([[componentRef.location.nativeElement]], componentRef.hostView, componentRef);
-        }
-        return new ContentRef([[this._renderer.createText(`${content}`)]]);
-    }
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class ComponentLoaderFactory {
-    /**
-     * @param {?} _componentFactoryResolver
-     * @param {?} _ngZone
-     * @param {?} _injector
-     * @param {?} _posService
-     * @param {?} _applicationRef
-     */
-    constructor(_componentFactoryResolver, _ngZone, _injector, _posService, _applicationRef) {
-        this._componentFactoryResolver = _componentFactoryResolver;
-        this._ngZone = _ngZone;
-        this._injector = _injector;
-        this._posService = _posService;
-        this._applicationRef = _applicationRef;
-    }
-    /**
-     *
-     * @template T
-     * @param {?} _elementRef
-     * @param {?} _viewContainerRef
-     * @param {?} _renderer
-     * @return {?}
-     */
-    createLoader(_elementRef, _viewContainerRef, _renderer) {
-        return new ComponentLoader(_viewContainerRef, _renderer, _elementRef, this._injector, this._componentFactoryResolver, this._ngZone, this._applicationRef, this._posService);
-    }
-}
-ComponentLoaderFactory.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
-];
-/** @nocollapse */
-ComponentLoaderFactory.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injector"] },
-    { type: ngx_bootstrap_positioning__WEBPACK_IMPORTED_MODULE_2__["PositioningService"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ApplicationRef"] }
-];
-
-
-//# sourceMappingURL=ngx-bootstrap-component-loader.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js ***!
-  \**************************************************************************/
-/*! exports provided: BsModalRef, BsModalService, ModalBackdropComponent, ModalBackdropOptions, ModalContainerComponent, ModalDirective, ModalModule, ModalOptions, ɵa */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsModalRef", function() { return BsModalRef; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsModalService", function() { return BsModalService; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalBackdropComponent", function() { return ModalBackdropComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalBackdropOptions", function() { return ModalBackdropOptions; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalContainerComponent", function() { return ModalContainerComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalDirective", function() { return ModalDirective; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalModule", function() { return ModalModule; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalOptions", function() { return ModalOptions; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return CLASS_NAME; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ngx-bootstrap/utils */ "./node_modules/ngx-bootstrap/utils/fesm2015/ngx-bootstrap-utils.js");
-/* harmony import */ var ngx_bootstrap_component_loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-bootstrap/component-loader */ "./node_modules/ngx-bootstrap/component-loader/fesm2015/ngx-bootstrap-component-loader.js");
-/* harmony import */ var ngx_bootstrap_positioning__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-bootstrap/positioning */ "./node_modules/ngx-bootstrap/positioning/fesm2015/ngx-bootstrap-positioning.js");
-
-
-
-
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class BsModalRef {
-    constructor() {
-        /**
-         * Hides the modal
-         */
-        this.hide = Function;
-        /**
-         * Sets new class to modal window
-         */
-        this.setClass = Function;
-    }
-}
-BsModalRef.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
-];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class ModalBackdropOptions {
-    /**
-     * @param {?} options
-     */
-    constructor(options) {
-        this.animate = true;
-        Object.assign(this, options);
-    }
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class ModalOptions {
-}
-ModalOptions.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
-];
-/** @type {?} */
-const modalConfigDefaults = {
-    backdrop: true,
-    keyboard: true,
-    focus: true,
-    show: false,
-    ignoreBackdropClick: false,
-    class: '',
-    animated: true,
-    initialState: {}
-};
-/** @type {?} */
-const CLASS_NAME = {
-    SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
-    BACKDROP: 'modal-backdrop',
-    OPEN: 'modal-open',
-    FADE: 'fade',
-    IN: 'in',
-    // bs3
-    SHOW: 'show' // bs4
-};
-/** @type {?} */
-const TRANSITION_DURATIONS = {
-    MODAL: 300,
-    BACKDROP: 150
-};
-/** @type {?} */
-const DISMISS_REASONS = {
-    BACKRDOP: 'backdrop-click',
-    ESC: 'esc'
-};
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class ModalContainerComponent {
-    /**
-     * @param {?} options
-     * @param {?} _element
-     * @param {?} _renderer
-     */
-    constructor(options, _element, _renderer) {
-        this._element = _element;
-        this._renderer = _renderer;
-        this.isShown = false;
-        this.isModalHiding = false;
-        this.config = Object.assign({}, options);
-    }
-    /**
-     * @return {?}
-     */
-    ngOnInit() {
-        if (this.isAnimated) {
-            this._renderer.addClass(this._element.nativeElement, CLASS_NAME.FADE);
-        }
-        this._renderer.setStyle(this._element.nativeElement, 'display', 'block');
-        setTimeout((/**
-         * @return {?}
-         */
-        () => {
-            this.isShown = true;
-            this._renderer.addClass(this._element.nativeElement, Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["isBs3"])() ? CLASS_NAME.IN : CLASS_NAME.SHOW);
-        }), this.isAnimated ? TRANSITION_DURATIONS.BACKDROP : 0);
-        if (document && document.body) {
-            if (this.bsModalService.getModalsCount() === 1) {
-                this.bsModalService.checkScrollbar();
-                this.bsModalService.setScrollbar();
-            }
-            this._renderer.addClass(document.body, CLASS_NAME.OPEN);
-        }
-        if (this._element.nativeElement) {
-            this._element.nativeElement.focus();
-        }
-    }
-    /**
-     * @param {?} event
-     * @return {?}
-     */
-    onClick(event) {
-        if (this.config.ignoreBackdropClick ||
-            this.config.backdrop === 'static' ||
-            event.target !== this._element.nativeElement) {
-            return;
-        }
-        this.bsModalService.setDismissReason(DISMISS_REASONS.BACKRDOP);
-        this.hide();
-    }
-    /**
-     * @param {?} event
-     * @return {?}
-     */
-    onEsc(event) {
-        if (!this.isShown) {
-            return;
-        }
-        // tslint:disable-next-line:deprecation
-        if (event.keyCode === 27 || event.key === 'Escape') {
-            event.preventDefault();
-        }
-        if (this.config.keyboard &&
-            this.level === this.bsModalService.getModalsCount()) {
-            this.bsModalService.setDismissReason(DISMISS_REASONS.ESC);
-            this.hide();
-        }
-    }
-    /**
-     * @return {?}
-     */
-    ngOnDestroy() {
-        if (this.isShown) {
-            this.hide();
-        }
-    }
-    /**
-     * @return {?}
-     */
-    hide() {
-        if (this.isModalHiding || !this.isShown) {
-            return;
-        }
-        this.isModalHiding = true;
-        this._renderer.removeClass(this._element.nativeElement, Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["isBs3"])() ? CLASS_NAME.IN : CLASS_NAME.SHOW);
-        setTimeout((/**
-         * @return {?}
-         */
-        () => {
-            this.isShown = false;
-            if (document &&
-                document.body &&
-                this.bsModalService.getModalsCount() === 1) {
-                this._renderer.removeClass(document.body, CLASS_NAME.OPEN);
-            }
-            this.bsModalService.hide(this.level);
-            this.isModalHiding = false;
-        }), this.isAnimated ? TRANSITION_DURATIONS.MODAL : 0);
-    }
-}
-ModalContainerComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
-                selector: 'modal-container',
-                template: `
-    <div [class]="'modal-dialog' + (config.class ? ' ' + config.class : '')" role="document">
-      <div class="modal-content">
-        <ng-content></ng-content>
-      </div>
-    </div>
-  `,
-                host: {
-                    class: 'modal',
-                    role: 'dialog',
-                    tabindex: '-1',
-                    '[attr.aria-modal]': 'true'
-                }
-            }] }
-];
-/** @nocollapse */
-ModalContainerComponent.ctorParameters = () => [
-    { type: ModalOptions },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"] }
-];
-ModalContainerComponent.propDecorators = {
-    onClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"], args: ['click', ['$event'],] }],
-    onEsc: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"], args: ['window:keydown.esc', ['$event'],] }]
-};
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * This component will be added as background layout for modals if enabled
- */
-class ModalBackdropComponent {
-    /**
-     * @param {?} element
-     * @param {?} renderer
-     */
-    constructor(element, renderer) {
-        this._isShown = false;
-        this.element = element;
-        this.renderer = renderer;
-    }
-    /**
-     * @return {?}
-     */
-    get isAnimated() {
-        return this._isAnimated;
-    }
-    /**
-     * @param {?} value
-     * @return {?}
-     */
-    set isAnimated(value) {
-        this._isAnimated = value;
-        // this.renderer.setElementClass(this.element.nativeElement, `${ClassName.FADE}`, value);
-    }
-    /**
-     * @return {?}
-     */
-    get isShown() {
-        return this._isShown;
-    }
-    /**
-     * @param {?} value
-     * @return {?}
-     */
-    set isShown(value) {
-        this._isShown = value;
-        if (value) {
-            this.renderer.addClass(this.element.nativeElement, `${CLASS_NAME.IN}`);
-        }
-        else {
-            this.renderer.removeClass(this.element.nativeElement, `${CLASS_NAME.IN}`);
-        }
-        if (!Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["isBs3"])()) {
-            if (value) {
-                this.renderer.addClass(this.element.nativeElement, `${CLASS_NAME.SHOW}`);
-            }
-            else {
-                this.renderer.removeClass(this.element.nativeElement, `${CLASS_NAME.SHOW}`);
-            }
-        }
-    }
-    /**
-     * @return {?}
-     */
-    ngOnInit() {
-        if (this.isAnimated) {
-            this.renderer.addClass(this.element.nativeElement, `${CLASS_NAME.FADE}`);
-            ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["Utils"].reflow(this.element.nativeElement);
-        }
-        this.isShown = true;
-    }
-}
-ModalBackdropComponent.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
-                selector: 'bs-modal-backdrop',
-                template: ' ',
-                host: { class: CLASS_NAME.BACKDROP }
-            }] }
-];
-/** @nocollapse */
-ModalBackdropComponent.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"] }
-];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @type {?} */
-const TRANSITION_DURATION = 300;
-/** @type {?} */
-const BACKDROP_TRANSITION_DURATION = 150;
-/**
- * Mark any code with directive to show it's content in modal
- */
-class ModalDirective {
-    /**
-     * @param {?} _element
-     * @param {?} _viewContainerRef
-     * @param {?} _renderer
-     * @param {?} clf
-     */
-    constructor(_element, _viewContainerRef, _renderer, clf) {
-        this._element = _element;
-        this._renderer = _renderer;
-        /**
-         * This event fires immediately when the `show` instance method is called.
-         */
-        this.onShow = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-         * This event is fired when the modal has been made visible to the user
-         * (will wait for CSS transitions to complete)
-         */
-        this.onShown = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-         * This event is fired immediately when
-         * the hide instance method has been called.
-         */
-        this.onHide = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        /**
-         * This event is fired when the modal has finished being
-         * hidden from the user (will wait for CSS transitions to complete).
-         */
-        this.onHidden = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this._isShown = false;
-        this.isBodyOverflowing = false;
-        this.originalBodyPadding = 0;
-        this.scrollbarWidth = 0;
-        this.timerHideModal = 0;
-        this.timerRmBackDrop = 0;
-        this.isNested = false;
-        this._backdrop = clf.createLoader(_element, _viewContainerRef, _renderer);
-    }
-    /**
-     * allows to set modal configuration via element property
-     * @param {?} conf
-     * @return {?}
-     */
-    set config(conf) {
-        this._config = this.getConfig(conf);
-    }
-    /**
-     * @return {?}
-     */
-    get config() {
-        return this._config;
-    }
-    /**
-     * @return {?}
-     */
-    get isShown() {
-        return this._isShown;
-    }
-    /**
-     * @param {?} event
-     * @return {?}
-     */
-    onClick(event) {
-        if (this.config.ignoreBackdropClick ||
-            this.config.backdrop === 'static' ||
-            event.target !== this._element.nativeElement) {
-            return;
-        }
-        this.dismissReason = DISMISS_REASONS.BACKRDOP;
-        this.hide(event);
-    }
-    // todo: consider preventing default and stopping propagation
-    /**
-     * @param {?} event
-     * @return {?}
-     */
-    onEsc(event) {
-        if (!this._isShown) {
-            return;
-        }
-        // tslint:disable-next-line:deprecation
-        if (event.keyCode === 27 || event.key === 'Escape') {
-            event.preventDefault();
-        }
-        if (this.config.keyboard) {
-            this.dismissReason = DISMISS_REASONS.ESC;
-            this.hide();
-        }
-    }
-    /**
-     * @return {?}
-     */
-    ngOnDestroy() {
-        this.config = void 0;
-        if (this._isShown) {
-            this._isShown = false;
-            this.hideModal();
-            this._backdrop.dispose();
-        }
-    }
-    /**
-     * @return {?}
-     */
-    ngOnInit() {
-        this._config = this._config || this.getConfig();
-        setTimeout((/**
-         * @return {?}
-         */
-        () => {
-            if (this._config.show) {
-                this.show();
-            }
-        }), 0);
-    }
-    /* Public methods */
-    /**
-     * Allows to manually toggle modal visibility
-     * @return {?}
-     */
-    toggle() {
-        return this._isShown ? this.hide() : this.show();
-    }
-    /**
-     * Allows to manually open modal
-     * @return {?}
-     */
-    show() {
-        this.dismissReason = null;
-        this.onShow.emit(this);
-        if (this._isShown) {
-            return;
-        }
-        clearTimeout(this.timerHideModal);
-        clearTimeout(this.timerRmBackDrop);
-        this._isShown = true;
-        this.checkScrollbar();
-        this.setScrollbar();
-        if (ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"] && ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body) {
-            if (ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body.classList.contains(CLASS_NAME.OPEN)) {
-                this.isNested = true;
-            }
-            else {
-                this._renderer.addClass(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body, CLASS_NAME.OPEN);
-            }
-        }
-        this.showBackdrop((/**
-         * @return {?}
-         */
-        () => {
-            this.showElement();
-        }));
-    }
-    /**
-     * Allows to manually close modal
-     * @param {?=} event
-     * @return {?}
-     */
-    hide(event) {
-        if (event) {
-            event.preventDefault();
-        }
-        this.onHide.emit(this);
-        // todo: add an option to prevent hiding
-        if (!this._isShown) {
-            return;
-        }
-        ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["window"].clearTimeout(this.timerHideModal);
-        ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["window"].clearTimeout(this.timerRmBackDrop);
-        this._isShown = false;
-        this._renderer.removeClass(this._element.nativeElement, CLASS_NAME.IN);
-        if (!Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["isBs3"])()) {
-            this._renderer.removeClass(this._element.nativeElement, CLASS_NAME.SHOW);
-        }
-        // this._addClassIn = false;
-        if (this._config.animated) {
-            this.timerHideModal = ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["window"].setTimeout((/**
-             * @return {?}
-             */
-            () => this.hideModal()), TRANSITION_DURATION);
-        }
-        else {
-            this.hideModal();
-        }
-    }
-    /**
-     * Private methods \@internal
-     * @protected
-     * @param {?=} config
-     * @return {?}
-     */
-    getConfig(config) {
-        return Object.assign({}, modalConfigDefaults, config);
-    }
-    /**
-     *  Show dialog
-     * \@internal
-     * @protected
-     * @return {?}
-     */
-    showElement() {
-        // todo: replace this with component loader usage
-        if (!this._element.nativeElement.parentNode ||
-            this._element.nativeElement.parentNode.nodeType !== Node.ELEMENT_NODE) {
-            // don't move modals dom position
-            if (ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"] && ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body) {
-                ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body.appendChild(this._element.nativeElement);
-            }
-        }
-        this._renderer.setAttribute(this._element.nativeElement, 'aria-hidden', 'false');
-        this._renderer.setAttribute(this._element.nativeElement, 'aria-modal', 'true');
-        this._renderer.setStyle(this._element.nativeElement, 'display', 'block');
-        this._renderer.setProperty(this._element.nativeElement, 'scrollTop', 0);
-        if (this._config.animated) {
-            ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["Utils"].reflow(this._element.nativeElement);
-        }
-        // this._addClassIn = true;
-        this._renderer.addClass(this._element.nativeElement, CLASS_NAME.IN);
-        if (!Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["isBs3"])()) {
-            this._renderer.addClass(this._element.nativeElement, CLASS_NAME.SHOW);
-        }
-        /** @type {?} */
-        const transitionComplete = (/**
-         * @return {?}
-         */
-        () => {
-            if (this._config.focus) {
-                this._element.nativeElement.focus();
-            }
-            this.onShown.emit(this);
-        });
-        if (this._config.animated) {
-            setTimeout(transitionComplete, TRANSITION_DURATION);
-        }
-        else {
-            transitionComplete();
-        }
-    }
-    /**
-     * \@internal
-     * @protected
-     * @return {?}
-     */
-    hideModal() {
-        this._renderer.setAttribute(this._element.nativeElement, 'aria-hidden', 'true');
-        this._renderer.setStyle(this._element.nativeElement, 'display', 'none');
-        this.showBackdrop((/**
-         * @return {?}
-         */
-        () => {
-            if (!this.isNested) {
-                if (ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"] && ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body) {
-                    this._renderer.removeClass(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body, CLASS_NAME.OPEN);
-                }
-                this.resetScrollbar();
-            }
-            this.resetAdjustments();
-            this.focusOtherModal();
-            this.onHidden.emit(this);
-        }));
-    }
-    // todo: original show was calling a callback when done, but we can use
-    // promise
-    /**
-     * \@internal
-     * @protected
-     * @param {?=} callback
-     * @return {?}
-     */
-    showBackdrop(callback) {
-        if (this._isShown &&
-            this.config.backdrop &&
-            (!this.backdrop || !this.backdrop.instance.isShown)) {
-            this.removeBackdrop();
-            this._backdrop
-                .attach(ModalBackdropComponent)
-                .to('body')
-                .show({ isAnimated: this._config.animated });
-            this.backdrop = this._backdrop._componentRef;
-            if (!callback) {
-                return;
-            }
-            if (!this._config.animated) {
-                callback();
-                return;
-            }
-            setTimeout(callback, BACKDROP_TRANSITION_DURATION);
-        }
-        else if (!this._isShown && this.backdrop) {
-            this.backdrop.instance.isShown = false;
-            /** @type {?} */
-            const callbackRemove = (/**
-             * @return {?}
-             */
-            () => {
-                this.removeBackdrop();
-                if (callback) {
-                    callback();
-                }
-            });
-            if (this.backdrop.instance.isAnimated) {
-                this.timerRmBackDrop = ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["window"].setTimeout(callbackRemove, BACKDROP_TRANSITION_DURATION);
-            }
-            else {
-                callbackRemove();
-            }
-        }
-        else if (callback) {
-            callback();
-        }
-    }
-    /**
-     * \@internal
-     * @protected
-     * @return {?}
-     */
-    removeBackdrop() {
-        this._backdrop.hide();
-    }
-    /**
-     * Events tricks
-     * @protected
-     * @return {?}
-     */
-    // no need for it
-    // protected setEscapeEvent():void {
-    //   if (this._isShown && this._config.keyboard) {
-    //     $(this._element).on(Event.KEYDOWN_DISMISS, (event) => {
-    //       if (event.which === 27) {
-    //         this.hide()
-    //       }
-    //     })
-    //
-    //   } else if (!this._isShown) {
-    //     $(this._element).off(Event.KEYDOWN_DISMISS)
-    //   }
-    // }
-    // protected setResizeEvent():void {
-    // console.log(this.renderer.listenGlobal('', Event.RESIZE));
-    // if (this._isShown) {
-    //   $(window).on(Event.RESIZE, $.proxy(this._handleUpdate, this))
-    // } else {
-    //   $(window).off(Event.RESIZE)
-    // }
-    // }
-    focusOtherModal() {
-        if (this._element.nativeElement.parentElement == null) {
-            return;
-        }
-        /** @type {?} */
-        const otherOpenedModals = this._element.nativeElement.parentElement.querySelectorAll('.in[bsModal]');
-        if (!otherOpenedModals.length) {
-            return;
-        }
-        otherOpenedModals[otherOpenedModals.length - 1].focus();
-    }
-    /**
-     * \@internal
-     * @protected
-     * @return {?}
-     */
-    resetAdjustments() {
-        this._renderer.setStyle(this._element.nativeElement, 'paddingLeft', '');
-        this._renderer.setStyle(this._element.nativeElement, 'paddingRight', '');
-    }
-    /** Scroll bar tricks */
-    /**
-     * \@internal
-     * @protected
-     * @return {?}
-     */
-    checkScrollbar() {
-        this.isBodyOverflowing = ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body.clientWidth < ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["window"].innerWidth;
-        this.scrollbarWidth = this.getScrollbarWidth();
-    }
-    /**
-     * @protected
-     * @return {?}
-     */
-    setScrollbar() {
-        if (!ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"]) {
-            return;
-        }
-        this.originalBodyPadding = parseInt(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["window"]
-            .getComputedStyle(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body)
-            .getPropertyValue('padding-right') || 0, 10);
-        if (this.isBodyOverflowing) {
-            ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body.style.paddingRight = `${this.originalBodyPadding +
-                this.scrollbarWidth}px`;
-        }
-    }
-    /**
-     * @protected
-     * @return {?}
-     */
-    resetScrollbar() {
-        ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body.style.paddingRight = `${this.originalBodyPadding}px`;
-    }
-    // thx d.walsh
-    /**
-     * @protected
-     * @return {?}
-     */
-    getScrollbarWidth() {
-        /** @type {?} */
-        const scrollDiv = this._renderer.createElement('div');
-        this._renderer.addClass(scrollDiv, CLASS_NAME.SCROLLBAR_MEASURER);
-        this._renderer.appendChild(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body, scrollDiv);
-        /** @type {?} */
-        const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-        this._renderer.removeChild(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body, scrollDiv);
-        return scrollbarWidth;
-    }
-}
-ModalDirective.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
-                selector: '[bsModal]',
-                exportAs: 'bs-modal'
-            },] }
-];
-/** @nocollapse */
-ModalDirective.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"] },
-    { type: ngx_bootstrap_component_loader__WEBPACK_IMPORTED_MODULE_2__["ComponentLoaderFactory"] }
-];
-ModalDirective.propDecorators = {
-    config: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
-    onShow: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
-    onShown: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
-    onHide: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
-    onHidden: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
-    onClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"], args: ['click', ['$event'],] }],
-    onEsc: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"], args: ['keydown.esc', ['$event'],] }]
-};
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class BsModalService {
-    /**
-     * @param {?} rendererFactory
-     * @param {?} clf
-     */
-    constructor(rendererFactory, clf) {
-        this.clf = clf;
-        // constructor props
-        this.config = modalConfigDefaults;
-        // tslint:disable-next-line:no-any
-        this.onShow = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        // tslint:disable-next-line:no-any
-        this.onShown = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        // tslint:disable-next-line:no-any
-        this.onHide = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        // tslint:disable-next-line:no-any
-        this.onHidden = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.isBodyOverflowing = false;
-        this.originalBodyPadding = 0;
-        this.scrollbarWidth = 0;
-        this.modalsCount = 0;
-        this.lastDismissReason = '';
-        this.loaders = [];
-        this._backdropLoader = this.clf.createLoader(null, null, null);
-        this._renderer = rendererFactory.createRenderer(null, null);
-    }
-    /**
-     * Shows a modal
-     * @param {?} content
-     * @param {?=} config
-     * @return {?}
-     */
-    // tslint:disable-next-line:no-any
-    show(content, config) {
-        this.modalsCount++;
-        this._createLoaders();
-        this.config = Object.assign({}, modalConfigDefaults, config);
-        this._showBackdrop();
-        this.lastDismissReason = null;
-        return this._showModal(content);
-    }
-    /**
-     * @param {?} level
-     * @return {?}
-     */
-    hide(level) {
-        if (this.modalsCount === 1) {
-            this._hideBackdrop();
-            this.resetScrollbar();
-        }
-        this.modalsCount = this.modalsCount >= 1 ? this.modalsCount - 1 : 0;
-        setTimeout((/**
-         * @return {?}
-         */
-        () => {
-            this._hideModal(level);
-            this.removeLoaders(level);
-        }), this.config.animated ? TRANSITION_DURATIONS.BACKDROP : 0);
-    }
-    /**
-     * @return {?}
-     */
-    _showBackdrop() {
-        /** @type {?} */
-        const isBackdropEnabled = this.config.backdrop || this.config.backdrop === 'static';
-        /** @type {?} */
-        const isBackdropInDOM = !this.backdropRef || !this.backdropRef.instance.isShown;
-        if (this.modalsCount === 1) {
-            this.removeBackdrop();
-            if (isBackdropEnabled && isBackdropInDOM) {
-                this._backdropLoader
-                    .attach(ModalBackdropComponent)
-                    .to('body')
-                    .show({ isAnimated: this.config.animated });
-                this.backdropRef = this._backdropLoader._componentRef;
-            }
-        }
-    }
-    /**
-     * @return {?}
-     */
-    _hideBackdrop() {
-        if (!this.backdropRef) {
-            return;
-        }
-        this.backdropRef.instance.isShown = false;
-        /** @type {?} */
-        const duration = this.config.animated ? TRANSITION_DURATIONS.BACKDROP : 0;
-        setTimeout((/**
-         * @return {?}
-         */
-        () => this.removeBackdrop()), duration);
-    }
-    // tslint:disable-next-line:no-any
-    /**
-     * @param {?} content
-     * @return {?}
-     */
-    _showModal(content) {
-        /** @type {?} */
-        const modalLoader = this.loaders[this.loaders.length - 1];
-        /** @type {?} */
-        const bsModalRef = new BsModalRef();
-        /** @type {?} */
-        const modalContainerRef = modalLoader
-            .provide({ provide: ModalOptions, useValue: this.config })
-            .provide({ provide: BsModalRef, useValue: bsModalRef })
-            .attach(ModalContainerComponent)
-            .to('body')
-            .show({ content, isAnimated: this.config.animated, initialState: this.config.initialState, bsModalService: this });
-        modalContainerRef.instance.level = this.getModalsCount();
-        bsModalRef.hide = (/**
-         * @return {?}
-         */
-        () => {
-            modalContainerRef.instance.hide();
-        });
-        bsModalRef.content = modalLoader.getInnerComponent() || null;
-        bsModalRef.setClass = (/**
-         * @param {?} newClass
-         * @return {?}
-         */
-        (newClass) => {
-            modalContainerRef.instance.config.class = newClass;
-        });
-        return bsModalRef;
-    }
-    /**
-     * @param {?} level
-     * @return {?}
-     */
-    _hideModal(level) {
-        /** @type {?} */
-        const modalLoader = this.loaders[level - 1];
-        if (modalLoader) {
-            modalLoader.hide();
-        }
-    }
-    /**
-     * @return {?}
-     */
-    getModalsCount() {
-        return this.modalsCount;
-    }
-    /**
-     * @param {?} reason
-     * @return {?}
-     */
-    setDismissReason(reason) {
-        this.lastDismissReason = reason;
-    }
-    /**
-     * @return {?}
-     */
-    removeBackdrop() {
-        this._backdropLoader.hide();
-        this.backdropRef = null;
-    }
-    /** AFTER PR MERGE MODAL.COMPONENT WILL BE USING THIS CODE */
-    /** Scroll bar tricks */
-    /**
-     * \@internal
-     * @return {?}
-     */
-    checkScrollbar() {
-        this.isBodyOverflowing = document.body.clientWidth < window.innerWidth;
-        this.scrollbarWidth = this.getScrollbarWidth();
-    }
-    /**
-     * @return {?}
-     */
-    setScrollbar() {
-        if (!document) {
-            return;
-        }
-        this.originalBodyPadding = parseInt(window
-            .getComputedStyle(document.body)
-            .getPropertyValue('padding-right') || '0', 10);
-        if (this.isBodyOverflowing) {
-            document.body.style.paddingRight = `${this.originalBodyPadding +
-                this.scrollbarWidth}px`;
-        }
-    }
-    /**
-     * @private
-     * @return {?}
-     */
-    resetScrollbar() {
-        document.body.style.paddingRight = `${this.originalBodyPadding}px`;
-    }
-    // thx d.walsh
-    /**
-     * @private
-     * @return {?}
-     */
-    getScrollbarWidth() {
-        /** @type {?} */
-        const scrollDiv = this._renderer.createElement('div');
-        this._renderer.addClass(scrollDiv, CLASS_NAME.SCROLLBAR_MEASURER);
-        this._renderer.appendChild(document.body, scrollDiv);
-        /** @type {?} */
-        const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-        this._renderer.removeChild(document.body, scrollDiv);
-        return scrollbarWidth;
-    }
-    /**
-     * @private
-     * @return {?}
-     */
-    _createLoaders() {
-        /** @type {?} */
-        const loader = this.clf.createLoader(null, null, null);
-        this.copyEvent(loader.onBeforeShow, this.onShow);
-        this.copyEvent(loader.onShown, this.onShown);
-        this.copyEvent(loader.onBeforeHide, this.onHide);
-        this.copyEvent(loader.onHidden, this.onHidden);
-        this.loaders.push(loader);
-    }
-    /**
-     * @private
-     * @param {?} level
-     * @return {?}
-     */
-    removeLoaders(level) {
-        this.loaders.splice(level - 1, 1);
-        this.loaders.forEach((/**
-         * @param {?} loader
-         * @param {?} i
-         * @return {?}
-         */
-        (loader, i) => {
-            loader.instance.level = i + 1;
-        }));
-    }
-    // tslint:disable-next-line:no-any
-    /**
-     * @private
-     * @param {?} from
-     * @param {?} to
-     * @return {?}
-     */
-    copyEvent(from, to) {
-        from.subscribe((/**
-         * @return {?}
-         */
-        () => {
-            to.emit(this.lastDismissReason);
-        }));
-    }
-}
-BsModalService.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
-];
-/** @nocollapse */
-BsModalService.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["RendererFactory2"] },
-    { type: ngx_bootstrap_component_loader__WEBPACK_IMPORTED_MODULE_2__["ComponentLoaderFactory"] }
-];
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class ModalModule {
-    /**
-     * @return {?}
-     */
-    static forRoot() {
-        return {
-            ngModule: ModalModule,
-            providers: [BsModalService, ngx_bootstrap_component_loader__WEBPACK_IMPORTED_MODULE_2__["ComponentLoaderFactory"], ngx_bootstrap_positioning__WEBPACK_IMPORTED_MODULE_3__["PositioningService"]]
-        };
-    }
-}
-ModalModule.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
-                declarations: [
-                    ModalBackdropComponent,
-                    ModalDirective,
-                    ModalContainerComponent
-                ],
-                exports: [ModalBackdropComponent, ModalDirective],
-                entryComponents: [ModalBackdropComponent, ModalContainerComponent]
-            },] }
-];
-
-
-//# sourceMappingURL=ngx-bootstrap-modal.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/ngx-bootstrap/positioning/fesm2015/ngx-bootstrap-positioning.js":
-/*!**************************************************************************************!*\
-  !*** ./node_modules/ngx-bootstrap/positioning/fesm2015/ngx-bootstrap-positioning.js ***!
-  \**************************************************************************************/
-/*! exports provided: Positioning, PositioningService, positionElements */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Positioning", function() { return Positioning; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PositioningService", function() { return PositioningService; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "positionElements", function() { return positionElements; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-
-
-
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * Get CSS computed property of the given element
- * @param {?} element
- * @param {?=} property
- * @return {?}
- */
-function getStyleComputedProperty(element, property) {
-    if (element.nodeType !== 1) {
-        return [];
-    }
-    // NOTE: 1 DOM access here
-    /** @type {?} */
-    const window = element.ownerDocument.defaultView;
-    /** @type {?} */
-    const css = window.getComputedStyle(element, null);
-    return property ? css[(/** @type {?} */ (property))] : css;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * Returns the parentNode or the host of the element
- * @param {?} element
- * @return {?}
- */
-function getParentNode(element) {
-    if (element.nodeName === 'HTML') {
-        return element;
-    }
-    return element.parentNode || element.host;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} element
- * @return {?}
- */
-function getScrollParent(element) {
-    // Return body, `getScroll` will take care to get the correct `scrollTop` from it
-    if (!element) {
-        return document.body;
-    }
-    switch (element.nodeName) {
-        case 'HTML':
-        case 'BODY':
-            return element.ownerDocument.body;
-        case '#document':
-            return element.body;
-        default:
-    }
-    // Firefox want us to check `-x` and `-y` variations as well
-    const { overflow, overflowX, overflowY } = getStyleComputedProperty(element);
-    if (/(auto|scroll|overlay)/.test(String(overflow) + String(overflowY) + String(overflowX))) {
-        return element;
-    }
-    return getScrollParent(getParentNode(element));
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @type {?} */
-const isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @type {?} */
-const isIE11 = isBrowser && !!(((/** @type {?} */ (window))).MSInputMethodContext && ((/** @type {?} */ (document))).documentMode);
-/** @type {?} */
-const isIE10 = isBrowser && !!(((/** @type {?} */ (window))).MSInputMethodContext && /MSIE 10/.test(((/** @type {?} */ (navigator))).userAgent));
-/**
- * @param {?=} version
- * @return {?}
- */
-function isIE(version) {
-    if (version === 11) {
-        return isIE11;
-    }
-    if (version === 10) {
-        return isIE10;
-    }
-    return isIE11 || isIE10;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} element
- * @return {?}
- */
-function getOffsetParent(element) {
-    if (!element) {
-        return document.documentElement;
-    }
-    /** @type {?} */
-    const noOffsetParent = isIE(10) ? document.body : null;
-    // NOTE: 1 DOM access here
-    /** @type {?} */
-    let offsetParent = element.offsetParent || null;
-    // Skip hidden elements which don't have an offsetParent
-    /** @type {?} */
-    let sibling;
-    while (offsetParent === noOffsetParent
-        && element.nextElementSibling
-        && sibling !== element.nextElementSibling) {
-        sibling = element.nextElementSibling;
-        offsetParent = sibling.offsetParent;
-    }
-    /** @type {?} */
-    const nodeName = offsetParent && offsetParent.nodeName;
-    if (!nodeName || nodeName === 'BODY' || nodeName === 'HTML') {
-        return sibling ? sibling.ownerDocument.documentElement : document.documentElement;
-    }
-    // .offsetParent will return the closest TH, TD or TABLE in case
-    if (['TH', 'TD', 'TABLE'].indexOf(offsetParent.nodeName) !== -1 &&
-        getStyleComputedProperty(offsetParent, 'position') === 'static') {
-        return getOffsetParent(offsetParent);
-    }
-    return offsetParent;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} element
- * @return {?}
- */
-function isOffsetContainer(element) {
-    const { nodeName } = element;
-    if (nodeName === 'BODY') {
-        return false;
-    }
-    return (nodeName === 'HTML' || getOffsetParent(element.firstElementChild) === element);
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * Finds the root node (document, shadowDOM root) of the given element
- * @param {?} node
- * @return {?}
- */
-function getRoot(node) {
-    if (node.parentNode !== null) {
-        return getRoot(node.parentNode);
-    }
-    return node;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} element1
- * @param {?} element2
- * @return {?}
- */
-function findCommonOffsetParent(element1, element2) {
-    // This check is needed to avoid errors in case one of the elements isn't defined for any reason
-    if (!element1 || !element1.nodeType || !element2 || !element2.nodeType) {
-        return document.documentElement;
-    }
-    // Here we make sure to give as "start" the element that comes first in the DOM
-    /* tslint:disable-next-line: no-bitwise */
-    /** @type {?} */
-    const order = element1.compareDocumentPosition(element2) & Node.DOCUMENT_POSITION_FOLLOWING;
-    /** @type {?} */
-    const start = order ? element1 : element2;
-    /** @type {?} */
-    const end = order ? element2 : element1;
-    // Get common ancestor container
-    /** @type {?} */
-    const range = document.createRange();
-    range.setStart(start, 0);
-    range.setEnd(end, 0);
-    const { commonAncestorContainer } = range;
-    // Both nodes are inside #document
-    if ((element1 !== commonAncestorContainer &&
-        element2 !== commonAncestorContainer) ||
-        start.contains(end)) {
-        if (isOffsetContainer(commonAncestorContainer)) {
-            return commonAncestorContainer;
-        }
-        return getOffsetParent(commonAncestorContainer);
-    }
-    // one of the nodes is inside shadowDOM, find which one
-    /** @type {?} */
-    const element1root = getRoot(element1);
-    if (element1root.host) {
-        return findCommonOffsetParent(element1root.host, element2);
-    }
-    else {
-        return findCommonOffsetParent(element1, getRoot(element2).host);
-    }
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * Helper to detect borders of a given element
- */
-/**
- * @param {?} styles
- * @param {?} axis
- * @return {?}
- */
-function getBordersSize(styles, axis) {
-    /** @type {?} */
-    const sideA = axis === 'x' ? 'Left' : 'Top';
-    /** @type {?} */
-    const sideB = sideA === 'Left' ? 'Right' : 'Bottom';
-    return (parseFloat(styles[(/** @type {?} */ (`border${sideA}Width`))]) +
-        parseFloat(styles[(/** @type {?} */ (`border${sideB}Width`))]));
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} axis
- * @param {?} body
- * @param {?} html
- * @param {?} computedStyle
- * @return {?}
- */
-function getSize(axis, body, html, computedStyle) {
-    return Math.max(((/** @type {?} */ (body)))[`offset${axis}`], ((/** @type {?} */ (body)))[`scroll${axis}`], ((/** @type {?} */ (html)))[`client${axis}`], ((/** @type {?} */ (html)))[`offset${axis}`], ((/** @type {?} */ (html)))[`scroll${axis}`], isIE(10)
-        ? (parseInt(((/** @type {?} */ (html)))[`offset${axis}`], 10) +
-            parseInt(computedStyle[(/** @type {?} */ (`margin${axis === 'Height' ? 'Top' : 'Left'}`))], 10) +
-            parseInt(computedStyle[(/** @type {?} */ (`margin${axis === 'Height' ? 'Bottom' : 'Right'}`))], 10))
-        : 0);
-}
-/**
- * @param {?} document
- * @return {?}
- */
-function getWindowSizes(document) {
-    /** @type {?} */
-    const body = document.body;
-    /** @type {?} */
-    const html = document.documentElement;
-    /** @type {?} */
-    const computedStyle = isIE(10) && getComputedStyle(html);
-    return {
-        height: getSize('Height', body, html, computedStyle),
-        width: getSize('Width', body, html, computedStyle)
-    };
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * Gets the scroll value of the given element in the given side (top and left)
- * @param {?} element
- * @param {?=} side
- * @return {?}
- */
-function getScroll(element, side = 'top') {
-    /** @type {?} */
-    const upperSide = side === 'top' ? 'scrollTop' : 'scrollLeft';
-    /** @type {?} */
-    const nodeName = element.nodeName;
-    if (nodeName === 'BODY' || nodeName === 'HTML') {
-        /** @type {?} */
-        const html = element.ownerDocument.documentElement;
-        /** @type {?} */
-        const scrollingElement = element.ownerDocument.scrollingElement || html;
-        return scrollingElement[upperSide];
-    }
-    return element[upperSide];
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} offsets
- * @return {?}
- */
-function getClientRect(offsets) {
-    return Object.assign({}, offsets, { right: offsets.left + offsets.width, bottom: offsets.top + offsets.height });
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} element
- * @return {?}
- */
-function getBoundingClientRect(element) {
-    /** @type {?} */
-    let rect = {};
-    // IE10 10 FIX: Please, don't ask, the element isn't
-    // considered in DOM in some circumstances...
-    // This isn't reproducible in IE10 compatibility mode of IE11
-    try {
-        if (isIE(10)) {
-            rect = element.getBoundingClientRect();
-            /** @type {?} */
-            const scrollTop = getScroll(element, 'top');
-            /** @type {?} */
-            const scrollLeft = getScroll(element, 'left');
-            rect.top += scrollTop;
-            rect.left += scrollLeft;
-            rect.bottom += scrollTop;
-            rect.right += scrollLeft;
-        }
-        else {
-            rect = element.getBoundingClientRect();
-        }
-    }
-    catch (e) {
-        return undefined;
-    }
-    /** @type {?} */
-    const result = {
-        left: rect.left,
-        top: rect.top,
-        width: rect.right - rect.left,
-        height: rect.bottom - rect.top
-    };
-    // subtract scrollbar size from sizes
-    /** @type {?} */
-    const sizes = element.nodeName === 'HTML' ? getWindowSizes(element.ownerDocument) : {};
-    /** @type {?} */
-    const width = sizes.width || element.clientWidth || result.right - result.left;
-    /** @type {?} */
-    const height = sizes.height || element.clientHeight || result.bottom - result.top;
-    /** @type {?} */
-    let horizScrollbar = element.offsetWidth - width;
-    /** @type {?} */
-    let vertScrollbar = element.offsetHeight - height;
-    // if an hypothetical scrollbar is detected, we must be sure it's not a `border`
-    // we make this check conditional for performance reasons
-    if (horizScrollbar || vertScrollbar) {
-        /** @type {?} */
-        const styles = getStyleComputedProperty(element);
-        horizScrollbar -= getBordersSize(styles, 'x');
-        vertScrollbar -= getBordersSize(styles, 'y');
-        result.width -= horizScrollbar;
-        result.height -= vertScrollbar;
-    }
-    return getClientRect(result);
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} rect
- * @param {?} element
- * @param {?=} subtract
- * @return {?}
- */
-function includeScroll(rect, element, subtract = false) {
-    /** @type {?} */
-    const scrollTop = getScroll(element, 'top');
-    /** @type {?} */
-    const scrollLeft = getScroll(element, 'left');
-    /** @type {?} */
-    const modifier = subtract ? -1 : 1;
-    rect.top += scrollTop * modifier;
-    rect.bottom += scrollTop * modifier;
-    rect.left += scrollLeft * modifier;
-    rect.right += scrollLeft * modifier;
-    return rect;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} children
- * @param {?} parent
- * @param {?=} fixedPosition
- * @return {?}
- */
-function getOffsetRectRelativeToArbitraryNode(children, parent, fixedPosition = false) {
-    /** @type {?} */
-    const isIE10 = isIE(10);
-    /** @type {?} */
-    const isHTML = parent.nodeName === 'HTML';
-    /** @type {?} */
-    const childrenRect = getBoundingClientRect(children);
-    /** @type {?} */
-    const parentRect = getBoundingClientRect(parent);
-    /** @type {?} */
-    const scrollParent = getScrollParent(children);
-    /** @type {?} */
-    const styles = getStyleComputedProperty(parent);
-    /** @type {?} */
-    const borderTopWidth = parseFloat(styles.borderTopWidth);
-    /** @type {?} */
-    const borderLeftWidth = parseFloat(styles.borderLeftWidth);
-    // In cases where the parent is fixed, we must ignore negative scroll in offset calc
-    if (fixedPosition && isHTML) {
-        parentRect.top = Math.max(parentRect.top, 0);
-        parentRect.left = Math.max(parentRect.left, 0);
-    }
-    /** @type {?} */
-    let offsets = getClientRect({
-        top: childrenRect.top - parentRect.top - borderTopWidth,
-        left: childrenRect.left - parentRect.left - borderLeftWidth,
-        width: childrenRect.width,
-        height: childrenRect.height
-    });
-    offsets.marginTop = 0;
-    offsets.marginLeft = 0;
-    // Subtract margins of documentElement in case it's being used as parent
-    // we do this only on HTML because it's the only element that behaves
-    // differently when margins are applied to it. The margins are included in
-    // the box of the documentElement, in the other cases not.
-    if (!isIE10 && isHTML) {
-        /** @type {?} */
-        const marginTop = parseFloat(styles.marginTop);
-        /** @type {?} */
-        const marginLeft = parseFloat(styles.marginLeft);
-        offsets.top -= borderTopWidth - marginTop;
-        offsets.bottom -= borderTopWidth - marginTop;
-        offsets.left -= borderLeftWidth - marginLeft;
-        offsets.right -= borderLeftWidth - marginLeft;
-        // Attach marginTop and marginLeft because in some circumstances we may need them
-        offsets.marginTop = marginTop;
-        offsets.marginLeft = marginLeft;
-    }
-    if (isIE10 && !fixedPosition
-        ? parent.contains(scrollParent)
-        : parent === scrollParent && scrollParent.nodeName !== 'BODY') {
-        offsets = includeScroll(offsets, parent);
-    }
-    return offsets;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} element
- * @param {?=} excludeScroll
- * @return {?}
- */
-function getViewportOffsetRectRelativeToArtbitraryNode(element, excludeScroll = false) {
-    /** @type {?} */
-    const html = element.ownerDocument.documentElement;
-    /** @type {?} */
-    const relativeOffset = getOffsetRectRelativeToArbitraryNode(element, html);
-    /** @type {?} */
-    const width = Math.max(html.clientWidth, window.innerWidth || 0);
-    /** @type {?} */
-    const height = Math.max(html.clientHeight, window.innerHeight || 0);
-    /** @type {?} */
-    const scrollTop = !excludeScroll ? getScroll(html) : 0;
-    /** @type {?} */
-    const scrollLeft = !excludeScroll ? getScroll(html, 'left') : 0;
-    /** @type {?} */
-    const offset = {
-        top: scrollTop - Number(relativeOffset.top) + Number(relativeOffset.marginTop),
-        left: scrollLeft - Number(relativeOffset.left) + Number(relativeOffset.marginLeft),
-        width,
-        height
-    };
-    return getClientRect(offset);
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} element
- * @return {?}
- */
-function isFixed(element) {
-    /** @type {?} */
-    const nodeName = element.nodeName;
-    if (nodeName === 'BODY' || nodeName === 'HTML') {
-        return false;
-    }
-    if (getStyleComputedProperty(element, 'position') === 'fixed') {
-        return true;
-    }
-    return isFixed(getParentNode(element));
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} element
- * @return {?}
- */
-function getFixedPositionOffsetParent(element) {
-    // This check is needed to avoid errors in case one of the elements isn't defined for any reason
-    if (!element || !element.parentElement || isIE()) {
-        return document.documentElement;
-    }
-    /** @type {?} */
-    let el = element.parentElement;
-    while (el && getStyleComputedProperty(el, 'transform') === 'none') {
-        el = el.parentElement;
-    }
-    return el || document.documentElement;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} target
- * @param {?} host
- * @param {?=} padding
- * @param {?=} boundariesElement
- * @param {?=} fixedPosition
- * @return {?}
- */
-function getBoundaries(target, host, padding = 0, boundariesElement, fixedPosition = false) {
-    // NOTE: 1 DOM access here
-    // NOTE: 1 DOM access here
-    /** @type {?} */
-    let boundaries = { top: 0, left: 0 };
-    /** @type {?} */
-    const offsetParent = fixedPosition ? getFixedPositionOffsetParent(target) : findCommonOffsetParent(target, host);
-    // Handle viewport case
-    if (boundariesElement === 'viewport') {
-        boundaries = getViewportOffsetRectRelativeToArtbitraryNode(offsetParent, fixedPosition);
-    }
-    else {
-        // Handle other cases based on DOM element used as boundaries
-        /** @type {?} */
-        let boundariesNode;
-        if (boundariesElement === 'scrollParent') {
-            boundariesNode = getScrollParent(getParentNode(host));
-            if (boundariesNode.nodeName === 'BODY') {
-                boundariesNode = target.ownerDocument.documentElement;
-            }
-        }
-        else if (boundariesElement === 'window') {
-            boundariesNode = target.ownerDocument.documentElement;
-        }
-        else {
-            boundariesNode = boundariesElement;
-        }
-        /** @type {?} */
-        const offsets = getOffsetRectRelativeToArbitraryNode(boundariesNode, offsetParent, fixedPosition);
-        // In case of HTML, we need a different computation
-        if (boundariesNode.nodeName === 'HTML' && !isFixed(offsetParent)) {
-            const { height, width } = getWindowSizes(target.ownerDocument);
-            boundaries.top += offsets.top - offsets.marginTop;
-            boundaries.bottom = Number(height) + Number(offsets.top);
-            boundaries.left += offsets.left - offsets.marginLeft;
-            boundaries.right = Number(width) + Number(offsets.left);
-        }
-        else {
-            // for all the other DOM elements, this one is good
-            boundaries = offsets;
-        }
-    }
-    // Add paddings
-    boundaries.left += padding;
-    boundaries.top += padding;
-    boundaries.right -= padding;
-    boundaries.bottom -= padding;
-    return boundaries;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} __0
- * @return {?}
- */
-function getArea({ width, height }) {
-    return width * height;
-}
-/**
- * @param {?} placement
- * @param {?} refRect
- * @param {?} target
- * @param {?} host
- * @param {?=} allowedPositions
- * @param {?=} boundariesElement
- * @param {?=} padding
- * @return {?}
- */
-function computeAutoPlacement(placement, refRect, target, host, allowedPositions = ['top', 'bottom', 'right', 'left'], boundariesElement = 'viewport', padding = 0) {
-    if (placement.indexOf('auto') === -1) {
-        return placement;
-    }
-    /** @type {?} */
-    const boundaries = getBoundaries(target, host, padding, boundariesElement);
-    /** @type {?} */
-    const rects = {
-        top: {
-            width: boundaries.width,
-            height: refRect.top - boundaries.top
-        },
-        right: {
-            width: boundaries.right - refRect.right,
-            height: boundaries.height
-        },
-        bottom: {
-            width: boundaries.width,
-            height: boundaries.bottom - refRect.bottom
-        },
-        left: {
-            width: refRect.left - boundaries.left,
-            height: boundaries.height
-        }
-    };
-    /** @type {?} */
-    const sortedAreas = Object.keys(rects)
-        .map((/**
-     * @param {?} key
-     * @return {?}
-     */
-    key => (Object.assign({ key }, rects[key], { area: getArea(rects[key]) }))))
-        .sort((/**
-     * @param {?} a
-     * @param {?} b
-     * @return {?}
-     */
-    (a, b) => b.area - a.area));
-    /** @type {?} */
-    let filteredAreas = sortedAreas.filter((/**
-     * @param {?} __0
-     * @return {?}
-     */
-    ({ width, height }) => {
-        return width >= target.clientWidth
-            && height >= target.clientHeight;
-    }));
-    filteredAreas = filteredAreas.filter((/**
-     * @param {?} position
-     * @return {?}
-     */
-    (position) => {
-        return allowedPositions
-            .some((/**
-         * @param {?} allowedPosition
-         * @return {?}
-         */
-        (allowedPosition) => {
-            return allowedPosition === position.key;
-        }));
-    }));
-    /** @type {?} */
-    const computedPlacement = filteredAreas.length > 0
-        ? filteredAreas[0].key
-        : sortedAreas[0].key;
-    /** @type {?} */
-    const variation = placement.split(' ')[1];
-    // for tooltip on auto position
-    target.className = target.className.replace(/bs-tooltip-auto/g, `bs-tooltip-${computedPlacement}`);
-    return computedPlacement + (variation ? `-${variation}` : '');
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} data
- * @return {?}
- */
-function getOffsets(data) {
-    return {
-        width: data.offsets.target.width,
-        height: data.offsets.target.height,
-        left: Math.floor(data.offsets.target.left),
-        top: Math.round(data.offsets.target.top),
-        bottom: Math.round(data.offsets.target.bottom),
-        right: Math.floor(data.offsets.target.right)
-    };
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * Get the opposite placement of the given one
- * @param {?} placement
- * @return {?}
- */
-function getOppositePlacement(placement) {
-    /** @type {?} */
-    const hash = { left: 'right', right: 'left', bottom: 'top', top: 'bottom' };
-    return placement.replace(/left|right|bottom|top/g, (/**
-     * @param {?} matched
-     * @return {?}
-     */
-    matched => ((/** @type {?} */ (hash)))[matched]));
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * Get the opposite placement variation of the given one
- * @param {?} variation
- * @return {?}
- */
-function getOppositeVariation(variation) {
-    if (variation === 'right') {
-        return 'left';
-    }
-    else if (variation === 'left') {
-        return 'right';
-    }
-    return variation;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * Get the outer sizes of the given element (offset size + margins)
- * @param {?} element
- * @return {?}
- */
-function getOuterSizes(element) {
-    /** @type {?} */
-    const window = element.ownerDocument.defaultView;
-    /** @type {?} */
-    const styles = window.getComputedStyle(element);
-    /** @type {?} */
-    const x = parseFloat(styles.marginTop || 0) + parseFloat(styles.marginBottom || 0);
-    /** @type {?} */
-    const y = parseFloat(styles.marginLeft || 0) + parseFloat(styles.marginRight || 0);
-    return {
-        width: Number(element.offsetWidth) + y,
-        height: Number(element.offsetHeight) + x
-    };
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} target
- * @param {?} host
- * @param {?=} fixedPosition
- * @return {?}
- */
-function getReferenceOffsets(target, host, fixedPosition = null) {
-    /** @type {?} */
-    const commonOffsetParent = fixedPosition
-        ? getFixedPositionOffsetParent(target)
-        : findCommonOffsetParent(target, host);
-    return getOffsetRectRelativeToArbitraryNode(host, commonOffsetParent, fixedPosition);
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} target
- * @param {?} hostOffsets
- * @param {?} position
- * @return {?}
- */
-function getTargetOffsets(target, hostOffsets, position) {
-    /** @type {?} */
-    const placement = position.split(' ')[0];
-    // Get target node sizes
-    /** @type {?} */
-    const targetRect = getOuterSizes(target);
-    // Add position, width and height to our offsets object
-    /** @type {?} */
-    const targetOffsets = {
-        width: targetRect.width,
-        height: targetRect.height
-    };
-    // depending by the target placement we have to compute its offsets slightly differently
-    /** @type {?} */
-    const isHoriz = ['right', 'left'].indexOf(placement) !== -1;
-    /** @type {?} */
-    const mainSide = isHoriz ? 'top' : 'left';
-    /** @type {?} */
-    const secondarySide = isHoriz ? 'left' : 'top';
-    /** @type {?} */
-    const measurement = isHoriz ? 'height' : 'width';
-    /** @type {?} */
-    const secondaryMeasurement = !isHoriz ? 'height' : 'width';
-    ((/** @type {?} */ (targetOffsets)))[mainSide] =
-        hostOffsets[mainSide] +
-            hostOffsets[measurement] / 2 -
-            targetRect[measurement] / 2;
-    ((/** @type {?} */ (targetOffsets)))[secondarySide] = placement === secondarySide
-        ? hostOffsets[secondarySide] - targetRect[secondaryMeasurement]
-        : ((/** @type {?} */ (hostOffsets)))[getOppositePlacement(secondarySide)];
-    return targetOffsets;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * Helper used to know if the given modifier is enabled.
- * @param {?} options
- * @param {?} modifierName
- * @return {?}
- */
-function isModifierEnabled(options, modifierName) {
-    return options
-        && options.modifiers
-        && options.modifiers[modifierName]
-        && options.modifiers[modifierName].enabled;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * Tells if a given input is a number
- * @param {?} n
- * @return {?}
- */
-function isNumeric(n) {
-    return n !== '' && !isNaN(parseFloat(n)) && isFinite(n);
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} data
- * @param {?=} renderer
- * @return {?}
- */
-function updateContainerClass(data, renderer) {
-    /** @type {?} */
-    const target = data.instance.target;
-    /** @type {?} */
-    let containerClass = target.className;
-    if (data.placementAuto) {
-        containerClass = containerClass.replace(/bs-popover-auto/g, `bs-popover-${data.placement}`);
-        containerClass = containerClass.replace(/bs-tooltip-auto/g, `bs-tooltip-${data.placement}`);
-        containerClass = containerClass.replace(/\sauto/g, ` ${data.placement}`);
-        if (containerClass.indexOf('popover') !== -1 && containerClass.indexOf('popover-auto') === -1) {
-            containerClass += ' popover-auto';
-        }
-        if (containerClass.indexOf('tooltip') !== -1 && containerClass.indexOf('tooltip-auto') === -1) {
-            containerClass += ' tooltip-auto';
-        }
-    }
-    containerClass = containerClass.replace(/left|right|top|bottom/g, `${data.placement.split(' ')[0]}`);
-    if (renderer) {
-        renderer.setAttribute(target, 'class', containerClass);
-        return;
-    }
-    target.className = containerClass;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} element
- * @param {?} styles
- * @param {?=} renderer
- * @return {?}
- */
-function setStyles(element, styles, renderer) {
-    Object.keys(styles).forEach((/**
-     * @param {?} prop
-     * @return {?}
-     */
-    (prop) => {
-        /** @type {?} */
-        let unit = '';
-        // add unit if the value is numeric and is one of the following
-        if (['width', 'height', 'top', 'right', 'bottom', 'left'].indexOf(prop) !== -1 &&
-            isNumeric(styles[prop])) {
-            unit = 'px';
-        }
-        if (renderer) {
-            renderer.setStyle(element, prop, `${String(styles[prop])}${unit}`);
-            return;
-        }
-        element.style[prop] = String(styles[prop]) + unit;
-    }));
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} data
- * @return {?}
- */
-function arrow(data) {
-    /** @type {?} */
-    let targetOffsets = data.offsets.target;
-    // if arrowElement is a string, suppose it's a CSS selector
-    /** @type {?} */
-    const arrowElement = data.instance.target.querySelector('.arrow');
-    // if arrowElement is not found, don't run the modifier
-    if (!arrowElement) {
-        return data;
-    }
-    /** @type {?} */
-    const isVertical = ['left', 'right'].indexOf(data.placement) !== -1;
-    /** @type {?} */
-    const len = isVertical ? 'height' : 'width';
-    /** @type {?} */
-    const sideCapitalized = isVertical ? 'Top' : 'Left';
-    /** @type {?} */
-    const side = sideCapitalized.toLowerCase();
-    /** @type {?} */
-    const altSide = isVertical ? 'left' : 'top';
-    /** @type {?} */
-    const opSide = isVertical ? 'bottom' : 'right';
-    /** @type {?} */
-    const arrowElementSize = getOuterSizes(arrowElement)[len];
-    // top/left side
-    if (data.offsets.host[opSide] - arrowElementSize < ((/** @type {?} */ (targetOffsets)))[side]) {
-        ((/** @type {?} */ (targetOffsets)))[side] -=
-            ((/** @type {?} */ (targetOffsets)))[side] - (data.offsets.host[opSide] - arrowElementSize);
-    }
-    // bottom/right side
-    if (Number(((/** @type {?} */ (data))).offsets.host[side]) + Number(arrowElementSize) > ((/** @type {?} */ (targetOffsets)))[opSide]) {
-        ((/** @type {?} */ (targetOffsets)))[side] +=
-            Number(((/** @type {?} */ (data))).offsets.host[side]) + Number(arrowElementSize) - Number(((/** @type {?} */ (targetOffsets)))[opSide]);
-    }
-    targetOffsets = getClientRect(targetOffsets);
-    // compute center of the target
-    /** @type {?} */
-    const center = Number(((/** @type {?} */ (data))).offsets.host[side]) + Number(data.offsets.host[len] / 2 - arrowElementSize / 2);
-    // Compute the sideValue using the updated target offsets
-    // take target margin in account because we don't have this info available
-    /** @type {?} */
-    const css = getStyleComputedProperty(data.instance.target);
-    /** @type {?} */
-    const targetMarginSide = parseFloat(css[`margin${sideCapitalized}`]);
-    /** @type {?} */
-    const targetBorderSide = parseFloat(css[`border${sideCapitalized}Width`]);
-    /** @type {?} */
-    let sideValue = center - ((/** @type {?} */ (targetOffsets)))[side] - targetMarginSide - targetBorderSide;
-    // prevent arrowElement from being placed not contiguously to its target
-    sideValue = Math.max(Math.min(targetOffsets[len] - arrowElementSize, sideValue), 0);
-    data.offsets.arrow = {
-        [side]: Math.round(sideValue),
-        [altSide]: '' // make sure to unset any eventual altSide value from the DOM node
-    };
-    data.instance.arrow = arrowElement;
-    return data;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} data
- * @return {?}
- */
-function flip(data) {
-    data.offsets.target = getClientRect(data.offsets.target);
-    if (!isModifierEnabled(data.options, 'flip')) {
-        data.offsets.target = Object.assign({}, data.offsets.target, getTargetOffsets(data.instance.target, data.offsets.host, data.placement));
-        return data;
-    }
-    /** @type {?} */
-    const boundaries = getBoundaries(data.instance.target, data.instance.host, 0, // padding
-    'viewport', false // positionFixed
-    );
-    /** @type {?} */
-    let placement = data.placement.split(' ')[0];
-    /** @type {?} */
-    let variation = data.placement.split(' ')[1] || '';
-    /** @type {?} */
-    const offsetsHost = data.offsets.host;
-    /** @type {?} */
-    const target = data.instance.target;
-    /** @type {?} */
-    const host = data.instance.host;
-    /** @type {?} */
-    const adaptivePosition = computeAutoPlacement('auto', offsetsHost, target, host, data.options.allowedPositions);
-    /** @type {?} */
-    const flipOrder = [placement, adaptivePosition];
-    /* tslint:disable-next-line: cyclomatic-complexity */
-    flipOrder.forEach((/**
-     * @param {?} step
-     * @param {?} index
-     * @return {?}
-     */
-    (step, index) => {
-        if (placement !== step || flipOrder.length === index + 1) {
-            return data;
-        }
-        placement = data.placement.split(' ')[0];
-        // using floor because the host offsets may contain decimals we are not going to consider here
-        /** @type {?} */
-        const overlapsRef = (placement === 'left' &&
-            Math.floor(data.offsets.target.right) > Math.floor(data.offsets.host.left)) ||
-            (placement === 'right' &&
-                Math.floor(data.offsets.target.left) < Math.floor(data.offsets.host.right)) ||
-            (placement === 'top' &&
-                Math.floor(data.offsets.target.bottom) > Math.floor(data.offsets.host.top)) ||
-            (placement === 'bottom' &&
-                Math.floor(data.offsets.target.top) < Math.floor(data.offsets.host.bottom));
-        /** @type {?} */
-        const overflowsLeft = Math.floor(data.offsets.target.left) < Math.floor(boundaries.left);
-        /** @type {?} */
-        const overflowsRight = Math.floor(data.offsets.target.right) > Math.floor(boundaries.right);
-        /** @type {?} */
-        const overflowsTop = Math.floor(data.offsets.target.top) < Math.floor(boundaries.top);
-        /** @type {?} */
-        const overflowsBottom = Math.floor(data.offsets.target.bottom) > Math.floor(boundaries.bottom);
-        /** @type {?} */
-        const overflowsBoundaries = (placement === 'left' && overflowsLeft) ||
-            (placement === 'right' && overflowsRight) ||
-            (placement === 'top' && overflowsTop) ||
-            (placement === 'bottom' && overflowsBottom);
-        // flip the variation if required
-        /** @type {?} */
-        const isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
-        /** @type {?} */
-        const flippedVariation = ((isVertical && variation === 'left' && overflowsLeft) ||
-            (isVertical && variation === 'right' && overflowsRight) ||
-            (!isVertical && variation === 'left' && overflowsTop) ||
-            (!isVertical && variation === 'right' && overflowsBottom));
-        if (overlapsRef || overflowsBoundaries || flippedVariation) {
-            if (overlapsRef || overflowsBoundaries) {
-                placement = flipOrder[index + 1];
-            }
-            if (flippedVariation) {
-                variation = getOppositeVariation(variation);
-            }
-            data.placement = placement + (variation ? ` ${variation}` : '');
-            data.offsets.target = Object.assign({}, data.offsets.target, getTargetOffsets(data.instance.target, data.offsets.host, data.placement));
-        }
-    }));
-    return data;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} targetElement
- * @param {?} hostElement
- * @param {?} position
- * @param {?} options
- * @return {?}
- */
-function initData(targetElement, hostElement, position, options) {
-    /** @type {?} */
-    const hostElPosition = getReferenceOffsets(targetElement, hostElement);
-    if (!position.match(/^(auto)*\s*(left|right|top|bottom)*$/)
-        && !position.match(/^(left|right|top|bottom)*\s*(start|end)*$/)) {
-        /* tslint:disable-next-line: no-parameter-reassignment */
-        position = 'auto';
-    }
-    /** @type {?} */
-    const placementAuto = !!position.match(/auto/g);
-    // support old placements 'auto left|right|top|bottom'
-    /** @type {?} */
-    let placement = position.match(/auto\s(left|right|top|bottom)/)
-        ? position.split(' ')[1] || 'auto'
-        : position;
-    /** @type {?} */
-    const targetOffset = getTargetOffsets(targetElement, hostElPosition, placement);
-    placement = computeAutoPlacement(placement, hostElPosition, targetElement, hostElement, options ? options.allowedPositions : undefined);
-    return {
-        options,
-        instance: {
-            target: targetElement,
-            host: hostElement,
-            arrow: null
-        },
-        offsets: {
-            target: targetOffset,
-            host: hostElPosition,
-            arrow: null
-        },
-        positionFixed: false,
-        placement,
-        placementAuto
-    };
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} data
- * @return {?}
- */
-function preventOverflow(data) {
-    if (!isModifierEnabled(data.options, 'preventOverflow')) {
-        return data;
-    }
-    // NOTE: DOM access here
-    // resets the targetOffsets's position so that the document size can be calculated excluding
-    // the size of the targetOffsets element itself
-    /** @type {?} */
-    const transformProp = 'transform';
-    /** @type {?} */
-    const targetStyles = data.instance.target.style;
-    // assignment to help minification
-    const { top, left, [transformProp]: transform } = targetStyles;
-    targetStyles.top = '';
-    targetStyles.left = '';
-    targetStyles[transformProp] = '';
-    /** @type {?} */
-    const boundaries = getBoundaries(data.instance.target, data.instance.host, 0, // padding
-    'scrollParent', false // positionFixed
-    );
-    // NOTE: DOM access here
-    // restores the original style properties after the offsets have been computed
-    targetStyles.top = top;
-    targetStyles.left = left;
-    targetStyles[transformProp] = transform;
-    /** @type {?} */
-    const order = ['left', 'right', 'top', 'bottom'];
-    /** @type {?} */
-    const check = {
-        /**
-         * @param {?} placement
-         * @return {?}
-         */
-        primary(placement) {
-            /** @type {?} */
-            let value = ((/** @type {?} */ (data))).offsets.target[placement];
-            if (((/** @type {?} */ (data))).offsets.target[placement] < boundaries[placement] &&
-                !false // options.escapeWithReference
-            ) {
-                value = Math.max(((/** @type {?} */ (data))).offsets.target[placement], boundaries[placement]);
-            }
-            return { [placement]: value };
-        },
-        /**
-         * @param {?} placement
-         * @return {?}
-         */
-        secondary(placement) {
-            /** @type {?} */
-            const mainSide = placement === 'right' ? 'left' : 'top';
-            /** @type {?} */
-            let value = data.offsets.target[mainSide];
-            if (((/** @type {?} */ (data))).offsets.target[placement] > boundaries[placement] &&
-                !false // escapeWithReference
-            ) {
-                value = Math.min(data.offsets.target[mainSide], boundaries[placement] -
-                    (placement === 'right' ? data.offsets.target.width : data.offsets.target.height));
-            }
-            return { [mainSide]: value };
-        }
-    };
-    /** @type {?} */
-    let side;
-    order.forEach((/**
-     * @param {?} placement
-     * @return {?}
-     */
-    placement => {
-        side = ['left', 'top']
-            .indexOf(placement) !== -1
-            ? 'primary'
-            : 'secondary';
-        data.offsets.target = Object.assign({}, data.offsets.target, ((/** @type {?} */ (check)))[side](placement));
-    }));
-    return data;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @param {?} data
- * @return {?}
- */
-function shift(data) {
-    /** @type {?} */
-    const placement = data.placement;
-    /** @type {?} */
-    const basePlacement = placement.split(' ')[0];
-    /** @type {?} */
-    const shiftvariation = placement.split(' ')[1];
-    if (shiftvariation) {
-        const { host, target } = data.offsets;
-        /** @type {?} */
-        const isVertical = ['bottom', 'top'].indexOf(basePlacement) !== -1;
-        /** @type {?} */
-        const side = isVertical ? 'left' : 'top';
-        /** @type {?} */
-        const measurement = isVertical ? 'width' : 'height';
-        /** @type {?} */
-        const shiftOffsets = {
-            start: { [side]: host[side] },
-            end: {
-                [side]: host[side] + host[measurement] - target[measurement]
-            }
-        };
-        data.offsets.target = Object.assign({}, target, ((/** @type {?} */ (shiftOffsets)))[shiftvariation]);
-    }
-    return data;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class Positioning {
-    /**
-     * @param {?} hostElement
-     * @param {?} targetElement
-     * @param {?=} round
-     * @return {?}
-     */
-    position(hostElement, targetElement, round = true) {
-        return this.offset(hostElement, targetElement, false);
-    }
-    /**
-     * @param {?} hostElement
-     * @param {?} targetElement
-     * @param {?=} round
-     * @return {?}
-     */
-    offset(hostElement, targetElement, round = true) {
-        return getReferenceOffsets(targetElement, hostElement);
-    }
-    /**
-     * @param {?} hostElement
-     * @param {?} targetElement
-     * @param {?} position
-     * @param {?=} appendToBody
-     * @param {?=} options
-     * @return {?}
-     */
-    positionElements(hostElement, targetElement, position, appendToBody, options) {
-        /** @type {?} */
-        const chainOfModifiers = [flip, shift, preventOverflow, arrow];
-        return chainOfModifiers.reduce((/**
-         * @param {?} modifiedData
-         * @param {?} modifier
-         * @return {?}
-         */
-        (modifiedData, modifier) => modifier(modifiedData)), initData(targetElement, hostElement, position, options));
-    }
-}
-/** @type {?} */
-const positionService = new Positioning();
-/**
- * @param {?} hostElement
- * @param {?} targetElement
- * @param {?} placement
- * @param {?=} appendToBody
- * @param {?=} options
- * @param {?=} renderer
- * @return {?}
- */
-function positionElements(hostElement, targetElement, placement, appendToBody, options, renderer) {
-    /** @type {?} */
-    const data = positionService.positionElements(hostElement, targetElement, placement, appendToBody, options);
-    /** @type {?} */
-    const offsets = getOffsets(data);
-    setStyles(targetElement, {
-        'will-change': 'transform',
-        top: '0px',
-        left: '0px',
-        transform: `translate3d(${offsets.left}px, ${offsets.top}px, 0px)`
-    }, renderer);
-    if (data.instance.arrow) {
-        setStyles(data.instance.arrow, data.offsets.arrow, renderer);
-    }
-    updateContainerClass(data, renderer);
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class PositioningService {
-    /**
-     * @param {?} ngZone
-     * @param {?} rendererFactory
-     * @param {?} platformId
-     */
-    constructor(ngZone, rendererFactory, platformId) {
-        this.update$$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-        this.positionElements = new Map();
-        this.isDisabled = false;
-        if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_1__["isPlatformBrowser"])(platformId)) {
-            ngZone.runOutsideAngular((/**
-             * @return {?}
-             */
-            () => {
-                this.triggerEvent$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["merge"])(Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(window, 'scroll', { passive: true }), Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(window, 'resize', { passive: true }), 
-                /* tslint:disable-next-line: deprecation */
-                Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(0, rxjs__WEBPACK_IMPORTED_MODULE_2__["animationFrameScheduler"]), this.update$$);
-                this.triggerEvent$.subscribe((/**
-                 * @return {?}
-                 */
-                () => {
-                    if (this.isDisabled) {
-                        return;
-                    }
-                    this.positionElements
-                        /* tslint:disable-next-line: no-any */
-                        .forEach((/**
-                     * @param {?} positionElement
-                     * @return {?}
-                     */
-                    (positionElement) => {
-                        positionElements(_getHtmlElement(positionElement.target), _getHtmlElement(positionElement.element), positionElement.attachment, positionElement.appendToBody, this.options, rendererFactory.createRenderer(null, null));
-                    }));
-                }));
-            }));
-        }
-    }
-    /**
-     * @param {?} options
-     * @return {?}
-     */
-    position(options) {
-        this.addPositionElement(options);
-    }
-    /**
-     * @return {?}
-     */
-    get event$() {
-        return this.triggerEvent$;
-    }
-    /**
-     * @return {?}
-     */
-    disable() {
-        this.isDisabled = true;
-    }
-    /**
-     * @return {?}
-     */
-    enable() {
-        this.isDisabled = false;
-    }
-    /**
-     * @param {?} options
-     * @return {?}
-     */
-    addPositionElement(options) {
-        this.positionElements.set(_getHtmlElement(options.element), options);
-    }
-    /**
-     * @return {?}
-     */
-    calcPosition() {
-        this.update$$.next();
-    }
-    /**
-     * @param {?} elRef
-     * @return {?}
-     */
-    deletePositionElement(elRef) {
-        this.positionElements.delete(_getHtmlElement(elRef));
-    }
-    /**
-     * @param {?} options
-     * @return {?}
-     */
-    setOptions(options) {
-        this.options = options;
-    }
-}
-PositioningService.decorators = [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
-];
-/** @nocollapse */
-PositioningService.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["RendererFactory2"] },
-    { type: Number, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"],] }] }
-];
-/**
- * @param {?} element
- * @return {?}
- */
-function _getHtmlElement(element) {
-    // it means that we got a selector
-    if (typeof element === 'string') {
-        return document.querySelector(element);
-    }
-    if (element instanceof _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]) {
-        return element.nativeElement;
-    }
-    return element;
-}
-
-
-//# sourceMappingURL=ngx-bootstrap-positioning.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/ngx-bootstrap/utils/fesm2015/ngx-bootstrap-utils.js":
-/*!**************************************************************************!*\
-  !*** ./node_modules/ngx-bootstrap/utils/fesm2015/ngx-bootstrap-utils.js ***!
-  \**************************************************************************/
-/*! exports provided: LinkedList, OnChange, Trigger, Utils, document, isBs3, listenToTriggers, listenToTriggersV2, parseTriggers, registerEscClick, registerOutsideClick, setTheme, warnOnce, window */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinkedList", function() { return LinkedList; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OnChange", function() { return OnChange; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Trigger", function() { return Trigger; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Utils", function() { return Utils; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "document", function() { return document$1; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isBs3", function() { return isBs3; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listenToTriggers", function() { return listenToTriggers; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listenToTriggersV2", function() { return listenToTriggersV2; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseTriggers", function() { return parseTriggers; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "registerEscClick", function() { return registerEscClick; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "registerOutsideClick", function() { return registerOutsideClick; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setTheme", function() { return setTheme; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "warnOnce", function() { return warnOnce; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "window", function() { return win; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @copyright Valor Software
- * @copyright Angular ng-bootstrap team
- */
-class Trigger {
-    /**
-     * @param {?} open
-     * @param {?=} close
-     */
-    constructor(open, close) {
-        this.open = open;
-        this.close = close || open;
-    }
-    /**
-     * @return {?}
-     */
-    isManual() {
-        return this.open === 'manual' || this.close === 'manual';
-    }
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @type {?} */
-const DEFAULT_ALIASES = {
-    hover: ['mouseover', 'mouseout'],
-    focus: ['focusin', 'focusout']
-};
-/* tslint:disable-next-line: no-any */
-/**
- * @param {?} triggers
- * @param {?=} aliases
- * @return {?}
- */
-function parseTriggers(triggers, aliases = DEFAULT_ALIASES) {
-    /** @type {?} */
-    const trimmedTriggers = (triggers || '').trim();
-    if (trimmedTriggers.length === 0) {
-        return [];
-    }
-    /** @type {?} */
-    const parsedTriggers = trimmedTriggers
-        .split(/\s+/)
-        .map((/**
-     * @param {?} trigger
-     * @return {?}
-     */
-    (trigger) => trigger.split(':')))
-        .map((/**
-     * @param {?} triggerPair
-     * @return {?}
-     */
-    (triggerPair) => {
-        /** @type {?} */
-        const alias = aliases[triggerPair[0]] || triggerPair;
-        return new Trigger(alias[0], alias[1]);
-    }));
-    /** @type {?} */
-    const manualTriggers = parsedTriggers.filter((/**
-     * @param {?} triggerPair
-     * @return {?}
-     */
-    (triggerPair) => triggerPair.isManual()));
-    if (manualTriggers.length > 1) {
-        throw new Error('Triggers parse error: only one manual trigger is allowed');
-    }
-    if (manualTriggers.length === 1 && parsedTriggers.length > 1) {
-        throw new Error('Triggers parse error: manual trigger can\'t be mixed with other triggers');
-    }
-    return parsedTriggers;
-}
-/**
- * @param {?} renderer
- * @param {?} target
- * @param {?} triggers
- * @param {?} showFn
- * @param {?} hideFn
- * @param {?} toggleFn
- * @return {?}
- */
-function listenToTriggers(renderer, 
-/* tslint:disable-next-line: no-any */
-target, triggers, showFn, hideFn, toggleFn) {
-    /** @type {?} */
-    const parsedTriggers = parseTriggers(triggers);
-    /* tslint:disable-next-line: no-any */
-    /** @type {?} */
-    const listeners = [];
-    if (parsedTriggers.length === 1 && parsedTriggers[0].isManual()) {
-        return Function.prototype;
-    }
-    parsedTriggers.forEach((/**
-     * @param {?} trigger
-     * @return {?}
-     */
-    (trigger) => {
-        if (trigger.open === trigger.close) {
-            listeners.push(renderer.listen(target, trigger.open, toggleFn));
-            return;
-        }
-        listeners.push(renderer.listen(target, trigger.open, showFn), renderer.listen(target, trigger.close, hideFn));
-    }));
-    return (/**
-     * @return {?}
-     */
-    () => {
-        listeners.forEach((/**
-         * @param {?} unsubscribeFn
-         * @return {?}
-         */
-        (unsubscribeFn) => unsubscribeFn()));
-    });
-}
-/**
- * @param {?} renderer
- * @param {?} options
- * @return {?}
- */
-function listenToTriggersV2(renderer, options) {
-    /** @type {?} */
-    const parsedTriggers = parseTriggers(options.triggers);
-    /** @type {?} */
-    const target = options.target;
-    // do nothing
-    if (parsedTriggers.length === 1 && parsedTriggers[0].isManual()) {
-        return Function.prototype;
-    }
-    // all listeners
-    /* tslint:disable-next-line: no-any */
-    /** @type {?} */
-    const listeners = [];
-    // lazy listeners registration
-    /** @type {?} */
-    const _registerHide = [];
-    /** @type {?} */
-    const registerHide = (/**
-     * @return {?}
-     */
-    () => {
-        // add hide listeners to unregister array
-        _registerHide.forEach((/**
-         * @param {?} fn
-         * @return {?}
-         */
-        (fn) => listeners.push(fn())));
-        // register hide events only once
-        _registerHide.length = 0;
-    });
-    // register open\close\toggle listeners
-    parsedTriggers.forEach((/**
-     * @param {?} trigger
-     * @return {?}
-     */
-    (trigger) => {
-        /** @type {?} */
-        const useToggle = trigger.open === trigger.close;
-        /** @type {?} */
-        const showFn = useToggle ? options.toggle : options.show;
-        if (!useToggle) {
-            _registerHide.push((/**
-             * @return {?}
-             */
-            () => renderer.listen(target, trigger.close, options.hide)));
-        }
-        listeners.push(renderer.listen(target, trigger.open, (/**
-         * @return {?}
-         */
-        () => showFn(registerHide))));
-    }));
-    return (/**
-     * @return {?}
-     */
-    () => {
-        listeners.forEach((/**
-         * @param {?} unsubscribeFn
-         * @return {?}
-         */
-        (unsubscribeFn) => unsubscribeFn()));
-    });
-}
-/**
- * @param {?} renderer
- * @param {?} options
- * @return {?}
- */
-function registerOutsideClick(renderer, options) {
-    if (!options.outsideClick) {
-        return Function.prototype;
-    }
-    /* tslint:disable-next-line: no-any */
-    return renderer.listen('document', 'click', (/**
-     * @param {?} event
-     * @return {?}
-     */
-    (event) => {
-        if (options.target && options.target.contains(event.target)) {
-            return undefined;
-        }
-        if (options.targets &&
-            options.targets.some((/**
-             * @param {?} target
-             * @return {?}
-             */
-            target => target.contains(event.target)))) {
-            return undefined;
-        }
-        options.hide();
-    }));
-}
-/**
- * @param {?} renderer
- * @param {?} options
- * @return {?}
- */
-function registerEscClick(renderer, options) {
-    if (!options.outsideEsc) {
-        return Function.prototype;
-    }
-    return renderer.listen('document', 'keyup.esc', (/**
-     * @param {?} event
-     * @return {?}
-     */
-    (event) => {
-        if (options.target && options.target.contains(event.target)) {
-            return undefined;
-        }
-        if (options.targets &&
-            options.targets.some((/**
-             * @param {?} target
-             * @return {?}
-             */
-            target => target.contains(event.target)))) {
-            return undefined;
-        }
-        options.hide();
-    }));
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @license
- * Copyright Google Inc. All Rights Reserved.
- *
- * Use of this source code is governed by an MIT-style license that can be
- * found in the LICENSE file at https://angular.io/license
- */
-/**
- * JS version of browser APIs. This library can only run in the browser.
- * @type {?}
- */
-const win = (typeof window !== 'undefined' && window) || (/** @type {?} */ ({}));
-/** @type {?} */
-const document$1 = win.document;
-/** @type {?} */
-const location = win.location;
-/** @type {?} */
-const gc = win.gc ? (/**
- * @return {?}
- */
-() => win.gc()) : (/**
- * @return {?}
- */
-() => null);
-/** @type {?} */
-const performance = win.performance ? win.performance : null;
-/** @type {?} */
-const Event = win.Event;
-/** @type {?} */
-const MouseEvent = win.MouseEvent;
-/** @type {?} */
-const KeyboardEvent = win.KeyboardEvent;
-/** @type {?} */
-const EventTarget = win.EventTarget;
-/** @type {?} */
-const History = win.History;
-/** @type {?} */
-const Location = win.Location;
-/** @type {?} */
-const EventListener = win.EventListener;
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @type {?} */
-let guessedVersion;
-/**
- * @return {?}
- */
-function _guessBsVersion() {
-    if (typeof document === 'undefined') {
-        return null;
-    }
-    /** @type {?} */
-    const spanEl = document.createElement('span');
-    spanEl.innerText = 'test bs version';
-    document.body.appendChild(spanEl);
-    spanEl.classList.add('d-none');
-    /** @type {?} */
-    const rect = spanEl.getBoundingClientRect();
-    document.body.removeChild(spanEl);
-    if (!rect) {
-        return 'bs3';
-    }
-    return rect.top === 0 ? 'bs4' : 'bs3';
-}
-/**
- * @param {?} theme
- * @return {?}
- */
-function setTheme(theme) {
-    guessedVersion = theme;
-}
-// todo: in ngx-bootstrap, bs4 will became a default one
-/**
- * @return {?}
- */
-function isBs3() {
-    if (typeof win === 'undefined') {
-        return true;
-    }
-    if (typeof win.__theme === 'undefined') {
-        if (guessedVersion) {
-            return guessedVersion === 'bs3';
-        }
-        guessedVersion = _guessBsVersion();
-        return guessedVersion === 'bs3';
-    }
-    return win.__theme !== 'bs4';
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @template T
- */
-class LinkedList {
-    constructor() {
-        this.length = 0;
-        this.asArray = [];
-        // Array methods overriding END
-    }
-    /**
-     * @param {?} position
-     * @return {?}
-     */
-    get(position) {
-        if (this.length === 0 || position < 0 || position >= this.length) {
-            return void 0;
-        }
-        /** @type {?} */
-        let current = this.head;
-        for (let index = 0; index < position; index++) {
-            current = current.next;
-        }
-        return current.value;
-    }
-    /**
-     * @param {?} value
-     * @param {?=} position
-     * @return {?}
-     */
-    add(value, position = this.length) {
-        if (position < 0 || position > this.length) {
-            throw new Error('Position is out of the list');
-        }
-        /* tslint:disable-next-line: no-any*/
-        /** @type {?} */
-        const node = {
-            value,
-            next: undefined,
-            previous: undefined
-        };
-        if (this.length === 0) {
-            this.head = node;
-            this.tail = node;
-            this.current = node;
-        }
-        else {
-            if (position === 0) {
-                // first node
-                node.next = this.head;
-                this.head.previous = node;
-                this.head = node;
-            }
-            else if (position === this.length) {
-                // last node
-                this.tail.next = node;
-                node.previous = this.tail;
-                this.tail = node;
-            }
-            else {
-                // node in middle
-                /** @type {?} */
-                const currentPreviousNode = this.getNode(position - 1);
-                /** @type {?} */
-                const currentNextNode = currentPreviousNode.next;
-                currentPreviousNode.next = node;
-                currentNextNode.previous = node;
-                node.previous = currentPreviousNode;
-                node.next = currentNextNode;
-            }
-        }
-        this.length++;
-        this.createInternalArrayRepresentation();
-    }
-    /**
-     * @param {?=} position
-     * @return {?}
-     */
-    remove(position = 0) {
-        if (this.length === 0 || position < 0 || position >= this.length) {
-            throw new Error('Position is out of the list');
-        }
-        if (position === 0) {
-            // first node
-            this.head = this.head.next;
-            if (this.head) {
-                // there is no second node
-                this.head.previous = undefined;
-            }
-            else {
-                // there is no second node
-                this.tail = undefined;
-            }
-        }
-        else if (position === this.length - 1) {
-            // last node
-            this.tail = this.tail.previous;
-            this.tail.next = undefined;
-        }
-        else {
-            // middle node
-            /** @type {?} */
-            const removedNode = this.getNode(position);
-            removedNode.next.previous = removedNode.previous;
-            removedNode.previous.next = removedNode.next;
-        }
-        this.length--;
-        this.createInternalArrayRepresentation();
-    }
-    /**
-     * @param {?} position
-     * @param {?} value
-     * @return {?}
-     */
-    set(position, value) {
-        if (this.length === 0 || position < 0 || position >= this.length) {
-            throw new Error('Position is out of the list');
-        }
-        /** @type {?} */
-        const node = this.getNode(position);
-        node.value = value;
-        this.createInternalArrayRepresentation();
-    }
-    /**
-     * @return {?}
-     */
-    toArray() {
-        return this.asArray;
-    }
-    /* tslint:disable-next-line: no-any*/
-    /**
-     * @param {?} fn
-     * @return {?}
-     */
-    findAll(fn) {
-        /** @type {?} */
-        let current = this.head;
-        /* tslint:disable-next-line: no-any*/
-        /** @type {?} */
-        const result = [];
-        for (let index = 0; index < this.length; index++) {
-            if (fn(current.value, index)) {
-                result.push({ index, value: current.value });
-            }
-            current = current.next;
-        }
-        return result;
-    }
-    // Array methods overriding start
-    /**
-     * @param {...?} args
-     * @return {?}
-     */
-    push(...args) {
-        /* tslint:disable-next-line: no-any*/
-        args.forEach((/**
-         * @param {?} arg
-         * @return {?}
-         */
-        (arg) => {
-            this.add(arg);
-        }));
-        return this.length;
-    }
-    /**
-     * @return {?}
-     */
-    pop() {
-        if (this.length === 0) {
-            return undefined;
-        }
-        /** @type {?} */
-        const last = this.tail;
-        this.remove(this.length - 1);
-        return last.value;
-    }
-    /**
-     * @param {...?} args
-     * @return {?}
-     */
-    unshift(...args) {
-        args.reverse();
-        /* tslint:disable-next-line: no-any*/
-        args.forEach((/**
-         * @param {?} arg
-         * @return {?}
-         */
-        (arg) => {
-            this.add(arg, 0);
-        }));
-        return this.length;
-    }
-    /**
-     * @return {?}
-     */
-    shift() {
-        if (this.length === 0) {
-            return undefined;
-        }
-        /** @type {?} */
-        const lastItem = this.head.value;
-        this.remove();
-        return lastItem;
-    }
-    /* tslint:disable-next-line: no-any*/
-    /**
-     * @param {?} fn
-     * @return {?}
-     */
-    forEach(fn) {
-        /** @type {?} */
-        let current = this.head;
-        for (let index = 0; index < this.length; index++) {
-            fn(current.value, index);
-            current = current.next;
-        }
-    }
-    /**
-     * @param {?} value
-     * @return {?}
-     */
-    indexOf(value) {
-        /** @type {?} */
-        let current = this.head;
-        /** @type {?} */
-        let position = 0;
-        for (let index = 0; index < this.length; index++) {
-            if (current.value === value) {
-                position = index;
-                break;
-            }
-            current = current.next;
-        }
-        return position;
-    }
-    /* tslint:disable-next-line: no-any*/
-    /**
-     * @param {?} fn
-     * @return {?}
-     */
-    some(fn) {
-        /** @type {?} */
-        let current = this.head;
-        /** @type {?} */
-        let result = false;
-        while (current && !result) {
-            if (fn(current.value)) {
-                result = true;
-                break;
-            }
-            current = current.next;
-        }
-        return result;
-    }
-    /* tslint:disable-next-line: no-any*/
-    /**
-     * @param {?} fn
-     * @return {?}
-     */
-    every(fn) {
-        /** @type {?} */
-        let current = this.head;
-        /** @type {?} */
-        let result = true;
-        while (current && result) {
-            if (!fn(current.value)) {
-                result = false;
-            }
-            current = current.next;
-        }
-        return result;
-    }
-    /**
-     * @return {?}
-     */
-    toString() {
-        return '[Linked List]';
-    }
-    /* tslint:disable-next-line: no-any*/
-    /**
-     * @param {?} fn
-     * @return {?}
-     */
-    find(fn) {
-        /** @type {?} */
-        let current = this.head;
-        /** @type {?} */
-        let result;
-        for (let index = 0; index < this.length; index++) {
-            if (fn(current.value, index)) {
-                result = current.value;
-                break;
-            }
-            current = current.next;
-        }
-        return result;
-    }
-    /* tslint:disable-next-line: no-any*/
-    /**
-     * @param {?} fn
-     * @return {?}
-     */
-    findIndex(fn) {
-        /** @type {?} */
-        let current = this.head;
-        /** @type {?} */
-        let result;
-        for (let index = 0; index < this.length; index++) {
-            if (fn(current.value, index)) {
-                result = index;
-                break;
-            }
-            current = current.next;
-        }
-        return result;
-    }
-    /* tslint:disable-next-line: no-any*/
-    /**
-     * @protected
-     * @param {?} position
-     * @return {?}
-     */
-    getNode(position) {
-        if (this.length === 0 || position < 0 || position >= this.length) {
-            throw new Error('Position is out of the list');
-        }
-        /** @type {?} */
-        let current = this.head;
-        for (let index = 0; index < position; index++) {
-            current = current.next;
-        }
-        return current;
-    }
-    /**
-     * @protected
-     * @return {?}
-     */
-    createInternalArrayRepresentation() {
-        /* tslint:disable-next-line: no-any*/
-        /** @type {?} */
-        const outArray = [];
-        /** @type {?} */
-        let current = this.head;
-        while (current) {
-            outArray.push(current.value);
-            current = current.next;
-        }
-        this.asArray = outArray;
-    }
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/*tslint:disable:no-invalid-this */
-/* tslint:disable-next-line: no-any */
-/**
- * @param {?=} defaultValue
- * @return {?}
- */
-function OnChange(defaultValue) {
-    /** @type {?} */
-    const sufix = 'Change';
-    /* tslint:disable-next-line: no-any */
-    return (/**
-     * @param {?} target
-     * @param {?} propertyKey
-     * @return {?}
-     */
-    function OnChangeHandler(target, propertyKey) {
-        /** @type {?} */
-        const _key = ` __${propertyKey}Value`;
-        Object.defineProperty(target, propertyKey, {
-            /* tslint:disable-next-line: no-any */
-            /**
-             * @return {?}
-             */
-            get() {
-                return this[_key];
-            },
-            /* tslint:disable-next-line: no-any */
-            /**
-             * @param {?} value
-             * @return {?}
-             */
-            set(value) {
-                /** @type {?} */
-                const prevValue = this[_key];
-                this[_key] = value;
-                if (prevValue !== value && this[propertyKey + sufix]) {
-                    this[propertyKey + sufix].emit(value);
-                }
-            }
-        });
-    });
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-class Utils {
-    /* tslint:disable-next-line: no-any */
-    /**
-     * @param {?} element
-     * @return {?}
-     */
-    static reflow(element) {
-        /* tslint:disable-next-line: no-any */
-        ((/**
-         * @param {?} bs
-         * @return {?}
-         */
-        (bs) => bs))(element.offsetHeight);
-    }
-    // source: https://github.com/jquery/jquery/blob/master/src/css/var/getStyles.js
-    /* tslint:disable-next-line: no-any */
-    /**
-     * @param {?} elem
-     * @return {?}
-     */
-    static getStyles(elem) {
-        // Support: IE <=11 only, Firefox <=30 (#15098, #14150)
-        // IE throws on elements created in popups
-        // FF meanwhile throws on frame elements through "defaultView.getComputedStyle"
-        /** @type {?} */
-        let view = elem.ownerDocument.defaultView;
-        if (!view || !view.opener) {
-            view = win;
-        }
-        return view.getComputedStyle(elem);
-    }
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @type {?} */
-const _messagesHash = {};
-/** @type {?} */
-const _hideMsg = typeof console === 'undefined' || !('warn' in console);
-/**
- * @param {?} msg
- * @return {?}
- */
-function warnOnce(msg) {
-    if (!Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["isDevMode"])() || _hideMsg || msg in _messagesHash) {
-        return;
-    }
-    _messagesHash[msg] = true;
-    /*tslint:disable-next-line*/
-    console.warn(msg);
-}
-
-
-//# sourceMappingURL=ngx-bootstrap-utils.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/editprofile/editprofile.component.html":
-/*!***********************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/editprofile/editprofile.component.html ***!
-  \***********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form [formGroup]='profile' (ngSubmit)='update()'>\n            <div class=\"text-center\">\n                <div class=\"file_input\">\n                    <img [src]=\"url\" alt=\"\">\n                </div>\n                <label for=\"\" class=\"custom_label upload-image\">\n                    <input type=\"file\" accept=\"image/jpeg,image/png\" (change)=\"readUrl($event)\">\n                    {{'CHNGPIC'| translate}}</label>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/edit-user.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Salon Name\" class=\"form-control\" formControlName=\"name\" maxlength=\"100\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.name.dirty|| getControl.name.touched) && getControl.name.errors\">\n                <p class=\"color\" *ngIf=\"getControl.name.errors.required\">{{'INCRTSALONNAME'| translate}}</p>\n                <!-- <p class=\"color\" *ngIf=\"!getControl.name.errors.required && getControl.name.errors.invalidName\">\n                    {{'INCRTSALONNAME'| translate}}</p> -->\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/email.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'EMAIL'| translate | titlecase}}\" class=\"form-control\"\n                    formControlName=\"email\" maxlength=\"100\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.email.dirty|| getControl.email.touched) && getControl.email.errors\">\n                <p class=\"color\" *ngIf=\"getControl.email.errors.required\">{{'LOGINEMAIL'| translate}}</p>\n                <p class=\"color\"\n                    *ngIf=\"!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress\">\n                    {{'LOGINVALIDEMAIL'| translate}}</p>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img phone\"><img src=\"assets/images/mobile.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PHONE'| translate}}\"\n                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' class=\"form-control\"\n                    formControlName=\"phone\" maxlength=\"12\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.phone.dirty|| getControl.phone.touched) && getControl.phone.errors\">\n                <p class=\"color\" *ngIf=\"getControl.phone.errors.required\">{{'PHNREQ'|translate}}</p>\n                <p class=\"color\" *ngIf=\"!getControl.phone.errors.required && getControl.phone.errors.Invalidphone \">{{'PHNLNGTH'|translate}}</p>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/location.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Location\" class=\"form-control\" #search autocorrect=\"off\"\n                    autocapitalize=\"off\" spellcheck=\"off\" formControlName=\"location\">\n                <div\n                    *ngIf=\"(submitted || getControl.location.dirty|| getControl.location.touched) && getControl.location.errors\">\n                    <p class=\"color\" *ngIf=\"getControl.location.errors.required\">{{'LOCREQ' | translate}}</p>\n                </div>\n                <!-- <img class=\"full_width\" src=\"assets/images/maps.png\" alt=\"\"> -->\n                <div class=\"map full_width\">\n                    <agm-map [latitude]=\"location.lat\" [longitude]=\"location.lng\" [(zoom)]=\"location.zoom\"\n                        [zoomControl]=\"true\">\n                        <agm-marker [latitude]=\"location.lat\" [longitude]=\"location.lng\"></agm-marker>\n                    </agm-map>\n                </div>\n            </mat-form-field>\n\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/description.png\" alt=\"envelope\"></span>\n                <textarea matInput placeholder=\"{{'DESCRIPTION'| translate}}\" class=\"form-control\"\n                    formControlName=\"description\" maxlength=\"500\"></textarea>\n            </mat-form-field>\n            <div\n                *ngIf=\"(submitted || getControl.description.dirty|| getControl.description.touched) && getControl.description.errors\">\n                <p class=\"color\" *ngIf=\"getControl.description.errors.required\">{{'DESCREQ' | translate}}</p>\n                <p class=\"color\" *ngIf=\"getControl.description.errors.minlength \">{{'DESCLNGTH'| translate}}</p>\n            </div>\n            <div class=\"work_gallery\">\n                <label for=\"\" class=\"block\">{{'WORKGALLERY'| translate}}</label>\n                <div class=\"form-group form-primary custom_formgroup\">\n\n                    <label class=\"detail_content\">\n                        <a class=\"margin_top\"\n                            *ngFor=\"let image of salonImageUrlArray; index as i\">\n                            <img class=\"file_upload2\" [src]=\"image\" alt=\"Upload\">\n                            <span (click)=\"removeSalonImages(image,i)\">x</span> </a>\n                    </label>\n                    <span class=\"file_div\">\n                        <input type=\"file\" class=\"custom_upload1\" multiple\n                        accept=\"image/x-png,image/gif,image/jpeg,image/jpg\" (change)=\"readUrlMultipleImage($event)\"\n                        formControlName='multiImage'>\n                        <img class=\"file_upload1\" src=\"assets/images/add-edit.png\" alt=\"Upload\">\n                    </span>\n                </div>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/web.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Website\" class=\"form-control\" formControlName=\"website\">\n            </mat-form-field>\n            <div\n            *ngIf=\"(submitted || getControl.website.dirty|| getControl.website.touched) && getControl.website.errors\">\n            <p class=\"color\" *ngIf=\"getControl.website.errors.invalidWebsite \">{{'WBSTINVLD' | translate}}</p>\n        </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/service.png\" alt=\"envelope\"></span>\n                <mat-label>Service At</mat-label>\n                <mat-select formControlName='serviceat'>\n                    <mat-option *ngFor=\"let service of services\" [value]=\"service.value\">\n                        {{service.viewValue}}\n                    </mat-option>\n                </mat-select>\n            </mat-form-field>\n            <a [routerLink]=\"['/staff']\">\n                <mat-form-field>\n                    <span class=\"email-img pass\"><img src=\"assets/images/edit-staff.png\" alt=\"envelope\"></span>\n                    <input matInput placeholder=\"{{'MANAGESTAFF'| translate}}\" class=\"form-control cursor\" disabled>\n                </mat-form-field>\n            </a>\n            <a [routerLink]=\"['/profile/business-hours']\">\n                <mat-form-field>\n                    <span class=\"email-img pass\"><img src=\"assets/images/time.png\" alt=\"envelope\"></span>\n                    <input matInput placeholder=\"{{'BUSINESSHOURS'| translate}}\" class=\"form-control cursor\" disabled>\n                </mat-form-field>\n            </a>\n\n            <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">{{'SAVE'| translate}}</button>\n            </div>\n        </form>\n    </div>\n    <!-- <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n        \n                     \n                        <ng-container matColumnDef=\"No.\">\n                          <th mat-header-cell *matHeaderCellDef> No. </th>\n                          <td mat-cell *matCellDef=\"let element\"> {{1}} </td>\n                        </ng-container>\n                      \n                        \n                        <ng-container matColumnDef=\"name\">\n                          <th mat-header-cell *matHeaderCellDef> Name </th>\n                          <td mat-cell *matCellDef=\"let element\"> {{element.cat_name}} </td>\n                        </ng-container>\n                      \n                        \n                        <ng-container matColumnDef=\"price\">\n                          <th mat-header-cell *matHeaderCellDef> Price </th>\n                          <td mat-cell *matCellDef=\"let element\"> {{element.price}} </td>\n                        </ng-container>\n                      \n                        \n                        <ng-container matColumnDef=\"discount_price\">\n                          <th mat-header-cell *matHeaderCellDef> Discount </th>\n                          <td mat-cell *matCellDef=\"let element\"> {{element.discount_price}} </td>\n                        </ng-container>\n                      \n                        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n                      </table> -->\n    <!-- <button mat-raised-button (click)=\"openModal(template)\">Pick one</button> -->\n\n</div>\n\n<ng-template #template>\n    <div class=\"modal-content px-5\">\n        <h4 class=\"mt-3 text-left\">Salon Images</h4>\n        <div class=\"modal-body px-0\">\n            <slideshow #slideshow [imageUrls]=\"slide\" [height]=\"height\" [minHeight]=\"'200px'\" [autoPlay]=\"false\"\n                [showArrows]=\"true\" [lazyLoad]=\"true\" [backgroundSize]=\"'auto'\" [imageUrls]=\"imageSources\"\n                [lazyLoad]=\"imageSources?.length > 1\" [autoPlayWaitForLazyLoad]=\"true\"></slideshow>\n        </div>\n    </div>\n</ng-template>");
-
-/***/ }),
-
-/***/ "./src/app/home/profile/editprofile/editprofile-routing.module.ts":
-/*!************************************************************************!*\
-  !*** ./src/app/home/profile/editprofile/editprofile-routing.module.ts ***!
-  \************************************************************************/
-/*! exports provided: EditprofileRoutingModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditprofileRoutingModule", function() { return EditprofileRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorService", function() { return ErrorService; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _editprofile_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editprofile.component */ "./src/app/home/profile/editprofile/editprofile.component.ts");
+/* harmony import */ var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./translate.service */ "./src/app/shared/service/translate.service.ts");
+/* harmony import */ var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./http-request.service */ "./src/app/shared/service/http-request.service.ts");
 
 
 
 
-const routes = [{
-        path: '', component: _editprofile_component__WEBPACK_IMPORTED_MODULE_3__["EditprofileComponent"]
-    }];
-let EditprofileRoutingModule = class EditprofileRoutingModule {
-};
-EditprofileRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })
-], EditprofileRoutingModule);
-
-
-
-/***/ }),
-
-/***/ "./src/app/home/profile/editprofile/editprofile.component.scss":
-/*!*********************************************************************!*\
-  !*** ./src/app/home/profile/editprofile/editprofile.component.scss ***!
-  \*********************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".file_input img {\n  border-radius: 50%;\n  height: 153px;\n  width: 153px;\n  border: 5px solid whitesmoke;\n}\n\nimg.file_upload2 {\n  height: 100px !important;\n  width: 100px !important;\n  margin: 5px !important;\n  margin-left: 0px !important;\n  border: 5px solid whitesmoke;\n  position: relative;\n  border-radius: 7px;\n}\n\n.custom_upload1 {\n  position: absolute;\n  width: 100px;\n  height: 100%;\n  cursor: pointer;\n  opacity: 0;\n  text-indent: -110px;\n  z-index: 990;\n}\n\n.detail_content a.btn {\n  position: relative;\n  background: #f96ab3;\n  color: #fff !important;\n  margin: 0;\n  font-size: 17px;\n  margin-right: 15px;\n  padding: 5px 20px;\n  box-shadow: 2px 2px 7px #f96ab3;\n  margin-bottom: 15px;\n}\n\n.detail_content a.btn span {\n  cursor: pointer;\n  position: absolute;\n  right: 0px;\n  background: #FF2626;\n  height: 22px;\n  width: 22px;\n  border-radius: 50%;\n  font-size: 14px;\n  font-weight: 600;\n  text-align: center;\n  padding: 1px 0px;\n  line-height: 18px;\n}\n\n.detail_content a.margin_top {\n  position: relative;\n  color: #fff !important;\n  margin: 0;\n  font-size: 17px;\n  margin-right: 15px;\n  margin-bottom: 15px;\n}\n\n.detail_content a.margin_top span {\n  cursor: pointer;\n  position: absolute;\n  right: 0px;\n  background: #FF2626;\n  height: 22px;\n  width: 22px;\n  border-radius: 50%;\n  font-size: 14px;\n  font-weight: 600;\n  text-align: center;\n  padding: 1px 0px;\n  line-height: 18px;\n}\n\n.upload-image input[type=file] {\n  cursor: pointer;\n  position: absolute;\n  left: 0;\n  opacity: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 999;\n  text-indent: -110px;\n}\n\n.file_div {\n  position: relative;\n  display: inline-block;\n  margin-right: 15px;\n}\n\nlabel.block {\n  display: block;\n}\n\n.work_gallery label {\n  display: contents;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9wcm9maWxlL2VkaXRwcm9maWxlL2VkaXRwcm9maWxlLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9ob21lL3Byb2ZpbGUvZWRpdHByb2ZpbGUvZWRpdHByb2ZpbGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxrQkFBQTtFQUNBLGFBQUE7RUFDQSxZQUFBO0VBQ0EsNEJBQUE7QUNDSjs7QURFQTtFQUFpQix3QkFBQTtFQUF5Qix1QkFBQTtFQUEwQixzQkFBQTtFQUF3QiwyQkFBQTtFQUE2Qiw0QkFBQTtFQUNySCxrQkFBQTtFQUNBLGtCQUFBO0FDTUo7O0FETEE7RUFBZ0Isa0JBQUE7RUFBbUIsWUFBQTtFQUFhLFlBQUE7RUFBYSxlQUFBO0VBQWdCLFVBQUE7RUFBVyxtQkFBQTtFQUFvQixZQUFBO0FDZTVHOztBRGJBO0VBQXNCLGtCQUFBO0VBQWtCLG1CQUFBO0VBQW9CLHNCQUFBO0VBQXdCLFNBQUE7RUFBVSxlQUFBO0VBQWdCLGtCQUFBO0VBQW1CLGlCQUFBO0VBQWtCLCtCQUFBO0VBQWdDLG1CQUFBO0FDeUJuTDs7QUR4QkE7RUFBMkIsZUFBQTtFQUFnQixrQkFBQTtFQUFtQixVQUFBO0VBQVcsbUJBQUE7RUFBb0IsWUFBQTtFQUFhLFdBQUE7RUFBWSxrQkFBQTtFQUFvQixlQUFBO0VBQWdCLGdCQUFBO0VBQWlCLGtCQUFBO0VBQW1CLGdCQUFBO0VBQWlCLGlCQUFBO0FDdUMvTTs7QURyQ0E7RUFBNkIsa0JBQUE7RUFBa0Isc0JBQUE7RUFBd0IsU0FBQTtFQUFVLGVBQUE7RUFBZ0Isa0JBQUE7RUFBbUIsbUJBQUE7QUM4Q3BIOztBRDdDQTtFQUFrQyxlQUFBO0VBQWdCLGtCQUFBO0VBQW1CLFVBQUE7RUFBVyxtQkFBQTtFQUFvQixZQUFBO0VBQWEsV0FBQTtFQUFZLGtCQUFBO0VBQW9CLGVBQUE7RUFBZ0IsZ0JBQUE7RUFBaUIsa0JBQUE7RUFBbUIsZ0JBQUE7RUFBaUIsaUJBQUE7QUM0RHROOztBRDFEQTtFQUNJLGVBQUE7RUFDQSxrQkFBQTtFQUNBLE9BQUE7RUFDQSxVQUFBO0VBQ0EsTUFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0FDNkRKOztBRDNEQTtFQUFVLGtCQUFBO0VBQW1CLHFCQUFBO0VBQXFCLGtCQUFBO0FDaUVsRDs7QURoRUE7RUFBWSxjQUFBO0FDb0VaOztBRG5FQTtFQUFvQixpQkFBQTtBQ3VFcEIiLCJmaWxlIjoic3JjL2FwcC9ob21lL3Byb2ZpbGUvZWRpdHByb2ZpbGUvZWRpdHByb2ZpbGUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZmlsZV9pbnB1dCBpbWd7XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgIGhlaWdodDogMTUzcHg7XG4gICAgd2lkdGg6IDE1M3B4O1xuICAgIGJvcmRlcjogNXB4IHNvbGlkIHdoaXRlc21va2U7XG59XG5cbmltZy5maWxlX3VwbG9hZDJ7aGVpZ2h0OiAxMDBweCAhaW1wb3J0YW50O3dpZHRoOiAxMDBweCAhaW1wb3J0YW50OyAgbWFyZ2luOiA1cHggIWltcG9ydGFudDsgbWFyZ2luLWxlZnQ6IDBweCAhaW1wb3J0YW50OyBib3JkZXI6IDVweCBzb2xpZCB3aGl0ZXNtb2tlO1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBib3JkZXItcmFkaXVzOiA3cHg7fVxuLmN1c3RvbV91cGxvYWQxe3Bvc2l0aW9uOiBhYnNvbHV0ZTt3aWR0aDogMTAwcHg7aGVpZ2h0OiAxMDAlO2N1cnNvcjogcG9pbnRlcjtvcGFjaXR5OiAwO3RleHQtaW5kZW50OiAtMTEwcHg7ei1pbmRleDogOTkwO31cblxuLmRldGFpbF9jb250ZW50IGEuYnRue3Bvc2l0aW9uOnJlbGF0aXZlO2JhY2tncm91bmQ6ICNmOTZhYjM7Y29sb3I6ICNmZmYgIWltcG9ydGFudDsgbWFyZ2luOiAwO2ZvbnQtc2l6ZTogMTdweDttYXJnaW4tcmlnaHQ6IDE1cHg7cGFkZGluZzogNXB4IDIwcHg7Ym94LXNoYWRvdzogMnB4IDJweCA3cHggI2Y5NmFiMzttYXJnaW4tYm90dG9tOiAxNXB4O31cbi5kZXRhaWxfY29udGVudCBhLmJ0biBzcGFue2N1cnNvcjogcG9pbnRlcjtwb3NpdGlvbjogYWJzb2x1dGU7cmlnaHQ6IDBweDtiYWNrZ3JvdW5kOiAjRkYyNjI2O2hlaWdodDogMjJweDt3aWR0aDogMjJweDtib3JkZXItcmFkaXVzOiA1MCU7IGZvbnQtc2l6ZTogMTRweDtmb250LXdlaWdodDogNjAwO3RleHQtYWxpZ246IGNlbnRlcjtwYWRkaW5nOiAxcHggMHB4O2xpbmUtaGVpZ2h0OiAxOHB4O31cblxuLmRldGFpbF9jb250ZW50IGEubWFyZ2luX3RvcHtwb3NpdGlvbjpyZWxhdGl2ZTtjb2xvcjogI2ZmZiAhaW1wb3J0YW50OyBtYXJnaW46IDA7Zm9udC1zaXplOiAxN3B4O21hcmdpbi1yaWdodDogMTVweDttYXJnaW4tYm90dG9tOiAxNXB4O31cbi5kZXRhaWxfY29udGVudCBhLm1hcmdpbl90b3Agc3BhbntjdXJzb3I6IHBvaW50ZXI7cG9zaXRpb246IGFic29sdXRlO3JpZ2h0OiAwcHg7YmFja2dyb3VuZDogI0ZGMjYyNjtoZWlnaHQ6IDIycHg7d2lkdGg6IDIycHg7Ym9yZGVyLXJhZGl1czogNTAlOyBmb250LXNpemU6IDE0cHg7Zm9udC13ZWlnaHQ6IDYwMDt0ZXh0LWFsaWduOiBjZW50ZXI7cGFkZGluZzogMXB4IDBweDtsaW5lLWhlaWdodDogMThweDt9XG5cbi51cGxvYWQtaW1hZ2UgaW5wdXRbdHlwZT1cImZpbGVcIl0ge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgbGVmdDogMDtcbiAgICBvcGFjaXR5OiAwO1xuICAgIHRvcDogMDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgei1pbmRleDogOTk5O1xuICAgIHRleHQtaW5kZW50OiAtMTEwcHg7XG59XG4uZmlsZV9kaXZ7cG9zaXRpb246IHJlbGF0aXZlO2Rpc3BsYXk6aW5saW5lLWJsb2NrO21hcmdpbi1yaWdodDogMTVweDt9XG5sYWJlbC5ibG9ja3tkaXNwbGF5OiBibG9ja31cbi53b3JrX2dhbGxlcnkgbGFiZWx7ZGlzcGxheTogY29udGVudHN9XG5cbi8vIC51cGxvYWQtaW1hZ2Uge1xuLy8gICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbi8vICAgICBoZWlnaHQ6IDEwMCU7XG4vLyAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuLy8gICAgIG92ZXJmbG93OiBoaWRkZW47XG4vLyB9XG5cbi8vICAucHJvZmlsZSAge1xuLy8gICAgIGRpc3BsYXk6bm9uZTtcbi8vICAgICBtYXJnaW46MTBweDtcbi8vICAgICB9XG4vLyAgICAgIC5wcm9maWxlICArIGxhYmVsIHtcbi8vICAgICBkaXNwbGF5OmlubGluZS1ibG9jaztcbi8vICAgICBtYXJnaW46MjBweDtcbi8vICAgICBwYWRkaW5nOiA0cHggMzJweDtcbi8vICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkZGRkZGO1xuLy8gICAgIGJvcmRlcjpzb2xpZCAxcHggIzY2NkY3Nztcbi8vICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4vLyAgICAgY29sb3I6IzY2NkY3Nztcbi8vICAgICB9XG4vLyAgICAgIC5wcm9maWxlIDphY3RpdmUgKyBsYWJlbCB7XG4vLyAgICAgYmFja2dyb3VuZC1pbWFnZTogbm9uZTtcbi8vICAgICBiYWNrZ3JvdW5kLWNvbG9yOiMyRDZDN0E7XG4vLyAgICAgY29sb3I6I0ZGRkZGRjtcbi8vICAgICB9XG5cbiIsIi5maWxlX2lucHV0IGltZyB7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgaGVpZ2h0OiAxNTNweDtcbiAgd2lkdGg6IDE1M3B4O1xuICBib3JkZXI6IDVweCBzb2xpZCB3aGl0ZXNtb2tlO1xufVxuXG5pbWcuZmlsZV91cGxvYWQyIHtcbiAgaGVpZ2h0OiAxMDBweCAhaW1wb3J0YW50O1xuICB3aWR0aDogMTAwcHggIWltcG9ydGFudDtcbiAgbWFyZ2luOiA1cHggIWltcG9ydGFudDtcbiAgbWFyZ2luLWxlZnQ6IDBweCAhaW1wb3J0YW50O1xuICBib3JkZXI6IDVweCBzb2xpZCB3aGl0ZXNtb2tlO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJvcmRlci1yYWRpdXM6IDdweDtcbn1cblxuLmN1c3RvbV91cGxvYWQxIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB3aWR0aDogMTAwcHg7XG4gIGhlaWdodDogMTAwJTtcbiAgY3Vyc29yOiBwb2ludGVyO1xuICBvcGFjaXR5OiAwO1xuICB0ZXh0LWluZGVudDogLTExMHB4O1xuICB6LWluZGV4OiA5OTA7XG59XG5cbi5kZXRhaWxfY29udGVudCBhLmJ0biB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgYmFja2dyb3VuZDogI2Y5NmFiMztcbiAgY29sb3I6ICNmZmYgIWltcG9ydGFudDtcbiAgbWFyZ2luOiAwO1xuICBmb250LXNpemU6IDE3cHg7XG4gIG1hcmdpbi1yaWdodDogMTVweDtcbiAgcGFkZGluZzogNXB4IDIwcHg7XG4gIGJveC1zaGFkb3c6IDJweCAycHggN3B4ICNmOTZhYjM7XG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XG59XG5cbi5kZXRhaWxfY29udGVudCBhLmJ0biBzcGFuIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHJpZ2h0OiAwcHg7XG4gIGJhY2tncm91bmQ6ICNGRjI2MjY7XG4gIGhlaWdodDogMjJweDtcbiAgd2lkdGg6IDIycHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgZm9udC1zaXplOiAxNHB4O1xuICBmb250LXdlaWdodDogNjAwO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHBhZGRpbmc6IDFweCAwcHg7XG4gIGxpbmUtaGVpZ2h0OiAxOHB4O1xufVxuXG4uZGV0YWlsX2NvbnRlbnQgYS5tYXJnaW5fdG9wIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBjb2xvcjogI2ZmZiAhaW1wb3J0YW50O1xuICBtYXJnaW46IDA7XG4gIGZvbnQtc2l6ZTogMTdweDtcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xufVxuXG4uZGV0YWlsX2NvbnRlbnQgYS5tYXJnaW5fdG9wIHNwYW4ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcmlnaHQ6IDBweDtcbiAgYmFja2dyb3VuZDogI0ZGMjYyNjtcbiAgaGVpZ2h0OiAyMnB4O1xuICB3aWR0aDogMjJweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBmb250LXNpemU6IDE0cHg7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgcGFkZGluZzogMXB4IDBweDtcbiAgbGluZS1oZWlnaHQ6IDE4cHg7XG59XG5cbi51cGxvYWQtaW1hZ2UgaW5wdXRbdHlwZT1maWxlXSB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBsZWZ0OiAwO1xuICBvcGFjaXR5OiAwO1xuICB0b3A6IDA7XG4gIHdpZHRoOiAxMDAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIHotaW5kZXg6IDk5OTtcbiAgdGV4dC1pbmRlbnQ6IC0xMTBweDtcbn1cblxuLmZpbGVfZGl2IHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG4gIG1hcmdpbi1yaWdodDogMTVweDtcbn1cblxubGFiZWwuYmxvY2sge1xuICBkaXNwbGF5OiBibG9jaztcbn1cblxuLndvcmtfZ2FsbGVyeSBsYWJlbCB7XG4gIGRpc3BsYXk6IGNvbnRlbnRzO1xufSJdfQ== */");
-
-/***/ }),
-
-/***/ "./src/app/home/profile/editprofile/editprofile.component.ts":
-/*!*******************************************************************!*\
-  !*** ./src/app/home/profile/editprofile/editprofile.component.ts ***!
-  \*******************************************************************/
-/*! exports provided: EditprofileComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditprofileComponent", function() { return EditprofileComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/service/helper.service */ "./src/app/shared/service/helper.service.ts");
-/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/fesm2015/agm-core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/service/validation-service */ "./src/app/shared/service/validation-service.ts");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_8__);
-/* harmony import */ var src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/service/message.service */ "./src/app/shared/service/message.service.ts");
-/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
-/* harmony import */ var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/service/error.service */ "./src/app/shared/service/error.service.ts");
-/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
-
-
-
-
-
-
-
-
-
-
-
-
-
-let EditprofileComponent = class EditprofileComponent {
-    constructor(httpService, router, helper, mapsApiLoader, zone, messageService, modalService, errorserv, trns) {
-        this.httpService = httpService;
-        this.router = router;
+// import { TranslatePipe } from '../_pipes/translate.pipe';
+let ErrorService = class ErrorService {
+    constructor(helper, trns) {
         this.helper = helper;
-        this.mapsApiLoader = mapsApiLoader;
-        this.zone = zone;
-        this.messageService = messageService;
-        this.modalService = modalService;
-        this.errorserv = errorserv;
         this.trns = trns;
-        this.services = [
-            { value: '1', viewValue: 'Salon' },
-            { value: '2', viewValue: 'Home' },
-            { value: '3', viewValue: 'Both' },
-        ];
-        this.displayedColumns = ['No.', 'name', 'price', 'discount_price'];
-        this.location = {
-            lat: 28.7041,
-            lng: 77.1025,
-            marker: {
-                lat: 28.7041,
-                lng: 77.1025,
-                draggable: true
-            },
-            zoom: 12
-        };
-        this.loader = false;
-        this.submitted = false;
-        this.url = 'assets/images/change.png';
-        this.salonImageUrlArray = [];
-        this.salonImageArray = [];
-        this.deletedImageArray = [];
-        this.dataSource = [];
-        this.slide = [];
     }
-    ngOnInit() {
-        this.salonid = localStorage.getItem('salonid');
-        this.searchPlace();
-        this.getUserProfile();
-        this.profile = new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormGroup"]({
-            location: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null, [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required
-            ]),
-            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null, [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].namevalidator
-            ]),
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null, [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].validateEmail
-            ]),
-            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null, [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required,
-                src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].phonevalidator,
-            ]),
-            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null, [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required,
-                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].minLength(2),
-                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].maxLength(500)
-            ]),
-            website: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null, [
-                src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].validateWebsite
-            ]),
-            multiImage: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null),
-            serviceat: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null)
-        });
-    }
-    update() {
-        this.submitted = true;
-        // return false
-        this.formData = new FormData();
-        if (this.salonImageUrlArray.length > 10) {
-            this.errorserv.handleError(39);
-            return;
+    handleError(errCode = 0) {
+        switch (errCode) {
+            case 0:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+                break;
+            case 1:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+                break;
+            case 4:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+                break;
+            case 5:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
+                break;
+            case 6:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
+                break;
+            case 7:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
+                break;
+            case 8:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
+                break;
+            case 9:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
+                break;
+            case 31:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+            case 39:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
+                break;
+            default:
+                break;
         }
-        else if (this.profile.valid) {
-            if (this.profileImage)
-                this.formData.append('salon_logo', this.profileImage, this.profileImage.name);
-            for (let i = 0; i < this.salonImageArray.length; i++) {
-                this.formData.append('salon_imgs', this.salonImageArray[i]);
-            }
-            if (this.deletedImageArray.length)
-                this.formData.append('del_imgs', JSON.stringify(this.deletedImageArray));
-            this.formData.append('name', this.profile.value.name);
-            this.formData.append('email', this.profile.value.email);
-            this.formData.append('phone', this.profile.value.phone);
-            this.formData.append('website', this.profile.value.website ? this.profile.value.website : '');
-            this.formData.append('desc', this.profile.value.description ? this.profile.value.description : '');
-            this.formData.append('address', this.location.full_address ? this.location.full_address : this.profile.value.location);
-            this.formData.append('city', this.location ? this.location.address_level_2 : "");
-            this.formData.append('state', this.location ? this.location.address_state : "");
-            this.formData.append('pincode', this.location ? this.location.address_zip : "");
-            this.formData.append('country', this.location ? this.location.address_country : "");
-            this.formData.append('lat', this.location ? String(this.location.lat) : "");
-            this.formData.append('lng', this.location ? String(this.location.lng) : "");
-            this.formData.append('service_at', this.profile.value.serviceat);
-            this.httpService.getRequest('PUT', 'EDIT', this.formData, '')
-                .subscribe((response) => {
-                if (response.status === 1) {
-                    this.submitted = true;
-                    localStorage.setItem('salon', JSON.stringify({ name: this.profile.value.name, logo: response.res.logo ? response.res.logo : this.detail.logo }));
-                    this.messageService.sendMessage('profile changed');
-                    this.router.navigateByUrl('/profile')
-                        .then(() => {
-                        this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('SALONSUCCESS'));
-                    });
-                }
-                else {
-                    if (!lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(response.err)) {
-                        this.errorserv.handleError(response.err.errCode);
-                    }
-                }
-            }, (error) => {
-                this.errorserv.handleError(0);
-            });
-        }
-        else {
-            console.log(this.profile);
-        }
-    }
-    readUrlMultipleImage(event) {
-        var imageData = this.helper.checkImageValidationMultiple(event);
-        if (imageData == true) {
-            let files = event.target.files;
-            if (files.length) {
-                for (let file of files) {
-                    let reader = new FileReader();
-                    reader.onload = (e) => {
-                        this.salonImageUrlArray.push(e.target.result);
-                    };
-                    reader.readAsDataURL(file);
-                    this.salonImageArray.push(file);
-                }
-            }
-        }
-    }
-    removeSalonImages(value, itemIndex) {
-        this.salonImageUrlArray = this.salonImageUrlArray.filter((item, index) => {
-            if ((index == itemIndex) && item.includes("https://tieimg.s3.me-south-1.amazonaws.com")) {
-                let image = item.split("/").pop();
-                this.deletedImageArray.push(image);
-            }
-            console.log(this.salonImageUrlArray);
-            return index !== itemIndex;
-        });
-        if (typeof this.salonImageArray[itemIndex] === 'object') {
-            let deleteIndex = itemIndex - this.deletedImageArray.length;
-            this.salonImageArray.splice(deleteIndex, 1);
-        }
-    }
-    readUrl(event) {
-        //  var fileResponse= this.fileUpload.readUrl(event);
-        //  console.log(fileResponse);
-        //  this.url = fileResponse['url'];
-        //  this.profileImage = fileResponse['fileObject '];
-        if (event.target.files && event.target.files[0]) {
-            if (this.helper.isImage(event.target.files[0].type)) {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    this.url = event.target.result;
-                };
-                reader.readAsDataURL(event.target.files[0]);
-                this.profileImage = event.target.files[0];
-            }
-            else {
-                // this.httpService.showError(MESSAGE.IMG_MSG, MESSAGE.IMG_ERROR, MESSAGE.MSGTIME);
-            }
-        }
-    }
-    getUserProfile() {
-        this.httpService.getRequest('GET', 'PROFILE', '')
-            .subscribe((response) => {
-            this.loader = false;
-            if (response.status === 1) {
-                this.detail = response.res;
-                this.profile.patchValue({
-                    name: this.detail.hasOwnProperty('name') ? this.detail.name : '',
-                    email: this.detail.hasOwnProperty('email') ? this.detail.email : '',
-                    phone: this.detail.hasOwnProperty('phone') ? this.detail.phone : '',
-                    location: this.detail.hasOwnProperty('address') ? this.detail.address : '',
-                    // company details
-                    website: this.detail.hasOwnProperty('website') ? this.detail.website : '',
-                    description: this.detail.hasOwnProperty('desc') ? this.detail.desc : '',
-                    serviceat: this.detail.hasOwnProperty('service_at') ? String(this.detail.service_at) : ''
-                });
-                this.location.address_level_2 = this.detail.city;
-                this.location.address_state = this.detail.state;
-                this.location.address_zip = this.detail.pincode;
-                this.location.address_country = this.detail.country;
-                this.location.lat = this.detail.lat;
-                this.location.lng = this.detail.lng;
-                this.url = this.detail.logo ? this.detail.logo : this.url;
-                this.dataSource = this.detail.services;
-                if (this.detail && this.detail.imgs) {
-                    this.detail.imgs.map(item => {
-                        item = this.detail.bp + item;
-                        this.salonImageUrlArray.push(item);
-                        this.salonImageArray.push(item);
-                        this.slide = [...this.slide, { 'url': item, clickAction: () => alert('custom click function') }];
-                        // this.slide.push({'url':item});
-                    });
-                }
-            }
-            else {
-                if (!lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(response.err)) {
-                    this.errorserv.handleError(response.err.errCode);
-                }
-            }
-        }, (error) => {
-            console.log(error);
-        });
-    }
-    get getControl() { return this.profile.controls; }
-    searchPlace() {
-        this.mapsApiLoader.load().then(() => {
-            let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
-                types: ['establishment']
-            });
-            autocomplete.addListener("place_changed", () => {
-                this.zone.run(() => {
-                    //get the place result
-                    let place = autocomplete.getPlace();
-                    for (var i = 0; i < place.address_components.length; i++) {
-                        let types = place.address_components[i].types;
-                        if (types.indexOf('locality') != -1) {
-                            this.location.address_level_2 = place.address_components[i].long_name;
-                        }
-                        else if (types.indexOf('administrative_area_level_1') != -1) {
-                            this.location.address_level_2 = place.address_components[i].long_name;
-                        }
-                        if (types.indexOf('country') != -1) {
-                            this.location.address_country = place.address_components[i].long_name;
-                        }
-                        if (types.indexOf('postal_code') != -1) {
-                            this.location.address_zip = place.address_components[i].long_name;
-                        }
-                        if (types.indexOf('administrative_area_level_1') != -1) {
-                            this.location.address_state = place.address_components[i].long_name;
-                        }
-                    }
-                    console.log(this.location.address_level_2);
-                    console.log(place);
-                    if (place.formatted_address) {
-                        this.location.full_address = place.formatted_address;
-                    }
-                    if (place.geometry.location) {
-                        this.location.lat = place.geometry.location.lat();
-                        this.location.lng = place.geometry.location.lng();
-                        this.location.marker.lat = place.geometry.location.lat();
-                        this.location.marker.lng = place.geometry.location.lng();
-                        this.location.marker.draggable = true;
-                        this.location.viewport = place.geometry.viewport;
-                    }
-                    //verify result
-                    if (place.geometry === undefined || place.geometry === null) {
-                        return;
-                    }
-                });
-            });
-        });
-    }
-    openModal(template) {
-        let config = {
-            backdrop: true,
-            ignoreBackdropClick: true
-        };
-        console.log(this.slideshow);
-        // this.slideshow.goToSlide(3);
-        this.modalRef = this.modalService.show(template, config);
     }
 };
-EditprofileComponent.ctorParameters = () => [
-    { type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_4__["Helper"] },
-    { type: _agm_core__WEBPACK_IMPORTED_MODULE_5__["MapsAPILoader"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] },
-    { type: src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_9__["MessageService"] },
-    { type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_10__["BsModalService"] },
-    { type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_11__["ErrorService"] },
-    { type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_12__["TranslatePipe"] }
+ErrorService.ctorParameters = () => [
+    { type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"] },
+    { type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"] }
 ];
-tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("search", { static: false })
-], EditprofileComponent.prototype, "searchElementRef", void 0);
-tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('slideshow', { static: true })
-], EditprofileComponent.prototype, "slideshow", void 0);
-EditprofileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-editprofile',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./editprofile.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/editprofile/editprofile.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./editprofile.component.scss */ "./src/app/home/profile/editprofile/editprofile.component.scss")).default]
+ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
     })
-], EditprofileComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/home/profile/editprofile/editprofile.module.ts":
-/*!****************************************************************!*\
-  !*** ./src/app/home/profile/editprofile/editprofile.module.ts ***!
-  \****************************************************************/
-/*! exports provided: EditprofileModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditprofileModule", function() { return EditprofileModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _editprofile_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editprofile-routing.module */ "./src/app/home/profile/editprofile/editprofile-routing.module.ts");
-/* harmony import */ var _editprofile_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editprofile.component */ "./src/app/home/profile/editprofile/editprofile.component.ts");
-/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/fesm2015/agm-core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var ng_simple_slideshow__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ng-simple-slideshow */ "./node_modules/ng-simple-slideshow/ng-simple-slideshow.js");
-/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
-/* harmony import */ var src_app_shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/breadcrumb/breadcrumb.module */ "./src/app/shared/breadcrumb/breadcrumb.module.ts");
-/* harmony import */ var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
-/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let EditprofileModule = class EditprofileModule {
-};
-EditprofileModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_editprofile_component__WEBPACK_IMPORTED_MODULE_4__["EditprofileComponent"]],
-        imports: [
-            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
-            _editprofile_routing_module__WEBPACK_IMPORTED_MODULE_3__["EditprofileRoutingModule"],
-            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
-            _agm_core__WEBPACK_IMPORTED_MODULE_6__["AgmCoreModule"].forRoot({
-                apiKey: 'AIzaSyAFagdwUB5_7TgN2G4Ss6q_qnwgg5BX3Qg',
-                libraries: ["places"]
-            }),
-            ng_simple_slideshow__WEBPACK_IMPORTED_MODULE_8__["SlideshowModule"],
-            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_9__["ModalModule"].forRoot(),
-            src_app_shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_10__["BreadcrumbModule"],
-            src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_11__["ApplicationpipeModule"]
-        ],
-        providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_12__["TranslatePipe"], primeng_api__WEBPACK_IMPORTED_MODULE_13__["MessageService"]]
-    })
-], EditprofileModule);
+], ErrorService);
 
 
 

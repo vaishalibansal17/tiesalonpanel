@@ -2,23 +2,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[37], {
   /***/
-  "./src/app/home/staff/staff-routing.module.ts":
-  /*!****************************************************!*\
-    !*** ./src/app/home/staff/staff-routing.module.ts ***!
-    \****************************************************/
+  "./src/app/home/staff/list/list-routing.module.ts":
+  /*!********************************************************!*\
+    !*** ./src/app/home/staff/list/list-routing.module.ts ***!
+    \********************************************************/
 
-  /*! exports provided: StaffRoutingModule */
+  /*! exports provided: ListRoutingModule */
 
   /***/
-  function srcAppHomeStaffStaffRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeStaffListListRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffRoutingModule", function () {
-      return StaffRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "ListRoutingModule", function () {
+      return ListRoutingModule;
     });
     /* harmony import */
 
@@ -38,113 +38,47 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./list.component */
+    "./src/app/home/staff/list/list.component.ts");
 
     var routes = [{
       path: '',
-      loadChildren: function loadChildren() {
-        return __webpack_require__.e(
-        /*! import() */
-        15).then(__webpack_require__.bind(null,
-        /*! ./list/list.module */
-        "./src/app/home/staff/list/list.module.ts")).then(function (mod) {
-          return mod.ListModule;
-        });
-      },
-      data: {
-        title: "List",
-        status: false
-      }
-    }, {
-      path: 'add',
-      loadChildren: function loadChildren() {
-        return __webpack_require__.e(
-        /*! import() */
-        25).then(__webpack_require__.bind(null,
-        /*! ./addstaff/addstaff.module */
-        "./src/app/home/staff/addstaff/addstaff.module.ts")).then(function (mod) {
-          return mod.AddstaffModule;
-        });
-      },
-      data: {
-        title: "Add",
-        status: false
-      }
-    }, {
-      path: 'edit',
-      loadChildren: function loadChildren() {
-        return __webpack_require__.e(
-        /*! import() */
-        26).then(__webpack_require__.bind(null,
-        /*! ./editstaff/editstaff.module */
-        "./src/app/home/staff/editstaff/editstaff.module.ts")).then(function (mod) {
-          return mod.EditstaffModule;
-        });
-      },
-      data: {
-        title: "Edit",
-        status: false
-      }
-    }, {
-      path: 'info',
-      loadChildren: function loadChildren() {
-        return __webpack_require__.e(
-        /*! import() */
-        27).then(__webpack_require__.bind(null,
-        /*! ./staffdetail/staffdetail.module */
-        "./src/app/home/staff/staffdetail/staffdetail.module.ts")).then(function (mod) {
-          return mod.StaffdetailModule;
-        });
-      },
-      data: {
-        title: "Info",
-        status: false
-      }
-    }, {
-      path: 'info/review',
-      loadChildren: function loadChildren() {
-        return __webpack_require__.e(
-        /*! import() */
-        28).then(__webpack_require__.bind(null,
-        /*! ./staffreview/staffreview.module */
-        "./src/app/home/staff/staffreview/staffreview.module.ts")).then(function (mod) {
-          return mod.StaffreviewModule;
-        });
-      },
-      data: {
-        title: "Info / Review",
-        status: false
-      }
+      component: _list_component__WEBPACK_IMPORTED_MODULE_3__["ListComponent"]
     }];
 
-    var StaffRoutingModule = function StaffRoutingModule() {
-      _classCallCheck(this, StaffRoutingModule);
+    var ListRoutingModule = function ListRoutingModule() {
+      _classCallCheck(this, ListRoutingModule);
     };
 
-    StaffRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    ListRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], StaffRoutingModule);
+    })], ListRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staff.module.ts":
-  /*!********************************************!*\
-    !*** ./src/app/home/staff/staff.module.ts ***!
-    \********************************************/
+  "./src/app/home/staff/list/list.module.ts":
+  /*!************************************************!*\
+    !*** ./src/app/home/staff/list/list.module.ts ***!
+    \************************************************/
 
-  /*! exports provided: StaffModule */
+  /*! exports provided: ListModule */
 
   /***/
-  function srcAppHomeStaffStaffModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeStaffListListModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffModule", function () {
-      return StaffModule;
+    __webpack_require__.d(__webpack_exports__, "ListModule", function () {
+      return ListModule;
     });
     /* harmony import */
 
@@ -167,25 +101,50 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _staff_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./staff-routing.module */
-    "./src/app/home/staff/staff-routing.module.ts");
+    var _list_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./list-routing.module */
+    "./src/app/home/staff/list/list-routing.module.ts");
     /* harmony import */
 
 
     var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! src/app/shared/shared.module */
     "./src/app/shared/shared.module.ts");
+    /* harmony import */
 
-    var StaffModule = function StaffModule() {
-      _classCallCheck(this, StaffModule);
+
+    var _list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ./list.component */
+    "./src/app/home/staff/list/list.component.ts");
+    /* harmony import */
+
+
+    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/module/applicationpipe/applicationpipe.module */
+    "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
+    /* harmony import */
+
+
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+    /* harmony import */
+
+
+    var ngx_stars__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ngx-stars */
+    "./node_modules/ngx-stars/fesm2015/ngx-stars.js");
+
+    var ListModule = function ListModule() {
+      _classCallCheck(this, ListModule);
     };
 
-    StaffModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _staff_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"]],
-      entryComponents: []
-    })], StaffModule);
+    ListModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_list_component__WEBPACK_IMPORTED_MODULE_5__["ListComponent"], _list_component__WEBPACK_IMPORTED_MODULE_5__["StaffDeleteDialogBox"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _list_routing_module__WEBPACK_IMPORTED_MODULE_3__["ListRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__["ApplicationpipeModule"], ngx_stars__WEBPACK_IMPORTED_MODULE_8__["NgxStarsModule"]],
+      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]],
+      entryComponents: [_list_component__WEBPACK_IMPORTED_MODULE_5__["StaffDeleteDialogBox"]]
+    })], ListModule);
     /***/
   }
 }]);
