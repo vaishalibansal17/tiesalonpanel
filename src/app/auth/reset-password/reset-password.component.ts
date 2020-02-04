@@ -37,8 +37,8 @@ export class ResetPasswordComponent implements OnInit {
     this.token = this.routes.snapshot.params.token;
     if (this.token)
       this.token = this.token.replace(/\s/g, "+");
-
-    this.reset = this.fb.group({
+    localStorage.clear();
+      this.reset = this.fb.group({
       newPassword: new FormControl(null, [
         Validators.required, Validators.minLength(6),
         ValidationService.passwordValidator

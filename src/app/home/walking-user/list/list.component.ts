@@ -46,7 +46,7 @@ export class ListComponent implements OnInit {
     { value: '4', viewValue: 'In-Process Bookings' },
     { value: '5', viewValue: 'Completed Bookings' },
   ];
-  
+
   @ViewChild(MatPaginator, { static: true }) set matPaginator(mp: MatPaginator) {
     this.paginator = mp;
   };
@@ -66,7 +66,7 @@ export class ListComponent implements OnInit {
     );
   }
   ngOnInit() {
-    this.getSalonStaff();
+    // this.getSalonStaff();
   }
 
   // ********************** Account Manager List Api Integration with search ******************

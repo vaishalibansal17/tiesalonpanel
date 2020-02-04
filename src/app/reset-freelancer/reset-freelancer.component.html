@@ -38,11 +38,11 @@
                             </mat-form-field>
                             <div
                                 *ngIf="(submitted) && getControl.newPassword.errors">
-                                <p class="color" *ngIf="getControl.newPassword.errors.required">{{'RESETPASSREQ'| translate}}
+                                <p class="color error" *ngIf="getControl.newPassword.errors.required">{{'RESETPASSREQ'| translate}}
                                 </p>
-                                <!-- <p class="color" *ngIf="getControl.newPassword.errors.minlength ">{{'PASSPATTERN'| translate}}</p> -->
+                                <!-- <p class="color error" *ngIf="getControl.newPassword.errors.minlength ">{{'PASSPATTERN'| translate}}</p> -->
                                 <span *ngIf="!getControl.newPassword.errors.required">
-                                    <p class="color" *ngIf="getControl.newPassword.errors.invalidPassword">{{'PASSPATTERN'| translate}}</p>
+                                    <p class="color error" *ngIf="getControl.newPassword.errors.invalidPassword">{{'PASSPATTERN'| translate}}</p>
                                 </span>
                             </div>
                             <mat-form-field>
@@ -57,9 +57,9 @@
                             </mat-form-field>
                             <div
                                 *ngIf="(submitted) && getControl.confirmPassword.errors">
-                                <p class="color" *ngIf="getControl.confirmPassword.errors.required">{{'RESETPASSCNFREQ'| translate}}</p>
+                                <p class="color error" *ngIf="getControl.confirmPassword.errors.required">{{'RESETPASSCNFREQ'| translate}}</p>
                                 <span *ngIf="!getControl.confirmPassword.errors.required">
-                                    <p class="color" *ngIf="getControl.confirmPassword.invalid">{{'RESETPASSNOTMATCH'| translate}}</p>
+                                    <p class="color error" *ngIf="getControl.confirmPassword.invalid">{{'RESETPASSNOTMATCH'| translate}}</p>
                                 </span>
                             </div>
                             <button type="submit" class="btn btn-submit">{{'RESET' | translate}}</button>
