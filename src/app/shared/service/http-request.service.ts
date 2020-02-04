@@ -9,20 +9,22 @@ import { MessageService } from 'primeng/api';
 
 export class HttpRequestService {
 	constructor(private http: HttpClient,
-		private myRoute: Router, 
+		private myRoute: Router,
 		private messageService: MessageService
-		) { }
+	) { }
 
 	getApi(apiName: string) {
 		const Url = APIURLS[apiName];
 		return Url;
 	}
-	getRequest(type: string, requestUrl: string, data?: any, queryParams?: any): Observable<any> {		
+	getRequest(type: string, requestUrl: string, data?: any, queryParams?: any): Observable<any> {
 		if (type === 'GET') {
-			return this.http.get<any>(this.getApi(requestUrl) + '/' + data);
+			return this.http.get<any>(this.getApi(requestUrl) + '?' + data);
+		} else if (type === 'GET_PARMS') {			
+			return this.http.get<any>(this.getApi(requestUrl) + '/' + data + '?' +queryParams );
 		} else if (type === 'POST') {
 			return this.http.post<any>(this.getApi(requestUrl), data);;
-		} else if (type === 'POST_WITHDATA') {			
+		} else if (type === 'POST_WITHDATA') {
 			return this.http.post<any>(this.getApi(requestUrl) + '/' + queryParams, data);;
 		} else if (type === 'PUT') {
 			return this.http.put<any>(this.getApi(requestUrl) + '/' + queryParams, data);;
@@ -50,12 +52,12 @@ export class HttpRequestService {
 
 	errTostr(title, msg) {
 		this.messageService.clear();
-        this.messageService.add({ severity: 'error', summary: title, detail: msg });
-    }
-    sucsTostr(title, msg) {
-        this.messageService.clear();
-        this.messageService.add({ severity: 'success', summary: title, detail: msg });
-    }
+		this.messageService.add({ severity: 'error', summary: title, detail: msg });
+	}
+	sucsTostr(title, msg) {
+		this.messageService.clear();
+		this.messageService.add({ severity: 'success', summary: title, detail: msg });
+	}
 
 	toggleRoute(route) {
 		this.myRoute.navigate(['/main/event/' + route + '/' + localStorage.getItem('editEventId')]);

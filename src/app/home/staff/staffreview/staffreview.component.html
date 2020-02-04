@@ -1,79 +1,55 @@
 <div class="main-card">
     <div class="row">
-    <div class="col-md-6"><h3>Rating</h3></div>
-    <div class="col-md-6 alignright"><div class="rating"><span class="big">4.0</span><span class="small">(25)</span></div><div class="reviews"><img src="assets/images/reviews-star.png" alt="Review"></div></div>
-    
-        <div class="col-md-3 rating_head">Professionalism</div>
-        <div class="col-md-6 rating_mat"><mat-progress-bar mode="determinate" value="100" class="high"></mat-progress-bar></div>
-        <div class="col-md-3 rating_mark">5/5</div>
-            
-        <div class="col-md-3 rating_head">Customer Service</div>
-        <div class="col-md-6 rating_mat"><mat-progress-bar mode="determinate" value="70" class="average"></mat-progress-bar></div>
-        <div class="col-md-3 rating_mark">3/5</div>
-            
-        <div class="col-md-3 rating_head">Cleanness</div>
-        <div class="col-md-6 rating_mat"><mat-progress-bar mode="determinate" value="85" class="equalhigh"></mat-progress-bar></div>
-        <div class="col-md-3 rating_mark">4.5/5</div>
-            
-        <div class="col-md-3 rating_head">Timing</div>
-        <div class="col-md-6 rating_mat"><mat-progress-bar mode="determinate" value="80" class="lesshigh"></mat-progress-bar></div>
-        <div class="col-md-3 rating_mark">4/5</div>
+        <div class="col-md-6">
+            <h3>{{'RATING' | translate}}</h3>
+        </div>
+        <div class="col-md-6 alignright">
+            <div class="rating"><span class="big">{{detail && detail.avg_rating?(detail.avg_rating | round):0}}</span><span class="small">(5)</span></div>
+            <div class="reviews"><ngx-stars [readonly]="true" [color]="'#f7c133'" [size]="5" [initialStars]="detail.avg_rating ? (detail.avg_rating | round):0"></ngx-stars>
+            </div>
+        </div>
+
+        <div class="col-md-3 rating_head">{{'PROFESS' | translate}}</div>
+        <div class="col-md-6 rating_mat">
+            <mat-progress-bar mode="determinate" value="{{detail && detail.avg_pro? (detail.avg_pro | prcnt) :0 }}" class="high"></mat-progress-bar>
+        </div>
+        <div class="col-md-3 rating_mark">{{detail && detail.avg_pro? (detail.avg_pro | round):0 }}/5</div>
+
+        <div class="col-md-3 rating_head">{{'CUSTMRSRV' | translate}}</div>
+        <div class="col-md-6 rating_mat">
+            <mat-progress-bar mode="determinate" value="{{detail && detail.avg_cus? (detail.avg_cus | prcnt):0}}" class="average"></mat-progress-bar>
+        </div>
+        <div class="col-md-3 rating_mark">{{detail && detail.avg_cus? detail.avg_cus:0 }}/5</div>
+
+        <div class="col-md-3 rating_head">{{'CLEANES' | translate}}</div>
+        <div class="col-md-6 rating_mat">
+            <mat-progress-bar mode="determinate" value="{{detail && detail.avg_cln? (detail.avg_cln | prcnt):0}}" class="equalhigh"></mat-progress-bar>
+        </div>
+        <div class="col-md-3 rating_mark">{{detail && detail.avg_cln? detail.avg_cln:0}}/5</div>
+
+        <div class="col-md-3 rating_head">{{'TIMING' | translate}}</div>
+        <div class="col-md-6 rating_mat">
+            <mat-progress-bar mode="determinate" value="{{detail && detail.avg_tmg? (detail.avg_tmg | prcnt):0}}" class="lesshigh"></mat-progress-bar>
+        </div>
+        <div class="col-md-3 rating_mark">{{detail && detail.avg_tmg? detail.avg_tmg:0}}/5</div>
         <div class="clearfix space">&nbsp;</div>
         <div class="col-md-12">
-            <h3>Recent Reviews:</h3>
+            <h3>{{'RCNTREVIW' | translate}}:</h3>
         </div>
-        <div class="staffdetail_notifi">
-            <div class="notifi_list">
-                <div class="noti_left"><img src="assets/images/noti-pro.png" alt=""></div>
+        <div class="staffdetail_notifi" *ngIf="detail">
+            <div class="notifi_list" *ngFor="let review of detail.reviews">
+                <div class="noti_left"><img [src]="review.img? (detail.usr_bp + review.img):usrurl" alt=""></div>
                 <div class="noti_right">
                     <div class="author-review">
-                    <div class="author">James Walker</div>
-                    <div class="reviews"><img src="assets/images/reviews-star.png" alt="Review"></div>
-                </div>
-                    Lorem ipsum is placeholder text commonly used in the graphic, print.
-                </div>
-            </div>
-            <div class="notifi_list">
-                <div class="noti_left"><img src="assets/images/noti-pro.png" alt=""></div>
-                <div class="noti_right">
-                    <div class="author-review">
-                    <div class="author">James Walker</div>
-                    <div class="reviews"><img src="assets/images/reviews-star.png" alt="Review"></div>
-                </div>
-                Lorem ipsum is placeholder text commonly used in the graphic, print. Lorem ipsum is placeholder text.
+                        <div class="author">{{review.name | titlecase}}</div>
+                        <div class="reviews">
+                            <ngx-stars [readonly]="true" [color]="'#f7c133'" [size]="5" [initialStars]="review.rvw_rt"></ngx-stars>
+                        </div>
+                    </div>
+                    {{review.comment}}
                 </div>
             </div>
-            <div class="notifi_list">
-                <div class="noti_left"><img src="assets/images/noti-pro.png" alt=""></div>
-                <div class="noti_right">
-                    <div class="author-review">
-                    <div class="author">James Walker</div>
-                    <div class="reviews"><img src="assets/images/reviews-star.png" alt="Review"></div>
-                </div>
-                    Lorem ipsum is placeholder text commonly used in the graphic, print.
-                </div>
-            </div>
-            <div class="notifi_list">
-                <div class="noti_left"><img src="assets/images/noti-pro.png" alt=""></div>
-                <div class="noti_right">
-                    <div class="author-review">
-                    <div class="author">James Walker</div>
-                    <div class="reviews"><img src="assets/images/reviews-star.png" alt="Review"></div>
-                </div>
-                Lorem ipsum is placeholder text commonly used in the graphic, print. Lorem ipsum is placeholder text.
-                </div>
-            </div>
-            <div class="notifi_list">
-                <div class="noti_left"><img src="assets/images/noti-pro.png" alt=""></div>
-                <div class="noti_right">
-                    <div class="author-review">
-                    <div class="author">James Walker</div>
-                    <div class="reviews"><img src="assets/images/reviews-star.png" alt="Review"></div>
-                </div>
-                    Lorem ipsum is placeholder text commonly used in the graphic, print.
-                </div>
-            </div>
-
+            <button type="button" (click)="paginate()">Load</button>
         </div>
     </div>
 </div>
