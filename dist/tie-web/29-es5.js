@@ -1,3 +1,11 @@
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+
+function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -6,43 +14,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[29], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/add/add.component.html":
-  /*!************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/add/add.component.html ***!
-    \************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/viewprofile/viewprofile.component.html":
+  /*!***********************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/viewprofile/viewprofile.component.html ***!
+    \***********************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserAddAddComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeProfileViewprofileViewprofileComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form action=\"\">\n            <div class=\"text-center\">\n                <div class=\"file_input\">\n                    <img src=\"assets/images/change.png\" alt=\"\">\n                </div>\n                <label for=\"\" class=\"custom_label\">Add Profile Picture</label>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/edit-user.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Full Name\" class=\"form-control\">\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/email.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Email\" class=\"form-control\">\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img phone\"><img src=\"assets/images/mobile.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Mobile Number\" class=\"form-control\">\n            </mat-form-field>\n            \n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/description.png\" alt=\"envelope\"></span>\n                <textarea matInput placeholder=\"Description\" class=\"form-control\"></textarea>\n            </mat-form-field>\n            <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Proceed</button>\n            </div>\n        </form>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n\n    <div class=\"row\">\n        <div class=\"col-md-6 top_view\"><img [src]=\"url\" alt=\"\"><span class=\"user_name\">{{detail?.name}}</span></div>\n        <div class=\"col-md-6 alignright\"><a class=\"btn btn-edit\" [routerLink]=\"['/profile/edit']\"> {{'EDITPROF'| translate}}</a></div>\n        <div class=\"col-md-3 label\">{{'EMAIL'| translate | titlecase}}:</div>\n        <div class=\"col-md-9 description\">{{detail?.email}}</div>\n        <div class=\"col-md-3 label\">{{'MOBILENUMBER'| translate}}:</div>\n        <div class=\"col-md-9 description\">{{detail?.phone}}</div>\n        <div class=\"col-md-3 label\">{{'LOCATION'| translate}}:</div>\n        <div class=\"col-md-9 description\">{{detail?.address}}\n            <!-- <img src=\"assets/images/maps.png\" alt=\"map\" class=\"full_width\"> -->\n            <div class=\"map full_width\">\n                <agm-map [latitude]=\"detail?.lat\" [longitude]=\"detail?.lng\"\n                    [zoomControl]=\"true\">\n                    <agm-marker [latitude]=\"detail?.lat\" [longitude]=\"detail?.lng\"></agm-marker>\n                </agm-map>\n            </div>\n        </div>\n        <div class=\"col-md-3 label\">{{'BUSINESSHOURS'| translate}}:</div>\n        <div class=\"col-md-9 description\">NA</div>\n        <div class=\"col-md-3 label\">{{'REVIEWS'| translate}}:</div>\n        <div class=\"col-md-9 description\"><img src=\"assets/images/reviews.png\" alt=\"Review\"></div>\n        <div class=\"col-md-3 label\">{{'DESCRIPTION'| translate}}:</div>\n        <div class=\"col-md-9 description\">{{detail?.desc}}</div>\n        <div class=\"col-md-3 label\">{{'WORKGALLERY'| translate}}:</div>\n        <div class=\"col-md-9 description\">\n            <div class=\"work_gallery\">\n                <label class=\"detail_content\"><a class=\"margin_top\"\n                    *ngFor=\"let image of salonImageUrlArray; index as i\">\n                    <img class=\"file_upload2\" [src]=\"image\" alt=\"Upload\">\n                     </a>\n                    <!-- <img class=\"file_upload1\" src=\"assets/images/add-edit.png\" alt=\"Upload\"> -->\n                </label>\n            </div>\n        </div>\n        <div class=\"col-md-3 label\">{{'WEBSITE'| translate}}:</div>\n        <div class=\"col-md-9 description\">{{detail?.website}}</div>\n        <div class=\"col-md-3 label\">{{'SERVICEAT'| translate}}:</div>\n        <div class=\"col-md-9 description\">{{detail?.service_at == 1?'Salon': detail?.service_at==2?'Home':'Both'}}</div>\n        <div class=\"col-md-3 label\">{{'STAFFNAME'| translate}}:</div>\n        <div class=\"col-md-9 description\">\n            {{'NA'}}\n            <!-- <ul class=\"staff_name\">\n                <li>Allen</li>\n                <li>James</li>\n                <li>Jane</li>\n                <li>Doe</li>\n            </ul> -->\n        </div>\n    </div>\n</div>\n\n\n\n\n\n\n\n\n\n\n\n";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/add/add-routing.module.ts":
-  /*!*************************************************************!*\
-    !*** ./src/app/home/walking-user/add/add-routing.module.ts ***!
-    \*************************************************************/
+  "./src/app/home/profile/viewprofile/viewprofile-routing.module.ts":
+  /*!************************************************************************!*\
+    !*** ./src/app/home/profile/viewprofile/viewprofile-routing.module.ts ***!
+    \************************************************************************/
 
-  /*! exports provided: AddRoutingModule */
+  /*! exports provided: ViewprofileRoutingModule */
 
   /***/
-  function srcAppHomeWalkingUserAddAddRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeProfileViewprofileViewprofileRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AddRoutingModule", function () {
-      return AddRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "ViewprofileRoutingModule", function () {
+      return ViewprofileRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +73,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _add_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./add.component */
-    "./src/app/home/walking-user/add/add.component.ts");
+    var _viewprofile_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./viewprofile.component */
+    "./src/app/home/profile/viewprofile/viewprofile.component.ts");
 
     var routes = [{
       path: '',
-      component: _add_component__WEBPACK_IMPORTED_MODULE_3__["AddComponent"]
+      component: _viewprofile_component__WEBPACK_IMPORTED_MODULE_3__["ViewprofileComponent"]
     }];
 
-    var AddRoutingModule = function AddRoutingModule() {
-      _classCallCheck(this, AddRoutingModule);
+    var ViewprofileRoutingModule = function ViewprofileRoutingModule() {
+      _classCallCheck(this, ViewprofileRoutingModule);
     };
 
-    AddRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    ViewprofileRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], AddRoutingModule);
+    })], ViewprofileRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/add/add.component.scss":
-  /*!**********************************************************!*\
-    !*** ./src/app/home/walking-user/add/add.component.scss ***!
-    \**********************************************************/
+  "./src/app/home/profile/viewprofile/viewprofile.component.scss":
+  /*!*********************************************************************!*\
+    !*** ./src/app/home/profile/viewprofile/viewprofile.component.scss ***!
+    \*********************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeWalkingUserAddAddComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeProfileViewprofileViewprofileComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL2FkZC9hZGQuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = "img.file_upload2 {\n  height: 100px !important;\n  width: 100px !important;\n  margin: 5px !important;\n  margin-left: 0px !important;\n  border: 5px solid whitesmoke;\n  position: relative;\n  border-radius: 7px;\n}\n\n.custom_upload1 {\n  position: absolute;\n  width: 10%;\n  height: 100%;\n  cursor: pointer;\n  opacity: 0;\n  text-indent: -100px;\n}\n\n.detail_content a.btn {\n  position: relative;\n  background: #f96ab3;\n  color: #fff !important;\n  margin: 0;\n  font-size: 17px;\n  margin-right: 15px;\n  padding: 5px 20px;\n  box-shadow: 2px 2px 7px #f96ab3;\n  margin-bottom: 15px;\n}\n\n.detail_content a.btn span {\n  position: absolute;\n  top: -9px;\n  right: -8px;\n  background: #e42525;\n  height: 20px;\n  width: 20px;\n  border-radius: 50%;\n  font-size: 13px;\n  font-weight: 600;\n}\n\n.detail_content a.margin_top {\n  position: relative;\n  color: #fff !important;\n  margin: 0;\n  font-size: 17px;\n  margin-right: 15px;\n  margin-bottom: 15px;\n}\n\n.detail_content a.margin_top span {\n  cursor: pointer;\n  position: absolute;\n  right: 7px;\n  background: #e42525;\n  height: 20px;\n  width: 20px;\n  border-radius: 50%;\n  font-size: 13px;\n  font-weight: 600;\n  padding-left: 7px;\n}\n\n.top_view img {\n  border-radius: 50%;\n  height: 135px;\n  width: 135px;\n  border: 3px solid #f5f5f5;\n}\n\nagm-map {\n  height: 200px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9wcm9maWxlL3ZpZXdwcm9maWxlL3ZpZXdwcm9maWxlLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9ob21lL3Byb2ZpbGUvdmlld3Byb2ZpbGUvdmlld3Byb2ZpbGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBaUIsd0JBQUE7RUFBeUIsdUJBQUE7RUFBMEIsc0JBQUE7RUFBd0IsMkJBQUE7RUFBNkIsNEJBQUE7RUFFckgsa0JBQUE7RUFDQSxrQkFBQTtBQ0tKOztBREpBO0VBQWdCLGtCQUFBO0VBQW1CLFVBQUE7RUFBVyxZQUFBO0VBQWEsZUFBQTtFQUFnQixVQUFBO0VBQVcsbUJBQUE7QUNhdEY7O0FEWEE7RUFBc0Isa0JBQUE7RUFBa0IsbUJBQUE7RUFBb0Isc0JBQUE7RUFBd0IsU0FBQTtFQUFVLGVBQUE7RUFBZ0Isa0JBQUE7RUFBbUIsaUJBQUE7RUFBa0IsK0JBQUE7RUFBZ0MsbUJBQUE7QUN1Qm5MOztBRHRCQTtFQUEyQixrQkFBQTtFQUFtQixTQUFBO0VBQVUsV0FBQTtFQUFZLG1CQUFBO0VBQW9CLFlBQUE7RUFBYSxXQUFBO0VBQVksa0JBQUE7RUFBbUIsZUFBQTtFQUFnQixnQkFBQTtBQ2tDcEo7O0FEaENBO0VBQTZCLGtCQUFBO0VBQWtCLHNCQUFBO0VBQXdCLFNBQUE7RUFBVSxlQUFBO0VBQWdCLGtCQUFBO0VBQW1CLG1CQUFBO0FDeUNwSDs7QUR4Q0E7RUFBbUMsZUFBQTtFQUFtQixrQkFBQTtFQUFtQixVQUFBO0VBQVcsbUJBQUE7RUFBb0IsWUFBQTtFQUFhLFdBQUE7RUFBWSxrQkFBQTtFQUFtQixlQUFBO0VBQWdCLGdCQUFBO0VBQWlCLGlCQUFBO0FDcURyTDs7QURwREE7RUFDSSxrQkFBQTtFQUNBLGFBQUE7RUFDQSxZQUFBO0VBQ0EseUJBQUE7QUN1REo7O0FEckRBO0VBQ0ksYUFBQTtBQ3dESiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcHJvZmlsZS92aWV3cHJvZmlsZS92aWV3cHJvZmlsZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImltZy5maWxlX3VwbG9hZDJ7aGVpZ2h0OiAxMDBweCAhaW1wb3J0YW50O3dpZHRoOiAxMDBweCAhaW1wb3J0YW50OyAgbWFyZ2luOiA1cHggIWltcG9ydGFudDsgbWFyZ2luLWxlZnQ6IDBweCAhaW1wb3J0YW50OyBib3JkZXI6IDVweCBzb2xpZCB3aGl0ZXNtb2tlO1xuICAgIC8vIGJveC1zaGFkb3c6IDJweCAycHggMnB4IDJweCAjODg4ODg4O1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBib3JkZXItcmFkaXVzOiA3cHg7fVxuLmN1c3RvbV91cGxvYWQxe3Bvc2l0aW9uOiBhYnNvbHV0ZTt3aWR0aDogMTAlO2hlaWdodDogMTAwJTtjdXJzb3I6IHBvaW50ZXI7b3BhY2l0eTogMDt0ZXh0LWluZGVudDogLTEwMHB4O31cblxuLmRldGFpbF9jb250ZW50IGEuYnRue3Bvc2l0aW9uOnJlbGF0aXZlO2JhY2tncm91bmQ6ICNmOTZhYjM7Y29sb3I6ICNmZmYgIWltcG9ydGFudDsgbWFyZ2luOiAwO2ZvbnQtc2l6ZTogMTdweDttYXJnaW4tcmlnaHQ6IDE1cHg7cGFkZGluZzogNXB4IDIwcHg7Ym94LXNoYWRvdzogMnB4IDJweCA3cHggI2Y5NmFiMzttYXJnaW4tYm90dG9tOiAxNXB4O31cbi5kZXRhaWxfY29udGVudCBhLmJ0biBzcGFue3Bvc2l0aW9uOiBhYnNvbHV0ZTt0b3A6IC05cHg7cmlnaHQ6IC04cHg7YmFja2dyb3VuZDogI2U0MjUyNTtoZWlnaHQ6IDIwcHg7d2lkdGg6IDIwcHg7Ym9yZGVyLXJhZGl1czogNTAlO2ZvbnQtc2l6ZTogMTNweDtmb250LXdlaWdodDogNjAwO31cblxuLmRldGFpbF9jb250ZW50IGEubWFyZ2luX3RvcHtwb3NpdGlvbjpyZWxhdGl2ZTtjb2xvcjogI2ZmZiAhaW1wb3J0YW50OyBtYXJnaW46IDA7Zm9udC1zaXplOiAxN3B4O21hcmdpbi1yaWdodDogMTVweDttYXJnaW4tYm90dG9tOiAxNXB4O31cbi5kZXRhaWxfY29udGVudCBhLm1hcmdpbl90b3Agc3BhbnsgY3Vyc29yOiBwb2ludGVyOyAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtyaWdodDogN3B4O2JhY2tncm91bmQ6ICNlNDI1MjU7aGVpZ2h0OiAyMHB4O3dpZHRoOiAyMHB4O2JvcmRlci1yYWRpdXM6IDUwJTtmb250LXNpemU6IDEzcHg7Zm9udC13ZWlnaHQ6IDYwMDtwYWRkaW5nLWxlZnQ6IDdweDt9XG4udG9wX3ZpZXcgaW1ne1xuICAgIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgICBoZWlnaHQ6IDEzNXB4O1xuICAgIHdpZHRoOiAxMzVweDtcbiAgICBib3JkZXI6IDNweCBzb2xpZCAjZjVmNWY1O1xufVxuYWdtLW1hcCB7XG4gICAgaGVpZ2h0OiAyMDBweDtcbn0iLCJpbWcuZmlsZV91cGxvYWQyIHtcbiAgaGVpZ2h0OiAxMDBweCAhaW1wb3J0YW50O1xuICB3aWR0aDogMTAwcHggIWltcG9ydGFudDtcbiAgbWFyZ2luOiA1cHggIWltcG9ydGFudDtcbiAgbWFyZ2luLWxlZnQ6IDBweCAhaW1wb3J0YW50O1xuICBib3JkZXI6IDVweCBzb2xpZCB3aGl0ZXNtb2tlO1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJvcmRlci1yYWRpdXM6IDdweDtcbn1cblxuLmN1c3RvbV91cGxvYWQxIHtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICB3aWR0aDogMTAlO1xuICBoZWlnaHQ6IDEwMCU7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgb3BhY2l0eTogMDtcbiAgdGV4dC1pbmRlbnQ6IC0xMDBweDtcbn1cblxuLmRldGFpbF9jb250ZW50IGEuYnRuIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBiYWNrZ3JvdW5kOiAjZjk2YWIzO1xuICBjb2xvcjogI2ZmZiAhaW1wb3J0YW50O1xuICBtYXJnaW46IDA7XG4gIGZvbnQtc2l6ZTogMTdweDtcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xuICBwYWRkaW5nOiA1cHggMjBweDtcbiAgYm94LXNoYWRvdzogMnB4IDJweCA3cHggI2Y5NmFiMztcbiAgbWFyZ2luLWJvdHRvbTogMTVweDtcbn1cblxuLmRldGFpbF9jb250ZW50IGEuYnRuIHNwYW4ge1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHRvcDogLTlweDtcbiAgcmlnaHQ6IC04cHg7XG4gIGJhY2tncm91bmQ6ICNlNDI1MjU7XG4gIGhlaWdodDogMjBweDtcbiAgd2lkdGg6IDIwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgZm9udC1zaXplOiAxM3B4O1xuICBmb250LXdlaWdodDogNjAwO1xufVxuXG4uZGV0YWlsX2NvbnRlbnQgYS5tYXJnaW5fdG9wIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBjb2xvcjogI2ZmZiAhaW1wb3J0YW50O1xuICBtYXJnaW46IDA7XG4gIGZvbnQtc2l6ZTogMTdweDtcbiAgbWFyZ2luLXJpZ2h0OiAxNXB4O1xuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xufVxuXG4uZGV0YWlsX2NvbnRlbnQgYS5tYXJnaW5fdG9wIHNwYW4ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgcmlnaHQ6IDdweDtcbiAgYmFja2dyb3VuZDogI2U0MjUyNTtcbiAgaGVpZ2h0OiAyMHB4O1xuICB3aWR0aDogMjBweDtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBmb250LXNpemU6IDEzcHg7XG4gIGZvbnQtd2VpZ2h0OiA2MDA7XG4gIHBhZGRpbmctbGVmdDogN3B4O1xufVxuXG4udG9wX3ZpZXcgaW1nIHtcbiAgYm9yZGVyLXJhZGl1czogNTAlO1xuICBoZWlnaHQ6IDEzNXB4O1xuICB3aWR0aDogMTM1cHg7XG4gIGJvcmRlcjogM3B4IHNvbGlkICNmNWY1ZjU7XG59XG5cbmFnbS1tYXAge1xuICBoZWlnaHQ6IDIwMHB4O1xufSJdfQ== */";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/add/add.component.ts":
-  /*!********************************************************!*\
-    !*** ./src/app/home/walking-user/add/add.component.ts ***!
-    \********************************************************/
+  "./src/app/home/profile/viewprofile/viewprofile.component.ts":
+  /*!*******************************************************************!*\
+    !*** ./src/app/home/profile/viewprofile/viewprofile.component.ts ***!
+    \*******************************************************************/
 
-  /*! exports provided: AddComponent */
+  /*! exports provided: ViewprofileComponent */
 
   /***/
-  function srcAppHomeWalkingUserAddAddComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeProfileViewprofileViewprofileComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AddComponent", function () {
-      return AddComponent;
+    __webpack_require__.d(__webpack_exports__, "ViewprofileComponent", function () {
+      return ViewprofileComponent;
     });
     /* harmony import */
 
@@ -136,52 +144,114 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
 
-    var AddComponent =
+
+    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/shared/service/http-request.service */
+    "./src/app/shared/service/http-request.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/shared/service/error.service */
+    "./src/app/shared/service/error.service.ts");
+
+    var ViewprofileComponent =
     /*#__PURE__*/
     function () {
-      function AddComponent() {
-        _classCallCheck(this, AddComponent);
+      function ViewprofileComponent(httpService, error) {
+        _classCallCheck(this, ViewprofileComponent);
+
+        this.httpService = httpService;
+        this.error = error;
+        this.url = 'assets/images/change.png';
+        this.salonImageUrlArray = [];
+        this.slide = [];
       }
 
-      _createClass(AddComponent, [{
+      _createClass(ViewprofileComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          this.getUserProfile();
+        }
+      }, {
+        key: "getUserProfile",
+        value: function getUserProfile() {
+          var _this = this;
+
+          this.httpService.getRequest('GET', 'PROFILE', '').subscribe(function (response) {
+            if (response.status === 1) {
+              _this.detail = response.res;
+              _this.url = _this.detail.logo ? _this.detail.logo : _this.url;
+
+              if (_this.detail && _this.detail.imgs) {
+                _this.detail.imgs.map(function (item) {
+                  item = _this.detail.bp + item;
+
+                  _this.salonImageUrlArray.push(item);
+
+                  _this.slide = [].concat(_toConsumableArray(_this.slide), [{
+                    'url': item,
+                    clickAction: function clickAction() {
+                      return alert('custom click function');
+                    }
+                  }]);
+                });
+              }
+            } else {
+              if (response.err) {
+                _this.error.handleError(response.err.errCode);
+              }
+            }
+          }, function (error) {
+            _this.error.handleError(0); // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
+
+          });
+        }
       }]);
 
-      return AddComponent;
+      return ViewprofileComponent;
     }();
 
-    AddComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-add',
+    ViewprofileComponent.ctorParameters = function () {
+      return [{
+        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"]
+      }, {
+        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_3__["ErrorService"]
+      }];
+    };
+
+    ViewprofileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-viewprofile',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./add.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/add/add.component.html")).default,
+      /*! raw-loader!./viewprofile.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/viewprofile/viewprofile.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./add.component.scss */
-      "./src/app/home/walking-user/add/add.component.scss")).default]
-    })], AddComponent);
+      /*! ./viewprofile.component.scss */
+      "./src/app/home/profile/viewprofile/viewprofile.component.scss")).default]
+    })], ViewprofileComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/add/add.module.ts":
-  /*!*****************************************************!*\
-    !*** ./src/app/home/walking-user/add/add.module.ts ***!
-    \*****************************************************/
+  "./src/app/home/profile/viewprofile/viewprofile.module.ts":
+  /*!****************************************************************!*\
+    !*** ./src/app/home/profile/viewprofile/viewprofile.module.ts ***!
+    \****************************************************************/
 
-  /*! exports provided: AddModule */
+  /*! exports provided: ViewprofileModule */
 
   /***/
-  function srcAppHomeWalkingUserAddAddModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeProfileViewprofileViewprofileModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AddModule", function () {
-      return AddModule;
+    __webpack_require__.d(__webpack_exports__, "ViewprofileModule", function () {
+      return ViewprofileModule;
     });
     /* harmony import */
 
@@ -204,30 +274,46 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _add_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./add-routing.module */
-    "./src/app/home/walking-user/add/add-routing.module.ts");
+    var _viewprofile_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./viewprofile-routing.module */
+    "./src/app/home/profile/viewprofile/viewprofile-routing.module.ts");
     /* harmony import */
 
 
-    var _add_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./add.component */
-    "./src/app/home/walking-user/add/add.component.ts");
+    var _viewprofile_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./viewprofile.component */
+    "./src/app/home/profile/viewprofile/viewprofile.component.ts");
     /* harmony import */
 
 
-    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/shared/shared.module */
-    "./src/app/shared/shared.module.ts");
+    var _agm_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @agm/core */
+    "./node_modules/@agm/core/fesm2015/agm-core.js");
+    /* harmony import */
 
-    var AddModule = function AddModule() {
-      _classCallCheck(this, AddModule);
+
+    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/module/applicationpipe/applicationpipe.module */
+    "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
+    /* harmony import */
+
+
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+
+    var ViewprofileModule = function ViewprofileModule() {
+      _classCallCheck(this, ViewprofileModule);
     };
 
-    AddModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_add_component__WEBPACK_IMPORTED_MODULE_4__["AddComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _add_routing_module__WEBPACK_IMPORTED_MODULE_3__["AddRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
-    })], AddModule);
+    ViewprofileModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_viewprofile_component__WEBPACK_IMPORTED_MODULE_4__["ViewprofileComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _viewprofile_routing_module__WEBPACK_IMPORTED_MODULE_3__["ViewprofileRoutingModule"], _agm_core__WEBPACK_IMPORTED_MODULE_5__["AgmCoreModule"].forRoot({
+        apiKey: 'AIzaSyAFagdwUB5_7TgN2G4Ss6q_qnwgg5BX3Qg',
+        libraries: ["places"]
+      }), src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__["ApplicationpipeModule"]],
+      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]]
+    })], ViewprofileModule);
     /***/
   }
 }]);

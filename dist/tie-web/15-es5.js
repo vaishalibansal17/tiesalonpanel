@@ -6,63 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[15], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/list/list.component.html":
-  /*!*******************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/list/list.component.html ***!
-    \*******************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/changepassword/changepassword.component.html":
+  /*!*****************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/changepassword/changepassword.component.html ***!
+    \*****************************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeStaffListListComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeProfileChangepasswordChangepasswordComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<hr>\n<h1>Under Development.</h1>\n<hr>\n<h2>Thank you</h2>\n<!-- <h1>Static Pages, Will deliver in next milestone.</h1>\n<div class=\"main-card\">\n  <div class=\"row\">\n      <div class=\"col-md-6 add\"><a [routerLink]=\"['/staff/add']\"><img src=\"assets/images/add.png\" alt=\"Add\"> Add Staff</a></div>\n      <div class=\"col-md-6 alignright\"><a href=\"#\" class=\"btn btn-export\">Export</a></div>\n  </div>\n  <div class=\"table_wrap\">\n  <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8 table_scroll\">\n      <ng-container matColumnDef=\"position\">\n        <th mat-header-cell *matHeaderCellDef> No. </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n      </ng-container>\n    \n      <ng-container matColumnDef=\"name\">\n        <th mat-header-cell *matHeaderCellDef> Name </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.name}} </td>\n      </ng-container>\n    \n      <ng-container matColumnDef=\"photo\">\n        <th mat-header-cell *matHeaderCellDef> Photo </th>\n        <td mat-cell *matCellDef=\"let element\"> <img [src]=\"element.photo\" /> </td>\n      </ng-container>\n    \n      <ng-container matColumnDef=\"email\">\n        <th mat-header-cell *matHeaderCellDef> Email </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.email}} </td>\n      </ng-container>\n    \n      <ng-container matColumnDef=\"number\">\n        <th mat-header-cell *matHeaderCellDef> Mobile Number </th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.number}} </td>\n      </ng-container>\n    \n      <ng-container matColumnDef=\"rating\">\n        <th mat-header-cell *matHeaderCellDef> Ratings </th>\n        <td mat-cell *matCellDef=\"let element\"> <img [src]=\"element.rating\" /> </td>\n      </ng-container>\n    \n      <ng-container matColumnDef=\"action\">\n        <th mat-header-cell *matHeaderCellDef> Actions </th>\n        <td mat-cell *matCellDef=\"let user\"> \n        <button class=\"action_btn pink\"><a [routerLink]=\"['/staff/info']\"><img src=\"assets/images/view.png\" alt=\"View\"></a></button>  \n        <button class=\"action_btn black\"><a [routerLink]=\"['/staff/edit']\"><img src=\"assets/images/edit.png\" alt=\"Edit\"></a></button>  \n        <button class=\"action_btn red\" (click)=\"openDialog()\"><img src=\"assets/images/delete.png\" alt=\"Delete\"></button>  \n        </td>\n      </ng-container>\n    \n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n    </table>\n  </div>\n    <ul class=\"pagination\">\n      <li><a href=\"#\"><i class=\"fa fa-angle-left\"></i></a></li>\n      <li class=\"active\"><a href=\"#\">1</a></li>\n      <li><a href=\"#\">2</a></li>\n      <li><a href=\"#\">3</a></li>\n      <li><a href=\"#\">4</a></li>\n      <li><a href=\"#\">5</a></li>\n      <li><a href=\"#\"><i class=\"fa fa-angle-right\"></i></a></li>\n    </ul>\n</div> -->";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form [formGroup]='change' (ngSubmit)='changePassword()'>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLCPASS'| translate}}\" [type]=\"ohide ? 'password' : 'text'\" maxlength=\"20\" class=\"form-control pass-space\" formControlName='oldPassword'>\n                <button mat-icon-button matSuffix (click)=\"ohide = !ohide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{ohide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted) && getControl.oldPassword.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.oldPassword.errors.required\">{{'CURRENTPASS'| translate}} </p>\n              </div>\n              <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLNPASS'| translate}}\" [type]=\"nhide ? 'password' : 'text'\" maxlength=\"20\" formControlName='newPassword' class=\"form-control pass-space\">\n                <button mat-icon-button matSuffix (click)=\"nhide = !nhide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{nhide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted ) && getControl.newPassword.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.required\">{{'RESETPASSREQ'| translate}}</p>\n                <!-- <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.minlength\">{{'PASSPATTERN'| translate}}</p> -->\n                <span *ngIf=\"!getControl.newPassword.errors.required\">\n                  <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.invalidPassword\">{{'PASSPATTERN'| translate}}</p>\n                </span>\n              </div>\n              <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLCONFIRMPASS'| translate}}\" [type]=\"chide ? 'password' : 'text'\" maxlength=\"20\"  formControlName='confirmPassword' class=\"form-control pass-space\">\n                <button mat-icon-button matSuffix (click)=\"chide = !chide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{chide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted) && getControl.confirmPassword.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.confirmPassword.errors.required\">{{'RESETPASSCNFREQ'| translate}}</p>\n                <span *ngIf=\"!getControl.confirmPassword.errors.required\">\n                  <p class=\"color error\" *ngIf=\"(getControl.confirmPassword.invalid)\">{{'RESETPASSNOTMATCH'| translate}}</p>\n                </span>\n              </div>\n              <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Save</button>\n              </div>\n            </form>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/list/staff-delete.component.html":
-  /*!***************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/list/staff-delete.component.html ***!
-    \***************************************************************************************************/
+  "./src/app/home/profile/changepassword/changepassword-routing.module.ts":
+  /*!******************************************************************************!*\
+    !*** ./src/app/home/profile/changepassword/changepassword-routing.module.ts ***!
+    \******************************************************************************/
 
-  /*! exports provided: default */
-
-  /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeStaffListStaffDeleteComponentHtml(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony default export */
-
-
-    __webpack_exports__["default"] = "<mat-dialog-content class=\"text-center\">\n  <h3>Are you sure you want to delete this Staff?</h3>\n  <div class=\"text-center\"><button type=\"submit\" class=\"btn btn-submit\">Delete</button></div>\n  <div class=\"text-center\"><button type=\"submit\" class=\"btn btn-cancel\">Cancel</button></div>\n</mat-dialog-content>\n  <button mat-button mat-dialog-close><img src=\"assets/images/close.png\" alt=\"Close\"></button>\n";
-    /***/
-  },
+  /*! exports provided: ChangepasswordRoutingModule */
 
   /***/
-  "./src/app/home/staff/list/list-routing.module.ts":
-  /*!********************************************************!*\
-    !*** ./src/app/home/staff/list/list-routing.module.ts ***!
-    \********************************************************/
-
-  /*! exports provided: ListRoutingModule */
-
-  /***/
-  function srcAppHomeStaffListListRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeProfileChangepasswordChangepasswordRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ListRoutingModule", function () {
-      return ListRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "ChangepasswordRoutingModule", function () {
+      return ChangepasswordRoutingModule;
     });
     /* harmony import */
 
@@ -85,70 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./list.component */
-    "./src/app/home/staff/list/list.component.ts");
+    var _changepassword_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./changepassword.component */
+    "./src/app/home/profile/changepassword/changepassword.component.ts");
 
     var routes = [{
       path: '',
-      component: _list_component__WEBPACK_IMPORTED_MODULE_3__["ListComponent"]
+      component: _changepassword_component__WEBPACK_IMPORTED_MODULE_3__["ChangepasswordComponent"]
     }];
 
-    var ListRoutingModule = function ListRoutingModule() {
-      _classCallCheck(this, ListRoutingModule);
+    var ChangepasswordRoutingModule = function ChangepasswordRoutingModule() {
+      _classCallCheck(this, ChangepasswordRoutingModule);
     };
 
-    ListRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    ChangepasswordRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], ListRoutingModule);
+    })], ChangepasswordRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/list/list.component.scss":
-  /*!*****************************************************!*\
-    !*** ./src/app/home/staff/list/list.component.scss ***!
-    \*****************************************************/
+  "./src/app/home/profile/changepassword/changepassword.component.scss":
+  /*!***************************************************************************!*\
+    !*** ./src/app/home/profile/changepassword/changepassword.component.scss ***!
+    \***************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeStaffListListComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeProfileChangepasswordChangepasswordComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvc3RhZmYvbGlzdC9saXN0LmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcHJvZmlsZS9jaGFuZ2VwYXNzd29yZC9jaGFuZ2VwYXNzd29yZC5jb21wb25lbnQuc2NzcyJ9 */";
     /***/
   },
 
   /***/
-  "./src/app/home/staff/list/list.component.ts":
-  /*!***************************************************!*\
-    !*** ./src/app/home/staff/list/list.component.ts ***!
-    \***************************************************/
+  "./src/app/home/profile/changepassword/changepassword.component.ts":
+  /*!*************************************************************************!*\
+    !*** ./src/app/home/profile/changepassword/changepassword.component.ts ***!
+    \*************************************************************************/
 
-  /*! exports provided: ListComponent, StaffDeleteDialogBox */
+  /*! exports provided: ChangepasswordComponent */
 
   /***/
-  function srcAppHomeStaffListListComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeProfileChangepasswordChangepasswordComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ListComponent", function () {
-      return ListComponent;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "StaffDeleteDialogBox", function () {
-      return StaffDeleteDialogBox;
+    __webpack_require__.d(__webpack_exports__, "ChangepasswordComponent", function () {
+      return ChangepasswordComponent;
     });
     /* harmony import */
 
@@ -165,121 +139,179 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/material */
-    "./node_modules/@angular/material/esm2015/material.js");
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
 
-    var ListComponent =
+
+    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/shared/service/http-request.service */
+    "./src/app/shared/service/http-request.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/service/helper.service */
+    "./src/app/shared/service/helper.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/service/validation-service */
+    "./src/app/shared/service/validation-service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+    /* harmony import */
+
+
+    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/shared/service/error.service */
+    "./src/app/shared/service/error.service.ts");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
+
+    var ChangepasswordComponent =
     /*#__PURE__*/
     function () {
-      function ListComponent(dialog) {
-        _classCallCheck(this, ListComponent);
+      function ChangepasswordComponent(httpService, router, fb, helper, trns, error) {
+        _classCallCheck(this, ChangepasswordComponent);
 
-        this.dialog = dialog;
-        this.displayedColumns = ['position', 'name', 'photo', 'email', 'number', 'rating', 'action'];
-        this.dataSource = ELEMENT_DATA;
+        this.httpService = httpService;
+        this.router = router;
+        this.fb = fb;
+        this.helper = helper;
+        this.trns = trns;
+        this.error = error;
+        this.ohide = true;
+        this.chide = true;
+        this.nhide = true;
+        this.profileImage = '../../../assets/images/profile.png';
+        this.passShow = true;
+        this.cPassShow = true;
+        this.nPassShow = true;
+        this.isEqualNewPass = false;
+        this.unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_9__["Subject"]();
       }
 
-      _createClass(ListComponent, [{
-        key: "openDialog",
-        value: function openDialog() {
-          console.log('-----');
-          var dialogRef = this.dialog.open(StaffDeleteDialogBox, {
-            width: '500px',
-            disableClose: true
+      _createClass(ChangepasswordComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this = this;
+
+          this.userDetails = this.helper.parseObject(localStorage.getItem('userDetails'));
+          this.change = this.fb.group({
+            oldPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            newPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__["ValidationService"].passwordValidator]),
+            confirmPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__["passValidator"]])
+          });
+          this.change.get('newPassword').valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["takeUntil"])(this.unsubscribeAll)).subscribe(function () {
+            _this.change.get('confirmPassword').updateValueAndValidity();
           });
         }
       }, {
-        key: "ngOnInit",
-        value: function ngOnInit() {}
+        key: "changePassword",
+        value: function changePassword() {
+          var _this2 = this;
+
+          this.submitted = true;
+
+          if (this.change.invalid) {
+            return;
+          } else {
+            this.change.value['new_pass'] = this.change.value.newPassword;
+            this.change.value['old_pass'] = this.change.value.oldPassword;
+            this.httpService.getRequest('PUT', 'CHANGEPASS', this.change.value, '').subscribe(function (response) {
+              if (response.status === 1) {
+                _this2.submitted = true;
+
+                _this2.router.navigateByUrl('/').then(function () {
+                  _this2.httpService.sucsTostr(_this2.trns.transform('SUCCESS'), _this2.trns.transform('RESETPASSSUCC'));
+                });
+              } else {
+                _this2.error.handleError(response.err.errCode);
+              }
+            }, function (error) {
+              _this2.error.handleError(0);
+            });
+          }
+        }
+      }, {
+        key: "getControl",
+        get: function get() {
+          return this.change.controls;
+        }
       }]);
 
-      return ListComponent;
+      return ChangepasswordComponent;
     }();
 
-    ListComponent.ctorParameters = function () {
+    ChangepasswordComponent.ctorParameters = function () {
       return [{
-        type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
+        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+      }, {
+        type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]
+      }, {
+        type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_5__["Helper"]
+      }, {
+        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]
+      }, {
+        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__["ErrorService"]
       }];
     };
 
-    ListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-staff',
+    ChangepasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-changepassword',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./list.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/list/list.component.html")).default,
+      /*! raw-loader!./changepassword.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/changepassword/changepassword.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./list.component.scss */
-      "./src/app/home/staff/list/list.component.scss")).default]
-    })], ListComponent);
-    var ELEMENT_DATA = [{
-      position: 1,
-      name: 'Jane Doe',
-      photo: 'assets/images/noti-pro.png',
-      email: 'jane@gmail.com',
-      number: +919999999999,
-      rating: 'assets/images/reviews-star.png'
-    }, {
-      position: 2,
-      name: 'Jane Doe',
-      photo: 'assets/images/noti-pro.png',
-      email: 'jane@gmail.com',
-      number: +919999999999,
-      rating: 'assets/images/reviews-star.png'
-    }, {
-      position: 3,
-      name: 'Jane Doe',
-      photo: 'assets/images/noti-pro.png',
-      email: 'jane@gmail.com',
-      number: +919999999999,
-      rating: 'assets/images/reviews-star.png'
-    }, {
-      position: 4,
-      name: 'Jane Doe',
-      photo: 'assets/images/noti-pro.png',
-      email: 'jane@gmail.com',
-      number: +919999999999,
-      rating: 'assets/images/reviews-star.png'
-    }, {
-      position: 5,
-      name: 'Jane Doe',
-      photo: 'assets/images/noti-pro.png',
-      email: 'jane@gmail.com',
-      number: +919999999999,
-      rating: 'assets/images/reviews-star.png'
-    }];
-
-    var StaffDeleteDialogBox = function StaffDeleteDialogBox() {
-      _classCallCheck(this, StaffDeleteDialogBox);
-    };
-
-    StaffDeleteDialogBox = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'staff-delete.component',
-      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./staff-delete.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/list/staff-delete.component.html")).default
-    })], StaffDeleteDialogBox);
+      /*! ./changepassword.component.scss */
+      "./src/app/home/profile/changepassword/changepassword.component.scss")).default]
+    })], ChangepasswordComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/list/list.module.ts":
-  /*!************************************************!*\
-    !*** ./src/app/home/staff/list/list.module.ts ***!
-    \************************************************/
+  "./src/app/home/profile/changepassword/changepassword.module.ts":
+  /*!**********************************************************************!*\
+    !*** ./src/app/home/profile/changepassword/changepassword.module.ts ***!
+    \**********************************************************************/
 
-  /*! exports provided: ListModule */
+  /*! exports provided: ChangepasswordModule */
 
   /***/
-  function srcAppHomeStaffListListModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeProfileChangepasswordChangepasswordModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ListModule", function () {
-      return ListModule;
+    __webpack_require__.d(__webpack_exports__, "ChangepasswordModule", function () {
+      return ChangepasswordModule;
     });
     /* harmony import */
 
@@ -302,31 +334,172 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _list_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./list-routing.module */
-    "./src/app/home/staff/list/list-routing.module.ts");
+    var _changepassword_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./changepassword-routing.module */
+    "./src/app/home/profile/changepassword/changepassword-routing.module.ts");
     /* harmony import */
 
 
-    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _changepassword_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./changepassword.component */
+    "./src/app/home/profile/changepassword/changepassword.component.ts");
+    /* harmony import */
+
+
+    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/shared/shared.module */
     "./src/app/shared/shared.module.ts");
     /* harmony import */
 
 
-    var _list_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ./list.component */
-    "./src/app/home/staff/list/list.component.ts");
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
 
-    var ListModule = function ListModule() {
-      _classCallCheck(this, ListModule);
+
+    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/shared/module/applicationpipe/applicationpipe.module */
+    "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
+    /* harmony import */
+
+
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+
+    var ChangepasswordModule = function ChangepasswordModule() {
+      _classCallCheck(this, ChangepasswordModule);
     };
 
-    ListModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_list_component__WEBPACK_IMPORTED_MODULE_5__["ListComponent"], _list_component__WEBPACK_IMPORTED_MODULE_5__["StaffDeleteDialogBox"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _list_routing_module__WEBPACK_IMPORTED_MODULE_3__["ListRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"]],
-      entryComponents: [_list_component__WEBPACK_IMPORTED_MODULE_5__["StaffDeleteDialogBox"]]
-    })], ListModule);
+    ChangepasswordModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_changepassword_component__WEBPACK_IMPORTED_MODULE_4__["ChangepasswordComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], _changepassword_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChangepasswordRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_7__["ApplicationpipeModule"]],
+      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__["TranslatePipe"]]
+    })], ChangepasswordModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/service/error.service.ts":
+  /*!*************************************************!*\
+    !*** ./src/app/shared/service/error.service.ts ***!
+    \*************************************************/
+
+  /*! exports provided: ErrorService */
+
+  /***/
+  function srcAppSharedServiceErrorServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ErrorService", function () {
+      return ErrorService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./translate.service */
+    "./src/app/shared/service/translate.service.ts");
+    /* harmony import */
+
+
+    var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./http-request.service */
+    "./src/app/shared/service/http-request.service.ts"); // import { TranslatePipe } from '../_pipes/translate.pipe';
+
+
+    var ErrorService =
+    /*#__PURE__*/
+    function () {
+      function ErrorService(helper, trns) {
+        _classCallCheck(this, ErrorService);
+
+        this.helper = helper;
+        this.trns = trns;
+      }
+
+      _createClass(ErrorService, [{
+        key: "handleError",
+        value: function handleError() {
+          var errCode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+          switch (errCode) {
+            case 0:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 1:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 4:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+              break;
+
+            case 5:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
+              break;
+
+            case 6:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
+              break;
+
+            case 7:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
+              break;
+
+            case 8:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
+              break;
+
+            case 9:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
+              break;
+
+            case 31:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+
+            case 39:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
+              break;
+
+            default:
+              break;
+          }
+        }
+      }]);
+
+      return ErrorService;
+    }();
+
+    ErrorService.ctorParameters = function () {
+      return [{
+        type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
+      }, {
+        type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
+      }];
+    };
+
+    ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], ErrorService);
     /***/
   }
 }]);

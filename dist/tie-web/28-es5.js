@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[28], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffreview/staffreview.component.html":
-  /*!*********************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffreview/staffreview.component.html ***!
-    \*********************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html":
+  /*!*****************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html ***!
+    \*****************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeStaffStaffreviewStaffreviewComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeNotificationNotificationComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"row\">\n    <div class=\"col-md-6\"><h3>Rating</h3></div>\n    <div class=\"col-md-6 alignright\"><div class=\"rating\"><span class=\"big\">4.0</span><span class=\"small\">(25)</span></div><div class=\"reviews\"><img src=\"assets/images/reviews-star.png\" alt=\"Review\"></div></div>\n    \n        <div class=\"col-md-3 rating_head\">Professionalism</div>\n        <div class=\"col-md-6 rating_mat\"><mat-progress-bar mode=\"determinate\" value=\"100\" class=\"high\"></mat-progress-bar></div>\n        <div class=\"col-md-3 rating_mark\">5/5</div>\n            \n        <div class=\"col-md-3 rating_head\">Customer Service</div>\n        <div class=\"col-md-6 rating_mat\"><mat-progress-bar mode=\"determinate\" value=\"70\" class=\"average\"></mat-progress-bar></div>\n        <div class=\"col-md-3 rating_mark\">3/5</div>\n            \n        <div class=\"col-md-3 rating_head\">Cleanness</div>\n        <div class=\"col-md-6 rating_mat\"><mat-progress-bar mode=\"determinate\" value=\"85\" class=\"equalhigh\"></mat-progress-bar></div>\n        <div class=\"col-md-3 rating_mark\">4.5/5</div>\n            \n        <div class=\"col-md-3 rating_head\">Timing</div>\n        <div class=\"col-md-6 rating_mat\"><mat-progress-bar mode=\"determinate\" value=\"80\" class=\"lesshigh\"></mat-progress-bar></div>\n        <div class=\"col-md-3 rating_mark\">4/5</div>\n        <div class=\"clearfix space\">&nbsp;</div>\n        <div class=\"col-md-12\">\n            <h3>Recent Reviews:</h3>\n        </div>\n        <div class=\"staffdetail_notifi\">\n            <div class=\"notifi_list\">\n                <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n                <div class=\"noti_right\">\n                    <div class=\"author-review\">\n                    <div class=\"author\">James Walker</div>\n                    <div class=\"reviews\"><img src=\"assets/images/reviews-star.png\" alt=\"Review\"></div>\n                </div>\n                    Lorem ipsum is placeholder text commonly used in the graphic, print.\n                </div>\n            </div>\n            <div class=\"notifi_list\">\n                <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n                <div class=\"noti_right\">\n                    <div class=\"author-review\">\n                    <div class=\"author\">James Walker</div>\n                    <div class=\"reviews\"><img src=\"assets/images/reviews-star.png\" alt=\"Review\"></div>\n                </div>\n                Lorem ipsum is placeholder text commonly used in the graphic, print. Lorem ipsum is placeholder text.\n                </div>\n            </div>\n            <div class=\"notifi_list\">\n                <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n                <div class=\"noti_right\">\n                    <div class=\"author-review\">\n                    <div class=\"author\">James Walker</div>\n                    <div class=\"reviews\"><img src=\"assets/images/reviews-star.png\" alt=\"Review\"></div>\n                </div>\n                    Lorem ipsum is placeholder text commonly used in the graphic, print.\n                </div>\n            </div>\n            <div class=\"notifi_list\">\n                <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n                <div class=\"noti_right\">\n                    <div class=\"author-review\">\n                    <div class=\"author\">James Walker</div>\n                    <div class=\"reviews\"><img src=\"assets/images/reviews-star.png\" alt=\"Review\"></div>\n                </div>\n                Lorem ipsum is placeholder text commonly used in the graphic, print. Lorem ipsum is placeholder text.\n                </div>\n            </div>\n            <div class=\"notifi_list\">\n                <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n                <div class=\"noti_right\">\n                    <div class=\"author-review\">\n                    <div class=\"author\">James Walker</div>\n                    <div class=\"reviews\"><img src=\"assets/images/reviews-star.png\" alt=\"Review\"></div>\n                </div>\n                    Lorem ipsum is placeholder text commonly used in the graphic, print.\n                </div>\n            </div>\n\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<!-- <app-breadcrumb></app-breadcrumb> -->\n<div class=\"main-card\">\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n            <span class=\"right_btn\">\n                <a href=\"#\" class=\"btn btn-accept\">Accept</a>\n                <a href=\"#\" class=\"btn btn-decline\">Decline</a>\n            </span>\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffreview/staffreview-routing.module.ts":
-  /*!**********************************************************************!*\
-    !*** ./src/app/home/staff/staffreview/staffreview-routing.module.ts ***!
-    \**********************************************************************/
+  "./src/app/home/notification/notification-routing.module.ts":
+  /*!******************************************************************!*\
+    !*** ./src/app/home/notification/notification-routing.module.ts ***!
+    \******************************************************************/
 
-  /*! exports provided: StaffreviewRoutingModule */
+  /*! exports provided: NotificationRoutingModule */
 
   /***/
-  function srcAppHomeStaffStaffreviewStaffreviewRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeNotificationNotificationRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffreviewRoutingModule", function () {
-      return StaffreviewRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "NotificationRoutingModule", function () {
+      return NotificationRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _staffreview_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./staffreview.component */
-    "./src/app/home/staff/staffreview/staffreview.component.ts");
+    var _notification_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./notification.component */
+    "./src/app/home/notification/notification.component.ts");
 
     var routes = [{
       path: '',
-      component: _staffreview_component__WEBPACK_IMPORTED_MODULE_3__["StaffreviewComponent"]
+      component: _notification_component__WEBPACK_IMPORTED_MODULE_3__["NotificationComponent"]
     }];
 
-    var StaffreviewRoutingModule = function StaffreviewRoutingModule() {
-      _classCallCheck(this, StaffreviewRoutingModule);
+    var NotificationRoutingModule = function NotificationRoutingModule() {
+      _classCallCheck(this, NotificationRoutingModule);
     };
 
-    StaffreviewRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    NotificationRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], StaffreviewRoutingModule);
+    })], NotificationRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffreview/staffreview.component.scss":
-  /*!*******************************************************************!*\
-    !*** ./src/app/home/staff/staffreview/staffreview.component.scss ***!
-    \*******************************************************************/
+  "./src/app/home/notification/notification.component.scss":
+  /*!***************************************************************!*\
+    !*** ./src/app/home/notification/notification.component.scss ***!
+    \***************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeStaffStaffreviewStaffreviewComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeNotificationNotificationComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvc3RhZmYvc3RhZmZyZXZpZXcvc3RhZmZyZXZpZXcuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = ".main-card {\n  padding: 30px 30px 30px 15px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9ub3RpZmljYXRpb24vbm90aWZpY2F0aW9uLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9ob21lL25vdGlmaWNhdGlvbi9ub3RpZmljYXRpb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBVyx1Q0FBQTtBQ0VYIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9ub3RpZmljYXRpb24vbm90aWZpY2F0aW9uLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1haW4tY2FyZHtwYWRkaW5nOiAzMHB4IDMwcHggMzBweCAxNXB4ICFpbXBvcnRhbnQ7fSIsIi5tYWluLWNhcmQge1xuICBwYWRkaW5nOiAzMHB4IDMwcHggMzBweCAxNXB4ICFpbXBvcnRhbnQ7XG59Il19 */";
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffreview/staffreview.component.ts":
-  /*!*****************************************************************!*\
-    !*** ./src/app/home/staff/staffreview/staffreview.component.ts ***!
-    \*****************************************************************/
+  "./src/app/home/notification/notification.component.ts":
+  /*!*************************************************************!*\
+    !*** ./src/app/home/notification/notification.component.ts ***!
+    \*************************************************************/
 
-  /*! exports provided: StaffreviewComponent */
+  /*! exports provided: NotificationComponent */
 
   /***/
-  function srcAppHomeStaffStaffreviewStaffreviewComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeNotificationNotificationComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffreviewComponent", function () {
-      return StaffreviewComponent;
+    __webpack_require__.d(__webpack_exports__, "NotificationComponent", function () {
+      return NotificationComponent;
     });
     /* harmony import */
 
@@ -137,51 +137,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var StaffreviewComponent =
+    var NotificationComponent =
     /*#__PURE__*/
     function () {
-      function StaffreviewComponent() {
-        _classCallCheck(this, StaffreviewComponent);
+      function NotificationComponent() {
+        _classCallCheck(this, NotificationComponent);
       }
 
-      _createClass(StaffreviewComponent, [{
+      _createClass(NotificationComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return StaffreviewComponent;
+      return NotificationComponent;
     }();
 
-    StaffreviewComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-staffreview',
+    NotificationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-notification',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./staffreview.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffreview/staffreview.component.html")).default,
+      /*! raw-loader!./notification.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./staffreview.component.scss */
-      "./src/app/home/staff/staffreview/staffreview.component.scss")).default]
-    })], StaffreviewComponent);
+      /*! ./notification.component.scss */
+      "./src/app/home/notification/notification.component.scss")).default]
+    })], NotificationComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffreview/staffreview.module.ts":
-  /*!**************************************************************!*\
-    !*** ./src/app/home/staff/staffreview/staffreview.module.ts ***!
-    \**************************************************************/
+  "./src/app/home/notification/notification.module.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/notification/notification.module.ts ***!
+    \**********************************************************/
 
-  /*! exports provided: StaffreviewModule */
+  /*! exports provided: NotificationModule */
 
   /***/
-  function srcAppHomeStaffStaffreviewStaffreviewModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeNotificationNotificationModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffreviewModule", function () {
-      return StaffreviewModule;
+    __webpack_require__.d(__webpack_exports__, "NotificationModule", function () {
+      return NotificationModule;
     });
     /* harmony import */
 
@@ -204,30 +204,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _staffreview_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./staffreview-routing.module */
-    "./src/app/home/staff/staffreview/staffreview-routing.module.ts");
+    var _notification_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./notification-routing.module */
+    "./src/app/home/notification/notification-routing.module.ts");
     /* harmony import */
 
 
-    var _staffreview_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./staffreview.component */
-    "./src/app/home/staff/staffreview/staffreview.component.ts");
+    var _notification_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./notification.component */
+    "./src/app/home/notification/notification.component.ts");
     /* harmony import */
 
 
-    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/shared/shared.module */
-    "./src/app/shared/shared.module.ts");
+    var src_app_shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/breadcrumb/breadcrumb.module */
+    "./src/app/shared/breadcrumb/breadcrumb.module.ts");
 
-    var StaffreviewModule = function StaffreviewModule() {
-      _classCallCheck(this, StaffreviewModule);
+    var NotificationModule = function NotificationModule() {
+      _classCallCheck(this, NotificationModule);
     };
 
-    StaffreviewModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_staffreview_component__WEBPACK_IMPORTED_MODULE_4__["StaffreviewComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _staffreview_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffreviewRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
-    })], StaffreviewModule);
+    NotificationModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_notification_component__WEBPACK_IMPORTED_MODULE_4__["NotificationComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _notification_routing_module__WEBPACK_IMPORTED_MODULE_3__["NotificationRoutingModule"], src_app_shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_5__["BreadcrumbModule"]]
+    })], NotificationModule);
     /***/
   }
 }]);

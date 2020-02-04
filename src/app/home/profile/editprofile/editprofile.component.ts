@@ -137,6 +137,7 @@ export class EditprofileComponent implements OnInit {
         Validators.required,
         ValidationService.phonevalidator,
       ]),
+      // clinic: new FormControl(null),
       description: new FormControl(null, [
         Validators.required,
         Validators.minLength(2),

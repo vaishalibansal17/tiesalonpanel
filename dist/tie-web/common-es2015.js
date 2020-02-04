@@ -108,6 +108,43 @@ AuthHeaderModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/shared/constants/constant.ts":
+/*!**********************************************!*\
+  !*** ./src/app/shared/constants/constant.ts ***!
+  \**********************************************/
+/*! exports provided: ERROR_MSG, IMG, MESSAGE, DELETE */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ERROR_MSG", function() { return ERROR_MSG; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IMG", function() { return IMG; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MESSAGE", function() { return MESSAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE", function() { return DELETE; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+
+const ERROR_MSG = {
+    HTTP_SUBSCRIBER_ERROR: 'Network Error.',
+    UNAUTHURIZED_ERROR: 'You are not an authorized user.',
+};
+const IMG = {
+    PRO: 'assets/images/change.png',
+    USR: 'assets/images/noti-pro.png'
+};
+const MESSAGE = {
+    SUCCESS: 'SUCCESS',
+    FORGOT_SUC: 'Forgot Password Link has been sent successfully.',
+    FORGOT_FAIL: 'Admin not found'
+};
+const DELETE = {
+    DELETE_TITLE: '',
+    DELETE_MSG: 'You wont be able to revert this!',
+    DELETE_CONFIRM_TEXT: 'Yes, delete it!'
+};
+
+
+/***/ }),
+
 /***/ "./src/app/shared/service/validation-service.ts":
 /*!******************************************************!*\
   !*** ./src/app/shared/service/validation-service.ts ***!

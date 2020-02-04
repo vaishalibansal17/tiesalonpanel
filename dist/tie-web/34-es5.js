@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[34], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/walkinglist/walkinglist.component.html":
-  /*!****************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/walkinglist/walkinglist.component.html ***!
-    \****************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calenderdetail/calenderdetail.component.html":
+  /*!**********************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calenderdetail/calenderdetail.component.html ***!
+    \**********************************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserWalkinglistWalkinglistComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserCalenderdetailCalenderdetailComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-6 add\">\n            <form action=\"\" class=\"list_booking\">\n                <mat-form-field>\n                    <mat-label>All Bookings</mat-label>\n                    <mat-select formControlName='walkinglist'>\n                        <mat-option *ngFor=\"let walkinglist of walkinglists\" [value]=\"walkinglist.value\">\n                            {{walkinglist.viewValue}}\n                        </mat-option>\n                    </mat-select>\n                </mat-form-field>\n            </form>\n\n        </div>\n        <div class=\"col-md-6 alignright\">\n            <ul class=\"inline\">\n                <li class=\"add\"><a [routerLink]=\"['/walking-user/add-user']\"><img src=\"assets/images/add.png\" alt=\"Add\"> Add Users</a></li>\n                <li><a href=\"#\" class=\"btn btn-export\">Export</a></li>\n            </ul>\n        </div>\n    </div>\n    <div class=\"table_wrap\">\n    <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8 table_scroll\">\n        <ng-container matColumnDef=\"position\">\n          <th mat-header-cell *matHeaderCellDef> No. </th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"name\">\n          <th mat-header-cell *matHeaderCellDef> User Name </th>\n          <td mat-cell *matCellDef=\"let element\"> <a>{{element.name}}</a> </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"service\">\n          <th mat-header-cell *matHeaderCellDef>Service</th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.service}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"staff\">\n          <th mat-header-cell *matHeaderCellDef>Staff Name </th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.staff}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"number\">\n          <th mat-header-cell *matHeaderCellDef>Mobile Number</th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.number}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"status\">\n          <th mat-header-cell *matHeaderCellDef>Status</th>\n          <!--Please add class for status for diefferent colors ->  confirmed, pending, completed, rejected-->\n          <td mat-cell *matCellDef=\"let element\"> {{element.status}} \n            <!-- <span class=\"confirmed\">Confirmed</span> \n            <span class=\"completed\">completed</span> \n            <span class=\"pending\">pending</span> \n            <span class=\"rejected\">rejected</span> -->\n          </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"time\">\n          <th mat-header-cell *matHeaderCellDef>Time</th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.time}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"bookingid\">\n          <th mat-header-cell *matHeaderCellDef>Booking ID</th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.bookingid}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"date\">\n          <th mat-header-cell *matHeaderCellDef> Date </th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.date}} </td>\n        </ng-container>\n      \n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n      </table>\n    </div>\n      <ul class=\"pagination\">\n        <li><a href=\"#\"><i class=\"fa fa-angle-left\"></i></a></li>\n        <li class=\"active\"><a href=\"#\">1</a></li>\n        <li><a href=\"#\">2</a></li>\n        <li><a href=\"#\">3</a></li>\n        <li><a href=\"#\">4</a></li>\n        <li><a href=\"#\">5</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-angle-right\"></i></a></li>\n      </ul>\n  </div>";
+    __webpack_exports__["default"] = "<router-outlet></router-outlet>\n<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-6 top-text\">Booking Date: 08 Jan, 2020</div>\n        <div class=\"col-md-6 alignright\"><a class=\"btn btn-export\" href=\"#\">PDF</a></div>\n        <div class=\"col-md-12 top_view\"><img src=\"assets/images/change.png\" alt=\"\"><span class=\"user_name\">Jane Doe</span></div>\n        <div class=\"row\">\n            <div class=\"col-md-9\">\n                <div class=\"row\">\n                    <div class=\"col-md-3 label\">Date:</div>\n                    <div class=\"col-md-9 description\">22 Oct, 2019</div>\n                    <div class=\"col-md-3 label\">Time:</div>\n                    <div class=\"col-md-9 description\">10:00AM</div>\n                    <div class=\"col-md-3 label\">Booking ID:</div>\n                    <div class=\"col-md-9 description\">#QW1234</div>\n                    <div class=\"col-md-3 label\">Staff Name:</div>\n                    <div class=\"col-md-9 description\">Allen</div>\n                    <div class=\"col-md-3 label\">Address:</div>\n                    <div class=\"col-md-9 description\">246 Chris Avenue, New York</div>\n                    <div class=\"col-md-12 label\">Booking Location:</div>\n                    <div class=\"col-md-12 description\"><img class=\"full_width\" src=\"assets/images/maps.png\" alt=\"Maps\"></div>\n                    <div class=\"col-md-3 label\">Service At:</div>\n                    <div class=\"col-md-9 description\">Salon</div>\n                    <div class=\"col-md-12 label\">Services:</div>\n                    <div class=\"col-md-3 label\">Hair Wash Basic (Blast Dry)<span>Anybody</span></div>\n                    <div class=\"col-md-9 description alignright\">$250.00<span>10:00AM - 11:00AM</span></div>\n                    <div class=\"col-md-3 label\">Hair Wash Basic (Blast Dry)<span>You</span></div>\n                    <div class=\"col-md-9 description alignright\">$250.00<span>11:00AM - 12:00PM</span></div>\n                    <div class=\"col-md-12 text-center\"><a href=\"#\" class=\"btn btn-submit\">Mark as Complete</a></div>\n                </div>\n            </div>\n            <div class=\"col-md-3 mobile_hidden\"></div>\n        </div>\n\n        </div>\n    </div>\n";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/walkinglist/walkinglist-routing.module.ts":
-  /*!*****************************************************************************!*\
-    !*** ./src/app/home/walking-user/walkinglist/walkinglist-routing.module.ts ***!
-    \*****************************************************************************/
+  "./src/app/home/walking-user/calenderdetail/calenderdetail-routing.module.ts":
+  /*!***********************************************************************************!*\
+    !*** ./src/app/home/walking-user/calenderdetail/calenderdetail-routing.module.ts ***!
+    \***********************************************************************************/
 
-  /*! exports provided: WalkinglistRoutingModule */
+  /*! exports provided: CalenderdetailRoutingModule */
 
   /***/
-  function srcAppHomeWalkingUserWalkinglistWalkinglistRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserCalenderdetailCalenderdetailRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "WalkinglistRoutingModule", function () {
-      return WalkinglistRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "CalenderdetailRoutingModule", function () {
+      return CalenderdetailRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _walkinglist_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./walkinglist.component */
-    "./src/app/home/walking-user/walkinglist/walkinglist.component.ts");
+    var _calenderdetail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./calenderdetail.component */
+    "./src/app/home/walking-user/calenderdetail/calenderdetail.component.ts");
 
     var routes = [{
       path: '',
-      component: _walkinglist_component__WEBPACK_IMPORTED_MODULE_3__["WalkinglistComponent"]
+      component: _calenderdetail_component__WEBPACK_IMPORTED_MODULE_3__["CalenderdetailComponent"]
     }];
 
-    var WalkinglistRoutingModule = function WalkinglistRoutingModule() {
-      _classCallCheck(this, WalkinglistRoutingModule);
+    var CalenderdetailRoutingModule = function CalenderdetailRoutingModule() {
+      _classCallCheck(this, CalenderdetailRoutingModule);
     };
 
-    WalkinglistRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    CalenderdetailRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], WalkinglistRoutingModule);
+    })], CalenderdetailRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/walkinglist/walkinglist.component.scss":
-  /*!**************************************************************************!*\
-    !*** ./src/app/home/walking-user/walkinglist/walkinglist.component.scss ***!
-    \**************************************************************************/
+  "./src/app/home/walking-user/calenderdetail/calenderdetail.component.scss":
+  /*!********************************************************************************!*\
+    !*** ./src/app/home/walking-user/calenderdetail/calenderdetail.component.scss ***!
+    \********************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeWalkingUserWalkinglistWalkinglistComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserCalenderdetailCalenderdetailComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".main-card ul.inline li.add {\n  margin: 0 25px 0px 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvd2Fsa2luZ2xpc3Qvd2Fsa2luZ2xpc3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL3dhbGtpbmdsaXN0L3dhbGtpbmdsaXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQTRCLHVCQUFBO0FDRTVCIiwiZmlsZSI6InNyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvd2Fsa2luZ2xpc3Qvd2Fsa2luZ2xpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbi1jYXJkIHVsLmlubGluZSBsaS5hZGR7bWFyZ2luOiAwIDI1cHggMHB4IDEwcHg7fSIsIi5tYWluLWNhcmQgdWwuaW5saW5lIGxpLmFkZCB7XG4gIG1hcmdpbjogMCAyNXB4IDBweCAxMHB4O1xufSJdfQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL2NhbGVuZGVyZGV0YWlsL2NhbGVuZGVyZGV0YWlsLmNvbXBvbmVudC5zY3NzIn0= */";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/walkinglist/walkinglist.component.ts":
-  /*!************************************************************************!*\
-    !*** ./src/app/home/walking-user/walkinglist/walkinglist.component.ts ***!
-    \************************************************************************/
+  "./src/app/home/walking-user/calenderdetail/calenderdetail.component.ts":
+  /*!******************************************************************************!*\
+    !*** ./src/app/home/walking-user/calenderdetail/calenderdetail.component.ts ***!
+    \******************************************************************************/
 
-  /*! exports provided: WalkinglistComponent */
+  /*! exports provided: CalenderdetailComponent */
 
   /***/
-  function srcAppHomeWalkingUserWalkinglistWalkinglistComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserCalenderdetailCalenderdetailComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "WalkinglistComponent", function () {
-      return WalkinglistComponent;
+    __webpack_require__.d(__webpack_exports__, "CalenderdetailComponent", function () {
+      return CalenderdetailComponent;
     });
     /* harmony import */
 
@@ -137,151 +137,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var WalkinglistComponent =
+    var CalenderdetailComponent =
     /*#__PURE__*/
     function () {
-      function WalkinglistComponent() {
-        _classCallCheck(this, WalkinglistComponent);
-
-        this.displayedColumns = ['position', 'name', 'service', 'staff', 'number', 'status', 'time', 'bookingid', 'date'];
-        this.dataSource = ELEMENT_DATA;
-        this.walkinglists = [{
-          value: '1',
-          viewValue: 'All Bookings'
-        }, {
-          value: '2',
-          viewValue: 'New Bookings'
-        }, {
-          value: '3',
-          viewValue: 'Accepted Bookings'
-        }, {
-          value: '4',
-          viewValue: 'In-Process Bookings'
-        }, {
-          value: '5',
-          viewValue: 'Completed Bookings'
-        }];
+      function CalenderdetailComponent() {
+        _classCallCheck(this, CalenderdetailComponent);
       }
 
-      _createClass(WalkinglistComponent, [{
+      _createClass(CalenderdetailComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return WalkinglistComponent;
+      return CalenderdetailComponent;
     }();
 
-    WalkinglistComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-walkinglist',
+    CalenderdetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-calenderdetail',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./walkinglist.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/walkinglist/walkinglist.component.html")).default,
+      /*! raw-loader!./calenderdetail.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calenderdetail/calenderdetail.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./walkinglist.component.scss */
-      "./src/app/home/walking-user/walkinglist/walkinglist.component.scss")).default]
-    })], WalkinglistComponent);
-    var ELEMENT_DATA = [{
-      position: 1,
-      name: 'Jane Doe',
-      service: 'Haircut, Hair Spa',
-      staff: 'Allen',
-      number: +919999999999,
-      status: 'Confirmed',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }, {
-      position: 2,
-      name: 'Jane Doe',
-      service: 'Haircut, Hair Spa',
-      staff: 'James',
-      number: +919999999999,
-      status: 'Pending',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }, {
-      position: 3,
-      name: 'Jane Doe',
-      service: 'Haircut, Hair Spa',
-      staff: 'Allen',
-      number: +919999999999,
-      status: '--',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }, {
-      position: 4,
-      name: 'Jane Doe',
-      service: 'Haircut',
-      staff: 'James',
-      number: +919999999999,
-      status: 'Completed',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }, {
-      position: 5,
-      name: 'Jane Doe',
-      service: 'Massage',
-      staff: 'Allen',
-      number: +919999999999,
-      status: 'Completed',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }, {
-      position: 6,
-      name: 'Jane Doe',
-      service: 'Haircut',
-      staff: 'James',
-      number: +919999999999,
-      status: 'Pending',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }, {
-      position: 7,
-      name: 'Jane Doe',
-      service: 'Haircut, Hair Spa',
-      staff: 'Allen',
-      number: +919999999999,
-      status: 'Confirmed',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }, {
-      position: 8,
-      name: 'Jane Doe',
-      service: 'Massage',
-      staff: 'Allen',
-      number: +919999999999,
-      status: 'Rejected',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }];
+      /*! ./calenderdetail.component.scss */
+      "./src/app/home/walking-user/calenderdetail/calenderdetail.component.scss")).default]
+    })], CalenderdetailComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/walkinglist/walkinglist.module.ts":
-  /*!*********************************************************************!*\
-    !*** ./src/app/home/walking-user/walkinglist/walkinglist.module.ts ***!
-    \*********************************************************************/
+  "./src/app/home/walking-user/calenderdetail/calenderdetail.module.ts":
+  /*!***************************************************************************!*\
+    !*** ./src/app/home/walking-user/calenderdetail/calenderdetail.module.ts ***!
+    \***************************************************************************/
 
-  /*! exports provided: WalkinglistModule */
+  /*! exports provided: CalenderdetailModule */
 
   /***/
-  function srcAppHomeWalkingUserWalkinglistWalkinglistModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserCalenderdetailCalenderdetailModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "WalkinglistModule", function () {
-      return WalkinglistModule;
+    __webpack_require__.d(__webpack_exports__, "CalenderdetailModule", function () {
+      return CalenderdetailModule;
     });
     /* harmony import */
 
@@ -304,30 +204,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _walkinglist_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./walkinglist-routing.module */
-    "./src/app/home/walking-user/walkinglist/walkinglist-routing.module.ts");
+    var _calenderdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./calenderdetail-routing.module */
+    "./src/app/home/walking-user/calenderdetail/calenderdetail-routing.module.ts");
     /* harmony import */
 
 
-    var _walkinglist_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./walkinglist.component */
-    "./src/app/home/walking-user/walkinglist/walkinglist.component.ts");
-    /* harmony import */
+    var _calenderdetail_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./calenderdetail.component */
+    "./src/app/home/walking-user/calenderdetail/calenderdetail.component.ts");
 
-
-    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/shared/shared.module */
-    "./src/app/shared/shared.module.ts");
-
-    var WalkinglistModule = function WalkinglistModule() {
-      _classCallCheck(this, WalkinglistModule);
+    var CalenderdetailModule = function CalenderdetailModule() {
+      _classCallCheck(this, CalenderdetailModule);
     };
 
-    WalkinglistModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_walkinglist_component__WEBPACK_IMPORTED_MODULE_4__["WalkinglistComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _walkinglist_routing_module__WEBPACK_IMPORTED_MODULE_3__["WalkinglistRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
-    })], WalkinglistModule);
+    CalenderdetailModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_calenderdetail_component__WEBPACK_IMPORTED_MODULE_4__["CalenderdetailComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _calenderdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__["CalenderdetailRoutingModule"]]
+    })], CalenderdetailModule);
     /***/
   }
 }]);

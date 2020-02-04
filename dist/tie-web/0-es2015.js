@@ -80442,6 +80442,64 @@ DatePipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/shared/_pipes/percent.pipe.ts":
+/*!***********************************************!*\
+  !*** ./src/app/shared/_pipes/percent.pipe.ts ***!
+  \***********************************************/
+/*! exports provided: PercentPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PercentPipe", function() { return PercentPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let PercentPipe = class PercentPipe {
+    transform(value, ...args) {
+        return Math.round((Math.round(value) / 5) * 100);
+    }
+};
+PercentPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+        name: 'prcnt'
+    })
+], PercentPipe);
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/_pipes/round.pipe.ts":
+/*!*********************************************!*\
+  !*** ./src/app/shared/_pipes/round.pipe.ts ***!
+  \*********************************************/
+/*! exports provided: RoundPipe */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoundPipe", function() { return RoundPipe; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let RoundPipe = class RoundPipe {
+    transform(value, ...args) {
+        return Math.round(value);
+    }
+};
+RoundPipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
+        name: 'round'
+    })
+], RoundPipe);
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/_pipes/safe.pipe.ts":
 /*!********************************************!*\
   !*** ./src/app/shared/_pipes/safe.pipe.ts ***!
@@ -80687,6 +80745,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pipes_time_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./_pipes/time.pipe */ "./src/app/shared/_pipes/time.pipe.ts");
 /* harmony import */ var _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./_pipes/safe.pipe */ "./src/app/shared/_pipes/safe.pipe.ts");
 /* harmony import */ var _material_material_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./material/material.module */ "./src/app/shared/material/material.module.ts");
+/* harmony import */ var _pipes_percent_pipe__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./_pipes/percent.pipe */ "./src/app/shared/_pipes/percent.pipe.ts");
+/* harmony import */ var _pipes_round_pipe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./_pipes/round.pipe */ "./src/app/shared/_pipes/round.pipe.ts");
+
+
 
 
 
@@ -80715,7 +80777,9 @@ SharedModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _pipes_stamptoDate_pipe__WEBPACK_IMPORTED_MODULE_7__["StampToDate"],
             _pipes_time_pipe__WEBPACK_IMPORTED_MODULE_8__["TimePipe"],
             _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_9__["SafePipe"],
-            _material_material_module__WEBPACK_IMPORTED_MODULE_10__["MaterialModule"]
+            _material_material_module__WEBPACK_IMPORTED_MODULE_10__["MaterialModule"],
+            _pipes_percent_pipe__WEBPACK_IMPORTED_MODULE_11__["PercentPipe"],
+            _pipes_round_pipe__WEBPACK_IMPORTED_MODULE_12__["RoundPipe"]
         ],
         declarations: [
             _elements_data_filter_pipe__WEBPACK_IMPORTED_MODULE_4__["DataFilterPipe"],
@@ -80723,7 +80787,9 @@ SharedModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _pipes_date_pipe__WEBPACK_IMPORTED_MODULE_6__["DatePipe"],
             _pipes_stamptoDate_pipe__WEBPACK_IMPORTED_MODULE_7__["StampToDate"],
             _pipes_time_pipe__WEBPACK_IMPORTED_MODULE_8__["TimePipe"],
-            _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_9__["SafePipe"]
+            _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_9__["SafePipe"],
+            _pipes_percent_pipe__WEBPACK_IMPORTED_MODULE_11__["PercentPipe"],
+            _pipes_round_pipe__WEBPACK_IMPORTED_MODULE_12__["RoundPipe"]
         ],
         providers: [],
         schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]]

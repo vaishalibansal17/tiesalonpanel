@@ -21,7 +21,7 @@
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/email.png" alt="envelope"></span>
                 <input matInput placeholder="{{'EMAIL'| translate | titlecase}}" class="form-control"
-                    formControlName="email" maxlength="100" readonly >
+                    formControlName="email" maxlength="100" readonly>
             </mat-form-field>
             <div *ngIf="(submitted || getControl.email.dirty|| getControl.email.touched) && getControl.email.errors">
                 <p class="color error" *ngIf="getControl.email.errors.required">{{'LOGINEMAIL'| translate}}</p>
@@ -37,7 +37,9 @@
             </mat-form-field>
             <div *ngIf="(submitted || getControl.phone.dirty|| getControl.phone.touched) && getControl.phone.errors">
                 <p class="color error" *ngIf="getControl.phone.errors.required">{{'PHNREQ'|translate}}</p>
-                <p class="color error" *ngIf="!getControl.phone.errors.required && getControl.phone.errors.Invalidphone ">{{'PHNLNGTH'|translate}}</p>
+                <p class="color error"
+                    *ngIf="!getControl.phone.errors.required && getControl.phone.errors.Invalidphone ">
+                    {{'PHNLNGTH'|translate}}</p>
             </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/location.png" alt="envelope"></span>
@@ -71,15 +73,14 @@
                 <div class="form-group form-primary custom_formgroup">
 
                     <label class="detail_content">
-                        <a class="margin_top"
-                            *ngFor="let image of salonImageUrlArray; index as i">
+                        <a class="margin_top" *ngFor="let image of salonImageUrlArray; index as i">
                             <img class="file_upload2" [src]="image" alt="Upload">
                             <span (click)="removeSalonImages(image,i)">x</span> </a>
                     </label>
                     <span class="file_div">
                         <input type="file" class="custom_upload1" multiple
-                        accept="image/x-png,image/gif,image/jpeg,image/jpg" (change)="readUrlMultipleImage($event)"
-                        formControlName='multiImage'>
+                            accept="image/x-png,image/gif,image/jpeg,image/jpg" (change)="readUrlMultipleImage($event)"
+                            formControlName='multiImage'>
                         <img class="file_upload1" src="assets/images/add-edit.png" alt="Upload">
                     </span>
                 </div>
@@ -89,18 +90,17 @@
                 <input matInput placeholder="Website" class="form-control" formControlName="website">
             </mat-form-field>
             <div
-            *ngIf="(submitted || getControl.website.dirty|| getControl.website.touched) && getControl.website.errors">
-            <p class="color error" *ngIf="getControl.website.errors.invalidWebsite ">{{'WBSTINVLD' | translate}}</p>
-        </div>
-            <mat-form-field>
-                <span class="email-img setting"><img src="assets/images/settings.png" alt="envelope"></span>
-                <mat-label>Clinic</mat-label>
-                <mat-select formControlName='clinic'>
-                    <mat-option *ngFor="let clinic of clinics" [value]="clinic.value">
-                        {{clinic.viewValue}}
-                    </mat-option>
-                </mat-select>
-            </mat-form-field>
+                *ngIf="(submitted || getControl.website.dirty|| getControl.website.touched) && getControl.website.errors">
+                <p class="color error" *ngIf="getControl.website.errors.invalidWebsite ">{{'WBSTINVLD' | translate}}</p>
+            </div>
+            <!-- <div class="setting_list">
+                <div class="row">
+                    <div class="col-md-6">{{'ONLINBOOKING'| translate}}</div>
+                    <div class="col-md-6 alignright">
+                        <mat-slide-toggle></mat-slide-toggle>
+                    </div>
+                </div>
+            </div> -->
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
                 <mat-label>Service At</mat-label>

@@ -98,6 +98,18 @@
   "DEACACC":"Deactivate Account",
   "DEACTEXT":"You can deactivate your account for weeks or months, based on your availability. Users will not be able to see you while your account is deactivated.",
   "DELACC":"Delete Account",
+  "DESIGNATION":"Designation",
+  "RATING":"Rating",
+  "RCNTREVIW" : "Recent Reviews",
+  "PROFESS":"Professionalism",
+  "CUSTMRSRV" : "Customer Service",
+  "TIMING":"Timing",
+  "CLEANES":"Cleanness",
+  
+
+  "INCRTSTAFFNAME": "Please enter staff name.",
+  "DELETE_STAFF":"Deleted successfully.",
+  "EXPORTD":"Data exported successfully.",
 
   "UI ELEMENT": "Modules",
   "NAVIGATION": "Navigation",

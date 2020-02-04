@@ -42,7 +42,7 @@ export class ListComponent implements OnInit {
     );
   }
   ngOnInit() {
-    // this.getSalonStaff();
+    this.getSalonStaff();
   }
 
   // ********************** Account Manager List Api Integration with search ******************
