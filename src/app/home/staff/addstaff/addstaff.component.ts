@@ -117,7 +117,7 @@ export class AddstaffComponent implements OnInit {
     }
   }
   get getControl() { return this.profile.controls; }
-
+ 
   readUrl(event: any) {
     if (event.target.files && event.target.files[0]) {
       if (this.helper.isImage(event.target.files[0].type)) {

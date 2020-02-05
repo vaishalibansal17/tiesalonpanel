@@ -1,4 +1,11 @@
-<hr>
-<h1>Under Development.</h1>
-<hr>
-<h2>Thank you</h2>
+  <div class="secondary-navbar-outer">
+    <ul class="secondary-navbar">
+        <li routerLinkActive="active"><a [routerLink]="['./']">First</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['./transaction']">First</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['./earning']">First</a></li>
+    </ul>
+</div>
+
+<div class="basic-content">
+    <router-outlet></router-outlet>
+</div>

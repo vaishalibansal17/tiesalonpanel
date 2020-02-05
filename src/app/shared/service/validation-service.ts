@@ -79,7 +79,7 @@ export class ValidationService {
   static phonevalidator(control) {
     // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {
     // if (control.value && control.value.match(/^[^-\s][0-9_\s-]+$/)) {
-    if (control && control.value && control.value.match(/^[0-9]{7,12}$/)) {
+    if (control.value && control.value.match(/^[0-9]{7,12}$/)) {
       return null;
     } else {
       return { Invalidphone: true };
@@ -88,12 +88,26 @@ export class ValidationService {
 
   static numberValidator(control) {
     // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {
-    if (control.value && control.value.match(/^[0-9]*$/)) {
+    if (control.value && String(control.value).match(/^[0-9]*$/)) {
       return null;
-    } else {
-      return { InvalidNumber: true };
+    } else if (control.value) {
+      return null;
     }
+    else
+      return { invalid: true };
   }
+
+  static codeValidator(control) {
+    // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {
+    if (control.value && control.value.match(/^[a-zA-Z0-9]*$/)) {
+      return null;
+    } else if (control.value) {
+      return null;
+    }
+    else
+      return { invalid: true };
+  }
+
 
   static dateValidator(control) {
     // for yyyy-mm-dd formate
@@ -127,16 +141,16 @@ export class ValidationService {
 
 export function passValidator(control: AbstractControl) {
   if (control && (control.value !== null || control.value !== undefined)) {
-      const cnfpassValue = control.value;
-      const passControl = control.root.get('newPassword'); // magic is this
-      if (passControl) {
-          const passValue = passControl.value;
-          if (passValue !== cnfpassValue || passValue === '') {
-              return {
-                  isError: true
-              };
-          }
+    const cnfpassValue = control.value;
+    const passControl = control.root.get('newPassword'); // magic is this
+    if (passControl) {
+      const passValue = passControl.value;
+      if (passValue !== cnfpassValue || passValue === '') {
+        return {
+          isError: true
+        };
       }
+    }
   }
 
   return null;
@@ -146,8 +160,8 @@ export class PassValid {
   static MatchPassword(AC: AbstractControl) {
     let password = AC.get("newPassword").value || ""; // to get value in input tag
     let confirmPassword = AC.get("confirmPassword").value || ""; // to get value in input tagc
-    console.log(confirmPassword,'========');
-    
+    console.log(confirmPassword, '========');
+
     // if (confirmPassword.length < 0)
     //   return AC.get("confirmPassword").setErrors({ required: true });
     if (password.length >= 1 && confirmPassword.length <= 20) {

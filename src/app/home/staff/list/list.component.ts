@@ -90,6 +90,11 @@ export class ListComponent implements OnInit {
     var finalData = [];
     var obj: any;
     var i = 0;
+    let listObj = {
+     all:true
+    }
+    this.dataSource.load(listObj, {api: 'STAFF'});
+
     data.usersData.subscribe(rs=>{
       rs.forEach(element => {
         obj = {

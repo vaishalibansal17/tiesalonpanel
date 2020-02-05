@@ -1,0 +1,30 @@
+.main-card {
+    padding: 30px 30px 30px 15px !important;
+    .chat_mgmt{
+        .notifi_list{
+            margin-bottom: 5px;
+            .noti_left{
+
+            }
+            .noti_right{
+                padding-top: 0px;
+                color: #999999;
+                font-size: 13px;
+                .author-review{
+                    font-size: 15px;
+                    color: #000;
+                    .alignright{
+                        text-align: right;
+                        float: right;
+                        color: #999;
+                        font-size: 13px;
+                    }
+                }
+                .right_btn{}
+            }
+        }
+    }
+    ul.pagination{
+        margin-top: 15px;
+    }
+}

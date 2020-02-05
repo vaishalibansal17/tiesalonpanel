@@ -106,7 +106,16 @@
   "TIMING":"Timing",
   "CLEANES":"Cleanness",
   
+  "COUPNNAME":"Please enter coupon title.",
+  "CODEREQ":"Please enter coupon code.",
+  "CODEINVLID":"Please enter alphabets and number.",
+  "MINPRCREQ":"Please enter minimum discount.",
+  "MAXPRCREQ":"Please enter maximum discount.",
+  "USEREQ":"Please enter limit for coupon code uses.",
+  "FRMREQ":"Please enter starting date for coupon code.",
+  "TOREQ":"Please enter ending date for coupon code.",
 
+  
   "INCRTSTAFFNAME": "Please enter staff name.",
   "DELETE_STAFF":"Deleted successfully.",
   "EXPORTD":"Data exported successfully.",

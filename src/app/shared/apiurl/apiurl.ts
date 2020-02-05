@@ -17,6 +17,8 @@ export const APIURLS = {
     SERVICES: BASE_URL + 'service',
     WALKING:BASE_URL + 'user/walking',
     WALKING_CHK:BASE_URL + 'user/walking/check',
-    WALKING_ADD:BASE_URL + 'user/walking/add'
+    WALKING_ADD:BASE_URL + 'user/walking/add',
+    PROMO:BASE_URL + 'promocode',
+    PROMO_DETAIL:BASE_URL + 'promocode/detail'
 
 };
