@@ -38,7 +38,7 @@ agm-map {
     margin: 20px 0px;
   }
 body{font-size:14px !important;line-height:24px !important;font-family: 'Conv_GothamRounded-Book' !important;}
-button,.mat-table,.mat-form-field-infix,.mat-form-field,.mat-select-value{font-family: 'Conv_GothamRounded-Book' !important;}
+button,.mat-table,.mat-form-field-infix,.mat-form-field,.mat-select-value,.mat-slide-toggle-content{font-family: 'Conv_GothamRounded-Book' !important;}
 ul{list-style: none;margin: 0;padding: 0;}
 .form-control:focus{box-shadow: none !important;border:none !important;outline: none !important;}
 a:hover{text-decoration: none !important;}
@@ -1078,6 +1078,48 @@ img.full_width{width:100%;margin-bottom: 20px;}
     .mat-radio-outer-circle{border-color: #BFBFBF;}
 }
 .warning_link a.warning{color: #FF2626;}
+
+
+/*----------reports---------*/
+.top_report{
+    .left_report_head{
+        float: left;
+        margin: 20px 0px 0;
+        ul{
+            li{
+                display: inline-block;
+                a{
+                    background: transparent;
+                    font-size: 15px;
+                    color: #999;
+                    padding: 10px 40px;
+                    border: 1px solid #efefef;
+                }
+            }
+            li.active a{
+                background: #f96bb3;
+                color: #fff;
+                border: none;
+                border-radius: 0px;
+                padding: 11px 40px;
+            }
+            li:first-child a{border-radius: 5px 0px 0px 5px;}
+            li:last-child a{border-radius: 0px 5px 5px 0px;}
+        }
+    }
+    .right_report_head{
+        float: right;
+        margin: 20px 0px 0;
+    }
+}
+.main-card{
+    .sales_description{
+        border-top: 1px solid #efefef;
+        border-bottom: 1px solid #efefef;
+        padding: 12px 0px;
+        margin: 15px 0px 10px;
+    }
+}
 
 
 
