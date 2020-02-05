@@ -52,7 +52,7 @@
                 <p class="color error" *ngIf="!getControl.upto.errors.required && getControl.upto.errors.invalid">
                     {{'CODEINVLID'| translate}}</p>
             </div>
-            <mat-form-field>
+            <mat-form-field class="multi_field">
                 <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
                 <mat-label>Service</mat-label>
                 <mat-select (selectionChange)="slctsrv($event.value)" class="multiselect">
