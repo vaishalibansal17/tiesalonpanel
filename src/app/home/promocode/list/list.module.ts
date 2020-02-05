@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { ListRoutingModule } from './list-routing.module';
 import { ListComponent, PromoDeleteDialogBox } from './list.component';
@@ -16,7 +16,7 @@ import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
     SharedModule,
     ApplicationpipeModule
   ],
-  providers:[TranslatePipe],
+  providers:[TranslatePipe, DatePipe],
   entryComponents: [ PromoDeleteDialogBox ]
 })
 export class ListModule { }

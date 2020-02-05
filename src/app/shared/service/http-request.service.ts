@@ -4,13 +4,16 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { APIURLS } from '../apiurl/apiurl';
 import { MessageService } from 'primeng/api';
+import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
+import { TranslateService } from './translate.service';
 
 @Injectable()
 
 export class HttpRequestService {
 	constructor(private http: HttpClient,
 		private myRoute: Router,
-		private messageService: MessageService
+		private messageService: MessageService,
+		private trns : TranslateService
 	) { }
 
 	getApi(apiName: string) {
@@ -62,5 +65,27 @@ export class HttpRequestService {
 	toggleRoute(route) {
 		this.myRoute.navigate(['/main/event/' + route + '/' + localStorage.getItem('editEventId')]);
 	}
+
+	exportCSV(api: any) {
+		var finalData = [];
+		var obj: any;
+		var i = 0;
+	
+		this.getRequest('GET', api, `?all=true`).subscribe(rs=>{
+			console.log(rs);
+			
+		//   rs.forEach(element => {
+		// 	obj = {
+		// 	  "Serial": ++i,
+		// 	  "Name": element.name,
+		// 	  "Email": element.email
+		// 	};
+		// 	finalData.push(obj);
+		//   });
+		//   var options = { noDownload: false, headers: ["Serial", "Name", "Email"] };
+		//   new Angular5Csv(finalData, 'staff_list', options);
+		  this.sucsTostr(this.trns.data['SUCCESS'], this.trns.data['EXPORTD']);
+		})
+	  }
 
 }

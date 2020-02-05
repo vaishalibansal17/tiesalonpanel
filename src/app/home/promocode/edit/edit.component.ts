@@ -74,7 +74,7 @@ export class EditComponent implements OnInit {
       this.promo.value.cat_ids = JSON.stringify(this.sendServ);
       console.log(this.promo.value);
 
-      this.httpService.getRequest('POST', 'PROMO', this.promo.value)
+      this.httpService.getRequest('PUT', 'PROMO', this.promo.value, this.id)
         .subscribe((response: any) => {
           if (response.status === 1) {
             this.submitted = true;
