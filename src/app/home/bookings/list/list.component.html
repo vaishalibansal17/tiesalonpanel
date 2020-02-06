@@ -15,7 +15,7 @@
         </div>
         <div class="col-md-6 alignright"><a href="#" class="btn btn-export">Export</a></div>
     </div>
-    <div class="table_wrap">
+    <div class="table_wrap mobile_hidden">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
         <ng-container matColumnDef="position">
           <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -87,6 +87,111 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </div>
+
+    <div class="card_view mobile_visible">
+
+      <div class="cards">
+          <div class="top_info">
+            <!--add class for background color confirmed, pending, rejected, completed-->
+            <div class="left_status confirmed">confirmed</div>
+            <div class="right_status">
+              <ul>
+                <li>22 Oct, 2019</li>
+                <li>10:00AM</li>
+              </ul>
+            </div>
+          </div>
+          <div class="description">
+          <p class="user"><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
+          <p class="service"><img src="assets/images/service-pink.png" alt="">Haircut, Hair Spa</p>
+          <p class="location"><img src="assets/images/location-pink.png" alt="">At Home</p>
+          <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
+          <div class="buttons">
+            <button class="booking_btn cancel">Cancel</button> 
+            <button class="booking_btn accept" (click)="openDialog()">Accept</button>  
+            <button class="booking_btn decline" (click)="openDialog()">Decline</button> 
+          </div>
+      </div>
+      </div>
+
+      
+      <div class="cards">
+        <div class="top_info">
+          <!--add class for background color confirmed, pending, rejected, completed-->
+          <div class="left_status pending">pending</div>
+          <div class="right_status">
+            <ul>
+              <li>22 Oct, 2019</li>
+              <li>10:00AM</li>
+            </ul>
+          </div>
+        </div>
+        <div class="description">
+        <p class="user"><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
+        <p class="service"><img src="assets/images/service-pink.png" alt="">Haircut, Hair Spa</p>
+        <p class="location"><img src="assets/images/location-pink.png" alt="">At Clinic</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
+        <div class="buttons">
+          <button class="booking_btn cancel">Cancel</button> 
+          <button class="booking_btn accept" (click)="openDialog()">Accept</button>  
+          <button class="booking_btn decline" (click)="openDialog()">Decline</button> 
+        </div>
+    </div>
+    </div>
+
+    
+    <div class="cards">
+      <div class="top_info">
+        <!--add class for background color confirmed, pending, rejected, completed-->
+        <div class="left_status rejected">rejected</div>
+        <div class="right_status">
+          <ul>
+            <li>22 Oct, 2019</li>
+            <li>10:00AM</li>
+          </ul>
+        </div>
+      </div>
+      <div class="description">
+      <p class="user"><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
+      <p class="service"><img src="assets/images/service-pink.png" alt="">Haircut, Hair Spa</p>
+      <p class="location"><img src="assets/images/location-pink.png" alt="">At Home</p>
+      <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
+      <div class="buttons">
+        <button class="booking_btn cancel">Cancel</button> 
+        <button class="booking_btn accept" (click)="openDialog()">Accept</button>  
+        <button class="booking_btn decline" (click)="openDialog()">Decline</button> 
+      </div>
+  </div>
+  </div>
+
+  
+  <div class="cards">
+    <div class="top_info">
+      <!--add class for background color confirmed, pending, rejected, completed-->
+      <div class="left_status completed">completed</div>
+      <div class="right_status">
+        <ul>
+          <li>22 Oct, 2019</li>
+          <li>10:00AM</li>
+        </ul>
+      </div>
+    </div>
+    <div class="description">
+    <p class="user"><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
+    <p class="service"><img src="assets/images/service-pink.png" alt="">Haircut, Hair Spa</p>
+    <p class="location"><img src="assets/images/location-pink.png" alt="">At Home</p>
+    <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
+    <div class="buttons">
+      <button class="booking_btn cancel">Cancel</button> 
+      <button class="booking_btn accept" (click)="openDialog()">Accept</button>  
+      <button class="booking_btn decline" (click)="openDialog()">Decline</button> 
+    </div>
+</div>
+</div>
+      
+    </div>
+
+
       <ul class="pagination">
         <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
         <li class="active"><a href="#">1</a></li>

@@ -977,6 +977,78 @@ img.full_width{width:100%;margin-bottom: 20px;}
     }
 }
 
+/*------mobile-cards-------*/
+.mobile_visible{
+    display:none;
+    .cards{
+        background: #f9f9f9;
+        padding: 15px 14px;
+        margin: 20px 0px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #e0e0e0;
+        .top_info{
+            .left_status{
+                float: left;
+                padding: 3px 20px;
+                background: #ccc;
+                border-radius: 30px;
+                text-transform: capitalize;
+                font-size: 13px;
+                color: #fff;
+            }
+            .right_status{
+                float: right;
+                ul{
+                    margin-bottom: 0px;
+                    li{
+                        display: inline-block;
+                        font-size: 12px;
+                        padding-top: 3px;
+                        &:after{
+                            content:"|";
+                            color: #000;
+                            margin: 0px 6px;
+                        }
+                    }
+                    li:last-child:after{
+                        display: none;
+                    }
+                }
+            }
+            .left_status.confirmed{background: #5059FF;}
+            .left_status.pending{background: #FFC107;}
+            .left_status.completed{background: #72E1D1;}
+            .left_status.rejected{background: #FF2626;}
+
+        }
+        .description{
+            clear: both;
+            padding-top: 15px;
+            p{
+                margin-bottom: 5px;
+                img{
+                    margin-right: 12px;position: relative;top: -2px;
+                }
+            }
+            p.user{font-size: 20px;font-weight: 600;margin-bottom: 10px;}
+            .buttons{
+                .booking_btn{
+                    margin: 10px 5px 0px;
+                    background: #fff;
+                    border: 1px solid transparent;
+                    border-radius: 30px;
+                    padding: 3px 20px;
+                    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.16);
+                }
+                .booking_btn.cancel{color: #000;border: 1px solid #000;}
+                .booking_btn.accept{background: #F96BB3;color: #fff;}
+                .booking_btn.decline{background: #000;color: #fff;}
+            }
+        }
+    }
+}
+
+
 /*------------------Staff Detail------------*/
 .main-card{
     h3{
@@ -1261,6 +1333,7 @@ body.nav-open .main-header, body.nav-close .main-header {padding: 10px ;}
     .main-card .top_view{margin-bottom: 0px;}
     .main-card a.btn.btn-edit {margin: 10px 0px;}
     .mobile_hidden{display: none;}
+    .mobile_visible{display: block;}
     .main-card .add,.main-card .top_view {text-align: center;margin-bottom: 20px;}
     .main-card .label {margin-top: 10px;font-weight: 600;}
     .cdk-overlay-pane .mat-dialog-container {padding: 15px 10px;}
@@ -1269,4 +1342,5 @@ body.nav-open .main-header, body.nav-close .main-header {padding: 10px ;}
 
 @media(max-width:640px){
 .main-card table .mat-column-action {min-width: 170px;}
+.mobile_visible .cards .description .buttons{text-align:center;}
 }
