@@ -86,6 +86,7 @@ export class ValidationService {
     }
   }
 
+
   static numberValidator(control) {
     // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {
     if (control.value && String(control.value).match(/^[0-9]*$/)) {
@@ -160,8 +161,6 @@ export class PassValid {
   static MatchPassword(AC: AbstractControl) {
     let password = AC.get("newPassword").value || ""; // to get value in input tag
     let confirmPassword = AC.get("confirmPassword").value || ""; // to get value in input tagc
-    console.log(confirmPassword, '========');
-
     // if (confirmPassword.length < 0)
     //   return AC.get("confirmPassword").setErrors({ required: true });
     if (password.length >= 1 && confirmPassword.length <= 20) {
@@ -173,4 +172,26 @@ export class PassValid {
     }
     return null;
   }
+
 }
+export function date(control: AbstractControl) {
+  console.log(control);
+  if (control && (control.value !== null || control.value !== undefined)) {
+    let frm = control.get("frm").value || "";
+    let to = control.get("to").value || "";
+    // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {\
+    console.log(frm && !to);
+
+    if (frm && !to) {
+      control.get('to').enable();
+      return null;
+    } else if (frm && to) {
+      new Date(frm) > new Date(to)
+      return { invalid: true };
+    }
+    else
+      return { invalid: true };
+  }
+  return null;
+}
+

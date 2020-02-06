@@ -4,8 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Helper } from 'src/app/shared/service/helper.service';
 import { ErrorService } from 'src/app/shared/service/error.service';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ValidationService } from 'src/app/shared/service/validation-service';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { ValidationService, date } from 'src/app/shared/service/validation-service';
 import * as _ from "lodash";
 
 export interface Service {
@@ -27,7 +27,7 @@ export class AddComponent implements OnInit {
   removable = true;
   sendServ = [];
   promo: FormGroup;
-  constructor(private httpService: HttpRequestService, private router: Router,
+  constructor(private httpService: HttpRequestService, private router: Router, private fb :FormBuilder,
     private routes: ActivatedRoute, private helper: Helper,
     private errorserv: ErrorService,
     private trns: TranslatePipe
@@ -36,7 +36,7 @@ export class AddComponent implements OnInit {
   ngOnInit() {
     this.getServices();
 
-    this.promo = new FormGroup({
+    this.promo = this.fb.group({
       name: new FormControl(null, [
         Validators.required, ValidationService.namevalidator
       ]),
@@ -49,9 +49,9 @@ export class AddComponent implements OnInit {
       upto: new FormControl(null, [ValidationService.numberValidator]),
       min_price: new FormControl(null, [ValidationService.numberValidator]),
       frm: new FormControl(null, [
-        Validators.required,
+        Validators.required
       ]),
-      to: new FormControl(null, [
+      to: new FormControl({value: '',disabled: true}, [
         Validators.required,
       ]),
       uses: new FormControl(null, [ValidationService.numberValidator]),
@@ -113,6 +113,19 @@ export class AddComponent implements OnInit {
   }
   get getControl() { return this.promo.controls; }
 
+  /** ---------------------Compare Promocodes dates----------------------- */
+  // validateDates(startDate?: Date, endDate?: Date) {
+  //   startDate = this.promo.value.frm;
+  //   endDate = this.promo.value.to;
+  //   if (new Date(endDate).getTime() >= new Date(startDate).getTime()) {
+  //     this.isStartTimeEnable = false;
+  //     return true;
+  //   }
+  //   else {
+  //     this.httpService.showError(MESSAGE.DATE.END_DATE, '', MESSAGE.MSGTIME);
+  //     return false;
+  //   }
+  // }
 
   slctsrv(state: any) {
     this.chips.push({ id: state.cat_id, cat_name: _.startCase(_.camelCase(state.cat_name)) });

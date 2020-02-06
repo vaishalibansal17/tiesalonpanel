@@ -88,11 +88,11 @@
                     <mat-form-field>
                         <span class="email-img pass"><img src="assets/images/calendar_form.png" alt="From"></span>
                         <input matInput placeholder="From" class="form-control" [matDatepicker]="fromDatepicker"
-                            formControlName="frm" disabled>
+                            formControlName="frm" >
                         <mat-datepicker-toggle matSuffix [for]="fromDatepicker">
                             <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
                         </mat-datepicker-toggle>
-                        <mat-datepicker #fromDatepicker disabled="false"></mat-datepicker>
+                        <mat-datepicker #fromDatepicker ></mat-datepicker>
                     </mat-form-field>
                     <div *ngIf="(submitted || getControl.frm.dirty|| getControl.frm.touched) && getControl.frm.errors">
                         <p class="color error" *ngIf="getControl.frm.errors.required">{{'FRMREQ'| translate}}</p>
@@ -104,11 +104,11 @@
                     <mat-form-field>
                         <span class="email-img pass"><img src="assets/images/calendar_form.png" alt="From"></span>
                         <input matInput placeholder="To" class="form-control" [matDatepicker]="toDatepicker"
-                            formControlName="to" disabled>
+                            formControlName="to" >
                         <mat-datepicker-toggle matSuffix [for]="toDatepicker">
                             <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
                         </mat-datepicker-toggle>
-                        <mat-datepicker #toDatepicker disabled="false"></mat-datepicker>
+                        <mat-datepicker #toDatepicker></mat-datepicker>
                     </mat-form-field>
                     <div *ngIf="(submitted || getControl.to.dirty|| getControl.to.touched) && getControl.to.errors">
                         <p class="color error" *ngIf="getControl.to.errors.required">{{'TOREQ'| translate}}</p>
