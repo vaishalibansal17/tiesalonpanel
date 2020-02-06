@@ -3,7 +3,7 @@
         <div class="col-md-6 add"><a [routerLink]="['/promocode/promocode-add']"><img src="assets/images/add.png" alt="Add">Add Promo code</a></div>
         <div class="col-md-6 alignright"><a href="#" class="btn btn-export">Export</a></div>
     </div>
-    <div class="table_wrap">
+    <div class="table_wrap mobile_hidden">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
         <ng-container matColumnDef="position">
           <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -58,6 +58,91 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </div>
+
+    <div class="card_view mobile_visible">
+      <div class="cards">
+        <div class="description">
+          <p class="coupon"><img src="assets/images/code-pink.png" alt="">New Coupon</p>
+          <p class="discount"><img src="assets/images/discount-pink.png" alt="">10%</p>
+          <p class="number"><img src="assets/images/service-pink.png" alt="">Hair Spa</p>
+          <p class="review"><img src="assets/images/location-pink.png" alt="">Salon</p>
+          <p class="uses"><img src="assets/images/uses-pink.png" alt="">Unlimited</p>
+          <p class="from"><img src="assets/images/time-pink.png" alt="">01 Jan, 2020</p>
+          <p class="to"><img src="assets/images/time-pink.png" alt="">01 Feb, 2020</p>
+          <div class="buttons">
+          <button class="action_btn pink"><a [routerLink]="['/promocode/promocode-info']">View</a></button>  
+          <button class="action_btn black"><a>Edit</a></button>  
+          <button class="action_btn red" (click)="openDialog()">Delete</button>
+          </div>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="description">
+          <p class="coupon"><img src="assets/images/code-pink.png" alt="">New Coupon</p>
+          <p class="discount"><img src="assets/images/discount-pink.png" alt="">10%</p>
+          <p class="number"><img src="assets/images/service-pink.png" alt="">Hair Spa</p>
+          <p class="review"><img src="assets/images/location-pink.png" alt="">Salon</p>
+          <p class="uses"><img src="assets/images/uses-pink.png" alt="">Unlimited</p>
+          <p class="from"><img src="assets/images/time-pink.png" alt="">01 Jan, 2020</p>
+          <p class="to"><img src="assets/images/time-pink.png" alt="">01 Feb, 2020</p>
+          <div class="buttons">
+          <button class="action_btn pink"><a [routerLink]="['/promocode/promocode-info']">View</a></button>  
+          <button class="action_btn black"><a>Edit</a></button>  
+          <button class="action_btn red" (click)="openDialog()">Delete</button>
+          </div>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="description">
+          <p class="coupon"><img src="assets/images/code-pink.png" alt="">New Coupon</p>
+          <p class="discount"><img src="assets/images/discount-pink.png" alt="">10%</p>
+          <p class="number"><img src="assets/images/service-pink.png" alt="">Hair Spa</p>
+          <p class="review"><img src="assets/images/location-pink.png" alt="">Salon</p>
+          <p class="uses"><img src="assets/images/uses-pink.png" alt="">Unlimited</p>
+          <p class="from"><img src="assets/images/time-pink.png" alt="">01 Jan, 2020</p>
+          <p class="to"><img src="assets/images/time-pink.png" alt="">01 Feb, 2020</p>
+          <div class="buttons">
+          <button class="action_btn pink"><a [routerLink]="['/promocode/promocode-info']">View</a></button>  
+          <button class="action_btn black"><a>Edit</a></button>  
+          <button class="action_btn red" (click)="openDialog()">Delete</button>
+          </div>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="description">
+          <p class="coupon"><img src="assets/images/code-pink.png" alt="">New Coupon</p>
+          <p class="discount"><img src="assets/images/discount-pink.png" alt="">10%</p>
+          <p class="number"><img src="assets/images/service-pink.png" alt="">Hair Spa</p>
+          <p class="review"><img src="assets/images/location-pink.png" alt="">Salon</p>
+          <p class="uses"><img src="assets/images/uses-pink.png" alt="">Unlimited</p>
+          <p class="from"><img src="assets/images/time-pink.png" alt="">01 Jan, 2020</p>
+          <p class="to"><img src="assets/images/time-pink.png" alt="">01 Feb, 2020</p>
+          <div class="buttons">
+          <button class="action_btn pink"><a [routerLink]="['/promocode/promocode-info']">View</a></button>  
+          <button class="action_btn black"><a>Edit</a></button>  
+          <button class="action_btn red" (click)="openDialog()">Delete</button>
+          </div>
+        </div>
+      </div>
+      <div class="cards">
+        <div class="description">
+          <p class="coupon"><img src="assets/images/code-pink.png" alt="">New Coupon</p>
+          <p class="discount"><img src="assets/images/discount-pink.png" alt="">10%</p>
+          <p class="number"><img src="assets/images/service-pink.png" alt="">Hair Spa</p>
+          <p class="review"><img src="assets/images/location-pink.png" alt="">Salon</p>
+          <p class="uses"><img src="assets/images/uses-pink.png" alt="">Unlimited</p>
+          <p class="from"><img src="assets/images/time-pink.png" alt="">01 Jan, 2020</p>
+          <p class="to"><img src="assets/images/time-pink.png" alt="">01 Feb, 2020</p>
+          <div class="buttons">
+          <button class="action_btn pink"><a [routerLink]="['/promocode/promocode-info']">View</a></button>  
+          <button class="action_btn black"><a>Edit</a></button>  
+          <button class="action_btn red" (click)="openDialog()">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
       <ul class="pagination">
         <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
         <li class="active"><a href="#">1</a></li>

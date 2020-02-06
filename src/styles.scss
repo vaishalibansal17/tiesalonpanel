@@ -371,7 +371,7 @@ body.nav-open{
 }
 ul li a:hover img.hover,ul li img.non-hover,ul li.active a img.hover{display: inline-block;position: relative;top: -3px;}
 ul li a:hover img.non-hover,ul li img.hover, ul li.active a img.non-hover{display: none;}
-ul li.active a{background: #fff;border-radius: 30px 0px 0px 30px;padding: 5px 10px 5px 20px;color: #F96BB3;}
+ul li.active a{background: #fff;border-radius: 30px 0px 0px 30px;padding: 5px 10px 5px 20px;color: #F96BB3;font-family: 'Conv_GothamRounded-Medium';}
 }
 body.nav-close{
     transition: all .5s ease-in-out;
@@ -426,7 +426,7 @@ body.nav-close{
         }
         }
     }
-    ul li.active a{background: #fff;border-radius: 30px 0px 0px 30px;padding: 5px 10px 5px 20px;color: #F96BB3;}
+    ul li.active a{background: #fff;border-radius: 30px 0px 0px 30px;padding: 5px 10px 5px 20px;color: #F96BB3;font-family: 'Conv_GothamRounded-Medium';}
 }
 
 ul li a:hover img.hover,ul li img.non-hover,ul li.active a img.hover{display: inline-block;position: relative;top: 0px;}
@@ -867,6 +867,8 @@ img.full_width{width:100%;margin-bottom: 20px;}
         a{color: #000;}
         img{
             margin-right: 5px;
+            box-shadow: 0px 0px 10px #cecece;
+            border-radius: 50%;
         }
     }
     .btn.btn-export{
@@ -964,11 +966,11 @@ img.full_width{width:100%;margin-bottom: 20px;}
     form.list_booking{
         .mat-form-field-infix,.mat-form-field{margin: 0;padding:0;border-top: none;}
         .mat-form-field-appearance-legacy .mat-form-field-underline,.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-form-field-autofill-control:-webkit-autofill+.mat-form-field-label-wrapper .mat-form-field-label,.mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label{display: none;}
-        .mat-form-field-appearance-legacy .mat-form-field-label {top: 29px;color: #999;left: 15px;width: calc(100% - 85px);font-size: 14px;}
+        .mat-form-field-appearance-legacy .mat-form-field-label {top: 24px;color: #999;left: 15px;width: calc(100% - 85px);font-size: 14px;}
         .mat-button-wrapper .mat-icon{color: #999;}
-        mat-form-field.mat-form-field-type-mat-select.mat-form-field-can-float.mat-form-field-has-label {height: 50px;border: 1px solid #dad9d9;border-radius: 5px;margin-bottom: 0px;}
-        .mat-select-value {padding-left: 15px;padding-top: 15px;color: #999;}
-        .mat-select-arrow-wrapper{padding: 20px 5px;}
+        mat-form-field.mat-form-field-type-mat-select.mat-form-field-can-float.mat-form-field-has-label {height: 40px;border: 1px solid #dad9d9;border-radius: 5px;margin-bottom: 0px;}
+        .mat-select-value {padding-left: 15px;padding-top: 12px;color: #999;}
+        .mat-select-arrow-wrapper{padding: 17px 5px;}
         .mat-select-arrow{color: rgb(249, 107, 179) !important;}
     }
     .top-text{
@@ -1029,20 +1031,33 @@ img.full_width{width:100%;margin-bottom: 20px;}
                 img{
                     margin-right: 12px;position: relative;top: -2px;
                 }
+                span.author-img{float: right;
+                img{
+                    border: 2px solid #e3e3e3;
+                    border-radius: 50%;
+                }
+            }
             }
             p.user{font-size: 20px;font-weight: 600;margin-bottom: 10px;}
             .buttons{
-                .booking_btn{
+                .booking_btn,.action_btn{
                     margin: 10px 5px 0px;
                     background: #fff;
                     border: 1px solid transparent;
                     border-radius: 30px;
                     padding: 3px 20px;
                     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.16);
+                    a{
+                        color: #fff;
+                    }
                 }
                 .booking_btn.cancel{color: #000;border: 1px solid #000;}
                 .booking_btn.accept{background: #F96BB3;color: #fff;}
                 .booking_btn.decline{background: #000;color: #fff;}
+
+                .action_btn.pink{background: #F96BB3;border: 1px solid #F96BB3;box-shadow: none;}
+                .action_btn.red{background: #FF2626;box-shadow: none;color: #fff;}
+                .action_btn.black{background: #000;box-shadow: none;}
             }
         }
     }
@@ -1318,6 +1333,7 @@ img.drop_img {margin-left: 4px;}
 .main-header .top-right {float: none;text-align: right;margin-top: 10px;}
 .fixed-back i.fa {height: 35px;width: 35px;font-size: 20px;padding: 7px 13px;}
 body.nav-open .main-header, body.nav-close .main-header {padding: 10px ;}
+.fixed-support img{width: 70px;}
 }
 
 @media(max-width:992px){
@@ -1329,18 +1345,23 @@ body.nav-open .main-header, body.nav-close .main-header {padding: 10px ;}
 }
 
 @media(max-width:768px){
-    .alignright{text-align: left;}
+    // .alignright{text-align: left;}
     .main-card .top_view{margin-bottom: 0px;}
     .main-card a.btn.btn-edit {margin: 10px 0px;}
     .mobile_hidden{display: none;}
     .mobile_visible{display: block;}
-    .main-card .add,.main-card .top_view {text-align: center;margin-bottom: 20px;}
+    .main-card .top_view {text-align: center;margin-bottom: 20px;}
     .main-card .label {margin-top: 10px;font-weight: 600;}
     .cdk-overlay-pane .mat-dialog-container {padding: 15px 10px;}
+    .col-md-6.add{float: left;width: 50%;padding-right: 5px;}
+    .col-md-6.alignright{float: right;width: 50%;padding-left: 5px;}
 }
 
 
 @media(max-width:640px){
 .main-card table .mat-column-action {min-width: 170px;}
 .mobile_visible .cards .description .buttons{text-align:center;}
+.main-card .btn.btn-export {font-size: 12px;padding: 7px 12px;}
+.main-card .add{font-size: 12px;}
+.main-card .add img {margin-right: 3px;width: 35px;}
 }

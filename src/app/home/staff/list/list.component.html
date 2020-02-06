@@ -3,7 +3,7 @@
       <div class="col-md-6 add"><a [routerLink]="['/staff/add']"><img src="assets/images/add.png" alt="Add"> Add Staff</a></div>
       <div class="col-md-6 alignright"><a href="#" class="btn btn-export">Export</a></div>
   </div>
-  <div class="table_wrap">
+  <div class="table_wrap mobile_hidden">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
       <ng-container matColumnDef="position">
         <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -47,6 +47,62 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+  </div>
+
+
+  <div class="card_view mobile_visible">
+    <div class="cards">
+      <div class="description">
+        <p class="user"><img src="assets/images/user-pink.png" alt="">Jane Doe <span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span></p>
+        <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
+        <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
+        <div class="buttons">
+          <button class="action_btn pink"><a [routerLink]="['/staff/info']">View</a></button>  
+          <button class="action_btn black"><a [routerLink]="['/staff/edit']">Edit</a></button>  
+          <button class="action_btn red" (click)="openDialog()">Delete</button> 
+        </div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="description">
+        <p class="user"><img src="assets/images/user-pink.png" alt="">Jane Doe <span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span></p>
+        <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
+        <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
+        <div class="buttons">
+          <button class="action_btn pink"><a [routerLink]="['/staff/info']">View</a></button>  
+          <button class="action_btn black"><a [routerLink]="['/staff/edit']">Edit</a></button>  
+          <button class="action_btn red" (click)="openDialog()">Delete</button> 
+        </div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="description">
+        <p class="user"><img src="assets/images/user-pink.png" alt="">Jane Doe <span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span></p>
+        <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
+        <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
+        <div class="buttons">
+          <button class="action_btn pink"><a [routerLink]="['/staff/info']">View</a></button>  
+          <button class="action_btn black"><a [routerLink]="['/staff/edit']">Edit</a></button>  
+          <button class="action_btn red" (click)="openDialog()">Delete</button> 
+        </div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="description">
+        <p class="user"><img src="assets/images/user-pink.png" alt="">Jane Doe <span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span></p>
+        <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
+        <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
+        <div class="buttons">
+          <button class="action_btn pink"><a [routerLink]="['/staff/info']">View</a></button>  
+          <button class="action_btn black"><a [routerLink]="['/staff/edit']">Edit</a></button>  
+          <button class="action_btn red" (click)="openDialog()">Delete</button> 
+        </div>
+      </div>
+    </div>
   </div>
 
     <ul class="pagination">
