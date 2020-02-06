@@ -1,25 +1,28 @@
 <div class="main-card">
     <div class="row">
+        <div class="col-md-6 add"><a [routerLink]="['/walking-user/add-user']"><img src="assets/images/add.png" alt="Add"> Add Users</a></div>
+        <div class="col-md-6 alignright"><a href="#" class="btn btn-export">Export</a></div>
         <div class="col-md-6 add">
-            <form action="" class="list_booking">
-                <mat-form-field>
-                    <mat-label>All Bookings</mat-label>
-                    <mat-select formControlName='walkinglist'>
-                        <mat-option *ngFor="let walkinglist of walkinglists" [value]="walkinglist.value">
-                            {{walkinglist.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </form>
-
+          <form action="" class="list_booking">
+            <mat-form-field>
+                <mat-label>All Bookings</mat-label>
+                <mat-select formControlName='walkinglist'>
+                    <mat-option *ngFor="let walkinglist of walkinglists" [value]="walkinglist.value">
+                        {{walkinglist.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
         </div>
         <div class="col-md-6 alignright">
-            <ul class="inline">
-                <li class="add"><a [routerLink]="['/walking-user/add-user']"><img src="assets/images/add.png" alt="Add"> Add Users</a></li>
-                <li><a href="#" class="btn btn-export">Export</a></li>
-            </ul>
+          <form action="" class="search_field">
+            <mat-form-field>
+              <span class="email-img search"><img src="assets/images/search.png" alt="envelope"></span>
+              <input matInput placeholder="Search" class="form-control">
+            </mat-form-field>
+          </form>
         </div>
-    </div>
+        </div>
     <div class="table_wrap mobile_hidden">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
         <ng-container matColumnDef="position">

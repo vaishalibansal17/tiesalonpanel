@@ -1,8 +1,16 @@
 <div class="main-card">
     <div class="row">
         <div class="col-md-6 add"><a [routerLink]="['/promocode/promocode-add']"><img src="assets/images/add.png" alt="Add">Add Promo code</a></div>
-        <div class="col-md-6 alignright"><a href="#" class="btn btn-export">Export</a></div>
-    </div>
+        <div class="col-md-6 alignright">
+          <a href="#" class="btn btn-export">Export</a>
+          <form action="" class="search_field">
+            <mat-form-field>
+              <span class="email-img search"><img src="assets/images/search.png" alt="envelope"></span>
+              <input matInput placeholder="Search" class="form-control">
+            </mat-form-field>
+          </form>
+        </div>
+      </div>
     <div class="table_wrap mobile_hidden">
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
         <ng-container matColumnDef="position">

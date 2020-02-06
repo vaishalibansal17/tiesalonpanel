@@ -1,7 +1,16 @@
 <div class="main-card">
   <div class="row">
       <div class="col-md-6 add"><a [routerLink]="['/staff/add']"><img src="assets/images/add.png" alt="Add"> Add Staff</a></div>
-      <div class="col-md-6 alignright"><a href="#" class="btn btn-export">Export</a></div>
+      <div class="col-md-6 alignright">
+        <a href="#" class="btn btn-export">Export</a>
+        <form action="" class="search_field">
+          <mat-form-field>
+            <span class="email-img search"><img src="assets/images/search.png" alt="envelope"></span>
+            <input matInput placeholder="Search" class="form-control">
+          </mat-form-field>
+        </form>
+      </div>
+
   </div>
   <div class="table_wrap mobile_hidden">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
@@ -53,7 +62,7 @@
   <div class="card_view mobile_visible">
     <div class="cards">
       <div class="description">
-        <p class="user"><img src="assets/images/user-pink.png" alt="">Jane Doe <span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span></p>
+        <p class="user"><span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span><img src="assets/images/user-pink.png" alt="">Jane Doe </p>
         <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
         <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
         <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
@@ -66,7 +75,7 @@
     </div>
     <div class="cards">
       <div class="description">
-        <p class="user"><img src="assets/images/user-pink.png" alt="">Jane Doe <span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span></p>
+        <p class="user"><span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
         <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
         <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
         <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
@@ -79,7 +88,7 @@
     </div>
     <div class="cards">
       <div class="description">
-        <p class="user"><img src="assets/images/user-pink.png" alt="">Jane Doe <span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span></p>
+        <p class="user"><span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
         <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
         <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
         <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
@@ -92,7 +101,7 @@
     </div>
     <div class="cards">
       <div class="description">
-        <p class="user"><img src="assets/images/user-pink.png" alt="">Jane Doe <span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span></p>
+        <p class="user"><span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
         <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
         <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
         <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
