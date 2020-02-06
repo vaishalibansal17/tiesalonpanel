@@ -1,0 +1,6 @@
+.main-card form.list_booking mat-form-field.mat-form-field-type-mat-select.mat-form-field-can-float.mat-form-field-has-label{height: 40px;}
+form.search_field{display: initial;margin-left: 15px;}
+
+@media(max-width:380px){
+    form.search_field{margin-left: 0px;}
+}

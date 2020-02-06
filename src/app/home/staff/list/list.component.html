@@ -4,7 +4,7 @@
     </div>
     <div class="col-md-6 alignright"><a href="javascript:void(0)" (click)="exportCSV(dataSource)" class="btn btn-export">Export</a></div>
   </div>
-  <div class="table_wrap" [hidden]="(dataSource.loading$ | async)"> 
+  <div class="table_wrap mobile_hidden" [hidden]="(dataSource.loading$ | async)"> 
     
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll" matSort>
       <ng-container matColumnDef="Sno">
@@ -55,7 +55,64 @@
         <mat-paginator [length]="dataSource.totalCount$ | async" [pageSize]="limitPage[0]" [pageSizeOptions]="limitPage">
         </mat-paginator>
   </div>
-  <!-- <ul class="pagination">
+
+
+  <div class="card_view mobile_visible">
+    <div class="cards">
+      <div class="description">
+        <p class="user"><span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span><img src="assets/images/user-pink.png" alt="">Jane Doe </p>
+        <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
+        <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
+        <div class="buttons">
+          <button class="action_btn pink"><a [routerLink]="['/staff/info']">View</a></button>  
+          <button class="action_btn black"><a [routerLink]="['/staff/edit']">Edit</a></button>  
+          <button class="action_btn red" (click)="openDialog()">Delete</button> 
+        </div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="description">
+        <p class="user"><span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
+        <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
+        <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
+        <div class="buttons">
+          <button class="action_btn pink"><a [routerLink]="['/staff/info']">View</a></button>  
+          <button class="action_btn black"><a [routerLink]="['/staff/edit']">Edit</a></button>  
+          <button class="action_btn red" (click)="openDialog()">Delete</button> 
+        </div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="description">
+        <p class="user"><span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
+        <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
+        <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
+        <div class="buttons">
+          <button class="action_btn pink"><a [routerLink]="['/staff/info']">View</a></button>  
+          <button class="action_btn black"><a [routerLink]="['/staff/edit']">Edit</a></button>  
+          <button class="action_btn red" (click)="openDialog()">Delete</button> 
+        </div>
+      </div>
+    </div>
+    <div class="cards">
+      <div class="description">
+        <p class="user"><span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
+        <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
+        <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
+        <div class="buttons">
+          <button class="action_btn pink"><a [routerLink]="['/staff/info']">View</a></button>  
+          <button class="action_btn black"><a [routerLink]="['/staff/edit']">Edit</a></button>  
+          <button class="action_btn red" (click)="openDialog()">Delete</button> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- <ul class="pagination">
       <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
       <li class="active"><a href="#">1</a></li>
       <li><a href="#">2</a></li>
@@ -63,5 +120,5 @@
       <li><a href="#">4</a></li>
       <li><a href="#">5</a></li>
       <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-    </ul>-->
+    </ul> -->
 </div>
