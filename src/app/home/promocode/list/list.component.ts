@@ -8,6 +8,7 @@ import { merge } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
 import { ErrorService } from 'src/app/shared/service/error.service';
+import { DatePipe } from '@angular/common';
 export interface PeriodicElement {
   position: number;
   coupon: string;
@@ -25,10 +26,10 @@ export interface PeriodicElement {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  displayedColumns: string[] = ['position','name', 'coupon', 'discount', 'service', 'added', 'uses', 'from', 'to', 'action' ];
+  displayedColumns: string[] = ['position', 'name', 'coupon', 'discount', 'service', 'added', 'uses', 'from', 'to', 'action'];
   limitPage = [10, 20, 30];
   dataSource: ListDataSource;
-  search: string; 
+  search: string;
   sortData: any = {};
   url: any = 'assets/images/change.png';
   private paginator: MatPaginator;
@@ -41,7 +42,7 @@ export class ListComponent implements OnInit {
   @ViewChild('input', { static: true }) input: ElementRef;
   isApplied = false;
   salonId: any;
-  constructor(public dialog: MatDialog, private list: ListService,private httpservice: HttpRequestService,private trns: TranslatePipe, ) { }
+  constructor(public dialog: MatDialog, private list: ListService, private date: DatePipe, private httpservice: HttpRequestService, private trns: TranslatePipe, ) { }
 
   openDialog(id) {
     const dialogRef = this.dialog.open(PromoDeleteDialogBox, { width: '500px', disableClose: true, data: { id: id } });
@@ -87,7 +88,7 @@ export class ListComponent implements OnInit {
     }
     if (this.search)
       listObj['srch'] = this.search;
-    this.dataSource.load(listObj, {api: 'PROMO'});
+    this.dataSource.load(listObj, { api: 'PROMO' });
   }
   applyFilters(): void {
     this.loadStaffList();
@@ -95,28 +96,36 @@ export class ListComponent implements OnInit {
   }
   // ********************** Account Manager List Api Integration with search End******************
 
-  exportCSV(data: any) {
+  exportCSV() {
+    this.httpservice.exportCSV('PROMO');
     var finalData = [];
     var obj: any;
     var i = 0;
-    let listObj = {
-     all:true
-    }
-    this.dataSource.load(listObj, {api: 'PROMO'});
-
-    data.usersData.subscribe(rs=>{
-      rs.forEach(element => {
+    // let listObj = {
+    //  all:true
+    // }
+    // this.dataSource.load(listObj, {api: 'PROMO'});
+    this.httpservice.getRequest('GET', 'PROMO', `?all=true`).subscribe(rs => {
+      rs.res.promo.forEach(element => {
         obj = {
           "Serial": ++i,
           "Name": element.name,
-          "Email": element.email
+          "Code": element.code,
+          "Discount": element.discount,
+          "Min. Price Discount": element.min_price?element.min_price:"NA",
+          "Max. Price Discount": element.upto?element.upto:'NA',
+          "Total Uses": element.uses ?element.uses:"NA",
+          "Starting Date": this.date.transform(element.frm, "dd/MM/yyyy"),
+          "Starting End":this.date.transform(element.to, "dd/MM/yyyy"),
+          "Services": element.service?element.service:"NA"
         };
         finalData.push(obj);
       });
-      var options = { noDownload: false, headers: ["Serial", "Name", "Email"] };
+      var options = { noDownload: false, headers: ["Serial", "Name", "Code", "Discount", "Min. Price Discount", "Max. Price Discount", "Total Uses", "Starting Date", "Starting End", "Services"] };
       new Angular5Csv(finalData, 'staff_list', options);
       this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('EXPORTD'));
     })
+
   }
 
 }
