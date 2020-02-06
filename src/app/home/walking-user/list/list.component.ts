@@ -1,10 +1,9 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ListDataSource } from 'src/app/shared/service/list/list.dataSource';
-import { MatPaginator, MatSort, MatDialog } from '@angular/material';
+import { MatPaginator, MatSort } from '@angular/material';
 import { ListService } from 'src/app/shared/service/list/list.service';
 import { HttpRequestService } from 'src/app/shared/service/http-request.service';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
-import { StaffDeleteDialogBox } from '../../staff/list/list.component';
 import { merge } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
@@ -56,15 +55,9 @@ export class ListComponent implements OnInit {
   @ViewChild('input', { static: true }) input: ElementRef;
   isApplied = false;
   salonId: any;
-  constructor(public dialog: MatDialog, private list: ListService, private httpservice: HttpRequestService, private trns: TranslatePipe, ) { }
+  constructor( private list: ListService, private httpservice: HttpRequestService, private trns: TranslatePipe, ) { }
 
-  openDialog(id) {
-    const dialogRef = this.dialog.open(StaffDeleteDialogBox, { width: '500px', disableClose: true, data: { id: id } });
 
-    dialogRef.afterClosed().subscribe(
-      () => this.getSalonStaff()
-    );
-  }
   ngOnInit() {
     this.getSalonStaff();
   }
@@ -73,7 +66,6 @@ export class ListComponent implements OnInit {
   getSalonStaff(): void {
     this.dataSource = new ListDataSource(this.list);
     this.loadStaffList();
-    console.log(this.dataSource)
   }
   ngAfterViewInit() {
     this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);

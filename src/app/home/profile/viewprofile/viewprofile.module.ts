@@ -6,6 +6,7 @@ import { ViewprofileComponent } from './viewprofile.component';
 import { AgmCoreModule } from '@agm/core';
 import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/applicationpipe.module';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [ViewprofileComponent],
@@ -16,7 +17,8 @@ import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
       apiKey: 'AIzaSyAFagdwUB5_7TgN2G4Ss6q_qnwgg5BX3Qg',
       libraries: ["places"]
     }),
-    ApplicationpipeModule
+    ApplicationpipeModule,
+    SharedModule
   ],
   providers:[TranslatePipe]
 })

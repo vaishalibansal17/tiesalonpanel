@@ -114,6 +114,7 @@
   "USEREQ":"Please enter limit for coupon code uses.",
   "FRMREQ":"Please enter starting date for coupon code.",
   "TOREQ":"Please enter ending date for coupon code.",
+  "SALONALRDYEXIST":"Salon with this phone number or email already exist.",
 
   
   "INCRTSTAFFNAME": "Please enter staff name.",
@@ -178,6 +179,7 @@
   "DISC": "Description",
   "DISC_REQ": "Please enter description",
   "SERVICE": "Services",
+  "SERVICETYP": "Salon Type",
   "SERVICE_ADD": "Add Services",
   "FREE_TYPE": "Freelancer Type",
   "COMMI": "Commission",

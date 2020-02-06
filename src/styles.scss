@@ -23,6 +23,12 @@ p.color.error {
     color: #d91e29;
 }
 
+.mat-calendar-body-selected {
+    background-color: #f96bb3;
+    color: #fff;
+}
+.cdk-overlay-pane button.mat-calendar-period-button.mat-button.mat-button-base {position: initial;top: inherit;right: inherit;padding: 0px 18px;}
+
 .mat-chip{overflow: initial !important;}
 .mat-standard-chip .mat-chip-remove.mat-icon {width: 20px; height: 20px;position: absolute;top: -7px;right: -5px;opacity: 1;margin-left: 0px;}
     .mat-chip.mat-standard-chip .mat-chip-remove {color: #000;background: #fff;border-radius: 100%;}

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, Inject } from '@angular/core';
-import { MatDialog, MatPaginator, MatSort, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatPaginator, MatSort} from '@angular/material';
 import { ListDataSource } from 'src/app/shared/service/list/list.dataSource';
 import { ListService } from 'src/app/shared/service/list/list.service';
 import { HttpRequestService } from 'src/app/shared/service/http-request.service';
@@ -9,6 +9,7 @@ import { tap } from 'rxjs/operators';
 import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
 import { ErrorService } from 'src/app/shared/service/error.service';
 import { DatePipe } from '@angular/common';
+import { ConfimDialogComponent } from 'src/app/shared/confim-dialog/confim-dialog.component';
 export interface PeriodicElement {
   position: number;
   coupon: string;
@@ -42,13 +43,29 @@ export class ListComponent implements OnInit {
   @ViewChild('input', { static: true }) input: ElementRef;
   isApplied = false;
   salonId: any;
-  constructor(public dialog: MatDialog, private list: ListService, private date: DatePipe, private httpservice: HttpRequestService, private trns: TranslatePipe, ) { }
+  constructor(public dialog: MatDialog, private list: ListService, private errsrv: ErrorService, private date: DatePipe, private httpservice: HttpRequestService, private trns: TranslatePipe, ) { }
 
   openDialog(id) {
-    const dialogRef = this.dialog.open(PromoDeleteDialogBox, { width: '500px', disableClose: true, data: { id: id } });
+    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: "Are you sure you want to delete this Promo Code/Offer?" } });
 
-    dialogRef.afterClosed().subscribe(
-      () => this.getSalonStaff()
+    dialogRef.beforeClosed().subscribe(
+      (val) => {
+        if(val){
+          this.httpservice.getRequest('DELETE', 'PROMO', id)
+          .subscribe((response: any) => {
+            if (response.status === 1) {
+              this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('DELETE_STAFF'));
+              this.getSalonStaff();
+            } else {
+              if (response.err)
+                this.errsrv.handleError(response.err.errCode)
+              return false;
+            }
+          }, error => {
+            this.errsrv.handleError(0)
+          });
+        }
+      }
     );
   }
   ngOnInit() {
@@ -59,7 +76,6 @@ export class ListComponent implements OnInit {
   getSalonStaff(): void {
     this.dataSource = new ListDataSource(this.list);
     this.loadStaffList();
-    console.log(this.dataSource)
   }
   ngAfterViewInit() {
     this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
@@ -128,41 +144,4 @@ export class ListComponent implements OnInit {
 
   }
 
-}
-
-@Component({
-  selector: 'promo-delete.component',
-  templateUrl: 'promo-delete.component.html',
-})
-export class PromoDeleteDialogBox {
-  id: any;
-  constructor(
-    private httpservice: HttpRequestService,
-    private errsrv: ErrorService,
-    private trns: TranslatePipe,
-    public dialogRef: MatDialogRef<PromoDeleteDialogBox>,
-    @Inject(MAT_DIALOG_DATA) data
-  ) {
-    this.id = data.id
-  }
-
-  delete() {
-    this.httpservice.getRequest('DELETE', 'PROMO', `${this.id}`)
-      .subscribe((response: any) => {
-        if (response.status === 1) {
-          this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('DELETE_STAFF'));
-          this.dialogRef.close();
-        } else {
-          if (response.err)
-            this.errsrv.handleError(response.err.errCode)
-          return false;
-        }
-      }, error => {
-        this.errsrv.handleError(0)
-      });
-  }
-
-  close() {
-    this.dialogRef.close();
-  }
 }

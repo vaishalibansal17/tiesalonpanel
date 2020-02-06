@@ -5,6 +5,7 @@ import { Observable, Subject } from 'rxjs';
 export class MessageService {
     public booking :any;
     private subject = new Subject<any>();
+    route: any;
     sendMessage(message: string) {
         this.subject.next({ text: message });
     }
@@ -22,6 +23,14 @@ export class MessageService {
 
     getBooking() {
         return this.booking;
+    }
+
+    sendRoute(route){
+        this.subject.next({ route: route });
+    }
+
+    getRoute() : Observable<any> {
+        return this.subject.asObservable();
     }
 
 }
