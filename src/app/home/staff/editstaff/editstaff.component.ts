@@ -8,6 +8,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ValidationService } from 'src/app/shared/service/validation-service';
 
 import * as _ from "lodash";
+import { Day } from '../addstaff/addstaff.component';
+import { MatDialog } from '@angular/material';
+import { ConfimDialogComponent } from 'src/app/shared/confim-dialog/confim-dialog.component';
 export interface Service {
   value: string;
   viewValue: string;
@@ -20,7 +23,15 @@ export interface Service {
 })
 export class EditstaffComponent implements OnInit {
   services: Service[];
-
+  weekoff: Day[] = [
+    { value: 0, name: 'Sunday' },
+    { value: 1, name: 'Monday' },
+    { value: 2, name: 'Tuesday' },
+    { value: 3, name: 'Wednesday' },
+    { value: 4, name: 'Thursday' },
+    { value: 5, name: 'Friday' },
+    { value: 6, name: 'Saturday' },
+  ];
   chips = [];
   id: any;
   profile: FormGroup;
@@ -34,10 +45,12 @@ export class EditstaffComponent implements OnInit {
   selectable = true;
   removable = true;
   sendServ = [];
+  isFound: boolean;
   constructor(private httpService: HttpRequestService, private router: Router,
     private routes: ActivatedRoute, private helper: Helper,
     private errorserv: ErrorService,
-    private trns: TranslatePipe
+    private trns: TranslatePipe,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -61,7 +74,9 @@ export class EditstaffComponent implements OnInit {
         Validators.maxLength(500)
       ]),
       multiImage: new FormControl(null),
-      serviceat: new FormControl(null)
+      serviceat: new FormControl(null),
+      day_off: new FormControl(null),
+      isAvailable: new FormControl(true),
     })
   }
 
@@ -75,7 +90,10 @@ export class EditstaffComponent implements OnInit {
             email: this.detail.hasOwnProperty('email') ? this.detail.email : '',
             phone: this.detail.hasOwnProperty('phone') ? this.detail.phone : '',
             serviceat: this.detail.hasOwnProperty('service_at') ? String(this.detail.service_at) : '',
-            description: this.detail.hasOwnProperty('desc') ? this.detail.desc : ''
+            description: this.detail.hasOwnProperty('desc') ? this.detail.desc : '',
+            day_off: this.detail.hasOwnProperty('day_off') ? this.detail.day_off : '',
+            isAvailable: this.detail.hasOwnProperty('avlblity') ? this.detail.avlblity : true,
+
           });
           this.chips.push(...this.detail.services);
           for (let index = 0; index < this.detail.services.length; index++) {
@@ -93,6 +111,21 @@ export class EditstaffComponent implements OnInit {
       });
   }
 
+  openDialog() {
+    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: "Are you sure you want?", btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
+
+    dialogRef.beforeClosed().subscribe(
+      (val) => {
+        if (!val) {
+          if (!val && this.profile.value.isAvailable)
+            this.profile.controls['isAvailable'].setValue(false);
+          else
+            this.profile.controls['isAvailable'].setValue(true);
+        }
+      }
+    );
+  }
+
 
   update() {
     this.submitted = true;
@@ -106,11 +139,13 @@ export class EditstaffComponent implements OnInit {
       this.formData.append('phone', this.profile.value.phone);
       this.formData.append('desc', this.profile.value.description ? this.profile.value.description : '');
       this.formData.append('services', JSON.stringify(this.sendServ));
+      this.formData.append('day_off', this.profile.value.day_off);
+      this.formData.append('avlblity', this.profile.value.isAvailable);
       this.httpService.getRequest('PUT', 'STAFF', this.formData, this.id)
         .subscribe((response: any) => {
           if (response.status === 1) {
             this.submitted = true;
-            this.router.navigateByUrl('/staff')
+            this.router.navigateByUrl('/staff').then(() => this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('STAFFSUCCESS')))
           } else {
             if (response.err) {
               this.errorserv.handleError(response.err.errCode);
@@ -157,8 +192,13 @@ export class EditstaffComponent implements OnInit {
   }
 
   slctsrv(state: any) {
-    this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
-    this.sendServ.push(state._id)
+    let isFound =this.httpService.arraySearch(this.sendServ,state)
+    if(!this.httpService.arraySearch(this.sendServ,state)){
+      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
+      this.sendServ.push(state._id);
+      return
+    } else {
+    }
   }
 
 

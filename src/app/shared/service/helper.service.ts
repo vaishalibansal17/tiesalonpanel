@@ -5,7 +5,7 @@ import { MessageService } from 'primeng/api';
 @Injectable()
 
 export class Helper {
-    constructor( private messageService: MessageService) { }
+    constructor(private messageService: MessageService) { }
 
     convertTimestampToISODate(value) {
         let year = new Date(value).getFullYear();
@@ -37,9 +37,21 @@ export class Helper {
         }
     }
 
-    parseDate(data) {
-        var date = new Date(data)
-        return {hh:date.getHours(), mm:date.getMinutes()}
+    parseDate(data, time?: any) {
+        var date = new Date(data),
+            mnth = ("0" + (date.getMonth())).slice(-2),
+            day = ("0" + date.getDate()).slice(-2);
+        let bac = moment.utc(date)
+        return bac.valueOf();
+    }
+
+    parsehhmm(data) {
+        if(data!==null){
+            var date = new Date(data)
+            return {hh:date.getHours(), mm:date.getMinutes()}
+        } else{
+            return {hh:null, mm:null};
+        }
     }
 
     getTimeZone(dateTime, timeZone?) {
@@ -60,7 +72,7 @@ export class Helper {
     }
     sucsTostr(title, msg) {
         this.messageService.clear();
-        this.messageService.add({ severity: 'success', summary: title, detail: msg, sticky:true });
+        this.messageService.add({ severity: 'success', summary: title, detail: msg, sticky: true });
 
         // this.toastr.success(msg, title,
         //     {

@@ -27,10 +27,11 @@ export class AddComponent implements OnInit {
   removable = true;
   sendServ = [];
   promo: FormGroup;
-  constructor(private httpService: HttpRequestService, private router: Router, private fb :FormBuilder,
+  validDte: boolean = true;
+  constructor(private httpService: HttpRequestService, private router: Router, private fb: FormBuilder,
     private routes: ActivatedRoute, private helper: Helper,
     private errorserv: ErrorService,
-    private trns: TranslatePipe
+    private trns: TranslatePipe,
   ) { }
 
   ngOnInit() {
@@ -51,7 +52,7 @@ export class AddComponent implements OnInit {
       frm: new FormControl(null, [
         Validators.required
       ]),
-      to: new FormControl({value: '',disabled: true}, [
+      to: new FormControl({ value: '', disabled: false }, [
         Validators.required,
       ]),
       uses: new FormControl(null, [ValidationService.numberValidator]),
@@ -86,14 +87,26 @@ export class AddComponent implements OnInit {
   add() {
     this.submitted = true;
     // return false
+    var startDateUtc = this.promo.value.frm && this.helper.parseDate(this.promo.value.frm, new Date(new Date().setHours(0, 0, 0, 0)));
+    var endDateUtc = this.promo.value.to && this.helper.parseDate(this.promo.value.to, new Date(new Date().setHours(23, 59, 59)));
+    if (!(startDateUtc < endDateUtc)) {
+      this.validDte = false;
+      return false;
+    } else
+      this.validDte = true;
+
+
     if (this.promo.valid) {
-      // if (this.promo.value.cat_ids)
-      //   this.promo.value.cat_ids = JSON.stringify(this.sendServ);
-      // else
-      //   this.promo.value.cat_ids = JSON.stringify([]);
+      console.log(this.promo);
+
+      if (!this.validDte)
+        return false
+       /** if selected date is from today then promocode time is from current date and time. */ 
+      var currentdate = new Date();
+      let data = new Date(this.promo.value.frm);
+      if (data.getDate() == currentdate.getDate() && data.getMonth() == currentdate.getMonth())
+        this.promo.value.frm = new Date();
       this.promo.value.cat_ids = JSON.stringify(this.sendServ);
-      console.log(this.promo.value);
-      
       this.httpService.getRequest('POST', 'PROMO', this.promo.value)
         .subscribe((response: any) => {
           if (response.status === 1) {

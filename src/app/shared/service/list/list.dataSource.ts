@@ -6,9 +6,9 @@ import { of } from 'rxjs/';
 import { ListService } from './list.service';
 import { List } from 'src/app/model/List';
 export class ListDataSource implements DataSource<List> {
-    private usersData = new BehaviorSubject<List[]>([]);
+    public usersData = new BehaviorSubject<List[]>([]);
 
-    private loadingUsers = new BehaviorSubject<boolean>(false);
+    public loadingUsers = new BehaviorSubject<boolean>(false);
 
     public countInfo = new BehaviorSubject<number>(0);
 

@@ -18,6 +18,7 @@ export const APIURLS = {
     WALKING:BASE_URL + 'user/walking',
     WALKING_CHK:BASE_URL + 'user/walking/check',
     WALKING_ADD:BASE_URL + 'user/walking/add',
+    WALKING_BOOK:BASE_URL + 'booking/walking',
     PROMO:BASE_URL + 'promocode',
     PROMO_DETAIL:BASE_URL + 'promocode/detail'
 

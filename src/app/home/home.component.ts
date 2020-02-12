@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpRequestService } from '../shared/service/http-request.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +7,9 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private http : HttpRequestService,private router : Router) { }
+  constructor() { }
 
-  ngOnInit() {
-    console.log(this.router);
-    
+  ngOnInit() {    
   }
 
 }

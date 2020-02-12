@@ -15,6 +15,8 @@ export class ConfimDialogComponent implements OnInit {
   id: any;
   func: any;
   msg: any;
+  btn: any;
+  cncl: any;
   constructor(
     private httpservice: HttpRequestService,
     private errsrv: ErrorService,
@@ -25,6 +27,8 @@ export class ConfimDialogComponent implements OnInit {
     console.log(data);
     
     this.msg = data.msg;
+    this.btn = data.btn;
+    this.cncl = data.cncl
   }
 
 

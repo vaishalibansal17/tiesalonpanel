@@ -24,6 +24,7 @@ export class EditComponent implements OnInit {
   promo: FormGroup;
   detail: any;
   id: any;
+  validDte: boolean = true;
   constructor(private httpService: HttpRequestService, private router: Router,
     private routes: ActivatedRoute, private helper: Helper,
     private errorserv: ErrorService,
@@ -66,14 +67,26 @@ export class EditComponent implements OnInit {
   edit() {
     this.submitted = true;
     // return false
+    var startDateUtc = this.promo.value.frm && this.helper.parseDate(this.promo.value.frm, new Date(new Date().setHours(0, 0, 0, 0)));
+    var endDateUtc = this.promo.value.to && this.helper.parseDate(this.promo.value.to, new Date(new Date().setHours(23, 59, 59)));
+    if (!(startDateUtc < endDateUtc)) {
+      this.validDte = false;
+    } else
+      this.validDte = true;
     if (this.promo.valid) {
+      console.log(this.promo);
+
       // if (this.promo.value.cat_ids)
       //   this.promo.value.cat_ids = JSON.stringify(this.sendServ);
       // else
       //   this.promo.value.cat_ids = JSON.stringify([]);
       this.promo.value.cat_ids = JSON.stringify(this.sendServ);
-      console.log(this.promo.value);
-
+      if (!this.validDte)
+        return false;
+      var currentdate = new Date();
+      let data = new Date(this.promo.value.frm);
+      if (data.getDate() == currentdate.getDate() && data.getMonth() == currentdate.getMonth())
+        this.promo.value.frm = new Date();
       this.httpService.getRequest('PUT', 'PROMO', this.promo.value, this.id)
         .subscribe((response: any) => {
           if (response.status === 1) {

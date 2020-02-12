@@ -20,7 +20,7 @@
         <div class="col-md-3 label">{{'BUSINESSHOURS'| translate}}:</div>
         <div class="col-md-9 description"><a [routerLink]="['/profile/business-hours']">View</a></div>
         <div class="col-md-3 label">{{'REVIEWS'| translate}}:</div>
-        <div class="col-md-9 description"><img src="assets/images/reviews.png" alt="Review"></div>
+        <div class="col-md-9 description"><div class="staff_star"><ngx-stars [readonly]="true" [color]="'#f7c133'" [size]="5" [initialStars]="detail?.rvw_rt | round"></ngx-stars> </div></div>
         <div class="col-md-3 label">{{'DESCRIPTION'| translate}}:</div>
         <div class="col-md-9 description">{{detail?.desc}}</div>
         <div class="col-md-3 label">{{'WORKGALLERY'| translate}}:</div>
@@ -49,7 +49,7 @@
         </div>
         <div class="col-md-3 label">{{'STAFFNAME'| translate}}:</div>
         <div class="col-md-9 description">
-            {{'NA'}}
+            <a [routerLink]="['/staff']">View</a>
             <!-- <ul class="staff_name">
                 <li>Allen</li>
                 <li>James</li>

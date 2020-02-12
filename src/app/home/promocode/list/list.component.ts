@@ -10,6 +10,7 @@ import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
 import { ErrorService } from 'src/app/shared/service/error.service';
 import { DatePipe } from '@angular/common';
 import { ConfimDialogComponent } from 'src/app/shared/confim-dialog/confim-dialog.component';
+import { LIMIT } from 'src/app/shared/constants/constant';
 export interface PeriodicElement {
   position: number;
   coupon: string;
@@ -28,12 +29,15 @@ export interface PeriodicElement {
 })
 export class ListComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'coupon', 'discount', 'service', 'added', 'uses', 'from', 'to', 'action'];
-  limitPage = [10, 20, 30];
+  limitPage = LIMIT;
   dataSource: ListDataSource;
   search: string;
   sortData: any = {};
   url: any = 'assets/images/change.png';
   private paginator: MatPaginator;
+  detail= [];
+  loading: boolean;
+  imgurl: string;
   @ViewChild(MatPaginator, { static: true }) set matPaginator(mp: MatPaginator) {
     this.paginator = mp;
   };
@@ -43,10 +47,10 @@ export class ListComponent implements OnInit {
   @ViewChild('input', { static: true }) input: ElementRef;
   isApplied = false;
   salonId: any;
-  constructor(public dialog: MatDialog, private list: ListService, private errsrv: ErrorService, private date: DatePipe, private httpservice: HttpRequestService, private trns: TranslatePipe, ) { }
+  constructor(public dialog: MatDialog, private list: ListService, private errsrv: ErrorService,private httpservice: HttpRequestService, private trns: TranslatePipe, ) { }
 
   openDialog(id) {
-    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: "Are you sure you want to delete this Promo Code/Offer?" } });
+    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: "Are you sure you want to delete this Promo Code/Offer??", btn:this.trns.transform('DELETE'), cncl:this.trns.transform('CANCEL') } });
 
     dialogRef.beforeClosed().subscribe(
       (val) => {
@@ -76,6 +80,12 @@ export class ListComponent implements OnInit {
   getSalonStaff(): void {
     this.dataSource = new ListDataSource(this.list);
     this.loadStaffList();
+    this.dataSource.usersData.subscribe((val)=>{
+      this.detail = val;
+      console.log(val);
+    });
+    
+    this.dataSource.loadingUsers.subscribe(e=>this.loading = !e);
   }
   ngAfterViewInit() {
     this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
@@ -110,6 +120,11 @@ export class ListComponent implements OnInit {
     this.loadStaffList();
     this.isApplied = true;
   }
+
+  paginate(){
+    this.paginator.pageSize = this.paginator.pageSize + 1;
+    this.getSalonStaff();
+  }
   // ********************** Account Manager List Api Integration with search End******************
 
   exportCSV() {
@@ -122,6 +137,7 @@ export class ListComponent implements OnInit {
     // }
     // this.dataSource.load(listObj, {api: 'PROMO'});
     this.httpservice.getRequest('GET', 'PROMO', `?all=true`).subscribe(rs => {
+      let datePipe = new DatePipe('en-US');
       rs.res.promo.forEach(element => {
         obj = {
           "Serial": ++i,
@@ -131,8 +147,8 @@ export class ListComponent implements OnInit {
           "Min. Price Discount": element.min_price?element.min_price:"NA",
           "Max. Price Discount": element.upto?element.upto:'NA',
           "Total Uses": element.uses ?element.uses:"NA",
-          "Starting Date": this.date.transform(element.frm, "dd/MM/yyyy"),
-          "Starting End":this.date.transform(element.to, "dd/MM/yyyy"),
+          "Starting Date": datePipe.transform(element.frm, "dd/MM/yyyy"),
+          "Starting End":datePipe.transform(element.to, "dd/MM/yyyy"),
           "Services": element.service?element.service:"NA"
         };
         finalData.push(obj);

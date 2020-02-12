@@ -7,6 +7,7 @@ import { AgmCoreModule } from '@agm/core';
 import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/applicationpipe.module';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { NgxStarsModule } from 'ngx-stars';
 
 @NgModule({
   declarations: [ViewprofileComponent],
@@ -18,7 +19,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
       libraries: ["places"]
     }),
     ApplicationpipeModule,
-    SharedModule
+    SharedModule,
+    NgxStarsModule
   ],
   providers:[TranslatePipe]
 })

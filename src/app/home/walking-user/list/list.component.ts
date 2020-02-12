@@ -30,7 +30,7 @@ export interface Walkinglist {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'service', 'staff', 'number', 'status', 'time', 'bookingid', 'date'];
+  displayedColumns: string[] = ['position', 'name', 'service', 'staff', 'number', 'bookingid', 'date'];
   limitPage = [10, 20, 30];
   dataSource: ListDataSource;
   search: string;

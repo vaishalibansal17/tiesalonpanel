@@ -1,5 +1,9 @@
 <div class="main-card">
-    <div class="row">
+  <h1>Booking</h1>
+  <p>It will set up in further milestone.</p>
+</div>
+<div class="main-card">
+    <!-- <div class="row">
         <div class="col-md-6 add">
             <form action="" class="list_booking">
                 <mat-form-field>
@@ -11,7 +15,6 @@
                     </mat-select>
                 </mat-form-field>
             </form>
-
         </div>
         <div class="col-md-6 alignright">
           <a href="#" class="btn btn-export">Export</a>
@@ -22,9 +25,9 @@
             </mat-form-field>
           </form>
         </div>
-      </div>
+      </div> -->
     <div class="table_wrap mobile_hidden">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
+    <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
         <ng-container matColumnDef="position">
           <th mat-header-cell *matHeaderCellDef>No.</th>
           <td mat-cell *matCellDef="let element">{{element.position}}</td>
@@ -56,14 +59,14 @@
         </ng-container>
       
         <ng-container matColumnDef="status">
-          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <th mat-header-cell *matHeaderCellDef>Status</th> -->
           <!--Please add class for status for diefferent colors ->  confirmed, pending, completed, rejected-->
-          <td mat-cell *matCellDef="let element"> {{element.status}} 
+          <!-- <td mat-cell *matCellDef="let element"> {{element.status}}  -->
             <!-- <span class="confirmed">Confirmed</span> 
             <span class="completed">completed</span> 
             <span class="pending">pending</span> 
             <span class="rejected">rejected</span> -->
-          </td>
+          <!-- </td>
         </ng-container>
       
         <ng-container matColumnDef="time">
@@ -82,23 +85,23 @@
         </ng-container>
       
         <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <th mat-header-cell *matHeaderCellDef>Actions</th>  -->
           <!--use same class for accepted as accept and decline for declined-->
-          <td mat-cell *matCellDef="let user"> 
+          <!-- <td mat-cell *matCellDef="let user"> 
           <button class="booking_btn accept" (click)="openDialog()">Accept</button>  
           </td>
         </ng-container>
       
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
+      </table> -->
     </div>
 
     <div class="card_view mobile_visible">
 
       <div class="cards">
           <div class="top_info">
-            <!--add class for background color confirmed, pending, rejected, completed-->
+            <!-- add class for background color confirmed, pending, rejected, completed -->
             <div class="left_status confirmed">confirmed</div>
             <div class="right_status">
               <ul>
@@ -165,32 +168,12 @@
   </div>
 
   
-  <div class="cards">
-    <div class="top_info">
-      <!--add class for background color confirmed, pending, rejected, completed-->
-      <div class="left_status completed">completed</div>
-      <div class="right_status">
-        <ul>
-          <li>22 Oct, 2019</li>
-          <li>10:00AM</li>
-        </ul>
-      </div>
-    </div>
-    <div class="description">
-    <p class="user"><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
-    <p class="service"><img src="assets/images/service-pink.png" alt="">Haircut, Hair Spa</p>
-    <p class="location"><img src="assets/images/location-pink.png" alt="">At Home</p>
-    <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
-    <div class="buttons">
-      <button class="booking_btn accept" (click)="openDialog()">Accept</button>  
-    </div>
-</div>
-</div>
+
       
     </div>
 
 
-      <ul class="pagination">
+      <!-- <ul class="pagination">
         <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
         <li class="active"><a href="#">1</a></li>
         <li><a href="#">2</a></li>
@@ -198,5 +181,5 @@
         <li><a href="#">4</a></li>
         <li><a href="#">5</a></li>
         <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-      </ul>
+      </ul> -->
   </div>

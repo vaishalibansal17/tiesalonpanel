@@ -7,10 +7,17 @@ import { ErrorService } from 'src/app/shared/service/error.service';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { ValidationService } from 'src/app/shared/service/validation-service';
 import * as _ from "lodash";
+import { ConfimDialogComponent } from 'src/app/shared/confim-dialog/confim-dialog.component';
+import { MatDialog } from '@angular/material';
 
 export interface Service {
   name: string;
   viewValue: string;
+}
+
+export interface Day {
+  name: string;
+  value: number;
 }
 
 export interface Chips {
@@ -25,6 +32,16 @@ export interface Chips {
 })
 export class AddstaffComponent implements OnInit {
   services: Service[];
+
+  weekoff: Day[] = [
+    { value: 0, name: 'Sunday' },
+    { value: 1, name: 'Monday' },
+    { value: 2, name: 'Tuesday' },
+    { value: 3, name: 'Wednesday' },
+    { value: 4, name: 'Thursday' },
+    { value: 5, name: 'Friday' },
+    { value: 6, name: 'Saturday' },
+  ];
   chips = []
   id: any;
   profile: FormGroup;
@@ -40,7 +57,8 @@ export class AddstaffComponent implements OnInit {
   constructor(private httpService: HttpRequestService, private router: Router,
     private routes: ActivatedRoute, private helper: Helper,
     private errorserv: ErrorService,
-    private trns: TranslatePipe
+    private trns: TranslatePipe,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -64,7 +82,9 @@ export class AddstaffComponent implements OnInit {
         Validators.maxLength(500)
       ]),
       multiImage: new FormControl(null),
-      serviceat: new FormControl(null)
+      serviceat: new FormControl(null),
+      day_off: new FormControl(null),
+      isAvailable: new FormControl(true)
     })
   }
 
@@ -72,8 +92,6 @@ export class AddstaffComponent implements OnInit {
     this.httpService.getRequest('GET', 'SERVICES', '')
       .subscribe((response: any) => {
         if (response.status === 1) {
-          console.log(response.res);
-
           this.services = response.res.services;
         }
         else {
@@ -84,6 +102,22 @@ export class AddstaffComponent implements OnInit {
       }, (error) => {
         console.log(error);
       });
+  }
+
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: "Are you sure you want?", btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
+
+    dialogRef.beforeClosed().subscribe(
+      (val) => {
+        if (!val) {
+          if (!val && this.profile.value.isAvailable)
+            this.profile.controls['isAvailable'].setValue(false);
+          else
+            this.profile.controls['isAvailable'].setValue(true);
+        }
+      }
+    );
   }
 
 
@@ -99,11 +133,13 @@ export class AddstaffComponent implements OnInit {
       this.formData.append('phone', this.profile.value.phone);
       this.formData.append('desc', this.profile.value.description ? this.profile.value.description : '');
       this.formData.append('services', JSON.stringify(this.sendServ));
+      this.formData.append('day_off', this.profile.value.day_off);
+      this.formData.append('avlblity', this.profile.value.isAvailable);
       this.httpService.getRequest('POST', 'STAFF', this.formData, this.id)
         .subscribe((response: any) => {
           if (response.status === 1) {
             this.submitted = true;
-            this.router.navigateByUrl('/staff')
+            this.router.navigateByUrl('/staff').then(()=> this.httpService.sucsTostr(this.trns.transform('SUCCESS'),this.trns.transform('ADDSTAFFSUCCESS') ))
           } else {
             if (response.err) {
               this.errorserv.handleError(response.err.errCode);
@@ -117,7 +153,7 @@ export class AddstaffComponent implements OnInit {
     }
   }
   get getControl() { return this.profile.controls; }
- 
+
   readUrl(event: any) {
     if (event.target.files && event.target.files[0]) {
       if (this.helper.isImage(event.target.files[0].type)) {
@@ -134,8 +170,12 @@ export class AddstaffComponent implements OnInit {
   }
 
   slctsrv(state: any) {
-    this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
-    this.sendServ.push(state._id)
+    if(!this.httpService.arraySearch(this.sendServ,state)){
+      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
+      this.sendServ.push(state._id);
+      return
+    } else {
+    }
   }
 
 

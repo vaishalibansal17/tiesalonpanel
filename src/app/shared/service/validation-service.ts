@@ -86,6 +86,27 @@ export class ValidationService {
     }
   }
 
+  static date(control: AbstractControl) {
+    console.log(control);
+    if (control && (control.value !== null || control.value !== undefined)) {
+      let frm = control.get("frm").value || "";
+      let to = control.get("to").value || "";
+      // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {\
+      console.log(frm && !to);
+  
+      if (frm && !to) {
+        control.get('to').enable();
+        return null;
+      } else if (frm && to) {
+        new Date(frm) > new Date(to)
+        return { invalid: true };
+      }
+      else
+        return { invalid: true };
+    }
+    return null;
+  }
+
 
   static numberValidator(control) {
     // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {
@@ -192,6 +213,38 @@ export function date(control: AbstractControl) {
     else
       return { invalid: true };
   }
-  return null;
+  return false;
+}
+
+export class DateValidators {
+  static valid(control : AbstractControl){
+    if (control && (control.value !== null || control.value !== undefined)) {
+      let frm = control.get("frm").value || "";
+      let to = control.get("to").value || "";
+      // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {\
+      console.log(frm && !to);
+  
+      if (frm && !to) {
+        control.get('to').enable();
+        return null;
+      } else if (frm && to) {
+        new Date(frm) > new Date(to)
+        return { invalid: true };
+      }
+      else
+        return { invalid: true };
+    }
+    return null;
+  }
+  // static dateLessThan(dateField1: string, dateField2: string, validatorField: { [key: string]: boolean }){
+  //     return (c: AbstractControl): { [key: string]: boolean } | null => {
+  //         const date1 = c.get(dateField1).value;
+  //         const date2 = c.get(dateField2).value;
+  //         if ((date1 !== null && date2 !== null) && date1 > date2) {
+  //             return validatorField;
+  //         }
+  //         return null;
+  //     };
+  // }
 }
 

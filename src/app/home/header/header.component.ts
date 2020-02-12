@@ -4,6 +4,7 @@ import { MessageService } from 'src/app/shared/service/message.service';
 import { TranslateService } from 'src/app/shared/service/translate.service';
 import { ActivatedRoute, Router, Event, NavigationStart, NavigationEnd, NavigationError} from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,7 @@ export class HeaderComponent implements OnInit {
   detail: any;
   lang: string = localStorage.getItem('lang') || 'en';
   route: any;
+  _unsubs: Subscription;
 
   constructor(private httpservice: HttpRequestService, private router: Router, private message: MessageService, private trns: TranslateService, ) { 
 
@@ -28,7 +30,7 @@ export class HeaderComponent implements OnInit {
     }
     );
   
-    this.router.events.subscribe((event: Event) => {
+    this._unsubs =this.router.events.subscribe((event: Event) => {
       if (event instanceof NavigationStart) {
           // Show loading indicator
           this.route = (event.url == '/dashboard' || event.url == '/') ?`${this.trns.data["WELCOMETOOUR"]}${this.detail?' ' + this.detail.name + ' Admin' : ''}`: (event.url.split('/')[1].includes('-')?event.url.split('/')[1].replace('-', ' '): event.url.split('/')[1]);
@@ -79,5 +81,9 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.httpservice.logout();
+  }
+
+  ngDestroy(){
+    this._unsubs.unsubscribe();
   }
 }

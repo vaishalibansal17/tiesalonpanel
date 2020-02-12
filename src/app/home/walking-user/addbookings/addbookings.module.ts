@@ -4,6 +4,9 @@ import { CommonModule } from '@angular/common';
 import { AddbookingsRoutingModule } from './addbookings-routing.module';
 import { AddbookingsComponent } from './addbookings.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/applicationpipe.module';
+import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +14,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     AddbookingsRoutingModule,
-    SharedModule
-  ]
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule,
+    ApplicationpipeModule,
+  ],
+  providers :[TranslatePipe]
 })
 export class AddbookingsModule { }

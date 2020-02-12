@@ -42,7 +42,7 @@
             </div>
             <mat-form-field class="multi_field">
                 <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
-                <mat-label>Services</mat-label>
+                <mat-label>{{'SERVICE'| translate}}</mat-label>
                 <mat-select (selectionChange)="slctsrv($event.value)"  class="multiselect">
                     <mat-option *ngFor="let service of services" [value]="service">
                         {{service.cat_name | titlecase}}
@@ -58,6 +58,23 @@
                 </div>
             </mat-form-field>
             <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
+                <mat-label>{{'WEEKOFF'| translate}}</mat-label>
+                <mat-select formControlName='day_off'>
+                    <mat-option *ngFor="let item of weekoff" [value]="item.value">
+                        {{item.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="setting_list">
+                <div class="row">
+                    <div class="col-md-6">{{'AVAILBILITY'| translate}}</div>
+                    <div class="col-md-6 alignright">
+                        <mat-slide-toggle formControlName="isAvailable"  (click)="openDialog()"></mat-slide-toggle>
+                    </div>
+                </div>
+            </div>
+            <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/description.png" alt="envelope"></span>
                 <textarea matInput placeholder="{{'DESCRIPTION'| translate}}" class="form-control"
                     formControlName="description" maxlength="500"></textarea>
@@ -68,7 +85,7 @@
                 <p class="color error" *ngIf="getControl.description.errors.minlength ">{{'DESCLNGTH'| translate}}</p>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-submit">Save</button>
+                <button type="submit" class="btn btn-submit">{{'SAVE' | translate}}</button>
             </div>
         </form>
     </div>

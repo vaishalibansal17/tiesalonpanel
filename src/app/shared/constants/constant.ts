@@ -3,6 +3,8 @@ export const ERROR_MSG = {
   UNAUTHURIZED_ERROR: 'You are not an authorized user.',
 };
 
+export const LIMIT = [10,20,30];
+
 export const IMG ={
   PRO: 'assets/images/change.png',
   USR : 'assets/images/noti-pro.png'

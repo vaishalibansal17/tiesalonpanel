@@ -67,90 +67,31 @@
     </table>
     <mat-paginator [length]="dataSource.totalCount$ | async" [pageSize]="limitPage[0]" [pageSizeOptions]="limitPage">
     </mat-paginator>
+    <div class="margin_center"
+            *ngIf=" !(dataSource.loading$ | async) && ((dataSource.totalCount$ | async)<=0) ">
+             {{'NO_RCD' | translate}}
+          </div>
   </div>
 
 
-  <div class="card_view mobile_visible">
-    <div class="cards">
+  <div class="card_view mobile_visible"  *ngIf="loading">
+    <div class="cards" *ngFor="let element of detail; let i =index" >
       <div class="description">
-        <p class="coupon"><img src="assets/images/code-pink.png" alt="">New Coupon</p>
-        <p class="discount"><img src="assets/images/discount-pink.png" alt="">10%</p>
-        <p class="number"><img src="assets/images/service-pink.png" alt="">Hair Spa</p>
+        <p class="coupon"><img src="assets/images/code-pink.png" alt="">{{element?.code | uppercase}}</p>
+        <p class="discount"><img src="assets/images/discount-pink.png" alt="">{{element?.discount}}</p>
+        <p class="number"><img src="assets/images/service-pink.png" alt="">{{element?.service | titlecase}}</p>
         <p class="review"><img src="assets/images/location-pink.png" alt="">Salon</p>
-        <p class="uses"><img src="assets/images/uses-pink.png" alt="">Unlimited</p>
-        <p class="from"><img src="assets/images/time-pink.png" alt="">01 Jan, 2020</p>
-        <p class="to"><img src="assets/images/time-pink.png" alt="">01 Feb, 2020</p>
+        <p class="uses"><img src="assets/images/uses-pink.png" alt="">{{element?.uses}}</p>
+        <p class="from"><img src="assets/images/time-pink.png" alt="">{{element?.frm | date : 'dd MMM yyyy'}}</p>
+        <p class="to"><img src="assets/images/time-pink.png" alt="">{{element?.to | date : 'dd MMM yyyy'}}</p>
         <div class="buttons">
-          <button class="action_btn pink"><a [routerLink]="['/promocode/promocode-info']">View</a></button>
-          <button class="action_btn black"><a>Edit</a></button>
-          <button class="action_btn red" (click)="openDialog()">Delete</button>
+          <button class="action_btn pink"><a [routerLink]="['/promocode/info', element._id]">View</a></button>
+          <button class="action_btn black"><a [routerLink]="['/promocode/edit', element._id]">Edit</a></button>
+          <button class="action_btn red" (click)="openDialog(element._id)">Delete</button>
         </div>
       </div>
     </div>
-    <div class="cards">
-      <div class="description">
-        <p class="coupon"><img src="assets/images/code-pink.png" alt="">New Coupon</p>
-        <p class="discount"><img src="assets/images/discount-pink.png" alt="">10%</p>
-        <p class="number"><img src="assets/images/service-pink.png" alt="">Hair Spa</p>
-        <p class="review"><img src="assets/images/location-pink.png" alt="">Salon</p>
-        <p class="uses"><img src="assets/images/uses-pink.png" alt="">Unlimited</p>
-        <p class="from"><img src="assets/images/time-pink.png" alt="">01 Jan, 2020</p>
-        <p class="to"><img src="assets/images/time-pink.png" alt="">01 Feb, 2020</p>
-        <div class="buttons">
-          <button class="action_btn pink"><a [routerLink]="['/promocode/promocode-info']">View</a></button>
-          <button class="action_btn black"><a>Edit</a></button>
-          <button class="action_btn red" (click)="openDialog()">Delete</button>
-        </div>
-      </div>
-    </div>
-    <div class="cards">
-      <div class="description">
-        <p class="coupon"><img src="assets/images/code-pink.png" alt="">New Coupon</p>
-        <p class="discount"><img src="assets/images/discount-pink.png" alt="">10%</p>
-        <p class="number"><img src="assets/images/service-pink.png" alt="">Hair Spa</p>
-        <p class="review"><img src="assets/images/location-pink.png" alt="">Salon</p>
-        <p class="uses"><img src="assets/images/uses-pink.png" alt="">Unlimited</p>
-        <p class="from"><img src="assets/images/time-pink.png" alt="">01 Jan, 2020</p>
-        <p class="to"><img src="assets/images/time-pink.png" alt="">01 Feb, 2020</p>
-        <div class="buttons">
-          <button class="action_btn pink"><a [routerLink]="['/promocode/promocode-info']">View</a></button>
-          <button class="action_btn black"><a>Edit</a></button>
-          <button class="action_btn red" (click)="openDialog()">Delete</button>
-        </div>
-      </div>
-    </div>
-    <div class="cards">
-      <div class="description">
-        <p class="coupon"><img src="assets/images/code-pink.png" alt="">New Coupon</p>
-        <p class="discount"><img src="assets/images/discount-pink.png" alt="">10%</p>
-        <p class="number"><img src="assets/images/service-pink.png" alt="">Hair Spa</p>
-        <p class="review"><img src="assets/images/location-pink.png" alt="">Salon</p>
-        <p class="uses"><img src="assets/images/uses-pink.png" alt="">Unlimited</p>
-        <p class="from"><img src="assets/images/time-pink.png" alt="">01 Jan, 2020</p>
-        <p class="to"><img src="assets/images/time-pink.png" alt="">01 Feb, 2020</p>
-        <div class="buttons">
-          <button class="action_btn pink"><a [routerLink]="['/promocode/promocode-info']">View</a></button>
-          <button class="action_btn black"><a>Edit</a></button>
-          <button class="action_btn red" (click)="openDialog()">Delete</button>
-        </div>
-      </div>
-    </div>
-    <div class="cards">
-      <div class="description">
-        <p class="coupon"><img src="assets/images/code-pink.png" alt="">New Coupon</p>
-        <p class="discount"><img src="assets/images/discount-pink.png" alt="">10%</p>
-        <p class="number"><img src="assets/images/service-pink.png" alt="">Hair Spa</p>
-        <p class="review"><img src="assets/images/location-pink.png" alt="">Salon</p>
-        <p class="uses"><img src="assets/images/uses-pink.png" alt="">Unlimited</p>
-        <p class="from"><img src="assets/images/time-pink.png" alt="">01 Jan, 2020</p>
-        <p class="to"><img src="assets/images/time-pink.png" alt="">01 Feb, 2020</p>
-        <div class="buttons">
-          <button class="action_btn pink"><a [routerLink]="['/promocode/promocode-info']">View</a></button>
-          <button class="action_btn black"><a>Edit</a></button>
-          <button class="action_btn red" (click)="openDialog()">Delete</button>
-        </div>
-      </div>
-    </div>
+    <div class="text-center"><button type="button" class="btn btn-submit" (click)="paginate()">Load More</button></div>
   </div>
 
   <!-- <ul class="pagination">

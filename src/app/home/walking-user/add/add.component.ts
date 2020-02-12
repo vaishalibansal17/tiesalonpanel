@@ -21,6 +21,8 @@ export class AddComponent implements OnInit {
   profileImage: any;
   url: any = IMG.PRO;
   services: any;
+  isExist: boolean = false;
+  detail: any;
 
   constructor(private httpService: HttpRequestService, private router: Router,
     private messageService: MessageService, private helper: Helper,
@@ -53,20 +55,33 @@ export class AddComponent implements OnInit {
     this.submitted = true;
     // return false
     this.formData = new FormData();
+    console.log(this.profile.value);
+    // return
+    this.profile.enable();
     if (this.profile.valid) {
-      if (this.profileImage)
-        this.formData.append('staff_img', this.profileImage, this.profileImage.name);
-      this.formData.append('name', this.profile.value.name);
-      this.formData.append('email', this.profile.value.email);
-      this.formData.append('phone', this.profile.value.phone);
-      this.formData.append('desc', this.profile.value.description ? this.profile.value.description : '');
-      let obj ={
-        'name': this.profile.value.name,
-        'email': this.profile.value.email,
-        'phone': this.profile.value.phone
+      if (!this.isExist) {
+        this.profile.value['desc'] = this.profile.value.description;
+        this.profile.value['pno'] = this.profile.value.phone;
+        this.profile.value['fullname'] = this.profile.value.name;
+        this.httpService.getRequest('POST', 'WALKING_ADD', this.profile.value).subscribe((response: any) => {
+          if (response.status === 1) {
+            this.submitted = true;
+            this.messageService.setBooking({ 'user_id': response.res._id });
+            this.router.navigateByUrl('/walking-user/add-booking')
+          } else {
+            if (response.err) {
+              this.errorserv.handleError(response.err.errCode);
+            }
+          }
+        }, (error) => {
+          this.errorserv.handleError(0);
+        });
+      } else {
+        this.messageService.setBooking({ 'user_id': this.detail._id });
+        this.router.navigateByUrl('/walking-user/add-booking')
       }
-      this.messageService.setBooking(obj);
-      this.router.navigateByUrl('/walking-user/add-booking');
+
+
     } else {
       console.log(this.profile);
     }
@@ -90,8 +105,6 @@ export class AddComponent implements OnInit {
   }
 
   checkUser(event) {
-    console.log(event.target.value, this.profile.controls.email.status);
-
     if (this.profile.controls.email.status == 'INVALID')
       return
     else {
@@ -99,11 +112,14 @@ export class AddComponent implements OnInit {
         .subscribe((response: any) => {
           if (response.status === 1) {
             console.log(response.res);
+            this.detail = response.res;
             this.profile.patchValue({
               name: response.res.hasOwnProperty('fullname') ? response.res.fullname : '',
               email: response.res.hasOwnProperty('email') ? response.res.email : '',
               phone: response.res.hasOwnProperty('pno') ? response.res.pno : '',
             });
+            this.isExist = true;
+            this.profile.disable();
           }
           else {
             if (response.err) {

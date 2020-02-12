@@ -13,7 +13,7 @@ export class HttpRequestService {
 	constructor(private http: HttpClient,
 		private myRoute: Router,
 		private messageService: MessageService,
-		private trns : TranslateService
+		private trns: TranslateService
 	) { }
 
 	getApi(apiName: string) {
@@ -23,8 +23,8 @@ export class HttpRequestService {
 	getRequest(type: string, requestUrl: string, data?: any, queryParams?: any): Observable<any> {
 		if (type === 'GET') {
 			return this.http.get<any>(this.getApi(requestUrl) + '?' + data);
-		} else if (type === 'GET_PARMS') {			
-			return this.http.get<any>(this.getApi(requestUrl) + '/' + data + '?' +queryParams );
+		} else if (type === 'GET_PARMS') {
+			return this.http.get<any>(this.getApi(requestUrl) + '/' + data + '?' + queryParams);
 		} else if (type === 'POST') {
 			return this.http.post<any>(this.getApi(requestUrl), data);;
 		} else if (type === 'POST_WITHDATA') {
@@ -66,26 +66,39 @@ export class HttpRequestService {
 		this.myRoute.navigate(['/main/event/' + route + '/' + localStorage.getItem('editEventId')]);
 	}
 
+	arraySearch(arr, value) {
+		let isFound = false;
+		if (arr.length) {
+			for (let k = 0; k < arr.length; k++) {
+				if (arr[k] === value._id) {
+					isFound = true; break;
+				}
+			}
+			return isFound;
+		}
+		return false
+	}
+
 	exportCSV(api: any) {
 		var finalData = [];
 		var obj: any;
 		var i = 0;
-	
-		this.getRequest('GET', api, `?all=true`).subscribe(rs=>{
+
+		this.getRequest('GET', api, `?all=true`).subscribe(rs => {
 			console.log(rs);
-			
-		//   rs.forEach(element => {
-		// 	obj = {
-		// 	  "Serial": ++i,
-		// 	  "Name": element.name,
-		// 	  "Email": element.email
-		// 	};
-		// 	finalData.push(obj);
-		//   });
-		//   var options = { noDownload: false, headers: ["Serial", "Name", "Email"] };
-		//   new Angular5Csv(finalData, 'staff_list', options);
-		  this.sucsTostr(this.trns.data['SUCCESS'], this.trns.data['EXPORTD']);
+
+			//   rs.forEach(element => {
+			// 	obj = {
+			// 	  "Serial": ++i,
+			// 	  "Name": element.name,
+			// 	  "Email": element.email
+			// 	};
+			// 	finalData.push(obj);
+			//   });
+			//   var options = { noDownload: false, headers: ["Serial", "Name", "Email"] };
+			//   new Angular5Csv(finalData, 'staff_list', options);
+			this.sucsTostr(this.trns.data['SUCCESS'], this.trns.data['EXPORTD']);
 		})
-	  }
+	}
 
 }

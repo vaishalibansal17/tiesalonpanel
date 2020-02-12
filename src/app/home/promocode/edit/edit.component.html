@@ -99,6 +99,7 @@
                         <!-- <p class="color error" *ngIf="!getControl.name.errors.required && getControl.name.errors.invalidName">
                             {{'INCRTSALONNAME'| translate}}</p> -->
                     </div>
+                    <p class="color error" *ngIf="!validDte">{{'INVALIDDATE'| translate}}</p>
                 </div>
                 <div class="col-md-6 right">
                     <mat-form-field>
