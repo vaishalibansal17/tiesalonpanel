@@ -11,7 +11,7 @@ import { ErrorService } from 'src/app/shared/service/error.service';
   styleUrls: ['./staffreview.component.scss']
 })
 export class StaffreviewComponent implements OnInit {
-  limitPage = 1;
+  limitPage = 5;
   search: string;
   id: any;
   detail: any;
