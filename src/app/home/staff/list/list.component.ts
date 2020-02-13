@@ -26,7 +26,7 @@ export class ListComponent implements OnInit {
   displayedColumns = ['Sno', 'name', 'photo', 'email', 'phone', 'review', 'Action'];
   url: any = 'assets/images/change.png';
   private paginator: MatPaginator;
-  detail: import("/Users/brainmobimac/Abhishek/angular/tie-web/src/app/model/List").List[];
+  // detail: import("/Users/brainmobimac/Abhishek/angular/tie-web/src/app/model/List").List[];
   loading: boolean;
   imgurl: string;
   totalLength: number;
@@ -73,7 +73,7 @@ export class ListComponent implements OnInit {
     this.dataSource = new ListDataSource(this.list);
     this.loadStaffList();
     this.dataSource.usersData.subscribe((val) => {
-      this.detail = val;
+      // this.detail = val;
     });
 
     this.dataSource.loadingUsers.subscribe(e => this.loading = !e);
