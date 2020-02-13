@@ -1,6 +1,6 @@
 <div class="main-card">
     <div class="row">
-        <div class="col-md-12 top_view"><img [src]="url" alt=""><span class="user_name">{{detail && detail.name ? detail.name:'NA' }}</span></div>
+        <div class="col-md-12 top_view"><img [src]="url" alt=""><span class="user_name">{{detail?.name | titlecase }}</span></div>
         <div class="col-md-3 label">{{'EMAIL'| translate | titlecase}}:</div>
         <div class="col-md-9 description">{{detail && detail.email ? detail.email:'NA'}}</div>
         <div class="col-md-3 label">{{'MOBILENUMBER'| translate}}:</div>

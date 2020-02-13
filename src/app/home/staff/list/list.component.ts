@@ -26,7 +26,7 @@ export class ListComponent implements OnInit {
   displayedColumns = ['Sno', 'name', 'photo', 'email', 'phone', 'review', 'Action'];
   url: any = 'assets/images/change.png';
   private paginator: MatPaginator;
-  detail: import("/Users/brainmobimac/Abhishek/angular/tie-web/src/app/model/List").List[];
+  detail = [];
   loading: boolean;
   imgurl: string;
   totalLength: number;
