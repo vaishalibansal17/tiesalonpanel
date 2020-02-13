@@ -64,9 +64,11 @@ export class AddbookingsComponent implements OnInit {
 
     if (this.profile.valid) {
       // this.profile.controls['price'].enable();
+      console.log(this.profile);
       this.profile.value['service'] = JSON.stringify(this.chips);
       this.profile.value['user_id'] = this.responseData.user_id;
-      console.log(this.profile);
+      this.profile.value['staf_name'] = this.profile.value.staf_id.name;
+      this.profile.value['staf_id'] = this.profile.value.staf_id._id;
       // return
       this.httpService.getRequest('POST', 'WALKING_BOOK', this.profile.value).subscribe((response: any) => {
         if (response.status === 1) {
