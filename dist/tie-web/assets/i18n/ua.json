@@ -14,6 +14,8 @@
   "CATEGORY": "الفئة",
   "FEEDBACK": "ردود الفعل",
   "ABOUTUS": "معلومات عنا",
+  "AVAILBILITY" : "توفر",
+  "WEEKOFF" : "إسبوع إجازة",
 
   "MPROFILE":"ملفي",
   "SETTINGS": "الإعدادات",
@@ -52,8 +54,14 @@
   "LINKEXP":"انتهت صلاحية رابط إعادة تعيين كلمة المرور الخاصة بك",
   "INVALIDLINK":"رابط إعادة تعيين كلمة المرور غير صحيح",
   
+  "HOURSREQ":"Business hours is required.",
 
-   
+  "PRICREQ":"Price is required.",
+  "STFREQ":"Staff is required.",
+  "SRVREQ":"Service is required.",
+  "WALKNGSUCCESS": "User added Successfully.",
+  
+  "OK": "حسنا",
   "MOBILENUMBER":"رقم الهاتف المحمول",
   "LOCATION":"موقعك",
   "BUSINESSHOURS":"ساعات العمل",
@@ -67,8 +75,9 @@
   "SALONSUCCESS" :"تم تحديث الصالون بنجاح",
   "CHNGPIC":"تغيير صورة الملف الشخصي",
   "MANAGESTAFF" :"إدارة الموظفين",
-
-
+  "STAFFSUCCESS" :"تم تحديث الموظفين بنجاح",
+  "ADDSTAFFSUCCESS" :"تمت إضافة الموظفين بنجاح",
+  "INVALIDDATE":"يجب أن يكون تاريخ البدء أقل من تاريخ الانتهاء",
   "WELCOMETOOUR":"مرحبا بكم في موقعنا",
   "FRGTPASS":"هل نسيت كلمة المرور",
   "RSTPASS":"إعادة تعيين كلمة المرور",
@@ -97,6 +106,17 @@
   "DESIGNATION":"تعيين",
   "INCRTSTAFFNAME": "الرجاء إدخال اسم الموظفين",
   "EXPORTD":"تم تصدير البيانات بنجاح",
+
+  "COUPNNAME":"الرجاء إدخال عنوان القسيمة",
+  "CODEREQ":"الرجاء إدخال رمز القسيمة",
+  "CODEINVLID":"الرجاء إدخال الحروف الهجائية والرقم",
+  "MINPRCREQ":"الرجاء إدخال الحد الأدنى للخصم",
+  "MAXPRCREQ":"الرجاء إدخال الحد الأقصى للخصم",
+  "USEREQ":"الرجاء إدخال حد لاستخدامات رمز القسيمة",
+  "FRMREQ":"الرجاء إدخال تاريخ البدء لرمز القسيمة",
+  "TOREQ":"الرجاء إدخال تاريخ الانتهاء لرمز القسيمة",
+
+  "SALONALRDYEXIST":"صالون مع هذا رقم الهاتف أو البريد الإلكتروني موجود بالفعل",
 
   "RATING":"تقييم",
   "RCNTREVIW" : "المراجعات الأخيرة",
@@ -175,6 +195,7 @@
   "DISC": "وصف",
   "DISC_REQ": "الرجاء إدخال الوصف",
   "SERVICE": "خدمات",
+  "SERVICETYP": "نوع صالون",
   "FREE_TYPE": "لحسابهم الخاص نوع",
   "COMMI": "عمولة",
   "COMM_REQ": "الرجاء إدخال العمولة",

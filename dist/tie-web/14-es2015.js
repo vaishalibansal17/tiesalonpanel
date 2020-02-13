@@ -1,184 +1,223 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[14],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/list/booking-delete.component.html":
-/*!********************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/list/booking-delete.component.html ***!
-  \********************************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/login/login.component.html":
+/*!***************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/auth/login/login.component.html ***!
+  \***************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-dialog-content class=\"text-center\">\n  <h3>Are you sure you want to accept/decline\n    the Booking?</h3>\n  <div class=\"text-center\"><button type=\"submit\" class=\"btn btn-submit\">Accept</button></div>\n  <div class=\"text-center\"><button type=\"submit\" class=\"btn btn-cancel\">Decline</button></div>\n</mat-dialog-content>\n  <button mat-button mat-dialog-close><img src=\"assets/images/close.png\" alt=\"Close\"></button>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main_bg\">\n    <div class=\"fixed-nav\">\n        <ul>\n            <li class=\"active\"></li>\n            <li></li>\n            <li></li>\n        </ul>\n    </div>\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-md-6 main-left\">\n                <div class=\"full-vertical\">\n                    <img class=\"on_board\" src=\"assets/images/img_onboard_1.png\" alt=\"Login\">\n                    <div class=\"head\">Your Service Menu is <span>Online</span></div>\n                </div>\n            </div>\n            <div class=\"col-md-6 main-right\">\n                <app-auth-header></app-auth-header>\n                <div class=\"full-vertical custom-width\">\n                    <div class=\"logo\"><img src=\"assets/images/tie_logo_black.png\" alt=\"Logo\"></div>\n                    <h1 class=\"head\">{{'LOGIN'| translate}}</h1>\n                    <div class=\"login-form\">\n                        <form (ngSubmit)=\"onSubmit()\" [formGroup]=\"loginfrm\">\n                            <mat-form-field>\n                                <span class=\"email-img\"><img src=\"assets/images/envelope.png\" alt=\"envelope\"></span>\n                                <input matInput placeholder=\"{{'PLACEHOLDERLEMAIL'| translate}}\" class=\"form-control\" formControlName=\"email\"\n                                    maxlength=\"50\">\n                            </mat-form-field>\n                            <div\n                                *ngIf=\"(submitted) && getControl.email.errors\">\n                                <p class=\"color error\" *ngIf=\"getControl.email.errors.required\">{{'LOGINEMAIL'| translate}}</p>\n                                <p class=\"color error\" *ngIf=\"!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress\">{{'LOGINVALIDEMAIL'| translate}}</p>\n                            </div>\n                            <mat-form-field>\n                                <span class=\"email-img pass\"><img src=\"assets/images/lock.png\" alt=\"envelope\"></span>\n                                <input matInput placeholder=\"{{'PLACEHOLDERLPASS'| translate}}\" formControlName=\"pass\" maxlength=\"20\"\n                                    [type]=\"hide ? 'password' : 'text'\" class=\"form-control pass-space\">\n                                <button mat-icon-button matSuffix type=\"button\" (click)=\"hide = !hide\"\n                                    [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                                </button>\n                            </mat-form-field>\n                            <div\n                                *ngIf=\"(submitted) && getControl.pass.errors\">\n                                <p class=\"color error\" *ngIf=\"getControl.pass.errors.required\">{{'LOGINPASS'| translate}}</p>\n                                <!-- <p class=\"color error\" *ngIf=\"getControl.pass.errors.minlength \">Incorrect password or\n                                    email.</p> -->\n                            </div>\n                            <p class=\"right\"><a [routerLink]=\"['/auth/forgot']\">{{'FRGTPASS' |  translate}}?</a></p>\n                            <button type=\"submit\" class=\"btn btn-submit\">{{'LOGINBTN' |  translate}}</button>\n                        </form>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/list/list.component.html":
-/*!**********************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/list/list.component.html ***!
-  \**********************************************************************************************/
-/*! exports provided: default */
+/***/ "./src/app/auth/login/login-routing.module.ts":
+/*!****************************************************!*\
+  !*** ./src/app/auth/login/login-routing.module.ts ***!
+  \****************************************************/
+/*! exports provided: LoginRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-6 add\">\n            <form action=\"\" class=\"list_booking\">\n                <mat-form-field>\n                    <mat-label>All Bookings</mat-label>\n                    <mat-select formControlName='booking'>\n                        <mat-option *ngFor=\"let booking of bookings\" [value]=\"booking.value\">\n                            {{booking.viewValue}}\n                        </mat-option>\n                    </mat-select>\n                </mat-form-field>\n            </form>\n\n        </div>\n        <div class=\"col-md-6 alignright\"><a href=\"#\" class=\"btn btn-export\">Export</a></div>\n    </div>\n    <div class=\"table_wrap\">\n    <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8 table_scroll\">\n        <ng-container matColumnDef=\"position\">\n          <th mat-header-cell *matHeaderCellDef> No. </th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.position}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"name\">\n          <th mat-header-cell *matHeaderCellDef> User Name </th>\n          <td mat-cell *matCellDef=\"let element\"> <a [routerLink]=\"['/booking/info']\">{{element.name}}</a> </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"service\">\n          <th mat-header-cell *matHeaderCellDef>Service</th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.service}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"serviceat\">\n          <th mat-header-cell *matHeaderCellDef>Service At</th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.serviceat}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"staff\">\n          <th mat-header-cell *matHeaderCellDef>Staff Name </th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.staff}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"number\">\n          <th mat-header-cell *matHeaderCellDef>Mobile Number</th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.number}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"status\">\n          <th mat-header-cell *matHeaderCellDef>Status</th>\n          <!--Please add class for status for diefferent colors ->  confirmed, pending, completed, rejected-->\n          <td mat-cell *matCellDef=\"let element\"> {{element.status}} \n            <!-- <span class=\"confirmed\">Confirmed</span> \n            <span class=\"completed\">completed</span> \n            <span class=\"pending\">pending</span> \n            <span class=\"rejected\">rejected</span> -->\n          </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"time\">\n          <th mat-header-cell *matHeaderCellDef>Time</th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.time}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"bookingid\">\n          <th mat-header-cell *matHeaderCellDef>Booking ID</th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.bookingid}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"date\">\n          <th mat-header-cell *matHeaderCellDef> Date </th>\n          <td mat-cell *matCellDef=\"let element\"> {{element.date}} </td>\n        </ng-container>\n      \n        <ng-container matColumnDef=\"action\">\n          <th mat-header-cell *matHeaderCellDef> Actions </th>\n          <!--use same class for accepted as accept and decline for declined-->\n          <td mat-cell *matCellDef=\"let user\"> \n          <button class=\"booking_btn cancel\">Cancel</button> \n          <button class=\"booking_btn accept\" (click)=\"openDialog()\">Accept</button>  \n          <button class=\"booking_btn decline\" (click)=\"openDialog()\">Decline</button>  \n          </td>\n        </ng-container>\n      \n        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n      </table>\n    </div>\n      <ul class=\"pagination\">\n        <li><a href=\"#\"><i class=\"fa fa-angle-left\"></i></a></li>\n        <li class=\"active\"><a href=\"#\">1</a></li>\n        <li><a href=\"#\">2</a></li>\n        <li><a href=\"#\">3</a></li>\n        <li><a href=\"#\">4</a></li>\n        <li><a href=\"#\">5</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-angle-right\"></i></a></li>\n      </ul>\n  </div>");
-
-/***/ }),
-
-/***/ "./src/app/home/bookings/list/list-routing.module.ts":
-/*!***********************************************************!*\
-  !*** ./src/app/home/bookings/list/list-routing.module.ts ***!
-  \***********************************************************/
-/*! exports provided: ListRoutingModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListRoutingModule", function() { return ListRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginRoutingModule", function() { return LoginRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./list.component */ "./src/app/home/bookings/list/list.component.ts");
+/* harmony import */ var _login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login.component */ "./src/app/auth/login/login.component.ts");
 
 
 
 
-const routes = [{ path: '', component: _list_component__WEBPACK_IMPORTED_MODULE_3__["ListComponent"] }];
-let ListRoutingModule = class ListRoutingModule {
+const routes = [{
+        path: '', component: _login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"]
+    }];
+let LoginRoutingModule = class LoginRoutingModule {
 };
-ListRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+LoginRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], ListRoutingModule);
+], LoginRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/bookings/list/list.component.scss":
-/*!********************************************************!*\
-  !*** ./src/app/home/bookings/list/list.component.scss ***!
-  \********************************************************/
+/***/ "./src/app/auth/login/login.component.scss":
+/*!*************************************************!*\
+  !*** ./src/app/auth/login/login.component.scss ***!
+  \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvYm9va2luZ3MvbGlzdC9saXN0LmNvbXBvbmVudC5zY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".main-right .btn-submit {\n  margin: 0px 0px 10px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvYXV0aC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXV0aC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUF3QixvQkFBQTtBQ0V4QiIsImZpbGUiOiJzcmMvYXBwL2F1dGgvbG9naW4vbG9naW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbi1yaWdodCAuYnRuLXN1Ym1pdHttYXJnaW46IDBweCAwcHggMTBweDt9IiwiLm1haW4tcmlnaHQgLmJ0bi1zdWJtaXQge1xuICBtYXJnaW46IDBweCAwcHggMTBweDtcbn0iXX0= */");
 
 /***/ }),
 
-/***/ "./src/app/home/bookings/list/list.component.ts":
-/*!******************************************************!*\
-  !*** ./src/app/home/bookings/list/list.component.ts ***!
-  \******************************************************/
-/*! exports provided: ListComponent, BookingDeleteDialogBox */
+/***/ "./src/app/auth/login/login.component.ts":
+/*!***********************************************!*\
+  !*** ./src/app/auth/login/login.component.ts ***!
+  \***********************************************/
+/*! exports provided: LoginComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListComponent", function() { return ListComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookingDeleteDialogBox", function() { return BookingDeleteDialogBox; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginComponent", function() { return LoginComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/service/error.service */ "./src/app/shared/service/error.service.ts");
+/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
+/* harmony import */ var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/service/validation-service */ "./src/app/shared/service/validation-service.ts");
+/* harmony import */ var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/service/helper.service */ "./src/app/shared/service/helper.service.ts");
+/* harmony import */ var src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/service/translate.service */ "./src/app/shared/service/translate.service.ts");
 
 
 
-let ListComponent = class ListComponent {
-    constructor(dialog) {
-        this.dialog = dialog;
-        this.displayedColumns = ['position', 'name', 'service', 'serviceat', 'staff', 'number', 'status', 'time', 'bookingid', 'date', 'action'];
-        this.dataSource = ELEMENT_DATA;
-        this.bookings = [
-            { value: '1', viewValue: 'All Bookings' },
-            { value: '2', viewValue: 'New Bookings' },
-            { value: '3', viewValue: 'Accepted Bookings' },
-            { value: '4', viewValue: 'In-Process Bookings' },
-            { value: '5', viewValue: 'Completed Bookings' },
-        ];
-    }
-    openDialog() {
-        console.log('-----');
-        const dialogRef = this.dialog.open(BookingDeleteDialogBox, { width: '500px', disableClose: true });
+
+
+
+
+
+
+
+let LoginComponent = class LoginComponent {
+    constructor(httpService, router, error, trns, trnsalte, helper) {
+        this.httpService = httpService;
+        this.router = router;
+        this.error = error;
+        this.trns = trns;
+        this.trnsalte = trnsalte;
+        this.helper = helper;
+        this.hide = true;
+        this.submitted = false;
+        this.formSubmit = false;
+        this.loading = false;
+        this.email = '';
+        this.pass = '';
+        this.isLoading = false;
+        this.passShow = true;
     }
     ngOnInit() {
+        // console.log(this.trnsalte.currentLang);
+        this.loginfrm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
+                src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].validateEmail
+            ]),
+            pass: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required
+            ])
+        });
+    }
+    get getControl() { return this.loginfrm.controls; }
+    onSubmit() {
+        this.submitted = true;
+        if (this.loginfrm.valid) {
+            this.httpService.getRequest('POST', 'LOGIN', this.loginfrm.value)
+                .subscribe((data) => {
+                if (data.status) {
+                    let { acsTkn, _id, logo, email, name } = data.res;
+                    localStorage.setItem('acsTkn', acsTkn);
+                    localStorage.setItem('salonid', _id);
+                    localStorage.setItem('salon', JSON.stringify({ 'name': name, 'logo': logo, 'email': email }));
+                    this.isLoading = !this.isLoading;
+                    this.router.navigate(['/']).then(() => this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('LOGINSUCCESS')));
+                }
+                else {
+                    console.log(data.err);
+                    this.error.handleError(data.err.errCode);
+                }
+            }, (error) => {
+                this.error.handleError(0);
+            });
+        }
+        else {
+            // this.spinner.hide();
+        }
     }
 };
-ListComponent.ctorParameters = () => [
-    { type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }
+LoginComponent.ctorParameters = () => [
+    { type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__["ErrorService"] },
+    { type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__["TranslatePipe"] },
+    { type: src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_9__["TranslateService"] },
+    { type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_8__["Helper"] }
 ];
-ListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-list',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./list.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/list/list.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./list.component.scss */ "./src/app/home/bookings/list/list.component.scss")).default]
+        selector: 'app-login',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./login.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/login/login.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./login.component.scss */ "./src/app/auth/login/login.component.scss")).default]
     })
-], ListComponent);
-
-const ELEMENT_DATA = [
-    { position: 1, name: 'Jane Doe', service: 'Haircut, Hair Spa', serviceat: 'Salon', staff: 'Allen', number: +919999999999, status: 'Confirmed', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019' },
-    { position: 2, name: 'Jane Doe', service: 'Haircut, Hair Spa', serviceat: 'Home', staff: 'James', number: +919999999999, status: 'Pending', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019' },
-    { position: 3, name: 'Jane Doe', service: 'Haircut, Hair Spa', serviceat: 'Salon', staff: 'Allen', number: +919999999999, status: '--', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019' },
-    { position: 4, name: 'Jane Doe', service: 'Haircut', serviceat: 'Home', staff: 'James', number: +919999999999, status: 'Completed', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019' },
-    { position: 5, name: 'Jane Doe', service: 'Massage', serviceat: 'Salon', staff: 'Allen', number: +919999999999, status: 'Completed', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019' },
-    { position: 6, name: 'Jane Doe', service: 'Haircut', serviceat: 'Home', staff: 'James', number: +919999999999, status: 'Pending', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019' },
-    { position: 7, name: 'Jane Doe', service: 'Haircut, Hair Spa', serviceat: 'Salon', staff: 'Allen', number: +919999999999, status: 'Confirmed', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019' },
-    { position: 8, name: 'Jane Doe', service: 'Massage', serviceat: 'Home', staff: 'Allen', number: +919999999999, status: 'Rejected', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019' }
-];
-let BookingDeleteDialogBox = class BookingDeleteDialogBox {
-    constructor() {
-    }
-};
-BookingDeleteDialogBox = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'booking-delete.component',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./booking-delete.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/list/booking-delete.component.html")).default,
-    })
-], BookingDeleteDialogBox);
+], LoginComponent);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/bookings/list/list.module.ts":
-/*!***************************************************!*\
-  !*** ./src/app/home/bookings/list/list.module.ts ***!
-  \***************************************************/
-/*! exports provided: ListModule */
+/***/ "./src/app/auth/login/login.module.ts":
+/*!********************************************!*\
+  !*** ./src/app/auth/login/login.module.ts ***!
+  \********************************************/
+/*! exports provided: LoginModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListModule", function() { return ListModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginModule", function() { return LoginModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _list_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./list-routing.module */ "./src/app/home/bookings/list/list-routing.module.ts");
-/* harmony import */ var _list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./list.component */ "./src/app/home/bookings/list/list.component.ts");
-/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _login_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./login-routing.module */ "./src/app/auth/login/login-routing.module.ts");
+/* harmony import */ var _login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./login.component */ "./src/app/auth/login/login.component.ts");
+/* harmony import */ var src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/material/material.module */ "./src/app/shared/material/material.module.ts");
+/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
+/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
+/* harmony import */ var _auth_header_auth_header_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../auth-header/auth-header.module */ "./src/app/auth/auth-header/auth-header.module.ts");
 
 
 
 
 
 
-let ListModule = class ListModule {
+
+
+
+
+
+let LoginModule = class LoginModule {
 };
-ListModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+LoginModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_list_component__WEBPACK_IMPORTED_MODULE_4__["ListComponent"], _list_component__WEBPACK_IMPORTED_MODULE_4__["BookingDeleteDialogBox"]],
+        declarations: [_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _list_routing_module__WEBPACK_IMPORTED_MODULE_3__["ListRoutingModule"],
-            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]
+            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
+            _login_routing_module__WEBPACK_IMPORTED_MODULE_3__["LoginRoutingModule"],
+            src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__["MaterialModule"],
+            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"],
+            _auth_header_auth_header_module__WEBPACK_IMPORTED_MODULE_10__["AuthHeaderModule"],
+            src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"]
         ],
-        entryComponents: [_list_component__WEBPACK_IMPORTED_MODULE_4__["BookingDeleteDialogBox"]]
+        providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"]],
+        schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]],
     })
-], ListModule);
+], LoginModule);
 
 
 

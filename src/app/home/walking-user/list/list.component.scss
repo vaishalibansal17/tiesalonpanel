@@ -9,3 +9,9 @@ form{margin-top: 10px;}
 @media(max-width:480px){
     form{float: none;text-align: center;}
 }
+
+form{display: initial;margin-left: 15px;}
+
+@media(max-width:380px){
+    form{margin-left: 0px;}
+}

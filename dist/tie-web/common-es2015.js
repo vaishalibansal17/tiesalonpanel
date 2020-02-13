@@ -1,5 +1,206 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["common"],{
 
+/***/ "./node_modules/angular5-csv/dist/Angular5-csv.js":
+/*!********************************************************!*\
+  !*** ./node_modules/angular5-csv/dist/Angular5-csv.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var CsvConfigConsts = (function () {
+    function CsvConfigConsts() {
+    }
+    CsvConfigConsts.EOL = "\r\n";
+    CsvConfigConsts.BOM = "\ufeff";
+    CsvConfigConsts.DEFAULT_FIELD_SEPARATOR = ',';
+    CsvConfigConsts.DEFAULT_DECIMAL_SEPARATOR = '.';
+    CsvConfigConsts.DEFAULT_QUOTE = '"';
+    CsvConfigConsts.DEFAULT_SHOW_TITLE = false;
+    CsvConfigConsts.DEFAULT_TITLE = 'My Report';
+    CsvConfigConsts.DEFAULT_FILENAME = 'mycsv.csv';
+    CsvConfigConsts.DEFAULT_SHOW_LABELS = false;
+    CsvConfigConsts.DEFAULT_USE_BOM = true;
+    CsvConfigConsts.DEFAULT_HEADER = [];
+    CsvConfigConsts.DEFAULT_NO_DOWNLOAD = false;
+    CsvConfigConsts.DEFAULT_NULL_TO_EMPTY_STRING = false;
+    return CsvConfigConsts;
+}());
+exports.CsvConfigConsts = CsvConfigConsts;
+exports.ConfigDefaults = {
+    filename: CsvConfigConsts.DEFAULT_FILENAME,
+    fieldSeparator: CsvConfigConsts.DEFAULT_FIELD_SEPARATOR,
+    quoteStrings: CsvConfigConsts.DEFAULT_QUOTE,
+    decimalseparator: CsvConfigConsts.DEFAULT_DECIMAL_SEPARATOR,
+    showLabels: CsvConfigConsts.DEFAULT_SHOW_LABELS,
+    showTitle: CsvConfigConsts.DEFAULT_SHOW_TITLE,
+    title: CsvConfigConsts.DEFAULT_TITLE,
+    useBom: CsvConfigConsts.DEFAULT_USE_BOM,
+    headers: CsvConfigConsts.DEFAULT_HEADER,
+    noDownload: CsvConfigConsts.DEFAULT_NO_DOWNLOAD,
+    nullToEmptyString: CsvConfigConsts.DEFAULT_NULL_TO_EMPTY_STRING
+};
+var Angular5Csv = (function () {
+    function Angular5Csv(DataJSON, filename, options) {
+        this.csv = "";
+        var config = options || {};
+        this.data = typeof DataJSON != 'object' ? JSON.parse(DataJSON) : DataJSON;
+        this._options = objectAssign({}, exports.ConfigDefaults, config);
+        if (this._options.filename) {
+            this._options.filename = filename;
+        }
+        this.generateCsv();
+    }
+    /**
+     * Generate and Download Csv
+     */
+    Angular5Csv.prototype.generateCsv = function () {
+        if (this._options.useBom) {
+            this.csv += CsvConfigConsts.BOM;
+        }
+        if (this._options.showTitle) {
+            this.csv += this._options.title + '\r\n\n';
+        }
+        this.getHeaders();
+        this.getBody();
+        if (this.csv == '') {
+            console.log("Invalid data");
+            return;
+        }
+        if (this._options.noDownload) {
+            return this.csv;
+        }
+        var blob = new Blob([this.csv], { "type": "text/csv;charset=utf8;" });
+        if (navigator.msSaveBlob) {
+            var filename = this._options.filename.replace(/ /g, "_") + ".csv";
+            navigator.msSaveBlob(blob, filename);
+        }
+        else {
+            var uri = 'data:attachment/csv;charset=utf-8,' + encodeURI(this.csv);
+            var link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.setAttribute('visibility', 'hidden');
+            link.download = this._options.filename.replace(/ /g, "_") + ".csv";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    };
+    /**
+     * Create Headers
+     */
+    Angular5Csv.prototype.getHeaders = function () {
+        var _this = this;
+        if (this._options.headers.length > 0) {
+            var headers = this._options.headers;
+            var row = headers.reduce(function (headerRow, header) {
+                return headerRow + header + _this._options.fieldSeparator;
+            }, '');
+            row = row.slice(0, -1);
+            this.csv += row + CsvConfigConsts.EOL;
+        }
+    };
+    /**
+     * Create Body
+     */
+    Angular5Csv.prototype.getBody = function () {
+        for (var i = 0; i < this.data.length; i++) {
+            var row = "";
+            for (var index in this.data[i]) {
+                row += this.formatData(this.data[i][index]) + this._options.fieldSeparator;
+            }
+            row = row.slice(0, -1);
+            this.csv += row + CsvConfigConsts.EOL;
+        }
+    };
+    /**
+     * Format Data
+     * @param {any} data
+     */
+    Angular5Csv.prototype.formatData = function (data) {
+        if (this._options.decimalseparator === 'locale' && Angular5Csv.isFloat(data)) {
+            return data.toLocaleString();
+        }
+        if (this._options.decimalseparator !== '.' && Angular5Csv.isFloat(data)) {
+            return data.toString().replace('.', this._options.decimalseparator);
+        }
+        if (typeof data === 'string') {
+            data = data.replace(/"/g, '""');
+            if (this._options.quoteStrings || data.indexOf(',') > -1 || data.indexOf('\n') > -1 || data.indexOf('\r') > -1) {
+                data = this._options.quoteStrings + data + this._options.quoteStrings;
+            }
+            return data;
+        }
+        if (this._options.nullToEmptyString) {
+            if (data === null) {
+                return data = '';
+            }
+            return data;
+        }
+        if (typeof data === 'boolean') {
+            return data ? 'TRUE' : 'FALSE';
+        }
+        return data;
+    };
+    /**
+     * Check if is Float
+     * @param {any} input
+     */
+    Angular5Csv.isFloat = function (input) {
+        return +input === input && (!isFinite(input) || Boolean(input % 1));
+    };
+    return Angular5Csv;
+}());
+exports.Angular5Csv = Angular5Csv;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+/**
+ * Convet to Object
+ * @param {any} val
+ */
+function toObject(val) {
+    if (val === null || val === undefined) {
+        throw new TypeError('Object.assign cannot be called with null or undefined');
+    }
+    return Object(val);
+}
+/**
+ * Assign data  to new Object
+ * @param {any}   target
+ * @param {any[]} ...source
+ */
+function objectAssign(target) {
+    var source = [];
+    for (var _i = 1; _i < arguments.length; _i++) {
+        source[_i - 1] = arguments[_i];
+    }
+    var from;
+    var to = toObject(target);
+    var symbols;
+    for (var s = 1; s < arguments.length; s++) {
+        from = Object(arguments[s]);
+        for (var key in from) {
+            if (hasOwnProperty.call(from, key)) {
+                to[key] = from[key];
+            }
+        }
+        if (Object.getOwnPropertySymbols) {
+            symbols = Object.getOwnPropertySymbols(from);
+            for (var i = 0; i < symbols.length; i++) {
+                if (propIsEnumerable.call(from, symbols[i])) {
+                    to[symbols[i]] = from[symbols[i]];
+                }
+            }
+        }
+    }
+    return to;
+}
+//# sourceMappingURL=Angular5-csv.js.map
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/auth-header/auth-header.component.html":
 /*!***************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/auth/auth-header/auth-header.component.html ***!
@@ -112,12 +313,13 @@ AuthHeaderModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 /*!**********************************************!*\
   !*** ./src/app/shared/constants/constant.ts ***!
   \**********************************************/
-/*! exports provided: ERROR_MSG, IMG, MESSAGE, DELETE */
+/*! exports provided: ERROR_MSG, LIMIT, IMG, MESSAGE, DELETE */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ERROR_MSG", function() { return ERROR_MSG; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LIMIT", function() { return LIMIT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IMG", function() { return IMG; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MESSAGE", function() { return MESSAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE", function() { return DELETE; });
@@ -127,6 +329,7 @@ const ERROR_MSG = {
     HTTP_SUBSCRIBER_ERROR: 'Network Error.',
     UNAUTHURIZED_ERROR: 'You are not an authorized user.',
 };
+const LIMIT = [10, 20, 30];
 const IMG = {
     PRO: 'assets/images/change.png',
     USR: 'assets/images/noti-pro.png'
@@ -145,11 +348,132 @@ const DELETE = {
 
 /***/ }),
 
+/***/ "./src/app/shared/service/list/list.dataSource.ts":
+/*!********************************************************!*\
+  !*** ./src/app/shared/service/list/list.dataSource.ts ***!
+  \********************************************************/
+/*! exports provided: ListDataSource */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListDataSource", function() { return ListDataSource; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+class ListDataSource {
+    constructor(listService) {
+        this.listService = listService;
+        this.usersData = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]([]);
+        this.loadingUsers = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](false);
+        this.countInfo = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](0);
+        this.extra = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]('');
+        this.loading$ = this.loadingUsers.asObservable();
+        this.totalCount$ = this.countInfo.asObservable();
+        this.extra$ = this.extra.asObservable();
+    }
+    load(listObj, dataObj) {
+        this.loadingUsers.next(true);
+        this.listService.staffListing(listObj, dataObj).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["catchError"])((err) => Object(rxjs__WEBPACK_IMPORTED_MODULE_1__["of"])([err])), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_2__["finalize"])(() => this.loadingUsers.next(false))).subscribe((data) => {
+            if (data['res'] && data['res']['list']) {
+                this.usersData.next(data['res']['list']);
+                if (!listObj.search) {
+                    this.countInfo.next(data['res']['total']);
+                }
+                else {
+                    if (data['res']['total'] === 0) {
+                        this.countInfo.next(1);
+                    }
+                    else {
+                        this.countInfo.next(data['res']['total']);
+                    }
+                }
+                this.extra.next(data['res']['bp']);
+            }
+        });
+    }
+    connect(collectionViewer) {
+        return this.usersData.asObservable();
+    }
+    disconnect(collectionViewer) {
+        this.usersData.complete();
+        this.loadingUsers.complete();
+        this.countInfo.complete();
+        this.extra.complete();
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/app/shared/service/list/list.service.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/shared/service/list/list.service.ts ***!
+  \*****************************************************/
+/*! exports provided: ListService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ListService", function() { return ListService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var _http_request_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../http-request.service */ "./src/app/shared/service/http-request.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+
+
+
+let ListService = class ListService {
+    constructor(httpService) {
+        this.httpService = httpService;
+    }
+    staffListing(listObj, dataObj) {
+        let queryParams = new _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpParams"]();
+        for (let key in listObj) {
+            // if (key != ('api' || 'id')) {
+            // queryParams = (listObj[key] === 'asc') ? queryParams.set(key, '1') : queryParams.set(key, '-1');
+            queryParams = queryParams.set(key, listObj[key]);
+            // }
+        }
+        return this.httpService.getRequest('GET', dataObj.api, queryParams)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((res) => {
+            res.res.list = res.res['staffs'] || res.res['wlkUsr'] || res.res['promo'];
+            delete res.res['staffs'] || res.res['wlkUsr'] || res.res['promo'];
+            return res;
+        }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])((err, caught) => {
+            if (err.status === 401) {
+            }
+            return rxjs__WEBPACK_IMPORTED_MODULE_2__["Observable"].throw(err.statusText);
+        }));
+    }
+};
+ListService.ctorParameters = () => [
+    { type: _http_request_service__WEBPACK_IMPORTED_MODULE_4__["HttpRequestService"] }
+];
+ListService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], ListService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/service/validation-service.ts":
 /*!******************************************************!*\
   !*** ./src/app/shared/service/validation-service.ts ***!
   \******************************************************/
-/*! exports provided: ValidationService, passValidator, PassValid */
+/*! exports provided: ValidationService, passValidator, PassValid, date, DateValidators */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -157,6 +481,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ValidationService", function() { return ValidationService; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "passValidator", function() { return passValidator; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PassValid", function() { return PassValid; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "date", function() { return date; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DateValidators", function() { return DateValidators; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 
 class ValidationService {
@@ -222,21 +548,54 @@ class ValidationService {
     static phonevalidator(control) {
         // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {
         // if (control.value && control.value.match(/^[^-\s][0-9_\s-]+$/)) {
-        if (control && control.value && control.value.match(/^[0-9]{7,12}$/)) {
+        if (control.value && control.value.match(/^[0-9]{7,12}$/)) {
             return null;
         }
         else {
             return { Invalidphone: true };
         }
     }
+    static date(control) {
+        console.log(control);
+        if (control && (control.value !== null || control.value !== undefined)) {
+            let frm = control.get("frm").value || "";
+            let to = control.get("to").value || "";
+            // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {\
+            console.log(frm && !to);
+            if (frm && !to) {
+                control.get('to').enable();
+                return null;
+            }
+            else if (frm && to) {
+                new Date(frm) > new Date(to);
+                return { invalid: true };
+            }
+            else
+                return { invalid: true };
+        }
+        return null;
+    }
     static numberValidator(control) {
         // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {
-        if (control.value && control.value.match(/^[0-9]*$/)) {
+        if (control.value && String(control.value).match(/^[0-9]*$/)) {
             return null;
         }
-        else {
-            return { InvalidNumber: true };
+        else if (control.value) {
+            return null;
         }
+        else
+            return { invalid: true };
+    }
+    static codeValidator(control) {
+        // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {
+        if (control.value && control.value.match(/^[a-zA-Z0-9]*$/)) {
+            return null;
+        }
+        else if (control.value) {
+            return null;
+        }
+        else
+            return { invalid: true };
     }
     static dateValidator(control) {
         // for yyyy-mm-dd formate
@@ -283,7 +642,6 @@ class PassValid {
     static MatchPassword(AC) {
         let password = AC.get("newPassword").value || ""; // to get value in input tag
         let confirmPassword = AC.get("confirmPassword").value || ""; // to get value in input tagc
-        console.log(confirmPassword, '========');
         // if (confirmPassword.length < 0)
         //   return AC.get("confirmPassword").setErrors({ required: true });
         if (password.length >= 1 && confirmPassword.length <= 20) {
@@ -293,6 +651,47 @@ class PassValid {
             else {
                 return AC.get("confirmPassword").setErrors({ MatchPassword: true });
             }
+        }
+        return null;
+    }
+}
+function date(control) {
+    console.log(control);
+    if (control && (control.value !== null || control.value !== undefined)) {
+        let frm = control.get("frm").value || "";
+        let to = control.get("to").value || "";
+        // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {\
+        console.log(frm && !to);
+        if (frm && !to) {
+            control.get('to').enable();
+            return null;
+        }
+        else if (frm && to) {
+            new Date(frm) > new Date(to);
+            return { invalid: true };
+        }
+        else
+            return { invalid: true };
+    }
+    return false;
+}
+class DateValidators {
+    static valid(control) {
+        if (control && (control.value !== null || control.value !== undefined)) {
+            let frm = control.get("frm").value || "";
+            let to = control.get("to").value || "";
+            // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {\
+            console.log(frm && !to);
+            if (frm && !to) {
+                control.get('to').enable();
+                return null;
+            }
+            else if (frm && to) {
+                new Date(frm) > new Date(to);
+                return { invalid: true };
+            }
+            else
+                return { invalid: true };
         }
         return null;
     }

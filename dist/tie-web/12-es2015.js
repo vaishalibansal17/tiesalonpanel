@@ -1,202 +1,693 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[12],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/reset-password/reset-password.component.html":
+/***/ "./node_modules/ng-starrating/fesm2015/ng-starrating.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/ng-starrating/fesm2015/ng-starrating.js ***!
+  \**************************************************************/
+/*! exports provided: RatingModule, StarRatingComponent, ɵa */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RatingModule", function() { return RatingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StarRatingComponent", function() { return StarRatingComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return RatingComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+//import { StarRatingComponent } from '../components/star-rating/star-rating.component'
+class RatingComponent {
+    constructor() { }
+    /**
+     * @return {?}
+     */
+    ngOnInit() {
+    }
+}
+RatingComponent.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                selector: 'lib-rating',
+                template: `
+    <p>
+      rating works!
+    </p>
+  `
+            }] }
+];
+/** @nocollapse */
+RatingComponent.ctorParameters = () => [];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class StarRatingComponent {
+    constructor() {
+        this.stars = [];
+        this._readOnly = false;
+        this._totalStars = 5;
+        this.rate = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        if (!this.onStarsCountChange) {
+            this.onStarsCountChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+            this.onStarsCountChange.subscribe((/**
+             * @return {?}
+             */
+            () => {
+                this.setStars();
+                this.generateRating(true);
+                this.applySizeAllStars();
+                this.applyColorStyleAllStars(false);
+                this.addRemoveEvents();
+            }));
+        }
+        if (!this.onValueChange) {
+            this.onValueChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+            this.onValueChange.subscribe((/**
+             * @return {?}
+             */
+            () => {
+                this.generateRating();
+                this.applySizeAllStars();
+            }));
+        }
+        if (!this.onCheckedColorChange) {
+            this.onCheckedColorChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+            this.onCheckedColorChange.subscribe((/**
+             * @return {?}
+             */
+            () => {
+                this.applyColorStyleAllStars(true);
+            }));
+        }
+        if (!this.onUnCheckedColorChange) {
+            this.onUnCheckedColorChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+            this.onUnCheckedColorChange.subscribe((/**
+             * @return {?}
+             */
+            () => {
+                this.applyColorStyleAllStars(false);
+            }));
+        }
+        if (!this.onSizeChange) {
+            this.onSizeChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+            this.onSizeChange.subscribe((/**
+             * @return {?}
+             */
+            () => {
+                this.applySizeAllStars();
+            }));
+        }
+        if (!this.onReadOnlyChange) {
+            this.onReadOnlyChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+            this.onReadOnlyChange.subscribe((/**
+             * @return {?}
+             */
+            () => {
+                this.addRemoveEvents();
+            }));
+        }
+    }
+    /**
+     * @return {?}
+     */
+    get checkedcolor() {
+        return this._checkedColor;
+    }
+    /**
+     * @return {?}
+     */
+    get uncheckedcolor() {
+        return this._unCheckedColor;
+    }
+    /**
+     * @return {?}
+     */
+    get value() {
+        return this._value;
+    }
+    /**
+     * @return {?}
+     */
+    get size() {
+        return this._size.concat((!this._size.includes("px") ? "px" : ""));
+    }
+    /**
+     * @return {?}
+     */
+    get readonly() {
+        return String(this._readOnly) === "true";
+    }
+    /**
+     * @return {?}
+     */
+    get totalstars() {
+        return this._totalStars;
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set checkedcolor(value) {
+        this._checkedColor = value;
+        this._checkedColor && this.onCheckedColorChange.next(this._checkedColor);
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set uncheckedcolor(value) {
+        this._unCheckedColor = value;
+        this._unCheckedColor && this.onUnCheckedColorChange.next(this._unCheckedColor);
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set value(value) {
+        value = (!value || value == null) ? 0 : value;
+        value > this.stars.length && (value = this.stars.length);
+        this._value = value;
+        this._value >= 0 && this.onValueChange.next(this._value);
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set size(value) {
+        value = (!value || value == null || value == "0px") ? "24px" : value;
+        this._size = value;
+        this.onSizeChange.next(this._size);
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set readonly(value) {
+        this._readOnly = value;
+        this.onReadOnlyChange.next(value);
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set totalstars(value) {
+        this._totalStars = value <= 0 ? 5 : value;
+        this.onStarsCountChange.next(Number(value));
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    makeEditable() {
+        this.mainElement.nativeElement.addEventListener('mouseleave', this.offStar.bind(this));
+        this.mainElement.nativeElement.style.cursor = "pointer";
+        this.mainElement.nativeElement.title = this.value;
+        this.stars.forEach((/**
+         * @param {?} star
+         * @return {?}
+         */
+        (star) => {
+            star.addEventListener('click', this.onRate.bind(this));
+            star.addEventListener('mouseenter', this.onStar.bind(this));
+            star.style.cursor = "pointer";
+            star.title = star.dataset.index;
+        }));
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    makeReadOnly() {
+        this.mainElement.nativeElement.__zone_symbol__mouseleavefalse = null;
+        this.mainElement.nativeElement.style.cursor = "default";
+        this.mainElement.nativeElement.title = this.value;
+        this.stars.forEach((/**
+         * @param {?} star
+         * @return {?}
+         */
+        (star) => {
+            star.__zone_symbol__clickfalse = null;
+            star.__zone_symbol__mouseenterfalse = null;
+            star.style.cursor = "default";
+            star.title = "";
+        }));
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    addRemoveEvents() {
+        if (this.readonly) {
+            this.makeReadOnly();
+        }
+        else {
+            this.makeEditable();
+            this.onValueChange.next(this.value);
+        }
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    ngAfterViewInit() {
+    }
+    /**
+     * @private
+     * @param {?} event
+     * @return {?}
+     */
+    onRate(event) {
+        /** @type {?} */
+        let star = (/** @type {?} */ (event.srcElement));
+        /** @type {?} */
+        let oldValue = this.value;
+        this.value = parseInt(star.dataset.index);
+        if (this.value == 0) {
+            this.value = 1;
+        }
+        /** @type {?} */
+        let rateValues = { oldValue: oldValue, newValue: this.value, starRating: this };
+        this.rate.emit(rateValues);
+    }
+    /**
+     * @private
+     * @param {?} event
+     * @return {?}
+     */
+    onStar(event) {
+        /** @type {?} */
+        let star = (/** @type {?} */ (event.srcElement));
+        /** @type {?} */
+        let currentIndex = parseInt(star.dataset.index);
+        for (let index = 0; index < currentIndex; index++) {
+            this.stars[index].className = "";
+            this.addDefaultClass(this.stars[index]);
+            this.addCheckedStarClass(this.stars[index]);
+        }
+        for (let index = currentIndex; index < this.stars.length; index++) {
+            this.stars[index].className = "";
+            this.addDefaultClass(this.stars[index]);
+        }
+    }
+    /**
+     * @private
+     * @param {?} event
+     * @return {?}
+     */
+    offStar(event) {
+        this.generateRating();
+    }
+    /**
+     * @private
+     * @param {?} star
+     * @return {?}
+     */
+    addDefaultClass(star) {
+        star.classList.add(StarRatingComponent.CLS_DEFAULT_STAR);
+    }
+    /**
+     * @private
+     * @param {?} star
+     * @return {?}
+     */
+    addCheckedStarClass(star) {
+        star.classList.add(StarRatingComponent.CLS_CHECKED_STAR);
+    }
+    /**
+     * @private
+     * @param {?} star
+     * @return {?}
+     */
+    addHalfStarClass(star) {
+        star.classList.add(StarRatingComponent.CLS_HALF_STAR);
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    setStars() {
+        /** @type {?} */
+        let starContainer = this.mainElement.nativeElement;
+        /** @type {?} */
+        let maxStars = [...Array(Number(this.totalstars)).keys()];
+        this.stars.length = 0;
+        starContainer.innerHTML = "";
+        maxStars.forEach((/**
+         * @param {?} starNumber
+         * @return {?}
+         */
+        starNumber => {
+            /** @type {?} */
+            let starElement = document.createElement("span");
+            starElement.dataset.index = (starNumber + 1).toString();
+            starElement.title = starElement.dataset.index;
+            starContainer.appendChild(starElement);
+            this.stars.push(starElement);
+        }));
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    applySizeAllStars() {
+        if (this._size) {
+            this.stars.length == 0 && this.setStars();
+            this.stars.forEach((/**
+             * @param {?} star
+             * @return {?}
+             */
+            (star) => {
+                /** @type {?} */
+                let newSize = this.size.match(/\d+/)[0];
+                /** @type {?} */
+                let halfSize = (parseInt(newSize) * 10) / 24;
+                /** @type {?} */
+                let halfMargin = 0 - ((parseInt(newSize) * 20) / 24);
+                star.style.setProperty(StarRatingComponent.VAR_SIZE, this.size);
+                if (star.classList.contains(StarRatingComponent.CLS_HALF_STAR)) {
+                    star.style.setProperty(StarRatingComponent.VAR_HALF_WIDTH, `${halfSize}px`);
+                    star.style.setProperty(StarRatingComponent.VAR_HALF_MARGIN, `${halfMargin}px`);
+                }
+            }));
+        }
+    }
+    /**
+     * @private
+     * @param {?} setChecked
+     * @return {?}
+     */
+    applyColorStyleAllStars(setChecked) {
+        this.stars.length == 0 && this.setStars();
+        this.stars.forEach((/**
+         * @param {?} star
+         * @return {?}
+         */
+        (star) => {
+            if (setChecked) {
+                this.applyCheckedColorStyle(star);
+            }
+            else {
+                this.applyUnCheckedColorStyle(star);
+            }
+        }));
+    }
+    /**
+     * @private
+     * @param {?} starElement
+     * @return {?}
+     */
+    applyColorStyle(starElement) {
+        this.applyCheckedColorStyle(starElement);
+        this.applyUnCheckedColorStyle(starElement);
+    }
+    /**
+     * @private
+     * @param {?} starElement
+     * @return {?}
+     */
+    applyCheckedColorStyle(starElement) {
+        starElement.style.setProperty(StarRatingComponent.VAR_CHECKED_COLOR, this.checkedcolor);
+    }
+    /**
+     * @private
+     * @param {?} starElement
+     * @return {?}
+     */
+    applyUnCheckedColorStyle(starElement) {
+        starElement.style.setProperty(StarRatingComponent.VAR_UNCHECKED_COLOR, this.uncheckedcolor);
+    }
+    /**
+     * @private
+     * @param {?=} forceGenerate
+     * @return {?}
+     */
+    generateRating(forceGenerate = false) {
+        if (this.readonly && !forceGenerate) {
+            return;
+        }
+        this.stars.length == 0 && this.setStars();
+        if (this.value >= 0) {
+            this.mainElement.nativeElement.title = this.value;
+            /** @type {?} */
+            let hasDecimals = ((Number.parseFloat(this.value.toString()) % 1)
+                .toString()
+                .substring(3, 2)) ? true : false;
+            /** @type {?} */
+            let i = 1;
+            this.stars.forEach((/**
+             * @param {?} star
+             * @return {?}
+             */
+            (star) => {
+                star.className = "";
+                this.applyColorStyle(star);
+                this.addDefaultClass(star);
+                if (this.value >= i) {
+                    // star on
+                    this.addCheckedStarClass(star);
+                }
+                else {
+                    // half star
+                    if (hasDecimals) {
+                        this.addHalfStarClass(star);
+                        hasDecimals = false;
+                    }
+                }
+                i++;
+            }));
+        }
+    }
+}
+StarRatingComponent.VAR_CHECKED_COLOR = '--checkedColor';
+StarRatingComponent.VAR_UNCHECKED_COLOR = '--unCheckedColor';
+StarRatingComponent.VAR_SIZE = '--size';
+StarRatingComponent.VAR_HALF_WIDTH = '--halfWidth';
+StarRatingComponent.VAR_HALF_MARGIN = '--halfMargin';
+StarRatingComponent.CLS_CHECKED_STAR = 'on';
+StarRatingComponent.CLS_DEFAULT_STAR = 'star';
+StarRatingComponent.CLS_HALF_STAR = 'half';
+StarRatingComponent.INP_CHECKED_COLOR = 'checkedcolor';
+StarRatingComponent.INP_UNCHECKED_COLOR = 'uncheckedcolor';
+StarRatingComponent.INP_VALUE = 'value';
+StarRatingComponent.INP_SIZE = 'size';
+StarRatingComponent.INP_READONLY = 'readonly';
+StarRatingComponent.INP_TOTALSTARS = 'totalstars';
+StarRatingComponent.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                selector: 'star-rating',
+                template: "<div #starMain>\r\n</div>",
+                encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None,
+                styles: [":root{--checkedColor:gold;--unCheckedColor:gray;--size:24px;--halfWidth:10px;--halfMargin:-20px}.star{cursor:pointer;color:var(--unCheckedColor);font-size:var(--size);width:var(--size);display:inline-block}.star:last-child{margin-right:0}.star:before{content:'\\2605'}.star.on{color:var(--checkedColor)}.star.half:after{content:'\\2605';color:var(--checkedColor);position:absolute;margin-left:var(--halfMargin);width:var(--halfWidth);overflow:hidden}"]
+            }] }
+];
+/** @nocollapse */
+StarRatingComponent.ctorParameters = () => [];
+StarRatingComponent.propDecorators = {
+    mainElement: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: ['starMain', { static: true },] }],
+    rate: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    checkedcolor: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: [StarRatingComponent.INP_CHECKED_COLOR,] }],
+    uncheckedcolor: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: [StarRatingComponent.INP_UNCHECKED_COLOR,] }],
+    value: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: [StarRatingComponent.INP_VALUE,] }],
+    size: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: [StarRatingComponent.INP_SIZE,] }],
+    readonly: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: [StarRatingComponent.INP_READONLY,] }],
+    totalstars: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"], args: [StarRatingComponent.INP_TOTALSTARS,] }]
+};
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class RatingModule {
+    /**
+     * @return {?}
+     */
+    ngDoBootstrap() { }
+}
+RatingModule.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
+                imports: [
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"],
+                    _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]
+                ],
+                declarations: [
+                    RatingComponent,
+                    StarRatingComponent
+                ],
+                exports: [StarRatingComponent],
+                entryComponents: [StarRatingComponent]
+            },] }
+];
+
+
+//# sourceMappingURL=ng-starrating.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffreview/staffreview.component.html":
 /*!*********************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/auth/reset-password/reset-password.component.html ***!
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffreview/staffreview.component.html ***!
   \*********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main_bg\">\n    <div class=\"fixed-nav\">\n        <ul>\n            <li></li>\n            <li></li>\n            <li class=\"active\"></li>\n        </ul>\n    </div>\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-md-6 main-left\">\n                <div class=\"full-vertical\">\n                    <img class=\"on_board\" src=\"assets/images/img_onboard_3.png\" alt=\"Login\">\n                    <div class=\"head\">boost your reputation with <span>reviews</span></div>\n                </div>\n            </div>\n            <div class=\"col-md-6 main-right\">\n                <div class=\"fixed-back\"><a [routerLink]=\"['/auth']\"><i class=\"fa fa-angle-left\"></i></a></div>\n                <app-auth-header></app-auth-header>\n                <div class=\"full-vertical custom-width\">\n                    <div class=\"logo\"><img src=\"assets/images/tie_logo_black.png\" alt=\"Logo\"></div>\n                    <h1 class=\"head\">{{'RSTPASS'| translate}}</h1>\n                    <p class=\"text-center\">{{'ENTRNWPASS'| translate}}</p>\n                    <div class=\"login-form\">\n                        <form name=\"reset\" (ngSubmit)=\"resetPassword()\" [formGroup]=\"reset\">\n                            <mat-form-field>\n                                <span class=\"email-img pass\"><img src=\"assets/images/lock.png\" alt=\"envelope\"></span>\n                                <input matInput placeholder=\"{{'PLACEHOLDERLNPASS' | translate}}\" [type]=\"nhide ? 'password' : 'text'\"\n                                    maxlength=\"20\" (keydown.space)=\"$event.preventDefault()\"\n                                    formControlName='newPassword' class=\"form-control\">\n                                <button type=\"button\" mat-icon-button matSuffix (click)=\"nhide = !nhide\"\n                                    [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                                    <mat-icon>{{nhide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                                </button>\n                            </mat-form-field>\n                            <div\n                                *ngIf=\"(submitted) && getControl.newPassword.errors\">\n                                <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.required\">{{'RESETPASSREQ'| translate}}\n                                </p>\n                                <!-- <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.minlength \">{{'PASSPATTERN'| translate}}</p> -->\n                                <span *ngIf=\"!getControl.newPassword.errors.required\">\n                                    <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.invalidPassword\">{{'PASSPATTERN'| translate}}</p>\n                                </span>\n                            </div>\n                            <mat-form-field>\n                                <span class=\"email-img pass\"><img src=\"assets/images/lock.png\" alt=\"envelope\"></span>\n                                <input matInput placeholder=\"{{'RESTPLACEHOLDERLCONFIRMPASS' | translate}}\" [type]=\"chide ? 'password' : 'text'\"\n                                    maxlength=\"20\" (keydown.space)=\"$event.preventDefault()\"\n                                    formControlName='confirmPassword' class=\"form-control\">\n                                <button type=\"button\" mat-icon-button matSuffix (click)=\"chide = !chide\"\n                                    [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                                    <mat-icon>{{chide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                                </button>\n                            </mat-form-field>\n                            <div\n                                *ngIf=\"(submitted) && getControl.confirmPassword.errors\">\n                                <p class=\"color error\" *ngIf=\"getControl.confirmPassword.errors.required\">{{'RESETPASSCNFREQ'| translate}}</p>\n                                <span *ngIf=\"!getControl.confirmPassword.errors.required\">\n                                    <p class=\"color error\" *ngIf=\"getControl.confirmPassword.invalid\">{{'RESETPASSNOTMATCH'| translate}}</p>\n                                </span>\n                            </div>\n                            <button type=\"submit\" class=\"btn btn-submit\">{{'RESET' | translate}}</button>\n                        </form>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-6\">\n            <h3>{{'RATING' | translate}}</h3>\n        </div>\n        <div class=\"col-md-6 alignright\">\n            <div class=\"rating\"><span class=\"big\">{{detail && detail.avg_rating?(detail.avg_rating | round):0}}</span><span class=\"small\">(5)</span></div>\n            <div class=\"reviews\"><ngx-stars [readonly]=\"true\" [color]=\"'#f7c133'\" [size]=\"5\" [initialStars]=\"detail.avg_rating ? (detail.avg_rating | round):0\"></ngx-stars>\n            </div>\n        </div>\n\n        <div class=\"col-md-3 rating_head\">{{'PROFESS' | translate}}</div>\n        <div class=\"col-md-6 rating_mat\">\n            <mat-progress-bar mode=\"determinate\" value=\"{{detail && detail.avg_pro? (detail.avg_pro | prcnt) :0 }}\" class=\"high\"></mat-progress-bar>\n        </div>\n        <div class=\"col-md-3 rating_mark\">{{detail && detail.avg_pro? (detail.avg_pro | round):0 }}/5</div>\n\n        <div class=\"col-md-3 rating_head\">{{'CUSTMRSRV' | translate}}</div>\n        <div class=\"col-md-6 rating_mat\">\n            <mat-progress-bar mode=\"determinate\" value=\"{{detail && detail.avg_cus? (detail.avg_cus | prcnt):0}}\" class=\"average\"></mat-progress-bar>\n        </div>\n        <div class=\"col-md-3 rating_mark\">{{detail && detail.avg_cus? detail.avg_cus:0 }}/5</div>\n\n        <div class=\"col-md-3 rating_head\">{{'CLEANES' | translate}}</div>\n        <div class=\"col-md-6 rating_mat\">\n            <mat-progress-bar mode=\"determinate\" value=\"{{detail && detail.avg_cln? (detail.avg_cln | prcnt):0}}\" class=\"equalhigh\"></mat-progress-bar>\n        </div>\n        <div class=\"col-md-3 rating_mark\">{{detail && detail.avg_cln? detail.avg_cln:0}}/5</div>\n\n        <div class=\"col-md-3 rating_head\">{{'TIMING' | translate}}</div>\n        <div class=\"col-md-6 rating_mat\">\n            <mat-progress-bar mode=\"determinate\" value=\"{{detail && detail.avg_tmg? (detail.avg_tmg | prcnt):0}}\" class=\"lesshigh\"></mat-progress-bar>\n        </div>\n        <div class=\"col-md-3 rating_mark\">{{detail && detail.avg_tmg? detail.avg_tmg:0}}/5</div>\n        <div class=\"clearfix space\">&nbsp;</div>\n        <div class=\"col-md-12\">\n            <h3>{{'RCNTREVIW' | translate}}:</h3>\n        </div>\n        <div class=\"staffdetail_notifi\" *ngIf=\"detail\">\n            <div class=\"notifi_list\" *ngFor=\"let review of detail.reviews\">\n                <div class=\"noti_left\"><img [src]=\"review.img? (detail.usr_bp + review.img):usrurl\" alt=\"\"></div>\n                <div class=\"noti_right\">\n                    <div class=\"author-review\">\n                        <div class=\"author\">{{review.name | titlecase}}</div>\n                        <div class=\"reviews\">\n                            <div class=\"staffdetail_staff\"><ngx-stars [readonly]=\"true\" [color]=\"'#f7c133'\" [size]=\"5\" [initialStars]=\"review.rvw_rt\"></ngx-stars></div>\n                        </div>\n                    </div>\n                    {{review.comment}}\n                </div>\n            </div>\n            <div class=\"text-center\"><button type=\"button\" class=\"btn btn-submit\" (click)=\"paginate()\">Load More</button></div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
-/***/ "./src/app/auth/reset-password/reset-password-routing.module.ts":
+/***/ "./src/app/home/staff/staffreview/staffreview-routing.module.ts":
 /*!**********************************************************************!*\
-  !*** ./src/app/auth/reset-password/reset-password-routing.module.ts ***!
+  !*** ./src/app/home/staff/staffreview/staffreview-routing.module.ts ***!
   \**********************************************************************/
-/*! exports provided: ResetPasswordRoutingModule */
+/*! exports provided: StaffreviewRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetPasswordRoutingModule", function() { return ResetPasswordRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffreviewRoutingModule", function() { return StaffreviewRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _reset_password_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reset-password.component */ "./src/app/auth/reset-password/reset-password.component.ts");
+/* harmony import */ var _staffreview_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./staffreview.component */ "./src/app/home/staff/staffreview/staffreview.component.ts");
 
 
 
 
 const routes = [{
-        path: '', component: _reset_password_component__WEBPACK_IMPORTED_MODULE_3__["ResetPasswordComponent"]
+        path: '', component: _staffreview_component__WEBPACK_IMPORTED_MODULE_3__["StaffreviewComponent"]
     }];
-let ResetPasswordRoutingModule = class ResetPasswordRoutingModule {
+let StaffreviewRoutingModule = class StaffreviewRoutingModule {
 };
-ResetPasswordRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+StaffreviewRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], ResetPasswordRoutingModule);
+], StaffreviewRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/auth/reset-password/reset-password.component.scss":
+/***/ "./src/app/home/staff/staffreview/staffreview.component.scss":
 /*!*******************************************************************!*\
-  !*** ./src/app/auth/reset-password/reset-password.component.scss ***!
+  !*** ./src/app/home/staff/staffreview/staffreview.component.scss ***!
   \*******************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2F1dGgvcmVzZXQtcGFzc3dvcmQvcmVzZXQtcGFzc3dvcmQuY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".reviews {\n  text-align: right;\n  float: right;\n}\n\n.staffdetail_notifi {\n  width: 100%;\n}\n\n.btn.btn-submit {\n  margin: 10px auto 0px;\n  font-size: 15px;\n  padding: 10px 50px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9zdGFmZi9zdGFmZnJldmlldy9zdGFmZnJldmlldy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9zdGFmZi9zdGFmZnJldmlldy9zdGFmZnJldmlldy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUFTLGlCQUFBO0VBQWtCLFlBQUE7QUNHM0I7O0FERkE7RUFBb0IsV0FBQTtBQ01wQjs7QURMQTtFQUFrQixxQkFBQTtFQUFzQixlQUFBO0VBQWdCLGtCQUFBO0FDV3hEIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9zdGFmZi9zdGFmZnJldmlldy9zdGFmZnJldmlldy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yZXZpZXdze3RleHQtYWxpZ246IHJpZ2h0O2Zsb2F0OiByaWdodDt9XG4uc3RhZmZkZXRhaWxfbm90aWZpe3dpZHRoOiAxMDAlO31cbi5idG4uYnRuLXN1Ym1pdCB7IG1hcmdpbjogMTBweCBhdXRvIDBweDtmb250LXNpemU6IDE1cHg7cGFkZGluZzogMTBweCA1MHB4O31cblxuIiwiLnJldmlld3Mge1xuICB0ZXh0LWFsaWduOiByaWdodDtcbiAgZmxvYXQ6IHJpZ2h0O1xufVxuXG4uc3RhZmZkZXRhaWxfbm90aWZpIHtcbiAgd2lkdGg6IDEwMCU7XG59XG5cbi5idG4uYnRuLXN1Ym1pdCB7XG4gIG1hcmdpbjogMTBweCBhdXRvIDBweDtcbiAgZm9udC1zaXplOiAxNXB4O1xuICBwYWRkaW5nOiAxMHB4IDUwcHg7XG59Il19 */");
 
 /***/ }),
 
-/***/ "./src/app/auth/reset-password/reset-password.component.ts":
+/***/ "./src/app/home/staff/staffreview/staffreview.component.ts":
 /*!*****************************************************************!*\
-  !*** ./src/app/auth/reset-password/reset-password.component.ts ***!
+  !*** ./src/app/home/staff/staffreview/staffreview.component.ts ***!
   \*****************************************************************/
-/*! exports provided: ResetPasswordComponent */
+/*! exports provided: StaffreviewComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetPasswordComponent", function() { return ResetPasswordComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffreviewComponent", function() { return StaffreviewComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/service/validation-service */ "./src/app/shared/service/validation-service.ts");
-/* harmony import */ var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/service/error.service */ "./src/app/shared/service/error.service.ts");
-/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/constants/constant */ "./src/app/shared/constants/constant.ts");
+/* harmony import */ var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
+/* harmony import */ var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/service/error.service */ "./src/app/shared/service/error.service.ts");
 
 
 
 
 
 
-
-
-
-
-let ResetPasswordComponent = class ResetPasswordComponent {
-    constructor(httpService, router, fb, routes, error, trns) {
-        this.httpService = httpService;
-        this.router = router;
-        this.fb = fb;
+let StaffreviewComponent = class StaffreviewComponent {
+    constructor(routes, httpService, error) {
         this.routes = routes;
+        this.httpService = httpService;
         this.error = error;
-        this.trns = trns;
-        this.chide = true;
-        this.nhide = true;
-        this.isLoading = false;
-        this.passShow = true;
-        this.cPassShow = true;
-        this.formData = new FormData();
-        this.unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subject"];
+        this.limitPage = 5;
+        this.url = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_3__["IMG"].PRO;
+        this.usrurl = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_3__["IMG"].PRO;
+        this.page = 0;
     }
     ngOnInit() {
-        this.token = this.routes.snapshot.params.token;
-        if (this.token)
-            this.token = this.token.replace(/\s/g, "+");
-        localStorage.clear();
-        this.reset = this.fb.group({
-            newPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6),
-                src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].passwordValidator
-            ]),
-            confirmPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["passValidator"]])
-        });
-        this.reset.get('newPassword').valueChanges
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["takeUntil"])(this.unsubscribeAll))
-            .subscribe(() => {
-            this.reset.get('confirmPassword').updateValueAndValidity();
+        this.id = this.routes.snapshot.params.id;
+        this.getStaffReview();
+    }
+    getStaffReview() {
+        this.httpService.getRequest('GET_PARMS', 'STAFF_REVIEW', this.id, `${'limit=' + this.limitPage}`)
+            .subscribe((response) => {
+            if (response.status === 1) {
+                this.detail = response.res;
+            }
+            else {
+                if (response.err) {
+                    this.error.handleError(response.err.errCode);
+                }
+            }
+        }, (error) => {
+            this.error.handleError(0);
+            // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
         });
     }
-    get getControl() { return this.reset.controls; }
-    resetPassword() {
-        this.submitted = true;
-        if (!this.reset.valid) {
-            return;
-        }
-        else {
-            this.httpService.getRequest('POST', 'RESET', { pass: this.reset.value.newPassword, tkn: this.token }).subscribe((response) => {
-                if (response.status === 1) {
-                    this.router.navigateByUrl('/auth')
-                        .then(() => {
-                        this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('RESETPASSSUCC'));
-                    });
-                }
-                else {
-                    if (response.err) {
-                        this.error.handleError(response.err.errCode);
-                    }
-                    else {
-                        this.error.handleError(0);
-                    }
-                }
-            }, err => {
-                this.error.handleError(0);
-            });
-        }
-    }
-    ngDestroy() {
-        this.unsubscribeAll.next();
-        this.unsubscribeAll.complete();
+    paginate() {
+        this.limitPage = this.limitPage + 5;
+        this.getStaffReview();
     }
 };
-ResetPasswordComponent.ctorParameters = () => [
-    { type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
-    { type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__["ErrorService"] },
-    { type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"] }
+StaffreviewComponent.ctorParameters = () => [
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
+    { type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_4__["HttpRequestService"] },
+    { type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__["ErrorService"] }
 ];
-ResetPasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+StaffreviewComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-reset-password',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./reset-password.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/reset-password/reset-password.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./reset-password.component.scss */ "./src/app/auth/reset-password/reset-password.component.scss")).default]
+        selector: 'app-staffreview',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./staffreview.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffreview/staffreview.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./staffreview.component.scss */ "./src/app/home/staff/staffreview/staffreview.component.scss")).default]
     })
-], ResetPasswordComponent);
+], StaffreviewComponent);
 
 
 
 /***/ }),
 
-/***/ "./src/app/auth/reset-password/reset-password.module.ts":
+/***/ "./src/app/home/staff/staffreview/staffreview.module.ts":
 /*!**************************************************************!*\
-  !*** ./src/app/auth/reset-password/reset-password.module.ts ***!
+  !*** ./src/app/home/staff/staffreview/staffreview.module.ts ***!
   \**************************************************************/
-/*! exports provided: ResetPasswordModule */
+/*! exports provided: StaffreviewModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResetPasswordModule", function() { return ResetPasswordModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffreviewModule", function() { return StaffreviewModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _reset_password_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reset-password-routing.module */ "./src/app/auth/reset-password/reset-password-routing.module.ts");
-/* harmony import */ var _reset_password_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reset-password.component */ "./src/app/auth/reset-password/reset-password.component.ts");
-/* harmony import */ var src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/material/material.module */ "./src/app/shared/material/material.module.ts");
-/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _staffreview_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./staffreview-routing.module */ "./src/app/home/staff/staffreview/staffreview-routing.module.ts");
+/* harmony import */ var _staffreview_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./staffreview.component */ "./src/app/home/staff/staffreview/staffreview.component.ts");
+/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var ng_starrating__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ng-starrating */ "./node_modules/ng-starrating/fesm2015/ng-starrating.js");
+/* harmony import */ var ngx_stars__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ngx-stars */ "./node_modules/ngx-stars/fesm2015/ngx-stars.js");
 /* harmony import */ var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
 /* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
-/* harmony import */ var _auth_header_auth_header_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../auth-header/auth-header.module */ "./src/app/auth/auth-header/auth-header.module.ts");
 
 
 
@@ -207,100 +698,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-let ResetPasswordModule = class ResetPasswordModule {
+let StaffreviewModule = class StaffreviewModule {
 };
-ResetPasswordModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+StaffreviewModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_reset_password_component__WEBPACK_IMPORTED_MODULE_4__["ResetPasswordComponent"]],
+        declarations: [_staffreview_component__WEBPACK_IMPORTED_MODULE_4__["StaffreviewComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
-            _reset_password_routing_module__WEBPACK_IMPORTED_MODULE_3__["ResetPasswordRoutingModule"],
-            src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__["MaterialModule"],
-            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"],
-            src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"],
-            _auth_header_auth_header_module__WEBPACK_IMPORTED_MODULE_10__["AuthHeaderModule"]
-        ],
-        providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"]],
-        schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]],
+            _staffreview_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffreviewRoutingModule"],
+            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
+            ng_starrating__WEBPACK_IMPORTED_MODULE_6__["RatingModule"],
+            ngx_stars__WEBPACK_IMPORTED_MODULE_7__["NgxStarsModule"],
+            src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"]
+        ], providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"]]
     })
-], ResetPasswordModule);
-
-
-
-/***/ }),
-
-/***/ "./src/app/shared/service/error.service.ts":
-/*!*************************************************!*\
-  !*** ./src/app/shared/service/error.service.ts ***!
-  \*************************************************/
-/*! exports provided: ErrorService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorService", function() { return ErrorService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./translate.service */ "./src/app/shared/service/translate.service.ts");
-/* harmony import */ var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./http-request.service */ "./src/app/shared/service/http-request.service.ts");
-
-
-
-
-// import { TranslatePipe } from '../_pipes/translate.pipe';
-let ErrorService = class ErrorService {
-    constructor(helper, trns) {
-        this.helper = helper;
-        this.trns = trns;
-    }
-    handleError(errCode = 0) {
-        switch (errCode) {
-            case 0:
-                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
-                break;
-            case 1:
-                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
-                break;
-            case 4:
-                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
-                break;
-            case 5:
-                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
-                break;
-            case 6:
-                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
-                break;
-            case 7:
-                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
-                break;
-            case 8:
-                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
-                break;
-            case 9:
-                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
-                break;
-            case 31:
-                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
-            case 39:
-                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
-                break;
-            default:
-                break;
-        }
-    }
-};
-ErrorService.ctorParameters = () => [
-    { type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"] },
-    { type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"] }
-];
-ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-    })
-], ErrorService);
+], StaffreviewModule);
 
 
 

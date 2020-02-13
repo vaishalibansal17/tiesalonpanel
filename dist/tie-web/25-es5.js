@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[25], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancellation-policy.component.html":
-  /*!*******************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancellation-policy.component.html ***!
-    \*******************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender/managecalender.component.html":
+  /*!*************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender/managecalender.component.html ***!
+    \*************************************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeCancellationPolicyCancellationPolicyComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeManageCalenderManagecalenderManagecalenderComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<hr>\n<h1>Under Development.</h1>\n<hr>\n<h2>Thank you</h2>";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <h1>Manage Calender</h1>\n    <p>It will set up in further milestone.</p>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/cancellation-policy/cancellation-policy-routing.module.ts":
-  /*!********************************************************************************!*\
-    !*** ./src/app/home/cancellation-policy/cancellation-policy-routing.module.ts ***!
-    \********************************************************************************/
+  "./src/app/home/manage-calender/managecalender/managecalender-routing.module.ts":
+  /*!**************************************************************************************!*\
+    !*** ./src/app/home/manage-calender/managecalender/managecalender-routing.module.ts ***!
+    \**************************************************************************************/
 
-  /*! exports provided: CancellationPolicyRoutingModule */
+  /*! exports provided: ManagecalenderRoutingModule */
 
   /***/
-  function srcAppHomeCancellationPolicyCancellationPolicyRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeManageCalenderManagecalenderManagecalenderRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CancellationPolicyRoutingModule", function () {
-      return CancellationPolicyRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "ManagecalenderRoutingModule", function () {
+      return ManagecalenderRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _cancellation_policy_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./cancellation-policy.component */
-    "./src/app/home/cancellation-policy/cancellation-policy.component.ts");
+    var _managecalender_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./managecalender.component */
+    "./src/app/home/manage-calender/managecalender/managecalender.component.ts");
 
     var routes = [{
       path: '',
-      component: _cancellation_policy_component__WEBPACK_IMPORTED_MODULE_3__["CancellationPolicyComponent"]
+      component: _managecalender_component__WEBPACK_IMPORTED_MODULE_3__["ManagecalenderComponent"]
     }];
 
-    var CancellationPolicyRoutingModule = function CancellationPolicyRoutingModule() {
-      _classCallCheck(this, CancellationPolicyRoutingModule);
+    var ManagecalenderRoutingModule = function ManagecalenderRoutingModule() {
+      _classCallCheck(this, ManagecalenderRoutingModule);
     };
 
-    CancellationPolicyRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    ManagecalenderRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], CancellationPolicyRoutingModule);
+    })], ManagecalenderRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/cancellation-policy/cancellation-policy.component.scss":
-  /*!*****************************************************************************!*\
-    !*** ./src/app/home/cancellation-policy/cancellation-policy.component.scss ***!
-    \*****************************************************************************/
+  "./src/app/home/manage-calender/managecalender/managecalender.component.scss":
+  /*!***********************************************************************************!*\
+    !*** ./src/app/home/manage-calender/managecalender/managecalender.component.scss ***!
+    \***********************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeCancellationPolicyCancellationPolicyComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeManageCalenderManagecalenderManagecalenderComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvY2FuY2VsbGF0aW9uLXBvbGljeS9jYW5jZWxsYXRpb24tcG9saWN5LmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvbWFuYWdlLWNhbGVuZGVyL21hbmFnZWNhbGVuZGVyL21hbmFnZWNhbGVuZGVyLmNvbXBvbmVudC5zY3NzIn0= */";
     /***/
   },
 
   /***/
-  "./src/app/home/cancellation-policy/cancellation-policy.component.ts":
-  /*!***************************************************************************!*\
-    !*** ./src/app/home/cancellation-policy/cancellation-policy.component.ts ***!
-    \***************************************************************************/
+  "./src/app/home/manage-calender/managecalender/managecalender.component.ts":
+  /*!*********************************************************************************!*\
+    !*** ./src/app/home/manage-calender/managecalender/managecalender.component.ts ***!
+    \*********************************************************************************/
 
-  /*! exports provided: CancellationPolicyComponent */
+  /*! exports provided: ManagecalenderComponent */
 
   /***/
-  function srcAppHomeCancellationPolicyCancellationPolicyComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeManageCalenderManagecalenderManagecalenderComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CancellationPolicyComponent", function () {
-      return CancellationPolicyComponent;
+    __webpack_require__.d(__webpack_exports__, "ManagecalenderComponent", function () {
+      return ManagecalenderComponent;
     });
     /* harmony import */
 
@@ -137,51 +137,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var CancellationPolicyComponent =
+    var ManagecalenderComponent =
     /*#__PURE__*/
     function () {
-      function CancellationPolicyComponent() {
-        _classCallCheck(this, CancellationPolicyComponent);
+      function ManagecalenderComponent() {
+        _classCallCheck(this, ManagecalenderComponent);
       }
 
-      _createClass(CancellationPolicyComponent, [{
+      _createClass(ManagecalenderComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return CancellationPolicyComponent;
+      return ManagecalenderComponent;
     }();
 
-    CancellationPolicyComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-cancellation-policy',
+    ManagecalenderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-managecalender',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./cancellation-policy.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancellation-policy.component.html")).default,
+      /*! raw-loader!./managecalender.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender/managecalender.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./cancellation-policy.component.scss */
-      "./src/app/home/cancellation-policy/cancellation-policy.component.scss")).default]
-    })], CancellationPolicyComponent);
+      /*! ./managecalender.component.scss */
+      "./src/app/home/manage-calender/managecalender/managecalender.component.scss")).default]
+    })], ManagecalenderComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/cancellation-policy/cancellation-policy.module.ts":
-  /*!************************************************************************!*\
-    !*** ./src/app/home/cancellation-policy/cancellation-policy.module.ts ***!
-    \************************************************************************/
+  "./src/app/home/manage-calender/managecalender/managecalender.module.ts":
+  /*!******************************************************************************!*\
+    !*** ./src/app/home/manage-calender/managecalender/managecalender.module.ts ***!
+    \******************************************************************************/
 
-  /*! exports provided: CancellationPolicyModule */
+  /*! exports provided: ManagecalenderModule */
 
   /***/
-  function srcAppHomeCancellationPolicyCancellationPolicyModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeManageCalenderManagecalenderManagecalenderModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CancellationPolicyModule", function () {
-      return CancellationPolicyModule;
+    __webpack_require__.d(__webpack_exports__, "ManagecalenderModule", function () {
+      return ManagecalenderModule;
     });
     /* harmony import */
 
@@ -204,24 +204,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _cancellation_policy_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./cancellation-policy-routing.module */
-    "./src/app/home/cancellation-policy/cancellation-policy-routing.module.ts");
+    var _managecalender_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./managecalender-routing.module */
+    "./src/app/home/manage-calender/managecalender/managecalender-routing.module.ts");
     /* harmony import */
 
 
-    var _cancellation_policy_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./cancellation-policy.component */
-    "./src/app/home/cancellation-policy/cancellation-policy.component.ts");
+    var _managecalender_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./managecalender.component */
+    "./src/app/home/manage-calender/managecalender/managecalender.component.ts");
 
-    var CancellationPolicyModule = function CancellationPolicyModule() {
-      _classCallCheck(this, CancellationPolicyModule);
+    var ManagecalenderModule = function ManagecalenderModule() {
+      _classCallCheck(this, ManagecalenderModule);
     };
 
-    CancellationPolicyModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_cancellation_policy_component__WEBPACK_IMPORTED_MODULE_4__["CancellationPolicyComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _cancellation_policy_routing_module__WEBPACK_IMPORTED_MODULE_3__["CancellationPolicyRoutingModule"]]
-    })], CancellationPolicyModule);
+    ManagecalenderModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_managecalender_component__WEBPACK_IMPORTED_MODULE_4__["ManagecalenderComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _managecalender_routing_module__WEBPACK_IMPORTED_MODULE_3__["ManagecalenderRoutingModule"]]
+    })], ManagecalenderModule);
     /***/
   }
 }]);

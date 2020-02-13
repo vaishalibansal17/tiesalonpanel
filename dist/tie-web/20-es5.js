@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[20], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html":
-  /*!****************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html ***!
-    \****************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.html":
+  /*!*************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.html ***!
+    \*************************************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserAddbookingsAddbookingsComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeCancellationPolicyCancelupdateCancelupdateComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form action=\"\">\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/category_form.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Category\" class=\"form-control\">\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/service.png\" alt=\"envelope\"></span>\n                <mat-label>Service At</mat-label>\n                <mat-select>\n                  <mat-option *ngFor=\"let service of services\" [value]=\"service.value\">\n                    {{service.viewValue}}\n                  </mat-option>\n                </mat-select>\n              </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/price_form.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Price\" class=\"form-control\">\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/calendar_form.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Date & Time\" class=\"form-control\">\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/edit-staff.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Assigned Staff\" class=\"form-control\">\n            </mat-form-field>\n            <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Save</button>\n            </div>\n        </form>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"policy_list\">\n        <div class=\"left\">\n            <p>Set your No-Show/Late-Cancellation Policy for Clients.</p>\n            <p>Clients will be required to enter a credit card when they book with you in order to enforce your policy.</p>\n        </div>\n    </div>\n    <div class=\"policy_list\">\n        <div class=\"left\">\n            <p>How strict would you like your policy to be?</p>\n\n            <mat-radio-group aria-label=\"Select an option\">\n                <mat-radio-button value=\"flexible\" [disableRipple]=\"true\">Flexible <span>0% Late Cancellation Fee<br>50% No-Show Fee</span></mat-radio-button>\n                <mat-radio-button value=\"moderate\" [disableRipple]=\"true\">Moderate <span>25% Late Cancellation Fee<br>50% No-Show Fee</span></mat-radio-button>\n                <mat-radio-button value=\"strict\" [disableRipple]=\"true\">Strict <span>50% Late Cancellation Fee<br>100% No-Show Fee</span></mat-radio-button>\n              </mat-radio-group>\n        </div>\n    </div>\n    <div class=\"warning_link\">\n        <a href=\"#\" class=\"warning\">How does it work?</a>\n    </div>\n    <div class=\"text-center\">\n        <button type=\"submit\" class=\"btn btn-submit\">Save</button>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/addbookings/addbookings-routing.module.ts":
-  /*!*****************************************************************************!*\
-    !*** ./src/app/home/walking-user/addbookings/addbookings-routing.module.ts ***!
-    \*****************************************************************************/
+  "./src/app/home/cancellation-policy/cancelupdate/cancelupdate-routing.module.ts":
+  /*!**************************************************************************************!*\
+    !*** ./src/app/home/cancellation-policy/cancelupdate/cancelupdate-routing.module.ts ***!
+    \**************************************************************************************/
 
-  /*! exports provided: AddbookingsRoutingModule */
+  /*! exports provided: CancelupdateRoutingModule */
 
   /***/
-  function srcAppHomeWalkingUserAddbookingsAddbookingsRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeCancellationPolicyCancelupdateCancelupdateRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AddbookingsRoutingModule", function () {
-      return AddbookingsRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "CancelupdateRoutingModule", function () {
+      return CancelupdateRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _addbookings_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./addbookings.component */
-    "./src/app/home/walking-user/addbookings/addbookings.component.ts");
+    var _cancelupdate_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./cancelupdate.component */
+    "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.ts");
 
     var routes = [{
       path: '',
-      component: _addbookings_component__WEBPACK_IMPORTED_MODULE_3__["AddbookingsComponent"]
+      component: _cancelupdate_component__WEBPACK_IMPORTED_MODULE_3__["CancelupdateComponent"]
     }];
 
-    var AddbookingsRoutingModule = function AddbookingsRoutingModule() {
-      _classCallCheck(this, AddbookingsRoutingModule);
+    var CancelupdateRoutingModule = function CancelupdateRoutingModule() {
+      _classCallCheck(this, CancelupdateRoutingModule);
     };
 
-    AddbookingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    CancelupdateRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], AddbookingsRoutingModule);
+    })], CancelupdateRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/addbookings/addbookings.component.scss":
-  /*!**************************************************************************!*\
-    !*** ./src/app/home/walking-user/addbookings/addbookings.component.scss ***!
-    \**************************************************************************/
+  "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.scss":
+  /*!***********************************************************************************!*\
+    !*** ./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.scss ***!
+    \***********************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeWalkingUserAddbookingsAddbookingsComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeCancellationPolicyCancelupdateCancelupdateComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".custom_form span.email-img.pass {\n  top: 15px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvYWRkYm9va2luZ3MvYWRkYm9va2luZ3MuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL2FkZGJvb2tpbmdzL2FkZGJvb2tpbmdzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQWtDLG9CQUFBO0FDRWxDIiwiZmlsZSI6InNyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvYWRkYm9va2luZ3MvYWRkYm9va2luZ3MuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY3VzdG9tX2Zvcm0gc3Bhbi5lbWFpbC1pbWcucGFzcyB7dG9wOiAxNXB4ICFpbXBvcnRhbnQ7fSIsIi5jdXN0b21fZm9ybSBzcGFuLmVtYWlsLWltZy5wYXNzIHtcbiAgdG9wOiAxNXB4ICFpbXBvcnRhbnQ7XG59Il19 */";
+    __webpack_exports__["default"] = ".policy_list {\n  padding-bottom: 10px;\n}\n\n@media (min-width: 767px) {\n  .btn.btn-submit {\n    width: 32%;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9jYW5jZWxsYXRpb24tcG9saWN5L2NhbmNlbHVwZGF0ZS9jYW5jZWx1cGRhdGUuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvY2FuY2VsbGF0aW9uLXBvbGljeS9jYW5jZWx1cGRhdGUvY2FuY2VsdXBkYXRlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQWEsb0JBQUE7QUNFYjs7QUREQTtFQUNBO0lBQWdCLFVBQUE7RUNLZDtBQUNGIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9jYW5jZWxsYXRpb24tcG9saWN5L2NhbmNlbHVwZGF0ZS9jYW5jZWx1cGRhdGUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucG9saWN5X2xpc3R7cGFkZGluZy1ib3R0b206IDEwcHg7fVxuQG1lZGlhKG1pbi13aWR0aDo3NjdweCl7XG4uYnRuLmJ0bi1zdWJtaXR7d2lkdGg6IDMyJTt9XG59IiwiLnBvbGljeV9saXN0IHtcbiAgcGFkZGluZy1ib3R0b206IDEwcHg7XG59XG5cbkBtZWRpYSAobWluLXdpZHRoOiA3NjdweCkge1xuICAuYnRuLmJ0bi1zdWJtaXQge1xuICAgIHdpZHRoOiAzMiU7XG4gIH1cbn0iXX0= */";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/addbookings/addbookings.component.ts":
-  /*!************************************************************************!*\
-    !*** ./src/app/home/walking-user/addbookings/addbookings.component.ts ***!
-    \************************************************************************/
+  "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.ts":
+  /*!*********************************************************************************!*\
+    !*** ./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.ts ***!
+    \*********************************************************************************/
 
-  /*! exports provided: AddbookingsComponent */
+  /*! exports provided: CancelupdateComponent */
 
   /***/
-  function srcAppHomeWalkingUserAddbookingsAddbookingsComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeCancellationPolicyCancelupdateCancelupdateComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AddbookingsComponent", function () {
-      return AddbookingsComponent;
+    __webpack_require__.d(__webpack_exports__, "CancelupdateComponent", function () {
+      return CancelupdateComponent;
     });
     /* harmony import */
 
@@ -136,102 +136,52 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
-    /* harmony import */
 
-
-    var src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/shared/service/message.service */
-    "./src/app/shared/service/message.service.ts");
-    /* harmony import */
-
-
-    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
-    /* harmony import */
-
-
-    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/shared/service/error.service */
-    "./src/app/shared/service/error.service.ts");
-
-    var AddbookingsComponent =
+    var CancelupdateComponent =
     /*#__PURE__*/
     function () {
-      function AddbookingsComponent(messageService, router, errorserv) {
-        _classCallCheck(this, AddbookingsComponent);
-
-        this.messageService = messageService;
-        this.router = router;
-        this.errorserv = errorserv;
-        this.servicea = [{
-          value: '1',
-          viewValue: 'Hair Spa'
-        }, {
-          value: '2',
-          viewValue: 'Spa'
-        }];
+      function CancelupdateComponent() {
+        _classCallCheck(this, CancelupdateComponent);
       }
 
-      _createClass(AddbookingsComponent, [{
+      _createClass(CancelupdateComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {
-          var _this = this;
-
-          this.responseData = this.messageService.getBooking();
-          console.log(this.responseData);
-
-          if (!this.responseData) {
-            this.router.navigateByUrl('walking-user/add-user').then(function () {
-              _this.errorserv.handleError(0);
-            });
-          }
-        }
+        value: function ngOnInit() {}
       }]);
 
-      return AddbookingsComponent;
+      return CancelupdateComponent;
     }();
 
-    AddbookingsComponent.ctorParameters = function () {
-      return [{
-        type: src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_2__["MessageService"]
-      }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
-      }, {
-        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_4__["ErrorService"]
-      }];
-    };
-
-    AddbookingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-addbookings',
+    CancelupdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-cancelupdate',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./addbookings.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html")).default,
+      /*! raw-loader!./cancelupdate.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./addbookings.component.scss */
-      "./src/app/home/walking-user/addbookings/addbookings.component.scss")).default]
-    })], AddbookingsComponent);
+      /*! ./cancelupdate.component.scss */
+      "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.scss")).default]
+    })], CancelupdateComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/addbookings/addbookings.module.ts":
-  /*!*********************************************************************!*\
-    !*** ./src/app/home/walking-user/addbookings/addbookings.module.ts ***!
-    \*********************************************************************/
+  "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.module.ts":
+  /*!******************************************************************************!*\
+    !*** ./src/app/home/cancellation-policy/cancelupdate/cancelupdate.module.ts ***!
+    \******************************************************************************/
 
-  /*! exports provided: AddbookingsModule */
+  /*! exports provided: CancelupdateModule */
 
   /***/
-  function srcAppHomeWalkingUserAddbookingsAddbookingsModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeCancellationPolicyCancelupdateCancelupdateModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AddbookingsModule", function () {
-      return AddbookingsModule;
+    __webpack_require__.d(__webpack_exports__, "CancelupdateModule", function () {
+      return CancelupdateModule;
     });
     /* harmony import */
 
@@ -254,15 +204,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _addbookings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./addbookings-routing.module */
-    "./src/app/home/walking-user/addbookings/addbookings-routing.module.ts");
+    var _cancelupdate_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./cancelupdate-routing.module */
+    "./src/app/home/cancellation-policy/cancelupdate/cancelupdate-routing.module.ts");
     /* harmony import */
 
 
-    var _addbookings_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./addbookings.component */
-    "./src/app/home/walking-user/addbookings/addbookings.component.ts");
+    var _cancelupdate_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./cancelupdate.component */
+    "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.ts");
     /* harmony import */
 
 
@@ -270,137 +220,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! src/app/shared/shared.module */
     "./src/app/shared/shared.module.ts");
 
-    var AddbookingsModule = function AddbookingsModule() {
-      _classCallCheck(this, AddbookingsModule);
+    var CancelupdateModule = function CancelupdateModule() {
+      _classCallCheck(this, CancelupdateModule);
     };
 
-    AddbookingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_addbookings_component__WEBPACK_IMPORTED_MODULE_4__["AddbookingsComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _addbookings_routing_module__WEBPACK_IMPORTED_MODULE_3__["AddbookingsRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
-    })], AddbookingsModule);
-    /***/
-  },
-
-  /***/
-  "./src/app/shared/service/error.service.ts":
-  /*!*************************************************!*\
-    !*** ./src/app/shared/service/error.service.ts ***!
-    \*************************************************/
-
-  /*! exports provided: ErrorService */
-
-  /***/
-  function srcAppSharedServiceErrorServiceTs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "ErrorService", function () {
-      return ErrorService;
-    });
-    /* harmony import */
-
-
-    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! tslib */
-    "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./translate.service */
-    "./src/app/shared/service/translate.service.ts");
-    /* harmony import */
-
-
-    var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./http-request.service */
-    "./src/app/shared/service/http-request.service.ts"); // import { TranslatePipe } from '../_pipes/translate.pipe';
-
-
-    var ErrorService =
-    /*#__PURE__*/
-    function () {
-      function ErrorService(helper, trns) {
-        _classCallCheck(this, ErrorService);
-
-        this.helper = helper;
-        this.trns = trns;
-      }
-
-      _createClass(ErrorService, [{
-        key: "handleError",
-        value: function handleError() {
-          var errCode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-
-          switch (errCode) {
-            case 0:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
-              break;
-
-            case 1:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
-              break;
-
-            case 4:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
-              break;
-
-            case 5:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
-              break;
-
-            case 6:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
-              break;
-
-            case 7:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
-              break;
-
-            case 8:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
-              break;
-
-            case 9:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
-              break;
-
-            case 31:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
-
-            case 39:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
-              break;
-
-            default:
-              break;
-          }
-        }
-      }]);
-
-      return ErrorService;
-    }();
-
-    ErrorService.ctorParameters = function () {
-      return [{
-        type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
-      }, {
-        type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
-      }];
-    };
-
-    ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-      providedIn: 'root'
-    })], ErrorService);
+    CancelupdateModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_cancelupdate_component__WEBPACK_IMPORTED_MODULE_4__["CancelupdateComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _cancelupdate_routing_module__WEBPACK_IMPORTED_MODULE_3__["CancelupdateRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
+    })], CancelupdateModule);
     /***/
   }
 }]);

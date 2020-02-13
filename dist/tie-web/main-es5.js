@@ -363,7 +363,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"error_page\"><h1>404 Page Not Found</h1></div>";
+    __webpack_exports__["default"] = "<div class=\"error_page\"><h1><span>404</span>Page Not Found!!!</h1></div>";
     /***/
   },
 
@@ -987,7 +987,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null,
         /*! ./home/home.module */
         "./src/app/home/home.module.ts")).then(function (m) {
           return m.HomeModule;
@@ -999,7 +999,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return __webpack_require__.e(
         /*! import() */
-        35).then(__webpack_require__.bind(null,
+        52).then(__webpack_require__.bind(null,
         /*! ./auth/auth.module */
         "./src/app/auth/auth.module.ts")).then(function (m) {
           return m.AuthModule;
@@ -1011,7 +1011,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(23)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(51)]).then(__webpack_require__.bind(null,
         /*! ./reset-freelancer/reset-freelancer.module */
         "./src/app/reset-freelancer/reset-freelancer.module.ts")).then(function (m) {
           return m.ResetFreelancerModule;
@@ -1326,7 +1326,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".error_page {\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    background: #cecece;\n    left: 0;\n    top: 0;\n}\n\n.error_page h1 {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n    color: red;\n    margin: 0;\n    line-height: 1;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZS1ub3QtZm91bmQvcGFnZS1ub3QtZm91bmQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGVBQWU7SUFDZixXQUFXO0lBQ1gsWUFBWTtJQUNaLG1CQUFtQjtJQUNuQixPQUFPO0lBQ1AsTUFBTTtBQUNWOztBQUVBO0lBQ0ksa0JBQWtCO0lBQ2xCLFNBQVM7SUFDVCxRQUFRO0lBQ1Isd0NBQWdDO1lBQWhDLGdDQUFnQztJQUNoQyxVQUFVO0lBQ1YsU0FBUztJQUNULGNBQWM7QUFDbEIiLCJmaWxlIjoic3JjL2FwcC9wYWdlLW5vdC1mb3VuZC9wYWdlLW5vdC1mb3VuZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmVycm9yX3BhZ2Uge1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgYmFja2dyb3VuZDogI2NlY2VjZTtcbiAgICBsZWZ0OiAwO1xuICAgIHRvcDogMDtcbn1cblxuLmVycm9yX3BhZ2UgaDEge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdG9wOiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgY29sb3I6IHJlZDtcbiAgICBtYXJnaW46IDA7XG4gICAgbGluZS1oZWlnaHQ6IDE7XG59Il19 */";
+    __webpack_exports__["default"] = ".error_page {\n    position: fixed;\n    width: 100%;\n    height: 100%;\n    background: url('page_bg.jpg') no-repeat center;\n    background-size: cover;\n    left: 0;\n    top: 0;\n}\n\n.error_page h1 {\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    -webkit-transform: translate(-50%, -50%);\n            transform: translate(-50%, -50%);\n    color: #fff;\n    margin: 0;\n    line-height: 1;\n    text-align: center;\n    font-size: 34px;\n}\n\n.error_page h1 span{\n    display: block;\n    font-size: 150px;\n    font-weight: 600;\n}\n\n@media(max-width:993px){\n    .error_page h1 span{font-size: 80px;}\n    .error_page h1{font-size: 18px;}\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZS1ub3QtZm91bmQvcGFnZS1ub3QtZm91bmQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGVBQWU7SUFDZixXQUFXO0lBQ1gsWUFBWTtJQUNaLCtDQUFpRTtJQUNqRSxzQkFBc0I7SUFDdEIsT0FBTztJQUNQLE1BQU07QUFDVjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixTQUFTO0lBQ1QsUUFBUTtJQUNSLHdDQUFnQztZQUFoQyxnQ0FBZ0M7SUFDaEMsV0FBVztJQUNYLFNBQVM7SUFDVCxjQUFjO0lBQ2Qsa0JBQWtCO0lBQ2xCLGVBQWU7QUFDbkI7O0FBRUE7SUFDSSxjQUFjO0lBQ2QsZ0JBQWdCO0lBQ2hCLGdCQUFnQjtBQUNwQjs7QUFHQTtJQUNJLG9CQUFvQixlQUFlLENBQUM7SUFDcEMsZUFBZSxlQUFlLENBQUM7QUFDbkMiLCJmaWxlIjoic3JjL2FwcC9wYWdlLW5vdC1mb3VuZC9wYWdlLW5vdC1mb3VuZC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmVycm9yX3BhZ2Uge1xuICAgIHBvc2l0aW9uOiBmaXhlZDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgYmFja2dyb3VuZDogdXJsKC4uLy4uL2Fzc2V0cy9pbWFnZXMvcGFnZV9iZy5qcGcpIG5vLXJlcGVhdCBjZW50ZXI7XG4gICAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcbiAgICBsZWZ0OiAwO1xuICAgIHRvcDogMDtcbn1cblxuLmVycm9yX3BhZ2UgaDEge1xuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgICBsZWZ0OiA1MCU7XG4gICAgdG9wOiA1MCU7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGUoLTUwJSwgLTUwJSk7XG4gICAgY29sb3I6ICNmZmY7XG4gICAgbWFyZ2luOiAwO1xuICAgIGxpbmUtaGVpZ2h0OiAxO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgICBmb250LXNpemU6IDM0cHg7XG59XG5cbi5lcnJvcl9wYWdlIGgxIHNwYW57XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgZm9udC1zaXplOiAxNTBweDtcbiAgICBmb250LXdlaWdodDogNjAwO1xufVxuXG5cbkBtZWRpYShtYXgtd2lkdGg6OTkzcHgpe1xuICAgIC5lcnJvcl9wYWdlIGgxIHNwYW57Zm9udC1zaXplOiA4MHB4O31cbiAgICAuZXJyb3JfcGFnZSBoMXtmb250LXNpemU6IDE4cHg7fVxufSJdfQ== */";
     /***/
   },
 
@@ -1513,7 +1513,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       SERVICES: BASE_URL + 'service',
       WALKING: BASE_URL + 'user/walking',
       WALKING_CHK: BASE_URL + 'user/walking/check',
-      WALKING_ADD: BASE_URL + 'user/walking/add'
+      WALKING_ADD: BASE_URL + 'user/walking/add',
+      WALKING_BOOK: BASE_URL + 'booking/walking',
+      PROMO: BASE_URL + 'promocode',
+      PROMO_DETAIL: BASE_URL + 'promocode/detail'
     };
     /***/
   },
@@ -2179,12 +2182,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }, {
         key: "parseDate",
-        value: function parseDate(data) {
-          var date = new Date(data);
-          return {
-            hh: date.getHours(),
-            mm: date.getMinutes()
-          };
+        value: function parseDate(data, time) {
+          var date = new Date(data),
+              mnth = ("0" + date.getMonth()).slice(-2),
+              day = ("0" + date.getDate()).slice(-2);
+          var bac = moment_timezone__WEBPACK_IMPORTED_MODULE_2___default.a.utc(date);
+          return bac.valueOf();
+        }
+      }, {
+        key: "parsehhmm",
+        value: function parsehhmm(data) {
+          if (data !== null) {
+            var date = new Date(data);
+            return {
+              hh: date.getHours(),
+              mm: date.getMinutes()
+            };
+          } else {
+            return {
+              hh: null,
+              mm: null
+            };
+          }
         }
       }, {
         key: "getTimeZone",
@@ -2340,16 +2359,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! primeng/api */
     "./node_modules/primeng/fesm2015/primeng-api.js");
+    /* harmony import */
+
+
+    var _translate_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./translate.service */
+    "./src/app/shared/service/translate.service.ts");
 
     var HttpRequestService =
     /*#__PURE__*/
     function () {
-      function HttpRequestService(http, myRoute, messageService) {
+      function HttpRequestService(http, myRoute, messageService, trns) {
         _classCallCheck(this, HttpRequestService);
 
         this.http = http;
         this.myRoute = myRoute;
         this.messageService = messageService;
+        this.trns = trns;
       }
 
       _createClass(HttpRequestService, [{
@@ -2423,6 +2449,47 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function toggleRoute(route) {
           this.myRoute.navigate(['/main/event/' + route + '/' + localStorage.getItem('editEventId')]);
         }
+      }, {
+        key: "arraySearch",
+        value: function arraySearch(arr, value) {
+          var isFound = false;
+
+          if (arr.length) {
+            for (var k = 0; k < arr.length; k++) {
+              if (arr[k] === value._id) {
+                isFound = true;
+                break;
+              }
+            }
+
+            return isFound;
+          }
+
+          return false;
+        }
+      }, {
+        key: "exportCSV",
+        value: function exportCSV(api) {
+          var _this2 = this;
+
+          var finalData = [];
+          var obj;
+          var i = 0;
+          this.getRequest('GET', api, "?all=true").subscribe(function (rs) {
+            console.log(rs); //   rs.forEach(element => {
+            // 	obj = {
+            // 	  "Serial": ++i,
+            // 	  "Name": element.name,
+            // 	  "Email": element.email
+            // 	};
+            // 	finalData.push(obj);
+            //   });
+            //   var options = { noDownload: false, headers: ["Serial", "Name", "Email"] };
+            //   new Angular5Csv(finalData, 'staff_list', options);
+
+            _this2.sucsTostr(_this2.trns.data['SUCCESS'], _this2.trns.data['EXPORTD']);
+          });
+        }
       }]);
 
       return HttpRequestService;
@@ -2435,6 +2502,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
       }, {
         type: primeng_api__WEBPACK_IMPORTED_MODULE_5__["MessageService"]
+      }, {
+        type: _translate_service__WEBPACK_IMPORTED_MODULE_6__["TranslateService"]
       }];
     };
 
@@ -2493,19 +2562,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(TranslateService, [{
         key: "use",
         value: function use(lang) {
-          var _this2 = this;
+          var _this3 = this;
 
           // console.log(localStorage.getItem('lang'), lang,'-----------');
           return new Promise(function (resolve, reject) {
             // lang = localStorage.getItem('lang');
             var langPath = "assets/i18n/".concat(lang || 'en', ".json");
 
-            _this2.http.get(langPath).subscribe(function (translation) {
-              _this2.data = Object.assign({}, translation || {});
-              resolve(_this2.data);
+            _this3.http.get(langPath).subscribe(function (translation) {
+              _this3.data = Object.assign({}, translation || {});
+              resolve(_this3.data);
             }, function (error) {
-              _this2.data = {};
-              resolve(_this2.data);
+              _this3.data = {};
+              resolve(_this3.data);
             });
           });
         }

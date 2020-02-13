@@ -1,166 +1,210 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[13],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/booking-email.html":
-/*!******************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/booking-email.html ***!
-  \******************************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/forgot-password/forgot-password.component.html":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/auth/forgot-password/forgot-password.component.html ***!
+  \***********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<mat-dialog-content class=\"text-center\">\n    <h3>Please enter your Email</h3>\n    <form>\n        <mat-form-field>\n            <!-- <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span> -->\n            <input matInput placeholder=\"Enter your email address\" class=\"form-control popup\">\n        </mat-form-field>\n    <div class=\"text-center\"><button type=\"submit\" class=\"btn btn-submit\">Send</button></div>\n</form>\n\n  </mat-dialog-content>\n    <button mat-button mat-dialog-close><img src=\"assets/images/close.png\" alt=\"Close\"></button>\n  ");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main_bg\">\n    <div class=\"fixed-nav\">\n        <ul>\n            <li></li>\n            <li class=\"active\"></li>\n            <li></li>\n        </ul>\n    </div>\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-md-6 main-left\">\n                <div class=\"full-vertical\">\n                <img class=\"on_board\" src=\"assets/images/img_onboard_2.png\" alt=\"Forgot\">\n                <div class=\"head\"><span>Get Paid</span> when clients don't show up</div>\n            </div>\n            </div>\n            <div class=\"col-md-6 main-right\">\n                <app-auth-header></app-auth-header>\n                <div class=\"fixed-back\"><a [routerLink]=\"['/auth/login']\"><i class=\"fa fa-angle-left\"></i></a></div>\n                <div class=\"full-vertical custom-width\">\n                    <div class=\"logo\"><img src=\"assets/images/tie_logo_black.png\" alt=\"Logo\"></div>\n                    <h1 class=\"head\">{{'FRGTPASS'| translate}}</h1>\n                    <p class=\"text-center\">{{'ENTREGISTRMAIL'| translate}} </p>\n                    <div class=\"login-form\">\n                        <form  (ngSubmit)=\"forgetPass()\" [formGroup]=\"forgetPasswordForm\">\n                        <mat-form-field>\n                          <span class=\"email-img\"><img src=\"assets/images/envelope.png\" alt=\"envelope\"></span>\n                          <input matInput placeholder=\"{{'EMAIL'| translate | titlecase}}\" class=\"form-control\" formControlName=\"email\"> \n                        </mat-form-field>\n                        <div *ngIf=\"(submitted) && getControl.email.errors\">\n                            <p class=\"color error\" *ngIf=\"getControl.email.errors.required\">{{'LOGINEMAIL'| translate}}</p>\n                            <p class=\"color error\" *ngIf=\"!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress\">{{'LOGINVALIDEMAIL'| translate}}</p>\n                            </div>\n                          <button type=\"submit\" class=\"btn btn-submit\">{{'CONTINUE' | translate}}</button>\n                        </form>\n                        </div>\n                </div>                \n            </div>\n        </div>\n    </div>\n</div>");
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/bookingdetail.component.html":
-/*!****************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/bookingdetail.component.html ***!
-  \****************************************************************************************************************/
-/*! exports provided: default */
+/***/ "./src/app/auth/forgot-password/forgot-password-routing.module.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/auth/forgot-password/forgot-password-routing.module.ts ***!
+  \************************************************************************/
+/*! exports provided: ForgotPasswordRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-6 top_view\"><img src=\"assets/images/change.png\" alt=\"\"><span class=\"user_name\">Jane Doe</span></div>\n        <div class=\"col-md-6 alignright\">\n            <ul class=\"inline\">\n                <li><a class=\"btn btn-export\" href=\"javascript:void(0);\">PDF</a></li>\n                <li><button class=\"action_btn red\" (click)=\"openDialog()\"><img src=\"assets/images/email_pink.png\" alt=\"Email\"></button></li>\n                <li><button><img src=\"assets/images/print.png\" alt=\"Print\"></button></li>\n            </ul>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-9\">\n                <div class=\"row\">\n                    <div class=\"col-md-3 label\">Date:</div>\n                    <div class=\"col-md-9 description\">22 Oct, 2019</div>\n                    <div class=\"col-md-3 label\">Time:</div>\n                    <div class=\"col-md-9 description\">10:00AM</div>\n                    <div class=\"col-md-3 label\">Booking ID:</div>\n                    <div class=\"col-md-9 description\">#QW1234</div>\n                    <div class=\"col-md-3 label\">Staff Name:</div>\n                    <div class=\"col-md-9 description\">Allen</div>\n                    <div class=\"col-md-3 label\">Address:</div>\n                    <div class=\"col-md-9 description\">246 Chris Avenue, New York</div>\n                    <div class=\"col-md-12 label\">Booking Location:</div>\n                    <div class=\"col-md-12 description\"><img class=\"full_width\" src=\"assets/images/maps.png\" alt=\"Maps\"></div>\n                    <div class=\"col-md-3 label\">Service At:</div>\n                    <div class=\"col-md-9 description\">Salon</div>\n                    <div class=\"col-md-12 label\">Services:</div>\n                    <div class=\"col-md-3 label\">Hair Wash Basic (Blast Dry)<span>Anybody</span></div>\n                    <div class=\"col-md-9 description alignright\">$250.00<span>10:00AM - 11:00AM</span></div>\n                    <div class=\"col-md-3 label\">Hair Wash Basic (Blast Dry)<span>You</span></div>\n                    <div class=\"col-md-9 description alignright\">$250.00<span>11:00AM - 12:00PM</span></div>\n                    <div class=\"col-md-12 text-center\"><a href=\"javascript:void(0);\" class=\"btn btn-submit\">Mark as Complete</a></div>\n                </div>\n            </div>\n            <div class=\"col-md-3 mobile_hidden\"></div>\n        </div>\n\n        </div>\n    </div>\n");
-
-/***/ }),
-
-/***/ "./src/app/home/bookings/bookingdetail/bookingdetail-routing.module.ts":
-/*!*****************************************************************************!*\
-  !*** ./src/app/home/bookings/bookingdetail/bookingdetail-routing.module.ts ***!
-  \*****************************************************************************/
-/*! exports provided: BookingdetailRoutingModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookingdetailRoutingModule", function() { return BookingdetailRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotPasswordRoutingModule", function() { return ForgotPasswordRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _bookingdetail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./bookingdetail.component */ "./src/app/home/bookings/bookingdetail/bookingdetail.component.ts");
+/* harmony import */ var _forgot_password_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./forgot-password.component */ "./src/app/auth/forgot-password/forgot-password.component.ts");
 
 
 
 
-const routes = [{ path: '', component: _bookingdetail_component__WEBPACK_IMPORTED_MODULE_3__["BookingdetailComponent"] }];
-let BookingdetailRoutingModule = class BookingdetailRoutingModule {
+const routes = [{
+        path: '', component: _forgot_password_component__WEBPACK_IMPORTED_MODULE_3__["ForgotPasswordComponent"]
+    }];
+let ForgotPasswordRoutingModule = class ForgotPasswordRoutingModule {
 };
-BookingdetailRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+ForgotPasswordRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], BookingdetailRoutingModule);
+], ForgotPasswordRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/bookings/bookingdetail/bookingdetail.component.scss":
-/*!**************************************************************************!*\
-  !*** ./src/app/home/bookings/bookingdetail/bookingdetail.component.scss ***!
-  \**************************************************************************/
+/***/ "./src/app/auth/forgot-password/forgot-password.component.scss":
+/*!*********************************************************************!*\
+  !*** ./src/app/auth/forgot-password/forgot-password.component.scss ***!
+  \*********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("@media (max-width: 768px) {\n  .main-card .label, .main-card .description {\n    padding: 0px 30px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9ib29raW5ncy9ib29raW5nZGV0YWlsL2Jvb2tpbmdkZXRhaWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvYm9va2luZ3MvYm9va2luZ2RldGFpbC9ib29raW5nZGV0YWlsLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0k7SUFBMEMsaUJBQUE7RUNFNUM7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvYm9va2luZ3MvYm9va2luZ2RldGFpbC9ib29raW5nZGV0YWlsLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQG1lZGlhKG1heC13aWR0aDo3NjhweCl7XG4gICAgLm1haW4tY2FyZCAubGFiZWwsLm1haW4tY2FyZCAuZGVzY3JpcHRpb257cGFkZGluZzogMHB4IDMwcHg7fVxufSIsIkBtZWRpYSAobWF4LXdpZHRoOiA3NjhweCkge1xuICAubWFpbi1jYXJkIC5sYWJlbCwgLm1haW4tY2FyZCAuZGVzY3JpcHRpb24ge1xuICAgIHBhZGRpbmc6IDBweCAzMHB4O1xuICB9XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2F1dGgvZm9yZ290LXBhc3N3b3JkL2ZvcmdvdC1wYXNzd29yZC5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
-/***/ "./src/app/home/bookings/bookingdetail/bookingdetail.component.ts":
-/*!************************************************************************!*\
-  !*** ./src/app/home/bookings/bookingdetail/bookingdetail.component.ts ***!
-  \************************************************************************/
-/*! exports provided: BookingdetailComponent, BookingEmailDialogPopup */
+/***/ "./src/app/auth/forgot-password/forgot-password.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/auth/forgot-password/forgot-password.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: ForgotPasswordComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookingdetailComponent", function() { return BookingdetailComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookingEmailDialogPopup", function() { return BookingEmailDialogPopup; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotPasswordComponent", function() { return ForgotPasswordComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/service/error.service */ "./src/app/shared/service/error.service.ts");
+/* harmony import */ var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/service/helper.service */ "./src/app/shared/service/helper.service.ts");
+/* harmony import */ var src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/constants/constant */ "./src/app/shared/constants/constant.ts");
+/* harmony import */ var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/service/validation-service */ "./src/app/shared/service/validation-service.ts");
 
 
 
-let BookingdetailComponent = class BookingdetailComponent {
-    constructor(dialog) {
-        this.dialog = dialog;
-    }
-    openDialog() {
-        console.log('-----');
-        const dialogRef = this.dialog.open(BookingEmailDialogPopup, { width: '500px', disableClose: true });
+
+
+
+
+
+
+let ForgotPasswordComponent = class ForgotPasswordComponent {
+    constructor(httpService, errService, helper, router) {
+        this.httpService = httpService;
+        this.errService = errService;
+        this.helper = helper;
+        this.router = router;
+        this.submitted = false;
+        this.isLoading = false;
     }
     ngOnInit() {
+        this.forgetPasswordForm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
+                src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_8__["ValidationService"].validateEmail
+            ]),
+        });
+    }
+    get getControl() { return this.forgetPasswordForm.controls; }
+    forgetPass() {
+        this.submitted = true;
+        if (this.forgetPasswordForm.invalid) {
+        }
+        else {
+            // code for api hit
+            this.isLoading = true;
+            this.httpService.getRequest('POST', 'FORGOT', this.forgetPasswordForm.value).subscribe((response) => {
+                if (response.status === 1) {
+                    this.isLoading = false;
+                    this.router.navigateByUrl('/auth')
+                        .then(() => {
+                        this.httpService.sucsTostr(src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_7__["MESSAGE"].SUCCESS, src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_7__["MESSAGE"].FORGOT_SUC);
+                    });
+                }
+                else {
+                    console.log(response);
+                    this.errService.handleError(response.err.errCode);
+                    // if (!_.isEmpty(response.error.errors)) {
+                    //   this.isLoading = false;
+                    //   // this.httpService.showError(response.error.errors.message, 'Validation Error!', MESSAGE.MSGTIME);
+                    // } else {
+                    //   // this.httpService.showError(MESSAGE.LOGIN.UNREGISTERED_USER_MSG, MESSAGE.LOGIN.UNREGISTERED_USER, MESSAGE.MSGTIME);
+                    //   this.isLoading = false;
+                    // }
+                }
+            });
+        }
     }
 };
-BookingdetailComponent.ctorParameters = () => [
-    { type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"] }
+ForgotPasswordComponent.ctorParameters = () => [
+    { type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"] },
+    { type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__["ErrorService"] },
+    { type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_6__["Helper"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
 ];
-BookingdetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+ForgotPasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-bookingdetail',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./bookingdetail.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/bookingdetail.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./bookingdetail.component.scss */ "./src/app/home/bookings/bookingdetail/bookingdetail.component.scss")).default]
+        selector: 'app-forgot-password',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./forgot-password.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/forgot-password/forgot-password.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./forgot-password.component.scss */ "./src/app/auth/forgot-password/forgot-password.component.scss")).default]
     })
-], BookingdetailComponent);
-
-let BookingEmailDialogPopup = class BookingEmailDialogPopup {
-    constructor() {
-    }
-};
-BookingEmailDialogPopup = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'booking-email',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./booking-email.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/booking-email.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./bookingdetail.component.scss */ "./src/app/home/bookings/bookingdetail/bookingdetail.component.scss")).default]
-    })
-], BookingEmailDialogPopup);
+], ForgotPasswordComponent);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/bookings/bookingdetail/bookingdetail.module.ts":
-/*!*********************************************************************!*\
-  !*** ./src/app/home/bookings/bookingdetail/bookingdetail.module.ts ***!
-  \*********************************************************************/
-/*! exports provided: BookingdetailModule */
+/***/ "./src/app/auth/forgot-password/forgot-password.module.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/auth/forgot-password/forgot-password.module.ts ***!
+  \****************************************************************/
+/*! exports provided: ForgotPasswordModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BookingdetailModule", function() { return BookingdetailModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotPasswordModule", function() { return ForgotPasswordModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _bookingdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./bookingdetail-routing.module */ "./src/app/home/bookings/bookingdetail/bookingdetail-routing.module.ts");
-/* harmony import */ var _bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./bookingdetail.component */ "./src/app/home/bookings/bookingdetail/bookingdetail.component.ts");
-/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _forgot_password_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./forgot-password-routing.module */ "./src/app/auth/forgot-password/forgot-password-routing.module.ts");
+/* harmony import */ var _forgot_password_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./forgot-password.component */ "./src/app/auth/forgot-password/forgot-password.component.ts");
+/* harmony import */ var src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/material/material.module */ "./src/app/shared/material/material.module.ts");
+/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
+/* harmony import */ var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _auth_header_auth_header_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../auth-header/auth-header.module */ "./src/app/auth/auth-header/auth-header.module.ts");
 
 
 
 
 
 
-let BookingdetailModule = class BookingdetailModule {
+
+
+
+
+
+let ForgotPasswordModule = class ForgotPasswordModule {
 };
-BookingdetailModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+ForgotPasswordModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__["BookingdetailComponent"], _bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__["BookingEmailDialogPopup"]],
+        declarations: [_forgot_password_component__WEBPACK_IMPORTED_MODULE_4__["ForgotPasswordComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _bookingdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__["BookingdetailRoutingModule"],
-            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]
+            _angular_forms__WEBPACK_IMPORTED_MODULE_9__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_9__["ReactiveFormsModule"],
+            _forgot_password_routing_module__WEBPACK_IMPORTED_MODULE_3__["ForgotPasswordRoutingModule"],
+            src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__["MaterialModule"],
+            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"],
+            src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"],
+            _auth_header_auth_header_module__WEBPACK_IMPORTED_MODULE_10__["AuthHeaderModule"]
         ],
-        entryComponents: [_bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__["BookingEmailDialogPopup"]]
+        schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]],
+        providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]]
     })
-], BookingdetailModule);
+], ForgotPasswordModule);
 
 
 

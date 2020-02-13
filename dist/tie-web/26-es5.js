@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[26], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html":
-  /*!***********************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html ***!
-    \***********************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html":
+  /*!*****************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html ***!
+    \*****************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeChatManagementChatManagementComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeNotificationNotificationComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<hr>\n<h1>Under Development.</h1>\n<hr>\n<h2>Thank you</h2>";
+    __webpack_exports__["default"] = "<!-- <app-breadcrumb></app-breadcrumb> -->\n<div class=\"main-card\">\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n            <span class=\"right_btn\">\n                <a href=\"#\" class=\"btn btn-accept\">Accept</a>\n                <a href=\"#\" class=\"btn btn-decline\">Decline</a>\n            </span>\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"\"></div>\n        <div class=\"noti_right\">\n            Jane Doe wants to book you for haircut.\n        </div>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/chat-management/chat-management-routing.module.ts":
-  /*!************************************************************************!*\
-    !*** ./src/app/home/chat-management/chat-management-routing.module.ts ***!
-    \************************************************************************/
+  "./src/app/home/notification/notification-routing.module.ts":
+  /*!******************************************************************!*\
+    !*** ./src/app/home/notification/notification-routing.module.ts ***!
+    \******************************************************************/
 
-  /*! exports provided: ChatManagementRoutingModule */
+  /*! exports provided: NotificationRoutingModule */
 
   /***/
-  function srcAppHomeChatManagementChatManagementRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeNotificationNotificationRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ChatManagementRoutingModule", function () {
-      return ChatManagementRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "NotificationRoutingModule", function () {
+      return NotificationRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _chat_management_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./chat-management.component */
-    "./src/app/home/chat-management/chat-management.component.ts");
+    var _notification_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./notification.component */
+    "./src/app/home/notification/notification.component.ts");
 
     var routes = [{
       path: '',
-      component: _chat_management_component__WEBPACK_IMPORTED_MODULE_3__["ChatManagementComponent"]
+      component: _notification_component__WEBPACK_IMPORTED_MODULE_3__["NotificationComponent"]
     }];
 
-    var ChatManagementRoutingModule = function ChatManagementRoutingModule() {
-      _classCallCheck(this, ChatManagementRoutingModule);
+    var NotificationRoutingModule = function NotificationRoutingModule() {
+      _classCallCheck(this, NotificationRoutingModule);
     };
 
-    ChatManagementRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    NotificationRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], ChatManagementRoutingModule);
+    })], NotificationRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/chat-management/chat-management.component.scss":
-  /*!*********************************************************************!*\
-    !*** ./src/app/home/chat-management/chat-management.component.scss ***!
-    \*********************************************************************/
+  "./src/app/home/notification/notification.component.scss":
+  /*!***************************************************************!*\
+    !*** ./src/app/home/notification/notification.component.scss ***!
+    \***************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeChatManagementChatManagementComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeNotificationNotificationComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvY2hhdC1tYW5hZ2VtZW50L2NoYXQtbWFuYWdlbWVudC5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = ".main-card {\n  padding: 30px 30px 30px 15px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9ub3RpZmljYXRpb24vbm90aWZpY2F0aW9uLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9ob21lL25vdGlmaWNhdGlvbi9ub3RpZmljYXRpb24uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBVyx1Q0FBQTtBQ0VYIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9ub3RpZmljYXRpb24vbm90aWZpY2F0aW9uLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLm1haW4tY2FyZHtwYWRkaW5nOiAzMHB4IDMwcHggMzBweCAxNXB4ICFpbXBvcnRhbnQ7fSIsIi5tYWluLWNhcmQge1xuICBwYWRkaW5nOiAzMHB4IDMwcHggMzBweCAxNXB4ICFpbXBvcnRhbnQ7XG59Il19 */";
     /***/
   },
 
   /***/
-  "./src/app/home/chat-management/chat-management.component.ts":
-  /*!*******************************************************************!*\
-    !*** ./src/app/home/chat-management/chat-management.component.ts ***!
-    \*******************************************************************/
+  "./src/app/home/notification/notification.component.ts":
+  /*!*************************************************************!*\
+    !*** ./src/app/home/notification/notification.component.ts ***!
+    \*************************************************************/
 
-  /*! exports provided: ChatManagementComponent */
+  /*! exports provided: NotificationComponent */
 
   /***/
-  function srcAppHomeChatManagementChatManagementComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeNotificationNotificationComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ChatManagementComponent", function () {
-      return ChatManagementComponent;
+    __webpack_require__.d(__webpack_exports__, "NotificationComponent", function () {
+      return NotificationComponent;
     });
     /* harmony import */
 
@@ -137,51 +137,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var ChatManagementComponent =
+    var NotificationComponent =
     /*#__PURE__*/
     function () {
-      function ChatManagementComponent() {
-        _classCallCheck(this, ChatManagementComponent);
+      function NotificationComponent() {
+        _classCallCheck(this, NotificationComponent);
       }
 
-      _createClass(ChatManagementComponent, [{
+      _createClass(NotificationComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return ChatManagementComponent;
+      return NotificationComponent;
     }();
 
-    ChatManagementComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-chat-management',
+    NotificationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-notification',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./chat-management.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html")).default,
+      /*! raw-loader!./notification.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/notification/notification.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./chat-management.component.scss */
-      "./src/app/home/chat-management/chat-management.component.scss")).default]
-    })], ChatManagementComponent);
+      /*! ./notification.component.scss */
+      "./src/app/home/notification/notification.component.scss")).default]
+    })], NotificationComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/chat-management/chat-management.module.ts":
-  /*!****************************************************************!*\
-    !*** ./src/app/home/chat-management/chat-management.module.ts ***!
-    \****************************************************************/
+  "./src/app/home/notification/notification.module.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/notification/notification.module.ts ***!
+    \**********************************************************/
 
-  /*! exports provided: ChatManagementModule */
+  /*! exports provided: NotificationModule */
 
   /***/
-  function srcAppHomeChatManagementChatManagementModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeNotificationNotificationModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ChatManagementModule", function () {
-      return ChatManagementModule;
+    __webpack_require__.d(__webpack_exports__, "NotificationModule", function () {
+      return NotificationModule;
     });
     /* harmony import */
 
@@ -204,24 +204,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _chat_management_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./chat-management-routing.module */
-    "./src/app/home/chat-management/chat-management-routing.module.ts");
+    var _notification_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./notification-routing.module */
+    "./src/app/home/notification/notification-routing.module.ts");
     /* harmony import */
 
 
-    var _chat_management_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./chat-management.component */
-    "./src/app/home/chat-management/chat-management.component.ts");
+    var _notification_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./notification.component */
+    "./src/app/home/notification/notification.component.ts");
+    /* harmony import */
 
-    var ChatManagementModule = function ChatManagementModule() {
-      _classCallCheck(this, ChatManagementModule);
+
+    var src_app_shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/breadcrumb/breadcrumb.module */
+    "./src/app/shared/breadcrumb/breadcrumb.module.ts");
+
+    var NotificationModule = function NotificationModule() {
+      _classCallCheck(this, NotificationModule);
     };
 
-    ChatManagementModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_chat_management_component__WEBPACK_IMPORTED_MODULE_4__["ChatManagementComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _chat_management_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChatManagementRoutingModule"]]
-    })], ChatManagementModule);
+    NotificationModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_notification_component__WEBPACK_IMPORTED_MODULE_4__["NotificationComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _notification_routing_module__WEBPACK_IMPORTED_MODULE_3__["NotificationRoutingModule"], src_app_shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_5__["BreadcrumbModule"]]
+    })], NotificationModule);
     /***/
   }
 }]);

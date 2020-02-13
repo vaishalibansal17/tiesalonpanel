@@ -80384,6 +80384,19 @@ class MatTreeNestedDataSource extends _angular_cdk_collections__WEBPACK_IMPORTED
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/confim-dialog/confim-dialog.component.html":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shared/confim-dialog/confim-dialog.component.html ***!
+  \*********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<mat-dialog-content class=\"text-center\">\n    <h3>{{msg}}</h3>\n    <div class=\"text-center\"><button type=\"button\" class=\"btn btn-submit\" (click) = \"close(true)\">{{btn}}</button></div>\n    <div class=\"text-center\"><button type=\"button\" class=\"btn btn-cancel\" (click)=\"close(false)\">{{cncl}}</button></div>\n  </mat-dialog-content>\n    <button mat-button mat-dialog-close><img src=\"assets/images/close.png\" alt=\"Close\"></button>\n  ");
+
+/***/ }),
+
 /***/ "./src/app/shared/_pipes/btoa.pipe.ts":
 /*!********************************************!*\
   !*** ./src/app/shared/_pipes/btoa.pipe.ts ***!
@@ -80609,6 +80622,78 @@ TimePipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/shared/confim-dialog/confim-dialog.component.scss":
+/*!*******************************************************************!*\
+  !*** ./src/app/shared/confim-dialog/confim-dialog.component.scss ***!
+  \*******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3NoYXJlZC9jb25maW0tZGlhbG9nL2NvbmZpbS1kaWFsb2cuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/shared/confim-dialog/confim-dialog.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/shared/confim-dialog/confim-dialog.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: ConfimDialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ConfimDialogComponent", function() { return ConfimDialogComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
+/* harmony import */ var _service_error_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../service/error.service */ "./src/app/shared/service/error.service.ts");
+/* harmony import */ var _pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm2015/material.js");
+
+
+
+
+
+
+let ConfimDialogComponent = class ConfimDialogComponent {
+    constructor(httpservice, errsrv, trns, dialogRef, data) {
+        this.httpservice = httpservice;
+        this.errsrv = errsrv;
+        this.trns = trns;
+        this.dialogRef = dialogRef;
+        console.log(data);
+        this.msg = data.msg;
+        this.btn = data.btn;
+        this.cncl = data.cncl;
+    }
+    ngOnInit() {
+    }
+    close(val) {
+        this.dialogRef.close(val);
+    }
+};
+ConfimDialogComponent.ctorParameters = () => [
+    { type: _service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"] },
+    { type: _service_error_service__WEBPACK_IMPORTED_MODULE_3__["ErrorService"] },
+    { type: _pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_4__["TranslatePipe"] },
+    { type: _angular_material__WEBPACK_IMPORTED_MODULE_5__["MatDialogRef"] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"], args: [_angular_material__WEBPACK_IMPORTED_MODULE_5__["MAT_DIALOG_DATA"],] }] }
+];
+ConfimDialogComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-confim-dialog',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./confim-dialog.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/confim-dialog/confim-dialog.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./confim-dialog.component.scss */ "./src/app/shared/confim-dialog/confim-dialog.component.scss")).default]
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__param"](4, Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Inject"])(_angular_material__WEBPACK_IMPORTED_MODULE_5__["MAT_DIALOG_DATA"]))
+], ConfimDialogComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/elements/data-filter.pipe.ts":
 /*!*****************************************************!*\
   !*** ./src/app/shared/elements/data-filter.pipe.ts ***!
@@ -80724,6 +80809,84 @@ MaterialModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/shared/service/error.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/shared/service/error.service.ts ***!
+  \*************************************************/
+/*! exports provided: ErrorService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ErrorService", function() { return ErrorService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./translate.service */ "./src/app/shared/service/translate.service.ts");
+/* harmony import */ var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./http-request.service */ "./src/app/shared/service/http-request.service.ts");
+
+
+
+
+// import { TranslatePipe } from '../_pipes/translate.pipe';
+let ErrorService = class ErrorService {
+    constructor(helper, trns) {
+        this.helper = helper;
+        this.trns = trns;
+    }
+    handleError(errCode = 0) {
+        switch (errCode) {
+            case 0:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+                break;
+            case 1:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+                break;
+            case 4:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+                break;
+            case 5:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
+                break;
+            case 6:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
+                break;
+            case 7:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
+                break;
+            case 8:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
+                break;
+            case 9:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
+                break;
+            case 31:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+                break;
+            case 15:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONALRDYEXIST']);
+                break;
+            case 39:
+                this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
+                break;
+            default:
+                break;
+        }
+    }
+};
+ErrorService.ctorParameters = () => [
+    { type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"] },
+    { type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"] }
+];
+ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], ErrorService);
+
+
+
+/***/ }),
+
 /***/ "./src/app/shared/shared.module.ts":
 /*!*****************************************!*\
   !*** ./src/app/shared/shared.module.ts ***!
@@ -80747,6 +80910,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _material_material_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./material/material.module */ "./src/app/shared/material/material.module.ts");
 /* harmony import */ var _pipes_percent_pipe__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./_pipes/percent.pipe */ "./src/app/shared/_pipes/percent.pipe.ts");
 /* harmony import */ var _pipes_round_pipe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./_pipes/round.pipe */ "./src/app/shared/_pipes/round.pipe.ts");
+/* harmony import */ var _confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./confim-dialog/confim-dialog.component */ "./src/app/shared/confim-dialog/confim-dialog.component.ts");
+
 
 
 
@@ -80789,8 +80954,9 @@ SharedModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _pipes_time_pipe__WEBPACK_IMPORTED_MODULE_8__["TimePipe"],
             _pipes_safe_pipe__WEBPACK_IMPORTED_MODULE_9__["SafePipe"],
             _pipes_percent_pipe__WEBPACK_IMPORTED_MODULE_11__["PercentPipe"],
-            _pipes_round_pipe__WEBPACK_IMPORTED_MODULE_12__["RoundPipe"]
-        ],
+            _pipes_round_pipe__WEBPACK_IMPORTED_MODULE_12__["RoundPipe"],
+            _confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_13__["ConfimDialogComponent"]
+        ], entryComponents: [_confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_13__["ConfimDialogComponent"]],
         providers: [],
         schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["NO_ERRORS_SCHEMA"]]
     })

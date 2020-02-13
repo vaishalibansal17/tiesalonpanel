@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[24], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookings.component.html":
-  /*!*********************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookings.component.html ***!
-    \*********************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender-info/managecalender-info.component.html":
+  /*!***********************************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender-info/managecalender-info.component.html ***!
+    \***********************************************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeBookingsBookingsComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeManageCalenderManagecalenderInfoManagecalenderInfoComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<hr>\n<h1>Under Development.</h1>\n<hr>\n<h2>Thank you</h2>";
+    __webpack_exports__["default"] = "<router-outlet></router-outlet>\n<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-6 top-text\">Booking Date: 08 Jan, 2020</div>\n        <div class=\"col-md-6 alignright\"><a class=\"btn btn-export\" href=\"#\">PDF</a></div>\n        <div class=\"col-md-12 top_view\"><img src=\"assets/images/change.png\" alt=\"\"><span class=\"user_name\">Jane Doe</span></div>\n        <div class=\"row\">\n            <div class=\"col-md-9\">\n                <div class=\"row\">\n                    <div class=\"col-md-3 label\">Date:</div>\n                    <div class=\"col-md-9 description\">22 Oct, 2019</div>\n                    <div class=\"col-md-3 label\">Time:</div>\n                    <div class=\"col-md-9 description\">10:00AM</div>\n                    <div class=\"col-md-3 label\">Booking ID:</div>\n                    <div class=\"col-md-9 description\">#QW1234</div>\n                    <div class=\"col-md-3 label\">Staff Name:</div>\n                    <div class=\"col-md-9 description\">Allen</div>\n                    <div class=\"col-md-3 label\">Address:</div>\n                    <div class=\"col-md-9 description\">246 Chris Avenue, New York</div>\n                    <div class=\"col-md-12 label\">Booking Location:</div>\n                    <div class=\"col-md-12 description\"><img class=\"full_width\" src=\"assets/images/maps.png\" alt=\"Maps\"></div>\n                    <div class=\"col-md-3 label\">Service At:</div>\n                    <div class=\"col-md-9 description\">Salon</div>\n                    <div class=\"col-md-12 label\">Services:</div>\n                    <div class=\"col-md-3 label\">Hair Wash Basic (Blast Dry)<span>Anybody</span></div>\n                    <div class=\"col-md-9 description alignright\">$250.00<span>10:00AM - 11:00AM</span></div>\n                    <div class=\"col-md-3 label\">Hair Wash Basic (Blast Dry)<span>You</span></div>\n                    <div class=\"col-md-9 description alignright\">$250.00<span>11:00AM - 12:00PM</span></div>\n                    <div class=\"col-md-12 text-center\"><a href=\"#\" class=\"btn btn-submit\">Mark as Complete</a></div>\n                </div>\n            </div>\n            <div class=\"col-md-3 mobile_hidden\"></div>\n        </div>\n\n        </div>\n    </div>\n";
     /***/
   },
 
   /***/
-  "./src/app/home/bookings/bookings-routing.module.ts":
-  /*!**********************************************************!*\
-    !*** ./src/app/home/bookings/bookings-routing.module.ts ***!
-    \**********************************************************/
+  "./src/app/home/manage-calender/managecalender-info/managecalender-info-routing.module.ts":
+  /*!************************************************************************************************!*\
+    !*** ./src/app/home/manage-calender/managecalender-info/managecalender-info-routing.module.ts ***!
+    \************************************************************************************************/
 
-  /*! exports provided: BookingsRoutingModule */
+  /*! exports provided: ManagecalenderInfoRoutingModule */
 
   /***/
-  function srcAppHomeBookingsBookingsRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeManageCalenderManagecalenderInfoManagecalenderInfoRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "BookingsRoutingModule", function () {
-      return BookingsRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "ManagecalenderInfoRoutingModule", function () {
+      return ManagecalenderInfoRoutingModule;
     });
     /* harmony import */
 
@@ -65,100 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _bookings_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./bookings.component */
-    "./src/app/home/bookings/bookings.component.ts");
+    var _managecalender_info_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./managecalender-info.component */
+    "./src/app/home/manage-calender/managecalender-info/managecalender-info.component.ts");
 
     var routes = [{
       path: '',
-      component: _bookings_component__WEBPACK_IMPORTED_MODULE_3__["BookingsComponent"],
-      data: {
-        title: "Booking"
-      },
-      children: [{
-        path: '',
-        loadChildren: function loadChildren() {
-          return __webpack_require__.e(
-          /*! import() */
-          14).then(__webpack_require__.bind(null,
-          /*! ./list/list.module */
-          "./src/app/home/bookings/list/list.module.ts")).then(function (mod) {
-            return mod.ListModule;
-          });
-        },
-        data: {
-          title: "List",
-          status: false
-        }
-      }, // { path: 'add', loadChildren: () => import('./addstaff/addstaff.module').then(mod => mod.AddstaffModule), data: { title: "Add", status: false } },
-      // { path: 'edit', loadChildren: () => import('./editstaff/editstaff.module').then(mod => mod.EditstaffModule), data: { title: "Edit", status: false } },
-      {
-        path: 'info',
-        loadChildren: function loadChildren() {
-          return __webpack_require__.e(
-          /*! import() */
-          13).then(__webpack_require__.bind(null,
-          /*! ./bookingdetail/bookingdetail.module */
-          "./src/app/home/bookings/bookingdetail/bookingdetail.module.ts")).then(function (mod) {
-            return mod.BookingdetailModule;
-          });
-        },
-        data: {
-          title: "Info",
-          status: false
-        }
-      }]
+      component: _managecalender_info_component__WEBPACK_IMPORTED_MODULE_3__["ManagecalenderInfoComponent"]
     }];
 
-    var BookingsRoutingModule = function BookingsRoutingModule() {
-      _classCallCheck(this, BookingsRoutingModule);
+    var ManagecalenderInfoRoutingModule = function ManagecalenderInfoRoutingModule() {
+      _classCallCheck(this, ManagecalenderInfoRoutingModule);
     };
 
-    BookingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    ManagecalenderInfoRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], BookingsRoutingModule);
+    })], ManagecalenderInfoRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/bookings/bookings.component.scss":
-  /*!*******************************************************!*\
-    !*** ./src/app/home/bookings/bookings.component.scss ***!
-    \*******************************************************/
+  "./src/app/home/manage-calender/managecalender-info/managecalender-info.component.scss":
+  /*!*********************************************************************************************!*\
+    !*** ./src/app/home/manage-calender/managecalender-info/managecalender-info.component.scss ***!
+    \*********************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeBookingsBookingsComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeManageCalenderManagecalenderInfoManagecalenderInfoComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvYm9va2luZ3MvYm9va2luZ3MuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvbWFuYWdlLWNhbGVuZGVyL21hbmFnZWNhbGVuZGVyLWluZm8vbWFuYWdlY2FsZW5kZXItaW5mby5jb21wb25lbnQuc2NzcyJ9 */";
     /***/
   },
 
   /***/
-  "./src/app/home/bookings/bookings.component.ts":
-  /*!*****************************************************!*\
-    !*** ./src/app/home/bookings/bookings.component.ts ***!
-    \*****************************************************/
+  "./src/app/home/manage-calender/managecalender-info/managecalender-info.component.ts":
+  /*!*******************************************************************************************!*\
+    !*** ./src/app/home/manage-calender/managecalender-info/managecalender-info.component.ts ***!
+    \*******************************************************************************************/
 
-  /*! exports provided: BookingsComponent */
+  /*! exports provided: ManagecalenderInfoComponent */
 
   /***/
-  function srcAppHomeBookingsBookingsComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeManageCalenderManagecalenderInfoManagecalenderInfoComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "BookingsComponent", function () {
-      return BookingsComponent;
+    __webpack_require__.d(__webpack_exports__, "ManagecalenderInfoComponent", function () {
+      return ManagecalenderInfoComponent;
     });
     /* harmony import */
 
@@ -173,51 +137,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var BookingsComponent =
+    var ManagecalenderInfoComponent =
     /*#__PURE__*/
     function () {
-      function BookingsComponent() {
-        _classCallCheck(this, BookingsComponent);
+      function ManagecalenderInfoComponent() {
+        _classCallCheck(this, ManagecalenderInfoComponent);
       }
 
-      _createClass(BookingsComponent, [{
+      _createClass(ManagecalenderInfoComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return BookingsComponent;
+      return ManagecalenderInfoComponent;
     }();
 
-    BookingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-bookings',
+    ManagecalenderInfoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-managecalender-info',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./bookings.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookings.component.html")).default,
+      /*! raw-loader!./managecalender-info.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender-info/managecalender-info.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./bookings.component.scss */
-      "./src/app/home/bookings/bookings.component.scss")).default]
-    })], BookingsComponent);
+      /*! ./managecalender-info.component.scss */
+      "./src/app/home/manage-calender/managecalender-info/managecalender-info.component.scss")).default]
+    })], ManagecalenderInfoComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/bookings/bookings.module.ts":
-  /*!**************************************************!*\
-    !*** ./src/app/home/bookings/bookings.module.ts ***!
-    \**************************************************/
+  "./src/app/home/manage-calender/managecalender-info/managecalender-info.module.ts":
+  /*!****************************************************************************************!*\
+    !*** ./src/app/home/manage-calender/managecalender-info/managecalender-info.module.ts ***!
+    \****************************************************************************************/
 
-  /*! exports provided: BookingsModule */
+  /*! exports provided: ManagecalenderInfoModule */
 
   /***/
-  function srcAppHomeBookingsBookingsModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeManageCalenderManagecalenderInfoManagecalenderInfoModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "BookingsModule", function () {
-      return BookingsModule;
+    __webpack_require__.d(__webpack_exports__, "ManagecalenderInfoModule", function () {
+      return ManagecalenderInfoModule;
     });
     /* harmony import */
 
@@ -240,30 +204,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _bookings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./bookings-routing.module */
-    "./src/app/home/bookings/bookings-routing.module.ts");
+    var _managecalender_info_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./managecalender-info-routing.module */
+    "./src/app/home/manage-calender/managecalender-info/managecalender-info-routing.module.ts");
     /* harmony import */
 
 
-    var _bookings_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./bookings.component */
-    "./src/app/home/bookings/bookings.component.ts");
-    /* harmony import */
+    var _managecalender_info_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./managecalender-info.component */
+    "./src/app/home/manage-calender/managecalender-info/managecalender-info.component.ts");
 
-
-    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/shared/shared.module */
-    "./src/app/shared/shared.module.ts");
-
-    var BookingsModule = function BookingsModule() {
-      _classCallCheck(this, BookingsModule);
+    var ManagecalenderInfoModule = function ManagecalenderInfoModule() {
+      _classCallCheck(this, ManagecalenderInfoModule);
     };
 
-    BookingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_bookings_component__WEBPACK_IMPORTED_MODULE_4__["BookingsComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _bookings_routing_module__WEBPACK_IMPORTED_MODULE_3__["BookingsRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
-    })], BookingsModule);
+    ManagecalenderInfoModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_managecalender_info_component__WEBPACK_IMPORTED_MODULE_4__["ManagecalenderInfoComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _managecalender_info_routing_module__WEBPACK_IMPORTED_MODULE_3__["ManagecalenderInfoRoutingModule"]]
+    })], ManagecalenderInfoModule);
     /***/
   }
 }]);

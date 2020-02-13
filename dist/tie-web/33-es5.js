@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[33], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calender/calender.component.html":
-  /*!**********************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calender/calender.component.html ***!
-    \**********************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earning.component.html":
+  /*!**************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earning.component.html ***!
+    \**************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserCalenderCalenderComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeReportEarningEarningComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <h1>Manage Calender</h1>\n    <p>It will set up in further milestone.</p>\n</div>";
+    __webpack_exports__["default"] = "<p>earning works!</p>\n";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/calender/calender-routing.module.ts":
-  /*!***********************************************************************!*\
-    !*** ./src/app/home/walking-user/calender/calender-routing.module.ts ***!
-    \***********************************************************************/
+  "./src/app/home/report/earning/earning-routing.module.ts":
+  /*!***************************************************************!*\
+    !*** ./src/app/home/report/earning/earning-routing.module.ts ***!
+    \***************************************************************/
 
-  /*! exports provided: CalenderRoutingModule */
+  /*! exports provided: EarningRoutingModule */
 
   /***/
-  function srcAppHomeWalkingUserCalenderCalenderRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportEarningEarningRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CalenderRoutingModule", function () {
-      return CalenderRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "EarningRoutingModule", function () {
+      return EarningRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,102 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _calender_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./calender.component */
-    "./src/app/home/walking-user/calender/calender.component.ts");
+    var _earning_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./earning.component */
+    "./src/app/home/report/earning/earning.component.ts");
 
     var routes = [{
       path: '',
-      component: _calender_component__WEBPACK_IMPORTED_MODULE_3__["CalenderComponent"]
+      component: _earning_component__WEBPACK_IMPORTED_MODULE_3__["EarningComponent"],
+      children: [{
+        path: '',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() */
+          35).then(__webpack_require__.bind(null,
+          /*! ./earninglist/earninglist.module */
+          "./src/app/home/report/earning/earninglist/earninglist.module.ts")).then(function (mod) {
+            return mod.EarninglistModule;
+          });
+        },
+        data: {
+          title: "Earning",
+          status: false
+        }
+      }, {
+        path: 'day-list',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() */
+          34).then(__webpack_require__.bind(null,
+          /*! ./earningdaylist/earningdaylist.module */
+          "./src/app/home/report/earning/earningdaylist/earningdaylist.module.ts")).then(function (mod) {
+            return mod.EarningdaylistModule;
+          });
+        }
+      }, {
+        path: 'month-list',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() */
+          36).then(__webpack_require__.bind(null,
+          /*! ./earningmonthlist/earningmonthlist.module */
+          "./src/app/home/report/earning/earningmonthlist/earningmonthlist.module.ts")).then(function (mod) {
+            return mod.EarningmonthlistModule;
+          });
+        }
+      }]
     }];
 
-    var CalenderRoutingModule = function CalenderRoutingModule() {
-      _classCallCheck(this, CalenderRoutingModule);
+    var EarningRoutingModule = function EarningRoutingModule() {
+      _classCallCheck(this, EarningRoutingModule);
     };
 
-    CalenderRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    EarningRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], CalenderRoutingModule);
+    })], EarningRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/calender/calender.component.scss":
-  /*!********************************************************************!*\
-    !*** ./src/app/home/walking-user/calender/calender.component.scss ***!
-    \********************************************************************/
+  "./src/app/home/report/earning/earning.component.scss":
+  /*!************************************************************!*\
+    !*** ./src/app/home/report/earning/earning.component.scss ***!
+    \************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeWalkingUserCalenderCalenderComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportEarningEarningComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL2NhbGVuZGVyL2NhbGVuZGVyLmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcmVwb3J0L2Vhcm5pbmcvZWFybmluZy5jb21wb25lbnQuc2NzcyJ9 */";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/calender/calender.component.ts":
-  /*!******************************************************************!*\
-    !*** ./src/app/home/walking-user/calender/calender.component.ts ***!
-    \******************************************************************/
+  "./src/app/home/report/earning/earning.component.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/report/earning/earning.component.ts ***!
+    \**********************************************************/
 
-  /*! exports provided: CalenderComponent */
+  /*! exports provided: EarningComponent */
 
   /***/
-  function srcAppHomeWalkingUserCalenderCalenderComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportEarningEarningComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CalenderComponent", function () {
-      return CalenderComponent;
+    __webpack_require__.d(__webpack_exports__, "EarningComponent", function () {
+      return EarningComponent;
     });
     /* harmony import */
 
@@ -137,51 +175,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var CalenderComponent =
+    var EarningComponent =
     /*#__PURE__*/
     function () {
-      function CalenderComponent() {
-        _classCallCheck(this, CalenderComponent);
+      function EarningComponent() {
+        _classCallCheck(this, EarningComponent);
       }
 
-      _createClass(CalenderComponent, [{
+      _createClass(EarningComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return CalenderComponent;
+      return EarningComponent;
     }();
 
-    CalenderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-calender',
+    EarningComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-earning',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./calender.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/calender/calender.component.html")).default,
+      /*! raw-loader!./earning.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earning.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./calender.component.scss */
-      "./src/app/home/walking-user/calender/calender.component.scss")).default]
-    })], CalenderComponent);
+      /*! ./earning.component.scss */
+      "./src/app/home/report/earning/earning.component.scss")).default]
+    })], EarningComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/calender/calender.module.ts":
-  /*!***************************************************************!*\
-    !*** ./src/app/home/walking-user/calender/calender.module.ts ***!
-    \***************************************************************/
+  "./src/app/home/report/earning/earning.module.ts":
+  /*!*******************************************************!*\
+    !*** ./src/app/home/report/earning/earning.module.ts ***!
+    \*******************************************************/
 
-  /*! exports provided: CalenderModule */
+  /*! exports provided: EarningModule */
 
   /***/
-  function srcAppHomeWalkingUserCalenderCalenderModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportEarningEarningModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CalenderModule", function () {
-      return CalenderModule;
+    __webpack_require__.d(__webpack_exports__, "EarningModule", function () {
+      return EarningModule;
     });
     /* harmony import */
 
@@ -204,24 +242,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _calender_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./calender-routing.module */
-    "./src/app/home/walking-user/calender/calender-routing.module.ts");
+    var _earning_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./earning-routing.module */
+    "./src/app/home/report/earning/earning-routing.module.ts");
     /* harmony import */
 
 
-    var _calender_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./calender.component */
-    "./src/app/home/walking-user/calender/calender.component.ts");
+    var _earning_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./earning.component */
+    "./src/app/home/report/earning/earning.component.ts");
 
-    var CalenderModule = function CalenderModule() {
-      _classCallCheck(this, CalenderModule);
+    var EarningModule = function EarningModule() {
+      _classCallCheck(this, EarningModule);
     };
 
-    CalenderModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_calender_component__WEBPACK_IMPORTED_MODULE_4__["CalenderComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _calender_routing_module__WEBPACK_IMPORTED_MODULE_3__["CalenderRoutingModule"]]
-    })], CalenderModule);
+    EarningModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_earning_component__WEBPACK_IMPORTED_MODULE_4__["EarningComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _earning_routing_module__WEBPACK_IMPORTED_MODULE_3__["EarningRoutingModule"]]
+    })], EarningModule);
     /***/
   }
 }]);
