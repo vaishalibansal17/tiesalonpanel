@@ -14,6 +14,7 @@ import * as _ from "lodash";
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
+  todaydate:Date = new Date();
   services = [];
   chips = [];
   submitted = false;
@@ -39,8 +40,8 @@ export class EditComponent implements OnInit {
       name: new FormControl(null, [Validators.required, ValidationService.namevalidator]),
       code: new FormControl(null, [Validators.required, ValidationService.codeValidator]),
       discount: new FormControl(null, [Validators.required, ValidationService.numberValidator]),
-      upto: new FormControl(null, []),
-      min_price: new FormControl(null, []),
+      upto: new FormControl(null, [ValidationService.numberValidator]),
+      min_price: new FormControl(null, [ValidationService.numberValidator]),
       frm: new FormControl(null, [Validators.required,]),
       to: new FormControl(null, [Validators.required,]),
       uses: new FormControl(null, []),
@@ -67,6 +68,8 @@ export class EditComponent implements OnInit {
   edit() {
     this.submitted = true;
     // return false
+    console.log(this.promo);
+    // return
     var startDateUtc = this.promo.value.frm && this.helper.parseDate(this.promo.value.frm, new Date(new Date().setHours(0, 0, 0, 0)));
     var endDateUtc = this.promo.value.to && this.helper.parseDate(this.promo.value.to, new Date(new Date().setHours(23, 59, 59)));
     if (!(startDateUtc < endDateUtc)) {
@@ -74,7 +77,6 @@ export class EditComponent implements OnInit {
     } else
       this.validDte = true;
     if (this.promo.valid) {
-      console.log(this.promo);
 
       // if (this.promo.value.cat_ids)
       //   this.promo.value.cat_ids = JSON.stringify(this.sendServ);

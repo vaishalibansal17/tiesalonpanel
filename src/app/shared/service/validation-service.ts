@@ -112,7 +112,7 @@ export class ValidationService {
     // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {
     if (control.value && String(control.value).match(/^[0-9]*$/)) {
       return null;
-    } else if (control.value) {
+    } else if (!control.value) {
       return null;
     }
     else

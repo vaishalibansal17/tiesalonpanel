@@ -21,6 +21,7 @@ export interface Service {
 export class AddComponent implements OnInit {
   services: Service[];
   chips = [];
+  todaydate:Date = new Date();
   submitted = false;
   dataSource = [];
   selectable = true;
@@ -87,6 +88,7 @@ export class AddComponent implements OnInit {
   add() {
     this.submitted = true;
     // return false
+     console.log(this.promo )
     var startDateUtc = this.promo.value.frm && this.helper.parseDate(this.promo.value.frm, new Date(new Date().setHours(0, 0, 0, 0)));
     var endDateUtc = this.promo.value.to && this.helper.parseDate(this.promo.value.to, new Date(new Date().setHours(23, 59, 59)));
     if (!(startDateUtc < endDateUtc)) {

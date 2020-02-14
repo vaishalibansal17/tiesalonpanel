@@ -580,7 +580,7 @@ class ValidationService {
         if (control.value && String(control.value).match(/^[0-9]*$/)) {
             return null;
         }
-        else if (control.value) {
+        else if (!control.value) {
             return null;
         }
         else

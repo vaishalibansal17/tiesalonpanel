@@ -7,8 +7,8 @@
             </mat-form-field>
             <div *ngIf="(submitted || getControl.name.dirty|| getControl.name.touched) && getControl.name.errors">
                 <p class="color error" *ngIf="getControl.name.errors.required">{{'COUPNNAME'| translate}}</p>
-                <!-- <p class="color error" *ngIf="!getControl.name.errors.required && getControl.name.errors.invalidName">
-                    {{'INCRTSALONNAME'| translate}}</p> -->
+                <p class="color error" *ngIf="!getControl.name.errors.required && getControl.name.errors.invalidName">
+                    {{'INCRTPROMONNAME'| translate}}</p>
             </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/category_form.png" alt="Code"></span>
@@ -28,7 +28,7 @@
                 <p class="color error" *ngIf="getControl.discount.errors.required">{{'CODEREQ'| translate}}</p>
                 <p class="color error"
                     *ngIf="!getControl.discount.errors.required && getControl.discount.errors.invalid">
-                    {{'CODEINVLID'| translate}}</p>
+                    {{'ONLYNUM'| translate}}</p>
             </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/price_form.png" alt="Discount"></span>
@@ -40,7 +40,7 @@
                 <p class="color error" *ngIf="getControl.min_price.errors.required">{{'MINPRCREQ'| translate}}</p>
                 <p class="color error"
                     *ngIf="!getControl.min_price.errors.required && getControl.min_price.errors.invalid">
-                    {{'CODEINVLID'| translate}}</p>
+                    {{'ONLYNUM'| translate}}</p>
             </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/price_form.png" alt="Discount"></span>
@@ -50,7 +50,7 @@
             <div *ngIf="(submitted || getControl.upto.dirty|| getControl.upto.touched) && getControl.upto.errors">
                 <p class="color error" *ngIf="getControl.upto.errors.required">{{'MAXPRCREQ'| translate}}</p>
                 <p class="color error" *ngIf="!getControl.upto.errors.required && getControl.upto.errors.invalid">
-                    {{'CODEINVLID'| translate}}</p>
+                    {{'ONLYNUM'| translate}}</p>
             </div>
             <mat-form-field class="multi_field">
                 <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
@@ -87,7 +87,7 @@
                 <div class="col-md-6 left">
                     <mat-form-field>
                         <span class="email-img pass"><img src="assets/images/calendar_form.png" alt="From"></span>
-                        <input matInput placeholder="From" class="form-control" [matDatepicker]="fromDatepicker"
+                        <input matInput placeholder="From" class="form-control" [min]="todaydate" [matDatepicker]="fromDatepicker"
                             formControlName="frm" disabled>
                         <mat-datepicker-toggle matSuffix [for]="fromDatepicker">
                             <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
@@ -104,7 +104,7 @@
                 <div class="col-md-6 right">
                     <mat-form-field>
                         <span class="email-img pass"><img src="assets/images/calendar_form.png" alt="From"></span>
-                        <input matInput placeholder="To" class="form-control" [matDatepicker]="toDatepicker"
+                        <input matInput placeholder="To" class="form-control" [min]="todaydate" [matDatepicker]="toDatepicker"
                             formControlName="to" disabled>
                         <mat-datepicker-toggle matSuffix [for]="toDatepicker">
                             <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
