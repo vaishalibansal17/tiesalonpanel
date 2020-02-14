@@ -1,17 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material';
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  service: string;
-  serviceat: string;
-  staff: string;
-  number: number;
-  status: string;
-  time: string;
-  bookingid: string;
-  date: string;
-}
+import { Component, OnInit, ViewChild, ElementRef, Inject } from '@angular/core';
+import { MatDialog, MatPaginator, MatSort } from '@angular/material';
+import { ListDataSource } from 'src/app/shared/service/list/list.dataSource';
+import { ListService } from 'src/app/shared/service/list/list.service';
+import { merge } from 'rxjs';
+import { tap } from 'rxjs/operators';
+import { HttpRequestService } from 'src/app/shared/service/http-request.service';
+import { ErrorService } from 'src/app/shared/service/error.service';
+import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
+import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
+import { ConfimDialogComponent } from 'src/app/shared/confim-dialog/confim-dialog.component';
+import { LIMIT } from 'src/app/shared/constants/constant';
+import { DatePipe } from '@angular/common';
 export interface Booking {
   value: string;
   viewValue: string;
@@ -25,8 +24,6 @@ export interface Booking {
 })
 export class ListComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'service', 'serviceat', 'staff', 'number', 'status', 'time', 'bookingid', 'date', 'action' ];
-  dataSource = ELEMENT_DATA;
-
   bookings: Booking[] = [
     { value: '1', viewValue: 'All Bookings' },
     { value: '2', viewValue: 'New Bookings' },
@@ -35,39 +32,157 @@ export class ListComponent implements OnInit {
     { value: '5', viewValue: 'Completed Bookings' },
   ];
   
-  constructor(public dialog: MatDialog) {}
+  limitPage = LIMIT;
+  dataSource: ListDataSource;
+  search: string;
+  sortData: any = {};
+  url: any = 'assets/images/change.png';
+  private paginator: MatPaginator;
+  detail = [];
+  loading: boolean;
+  imgurl: string;
+  totalLength: number;
+  @ViewChild(MatPaginator, { static: true }) set matPaginator(mp: MatPaginator) {
+    this.paginator = mp;
+  };
 
-  openDialog() {
-    console.log('-----');
-    
-    const dialogRef = this.dialog.open(BookingDeleteDialogBox, { width: '500px', disableClose: true });
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
+  @ViewChild('input', { static: true }) input: ElementRef;
+  isApplied = false;
+  salonId: any;
+  constructor(public dialog: MatDialog, private list: ListService, private errsrv: ErrorService, private httpservice: HttpRequestService, private trns: TranslatePipe, ) { }
+
+  openDialog(id) {
+    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: "Are you sure you want to accept/decline the Booking?", btn: this.trns.transform('ACCEPT'), cncl: this.trns.transform('CANCEL') } });
+
+    dialogRef.beforeClosed().subscribe(
+      (val) => {
+        if (val) {
+          this.httpservice.getRequest('DELETE', 'BOOKING', id)
+            .subscribe((response: any) => {
+              if (response.status === 1) {
+                this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('DELETE_STAFF'));
+                this.getBookings();
+              } else {
+                if (response.err)
+                  this.errsrv.handleError(response.err.errCode)
+                return false;
+              }
+            }, error => {
+              this.errsrv.handleError()
+            });
+        }
+      }
+    );
   }
-
   ngOnInit() {
+    this.getBookings();
   }
 
-}
+  // ********************** Account Manager List Api Integration with search ******************
+  getBookings(): void {
+    this.dataSource = new ListDataSource(this.list);
+    this.loadBookingList();
+    this.dataSource.usersData.subscribe((val) => {
+      // this.detail = val;
+    });
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Jane Doe',service: 'Haircut, Hair Spa', serviceat: 'Salon', staff:'Allen', number: +919999999999, status: 'Confirmed', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019'},
-  {position: 2, name: 'Jane Doe',service: 'Haircut, Hair Spa', serviceat: 'Home', staff:'James', number: +919999999999, status: 'Pending', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019'},
-  {position: 3, name: 'Jane Doe',service: 'Haircut, Hair Spa', serviceat: 'Salon', staff:'Allen', number: +919999999999, status: '--', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019'},
-  {position: 4, name: 'Jane Doe',service: 'Haircut', serviceat: 'Home', staff:'James', number: +919999999999, status: 'Completed', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019'},
-  {position: 5, name: 'Jane Doe',service: 'Massage', serviceat: 'Salon', staff:'Allen', number: +919999999999, status: 'Completed', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019'},
-  {position: 6, name: 'Jane Doe',service: 'Haircut', serviceat: 'Home', staff:'James', number: +919999999999, status: 'Pending', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019'},
-  {position: 7, name: 'Jane Doe',service: 'Haircut, Hair Spa', serviceat: 'Salon', staff:'Allen', number: +919999999999, status: 'Confirmed', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019'},
-  {position: 8, name: 'Jane Doe',service: 'Massage', serviceat: 'Home', staff:'Allen', number: +919999999999, status: 'Rejected', time: '10:00AM', bookingid: '#QW1234', date: '22 Oct, 2019'}
+    this.dataSource.loadingUsers.subscribe(e => this.loading = !e);
+    this.dataSource.extra$.subscribe(e => this.imgurl = e)
+    this.dataSource.totalCount$.subscribe(e => this.totalLength = e)
 
-];
+  }
+  ngAfterViewInit() {
+    this.sort.sortChange.subscribe(() => this.paginator.pageIndex = 0);
+    merge(this.sort.sortChange, this.paginator.page)
+      .pipe(
+        tap(() => this.loadBookingList())
+      )
+      .subscribe();
 
+  }
 
-@Component({
-  selector: 'booking-delete.component',
-  templateUrl: 'booking-delete.component.html',
-})
-export class BookingDeleteDialogBox {
-  constructor(){
+  loadBookingList() {
+    if (this.sort.active == 'name') {
+      this.sortData.sortValue = '1'
+    } else if (this.sort.active == 'email') {
+      this.sortData.sortValue = '2'
+    } else {
+      this.sortData.sortValue = '3'
+    }
+    this.sortData.direction = this.sort.direction || null;
+    let listObj = {
+      page: ((this.paginator.pageIndex - 1) + 1),
+      limit: this.paginator.pageSize || this.limitPage[0],
+      sort_val: this.sortData.sortValue,
+      dir: this.sortData.direction == 'asc' ? '1' : '-1'
+    }
+    if (this.search)
+      listObj['srch'] = this.search;
+    this.dataSource.load(listObj, { api: 'BOOKING' });
+  }
+  applyFilters(): void {
+    this.loadBookingList();
+    this.isApplied = true;
+  }
 
+  paginate() {
+    this.paginator.pageSize = this.paginator.pageSize + 1;
+    this.getBookings();
+  }
+  // ********************** Account Manager List Api Integration with search End******************
+
+  exportCSV(data: any) {
+    var finalData = [];
+    var obj: any;
+    var i = 0;
+    this.httpservice.getRequest('GET', 'BOOKING', `?all=true`).subscribe(rs => {
+      let datePipe = new DatePipe('en-US');
+      rs.res.bkngs.forEach(element => {
+        obj = {
+          "Serial": ++i,
+          "Name": element.user_name,
+          "Service": element.user_email,
+          "Contact Number": element.user_contact,
+          "Staff": element.staf_name ? element.staf_name : "NA",
+          "Booking id": element.booking_id,
+          "Status": element.status== 0?'Pending':(element.status== 1?'Confirmed':(element.status== 2?'Rejected':element.status== 3?'Completed':(element.status== 4?'Rescheduled':'Unserved'))),
+          "date":datePipe.transform(element.bookDateTime, "dd/MM/yyyy"),
+          "time":datePipe.transform(element.bookDateTime, "h:mm a"),
+        };
+        finalData.push(obj);
+      });
+      var options = { noDownload: false, headers: ["Serial", "Name", 'Service', 'serviceat', 'Staff', 'Contact Number', 'Status', 'time', 'Booking id', 'Date',] };
+      new Angular5Csv(finalData, 'Booking list', options);
+      this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('EXPORTD'));
+    })
+  }
+  chckDay(day){
+    switch (day) {
+      case 0:
+      return 'Sunday'
+        break;
+      case 1:
+        return 'Monday'
+        break;
+      case 2:
+        return 'Tuesday'
+        break;
+      case 3:
+        return 'Wednesday'
+        break;
+      case 4:
+        return 'Thursday'
+        break;
+      case 5:
+        return 'Friday'
+        break;
+      case 6:
+        return 'Saturday'
+        break;
+      default:
+        break;
+    }
   }
 }

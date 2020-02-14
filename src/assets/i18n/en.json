@@ -24,7 +24,7 @@
 
   "STAFF": "STAFF",
   "BOOKING": "BOOKINGS",
-  "WALKUSR": "WALKING USERS",
+  "WALKUSR": "WALK-IN USERS",
   "MANAGECALENDER": "MANAGE CALENDER",
   "PROMOCODE": "PROMO CODES/OFFERS",
   "REPORTS": "REPORTS",
@@ -82,6 +82,8 @@
   "EDITPROF":"Edit Profile",
   "SALONSUCCESS" :"Salon has been updated successfully.",
   "CHNGPIC":"Change Profile Picture",
+  "ADDSTFCHNGPIC":"Add Staff Picture",
+  "EDITSTFCHNGPIC":"Change Staff Picture",
   "MANAGESTAFF" :"Manage Staff",
   "WELCOMETOOUR":"Welcome to our",
   "FRGTPASS":"Forgot Password",

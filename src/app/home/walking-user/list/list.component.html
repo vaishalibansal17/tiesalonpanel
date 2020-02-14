@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-md-6 add"><a [routerLink]="['/walking-user/add-user']"><img src="assets/images/add.png" alt="Add">
         Add Users</a></div>
-    <div class="col-md-6 alignright"><a href="#" class="btn btn-export">Export</a>
+    <div class="col-md-6 alignright"><a href="javascript:void(0)" (click)="exportCSV()"class="btn btn-export">Export</a>
       <form action="" class="search_field">
         <mat-form-field>
           <span class="email-img search"><img src="assets/images/search.png" alt="envelope"></span>
@@ -41,6 +41,10 @@
         <th mat-header-cell *matHeaderCellDef> User Name </th>
         <td mat-cell *matCellDef="let element"> <a>{{element.fullname | titlecase}}</a> </td>
       </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let element">{{element.email}}</td>
+      </ng-container>
 
       <ng-container matColumnDef="service">
         <th mat-header-cell *matHeaderCellDef>Service</th>
@@ -66,7 +70,13 @@
         <th mat-header-cell *matHeaderCellDef>Date</th>
         <td mat-cell *matCellDef="let element">{{element.bookDateTime | date: "dd MMM yyy"}}</td>
       </ng-container>
-
+      <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let element">
+          <button class="action_btn pink"><a [routerLink]="['/walking-user/info', element._id]"><img src="assets/images/view.png"
+                alt="View"></a></button>
+        </td>
+      </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>

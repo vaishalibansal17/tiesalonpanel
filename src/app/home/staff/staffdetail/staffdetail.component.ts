@@ -27,6 +27,7 @@ export class StaffdetailComponent implements OnInit {
         if (response.status === 1) {
           this.detail = response.res;
           this.url = this.detail.img ? this.detail.img : this.url;
+          this.detail.doff =this.chckDay(this.detail.day_off);
         } else {
           if (response.err) {
             this.error.handleError(response.err.errCode);
@@ -36,6 +37,36 @@ export class StaffdetailComponent implements OnInit {
         this.error.handleError(0);
         // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
       });
+  }
+
+  chckDay(day){
+    console.log(day);
+    
+    switch (day) {
+      case 0:
+      return 'Sunday'
+        break;
+      case 1:
+        return 'Monday'
+        break;
+      case 2:
+        return 'Tuesday'
+        break;
+      case 3:
+        return 'Wednesday'
+        break;
+      case 4:
+        return 'Thursday'
+        break;
+      case 5:
+        return 'Friday'
+        break;
+      case 6:
+        return 'Saturday'
+        break;
+      default:
+        break;
+    }
   }
 
 }

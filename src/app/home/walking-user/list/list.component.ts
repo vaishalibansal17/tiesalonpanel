@@ -7,6 +7,7 @@ import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { merge } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
+import { DatePipe } from '@angular/common';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -30,7 +31,7 @@ export interface Walkinglist {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'service', 'staff', 'number', 'bookingid', 'date'];
+  displayedColumns: string[] = ['position', 'name', 'email','service', 'staff', 'number', 'bookingid', 'date', 'Action'];
   limitPage = [10, 20, 30];
   dataSource: ListDataSource;
   search: string;
@@ -106,17 +107,23 @@ export class ListComponent implements OnInit {
     var finalData = [];
     var obj: any;
     var i = 0;
-    data.usersData.subscribe(rs => {
-      rs.forEach(element => {
+    this.httpservice.getRequest('GET', 'WALKING', `?all=true`).subscribe(rs => {
+      let datePipe = new DatePipe('en-US');
+      rs.res.wlkUsr.forEach(element => {
         obj = {
           "Serial": ++i,
-          "Name": element.name,
-          "Email": element.email
+          "Name": element.fullname,
+          "Email": element.email,
+          "Services": element.service?element.service:"NA",
+          "Staff": element.discount,
+          "Contact Number": element.pno,
+          "Booking-Id": element.bookingid?element.bookingid:"NA",
+          "Date": datePipe.transform(element.bookDateTime, "dd/MM/yyyy"),
         };
         finalData.push(obj);
       });
-      var options = { noDownload: false, headers: ["Serial", "Name", "Email"] };
-      new Angular5Csv(finalData, 'staff_list', options);
+      var options = { noDownload: false, headers: ["Serial", "Name", "Email", 'Services', 'Staff', 'Contact Number', 'Booking-Id', 'Date'] };
+      new Angular5Csv(finalData, 'walkin_list', options);
       this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('EXPORTD'));
     })
   }

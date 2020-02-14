@@ -59,15 +59,13 @@ interface Location {
 
 export class EditprofileComponent implements OnInit {
   services: Service[] = [
-    { value: '1', viewValue: 'Salon' },
-    { value: '2', viewValue: 'Home' },
+    { value: '1', viewValue: 'Home' },
+    { value: '2', viewValue: 'Salon' },
     { value: '3', viewValue: 'Both' },
   ];
 
   clinics: Clinic[] = [
-    { value: '1', viewValue: 'Salon' },
-    { value: '2', viewValue: 'Home' },
-    { value: '3', viewValue: 'Both' },
+    { value: '2', viewValue: 'Clinic' },
   ];
 
 
@@ -280,6 +278,7 @@ export class EditprofileComponent implements OnInit {
           this.location.lng = this.detail.lng;
           this.url = this.detail.logo ? this.detail.logo : this.url;
           this.dataSource = this.detail.services;
+          this.services = this.detail.type!==2?this.clinics: this.services;
           if (this.detail && this.detail.imgs) {
             this.detail.imgs.map(item => {
               item = this.detail.bp + item;

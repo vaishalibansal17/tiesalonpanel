@@ -6,11 +6,15 @@
         <div class="col-md-3 label">{{'MOBILENUMBER'| translate}}:</div>
         <div class="col-md-9 description">{{detail && detail.phone}}</div>
         <div class="col-md-3 label">{{'REVIEWS'| translate}}:</div>
-        <div class="col-md-9 description"><img src="assets/images/reviews-star.png" alt="Review"></div>
+        <div class="col-md-9 description"><div class="staffdetail_staff"><ngx-stars [readonly]="true" [color]="'#f7c133'" [size]="5" [initialStars]="detail?.rvw_rt"></ngx-stars></div></div>
         <div class="col-md-3 label">{{'DESCRIPTION'| translate}}:</div>
         <div class="col-md-9 description">{{detail && detail.desc?detail.desc:'NA'}}</div>
         <div class="col-md-3 label">{{'DESIGNATION'| translate}}:</div>
         <div class="col-md-9 description">{{detail && detail.designation ?detail.designation:'NA'}}</div>
+        <div class="col-md-3 label">{{'AVAILBILITY'| translate | titlecase}}:</div>
+        <div class="col-md-9 description">{{detail && detail.avlblity ? 'Available':'Not Available'}}</div>
+        <div class="col-md-3 label">{{'WEEKOFF'| translate | titlecase}}:</div>
+        <div class="col-md-9 description">{{detail && detail.doff ? detail.doff:'NA'}}</div>
         <div class="col-md-12 alignright"><a [routerLink]="['review']" class="btn btn-link">View All</a></div>
         <div class="col-md-12">
             <h3>{{'REVIEWS'| translate}}:</h3>

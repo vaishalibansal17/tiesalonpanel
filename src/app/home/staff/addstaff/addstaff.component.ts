@@ -133,13 +133,15 @@ export class AddstaffComponent implements OnInit {
       this.formData.append('phone', this.profile.value.phone);
       this.formData.append('desc', this.profile.value.description ? this.profile.value.description : '');
       this.formData.append('services', JSON.stringify(this.sendServ));
-      this.formData.append('day_off', this.profile.value.day_off);
+      if (this.profile.value.day_off) {
+        this.formData.append('day_off', this.profile.value.day_off);
+      }
       this.formData.append('avlblity', this.profile.value.isAvailable);
       this.httpService.getRequest('POST', 'STAFF', this.formData, this.id)
         .subscribe((response: any) => {
           if (response.status === 1) {
             this.submitted = true;
-            this.router.navigateByUrl('/staff').then(()=> this.httpService.sucsTostr(this.trns.transform('SUCCESS'),this.trns.transform('ADDSTAFFSUCCESS') ))
+            this.router.navigateByUrl('/staff').then(() => this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('ADDSTAFFSUCCESS')))
           } else {
             if (response.err) {
               this.errorserv.handleError(response.err.errCode);
@@ -170,7 +172,7 @@ export class AddstaffComponent implements OnInit {
   }
 
   slctsrv(state: any) {
-    if(!this.httpService.arraySearch(this.sendServ,state)){
+    if (!this.httpService.arraySearch(this.sendServ, state)) {
       this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
       this.sendServ.push(state._id);
       return

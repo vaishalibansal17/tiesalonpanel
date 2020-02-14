@@ -25,8 +25,8 @@ export class ListService {
     return this.httpService.getRequest('GET', dataObj.api,queryParams)
       .pipe(
         map((res: any) => {
-          res.res.list = res.res['staffs'] || res.res['wlkUsr'] ||res.res['promo'] ;
-          delete res.res['staffs'] || res.res['wlkUsr'] ||res.res['promo'];
+          res.res.list = res.res['staffs'] || res.res['wlkUsr'] ||res.res['promo'] || res.res['bkngs'] ;
+          delete res.res['staffs'] || res.res['wlkUsr'] ||res.res['promo'] || res.res['bkngs'];
           return res;
         }),
         catchError((err, caught) => {

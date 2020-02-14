@@ -20,6 +20,7 @@ export const APIURLS = {
     WALKING_ADD:BASE_URL + 'user/walking/add',
     WALKING_BOOK:BASE_URL + 'booking/walking',
     PROMO:BASE_URL + 'promocode',
-    PROMO_DETAIL:BASE_URL + 'promocode/detail'
+    PROMO_DETAIL:BASE_URL + 'promocode/detail',
+    BOOKING : BASE_URL + 'salon/booking/list'
 
 };

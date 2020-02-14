@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TooltipPosition, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { TranslateService } from 'src/app/shared/service/translate.service';
 
 
 @Component({
@@ -11,7 +12,8 @@ import { TooltipPosition, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angu
 export class SettingsComponent implements OnInit {
   positionOptions: TooltipPosition[] = ['after', 'before', 'above', 'below', 'left', 'right'];
   position = new FormControl(this.positionOptions[0]);
-  constructor(public dialog: MatDialog) {}
+  lang: string = localStorage.getItem('lang') || 'en';
+  constructor(public dialog: MatDialog, private trns: TranslateService,) {}
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogContentExampleDialog, { width: '500px', disableClose: true });
@@ -24,6 +26,11 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+  setLang(lang: string) {
+    localStorage.setItem('lang', lang);
+    this.lang = lang;
+    this.trns.use(this.lang);
   }
 
 }

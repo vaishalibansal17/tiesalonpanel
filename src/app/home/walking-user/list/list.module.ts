@@ -14,9 +14,9 @@ import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
   imports: [
     CommonModule,
     WalkinglistRoutingModule,
-    SharedModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
     ApplicationpipeModule
   ], providers:[TranslatePipe]
 })

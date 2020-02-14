@@ -7,7 +7,7 @@
                 </div>
                 <label for="" class="custom_label upload-image">
                     <input type="file" accept="image/jpeg,image/png" (change)="readUrl($event)">
-                    {{'CHNGPIC'| translate}}</label>
+                    {{'EDITSTFCHNGPIC'| translate}}</label>
             </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/edit-user.png" alt="envelope"></span>
@@ -70,7 +70,7 @@
                 <div class="row">
                     <div class="col-md-6">{{'AVAILBILITY'| translate}}</div>
                     <div class="col-md-6 alignright">
-                        <mat-slide-toggle formControlName="isAvailable"  (click)="openDialog()"></mat-slide-toggle>
+                        <mat-slide-toggle formControlName="isAvailable"></mat-slide-toggle>
                     </div>
                 </div>
             </div>
