@@ -886,10 +886,14 @@ img.full_width{width:100%;margin-bottom: 20px;}
             border-left: 1px solid #efefef;
             border-right: 1px solid #efefef;
             border-bottom: none;
+            max-width: 200px;
+            word-break: break-all;
         }
         th.mat-header-cell{
             font-size: 14px;
             border: 1px solid #efefef;
+            max-width: 200px;
+            word-break: break-all;
         }
         button.action_btn{
             background: #ccc;
