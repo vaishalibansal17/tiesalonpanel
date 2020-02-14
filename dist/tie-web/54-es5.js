@@ -2,23 +2,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[54], {
   /***/
-  "./src/app/home/staff/staff-routing.module.ts":
-  /*!****************************************************!*\
-    !*** ./src/app/home/staff/staff-routing.module.ts ***!
-    \****************************************************/
+  "./src/app/home/manage-calender/manage-calender-routing.module.ts":
+  /*!************************************************************************!*\
+    !*** ./src/app/home/manage-calender/manage-calender-routing.module.ts ***!
+    \************************************************************************/
 
-  /*! exports provided: StaffRoutingModule */
+  /*! exports provided: ManageCalenderRoutingModule */
 
   /***/
-  function srcAppHomeStaffStaffRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeManageCalenderManageCalenderRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffRoutingModule", function () {
-      return StaffRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "ManageCalenderRoutingModule", function () {
+      return ManageCalenderRoutingModule;
     });
     /* harmony import */
 
@@ -44,107 +44,77 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(46)]).then(__webpack_require__.bind(null,
-        /*! ./list/list.module */
-        "./src/app/home/staff/list/list.module.ts")).then(function (mod) {
-          return mod.ListModule;
+        [__webpack_require__.e(2), __webpack_require__.e(24)]).then(__webpack_require__.bind(null,
+        /*! ./managecalender/managecalender.module */
+        "./src/app/home/manage-calender/managecalender/managecalender.module.ts")).then(function (mod) {
+          return mod.ManagecalenderModule;
         });
       },
       data: {
-        title: "List",
+        title: "Manage Calender",
         status: false
       }
     }, {
-      path: 'add',
+      path: 'calender-list',
       loadChildren: function loadChildren() {
-        return Promise.all(
+        return __webpack_require__.e(
         /*! import() */
-        [__webpack_require__.e("common"), __webpack_require__.e(44)]).then(__webpack_require__.bind(null,
-        /*! ./addstaff/addstaff.module */
-        "./src/app/home/staff/addstaff/addstaff.module.ts")).then(function (mod) {
-          return mod.AddstaffModule;
+        11).then(__webpack_require__.bind(null,
+        /*! ./managecalender-list/managecalender-list.module */
+        "./src/app/home/manage-calender/managecalender-list/managecalender-list.module.ts")).then(function (mod) {
+          return mod.ManagecalenderListModule;
         });
       },
       data: {
-        title: "Add",
+        title: "Calender List",
         status: false
       }
     }, {
-      path: 'edit/:id',
+      path: 'calender-info',
       loadChildren: function loadChildren() {
-        return Promise.all(
+        return __webpack_require__.e(
         /*! import() */
-        [__webpack_require__.e("common"), __webpack_require__.e(45)]).then(__webpack_require__.bind(null,
-        /*! ./editstaff/editstaff.module */
-        "./src/app/home/staff/editstaff/editstaff.module.ts")).then(function (mod) {
-          return mod.EditstaffModule;
+        23).then(__webpack_require__.bind(null,
+        /*! ./managecalender-info/managecalender-info.module */
+        "./src/app/home/manage-calender/managecalender-info/managecalender-info.module.ts")).then(function (mod) {
+          return mod.ManagecalenderInfoModule;
         });
       },
       data: {
-        title: "Edit",
-        status: false
-      }
-    }, {
-      path: 'info/:id',
-      loadChildren: function loadChildren() {
-        return Promise.all(
-        /*! import() */
-        [__webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(47)]).then(__webpack_require__.bind(null,
-        /*! ./staffdetail/staffdetail.module */
-        "./src/app/home/staff/staffdetail/staffdetail.module.ts")).then(function (mod) {
-          return mod.StaffdetailModule;
-        });
-      },
-      data: {
-        title: "Info",
-        status: false
-      }
-    }, {
-      path: 'info/:id/review',
-      loadChildren: function loadChildren() {
-        return Promise.all(
-        /*! import() */
-        [__webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(12)]).then(__webpack_require__.bind(null,
-        /*! ./staffreview/staffreview.module */
-        "./src/app/home/staff/staffreview/staffreview.module.ts")).then(function (mod) {
-          return mod.StaffreviewModule;
-        });
-      },
-      data: {
-        title: "Info / Review",
+        title: "Calender Info",
         status: false
       }
     }];
 
-    var StaffRoutingModule = function StaffRoutingModule() {
-      _classCallCheck(this, StaffRoutingModule);
+    var ManageCalenderRoutingModule = function ManageCalenderRoutingModule() {
+      _classCallCheck(this, ManageCalenderRoutingModule);
     };
 
-    StaffRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    ManageCalenderRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], StaffRoutingModule);
+    })], ManageCalenderRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staff.module.ts":
-  /*!********************************************!*\
-    !*** ./src/app/home/staff/staff.module.ts ***!
-    \********************************************/
+  "./src/app/home/manage-calender/manage-calender.module.ts":
+  /*!****************************************************************!*\
+    !*** ./src/app/home/manage-calender/manage-calender.module.ts ***!
+    \****************************************************************/
 
-  /*! exports provided: StaffModule */
+  /*! exports provided: ManageCalenderModule */
 
   /***/
-  function srcAppHomeStaffStaffModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeManageCalenderManageCalenderModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffModule", function () {
-      return StaffModule;
+    __webpack_require__.d(__webpack_exports__, "ManageCalenderModule", function () {
+      return ManageCalenderModule;
     });
     /* harmony import */
 
@@ -167,9 +137,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _staff_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./staff-routing.module */
-    "./src/app/home/staff/staff-routing.module.ts");
+    var _manage_calender_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./manage-calender-routing.module */
+    "./src/app/home/manage-calender/manage-calender-routing.module.ts");
     /* harmony import */
 
 
@@ -177,15 +147,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! src/app/shared/shared.module */
     "./src/app/shared/shared.module.ts");
 
-    var StaffModule = function StaffModule() {
-      _classCallCheck(this, StaffModule);
+    var ManageCalenderModule = function ManageCalenderModule() {
+      _classCallCheck(this, ManageCalenderModule);
     };
 
-    StaffModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    ManageCalenderModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _staff_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"]],
-      entryComponents: []
-    })], StaffModule);
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _manage_calender_routing_module__WEBPACK_IMPORTED_MODULE_3__["ManageCalenderRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"]]
+    })], ManageCalenderModule);
     /***/
   }
 }]);

@@ -588,7 +588,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomeModule), canActivate: [_shared_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomeModule), canActivate: [_shared_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
     { path: 'auth', loadChildren: () => __webpack_require__.e(/*! import() */ 52).then(__webpack_require__.bind(null, /*! ./auth/auth.module */ "./src/app/auth/auth.module.ts")).then(m => m.AuthModule), canActivate: [_shared_guard_login_guard__WEBPACK_IMPORTED_MODULE_4__["LoginGuard"]] },
     { path: 'reset-freelancer/:token', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(51)]).then(__webpack_require__.bind(null, /*! ./reset-freelancer/reset-freelancer.module */ "./src/app/reset-freelancer/reset-freelancer.module.ts")).then(m => m.ResetFreelancerModule) },
     { path: '**', component: _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__["PageNotFoundComponent"] }
@@ -866,7 +866,8 @@ const APIURLS = {
     WALKING_ADD: BASE_URL + 'user/walking/add',
     WALKING_BOOK: BASE_URL + 'booking/walking',
     PROMO: BASE_URL + 'promocode',
-    PROMO_DETAIL: BASE_URL + 'promocode/detail'
+    PROMO_DETAIL: BASE_URL + 'promocode/detail',
+    BOOKING: BASE_URL + 'salon/booking/list'
 };
 
 

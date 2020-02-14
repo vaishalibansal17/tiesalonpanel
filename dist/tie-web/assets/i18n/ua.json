@@ -54,13 +54,14 @@
   "LINKEXP":"انتهت صلاحية رابط إعادة تعيين كلمة المرور الخاصة بك",
   "INVALIDLINK":"رابط إعادة تعيين كلمة المرور غير صحيح",
   
-  "HOURSREQ":"Business hours is required.",
+  "HOURSREQ":"ساعات العمل مطلوبة",
 
-  "PRICREQ":"Price is required.",
-  "STFREQ":"Staff is required.",
-  "SRVREQ":"Service is required.",
-  "WALKNGSUCCESS": "User added Successfully.",
-  
+  "PRICREQ":"السعر مطلوب",
+  "STFREQ":"مطلوب موظفين",
+  "SRVREQ":"الخدمة مطلوبة",
+  "WALKNGSUCCESS": "تمت اضافة المستخدم بنجاح",
+  "ADDSTFCHNGPIC":"إضافة صورة الموظفين",
+  "EDITSTFCHNGPIC":"تغيير صورة الموظفين",
   "OK": "حسنا",
   "MOBILENUMBER":"رقم الهاتف المحمول",
   "LOCATION":"موقعك",

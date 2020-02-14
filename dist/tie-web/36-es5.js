@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[36], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.html":
-  /*!****************************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.html ***!
-    \****************************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/report.component.html":
+  /*!*****************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/report.component.html ***!
+    \*****************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeReportEarningEarningmonthlistEarningmonthlistComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeReportReportComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<p>earningmonthlist works!</p>\n";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <h1>Report</h1>\n    <p>It will set up in further milestone.</p>\n</div>\n\n<!-- <div class=\"top_report\">\n    <div class=\"left_report_head\">\n        <div class=\"secondary-navbar-outer\">\n            <ul class=\"secondary-navbar\">\n                <li routerLinkActive=\"active\"><a [routerLink]=\"['./sales']\">Gross Sales</a></li>\n                <li routerLinkActive=\"active\"><a [routerLink]=\"['./transaction']\">Transactions</a></li>\n                <li routerLinkActive=\"active\"><a [routerLink]=\"['./earning']\">Earnings</a></li>\n            </ul>\n        </div>\n    </div>\n    <div class=\"right_report_head\">\n        <mat-slide-toggle>Walking Users</mat-slide-toggle>\n    </div>\n</div> -->\n<!-- <div class=\"clearfix\"></div>\n\n\n        <div class=\"basic-content\">\n            <router-outlet></router-outlet>\n        </div> -->";
     /***/
   },
 
   /***/
-  "./src/app/home/report/earning/earningmonthlist/earningmonthlist-routing.module.ts":
-  /*!*****************************************************************************************!*\
-    !*** ./src/app/home/report/earning/earningmonthlist/earningmonthlist-routing.module.ts ***!
-    \*****************************************************************************************/
+  "./src/app/home/report/report-routing.module.ts":
+  /*!******************************************************!*\
+    !*** ./src/app/home/report/report-routing.module.ts ***!
+    \******************************************************/
 
-  /*! exports provided: EarningmonthlistRoutingModule */
+  /*! exports provided: ReportRoutingModule */
 
   /***/
-  function srcAppHomeReportEarningEarningmonthlistEarningmonthlistRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportReportRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "EarningmonthlistRoutingModule", function () {
-      return EarningmonthlistRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "ReportRoutingModule", function () {
+      return ReportRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,106 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _earningmonthlist_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./earningmonthlist.component */
-    "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.ts");
+    var _report_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./report.component */
+    "./src/app/home/report/report.component.ts");
 
     var routes = [{
       path: '',
-      component: _earningmonthlist_component__WEBPACK_IMPORTED_MODULE_3__["EarningmonthlistComponent"]
+      component: _report_component__WEBPACK_IMPORTED_MODULE_3__["ReportComponent"],
+      children: [{
+        path: 'sales',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() */
+          37).then(__webpack_require__.bind(null,
+          /*! ./sales/sales.module */
+          "./src/app/home/report/sales/sales.module.ts")).then(function (mod) {
+            return mod.SalesModule;
+          });
+        },
+        data: {
+          title: "Gross Sales",
+          status: false
+        }
+      }, {
+        path: 'transaction',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() */
+          39).then(__webpack_require__.bind(null,
+          /*! ./transaction/transaction.module */
+          "./src/app/home/report/transaction/transaction.module.ts")).then(function (mod) {
+            return mod.TransactionModule;
+          });
+        },
+        data: {
+          title: "Transaction",
+          status: false
+        }
+      }, {
+        path: 'earning',
+        loadChildren: function loadChildren() {
+          return __webpack_require__.e(
+          /*! import() */
+          32).then(__webpack_require__.bind(null,
+          /*! ./earning/earning.module */
+          "./src/app/home/report/earning/earning.module.ts")).then(function (mod) {
+            return mod.EarningModule;
+          });
+        }
+      }]
     }];
 
-    var EarningmonthlistRoutingModule = function EarningmonthlistRoutingModule() {
-      _classCallCheck(this, EarningmonthlistRoutingModule);
+    var ReportRoutingModule = function ReportRoutingModule() {
+      _classCallCheck(this, ReportRoutingModule);
     };
 
-    EarningmonthlistRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    ReportRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], EarningmonthlistRoutingModule);
+    })], ReportRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.scss":
-  /*!**************************************************************************************!*\
-    !*** ./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.scss ***!
-    \**************************************************************************************/
+  "./src/app/home/report/report.component.scss":
+  /*!***************************************************!*\
+    !*** ./src/app/home/report/report.component.scss ***!
+    \***************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeReportEarningEarningmonthlistEarningmonthlistComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportReportComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcmVwb3J0L2Vhcm5pbmcvZWFybmluZ21vbnRobGlzdC9lYXJuaW5nbW9udGhsaXN0LmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcmVwb3J0L3JlcG9ydC5jb21wb25lbnQuc2NzcyJ9 */";
     /***/
   },
 
   /***/
-  "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.ts":
-  /*!************************************************************************************!*\
-    !*** ./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.ts ***!
-    \************************************************************************************/
+  "./src/app/home/report/report.component.ts":
+  /*!*************************************************!*\
+    !*** ./src/app/home/report/report.component.ts ***!
+    \*************************************************/
 
-  /*! exports provided: EarningmonthlistComponent */
+  /*! exports provided: ReportComponent */
 
   /***/
-  function srcAppHomeReportEarningEarningmonthlistEarningmonthlistComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportReportComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "EarningmonthlistComponent", function () {
-      return EarningmonthlistComponent;
+    __webpack_require__.d(__webpack_exports__, "ReportComponent", function () {
+      return ReportComponent;
     });
     /* harmony import */
 
@@ -137,51 +179,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var EarningmonthlistComponent =
+    var ReportComponent =
     /*#__PURE__*/
     function () {
-      function EarningmonthlistComponent() {
-        _classCallCheck(this, EarningmonthlistComponent);
+      function ReportComponent() {
+        _classCallCheck(this, ReportComponent);
       }
 
-      _createClass(EarningmonthlistComponent, [{
+      _createClass(ReportComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return EarningmonthlistComponent;
+      return ReportComponent;
     }();
 
-    EarningmonthlistComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-earningmonthlist',
+    ReportComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-report',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./earningmonthlist.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.html")).default,
+      /*! raw-loader!./report.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/report.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./earningmonthlist.component.scss */
-      "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.scss")).default]
-    })], EarningmonthlistComponent);
+      /*! ./report.component.scss */
+      "./src/app/home/report/report.component.scss")).default]
+    })], ReportComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/report/earning/earningmonthlist/earningmonthlist.module.ts":
-  /*!*********************************************************************************!*\
-    !*** ./src/app/home/report/earning/earningmonthlist/earningmonthlist.module.ts ***!
-    \*********************************************************************************/
+  "./src/app/home/report/report.module.ts":
+  /*!**********************************************!*\
+    !*** ./src/app/home/report/report.module.ts ***!
+    \**********************************************/
 
-  /*! exports provided: EarningmonthlistModule */
+  /*! exports provided: ReportModule */
 
   /***/
-  function srcAppHomeReportEarningEarningmonthlistEarningmonthlistModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportReportModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "EarningmonthlistModule", function () {
-      return EarningmonthlistModule;
+    __webpack_require__.d(__webpack_exports__, "ReportModule", function () {
+      return ReportModule;
     });
     /* harmony import */
 
@@ -204,24 +246,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _earningmonthlist_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./earningmonthlist-routing.module */
-    "./src/app/home/report/earning/earningmonthlist/earningmonthlist-routing.module.ts");
+    var _report_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./report-routing.module */
+    "./src/app/home/report/report-routing.module.ts");
     /* harmony import */
 
 
-    var _earningmonthlist_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./earningmonthlist.component */
-    "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.ts");
+    var _report_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./report.component */
+    "./src/app/home/report/report.component.ts");
+    /* harmony import */
 
-    var EarningmonthlistModule = function EarningmonthlistModule() {
-      _classCallCheck(this, EarningmonthlistModule);
+
+    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/shared.module */
+    "./src/app/shared/shared.module.ts");
+
+    var ReportModule = function ReportModule() {
+      _classCallCheck(this, ReportModule);
     };
 
-    EarningmonthlistModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_earningmonthlist_component__WEBPACK_IMPORTED_MODULE_4__["EarningmonthlistComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _earningmonthlist_routing_module__WEBPACK_IMPORTED_MODULE_3__["EarningmonthlistRoutingModule"]]
-    })], EarningmonthlistModule);
+    ReportModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_report_component__WEBPACK_IMPORTED_MODULE_4__["ReportComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _report_routing_module__WEBPACK_IMPORTED_MODULE_3__["ReportRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
+    })], ReportModule);
     /***/
   }
 }]);

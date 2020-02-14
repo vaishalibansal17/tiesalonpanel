@@ -1,2596 +1,4932 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[7],{
 
-/***/ "./node_modules/primeng/fesm2015/primeng-button.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/primeng/fesm2015/primeng-button.js ***!
-  \*********************************************************/
-/*! exports provided: Button, ButtonDirective, ButtonModule */
+/***/ "./node_modules/ng-simple-slideshow/ng-simple-slideshow.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/ng-simple-slideshow/ng-simple-slideshow.js ***!
+  \*****************************************************************/
+/*! exports provided: SlideshowModule, ɵa, ɵb */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return Button; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ButtonDirective", function() { return ButtonDirective; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ButtonModule", function() { return ButtonModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SlideshowModule", function() { return SlideshowModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return SlideshowComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵb", function() { return SwipeService; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/dom */ "./node_modules/primeng/fesm2015/primeng-dom.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
 
 
 
 
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-let ButtonDirective = class ButtonDirective {
-    constructor(el) {
-        this.el = el;
-        this.iconPos = 'left';
-        this.cornerStyleClass = 'ui-corner-all';
-    }
-    ngAfterViewInit() {
-        primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].addMultipleClasses(this.el.nativeElement, this.getStyleClass());
-        if (this.icon) {
-            let iconElement = document.createElement("span");
-            iconElement.setAttribute("aria-hidden", "true");
-            let iconPosClass = (this.iconPos == 'right') ? 'ui-button-icon-right' : 'ui-button-icon-left';
-            iconElement.className = iconPosClass + ' ui-clickable ' + this.icon;
-            this.el.nativeElement.appendChild(iconElement);
+class SwipeService {
+    /**
+     * \@description detect the direction of the swipe, and return a -1 or 1 if the duration is long enough
+     *              else return a 0 to do nothing
+     * @param {?} e
+     * @param {?} when
+     * @return {?}
+     */
+    swipe(e, when) {
+        const /** @type {?} */ coord = [e.changedTouches[0].pageX, e.changedTouches[0].pageY];
+        const /** @type {?} */ time = new Date().getTime();
+        if (when === 'start') {
+            this._swipeCoord = coord;
+            this._swipeTime = time;
         }
-        let labelElement = document.createElement("span");
-        labelElement.className = 'ui-button-text ui-clickable';
-        labelElement.appendChild(document.createTextNode(this.label || 'ui-btn'));
-        this.el.nativeElement.appendChild(labelElement);
-        this.initialized = true;
+        else if (when === 'end') {
+            const /** @type {?} */ direction = [coord[0] - this._swipeCoord[0], coord[1] - this._swipeCoord[1]];
+            const /** @type {?} */ duration = time - this._swipeTime;
+            if (duration < 1000 // Short enough
+                && Math.abs(direction[1]) < Math.abs(direction[0]) // Horizontal enough
+                && Math.abs(direction[0]) > 30) {
+                return direction[0] < 0 ? 1 : -1;
+            }
+        }
+        return 0;
     }
-    getStyleClass() {
-        let styleClass = 'ui-button ui-widget ui-state-default ' + this.cornerStyleClass;
-        if (this.icon) {
-            if (this.label != null && this.label != undefined) {
-                if (this.iconPos == 'left')
-                    styleClass = styleClass + ' ui-button-text-icon-left';
-                else
-                    styleClass = styleClass + ' ui-button-text-icon-right';
+}
+SwipeService.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] },
+];
+/**
+ * @nocollapse
+ */
+SwipeService.ctorParameters = () => [];
+
+const FIRST_SLIDE_KEY = Object(_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["makeStateKey"])('firstSlide');
+class SlideshowComponent {
+    /**
+     * @param {?} _swipeService
+     * @param {?} _renderer
+     * @param {?} _transferState
+     * @param {?} _ngZone
+     * @param {?} sanitizer
+     * @param {?} platform_id
+     * @param {?} document
+     */
+    constructor(_swipeService, _renderer, _transferState, _ngZone, sanitizer, platform_id, document) {
+        this._swipeService = _swipeService;
+        this._renderer = _renderer;
+        this._transferState = _transferState;
+        this._ngZone = _ngZone;
+        this.sanitizer = sanitizer;
+        this.platform_id = platform_id;
+        this.document = document;
+        this.slideIndex = -1;
+        this.slides = [];
+        this._initial = true;
+        this._isHidden = false;
+        this.imageUrls = [];
+        this.height = '100%';
+        this.showArrows = true;
+        this.disableSwiping = false;
+        this.autoPlay = false;
+        this.autoPlayInterval = 3333;
+        this.stopAutoPlayOnSlide = true;
+        this.autoPlayWaitForLazyLoad = false;
+        this.backgroundSize = 'cover';
+        this.backgroundPosition = 'center center';
+        this.backgroundRepeat = 'no-repeat';
+        this.showDots = false;
+        this.dotColor = '#FFF';
+        this.showCaptions = true;
+        this.captionColor = '#FFF';
+        this.captionBackground = 'rgba(0, 0, 0, .35)';
+        this.lazyLoad = false;
+        this.hideOnNoSlides = false;
+        this.fullscreen = false;
+        this.onSlideLeft = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onSlideRight = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onSwipeLeft = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onSwipeRight = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onFullscreenExit = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onIndexChanged = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    /**
+     * @return {?}
+     */
+    get safeStyleDotColor() {
+        return this.sanitizer.bypassSecurityTrustStyle(`--dot-color: ${this.dotColor}`);
+    }
+    /**
+     * @return {?}
+     */
+    ngOnInit() {
+        if (this.debug !== undefined) {
+            console.warn('[Deprecation Warning]: The debug input will be removed from ng-simple-slideshow in 1.3.0');
+        }
+    }
+    /**
+     * @return {?}
+     */
+    ngDoCheck() {
+        // if this is the first being called, create a copy of the input
+        if (this.imageUrls && this.imageUrls.length > 0) {
+            if (this._initial === true) {
+                this._urlCache = Array.from(this.imageUrls);
             }
-            else {
-                styleClass = styleClass + ' ui-button-icon-only';
+            if (this._isHidden === true) {
+                this._renderer.removeStyle(this.container.nativeElement, 'display');
+                this._isHidden = false;
             }
+            this.setSlides();
+        }
+        else if (this.hideOnNoSlides === true) {
+            this._renderer.setStyle(this.container.nativeElement, 'display', 'none');
+            this._isHidden = true;
+        }
+        this.setStyles();
+        this.handleAutoPlay();
+    }
+    /**
+     * \@description this is the function that should be called to make the slides change.
+     *              indexDirection to move back is -1, to move forward is 1, and to stay in place is 0.
+     *              0 is taken into account for failed swipes
+     * @param {?} indexDirection
+     * @param {?=} isSwipe
+     * @return {?}
+     */
+    onSlide(indexDirection, isSwipe) {
+        this.handleAutoPlay(this.stopAutoPlayOnSlide);
+        this.slide(indexDirection, isSwipe);
+    }
+    /**
+     * \@description Use the swipe service to detect swipe events from phone and tablets
+     * @param {?} e
+     * @param {?} when
+     * @return {?}
+     */
+    onSwipe(e, when) {
+        if (this.disableSwiping === true) {
+            return;
+        }
+        const /** @type {?} */ indexDirection = this._swipeService.swipe(e, when);
+        // handle a failed swipe
+        if (indexDirection === 0) {
+            return;
         }
         else {
-            if (this.label) {
-                styleClass = styleClass + ' ui-button-text-only';
-            }
-            else {
-                styleClass = styleClass + ' ui-button-text-empty';
-            }
+            this.onSlide(indexDirection, true);
         }
-        return styleClass;
     }
-    get label() {
-        return this._label;
+    /**
+     * \@description Redirect to current slide "href" if defined
+     * @param {?} e
+     * @return {?}
+     */
+    onClick(e) {
+        e.preventDefault();
+        const /** @type {?} */ currentSlide = this.slides.length > 0 && this.slides[this.slideIndex];
+        if (currentSlide && currentSlide.image.clickAction) {
+            currentSlide.image.clickAction();
+        }
+        else if (currentSlide && currentSlide.image.href) {
+            this.document.location.href = currentSlide.image.href;
+        }
     }
-    set label(val) {
-        this._label = val;
-        if (this.initialized) {
-            primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].findSingle(this.el.nativeElement, '.ui-button-text').textContent = this._label;
-            if (!this.icon) {
-                if (this._label) {
-                    primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].removeClass(this.el.nativeElement, 'ui-button-text-empty');
-                    primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].addClass(this.el.nativeElement, 'ui-button-text-only');
+    /**
+     * \@description set the index to the desired index - 1 and simulate a right slide
+     * @param {?} index
+     * @return {?}
+     */
+    goToSlide(index) {
+        const /** @type {?} */ beforeClickIndex = this.slideIndex;
+        this.slideIndex = index - 1;
+        this.setSlideIndex(1);
+        if (!this.slides[this.slideIndex].loaded) {
+            this.loadRemainingSlides();
+        }
+        this.handleAutoPlay(this.stopAutoPlayOnSlide);
+        this.slideRight(beforeClickIndex);
+        this.slides[beforeClickIndex].selected = false;
+        this.slides[this.slideIndex].selected = true;
+    }
+    /**
+     * \@description set the index to the desired index - 1 and simulate a right slide
+     * @param {?} index
+     * @return {?}
+     */
+    getSlideStyle(index) {
+        const /** @type {?} */ slide = this.slides[index];
+        if (slide.loaded) {
+            return {
+                "background-image": 'url(' + slide.image.url + ')',
+                "background-size": slide.image.backgroundSize || this.backgroundSize,
+                "background-position": slide.image.backgroundPosition || this.backgroundPosition,
+                "background-repeat": slide.image.backgroundRepeat || this.backgroundRepeat
+            };
+        }
+        else {
+            // doesn't compile correctly if returning an empty object, sooooo.....
+            return {
+                "background-image": undefined,
+                "background-size": undefined,
+                "background-position": undefined,
+                "background-repeat": undefined
+            };
+        }
+    }
+    /**
+     * @param {?} e
+     * @return {?}
+     */
+    exitFullScreen(e) {
+        e.preventDefault();
+        this.fullscreen = false;
+        this.onFullscreenExit.emit(true);
+    }
+    /**
+     * \@description Set the new slide index, then make the transition happen.
+     * @param {?} indexDirection
+     * @param {?=} isSwipe
+     * @return {?}
+     */
+    slide(indexDirection, isSwipe) {
+        const /** @type {?} */ oldIndex = this.slideIndex;
+        this.setSlideIndex(indexDirection);
+        if (!this.slides[this.slideIndex].loaded) {
+            this.loadRemainingSlides();
+        }
+        if (indexDirection === 1) {
+            this.slideRight(oldIndex, isSwipe);
+        }
+        else {
+            this.slideLeft(oldIndex, isSwipe);
+        }
+        this.slides[oldIndex].selected = false;
+        this.slides[this.slideIndex].selected = true;
+    }
+    /**
+     * \@description This is just treating the url array like a circular list.
+     * @param {?} indexDirection
+     * @return {?}
+     */
+    setSlideIndex(indexDirection) {
+        this.slideIndex += indexDirection;
+        if (this.slideIndex < 0) {
+            this.slideIndex = this.slides.length - 1;
+        }
+        if (this.slideIndex >= this.slides.length) {
+            this.slideIndex = 0;
+        }
+        this.onIndexChanged.emit(this.slideIndex);
+    }
+    /**
+     * \@description This function handles the variables to move the CSS classes around accordingly.
+     *              In order to correctly handle animations, the new slide as well as the slides to
+     *              the left and right are assigned classes.
+     * @param {?} oldIndex
+     * @param {?=} isSwipe
+     * @return {?}
+     */
+    slideLeft(oldIndex, isSwipe) {
+        if (isSwipe === true) {
+            this.onSwipeLeft.emit(this.slideIndex);
+        }
+        else {
+            this.onSlideLeft.emit(this.slideIndex);
+        }
+        this.slides[this.getLeftSideIndex(oldIndex)].leftSide = false;
+        this.slides[oldIndex].leftSide = true;
+        this.slides[oldIndex].action = 'slideOutLeft';
+        this.slides[this.slideIndex].rightSide = false;
+        this.slides[this.getRightSideIndex()].rightSide = true;
+        this.slides[this.slideIndex].action = 'slideInRight';
+    }
+    /**
+     * \@description This function handles the variables to move the CSS classes around accordingly.
+     *              In order to correctly handle animations, the new slide as well as the slides to
+     *              the left and right are assigned classes.
+     * @param {?} oldIndex
+     * @param {?=} isSwipe
+     * @return {?}
+     */
+    slideRight(oldIndex, isSwipe) {
+        if (isSwipe === true) {
+            this.onSwipeRight.emit(this.slideIndex);
+        }
+        else {
+            this.onSlideRight.emit(this.slideIndex);
+        }
+        this.slides[this.getRightSideIndex(oldIndex)].rightSide = false;
+        this.slides[oldIndex].rightSide = true;
+        this.slides[oldIndex].action = 'slideOutRight';
+        this.slides[this.slideIndex].leftSide = false;
+        this.slides[this.getLeftSideIndex()].leftSide = true;
+        this.slides[this.slideIndex].action = 'slideInLeft';
+    }
+    /**
+     * \@description Check to make sure slide images have been set or haven't changed
+     * @return {?}
+     */
+    setSlides() {
+        if (this.imageUrls) {
+            if (this.checkCache() || this._initial === true) {
+                this._initial = false;
+                this._urlCache = Array.from(this.imageUrls);
+                this.slides = [];
+                if (this.lazyLoad === true) {
+                    this.buildLazyLoadSlideArray();
                 }
                 else {
-                    primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].addClass(this.el.nativeElement, 'ui-button-text-empty');
-                    primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].removeClass(this.el.nativeElement, 'ui-button-text-only');
+                    this.buildSlideArray();
                 }
             }
         }
     }
-    get icon() {
-        return this._icon;
+    /**
+     * \@description create the slides without background urls, which will be added in
+     *              for the "lazy load," then load only the first slide
+     * @return {?}
+     */
+    buildLazyLoadSlideArray() {
+        for (let /** @type {?} */ image of this.imageUrls) {
+            this.slides.push({
+                image: (typeof image === 'string' ? { url: null } : { url: null, href: image.href || '' }),
+                action: '',
+                leftSide: false,
+                rightSide: false,
+                selected: false,
+                loaded: false
+            });
+        }
+        this.slideIndex = 0;
+        this.slides[this.slideIndex].selected = true;
+        this.loadFirstSlide();
+        this.onIndexChanged.emit(this.slideIndex);
     }
-    set icon(val) {
-        this._icon = val;
-        if (this.initialized) {
-            let iconPosClass = (this.iconPos == 'right') ? 'ui-button-icon-right' : 'ui-button-icon-left';
-            primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].findSingle(this.el.nativeElement, '.ui-clickable').className =
-                iconPosClass + ' ui-clickable ' + this.icon;
+    /**
+     * \@description create the slides with background urls all at once
+     * @return {?}
+     */
+    buildSlideArray() {
+        for (let /** @type {?} */ image of this.imageUrls) {
+            this.slides.push({
+                image: (typeof image === 'string' ? { url: image } : image),
+                action: '',
+                leftSide: false,
+                rightSide: false,
+                selected: false,
+                loaded: true
+            });
+        }
+        this.slideIndex = 0;
+        this.slides[this.slideIndex].selected = true;
+        this.onIndexChanged.emit(this.slideIndex);
+    }
+    /**
+     * \@description load the first slide image if lazy loading
+     *              this takes server side and browser side into account
+     * @return {?}
+     */
+    loadFirstSlide() {
+        const /** @type {?} */ tmpIndex = this.slideIndex;
+        const /** @type {?} */ tmpImage = this.imageUrls[tmpIndex];
+        // if server side, we don't need to worry about the rest of the slides
+        if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_1__["isPlatformServer"])(this.platform_id)) {
+            this.slides[tmpIndex].image = (typeof tmpImage === 'string' ? { url: tmpImage } : tmpImage);
+            this.slides[tmpIndex].loaded = true;
+            this._transferState.set(FIRST_SLIDE_KEY, this.slides[tmpIndex]);
+        }
+        else {
+            const /** @type {?} */ firstSlideFromTransferState = this._transferState.get(FIRST_SLIDE_KEY, /** @type {?} */ (null));
+            // if the first slide didn't finish loading on the server side, we need to load it
+            if (firstSlideFromTransferState === null) {
+                let /** @type {?} */ loadImage = new Image();
+                loadImage.src = (typeof tmpImage === 'string' ? tmpImage : tmpImage.url);
+                loadImage.addEventListener('load', () => {
+                    this.slides[tmpIndex].image = (typeof tmpImage === 'string' ? { url: tmpImage } : tmpImage);
+                    this.slides[tmpIndex].loaded = true;
+                });
+            }
+            else {
+                this.slides[tmpIndex] = firstSlideFromTransferState;
+                this._transferState.remove(FIRST_SLIDE_KEY);
+            }
         }
     }
-    ngOnDestroy() {
-        while (this.el.nativeElement.hasChildNodes()) {
-            this.el.nativeElement.removeChild(this.el.nativeElement.lastChild);
+    /**
+     * \@description if lazy loading in browser, start loading remaining slides
+     * \@todo: figure out how to not show the spinner if images are loading fast enough
+     * @return {?}
+     */
+    loadRemainingSlides() {
+        for (let /** @type {?} */ i = 0; i < this.slides.length; i++) {
+            if (!this.slides[i].loaded) {
+                new Promise((resolve) => {
+                    const /** @type {?} */ tmpImage = this.imageUrls[i];
+                    let /** @type {?} */ loadImage = new Image();
+                    loadImage.addEventListener('load', () => {
+                        this.slides[i].image = (typeof tmpImage === 'string' ? { url: tmpImage } : tmpImage);
+                        this.slides[i].loaded = true;
+                        resolve();
+                    });
+                    loadImage.src = (typeof tmpImage === 'string' ? tmpImage : tmpImage.url);
+                });
+            }
         }
-        this.initialized = false;
     }
-};
-ButtonDirective.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }
+    /**
+     * \@description Start or stop autoPlay, don't do it at all server side
+     * @param {?=} stopAutoPlay
+     * @return {?}
+     */
+    handleAutoPlay(stopAutoPlay) {
+        if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_1__["isPlatformServer"])(this.platform_id)) {
+            return;
+        }
+        if (stopAutoPlay === true || this.autoPlay === false) {
+            if (this._autoplayIntervalId) {
+                this._ngZone.runOutsideAngular(() => clearInterval(this._autoplayIntervalId));
+                this._autoplayIntervalId = null;
+            }
+        }
+        else if (!this._autoplayIntervalId) {
+            this._ngZone.runOutsideAngular(() => {
+                this._autoplayIntervalId = setInterval(() => {
+                    if (!this.autoPlayWaitForLazyLoad || (this.autoPlayWaitForLazyLoad && this.slides[this.slideIndex].loaded)) {
+                        this._ngZone.run(() => this.slide(1));
+                    }
+                }, this.autoPlayInterval);
+            });
+        }
+    }
+    /**
+     * \@description Keep the styles up to date with the input
+     * @return {?}
+     */
+    setStyles() {
+        if (this.fullscreen) {
+            this._renderer.setStyle(this.container.nativeElement, 'height', '100%');
+            // Would be nice to make it configurable
+            this._renderer.setStyle(this.container.nativeElement, 'background-color', 'white');
+        }
+        else {
+            // Would be nice to make it configurable
+            this._renderer.removeStyle(this.container.nativeElement, 'background-color');
+            if (this.height) {
+                this._renderer.setStyle(this.container.nativeElement, 'height', this.height);
+            }
+            if (this.minHeight) {
+                this._renderer.setStyle(this.container.nativeElement, 'min-height', this.minHeight);
+            }
+        }
+        if (this.arrowSize) {
+            this._renderer.setStyle(this.prevArrow.nativeElement, 'height', this.arrowSize);
+            this._renderer.setStyle(this.prevArrow.nativeElement, 'width', this.arrowSize);
+            this._renderer.setStyle(this.nextArrow.nativeElement, 'height', this.arrowSize);
+            this._renderer.setStyle(this.nextArrow.nativeElement, 'width', this.arrowSize);
+        }
+    }
+    /**
+     * \@description compare image array to the cache, returns false if no changes
+     * @return {?}
+     */
+    checkCache() {
+        return !(this._urlCache.length === this.imageUrls.length && this._urlCache.every((cacheElement, i) => cacheElement === this.imageUrls[i]));
+    }
+    /**
+     * \@description get the index for the slide to the left of the new slide
+     * @param {?=} i
+     * @return {?}
+     */
+    getLeftSideIndex(i) {
+        if (i === undefined) {
+            i = this.slideIndex;
+        }
+        if (--i < 0) {
+            i = this.slides.length - 1;
+        }
+        return i;
+    }
+    /**
+     * \@description get the index for the slide to the right of the new slide
+     * @param {?=} i
+     * @return {?}
+     */
+    getRightSideIndex(i) {
+        if (i === undefined) {
+            i = this.slideIndex;
+        }
+        if (++i >= this.slides.length) {
+            i = 0;
+        }
+        return i;
+    }
+    /**
+     * \@description a trackBy function for the ngFor loops
+     * @param {?} index
+     * @param {?} slide
+     * @return {?}
+     */
+    trackByFn(index, slide) {
+        return slide.image;
+    }
+}
+SlideshowComponent.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                selector: 'slideshow',
+                template: `
+    <!-- fullscreen bar -->
+    <div [class.display-none]="!fullscreen"
+         class="fs-container"
+         (click)="exitFullScreen($event)">
+      <i title="Back"
+         class="arrow-exitfs prev"></i>
+    </div>
+    <div #container
+         (touchstart)="onSwipe($event, 'start')"
+         (touchend)="onSwipe($event, 'end')"
+         class="slideshow-container"
+         [class.slideshow-container-fs]="fullscreen">
+      <!-- slides -->
+      <a *ngFor="let slide of slides; index as i; trackBy: trackByFn"
+         class="slides"
+         href="{{slide?.image?.clickAction ? '#' : slide?.image?.href}}"
+         title="{{slide?.image?.title}}"
+         [ngStyle]="getSlideStyle(i)"
+         [class.selected]="slide?.selected"
+         [class.hide-slide]="!slide?.selected && !slide?.leftSide && !slide?.rightSide"
+         [class.left-side]="slide?.leftSide"
+         [class.right-side]="slide?.rightSide"
+         [class.slide-in-left]="slide?.action === 'slideInLeft'"
+         [class.slide-in-right]="slide?.action === 'slideInRight'"
+         [class.slide-out-left]="slide?.action === 'slideOutLeft'"
+         [class.slide-out-right]="slide?.action === 'slideOutRight'"
+         [class.link]="slide?.image?.clickAction || slide?.image?.href"
+         (click)="onClick($event)">
+        <div class="loader"
+             *ngIf="!slide?.loaded"></div>
+        <div *ngIf="showCaptions && slide?.image?.caption"
+             class="caption"
+             [ngStyle]="{
+               'color': captionColor,
+               'background-color': captionBackground
+              }"
+             [innerHTML]="slide?.image?.caption">
+        </div>
+      </a>
+      <!-- left arrow -->
+      <div [class.display-none]="!this.showArrows"
+           (click)="onSlide(-1)"
+           class="arrow-container prev">
+        <i #prevArrow
+           title="Previous"
+           class="arrow prev"></i>
+      </div>
+      <!-- right arrow -->
+      <div [class.display-none]="!this.showArrows"
+           (click)="onSlide(1)"
+           class="arrow-container next">
+        <i #nextArrow
+           title="Next"
+           class="arrow next"></i>
+      </div>
+      <!-- dots -->
+      <ul class="slick-dots"
+          *ngIf="showDots">
+        <li *ngFor="let slide of slides; index as i; trackBy: trackByFn"
+            (click)="goToSlide(i)"
+            [class.slick-active]="slide.selected">
+          <button type="button"
+                  [attr.style]="safeStyleDotColor">
+            {{i}}
+          </button>
+        </li>
+      </ul>
+    </div>
+  `,
+                styles: [`
+    /*
+     styles adapted from https://www.w3schools.com/w3css/4/w3.css
+     arrow styles adapted from https://codepen.io/minustalent/pen/Frhaw
+     */
+    .display-none {
+      display: none !important; }
+
+    .fs-container {
+      display: block;
+      cursor: pointer;
+      position: fixed;
+      z-index: 1;
+      top: 16px;
+      left: 16px;
+      width: 46px;
+      height: 46px;
+      text-align: center;
+      padding: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+      -webkit-transition: all .2s ease-in-out;
+      transition: all .2s ease-in-out; }
+      .fs-container:hover {
+        background-color: rgba(0, 0, 0, 0.33); }
+      .fs-container .arrow-exitfs {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        border-top: 2px solid #f2f2f2;
+        -webkit-transition: all .2s ease-in-out;
+        transition: all .2s ease-in-out; }
+        .fs-container .arrow-exitfs.prev {
+          -webkit-transform: rotate(-45deg);
+                  transform: rotate(-45deg);
+          position: relative;
+          left: 18px;
+          top: 18px; }
+        .fs-container .arrow-exitfs:after {
+          content: '';
+          width: 30px;
+          height: 30px;
+          background: transparent;
+          border-top: 2px solid #f2f2f2;
+          -webkit-transform: rotate(90deg);
+                  transform: rotate(90deg);
+          position: absolute;
+          left: -15px;
+          top: -17px; }
+
+    .slideshow-container.slideshow-container-fs {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%; }
+
+    .slideshow-container {
+      position: relative;
+      display: block;
+      margin: auto;
+      height: 100%;
+      width: 100%;
+      overflow: hidden; }
+      .slideshow-container .hide-slide {
+        visibility: hidden;
+        position: absolute;
+        top: -100vw;
+        left: -100vw;
+        opacity: 0; }
+      .slideshow-container .slides {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        visibility: visible;
+        opacity: 1;
+        display: block; }
+        .slideshow-container .slides.selected {
+          left: 0; }
+        .slideshow-container .slides.left-slide {
+          left: -100%; }
+        .slideshow-container .slides.right-slide {
+          left: 100%; }
+        .slideshow-container .slides.slide-in-left {
+          left: 0;
+          -webkit-animation: slideInLeft 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+                  animation: slideInLeft 0.5s cubic-bezier(0.42, 0, 0.58, 1); }
+        .slideshow-container .slides.slide-in-right {
+          left: 0;
+          -webkit-animation: slideInRight 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+                  animation: slideInRight 0.5s cubic-bezier(0.42, 0, 0.58, 1); }
+        .slideshow-container .slides.slide-out-left {
+          left: -100%;
+          -webkit-animation: slideOutLeft 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+                  animation: slideOutLeft 0.5s cubic-bezier(0.42, 0, 0.58, 1); }
+        .slideshow-container .slides.slide-out-right {
+          left: 100%;
+          -webkit-animation: slideOutRight 0.5s cubic-bezier(0.42, 0, 0.58, 1);
+                  animation: slideOutRight 0.5s cubic-bezier(0.42, 0, 0.58, 1); }
+        .slideshow-container .slides.link {
+          cursor: pointer; }
+        .slideshow-container .slides:not(.link) {
+          cursor: default; }
+      .slideshow-container .caption {
+        position: absolute;
+        bottom: 0;
+        padding: 10px;
+        width: 100%; }
+      .slideshow-container .arrow-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: auto;
+        cursor: pointer;
+        background-size: 100%;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent));
+        background-image: linear-gradient(transparent, transparent);
+        z-index: 100;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none; }
+        .slideshow-container .arrow-container:before {
+          display: block;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          width: 100%;
+          z-index: -100;
+          -webkit-transition: opacity 0.45s;
+          transition: opacity 0.45s; }
+        .slideshow-container .arrow-container.prev {
+          left: 0; }
+          .slideshow-container .arrow-container.prev:before {
+            background-image: -webkit-gradient(linear, right top, left top, from(transparent), to(rgba(0, 0, 0, 0.75)));
+            background-image: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.75));
+            content: ''; }
+        .slideshow-container .arrow-container.next {
+          right: 0; }
+          .slideshow-container .arrow-container.next:before {
+            background-image: -webkit-gradient(linear, left top, right top, from(transparent), to(rgba(0, 0, 0, 0.75)));
+            background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.75));
+            content: ''; }
+        .slideshow-container .arrow-container .arrow {
+          display: block;
+          margin: auto;
+          width: 30px;
+          height: 30px;
+          background: transparent;
+          border-top: 2px solid #f2f2f2;
+          border-left: 2px solid #f2f2f2;
+          -webkit-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;
+          -webkit-user-select: none;
+             -moz-user-select: none;
+              -ms-user-select: none;
+                  user-select: none; }
+          .slideshow-container .arrow-container .arrow:before {
+            display: block;
+            height: 200%;
+            width: 200%;
+            margin-left: -50%;
+            margin-top: -50%;
+            content: "";
+            -webkit-transform: rotate(45deg);
+                    transform: rotate(45deg); }
+          .slideshow-container .arrow-container .arrow.prev {
+            -webkit-transform: rotate(-45deg);
+                    transform: rotate(-45deg);
+            position: relative;
+            left: 20px;
+            margin-right: 10px; }
+          .slideshow-container .arrow-container .arrow.next {
+            -webkit-transform: rotate(135deg);
+                    transform: rotate(135deg);
+            position: relative;
+            right: 20px;
+            margin-left: 10px; }
+      .slideshow-container .slick-dots {
+        display: block;
+        bottom: 15px;
+        z-index: 1;
+        text-align: center;
+        position: absolute;
+        padding: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto; }
+        .slideshow-container .slick-dots li {
+          display: inline;
+          margin: 0;
+          padding: 0; }
+          .slideshow-container .slick-dots li button {
+            border: none;
+            background: none;
+            text-indent: -9999px;
+            font-size: 0;
+            width: 20px;
+            height: 20px;
+            outline: none;
+            position: relative;
+            z-index: 1;
+            cursor: pointer; }
+            .slideshow-container .slick-dots li button:before {
+              content: '';
+              width: 4px;
+              height: 4px;
+              background: var(--dot-color, #FFF);
+              border-radius: 4px;
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              -webkit-transform: translate(-50%, -50%);
+                      transform: translate(-50%, -50%);
+              opacity: .7;
+              -webkit-transition: all .5s ease-out;
+              transition: all .5s ease-out; }
+          .slideshow-container .slick-dots li.slick-active button:before {
+            -webkit-transform: translate(-50%, -50%) scale(1.4);
+                    transform: translate(-50%, -50%) scale(1.4);
+            opacity: 1; }
+
+    @media screen and (min-width: 768px) {
+      .slideshow-container .arrow-container:hover:before {
+        opacity: 1; }
+      .slideshow-container .arrow-container:hover .arrow {
+        border-width: 4px; }
+      .slideshow-container .arrow-container .arrow:hover {
+        border-width: 4px; } }
+
+    @-webkit-keyframes slideInRight {
+      0% {
+        left: -100%; }
+      100% {
+        left: 0; } }
+
+    @keyframes slideInRight {
+      0% {
+        left: -100%; }
+      100% {
+        left: 0; } }
+
+    @-webkit-keyframes slideInLeft {
+      0% {
+        left: 100%; }
+      100% {
+        left: 0; } }
+
+    @keyframes slideInLeft {
+      0% {
+        left: 100%; }
+      100% {
+        left: 0; } }
+
+    @-webkit-keyframes slideOutRight {
+      0% {
+        left: 0; }
+      100% {
+        left: -100%; } }
+
+    @keyframes slideOutRight {
+      0% {
+        left: 0; }
+      100% {
+        left: -100%; } }
+
+    @-webkit-keyframes slideOutLeft {
+      0% {
+        left: 0; }
+      100% {
+        left: 100%; } }
+
+    @keyframes slideOutLeft {
+      0% {
+        left: 0; }
+      100% {
+        left: 100%; } }
+
+    .loader {
+      position: absolute;
+      left: 50%;
+      margin-left: -20px;
+      top: 50%;
+      margin-top: -20px;
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #555;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      -webkit-animation: spin 1s linear infinite;
+              animation: spin 1s linear infinite; }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg); }
+      100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg); } }
+
+    @keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg); }
+      100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg); } }
+  `]
+            },] },
 ];
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], ButtonDirective.prototype, "iconPos", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], ButtonDirective.prototype, "cornerStyleClass", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], ButtonDirective.prototype, "label", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], ButtonDirective.prototype, "icon", null);
-ButtonDirective = __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
-        selector: '[pButton]'
-    })
-], ButtonDirective);
-let Button = class Button {
-    constructor() {
-        this.iconPos = 'left';
-        this.onClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onFocus = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onBlur = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-    }
+/**
+ * @nocollapse
+ */
+SlideshowComponent.ctorParameters = () => [
+    { type: SwipeService, },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"], },
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["TransferState"], },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"], },
+    { type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["DomSanitizer"], },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"],] },] },
+    { type: undefined, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["DOCUMENT"],] },] },
+];
+SlideshowComponent.propDecorators = {
+    'imageUrls': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'height': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'minHeight': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'arrowSize': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'showArrows': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'disableSwiping': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'autoPlay': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'autoPlayInterval': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'stopAutoPlayOnSlide': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'autoPlayWaitForLazyLoad': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'debug': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'backgroundSize': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'backgroundPosition': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'backgroundRepeat': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'showDots': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'dotColor': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'showCaptions': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'captionColor': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'captionBackground': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'lazyLoad': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'hideOnNoSlides': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'fullscreen': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] },],
+    'onSlideLeft': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
+    'onSlideRight': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
+    'onSwipeLeft': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
+    'onSwipeRight': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
+    'onFullscreenExit': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
+    'onIndexChanged': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] },],
+    'container': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: ['container',] },],
+    'prevArrow': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: ['prevArrow',] },],
+    'nextArrow': [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"], args: ['nextArrow',] },],
 };
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Button.prototype, "type", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Button.prototype, "iconPos", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Button.prototype, "icon", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Button.prototype, "label", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Button.prototype, "disabled", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Button.prototype, "style", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Button.prototype, "styleClass", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Button.prototype, "onClick", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Button.prototype, "onFocus", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Button.prototype, "onBlur", void 0);
-Button = __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-        selector: 'p-button',
-        template: `
-        <button [attr.type]="type" [class]="styleClass" [ngStyle]="style" [disabled]="disabled"
-            [ngClass]="{'ui-button ui-widget ui-state-default ui-corner-all':true,
-                        'ui-button-icon-only': (icon && !label),
-                        'ui-button-text-icon-left': (icon && label && iconPos === 'left'),
-                        'ui-button-text-icon-right': (icon && label && iconPos === 'right'),
-                        'ui-button-text-only': (!icon && label),
-                        'ui-button-text-empty': (!icon && !label),
-                        'ui-state-disabled': disabled}"
-                        (click)="onClick.emit($event)" (focus)="onFocus.emit($event)" (blur)="onBlur.emit($event)">
-            <ng-content></ng-content>
-            <span [ngClass]="{'ui-clickable': true,
-                        'ui-button-icon-left': (iconPos === 'left'), 
-                        'ui-button-icon-right': (iconPos === 'right')}"
-                        [class]="icon" *ngIf="icon"></span>
-            <span class="ui-button-text ui-clickable">{{label||'ui-btn'}}</span>
-        </button>
-    `
-    })
-], Button);
-let ButtonModule = class ButtonModule {
-};
-ButtonModule = __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]],
-        exports: [ButtonDirective, Button],
-        declarations: [ButtonDirective, Button]
-    })
-], ButtonModule);
+
+class SlideshowModule {
+}
+SlideshowModule.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
+                imports: [
+                    _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                    _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserTransferStateModule"]
+                ],
+                declarations: [
+                    SlideshowComponent
+                ],
+                exports: [
+                    SlideshowComponent
+                ],
+                providers: [
+                    SwipeService
+                ]
+            },] },
+];
+/**
+ * @nocollapse
+ */
+SlideshowModule.ctorParameters = () => [];
 
 /**
  * Generated bundle index. Do not edit.
  */
 
 
-//# sourceMappingURL=primeng-button.js.map
+//# sourceMappingURL=ng-simple-slideshow.js.map
 
 
 /***/ }),
 
-/***/ "./node_modules/primeng/fesm2015/primeng-calendar.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/primeng/fesm2015/primeng-calendar.js ***!
-  \***********************************************************/
-/*! exports provided: CALENDAR_VALUE_ACCESSOR, Calendar, CalendarModule */
+/***/ "./node_modules/ngx-bootstrap/component-loader/fesm2015/ngx-bootstrap-component-loader.js":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/ngx-bootstrap/component-loader/fesm2015/ngx-bootstrap-component-loader.js ***!
+  \************************************************************************************************/
+/*! exports provided: BsComponentRef, ComponentLoader, ComponentLoaderFactory, ContentRef */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CALENDAR_VALUE_ACCESSOR", function() { return CALENDAR_VALUE_ACCESSOR; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Calendar", function() { return Calendar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CalendarModule", function() { return CalendarModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsComponentRef", function() { return BsComponentRef; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentLoader", function() { return ComponentLoader; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentLoaderFactory", function() { return ComponentLoaderFactory; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContentRef", function() { return ContentRef; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm2015/animations.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/button */ "./node_modules/primeng/fesm2015/primeng-button.js");
-/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/dom */ "./node_modules/primeng/fesm2015/primeng-dom.js");
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ngx-bootstrap/utils */ "./node_modules/ngx-bootstrap/utils/fesm2015/ngx-bootstrap-utils.js");
+/* harmony import */ var ngx_bootstrap_positioning__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-bootstrap/positioning */ "./node_modules/ngx-bootstrap/positioning/fesm2015/ngx-bootstrap-positioning.js");
 
 
 
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @template T
+ */
+class BsComponentRef {
+}
 
-
-
-
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-const CALENDAR_VALUE_ACCESSOR = {
-    provide: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NG_VALUE_ACCESSOR"],
-    useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(() => Calendar),
-    multi: true
-};
-let Calendar = class Calendar {
-    constructor(el, renderer, cd, zone) {
-        this.el = el;
-        this.renderer = renderer;
-        this.cd = cd;
-        this.zone = zone;
-        this.dateFormat = 'mm/dd/yy';
-        this.multipleSeparator = ',';
-        this.rangeSeparator = '-';
-        this.inline = false;
-        this.showOtherMonths = true;
-        this.icon = 'pi pi-calendar';
-        this.shortYearCutoff = '+10';
-        this.hourFormat = '24';
-        this.stepHour = 1;
-        this.stepMinute = 1;
-        this.stepSecond = 1;
-        this.showSeconds = false;
-        this.showOnFocus = true;
-        this.showWeek = false;
-        this.dataType = 'date';
-        this.selectionMode = 'single';
-        this.todayButtonStyleClass = 'ui-button-secondary';
-        this.clearButtonStyleClass = 'ui-button-secondary';
-        this.autoZIndex = true;
-        this.baseZIndex = 0;
-        this.keepInvalid = false;
-        this.hideOnDateTimeSelect = false;
-        this.numberOfMonths = 1;
-        this.view = 'date';
-        this.timeSeparator = ":";
-        this.showTransitionOptions = '225ms ease-out';
-        this.hideTransitionOptions = '195ms ease-in';
-        this.onFocus = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onBlur = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onClose = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onSelect = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onInput = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onTodayClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onClearClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onMonthChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onYearChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this._locale = {
-            firstDayOfWeek: 0,
-            dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-            dayNamesMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
-            monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            today: 'Today',
-            clear: 'Clear',
-            dateFormat: 'mm/dd/yy',
-            weekHeader: 'Wk'
-        };
-        this.onModelChange = () => { };
-        this.onModelTouched = () => { };
-        this.inputFieldValue = null;
-        this.navigationState = null;
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @copyright Valor Software
+ * @copyright Angular ng-bootstrap team
+ */
+class ContentRef {
+    /**
+     * @param {?} nodes
+     * @param {?=} viewRef
+     * @param {?=} componentRef
+     */
+    constructor(
+    /* tslint:disable-next-line: no-any */
+    nodes, viewRef, 
+    /* tslint:disable-next-line: no-any */
+    componentRef) {
+        this.nodes = nodes;
+        this.viewRef = viewRef;
+        this.componentRef = componentRef;
     }
-    set content(content) {
-        this.contentViewChild = content;
-        if (this.contentViewChild) {
-            if (this.isMonthNavigate) {
-                Promise.resolve(null).then(() => this.updateFocus());
-                this.isMonthNavigate = false;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @template T
+ */
+class ComponentLoader {
+    /**
+     * Do not use this directly, it should be instanced via
+     * `ComponentLoadFactory.attach`
+     * \@internal
+     * @param {?} _viewContainerRef
+     * @param {?} _renderer
+     * @param {?} _elementRef
+     * @param {?} _injector
+     * @param {?} _componentFactoryResolver
+     * @param {?} _ngZone
+     * @param {?} _applicationRef
+     * @param {?} _posService
+     */
+    // tslint:disable-next-line
+    constructor(_viewContainerRef, _renderer, _elementRef, _injector, _componentFactoryResolver, _ngZone, _applicationRef, _posService) {
+        this._viewContainerRef = _viewContainerRef;
+        this._renderer = _renderer;
+        this._elementRef = _elementRef;
+        this._injector = _injector;
+        this._componentFactoryResolver = _componentFactoryResolver;
+        this._ngZone = _ngZone;
+        this._applicationRef = _applicationRef;
+        this._posService = _posService;
+        this.onBeforeShow = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        /* tslint:disable-next-line: no-any*/
+        this.onShown = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        /* tslint:disable-next-line: no-any*/
+        this.onBeforeHide = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onHidden = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this._providers = [];
+        this._isHiding = false;
+        /**
+         * A selector used if container element was not found
+         */
+        this.containerDefaultSelector = 'body';
+        this._listenOpts = {};
+        this._globalListener = Function.prototype;
+    }
+    /**
+     * @return {?}
+     */
+    get isShown() {
+        if (this._isHiding) {
+            return false;
+        }
+        return !!this._componentRef;
+    }
+    /**
+     * @param {?} compType
+     * @return {?}
+     */
+    attach(compType) {
+        this._componentFactory = this._componentFactoryResolver
+            .resolveComponentFactory(compType);
+        return this;
+    }
+    // todo: add behaviour: to target element, `body`, custom element
+    /**
+     * @param {?=} container
+     * @return {?}
+     */
+    to(container) {
+        this.container = container || this.container;
+        return this;
+    }
+    /**
+     * @param {?=} opts
+     * @return {?}
+     */
+    position(opts) {
+        this.attachment = opts.attachment || this.attachment;
+        /* tslint:disable-next-line: no-unnecessary-type-assertion */
+        this._elementRef = ((/** @type {?} */ (opts.target))) || this._elementRef;
+        return this;
+    }
+    /**
+     * @param {?} provider
+     * @return {?}
+     */
+    provide(provider) {
+        this._providers.push(provider);
+        return this;
+    }
+    // todo: appendChild to element or document.querySelector(this.container)
+    /**
+     * @param {?=} opts
+     * @return {?}
+     */
+    show(opts = {}) {
+        this._subscribePositioning();
+        this._innerComponent = null;
+        if (!this._componentRef) {
+            this.onBeforeShow.emit();
+            this._contentRef = this._getContentRef(opts.content, opts.context, opts.initialState);
+            /** @type {?} */
+            const injector = _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injector"].create({
+                providers: this._providers,
+                parent: this._injector
+            });
+            this._componentRef = this._componentFactory.create(injector, this._contentRef.nodes);
+            this._applicationRef.attachView(this._componentRef.hostView);
+            // this._componentRef = this._viewContainerRef
+            //   .createComponent(this._componentFactory, 0, injector, this._contentRef.nodes);
+            this.instance = this._componentRef.instance;
+            Object.assign(this._componentRef.instance, opts);
+            if (this.container instanceof _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]) {
+                this.container.nativeElement.appendChild(this._componentRef.location.nativeElement);
+            }
+            if (typeof this.container === 'string' && typeof document !== 'undefined') {
+                /** @type {?} */
+                const selectedElement = document.querySelector(this.container) ||
+                    document.querySelector(this.containerDefaultSelector);
+                selectedElement.appendChild(this._componentRef.location.nativeElement);
+            }
+            if (!this.container &&
+                this._elementRef &&
+                this._elementRef.nativeElement.parentElement) {
+                this._elementRef.nativeElement.parentElement.appendChild(this._componentRef.location.nativeElement);
+            }
+            // we need to manually invoke change detection since events registered
+            // via
+            // Renderer::listen() are not picked up by change detection with the
+            // OnPush strategy
+            if (this._contentRef.componentRef) {
+                this._innerComponent = this._contentRef.componentRef.instance;
+                this._contentRef.componentRef.changeDetectorRef.markForCheck();
+                this._contentRef.componentRef.changeDetectorRef.detectChanges();
+            }
+            this._componentRef.changeDetectorRef.markForCheck();
+            this._componentRef.changeDetectorRef.detectChanges();
+            this.onShown.emit(this._componentRef.instance);
+        }
+        this._registerOutsideClick();
+        return this._componentRef;
+    }
+    /**
+     * @return {?}
+     */
+    hide() {
+        if (!this._componentRef) {
+            return this;
+        }
+        this._posService.deletePositionElement(this._componentRef.location);
+        this.onBeforeHide.emit(this._componentRef.instance);
+        /** @type {?} */
+        const componentEl = this._componentRef.location.nativeElement;
+        componentEl.parentNode.removeChild(componentEl);
+        if (this._contentRef.componentRef) {
+            this._contentRef.componentRef.destroy();
+        }
+        this._componentRef.destroy();
+        if (this._viewContainerRef && this._contentRef.viewRef) {
+            this._viewContainerRef.remove(this._viewContainerRef.indexOf(this._contentRef.viewRef));
+        }
+        if (this._contentRef.viewRef) {
+            this._contentRef.viewRef.destroy();
+        }
+        this._contentRef = null;
+        this._componentRef = null;
+        this._removeGlobalListener();
+        this.onHidden.emit();
+        return this;
+    }
+    /**
+     * @return {?}
+     */
+    toggle() {
+        if (this.isShown) {
+            this.hide();
+            return;
+        }
+        this.show();
+    }
+    /**
+     * @return {?}
+     */
+    dispose() {
+        if (this.isShown) {
+            this.hide();
+        }
+        this._unsubscribePositioning();
+        if (this._unregisterListenersFn) {
+            this._unregisterListenersFn();
+        }
+    }
+    /**
+     * @param {?} listenOpts
+     * @return {?}
+     */
+    listen(listenOpts) {
+        this.triggers = listenOpts.triggers || this.triggers;
+        this._listenOpts.outsideClick = listenOpts.outsideClick;
+        this._listenOpts.outsideEsc = listenOpts.outsideEsc;
+        listenOpts.target = listenOpts.target || this._elementRef.nativeElement;
+        /** @type {?} */
+        const hide = (this._listenOpts.hide = (/**
+         * @return {?}
+         */
+        () => listenOpts.hide ? listenOpts.hide() : void this.hide()));
+        /** @type {?} */
+        const show = (this._listenOpts.show = (/**
+         * @param {?} registerHide
+         * @return {?}
+         */
+        (registerHide) => {
+            listenOpts.show ? listenOpts.show(registerHide) : this.show(registerHide);
+            registerHide();
+        }));
+        /** @type {?} */
+        const toggle = (/**
+         * @param {?} registerHide
+         * @return {?}
+         */
+        (registerHide) => {
+            this.isShown ? hide() : show(registerHide);
+        });
+        this._unregisterListenersFn = Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["listenToTriggersV2"])(this._renderer, {
+            target: listenOpts.target,
+            triggers: listenOpts.triggers,
+            show,
+            hide,
+            toggle
+        });
+        return this;
+    }
+    /**
+     * @return {?}
+     */
+    _removeGlobalListener() {
+        if (this._globalListener) {
+            this._globalListener();
+            this._globalListener = null;
+        }
+    }
+    /**
+     * @param {?} vRef
+     * @param {?} template
+     * @return {?}
+     */
+    attachInline(vRef, 
+    /* tslint:disable-next-line: no-any*/
+    template) {
+        this._inlineViewRef = vRef.createEmbeddedView(template);
+        return this;
+    }
+    /**
+     * @return {?}
+     */
+    _registerOutsideClick() {
+        if (!this._componentRef || !this._componentRef.location) {
+            return;
+        }
+        // why: should run after first event bubble
+        if (this._listenOpts.outsideClick) {
+            /** @type {?} */
+            const target = this._componentRef.location.nativeElement;
+            setTimeout((/**
+             * @return {?}
+             */
+            () => {
+                this._globalListener = Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["registerOutsideClick"])(this._renderer, {
+                    targets: [target, this._elementRef.nativeElement],
+                    outsideClick: this._listenOpts.outsideClick,
+                    hide: (/**
+                     * @return {?}
+                     */
+                    () => this._listenOpts.hide())
+                });
+            }));
+        }
+        if (this._listenOpts.outsideEsc) {
+            /** @type {?} */
+            const target = this._componentRef.location.nativeElement;
+            this._globalListener = Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["registerEscClick"])(this._renderer, {
+                targets: [target, this._elementRef.nativeElement],
+                outsideEsc: this._listenOpts.outsideEsc,
+                hide: (/**
+                 * @return {?}
+                 */
+                () => this._listenOpts.hide())
+            });
+        }
+    }
+    /**
+     * @return {?}
+     */
+    getInnerComponent() {
+        return this._innerComponent;
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _subscribePositioning() {
+        if (this._zoneSubscription || !this.attachment) {
+            return;
+        }
+        this.onShown.subscribe((/**
+         * @return {?}
+         */
+        () => {
+            this._posService.position({
+                element: this._componentRef.location,
+                target: this._elementRef,
+                attachment: this.attachment,
+                appendToBody: this.container === 'body'
+            });
+        }));
+        this._zoneSubscription = this._ngZone.onStable.subscribe((/**
+         * @return {?}
+         */
+        () => {
+            if (!this._componentRef) {
+                return;
+            }
+            this._posService.calcPosition();
+        }));
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _unsubscribePositioning() {
+        if (!this._zoneSubscription) {
+            return;
+        }
+        this._zoneSubscription.unsubscribe();
+        this._zoneSubscription = null;
+    }
+    /**
+     * @private
+     * @param {?} content
+     * @param {?=} context
+     * @param {?=} initialState
+     * @return {?}
+     */
+    _getContentRef(
+    /* tslint:disable-next-line: no-any*/
+    content, 
+    /* tslint:disable-next-line: no-any*/
+    context, 
+    /* tslint:disable-next-line: no-any*/
+    initialState) {
+        if (!content) {
+            return new ContentRef([]);
+        }
+        if (content instanceof _angular_core__WEBPACK_IMPORTED_MODULE_0__["TemplateRef"]) {
+            if (this._viewContainerRef) {
+                /** @type {?} */
+                const _viewRef = this._viewContainerRef
+                    .createEmbeddedView(content, context);
+                _viewRef.markForCheck();
+                return new ContentRef([_viewRef.rootNodes], _viewRef);
+            }
+            /** @type {?} */
+            const viewRef = content.createEmbeddedView({});
+            this._applicationRef.attachView(viewRef);
+            return new ContentRef([viewRef.rootNodes], viewRef);
+        }
+        if (typeof content === 'function') {
+            /** @type {?} */
+            const contentCmptFactory = this._componentFactoryResolver.resolveComponentFactory(content);
+            /** @type {?} */
+            const modalContentInjector = _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injector"].create({
+                providers: this._providers,
+                parent: this._injector
+            });
+            /** @type {?} */
+            const componentRef = contentCmptFactory.create(modalContentInjector);
+            Object.assign(componentRef.instance, initialState);
+            this._applicationRef.attachView(componentRef.hostView);
+            return new ContentRef([[componentRef.location.nativeElement]], componentRef.hostView, componentRef);
+        }
+        return new ContentRef([[this._renderer.createText(`${content}`)]]);
+    }
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class ComponentLoaderFactory {
+    /**
+     * @param {?} _componentFactoryResolver
+     * @param {?} _ngZone
+     * @param {?} _injector
+     * @param {?} _posService
+     * @param {?} _applicationRef
+     */
+    constructor(_componentFactoryResolver, _ngZone, _injector, _posService, _applicationRef) {
+        this._componentFactoryResolver = _componentFactoryResolver;
+        this._ngZone = _ngZone;
+        this._injector = _injector;
+        this._posService = _posService;
+        this._applicationRef = _applicationRef;
+    }
+    /**
+     *
+     * @template T
+     * @param {?} _elementRef
+     * @param {?} _viewContainerRef
+     * @param {?} _renderer
+     * @return {?}
+     */
+    createLoader(_elementRef, _viewContainerRef, _renderer) {
+        return new ComponentLoader(_viewContainerRef, _renderer, _elementRef, this._injector, this._componentFactoryResolver, this._ngZone, this._applicationRef, this._posService);
+    }
+}
+ComponentLoaderFactory.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+];
+/** @nocollapse */
+ComponentLoaderFactory.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ComponentFactoryResolver"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injector"] },
+    { type: ngx_bootstrap_positioning__WEBPACK_IMPORTED_MODULE_2__["PositioningService"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ApplicationRef"] }
+];
+
+
+//# sourceMappingURL=ngx-bootstrap-component-loader.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js ***!
+  \**************************************************************************/
+/*! exports provided: BsModalRef, BsModalService, ModalBackdropComponent, ModalBackdropOptions, ModalContainerComponent, ModalDirective, ModalModule, ModalOptions, ɵa */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsModalRef", function() { return BsModalRef; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BsModalService", function() { return BsModalService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalBackdropComponent", function() { return ModalBackdropComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalBackdropOptions", function() { return ModalBackdropOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalContainerComponent", function() { return ModalContainerComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalDirective", function() { return ModalDirective; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalModule", function() { return ModalModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalOptions", function() { return ModalOptions; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return CLASS_NAME; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ngx-bootstrap/utils */ "./node_modules/ngx-bootstrap/utils/fesm2015/ngx-bootstrap-utils.js");
+/* harmony import */ var ngx_bootstrap_component_loader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ngx-bootstrap/component-loader */ "./node_modules/ngx-bootstrap/component-loader/fesm2015/ngx-bootstrap-component-loader.js");
+/* harmony import */ var ngx_bootstrap_positioning__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ngx-bootstrap/positioning */ "./node_modules/ngx-bootstrap/positioning/fesm2015/ngx-bootstrap-positioning.js");
+
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class BsModalRef {
+    constructor() {
+        /**
+         * Hides the modal
+         */
+        this.hide = Function;
+        /**
+         * Sets new class to modal window
+         */
+        this.setClass = Function;
+    }
+}
+BsModalRef.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class ModalBackdropOptions {
+    /**
+     * @param {?} options
+     */
+    constructor(options) {
+        this.animate = true;
+        Object.assign(this, options);
+    }
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class ModalOptions {
+}
+ModalOptions.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+];
+/** @type {?} */
+const modalConfigDefaults = {
+    backdrop: true,
+    keyboard: true,
+    focus: true,
+    show: false,
+    ignoreBackdropClick: false,
+    class: '',
+    animated: true,
+    initialState: {}
+};
+/** @type {?} */
+const CLASS_NAME = {
+    SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
+    BACKDROP: 'modal-backdrop',
+    OPEN: 'modal-open',
+    FADE: 'fade',
+    IN: 'in',
+    // bs3
+    SHOW: 'show' // bs4
+};
+/** @type {?} */
+const TRANSITION_DURATIONS = {
+    MODAL: 300,
+    BACKDROP: 150
+};
+/** @type {?} */
+const DISMISS_REASONS = {
+    BACKRDOP: 'backdrop-click',
+    ESC: 'esc'
+};
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class ModalContainerComponent {
+    /**
+     * @param {?} options
+     * @param {?} _element
+     * @param {?} _renderer
+     */
+    constructor(options, _element, _renderer) {
+        this._element = _element;
+        this._renderer = _renderer;
+        this.isShown = false;
+        this.isModalHiding = false;
+        this.config = Object.assign({}, options);
+    }
+    /**
+     * @return {?}
+     */
+    ngOnInit() {
+        if (this.isAnimated) {
+            this._renderer.addClass(this._element.nativeElement, CLASS_NAME.FADE);
+        }
+        this._renderer.setStyle(this._element.nativeElement, 'display', 'block');
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
+            this.isShown = true;
+            this._renderer.addClass(this._element.nativeElement, Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["isBs3"])() ? CLASS_NAME.IN : CLASS_NAME.SHOW);
+        }), this.isAnimated ? TRANSITION_DURATIONS.BACKDROP : 0);
+        if (document && document.body) {
+            if (this.bsModalService.getModalsCount() === 1) {
+                this.bsModalService.checkScrollbar();
+                this.bsModalService.setScrollbar();
+            }
+            this._renderer.addClass(document.body, CLASS_NAME.OPEN);
+        }
+        if (this._element.nativeElement) {
+            this._element.nativeElement.focus();
+        }
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    onClick(event) {
+        if (this.config.ignoreBackdropClick ||
+            this.config.backdrop === 'static' ||
+            event.target !== this._element.nativeElement) {
+            return;
+        }
+        this.bsModalService.setDismissReason(DISMISS_REASONS.BACKRDOP);
+        this.hide();
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    onEsc(event) {
+        if (!this.isShown) {
+            return;
+        }
+        // tslint:disable-next-line:deprecation
+        if (event.keyCode === 27 || event.key === 'Escape') {
+            event.preventDefault();
+        }
+        if (this.config.keyboard &&
+            this.level === this.bsModalService.getModalsCount()) {
+            this.bsModalService.setDismissReason(DISMISS_REASONS.ESC);
+            this.hide();
+        }
+    }
+    /**
+     * @return {?}
+     */
+    ngOnDestroy() {
+        if (this.isShown) {
+            this.hide();
+        }
+    }
+    /**
+     * @return {?}
+     */
+    hide() {
+        if (this.isModalHiding || !this.isShown) {
+            return;
+        }
+        this.isModalHiding = true;
+        this._renderer.removeClass(this._element.nativeElement, Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["isBs3"])() ? CLASS_NAME.IN : CLASS_NAME.SHOW);
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
+            this.isShown = false;
+            if (document &&
+                document.body &&
+                this.bsModalService.getModalsCount() === 1) {
+                this._renderer.removeClass(document.body, CLASS_NAME.OPEN);
+            }
+            this.bsModalService.hide(this.level);
+            this.isModalHiding = false;
+        }), this.isAnimated ? TRANSITION_DURATIONS.MODAL : 0);
+    }
+}
+ModalContainerComponent.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                selector: 'modal-container',
+                template: `
+    <div [class]="'modal-dialog' + (config.class ? ' ' + config.class : '')" role="document">
+      <div class="modal-content">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  `,
+                host: {
+                    class: 'modal',
+                    role: 'dialog',
+                    tabindex: '-1',
+                    '[attr.aria-modal]': 'true'
+                }
+            }] }
+];
+/** @nocollapse */
+ModalContainerComponent.ctorParameters = () => [
+    { type: ModalOptions },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"] }
+];
+ModalContainerComponent.propDecorators = {
+    onClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"], args: ['click', ['$event'],] }],
+    onEsc: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"], args: ['window:keydown.esc', ['$event'],] }]
+};
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * This component will be added as background layout for modals if enabled
+ */
+class ModalBackdropComponent {
+    /**
+     * @param {?} element
+     * @param {?} renderer
+     */
+    constructor(element, renderer) {
+        this._isShown = false;
+        this.element = element;
+        this.renderer = renderer;
+    }
+    /**
+     * @return {?}
+     */
+    get isAnimated() {
+        return this._isAnimated;
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set isAnimated(value) {
+        this._isAnimated = value;
+        // this.renderer.setElementClass(this.element.nativeElement, `${ClassName.FADE}`, value);
+    }
+    /**
+     * @return {?}
+     */
+    get isShown() {
+        return this._isShown;
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    set isShown(value) {
+        this._isShown = value;
+        if (value) {
+            this.renderer.addClass(this.element.nativeElement, `${CLASS_NAME.IN}`);
+        }
+        else {
+            this.renderer.removeClass(this.element.nativeElement, `${CLASS_NAME.IN}`);
+        }
+        if (!Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["isBs3"])()) {
+            if (value) {
+                this.renderer.addClass(this.element.nativeElement, `${CLASS_NAME.SHOW}`);
             }
             else {
-                this.initFocusableCell();
+                this.renderer.removeClass(this.element.nativeElement, `${CLASS_NAME.SHOW}`);
             }
         }
     }
-    ;
-    get minDate() {
-        return this._minDate;
-    }
-    set minDate(date) {
-        this._minDate = date;
-        if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
-            this.createMonths(this.currentMonth, this.currentYear);
-        }
-    }
-    get maxDate() {
-        return this._maxDate;
-    }
-    set maxDate(date) {
-        this._maxDate = date;
-        if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
-            this.createMonths(this.currentMonth, this.currentYear);
-        }
-    }
-    get disabledDates() {
-        return this._disabledDates;
-    }
-    set disabledDates(disabledDates) {
-        this._disabledDates = disabledDates;
-        if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
-            this.createMonths(this.currentMonth, this.currentYear);
-        }
-    }
-    get disabledDays() {
-        return this._disabledDays;
-    }
-    set disabledDays(disabledDays) {
-        this._disabledDays = disabledDays;
-        if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
-            this.createMonths(this.currentMonth, this.currentYear);
-        }
-    }
-    get yearRange() {
-        return this._yearRange;
-    }
-    set yearRange(yearRange) {
-        this._yearRange = yearRange;
-        if (yearRange) {
-            const years = yearRange.split(':');
-            const yearStart = parseInt(years[0]);
-            const yearEnd = parseInt(years[1]);
-            this.populateYearOptions(yearStart, yearEnd);
-        }
-    }
-    get showTime() {
-        return this._showTime;
-    }
-    set showTime(showTime) {
-        this._showTime = showTime;
-        if (this.currentHour === undefined) {
-            this.initTime(this.value || new Date());
-        }
-        this.updateInputfield();
-    }
-    get locale() {
-        return this._locale;
-    }
-    set locale(newLocale) {
-        this._locale = newLocale;
-        if (this.view === 'date') {
-            this.createWeekDays();
-            this.createMonths(this.currentMonth, this.currentYear);
-        }
-        else if (this.view === 'month') {
-            this.createMonthPickerValues();
-        }
-    }
+    /**
+     * @return {?}
+     */
     ngOnInit() {
-        const date = this.defaultDate || new Date();
-        this.currentMonth = date.getMonth();
-        this.currentYear = date.getFullYear();
-        if (this.view === 'date') {
-            this.createWeekDays();
-            this.initTime(date);
-            this.createMonths(this.currentMonth, this.currentYear);
-            this.ticksTo1970 = (((1970 - 1) * 365 + Math.floor(1970 / 4) - Math.floor(1970 / 100) + Math.floor(1970 / 400)) * 24 * 60 * 60 * 10000000);
+        if (this.isAnimated) {
+            this.renderer.addClass(this.element.nativeElement, `${CLASS_NAME.FADE}`);
+            ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["Utils"].reflow(this.element.nativeElement);
         }
-        else if (this.view === 'month') {
-            this.createMonthPickerValues();
+        this.isShown = true;
+    }
+}
+ModalBackdropComponent.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"], args: [{
+                selector: 'bs-modal-backdrop',
+                template: ' ',
+                host: { class: CLASS_NAME.BACKDROP }
+            }] }
+];
+/** @nocollapse */
+ModalBackdropComponent.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"] }
+];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const TRANSITION_DURATION = 300;
+/** @type {?} */
+const BACKDROP_TRANSITION_DURATION = 150;
+/**
+ * Mark any code with directive to show it's content in modal
+ */
+class ModalDirective {
+    /**
+     * @param {?} _element
+     * @param {?} _viewContainerRef
+     * @param {?} _renderer
+     * @param {?} clf
+     */
+    constructor(_element, _viewContainerRef, _renderer, clf) {
+        this._element = _element;
+        this._renderer = _renderer;
+        /**
+         * This event fires immediately when the `show` instance method is called.
+         */
+        this.onShow = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        /**
+         * This event is fired when the modal has been made visible to the user
+         * (will wait for CSS transitions to complete)
+         */
+        this.onShown = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        /**
+         * This event is fired immediately when
+         * the hide instance method has been called.
+         */
+        this.onHide = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        /**
+         * This event is fired when the modal has finished being
+         * hidden from the user (will wait for CSS transitions to complete).
+         */
+        this.onHidden = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this._isShown = false;
+        this.isBodyOverflowing = false;
+        this.originalBodyPadding = 0;
+        this.scrollbarWidth = 0;
+        this.timerHideModal = 0;
+        this.timerRmBackDrop = 0;
+        this.isNested = false;
+        this._backdrop = clf.createLoader(_element, _viewContainerRef, _renderer);
+    }
+    /**
+     * allows to set modal configuration via element property
+     * @param {?} conf
+     * @return {?}
+     */
+    set config(conf) {
+        this._config = this.getConfig(conf);
+    }
+    /**
+     * @return {?}
+     */
+    get config() {
+        return this._config;
+    }
+    /**
+     * @return {?}
+     */
+    get isShown() {
+        return this._isShown;
+    }
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    onClick(event) {
+        if (this.config.ignoreBackdropClick ||
+            this.config.backdrop === 'static' ||
+            event.target !== this._element.nativeElement) {
+            return;
+        }
+        this.dismissReason = DISMISS_REASONS.BACKRDOP;
+        this.hide(event);
+    }
+    // todo: consider preventing default and stopping propagation
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    onEsc(event) {
+        if (!this._isShown) {
+            return;
+        }
+        // tslint:disable-next-line:deprecation
+        if (event.keyCode === 27 || event.key === 'Escape') {
+            event.preventDefault();
+        }
+        if (this.config.keyboard) {
+            this.dismissReason = DISMISS_REASONS.ESC;
+            this.hide();
         }
     }
-    ngAfterContentInit() {
-        this.templates.forEach((item) => {
-            switch (item.getType()) {
-                case 'date':
-                    this.dateTemplate = item.template;
-                    break;
-                default:
-                    this.dateTemplate = item.template;
-                    break;
+    /**
+     * @return {?}
+     */
+    ngOnDestroy() {
+        this.config = void 0;
+        if (this._isShown) {
+            this._isShown = false;
+            this.hideModal();
+            this._backdrop.dispose();
+        }
+    }
+    /**
+     * @return {?}
+     */
+    ngOnInit() {
+        this._config = this._config || this.getConfig();
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
+            if (this._config.show) {
+                this.show();
+            }
+        }), 0);
+    }
+    /* Public methods */
+    /**
+     * Allows to manually toggle modal visibility
+     * @return {?}
+     */
+    toggle() {
+        return this._isShown ? this.hide() : this.show();
+    }
+    /**
+     * Allows to manually open modal
+     * @return {?}
+     */
+    show() {
+        this.dismissReason = null;
+        this.onShow.emit(this);
+        if (this._isShown) {
+            return;
+        }
+        clearTimeout(this.timerHideModal);
+        clearTimeout(this.timerRmBackDrop);
+        this._isShown = true;
+        this.checkScrollbar();
+        this.setScrollbar();
+        if (ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"] && ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body) {
+            if (ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body.classList.contains(CLASS_NAME.OPEN)) {
+                this.isNested = true;
+            }
+            else {
+                this._renderer.addClass(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body, CLASS_NAME.OPEN);
+            }
+        }
+        this.showBackdrop((/**
+         * @return {?}
+         */
+        () => {
+            this.showElement();
+        }));
+    }
+    /**
+     * Allows to manually close modal
+     * @param {?=} event
+     * @return {?}
+     */
+    hide(event) {
+        if (event) {
+            event.preventDefault();
+        }
+        this.onHide.emit(this);
+        // todo: add an option to prevent hiding
+        if (!this._isShown) {
+            return;
+        }
+        ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["window"].clearTimeout(this.timerHideModal);
+        ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["window"].clearTimeout(this.timerRmBackDrop);
+        this._isShown = false;
+        this._renderer.removeClass(this._element.nativeElement, CLASS_NAME.IN);
+        if (!Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["isBs3"])()) {
+            this._renderer.removeClass(this._element.nativeElement, CLASS_NAME.SHOW);
+        }
+        // this._addClassIn = false;
+        if (this._config.animated) {
+            this.timerHideModal = ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["window"].setTimeout((/**
+             * @return {?}
+             */
+            () => this.hideModal()), TRANSITION_DURATION);
+        }
+        else {
+            this.hideModal();
+        }
+    }
+    /**
+     * Private methods \@internal
+     * @protected
+     * @param {?=} config
+     * @return {?}
+     */
+    getConfig(config) {
+        return Object.assign({}, modalConfigDefaults, config);
+    }
+    /**
+     *  Show dialog
+     * \@internal
+     * @protected
+     * @return {?}
+     */
+    showElement() {
+        // todo: replace this with component loader usage
+        if (!this._element.nativeElement.parentNode ||
+            this._element.nativeElement.parentNode.nodeType !== Node.ELEMENT_NODE) {
+            // don't move modals dom position
+            if (ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"] && ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body) {
+                ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body.appendChild(this._element.nativeElement);
+            }
+        }
+        this._renderer.setAttribute(this._element.nativeElement, 'aria-hidden', 'false');
+        this._renderer.setAttribute(this._element.nativeElement, 'aria-modal', 'true');
+        this._renderer.setStyle(this._element.nativeElement, 'display', 'block');
+        this._renderer.setProperty(this._element.nativeElement, 'scrollTop', 0);
+        if (this._config.animated) {
+            ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["Utils"].reflow(this._element.nativeElement);
+        }
+        // this._addClassIn = true;
+        this._renderer.addClass(this._element.nativeElement, CLASS_NAME.IN);
+        if (!Object(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["isBs3"])()) {
+            this._renderer.addClass(this._element.nativeElement, CLASS_NAME.SHOW);
+        }
+        /** @type {?} */
+        const transitionComplete = (/**
+         * @return {?}
+         */
+        () => {
+            if (this._config.focus) {
+                this._element.nativeElement.focus();
+            }
+            this.onShown.emit(this);
+        });
+        if (this._config.animated) {
+            setTimeout(transitionComplete, TRANSITION_DURATION);
+        }
+        else {
+            transitionComplete();
+        }
+    }
+    /**
+     * \@internal
+     * @protected
+     * @return {?}
+     */
+    hideModal() {
+        this._renderer.setAttribute(this._element.nativeElement, 'aria-hidden', 'true');
+        this._renderer.setStyle(this._element.nativeElement, 'display', 'none');
+        this.showBackdrop((/**
+         * @return {?}
+         */
+        () => {
+            if (!this.isNested) {
+                if (ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"] && ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body) {
+                    this._renderer.removeClass(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body, CLASS_NAME.OPEN);
+                }
+                this.resetScrollbar();
+            }
+            this.resetAdjustments();
+            this.focusOtherModal();
+            this.onHidden.emit(this);
+        }));
+    }
+    // todo: original show was calling a callback when done, but we can use
+    // promise
+    /**
+     * \@internal
+     * @protected
+     * @param {?=} callback
+     * @return {?}
+     */
+    showBackdrop(callback) {
+        if (this._isShown &&
+            this.config.backdrop &&
+            (!this.backdrop || !this.backdrop.instance.isShown)) {
+            this.removeBackdrop();
+            this._backdrop
+                .attach(ModalBackdropComponent)
+                .to('body')
+                .show({ isAnimated: this._config.animated });
+            this.backdrop = this._backdrop._componentRef;
+            if (!callback) {
+                return;
+            }
+            if (!this._config.animated) {
+                callback();
+                return;
+            }
+            setTimeout(callback, BACKDROP_TRANSITION_DURATION);
+        }
+        else if (!this._isShown && this.backdrop) {
+            this.backdrop.instance.isShown = false;
+            /** @type {?} */
+            const callbackRemove = (/**
+             * @return {?}
+             */
+            () => {
+                this.removeBackdrop();
+                if (callback) {
+                    callback();
+                }
+            });
+            if (this.backdrop.instance.isAnimated) {
+                this.timerRmBackDrop = ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["window"].setTimeout(callbackRemove, BACKDROP_TRANSITION_DURATION);
+            }
+            else {
+                callbackRemove();
+            }
+        }
+        else if (callback) {
+            callback();
+        }
+    }
+    /**
+     * \@internal
+     * @protected
+     * @return {?}
+     */
+    removeBackdrop() {
+        this._backdrop.hide();
+    }
+    /**
+     * Events tricks
+     * @protected
+     * @return {?}
+     */
+    // no need for it
+    // protected setEscapeEvent():void {
+    //   if (this._isShown && this._config.keyboard) {
+    //     $(this._element).on(Event.KEYDOWN_DISMISS, (event) => {
+    //       if (event.which === 27) {
+    //         this.hide()
+    //       }
+    //     })
+    //
+    //   } else if (!this._isShown) {
+    //     $(this._element).off(Event.KEYDOWN_DISMISS)
+    //   }
+    // }
+    // protected setResizeEvent():void {
+    // console.log(this.renderer.listenGlobal('', Event.RESIZE));
+    // if (this._isShown) {
+    //   $(window).on(Event.RESIZE, $.proxy(this._handleUpdate, this))
+    // } else {
+    //   $(window).off(Event.RESIZE)
+    // }
+    // }
+    focusOtherModal() {
+        if (this._element.nativeElement.parentElement == null) {
+            return;
+        }
+        /** @type {?} */
+        const otherOpenedModals = this._element.nativeElement.parentElement.querySelectorAll('.in[bsModal]');
+        if (!otherOpenedModals.length) {
+            return;
+        }
+        otherOpenedModals[otherOpenedModals.length - 1].focus();
+    }
+    /**
+     * \@internal
+     * @protected
+     * @return {?}
+     */
+    resetAdjustments() {
+        this._renderer.setStyle(this._element.nativeElement, 'paddingLeft', '');
+        this._renderer.setStyle(this._element.nativeElement, 'paddingRight', '');
+    }
+    /** Scroll bar tricks */
+    /**
+     * \@internal
+     * @protected
+     * @return {?}
+     */
+    checkScrollbar() {
+        this.isBodyOverflowing = ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body.clientWidth < ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["window"].innerWidth;
+        this.scrollbarWidth = this.getScrollbarWidth();
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    setScrollbar() {
+        if (!ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"]) {
+            return;
+        }
+        this.originalBodyPadding = parseInt(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["window"]
+            .getComputedStyle(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body)
+            .getPropertyValue('padding-right') || 0, 10);
+        if (this.isBodyOverflowing) {
+            ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body.style.paddingRight = `${this.originalBodyPadding +
+                this.scrollbarWidth}px`;
+        }
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    resetScrollbar() {
+        ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body.style.paddingRight = `${this.originalBodyPadding}px`;
+    }
+    // thx d.walsh
+    /**
+     * @protected
+     * @return {?}
+     */
+    getScrollbarWidth() {
+        /** @type {?} */
+        const scrollDiv = this._renderer.createElement('div');
+        this._renderer.addClass(scrollDiv, CLASS_NAME.SCROLLBAR_MEASURER);
+        this._renderer.appendChild(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body, scrollDiv);
+        /** @type {?} */
+        const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+        this._renderer.removeChild(ngx_bootstrap_utils__WEBPACK_IMPORTED_MODULE_1__["document"].body, scrollDiv);
+        return scrollbarWidth;
+    }
+}
+ModalDirective.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"], args: [{
+                selector: '[bsModal]',
+                exportAs: 'bs-modal'
+            },] }
+];
+/** @nocollapse */
+ModalDirective.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewContainerRef"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"] },
+    { type: ngx_bootstrap_component_loader__WEBPACK_IMPORTED_MODULE_2__["ComponentLoaderFactory"] }
+];
+ModalDirective.propDecorators = {
+    config: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"] }],
+    onShow: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    onShown: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    onHide: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    onHidden: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"] }],
+    onClick: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"], args: ['click', ['$event'],] }],
+    onEsc: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["HostListener"], args: ['keydown.esc', ['$event'],] }]
+};
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class BsModalService {
+    /**
+     * @param {?} rendererFactory
+     * @param {?} clf
+     */
+    constructor(rendererFactory, clf) {
+        this.clf = clf;
+        // constructor props
+        this.config = modalConfigDefaults;
+        // tslint:disable-next-line:no-any
+        this.onShow = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        // tslint:disable-next-line:no-any
+        this.onShown = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        // tslint:disable-next-line:no-any
+        this.onHide = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        // tslint:disable-next-line:no-any
+        this.onHidden = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.isBodyOverflowing = false;
+        this.originalBodyPadding = 0;
+        this.scrollbarWidth = 0;
+        this.modalsCount = 0;
+        this.lastDismissReason = '';
+        this.loaders = [];
+        this._backdropLoader = this.clf.createLoader(null, null, null);
+        this._renderer = rendererFactory.createRenderer(null, null);
+    }
+    /**
+     * Shows a modal
+     * @param {?} content
+     * @param {?=} config
+     * @return {?}
+     */
+    // tslint:disable-next-line:no-any
+    show(content, config) {
+        this.modalsCount++;
+        this._createLoaders();
+        this.config = Object.assign({}, modalConfigDefaults, config);
+        this._showBackdrop();
+        this.lastDismissReason = null;
+        return this._showModal(content);
+    }
+    /**
+     * @param {?} level
+     * @return {?}
+     */
+    hide(level) {
+        if (this.modalsCount === 1) {
+            this._hideBackdrop();
+            this.resetScrollbar();
+        }
+        this.modalsCount = this.modalsCount >= 1 ? this.modalsCount - 1 : 0;
+        setTimeout((/**
+         * @return {?}
+         */
+        () => {
+            this._hideModal(level);
+            this.removeLoaders(level);
+        }), this.config.animated ? TRANSITION_DURATIONS.BACKDROP : 0);
+    }
+    /**
+     * @return {?}
+     */
+    _showBackdrop() {
+        /** @type {?} */
+        const isBackdropEnabled = this.config.backdrop || this.config.backdrop === 'static';
+        /** @type {?} */
+        const isBackdropInDOM = !this.backdropRef || !this.backdropRef.instance.isShown;
+        if (this.modalsCount === 1) {
+            this.removeBackdrop();
+            if (isBackdropEnabled && isBackdropInDOM) {
+                this._backdropLoader
+                    .attach(ModalBackdropComponent)
+                    .to('body')
+                    .show({ isAnimated: this.config.animated });
+                this.backdropRef = this._backdropLoader._componentRef;
+            }
+        }
+    }
+    /**
+     * @return {?}
+     */
+    _hideBackdrop() {
+        if (!this.backdropRef) {
+            return;
+        }
+        this.backdropRef.instance.isShown = false;
+        /** @type {?} */
+        const duration = this.config.animated ? TRANSITION_DURATIONS.BACKDROP : 0;
+        setTimeout((/**
+         * @return {?}
+         */
+        () => this.removeBackdrop()), duration);
+    }
+    // tslint:disable-next-line:no-any
+    /**
+     * @param {?} content
+     * @return {?}
+     */
+    _showModal(content) {
+        /** @type {?} */
+        const modalLoader = this.loaders[this.loaders.length - 1];
+        /** @type {?} */
+        const bsModalRef = new BsModalRef();
+        /** @type {?} */
+        const modalContainerRef = modalLoader
+            .provide({ provide: ModalOptions, useValue: this.config })
+            .provide({ provide: BsModalRef, useValue: bsModalRef })
+            .attach(ModalContainerComponent)
+            .to('body')
+            .show({ content, isAnimated: this.config.animated, initialState: this.config.initialState, bsModalService: this });
+        modalContainerRef.instance.level = this.getModalsCount();
+        bsModalRef.hide = (/**
+         * @return {?}
+         */
+        () => {
+            modalContainerRef.instance.hide();
+        });
+        bsModalRef.content = modalLoader.getInnerComponent() || null;
+        bsModalRef.setClass = (/**
+         * @param {?} newClass
+         * @return {?}
+         */
+        (newClass) => {
+            modalContainerRef.instance.config.class = newClass;
+        });
+        return bsModalRef;
+    }
+    /**
+     * @param {?} level
+     * @return {?}
+     */
+    _hideModal(level) {
+        /** @type {?} */
+        const modalLoader = this.loaders[level - 1];
+        if (modalLoader) {
+            modalLoader.hide();
+        }
+    }
+    /**
+     * @return {?}
+     */
+    getModalsCount() {
+        return this.modalsCount;
+    }
+    /**
+     * @param {?} reason
+     * @return {?}
+     */
+    setDismissReason(reason) {
+        this.lastDismissReason = reason;
+    }
+    /**
+     * @return {?}
+     */
+    removeBackdrop() {
+        this._backdropLoader.hide();
+        this.backdropRef = null;
+    }
+    /** AFTER PR MERGE MODAL.COMPONENT WILL BE USING THIS CODE */
+    /** Scroll bar tricks */
+    /**
+     * \@internal
+     * @return {?}
+     */
+    checkScrollbar() {
+        this.isBodyOverflowing = document.body.clientWidth < window.innerWidth;
+        this.scrollbarWidth = this.getScrollbarWidth();
+    }
+    /**
+     * @return {?}
+     */
+    setScrollbar() {
+        if (!document) {
+            return;
+        }
+        this.originalBodyPadding = parseInt(window
+            .getComputedStyle(document.body)
+            .getPropertyValue('padding-right') || '0', 10);
+        if (this.isBodyOverflowing) {
+            document.body.style.paddingRight = `${this.originalBodyPadding +
+                this.scrollbarWidth}px`;
+        }
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    resetScrollbar() {
+        document.body.style.paddingRight = `${this.originalBodyPadding}px`;
+    }
+    // thx d.walsh
+    /**
+     * @private
+     * @return {?}
+     */
+    getScrollbarWidth() {
+        /** @type {?} */
+        const scrollDiv = this._renderer.createElement('div');
+        this._renderer.addClass(scrollDiv, CLASS_NAME.SCROLLBAR_MEASURER);
+        this._renderer.appendChild(document.body, scrollDiv);
+        /** @type {?} */
+        const scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+        this._renderer.removeChild(document.body, scrollDiv);
+        return scrollbarWidth;
+    }
+    /**
+     * @private
+     * @return {?}
+     */
+    _createLoaders() {
+        /** @type {?} */
+        const loader = this.clf.createLoader(null, null, null);
+        this.copyEvent(loader.onBeforeShow, this.onShow);
+        this.copyEvent(loader.onShown, this.onShown);
+        this.copyEvent(loader.onBeforeHide, this.onHide);
+        this.copyEvent(loader.onHidden, this.onHidden);
+        this.loaders.push(loader);
+    }
+    /**
+     * @private
+     * @param {?} level
+     * @return {?}
+     */
+    removeLoaders(level) {
+        this.loaders.splice(level - 1, 1);
+        this.loaders.forEach((/**
+         * @param {?} loader
+         * @param {?} i
+         * @return {?}
+         */
+        (loader, i) => {
+            loader.instance.level = i + 1;
+        }));
+    }
+    // tslint:disable-next-line:no-any
+    /**
+     * @private
+     * @param {?} from
+     * @param {?} to
+     * @return {?}
+     */
+    copyEvent(from, to) {
+        from.subscribe((/**
+         * @return {?}
+         */
+        () => {
+            to.emit(this.lastDismissReason);
+        }));
+    }
+}
+BsModalService.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+];
+/** @nocollapse */
+BsModalService.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["RendererFactory2"] },
+    { type: ngx_bootstrap_component_loader__WEBPACK_IMPORTED_MODULE_2__["ComponentLoaderFactory"] }
+];
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class ModalModule {
+    /**
+     * @return {?}
+     */
+    static forRoot() {
+        return {
+            ngModule: ModalModule,
+            providers: [BsModalService, ngx_bootstrap_component_loader__WEBPACK_IMPORTED_MODULE_2__["ComponentLoaderFactory"], ngx_bootstrap_positioning__WEBPACK_IMPORTED_MODULE_3__["PositioningService"]]
+        };
+    }
+}
+ModalModule.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"], args: [{
+                declarations: [
+                    ModalBackdropComponent,
+                    ModalDirective,
+                    ModalContainerComponent
+                ],
+                exports: [ModalBackdropComponent, ModalDirective],
+                entryComponents: [ModalBackdropComponent, ModalContainerComponent]
+            },] }
+];
+
+
+//# sourceMappingURL=ngx-bootstrap-modal.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/ngx-bootstrap/positioning/fesm2015/ngx-bootstrap-positioning.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/ngx-bootstrap/positioning/fesm2015/ngx-bootstrap-positioning.js ***!
+  \**************************************************************************************/
+/*! exports provided: Positioning, PositioningService, positionElements */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Positioning", function() { return Positioning; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PositioningService", function() { return PositioningService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "positionElements", function() { return positionElements; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+
+
+
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Get CSS computed property of the given element
+ * @param {?} element
+ * @param {?=} property
+ * @return {?}
+ */
+function getStyleComputedProperty(element, property) {
+    if (element.nodeType !== 1) {
+        return [];
+    }
+    // NOTE: 1 DOM access here
+    /** @type {?} */
+    const window = element.ownerDocument.defaultView;
+    /** @type {?} */
+    const css = window.getComputedStyle(element, null);
+    return property ? css[(/** @type {?} */ (property))] : css;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Returns the parentNode or the host of the element
+ * @param {?} element
+ * @return {?}
+ */
+function getParentNode(element) {
+    if (element.nodeName === 'HTML') {
+        return element;
+    }
+    return element.parentNode || element.host;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} element
+ * @return {?}
+ */
+function getScrollParent(element) {
+    // Return body, `getScroll` will take care to get the correct `scrollTop` from it
+    if (!element) {
+        return document.body;
+    }
+    switch (element.nodeName) {
+        case 'HTML':
+        case 'BODY':
+            return element.ownerDocument.body;
+        case '#document':
+            return element.body;
+        default:
+    }
+    // Firefox want us to check `-x` and `-y` variations as well
+    const { overflow, overflowX, overflowY } = getStyleComputedProperty(element);
+    if (/(auto|scroll|overlay)/.test(String(overflow) + String(overflowY) + String(overflowX))) {
+        return element;
+    }
+    return getScrollParent(getParentNode(element));
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const isIE11 = isBrowser && !!(((/** @type {?} */ (window))).MSInputMethodContext && ((/** @type {?} */ (document))).documentMode);
+/** @type {?} */
+const isIE10 = isBrowser && !!(((/** @type {?} */ (window))).MSInputMethodContext && /MSIE 10/.test(((/** @type {?} */ (navigator))).userAgent));
+/**
+ * @param {?=} version
+ * @return {?}
+ */
+function isIE(version) {
+    if (version === 11) {
+        return isIE11;
+    }
+    if (version === 10) {
+        return isIE10;
+    }
+    return isIE11 || isIE10;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} element
+ * @return {?}
+ */
+function getOffsetParent(element) {
+    if (!element) {
+        return document.documentElement;
+    }
+    /** @type {?} */
+    const noOffsetParent = isIE(10) ? document.body : null;
+    // NOTE: 1 DOM access here
+    /** @type {?} */
+    let offsetParent = element.offsetParent || null;
+    // Skip hidden elements which don't have an offsetParent
+    /** @type {?} */
+    let sibling;
+    while (offsetParent === noOffsetParent
+        && element.nextElementSibling
+        && sibling !== element.nextElementSibling) {
+        sibling = element.nextElementSibling;
+        offsetParent = sibling.offsetParent;
+    }
+    /** @type {?} */
+    const nodeName = offsetParent && offsetParent.nodeName;
+    if (!nodeName || nodeName === 'BODY' || nodeName === 'HTML') {
+        return sibling ? sibling.ownerDocument.documentElement : document.documentElement;
+    }
+    // .offsetParent will return the closest TH, TD or TABLE in case
+    if (['TH', 'TD', 'TABLE'].indexOf(offsetParent.nodeName) !== -1 &&
+        getStyleComputedProperty(offsetParent, 'position') === 'static') {
+        return getOffsetParent(offsetParent);
+    }
+    return offsetParent;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} element
+ * @return {?}
+ */
+function isOffsetContainer(element) {
+    const { nodeName } = element;
+    if (nodeName === 'BODY') {
+        return false;
+    }
+    return (nodeName === 'HTML' || getOffsetParent(element.firstElementChild) === element);
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Finds the root node (document, shadowDOM root) of the given element
+ * @param {?} node
+ * @return {?}
+ */
+function getRoot(node) {
+    if (node.parentNode !== null) {
+        return getRoot(node.parentNode);
+    }
+    return node;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} element1
+ * @param {?} element2
+ * @return {?}
+ */
+function findCommonOffsetParent(element1, element2) {
+    // This check is needed to avoid errors in case one of the elements isn't defined for any reason
+    if (!element1 || !element1.nodeType || !element2 || !element2.nodeType) {
+        return document.documentElement;
+    }
+    // Here we make sure to give as "start" the element that comes first in the DOM
+    /* tslint:disable-next-line: no-bitwise */
+    /** @type {?} */
+    const order = element1.compareDocumentPosition(element2) & Node.DOCUMENT_POSITION_FOLLOWING;
+    /** @type {?} */
+    const start = order ? element1 : element2;
+    /** @type {?} */
+    const end = order ? element2 : element1;
+    // Get common ancestor container
+    /** @type {?} */
+    const range = document.createRange();
+    range.setStart(start, 0);
+    range.setEnd(end, 0);
+    const { commonAncestorContainer } = range;
+    // Both nodes are inside #document
+    if ((element1 !== commonAncestorContainer &&
+        element2 !== commonAncestorContainer) ||
+        start.contains(end)) {
+        if (isOffsetContainer(commonAncestorContainer)) {
+            return commonAncestorContainer;
+        }
+        return getOffsetParent(commonAncestorContainer);
+    }
+    // one of the nodes is inside shadowDOM, find which one
+    /** @type {?} */
+    const element1root = getRoot(element1);
+    if (element1root.host) {
+        return findCommonOffsetParent(element1root.host, element2);
+    }
+    else {
+        return findCommonOffsetParent(element1, getRoot(element2).host);
+    }
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Helper to detect borders of a given element
+ */
+/**
+ * @param {?} styles
+ * @param {?} axis
+ * @return {?}
+ */
+function getBordersSize(styles, axis) {
+    /** @type {?} */
+    const sideA = axis === 'x' ? 'Left' : 'Top';
+    /** @type {?} */
+    const sideB = sideA === 'Left' ? 'Right' : 'Bottom';
+    return (parseFloat(styles[(/** @type {?} */ (`border${sideA}Width`))]) +
+        parseFloat(styles[(/** @type {?} */ (`border${sideB}Width`))]));
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} axis
+ * @param {?} body
+ * @param {?} html
+ * @param {?} computedStyle
+ * @return {?}
+ */
+function getSize(axis, body, html, computedStyle) {
+    return Math.max(((/** @type {?} */ (body)))[`offset${axis}`], ((/** @type {?} */ (body)))[`scroll${axis}`], ((/** @type {?} */ (html)))[`client${axis}`], ((/** @type {?} */ (html)))[`offset${axis}`], ((/** @type {?} */ (html)))[`scroll${axis}`], isIE(10)
+        ? (parseInt(((/** @type {?} */ (html)))[`offset${axis}`], 10) +
+            parseInt(computedStyle[(/** @type {?} */ (`margin${axis === 'Height' ? 'Top' : 'Left'}`))], 10) +
+            parseInt(computedStyle[(/** @type {?} */ (`margin${axis === 'Height' ? 'Bottom' : 'Right'}`))], 10))
+        : 0);
+}
+/**
+ * @param {?} document
+ * @return {?}
+ */
+function getWindowSizes(document) {
+    /** @type {?} */
+    const body = document.body;
+    /** @type {?} */
+    const html = document.documentElement;
+    /** @type {?} */
+    const computedStyle = isIE(10) && getComputedStyle(html);
+    return {
+        height: getSize('Height', body, html, computedStyle),
+        width: getSize('Width', body, html, computedStyle)
+    };
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Gets the scroll value of the given element in the given side (top and left)
+ * @param {?} element
+ * @param {?=} side
+ * @return {?}
+ */
+function getScroll(element, side = 'top') {
+    /** @type {?} */
+    const upperSide = side === 'top' ? 'scrollTop' : 'scrollLeft';
+    /** @type {?} */
+    const nodeName = element.nodeName;
+    if (nodeName === 'BODY' || nodeName === 'HTML') {
+        /** @type {?} */
+        const html = element.ownerDocument.documentElement;
+        /** @type {?} */
+        const scrollingElement = element.ownerDocument.scrollingElement || html;
+        return scrollingElement[upperSide];
+    }
+    return element[upperSide];
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} offsets
+ * @return {?}
+ */
+function getClientRect(offsets) {
+    return Object.assign({}, offsets, { right: offsets.left + offsets.width, bottom: offsets.top + offsets.height });
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} element
+ * @return {?}
+ */
+function getBoundingClientRect(element) {
+    /** @type {?} */
+    let rect = {};
+    // IE10 10 FIX: Please, don't ask, the element isn't
+    // considered in DOM in some circumstances...
+    // This isn't reproducible in IE10 compatibility mode of IE11
+    try {
+        if (isIE(10)) {
+            rect = element.getBoundingClientRect();
+            /** @type {?} */
+            const scrollTop = getScroll(element, 'top');
+            /** @type {?} */
+            const scrollLeft = getScroll(element, 'left');
+            rect.top += scrollTop;
+            rect.left += scrollLeft;
+            rect.bottom += scrollTop;
+            rect.right += scrollLeft;
+        }
+        else {
+            rect = element.getBoundingClientRect();
+        }
+    }
+    catch (e) {
+        return undefined;
+    }
+    /** @type {?} */
+    const result = {
+        left: rect.left,
+        top: rect.top,
+        width: rect.right - rect.left,
+        height: rect.bottom - rect.top
+    };
+    // subtract scrollbar size from sizes
+    /** @type {?} */
+    const sizes = element.nodeName === 'HTML' ? getWindowSizes(element.ownerDocument) : {};
+    /** @type {?} */
+    const width = sizes.width || element.clientWidth || result.right - result.left;
+    /** @type {?} */
+    const height = sizes.height || element.clientHeight || result.bottom - result.top;
+    /** @type {?} */
+    let horizScrollbar = element.offsetWidth - width;
+    /** @type {?} */
+    let vertScrollbar = element.offsetHeight - height;
+    // if an hypothetical scrollbar is detected, we must be sure it's not a `border`
+    // we make this check conditional for performance reasons
+    if (horizScrollbar || vertScrollbar) {
+        /** @type {?} */
+        const styles = getStyleComputedProperty(element);
+        horizScrollbar -= getBordersSize(styles, 'x');
+        vertScrollbar -= getBordersSize(styles, 'y');
+        result.width -= horizScrollbar;
+        result.height -= vertScrollbar;
+    }
+    return getClientRect(result);
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} rect
+ * @param {?} element
+ * @param {?=} subtract
+ * @return {?}
+ */
+function includeScroll(rect, element, subtract = false) {
+    /** @type {?} */
+    const scrollTop = getScroll(element, 'top');
+    /** @type {?} */
+    const scrollLeft = getScroll(element, 'left');
+    /** @type {?} */
+    const modifier = subtract ? -1 : 1;
+    rect.top += scrollTop * modifier;
+    rect.bottom += scrollTop * modifier;
+    rect.left += scrollLeft * modifier;
+    rect.right += scrollLeft * modifier;
+    return rect;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} children
+ * @param {?} parent
+ * @param {?=} fixedPosition
+ * @return {?}
+ */
+function getOffsetRectRelativeToArbitraryNode(children, parent, fixedPosition = false) {
+    /** @type {?} */
+    const isIE10 = isIE(10);
+    /** @type {?} */
+    const isHTML = parent.nodeName === 'HTML';
+    /** @type {?} */
+    const childrenRect = getBoundingClientRect(children);
+    /** @type {?} */
+    const parentRect = getBoundingClientRect(parent);
+    /** @type {?} */
+    const scrollParent = getScrollParent(children);
+    /** @type {?} */
+    const styles = getStyleComputedProperty(parent);
+    /** @type {?} */
+    const borderTopWidth = parseFloat(styles.borderTopWidth);
+    /** @type {?} */
+    const borderLeftWidth = parseFloat(styles.borderLeftWidth);
+    // In cases where the parent is fixed, we must ignore negative scroll in offset calc
+    if (fixedPosition && isHTML) {
+        parentRect.top = Math.max(parentRect.top, 0);
+        parentRect.left = Math.max(parentRect.left, 0);
+    }
+    /** @type {?} */
+    let offsets = getClientRect({
+        top: childrenRect.top - parentRect.top - borderTopWidth,
+        left: childrenRect.left - parentRect.left - borderLeftWidth,
+        width: childrenRect.width,
+        height: childrenRect.height
+    });
+    offsets.marginTop = 0;
+    offsets.marginLeft = 0;
+    // Subtract margins of documentElement in case it's being used as parent
+    // we do this only on HTML because it's the only element that behaves
+    // differently when margins are applied to it. The margins are included in
+    // the box of the documentElement, in the other cases not.
+    if (!isIE10 && isHTML) {
+        /** @type {?} */
+        const marginTop = parseFloat(styles.marginTop);
+        /** @type {?} */
+        const marginLeft = parseFloat(styles.marginLeft);
+        offsets.top -= borderTopWidth - marginTop;
+        offsets.bottom -= borderTopWidth - marginTop;
+        offsets.left -= borderLeftWidth - marginLeft;
+        offsets.right -= borderLeftWidth - marginLeft;
+        // Attach marginTop and marginLeft because in some circumstances we may need them
+        offsets.marginTop = marginTop;
+        offsets.marginLeft = marginLeft;
+    }
+    if (isIE10 && !fixedPosition
+        ? parent.contains(scrollParent)
+        : parent === scrollParent && scrollParent.nodeName !== 'BODY') {
+        offsets = includeScroll(offsets, parent);
+    }
+    return offsets;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} element
+ * @param {?=} excludeScroll
+ * @return {?}
+ */
+function getViewportOffsetRectRelativeToArtbitraryNode(element, excludeScroll = false) {
+    /** @type {?} */
+    const html = element.ownerDocument.documentElement;
+    /** @type {?} */
+    const relativeOffset = getOffsetRectRelativeToArbitraryNode(element, html);
+    /** @type {?} */
+    const width = Math.max(html.clientWidth, window.innerWidth || 0);
+    /** @type {?} */
+    const height = Math.max(html.clientHeight, window.innerHeight || 0);
+    /** @type {?} */
+    const scrollTop = !excludeScroll ? getScroll(html) : 0;
+    /** @type {?} */
+    const scrollLeft = !excludeScroll ? getScroll(html, 'left') : 0;
+    /** @type {?} */
+    const offset = {
+        top: scrollTop - Number(relativeOffset.top) + Number(relativeOffset.marginTop),
+        left: scrollLeft - Number(relativeOffset.left) + Number(relativeOffset.marginLeft),
+        width,
+        height
+    };
+    return getClientRect(offset);
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} element
+ * @return {?}
+ */
+function isFixed(element) {
+    /** @type {?} */
+    const nodeName = element.nodeName;
+    if (nodeName === 'BODY' || nodeName === 'HTML') {
+        return false;
+    }
+    if (getStyleComputedProperty(element, 'position') === 'fixed') {
+        return true;
+    }
+    return isFixed(getParentNode(element));
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} element
+ * @return {?}
+ */
+function getFixedPositionOffsetParent(element) {
+    // This check is needed to avoid errors in case one of the elements isn't defined for any reason
+    if (!element || !element.parentElement || isIE()) {
+        return document.documentElement;
+    }
+    /** @type {?} */
+    let el = element.parentElement;
+    while (el && getStyleComputedProperty(el, 'transform') === 'none') {
+        el = el.parentElement;
+    }
+    return el || document.documentElement;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} target
+ * @param {?} host
+ * @param {?=} padding
+ * @param {?=} boundariesElement
+ * @param {?=} fixedPosition
+ * @return {?}
+ */
+function getBoundaries(target, host, padding = 0, boundariesElement, fixedPosition = false) {
+    // NOTE: 1 DOM access here
+    // NOTE: 1 DOM access here
+    /** @type {?} */
+    let boundaries = { top: 0, left: 0 };
+    /** @type {?} */
+    const offsetParent = fixedPosition ? getFixedPositionOffsetParent(target) : findCommonOffsetParent(target, host);
+    // Handle viewport case
+    if (boundariesElement === 'viewport') {
+        boundaries = getViewportOffsetRectRelativeToArtbitraryNode(offsetParent, fixedPosition);
+    }
+    else {
+        // Handle other cases based on DOM element used as boundaries
+        /** @type {?} */
+        let boundariesNode;
+        if (boundariesElement === 'scrollParent') {
+            boundariesNode = getScrollParent(getParentNode(host));
+            if (boundariesNode.nodeName === 'BODY') {
+                boundariesNode = target.ownerDocument.documentElement;
+            }
+        }
+        else if (boundariesElement === 'window') {
+            boundariesNode = target.ownerDocument.documentElement;
+        }
+        else {
+            boundariesNode = boundariesElement;
+        }
+        /** @type {?} */
+        const offsets = getOffsetRectRelativeToArbitraryNode(boundariesNode, offsetParent, fixedPosition);
+        // In case of HTML, we need a different computation
+        if (boundariesNode.nodeName === 'HTML' && !isFixed(offsetParent)) {
+            const { height, width } = getWindowSizes(target.ownerDocument);
+            boundaries.top += offsets.top - offsets.marginTop;
+            boundaries.bottom = Number(height) + Number(offsets.top);
+            boundaries.left += offsets.left - offsets.marginLeft;
+            boundaries.right = Number(width) + Number(offsets.left);
+        }
+        else {
+            // for all the other DOM elements, this one is good
+            boundaries = offsets;
+        }
+    }
+    // Add paddings
+    boundaries.left += padding;
+    boundaries.top += padding;
+    boundaries.right -= padding;
+    boundaries.bottom -= padding;
+    return boundaries;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} __0
+ * @return {?}
+ */
+function getArea({ width, height }) {
+    return width * height;
+}
+/**
+ * @param {?} placement
+ * @param {?} refRect
+ * @param {?} target
+ * @param {?} host
+ * @param {?=} allowedPositions
+ * @param {?=} boundariesElement
+ * @param {?=} padding
+ * @return {?}
+ */
+function computeAutoPlacement(placement, refRect, target, host, allowedPositions = ['top', 'bottom', 'right', 'left'], boundariesElement = 'viewport', padding = 0) {
+    if (placement.indexOf('auto') === -1) {
+        return placement;
+    }
+    /** @type {?} */
+    const boundaries = getBoundaries(target, host, padding, boundariesElement);
+    /** @type {?} */
+    const rects = {
+        top: {
+            width: boundaries.width,
+            height: refRect.top - boundaries.top
+        },
+        right: {
+            width: boundaries.right - refRect.right,
+            height: boundaries.height
+        },
+        bottom: {
+            width: boundaries.width,
+            height: boundaries.bottom - refRect.bottom
+        },
+        left: {
+            width: refRect.left - boundaries.left,
+            height: boundaries.height
+        }
+    };
+    /** @type {?} */
+    const sortedAreas = Object.keys(rects)
+        .map((/**
+     * @param {?} key
+     * @return {?}
+     */
+    key => (Object.assign({ key }, rects[key], { area: getArea(rects[key]) }))))
+        .sort((/**
+     * @param {?} a
+     * @param {?} b
+     * @return {?}
+     */
+    (a, b) => b.area - a.area));
+    /** @type {?} */
+    let filteredAreas = sortedAreas.filter((/**
+     * @param {?} __0
+     * @return {?}
+     */
+    ({ width, height }) => {
+        return width >= target.clientWidth
+            && height >= target.clientHeight;
+    }));
+    filteredAreas = filteredAreas.filter((/**
+     * @param {?} position
+     * @return {?}
+     */
+    (position) => {
+        return allowedPositions
+            .some((/**
+         * @param {?} allowedPosition
+         * @return {?}
+         */
+        (allowedPosition) => {
+            return allowedPosition === position.key;
+        }));
+    }));
+    /** @type {?} */
+    const computedPlacement = filteredAreas.length > 0
+        ? filteredAreas[0].key
+        : sortedAreas[0].key;
+    /** @type {?} */
+    const variation = placement.split(' ')[1];
+    // for tooltip on auto position
+    target.className = target.className.replace(/bs-tooltip-auto/g, `bs-tooltip-${computedPlacement}`);
+    return computedPlacement + (variation ? `-${variation}` : '');
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} data
+ * @return {?}
+ */
+function getOffsets(data) {
+    return {
+        width: data.offsets.target.width,
+        height: data.offsets.target.height,
+        left: Math.floor(data.offsets.target.left),
+        top: Math.round(data.offsets.target.top),
+        bottom: Math.round(data.offsets.target.bottom),
+        right: Math.floor(data.offsets.target.right)
+    };
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Get the opposite placement of the given one
+ * @param {?} placement
+ * @return {?}
+ */
+function getOppositePlacement(placement) {
+    /** @type {?} */
+    const hash = { left: 'right', right: 'left', bottom: 'top', top: 'bottom' };
+    return placement.replace(/left|right|bottom|top/g, (/**
+     * @param {?} matched
+     * @return {?}
+     */
+    matched => ((/** @type {?} */ (hash)))[matched]));
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Get the opposite placement variation of the given one
+ * @param {?} variation
+ * @return {?}
+ */
+function getOppositeVariation(variation) {
+    if (variation === 'right') {
+        return 'left';
+    }
+    else if (variation === 'left') {
+        return 'right';
+    }
+    return variation;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Get the outer sizes of the given element (offset size + margins)
+ * @param {?} element
+ * @return {?}
+ */
+function getOuterSizes(element) {
+    /** @type {?} */
+    const window = element.ownerDocument.defaultView;
+    /** @type {?} */
+    const styles = window.getComputedStyle(element);
+    /** @type {?} */
+    const x = parseFloat(styles.marginTop || 0) + parseFloat(styles.marginBottom || 0);
+    /** @type {?} */
+    const y = parseFloat(styles.marginLeft || 0) + parseFloat(styles.marginRight || 0);
+    return {
+        width: Number(element.offsetWidth) + y,
+        height: Number(element.offsetHeight) + x
+    };
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} target
+ * @param {?} host
+ * @param {?=} fixedPosition
+ * @return {?}
+ */
+function getReferenceOffsets(target, host, fixedPosition = null) {
+    /** @type {?} */
+    const commonOffsetParent = fixedPosition
+        ? getFixedPositionOffsetParent(target)
+        : findCommonOffsetParent(target, host);
+    return getOffsetRectRelativeToArbitraryNode(host, commonOffsetParent, fixedPosition);
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} target
+ * @param {?} hostOffsets
+ * @param {?} position
+ * @return {?}
+ */
+function getTargetOffsets(target, hostOffsets, position) {
+    /** @type {?} */
+    const placement = position.split(' ')[0];
+    // Get target node sizes
+    /** @type {?} */
+    const targetRect = getOuterSizes(target);
+    // Add position, width and height to our offsets object
+    /** @type {?} */
+    const targetOffsets = {
+        width: targetRect.width,
+        height: targetRect.height
+    };
+    // depending by the target placement we have to compute its offsets slightly differently
+    /** @type {?} */
+    const isHoriz = ['right', 'left'].indexOf(placement) !== -1;
+    /** @type {?} */
+    const mainSide = isHoriz ? 'top' : 'left';
+    /** @type {?} */
+    const secondarySide = isHoriz ? 'left' : 'top';
+    /** @type {?} */
+    const measurement = isHoriz ? 'height' : 'width';
+    /** @type {?} */
+    const secondaryMeasurement = !isHoriz ? 'height' : 'width';
+    ((/** @type {?} */ (targetOffsets)))[mainSide] =
+        hostOffsets[mainSide] +
+            hostOffsets[measurement] / 2 -
+            targetRect[measurement] / 2;
+    ((/** @type {?} */ (targetOffsets)))[secondarySide] = placement === secondarySide
+        ? hostOffsets[secondarySide] - targetRect[secondaryMeasurement]
+        : ((/** @type {?} */ (hostOffsets)))[getOppositePlacement(secondarySide)];
+    return targetOffsets;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Helper used to know if the given modifier is enabled.
+ * @param {?} options
+ * @param {?} modifierName
+ * @return {?}
+ */
+function isModifierEnabled(options, modifierName) {
+    return options
+        && options.modifiers
+        && options.modifiers[modifierName]
+        && options.modifiers[modifierName].enabled;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * Tells if a given input is a number
+ * @param {?} n
+ * @return {?}
+ */
+function isNumeric(n) {
+    return n !== '' && !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} data
+ * @param {?=} renderer
+ * @return {?}
+ */
+function updateContainerClass(data, renderer) {
+    /** @type {?} */
+    const target = data.instance.target;
+    /** @type {?} */
+    let containerClass = target.className;
+    if (data.placementAuto) {
+        containerClass = containerClass.replace(/bs-popover-auto/g, `bs-popover-${data.placement}`);
+        containerClass = containerClass.replace(/bs-tooltip-auto/g, `bs-tooltip-${data.placement}`);
+        containerClass = containerClass.replace(/\sauto/g, ` ${data.placement}`);
+        if (containerClass.indexOf('popover') !== -1 && containerClass.indexOf('popover-auto') === -1) {
+            containerClass += ' popover-auto';
+        }
+        if (containerClass.indexOf('tooltip') !== -1 && containerClass.indexOf('tooltip-auto') === -1) {
+            containerClass += ' tooltip-auto';
+        }
+    }
+    containerClass = containerClass.replace(/left|right|top|bottom/g, `${data.placement.split(' ')[0]}`);
+    if (renderer) {
+        renderer.setAttribute(target, 'class', containerClass);
+        return;
+    }
+    target.className = containerClass;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} element
+ * @param {?} styles
+ * @param {?=} renderer
+ * @return {?}
+ */
+function setStyles(element, styles, renderer) {
+    Object.keys(styles).forEach((/**
+     * @param {?} prop
+     * @return {?}
+     */
+    (prop) => {
+        /** @type {?} */
+        let unit = '';
+        // add unit if the value is numeric and is one of the following
+        if (['width', 'height', 'top', 'right', 'bottom', 'left'].indexOf(prop) !== -1 &&
+            isNumeric(styles[prop])) {
+            unit = 'px';
+        }
+        if (renderer) {
+            renderer.setStyle(element, prop, `${String(styles[prop])}${unit}`);
+            return;
+        }
+        element.style[prop] = String(styles[prop]) + unit;
+    }));
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} data
+ * @return {?}
+ */
+function arrow(data) {
+    /** @type {?} */
+    let targetOffsets = data.offsets.target;
+    // if arrowElement is a string, suppose it's a CSS selector
+    /** @type {?} */
+    const arrowElement = data.instance.target.querySelector('.arrow');
+    // if arrowElement is not found, don't run the modifier
+    if (!arrowElement) {
+        return data;
+    }
+    /** @type {?} */
+    const isVertical = ['left', 'right'].indexOf(data.placement) !== -1;
+    /** @type {?} */
+    const len = isVertical ? 'height' : 'width';
+    /** @type {?} */
+    const sideCapitalized = isVertical ? 'Top' : 'Left';
+    /** @type {?} */
+    const side = sideCapitalized.toLowerCase();
+    /** @type {?} */
+    const altSide = isVertical ? 'left' : 'top';
+    /** @type {?} */
+    const opSide = isVertical ? 'bottom' : 'right';
+    /** @type {?} */
+    const arrowElementSize = getOuterSizes(arrowElement)[len];
+    // top/left side
+    if (data.offsets.host[opSide] - arrowElementSize < ((/** @type {?} */ (targetOffsets)))[side]) {
+        ((/** @type {?} */ (targetOffsets)))[side] -=
+            ((/** @type {?} */ (targetOffsets)))[side] - (data.offsets.host[opSide] - arrowElementSize);
+    }
+    // bottom/right side
+    if (Number(((/** @type {?} */ (data))).offsets.host[side]) + Number(arrowElementSize) > ((/** @type {?} */ (targetOffsets)))[opSide]) {
+        ((/** @type {?} */ (targetOffsets)))[side] +=
+            Number(((/** @type {?} */ (data))).offsets.host[side]) + Number(arrowElementSize) - Number(((/** @type {?} */ (targetOffsets)))[opSide]);
+    }
+    targetOffsets = getClientRect(targetOffsets);
+    // compute center of the target
+    /** @type {?} */
+    const center = Number(((/** @type {?} */ (data))).offsets.host[side]) + Number(data.offsets.host[len] / 2 - arrowElementSize / 2);
+    // Compute the sideValue using the updated target offsets
+    // take target margin in account because we don't have this info available
+    /** @type {?} */
+    const css = getStyleComputedProperty(data.instance.target);
+    /** @type {?} */
+    const targetMarginSide = parseFloat(css[`margin${sideCapitalized}`]);
+    /** @type {?} */
+    const targetBorderSide = parseFloat(css[`border${sideCapitalized}Width`]);
+    /** @type {?} */
+    let sideValue = center - ((/** @type {?} */ (targetOffsets)))[side] - targetMarginSide - targetBorderSide;
+    // prevent arrowElement from being placed not contiguously to its target
+    sideValue = Math.max(Math.min(targetOffsets[len] - arrowElementSize, sideValue), 0);
+    data.offsets.arrow = {
+        [side]: Math.round(sideValue),
+        [altSide]: '' // make sure to unset any eventual altSide value from the DOM node
+    };
+    data.instance.arrow = arrowElement;
+    return data;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} data
+ * @return {?}
+ */
+function flip(data) {
+    data.offsets.target = getClientRect(data.offsets.target);
+    if (!isModifierEnabled(data.options, 'flip')) {
+        data.offsets.target = Object.assign({}, data.offsets.target, getTargetOffsets(data.instance.target, data.offsets.host, data.placement));
+        return data;
+    }
+    /** @type {?} */
+    const boundaries = getBoundaries(data.instance.target, data.instance.host, 0, // padding
+    'viewport', false // positionFixed
+    );
+    /** @type {?} */
+    let placement = data.placement.split(' ')[0];
+    /** @type {?} */
+    let variation = data.placement.split(' ')[1] || '';
+    /** @type {?} */
+    const offsetsHost = data.offsets.host;
+    /** @type {?} */
+    const target = data.instance.target;
+    /** @type {?} */
+    const host = data.instance.host;
+    /** @type {?} */
+    const adaptivePosition = computeAutoPlacement('auto', offsetsHost, target, host, data.options.allowedPositions);
+    /** @type {?} */
+    const flipOrder = [placement, adaptivePosition];
+    /* tslint:disable-next-line: cyclomatic-complexity */
+    flipOrder.forEach((/**
+     * @param {?} step
+     * @param {?} index
+     * @return {?}
+     */
+    (step, index) => {
+        if (placement !== step || flipOrder.length === index + 1) {
+            return data;
+        }
+        placement = data.placement.split(' ')[0];
+        // using floor because the host offsets may contain decimals we are not going to consider here
+        /** @type {?} */
+        const overlapsRef = (placement === 'left' &&
+            Math.floor(data.offsets.target.right) > Math.floor(data.offsets.host.left)) ||
+            (placement === 'right' &&
+                Math.floor(data.offsets.target.left) < Math.floor(data.offsets.host.right)) ||
+            (placement === 'top' &&
+                Math.floor(data.offsets.target.bottom) > Math.floor(data.offsets.host.top)) ||
+            (placement === 'bottom' &&
+                Math.floor(data.offsets.target.top) < Math.floor(data.offsets.host.bottom));
+        /** @type {?} */
+        const overflowsLeft = Math.floor(data.offsets.target.left) < Math.floor(boundaries.left);
+        /** @type {?} */
+        const overflowsRight = Math.floor(data.offsets.target.right) > Math.floor(boundaries.right);
+        /** @type {?} */
+        const overflowsTop = Math.floor(data.offsets.target.top) < Math.floor(boundaries.top);
+        /** @type {?} */
+        const overflowsBottom = Math.floor(data.offsets.target.bottom) > Math.floor(boundaries.bottom);
+        /** @type {?} */
+        const overflowsBoundaries = (placement === 'left' && overflowsLeft) ||
+            (placement === 'right' && overflowsRight) ||
+            (placement === 'top' && overflowsTop) ||
+            (placement === 'bottom' && overflowsBottom);
+        // flip the variation if required
+        /** @type {?} */
+        const isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
+        /** @type {?} */
+        const flippedVariation = ((isVertical && variation === 'left' && overflowsLeft) ||
+            (isVertical && variation === 'right' && overflowsRight) ||
+            (!isVertical && variation === 'left' && overflowsTop) ||
+            (!isVertical && variation === 'right' && overflowsBottom));
+        if (overlapsRef || overflowsBoundaries || flippedVariation) {
+            if (overlapsRef || overflowsBoundaries) {
+                placement = flipOrder[index + 1];
+            }
+            if (flippedVariation) {
+                variation = getOppositeVariation(variation);
+            }
+            data.placement = placement + (variation ? ` ${variation}` : '');
+            data.offsets.target = Object.assign({}, data.offsets.target, getTargetOffsets(data.instance.target, data.offsets.host, data.placement));
+        }
+    }));
+    return data;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} targetElement
+ * @param {?} hostElement
+ * @param {?} position
+ * @param {?} options
+ * @return {?}
+ */
+function initData(targetElement, hostElement, position, options) {
+    /** @type {?} */
+    const hostElPosition = getReferenceOffsets(targetElement, hostElement);
+    if (!position.match(/^(auto)*\s*(left|right|top|bottom)*$/)
+        && !position.match(/^(left|right|top|bottom)*\s*(start|end)*$/)) {
+        /* tslint:disable-next-line: no-parameter-reassignment */
+        position = 'auto';
+    }
+    /** @type {?} */
+    const placementAuto = !!position.match(/auto/g);
+    // support old placements 'auto left|right|top|bottom'
+    /** @type {?} */
+    let placement = position.match(/auto\s(left|right|top|bottom)/)
+        ? position.split(' ')[1] || 'auto'
+        : position;
+    /** @type {?} */
+    const targetOffset = getTargetOffsets(targetElement, hostElPosition, placement);
+    placement = computeAutoPlacement(placement, hostElPosition, targetElement, hostElement, options ? options.allowedPositions : undefined);
+    return {
+        options,
+        instance: {
+            target: targetElement,
+            host: hostElement,
+            arrow: null
+        },
+        offsets: {
+            target: targetOffset,
+            host: hostElPosition,
+            arrow: null
+        },
+        positionFixed: false,
+        placement,
+        placementAuto
+    };
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} data
+ * @return {?}
+ */
+function preventOverflow(data) {
+    if (!isModifierEnabled(data.options, 'preventOverflow')) {
+        return data;
+    }
+    // NOTE: DOM access here
+    // resets the targetOffsets's position so that the document size can be calculated excluding
+    // the size of the targetOffsets element itself
+    /** @type {?} */
+    const transformProp = 'transform';
+    /** @type {?} */
+    const targetStyles = data.instance.target.style;
+    // assignment to help minification
+    const { top, left, [transformProp]: transform } = targetStyles;
+    targetStyles.top = '';
+    targetStyles.left = '';
+    targetStyles[transformProp] = '';
+    /** @type {?} */
+    const boundaries = getBoundaries(data.instance.target, data.instance.host, 0, // padding
+    'scrollParent', false // positionFixed
+    );
+    // NOTE: DOM access here
+    // restores the original style properties after the offsets have been computed
+    targetStyles.top = top;
+    targetStyles.left = left;
+    targetStyles[transformProp] = transform;
+    /** @type {?} */
+    const order = ['left', 'right', 'top', 'bottom'];
+    /** @type {?} */
+    const check = {
+        /**
+         * @param {?} placement
+         * @return {?}
+         */
+        primary(placement) {
+            /** @type {?} */
+            let value = ((/** @type {?} */ (data))).offsets.target[placement];
+            if (((/** @type {?} */ (data))).offsets.target[placement] < boundaries[placement] &&
+                !false // options.escapeWithReference
+            ) {
+                value = Math.max(((/** @type {?} */ (data))).offsets.target[placement], boundaries[placement]);
+            }
+            return { [placement]: value };
+        },
+        /**
+         * @param {?} placement
+         * @return {?}
+         */
+        secondary(placement) {
+            /** @type {?} */
+            const mainSide = placement === 'right' ? 'left' : 'top';
+            /** @type {?} */
+            let value = data.offsets.target[mainSide];
+            if (((/** @type {?} */ (data))).offsets.target[placement] > boundaries[placement] &&
+                !false // escapeWithReference
+            ) {
+                value = Math.min(data.offsets.target[mainSide], boundaries[placement] -
+                    (placement === 'right' ? data.offsets.target.width : data.offsets.target.height));
+            }
+            return { [mainSide]: value };
+        }
+    };
+    /** @type {?} */
+    let side;
+    order.forEach((/**
+     * @param {?} placement
+     * @return {?}
+     */
+    placement => {
+        side = ['left', 'top']
+            .indexOf(placement) !== -1
+            ? 'primary'
+            : 'secondary';
+        data.offsets.target = Object.assign({}, data.offsets.target, ((/** @type {?} */ (check)))[side](placement));
+    }));
+    return data;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @param {?} data
+ * @return {?}
+ */
+function shift(data) {
+    /** @type {?} */
+    const placement = data.placement;
+    /** @type {?} */
+    const basePlacement = placement.split(' ')[0];
+    /** @type {?} */
+    const shiftvariation = placement.split(' ')[1];
+    if (shiftvariation) {
+        const { host, target } = data.offsets;
+        /** @type {?} */
+        const isVertical = ['bottom', 'top'].indexOf(basePlacement) !== -1;
+        /** @type {?} */
+        const side = isVertical ? 'left' : 'top';
+        /** @type {?} */
+        const measurement = isVertical ? 'width' : 'height';
+        /** @type {?} */
+        const shiftOffsets = {
+            start: { [side]: host[side] },
+            end: {
+                [side]: host[side] + host[measurement] - target[measurement]
+            }
+        };
+        data.offsets.target = Object.assign({}, target, ((/** @type {?} */ (shiftOffsets)))[shiftvariation]);
+    }
+    return data;
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class Positioning {
+    /**
+     * @param {?} hostElement
+     * @param {?} targetElement
+     * @param {?=} round
+     * @return {?}
+     */
+    position(hostElement, targetElement, round = true) {
+        return this.offset(hostElement, targetElement, false);
+    }
+    /**
+     * @param {?} hostElement
+     * @param {?} targetElement
+     * @param {?=} round
+     * @return {?}
+     */
+    offset(hostElement, targetElement, round = true) {
+        return getReferenceOffsets(targetElement, hostElement);
+    }
+    /**
+     * @param {?} hostElement
+     * @param {?} targetElement
+     * @param {?} position
+     * @param {?=} appendToBody
+     * @param {?=} options
+     * @return {?}
+     */
+    positionElements(hostElement, targetElement, position, appendToBody, options) {
+        /** @type {?} */
+        const chainOfModifiers = [flip, shift, preventOverflow, arrow];
+        return chainOfModifiers.reduce((/**
+         * @param {?} modifiedData
+         * @param {?} modifier
+         * @return {?}
+         */
+        (modifiedData, modifier) => modifier(modifiedData)), initData(targetElement, hostElement, position, options));
+    }
+}
+/** @type {?} */
+const positionService = new Positioning();
+/**
+ * @param {?} hostElement
+ * @param {?} targetElement
+ * @param {?} placement
+ * @param {?=} appendToBody
+ * @param {?=} options
+ * @param {?=} renderer
+ * @return {?}
+ */
+function positionElements(hostElement, targetElement, placement, appendToBody, options, renderer) {
+    /** @type {?} */
+    const data = positionService.positionElements(hostElement, targetElement, placement, appendToBody, options);
+    /** @type {?} */
+    const offsets = getOffsets(data);
+    setStyles(targetElement, {
+        'will-change': 'transform',
+        top: '0px',
+        left: '0px',
+        transform: `translate3d(${offsets.left}px, ${offsets.top}px, 0px)`
+    }, renderer);
+    if (data.instance.arrow) {
+        setStyles(data.instance.arrow, data.offsets.arrow, renderer);
+    }
+    updateContainerClass(data, renderer);
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+class PositioningService {
+    /**
+     * @param {?} ngZone
+     * @param {?} rendererFactory
+     * @param {?} platformId
+     */
+    constructor(ngZone, rendererFactory, platformId) {
+        this.update$$ = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
+        this.positionElements = new Map();
+        this.isDisabled = false;
+        if (Object(_angular_common__WEBPACK_IMPORTED_MODULE_1__["isPlatformBrowser"])(platformId)) {
+            ngZone.runOutsideAngular((/**
+             * @return {?}
+             */
+            () => {
+                this.triggerEvent$ = Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["merge"])(Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(window, 'scroll', { passive: true }), Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["fromEvent"])(window, 'resize', { passive: true }), 
+                /* tslint:disable-next-line: deprecation */
+                Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(0, rxjs__WEBPACK_IMPORTED_MODULE_2__["animationFrameScheduler"]), this.update$$);
+                this.triggerEvent$.subscribe((/**
+                 * @return {?}
+                 */
+                () => {
+                    if (this.isDisabled) {
+                        return;
+                    }
+                    this.positionElements
+                        /* tslint:disable-next-line: no-any */
+                        .forEach((/**
+                     * @param {?} positionElement
+                     * @return {?}
+                     */
+                    (positionElement) => {
+                        positionElements(_getHtmlElement(positionElement.target), _getHtmlElement(positionElement.element), positionElement.attachment, positionElement.appendToBody, this.options, rendererFactory.createRenderer(null, null));
+                    }));
+                }));
+            }));
+        }
+    }
+    /**
+     * @param {?} options
+     * @return {?}
+     */
+    position(options) {
+        this.addPositionElement(options);
+    }
+    /**
+     * @return {?}
+     */
+    get event$() {
+        return this.triggerEvent$;
+    }
+    /**
+     * @return {?}
+     */
+    disable() {
+        this.isDisabled = true;
+    }
+    /**
+     * @return {?}
+     */
+    enable() {
+        this.isDisabled = false;
+    }
+    /**
+     * @param {?} options
+     * @return {?}
+     */
+    addPositionElement(options) {
+        this.positionElements.set(_getHtmlElement(options.element), options);
+    }
+    /**
+     * @return {?}
+     */
+    calcPosition() {
+        this.update$$.next();
+    }
+    /**
+     * @param {?} elRef
+     * @return {?}
+     */
+    deletePositionElement(elRef) {
+        this.positionElements.delete(_getHtmlElement(elRef));
+    }
+    /**
+     * @param {?} options
+     * @return {?}
+     */
+    setOptions(options) {
+        this.options = options;
+    }
+}
+PositioningService.decorators = [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"] }
+];
+/** @nocollapse */
+PositioningService.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["RendererFactory2"] },
+    { type: Number, decorators: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Inject"], args: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["PLATFORM_ID"],] }] }
+];
+/**
+ * @param {?} element
+ * @return {?}
+ */
+function _getHtmlElement(element) {
+    // it means that we got a selector
+    if (typeof element === 'string') {
+        return document.querySelector(element);
+    }
+    if (element instanceof _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]) {
+        return element.nativeElement;
+    }
+    return element;
+}
+
+
+//# sourceMappingURL=ngx-bootstrap-positioning.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/ngx-bootstrap/utils/fesm2015/ngx-bootstrap-utils.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/ngx-bootstrap/utils/fesm2015/ngx-bootstrap-utils.js ***!
+  \**************************************************************************/
+/*! exports provided: LinkedList, OnChange, Trigger, Utils, document, isBs3, listenToTriggers, listenToTriggersV2, parseTriggers, registerEscClick, registerOutsideClick, setTheme, warnOnce, window */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LinkedList", function() { return LinkedList; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "OnChange", function() { return OnChange; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Trigger", function() { return Trigger; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Utils", function() { return Utils; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "document", function() { return document$1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isBs3", function() { return isBs3; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listenToTriggers", function() { return listenToTriggers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "listenToTriggersV2", function() { return listenToTriggersV2; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "parseTriggers", function() { return parseTriggers; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "registerEscClick", function() { return registerEscClick; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "registerOutsideClick", function() { return registerOutsideClick; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setTheme", function() { return setTheme; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "warnOnce", function() { return warnOnce; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "window", function() { return win; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @copyright Valor Software
+ * @copyright Angular ng-bootstrap team
+ */
+class Trigger {
+    /**
+     * @param {?} open
+     * @param {?=} close
+     */
+    constructor(open, close) {
+        this.open = open;
+        this.close = close || open;
+    }
+    /**
+     * @return {?}
+     */
+    isManual() {
+        return this.open === 'manual' || this.close === 'manual';
+    }
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const DEFAULT_ALIASES = {
+    hover: ['mouseover', 'mouseout'],
+    focus: ['focusin', 'focusout']
+};
+/* tslint:disable-next-line: no-any */
+/**
+ * @param {?} triggers
+ * @param {?=} aliases
+ * @return {?}
+ */
+function parseTriggers(triggers, aliases = DEFAULT_ALIASES) {
+    /** @type {?} */
+    const trimmedTriggers = (triggers || '').trim();
+    if (trimmedTriggers.length === 0) {
+        return [];
+    }
+    /** @type {?} */
+    const parsedTriggers = trimmedTriggers
+        .split(/\s+/)
+        .map((/**
+     * @param {?} trigger
+     * @return {?}
+     */
+    (trigger) => trigger.split(':')))
+        .map((/**
+     * @param {?} triggerPair
+     * @return {?}
+     */
+    (triggerPair) => {
+        /** @type {?} */
+        const alias = aliases[triggerPair[0]] || triggerPair;
+        return new Trigger(alias[0], alias[1]);
+    }));
+    /** @type {?} */
+    const manualTriggers = parsedTriggers.filter((/**
+     * @param {?} triggerPair
+     * @return {?}
+     */
+    (triggerPair) => triggerPair.isManual()));
+    if (manualTriggers.length > 1) {
+        throw new Error('Triggers parse error: only one manual trigger is allowed');
+    }
+    if (manualTriggers.length === 1 && parsedTriggers.length > 1) {
+        throw new Error('Triggers parse error: manual trigger can\'t be mixed with other triggers');
+    }
+    return parsedTriggers;
+}
+/**
+ * @param {?} renderer
+ * @param {?} target
+ * @param {?} triggers
+ * @param {?} showFn
+ * @param {?} hideFn
+ * @param {?} toggleFn
+ * @return {?}
+ */
+function listenToTriggers(renderer, 
+/* tslint:disable-next-line: no-any */
+target, triggers, showFn, hideFn, toggleFn) {
+    /** @type {?} */
+    const parsedTriggers = parseTriggers(triggers);
+    /* tslint:disable-next-line: no-any */
+    /** @type {?} */
+    const listeners = [];
+    if (parsedTriggers.length === 1 && parsedTriggers[0].isManual()) {
+        return Function.prototype;
+    }
+    parsedTriggers.forEach((/**
+     * @param {?} trigger
+     * @return {?}
+     */
+    (trigger) => {
+        if (trigger.open === trigger.close) {
+            listeners.push(renderer.listen(target, trigger.open, toggleFn));
+            return;
+        }
+        listeners.push(renderer.listen(target, trigger.open, showFn), renderer.listen(target, trigger.close, hideFn));
+    }));
+    return (/**
+     * @return {?}
+     */
+    () => {
+        listeners.forEach((/**
+         * @param {?} unsubscribeFn
+         * @return {?}
+         */
+        (unsubscribeFn) => unsubscribeFn()));
+    });
+}
+/**
+ * @param {?} renderer
+ * @param {?} options
+ * @return {?}
+ */
+function listenToTriggersV2(renderer, options) {
+    /** @type {?} */
+    const parsedTriggers = parseTriggers(options.triggers);
+    /** @type {?} */
+    const target = options.target;
+    // do nothing
+    if (parsedTriggers.length === 1 && parsedTriggers[0].isManual()) {
+        return Function.prototype;
+    }
+    // all listeners
+    /* tslint:disable-next-line: no-any */
+    /** @type {?} */
+    const listeners = [];
+    // lazy listeners registration
+    /** @type {?} */
+    const _registerHide = [];
+    /** @type {?} */
+    const registerHide = (/**
+     * @return {?}
+     */
+    () => {
+        // add hide listeners to unregister array
+        _registerHide.forEach((/**
+         * @param {?} fn
+         * @return {?}
+         */
+        (fn) => listeners.push(fn())));
+        // register hide events only once
+        _registerHide.length = 0;
+    });
+    // register open\close\toggle listeners
+    parsedTriggers.forEach((/**
+     * @param {?} trigger
+     * @return {?}
+     */
+    (trigger) => {
+        /** @type {?} */
+        const useToggle = trigger.open === trigger.close;
+        /** @type {?} */
+        const showFn = useToggle ? options.toggle : options.show;
+        if (!useToggle) {
+            _registerHide.push((/**
+             * @return {?}
+             */
+            () => renderer.listen(target, trigger.close, options.hide)));
+        }
+        listeners.push(renderer.listen(target, trigger.open, (/**
+         * @return {?}
+         */
+        () => showFn(registerHide))));
+    }));
+    return (/**
+     * @return {?}
+     */
+    () => {
+        listeners.forEach((/**
+         * @param {?} unsubscribeFn
+         * @return {?}
+         */
+        (unsubscribeFn) => unsubscribeFn()));
+    });
+}
+/**
+ * @param {?} renderer
+ * @param {?} options
+ * @return {?}
+ */
+function registerOutsideClick(renderer, options) {
+    if (!options.outsideClick) {
+        return Function.prototype;
+    }
+    /* tslint:disable-next-line: no-any */
+    return renderer.listen('document', 'click', (/**
+     * @param {?} event
+     * @return {?}
+     */
+    (event) => {
+        if (options.target && options.target.contains(event.target)) {
+            return undefined;
+        }
+        if (options.targets &&
+            options.targets.some((/**
+             * @param {?} target
+             * @return {?}
+             */
+            target => target.contains(event.target)))) {
+            return undefined;
+        }
+        options.hide();
+    }));
+}
+/**
+ * @param {?} renderer
+ * @param {?} options
+ * @return {?}
+ */
+function registerEscClick(renderer, options) {
+    if (!options.outsideEsc) {
+        return Function.prototype;
+    }
+    return renderer.listen('document', 'keyup.esc', (/**
+     * @param {?} event
+     * @return {?}
+     */
+    (event) => {
+        if (options.target && options.target.contains(event.target)) {
+            return undefined;
+        }
+        if (options.targets &&
+            options.targets.some((/**
+             * @param {?} target
+             * @return {?}
+             */
+            target => target.contains(event.target)))) {
+            return undefined;
+        }
+        options.hide();
+    }));
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @license
+ * Copyright Google Inc. All Rights Reserved.
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://angular.io/license
+ */
+/**
+ * JS version of browser APIs. This library can only run in the browser.
+ * @type {?}
+ */
+const win = (typeof window !== 'undefined' && window) || (/** @type {?} */ ({}));
+/** @type {?} */
+const document$1 = win.document;
+/** @type {?} */
+const location = win.location;
+/** @type {?} */
+const gc = win.gc ? (/**
+ * @return {?}
+ */
+() => win.gc()) : (/**
+ * @return {?}
+ */
+() => null);
+/** @type {?} */
+const performance = win.performance ? win.performance : null;
+/** @type {?} */
+const Event = win.Event;
+/** @type {?} */
+const MouseEvent = win.MouseEvent;
+/** @type {?} */
+const KeyboardEvent = win.KeyboardEvent;
+/** @type {?} */
+const EventTarget = win.EventTarget;
+/** @type {?} */
+const History = win.History;
+/** @type {?} */
+const Location = win.Location;
+/** @type {?} */
+const EventListener = win.EventListener;
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+let guessedVersion;
+/**
+ * @return {?}
+ */
+function _guessBsVersion() {
+    if (typeof document === 'undefined') {
+        return null;
+    }
+    /** @type {?} */
+    const spanEl = document.createElement('span');
+    spanEl.innerText = 'test bs version';
+    document.body.appendChild(spanEl);
+    spanEl.classList.add('d-none');
+    /** @type {?} */
+    const rect = spanEl.getBoundingClientRect();
+    document.body.removeChild(spanEl);
+    if (!rect) {
+        return 'bs3';
+    }
+    return rect.top === 0 ? 'bs4' : 'bs3';
+}
+/**
+ * @param {?} theme
+ * @return {?}
+ */
+function setTheme(theme) {
+    guessedVersion = theme;
+}
+// todo: in ngx-bootstrap, bs4 will became a default one
+/**
+ * @return {?}
+ */
+function isBs3() {
+    if (typeof win === 'undefined') {
+        return true;
+    }
+    if (typeof win.__theme === 'undefined') {
+        if (guessedVersion) {
+            return guessedVersion === 'bs3';
+        }
+        guessedVersion = _guessBsVersion();
+        return guessedVersion === 'bs3';
+    }
+    return win.__theme !== 'bs4';
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * @template T
+ */
+class LinkedList {
+    constructor() {
+        this.length = 0;
+        this.asArray = [];
+        // Array methods overriding END
+    }
+    /**
+     * @param {?} position
+     * @return {?}
+     */
+    get(position) {
+        if (this.length === 0 || position < 0 || position >= this.length) {
+            return void 0;
+        }
+        /** @type {?} */
+        let current = this.head;
+        for (let index = 0; index < position; index++) {
+            current = current.next;
+        }
+        return current.value;
+    }
+    /**
+     * @param {?} value
+     * @param {?=} position
+     * @return {?}
+     */
+    add(value, position = this.length) {
+        if (position < 0 || position > this.length) {
+            throw new Error('Position is out of the list');
+        }
+        /* tslint:disable-next-line: no-any*/
+        /** @type {?} */
+        const node = {
+            value,
+            next: undefined,
+            previous: undefined
+        };
+        if (this.length === 0) {
+            this.head = node;
+            this.tail = node;
+            this.current = node;
+        }
+        else {
+            if (position === 0) {
+                // first node
+                node.next = this.head;
+                this.head.previous = node;
+                this.head = node;
+            }
+            else if (position === this.length) {
+                // last node
+                this.tail.next = node;
+                node.previous = this.tail;
+                this.tail = node;
+            }
+            else {
+                // node in middle
+                /** @type {?} */
+                const currentPreviousNode = this.getNode(position - 1);
+                /** @type {?} */
+                const currentNextNode = currentPreviousNode.next;
+                currentPreviousNode.next = node;
+                currentNextNode.previous = node;
+                node.previous = currentPreviousNode;
+                node.next = currentNextNode;
+            }
+        }
+        this.length++;
+        this.createInternalArrayRepresentation();
+    }
+    /**
+     * @param {?=} position
+     * @return {?}
+     */
+    remove(position = 0) {
+        if (this.length === 0 || position < 0 || position >= this.length) {
+            throw new Error('Position is out of the list');
+        }
+        if (position === 0) {
+            // first node
+            this.head = this.head.next;
+            if (this.head) {
+                // there is no second node
+                this.head.previous = undefined;
+            }
+            else {
+                // there is no second node
+                this.tail = undefined;
+            }
+        }
+        else if (position === this.length - 1) {
+            // last node
+            this.tail = this.tail.previous;
+            this.tail.next = undefined;
+        }
+        else {
+            // middle node
+            /** @type {?} */
+            const removedNode = this.getNode(position);
+            removedNode.next.previous = removedNode.previous;
+            removedNode.previous.next = removedNode.next;
+        }
+        this.length--;
+        this.createInternalArrayRepresentation();
+    }
+    /**
+     * @param {?} position
+     * @param {?} value
+     * @return {?}
+     */
+    set(position, value) {
+        if (this.length === 0 || position < 0 || position >= this.length) {
+            throw new Error('Position is out of the list');
+        }
+        /** @type {?} */
+        const node = this.getNode(position);
+        node.value = value;
+        this.createInternalArrayRepresentation();
+    }
+    /**
+     * @return {?}
+     */
+    toArray() {
+        return this.asArray;
+    }
+    /* tslint:disable-next-line: no-any*/
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    findAll(fn) {
+        /** @type {?} */
+        let current = this.head;
+        /* tslint:disable-next-line: no-any*/
+        /** @type {?} */
+        const result = [];
+        for (let index = 0; index < this.length; index++) {
+            if (fn(current.value, index)) {
+                result.push({ index, value: current.value });
+            }
+            current = current.next;
+        }
+        return result;
+    }
+    // Array methods overriding start
+    /**
+     * @param {...?} args
+     * @return {?}
+     */
+    push(...args) {
+        /* tslint:disable-next-line: no-any*/
+        args.forEach((/**
+         * @param {?} arg
+         * @return {?}
+         */
+        (arg) => {
+            this.add(arg);
+        }));
+        return this.length;
+    }
+    /**
+     * @return {?}
+     */
+    pop() {
+        if (this.length === 0) {
+            return undefined;
+        }
+        /** @type {?} */
+        const last = this.tail;
+        this.remove(this.length - 1);
+        return last.value;
+    }
+    /**
+     * @param {...?} args
+     * @return {?}
+     */
+    unshift(...args) {
+        args.reverse();
+        /* tslint:disable-next-line: no-any*/
+        args.forEach((/**
+         * @param {?} arg
+         * @return {?}
+         */
+        (arg) => {
+            this.add(arg, 0);
+        }));
+        return this.length;
+    }
+    /**
+     * @return {?}
+     */
+    shift() {
+        if (this.length === 0) {
+            return undefined;
+        }
+        /** @type {?} */
+        const lastItem = this.head.value;
+        this.remove();
+        return lastItem;
+    }
+    /* tslint:disable-next-line: no-any*/
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    forEach(fn) {
+        /** @type {?} */
+        let current = this.head;
+        for (let index = 0; index < this.length; index++) {
+            fn(current.value, index);
+            current = current.next;
+        }
+    }
+    /**
+     * @param {?} value
+     * @return {?}
+     */
+    indexOf(value) {
+        /** @type {?} */
+        let current = this.head;
+        /** @type {?} */
+        let position = 0;
+        for (let index = 0; index < this.length; index++) {
+            if (current.value === value) {
+                position = index;
+                break;
+            }
+            current = current.next;
+        }
+        return position;
+    }
+    /* tslint:disable-next-line: no-any*/
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    some(fn) {
+        /** @type {?} */
+        let current = this.head;
+        /** @type {?} */
+        let result = false;
+        while (current && !result) {
+            if (fn(current.value)) {
+                result = true;
+                break;
+            }
+            current = current.next;
+        }
+        return result;
+    }
+    /* tslint:disable-next-line: no-any*/
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    every(fn) {
+        /** @type {?} */
+        let current = this.head;
+        /** @type {?} */
+        let result = true;
+        while (current && result) {
+            if (!fn(current.value)) {
+                result = false;
+            }
+            current = current.next;
+        }
+        return result;
+    }
+    /**
+     * @return {?}
+     */
+    toString() {
+        return '[Linked List]';
+    }
+    /* tslint:disable-next-line: no-any*/
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    find(fn) {
+        /** @type {?} */
+        let current = this.head;
+        /** @type {?} */
+        let result;
+        for (let index = 0; index < this.length; index++) {
+            if (fn(current.value, index)) {
+                result = current.value;
+                break;
+            }
+            current = current.next;
+        }
+        return result;
+    }
+    /* tslint:disable-next-line: no-any*/
+    /**
+     * @param {?} fn
+     * @return {?}
+     */
+    findIndex(fn) {
+        /** @type {?} */
+        let current = this.head;
+        /** @type {?} */
+        let result;
+        for (let index = 0; index < this.length; index++) {
+            if (fn(current.value, index)) {
+                result = index;
+                break;
+            }
+            current = current.next;
+        }
+        return result;
+    }
+    /* tslint:disable-next-line: no-any*/
+    /**
+     * @protected
+     * @param {?} position
+     * @return {?}
+     */
+    getNode(position) {
+        if (this.length === 0 || position < 0 || position >= this.length) {
+            throw new Error('Position is out of the list');
+        }
+        /** @type {?} */
+        let current = this.head;
+        for (let index = 0; index < position; index++) {
+            current = current.next;
+        }
+        return current;
+    }
+    /**
+     * @protected
+     * @return {?}
+     */
+    createInternalArrayRepresentation() {
+        /* tslint:disable-next-line: no-any*/
+        /** @type {?} */
+        const outArray = [];
+        /** @type {?} */
+        let current = this.head;
+        while (current) {
+            outArray.push(current.value);
+            current = current.next;
+        }
+        this.asArray = outArray;
+    }
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/*tslint:disable:no-invalid-this */
+/* tslint:disable-next-line: no-any */
+/**
+ * @param {?=} defaultValue
+ * @return {?}
+ */
+function OnChange(defaultValue) {
+    /** @type {?} */
+    const sufix = 'Change';
+    /* tslint:disable-next-line: no-any */
+    return (/**
+     * @param {?} target
+     * @param {?} propertyKey
+     * @return {?}
+     */
+    function OnChangeHandler(target, propertyKey) {
+        /** @type {?} */
+        const _key = ` __${propertyKey}Value`;
+        Object.defineProperty(target, propertyKey, {
+            /* tslint:disable-next-line: no-any */
+            /**
+             * @return {?}
+             */
+            get() {
+                return this[_key];
+            },
+            /* tslint:disable-next-line: no-any */
+            /**
+             * @param {?} value
+             * @return {?}
+             */
+            set(value) {
+                /** @type {?} */
+                const prevValue = this[_key];
+                this[_key] = value;
+                if (prevValue !== value && this[propertyKey + sufix]) {
+                    this[propertyKey + sufix].emit(value);
+                }
             }
         });
-    }
-    populateYearOptions(start, end) {
-        this.yearOptions = [];
-        for (let i = start; i <= end; i++) {
-            this.yearOptions.push(i);
-        }
-    }
-    createWeekDays() {
-        this.weekDays = [];
-        let dayIndex = this.locale.firstDayOfWeek;
-        for (let i = 0; i < 7; i++) {
-            this.weekDays.push(this.locale.dayNamesMin[dayIndex]);
-            dayIndex = (dayIndex == 6) ? 0 : ++dayIndex;
-        }
-    }
-    createMonthPickerValues() {
-        this.monthPickerValues = [];
-        for (let i = 0; i <= 11; i++) {
-            this.monthPickerValues.push(this.locale.monthNamesShort[i]);
-        }
-    }
-    createMonths(month, year) {
-        this.months = this.months = [];
-        for (let i = 0; i < this.numberOfMonths; i++) {
-            let m = month + i;
-            let y = year;
-            if (m > 11) {
-                m = m % 11 - 1;
-                y = year + 1;
-            }
-            this.months.push(this.createMonth(m, y));
-        }
-    }
-    getWeekNumber(date) {
-        let checkDate = new Date(date.getTime());
-        checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
-        let time = checkDate.getTime();
-        checkDate.setMonth(0);
-        checkDate.setDate(1);
-        return Math.floor(Math.round((time - checkDate.getTime()) / 86400000) / 7) + 1;
-    }
-    createMonth(month, year) {
-        let dates = [];
-        let firstDay = this.getFirstDayOfMonthIndex(month, year);
-        let daysLength = this.getDaysCountInMonth(month, year);
-        let prevMonthDaysLength = this.getDaysCountInPrevMonth(month, year);
-        let dayNo = 1;
-        let today = new Date();
-        let weekNumbers = [];
-        let monthRows = Math.ceil((daysLength + firstDay) / 7);
-        for (let i = 0; i < monthRows; i++) {
-            let week = [];
-            if (i == 0) {
-                for (let j = (prevMonthDaysLength - firstDay + 1); j <= prevMonthDaysLength; j++) {
-                    let prev = this.getPreviousMonthAndYear(month, year);
-                    week.push({ day: j, month: prev.month, year: prev.year, otherMonth: true,
-                        today: this.isToday(today, j, prev.month, prev.year), selectable: this.isSelectable(j, prev.month, prev.year, true) });
-                }
-                let remainingDaysLength = 7 - week.length;
-                for (let j = 0; j < remainingDaysLength; j++) {
-                    week.push({ day: dayNo, month: month, year: year, today: this.isToday(today, dayNo, month, year),
-                        selectable: this.isSelectable(dayNo, month, year, false) });
-                    dayNo++;
-                }
-            }
-            else {
-                for (let j = 0; j < 7; j++) {
-                    if (dayNo > daysLength) {
-                        let next = this.getNextMonthAndYear(month, year);
-                        week.push({ day: dayNo - daysLength, month: next.month, year: next.year, otherMonth: true,
-                            today: this.isToday(today, dayNo - daysLength, next.month, next.year),
-                            selectable: this.isSelectable((dayNo - daysLength), next.month, next.year, true) });
-                    }
-                    else {
-                        week.push({ day: dayNo, month: month, year: year, today: this.isToday(today, dayNo, month, year),
-                            selectable: this.isSelectable(dayNo, month, year, false) });
-                    }
-                    dayNo++;
-                }
-            }
-            if (this.showWeek) {
-                weekNumbers.push(this.getWeekNumber(new Date(week[0].year, week[0].month, week[0].day)));
-            }
-            dates.push(week);
-        }
-        return {
-            month: month,
-            year: year,
-            dates: dates,
-            weekNumbers: weekNumbers
-        };
-    }
-    initTime(date) {
-        this.pm = date.getHours() > 11;
-        if (this.showTime) {
-            this.currentMinute = date.getMinutes();
-            this.currentSecond = date.getSeconds();
-            if (this.hourFormat == '12')
-                this.currentHour = date.getHours() == 0 ? 12 : date.getHours() % 12;
-            else
-                this.currentHour = date.getHours();
-        }
-        else if (this.timeOnly) {
-            this.currentMinute = 0;
-            this.currentHour = 0;
-            this.currentSecond = 0;
-        }
-    }
-    navBackward(event) {
-        event.stopPropagation();
-        if (this.disabled) {
-            event.preventDefault();
-            return;
-        }
-        this.isMonthNavigate = true;
-        if (this.view === 'month') {
-            this.decrementYear();
-        }
-        else {
-            if (this.currentMonth === 0) {
-                this.currentMonth = 11;
-                this.decrementYear();
-            }
-            else {
-                this.currentMonth--;
-            }
-            this.onMonthChange.emit({ month: this.currentMonth + 1, year: this.currentYear });
-            this.createMonths(this.currentMonth, this.currentYear);
-        }
-    }
-    navForward(event) {
-        event.stopPropagation();
-        if (this.disabled) {
-            event.preventDefault();
-            return;
-        }
-        this.isMonthNavigate = true;
-        if (this.view === 'month') {
-            this.incrementYear();
-        }
-        else {
-            if (this.currentMonth === 11) {
-                this.currentMonth = 0;
-                this.incrementYear();
-            }
-            else {
-                this.currentMonth++;
-            }
-            this.onMonthChange.emit({ month: this.currentMonth + 1, year: this.currentYear });
-            this.createMonths(this.currentMonth, this.currentYear);
-        }
-    }
-    decrementYear() {
-        this.currentYear--;
-        if (this.yearNavigator && this.currentYear < this.yearOptions[0]) {
-            let difference = this.yearOptions[this.yearOptions.length - 1] - this.yearOptions[0];
-            this.populateYearOptions(this.yearOptions[0] - difference, this.yearOptions[this.yearOptions.length - 1] - difference);
-        }
-    }
-    incrementYear() {
-        this.currentYear++;
-        if (this.yearNavigator && this.currentYear > this.yearOptions[this.yearOptions.length - 1]) {
-            let difference = this.yearOptions[this.yearOptions.length - 1] - this.yearOptions[0];
-            this.populateYearOptions(this.yearOptions[0] + difference, this.yearOptions[this.yearOptions.length - 1] + difference);
-        }
-    }
-    onDateSelect(event, dateMeta) {
-        if (this.disabled || !dateMeta.selectable) {
-            event.preventDefault();
-            return;
-        }
-        if (this.isMultipleSelection() && this.isSelected(dateMeta)) {
-            this.value = this.value.filter((date, i) => {
-                return !this.isDateEquals(date, dateMeta);
-            });
-            this.updateModel(this.value);
-        }
-        else {
-            if (this.shouldSelectDate(dateMeta)) {
-                if (dateMeta.otherMonth) {
-                    this.currentMonth = dateMeta.month;
-                    this.currentYear = dateMeta.year;
-                    this.createMonths(this.currentMonth, this.currentYear);
-                    this.selectDate(dateMeta);
-                }
-                else {
-                    this.selectDate(dateMeta);
-                }
-            }
-        }
-        if (this.isSingleSelection() && (!this.showTime || this.hideOnDateTimeSelect)) {
-            setTimeout(() => {
-                event.preventDefault();
-                this.hideOverlay();
-                if (this.mask) {
-                    this.disableModality();
-                }
-                this.cd.markForCheck();
-            }, 150);
-        }
-        this.updateInputfield();
-        event.preventDefault();
-    }
-    shouldSelectDate(dateMeta) {
-        if (this.isMultipleSelection())
-            return this.maxDateCount != null ? this.maxDateCount > (this.value ? this.value.length : 0) : true;
-        else
-            return true;
-    }
-    onMonthSelect(event, index) {
-        this.onDateSelect(event, { year: this.currentYear, month: index, day: 1, selectable: true });
-    }
-    updateInputfield() {
-        let formattedValue = '';
-        if (this.value) {
-            if (this.isSingleSelection()) {
-                formattedValue = this.formatDateTime(this.value);
-            }
-            else if (this.isMultipleSelection()) {
-                for (let i = 0; i < this.value.length; i++) {
-                    let dateAsString = this.formatDateTime(this.value[i]);
-                    formattedValue += dateAsString;
-                    if (i !== (this.value.length - 1)) {
-                        formattedValue += this.multipleSeparator + ' ';
-                    }
-                }
-            }
-            else if (this.isRangeSelection()) {
-                if (this.value && this.value.length) {
-                    let startDate = this.value[0];
-                    let endDate = this.value[1];
-                    formattedValue = this.formatDateTime(startDate);
-                    if (endDate) {
-                        formattedValue += ' ' + this.rangeSeparator + ' ' + this.formatDateTime(endDate);
-                    }
-                }
-            }
-        }
-        this.inputFieldValue = formattedValue;
-        this.updateFilledState();
-        if (this.inputfieldViewChild && this.inputfieldViewChild.nativeElement) {
-            this.inputfieldViewChild.nativeElement.value = this.inputFieldValue;
-        }
-    }
-    formatDateTime(date) {
-        let formattedValue = null;
-        if (date) {
-            if (this.timeOnly) {
-                formattedValue = this.formatTime(date);
-            }
-            else {
-                formattedValue = this.formatDate(date, this.getDateFormat());
-                if (this.showTime) {
-                    formattedValue += ' ' + this.formatTime(date);
-                }
-            }
-        }
-        return formattedValue;
-    }
-    selectDate(dateMeta) {
-        let date = new Date(dateMeta.year, dateMeta.month, dateMeta.day);
-        if (this.showTime) {
-            if (this.hourFormat == '12') {
-                if (this.currentHour === 12)
-                    date.setHours(this.pm ? 12 : 0);
-                else
-                    date.setHours(this.pm ? this.currentHour + 12 : this.currentHour);
-            }
-            else {
-                date.setHours(this.currentHour);
-            }
-            date.setMinutes(this.currentMinute);
-            date.setSeconds(this.currentSecond);
-        }
-        if (this.minDate && this.minDate > date) {
-            date = this.minDate;
-            this.currentHour = date.getHours();
-            this.currentMinute = date.getMinutes();
-            this.currentSecond = date.getSeconds();
-        }
-        if (this.maxDate && this.maxDate < date) {
-            date = this.maxDate;
-            this.currentHour = date.getHours();
-            this.currentMinute = date.getMinutes();
-            this.currentSecond = date.getSeconds();
-        }
-        if (this.isSingleSelection()) {
-            this.updateModel(date);
-        }
-        else if (this.isMultipleSelection()) {
-            this.updateModel(this.value ? [...this.value, date] : [date]);
-        }
-        else if (this.isRangeSelection()) {
-            if (this.value && this.value.length) {
-                let startDate = this.value[0];
-                let endDate = this.value[1];
-                if (!endDate && date.getTime() >= startDate.getTime()) {
-                    endDate = date;
-                }
-                else {
-                    startDate = date;
-                    endDate = null;
-                }
-                this.updateModel([startDate, endDate]);
-            }
-            else {
-                this.updateModel([date, null]);
-            }
-        }
-        this.onSelect.emit(date);
-    }
-    updateModel(value) {
-        this.value = value;
-        if (this.dataType == 'date') {
-            this.onModelChange(this.value);
-        }
-        else if (this.dataType == 'string') {
-            if (this.isSingleSelection()) {
-                this.onModelChange(this.formatDateTime(this.value));
-            }
-            else {
-                let stringArrValue = null;
-                if (this.value) {
-                    stringArrValue = this.value.map(date => this.formatDateTime(date));
-                }
-                this.onModelChange(stringArrValue);
-            }
-        }
-    }
-    getFirstDayOfMonthIndex(month, year) {
-        let day = new Date();
-        day.setDate(1);
-        day.setMonth(month);
-        day.setFullYear(year);
-        let dayIndex = day.getDay() + this.getSundayIndex();
-        return dayIndex >= 7 ? dayIndex - 7 : dayIndex;
-    }
-    getDaysCountInMonth(month, year) {
-        return 32 - this.daylightSavingAdjust(new Date(year, month, 32)).getDate();
-    }
-    getDaysCountInPrevMonth(month, year) {
-        let prev = this.getPreviousMonthAndYear(month, year);
-        return this.getDaysCountInMonth(prev.month, prev.year);
-    }
-    getPreviousMonthAndYear(month, year) {
-        let m, y;
-        if (month === 0) {
-            m = 11;
-            y = year - 1;
-        }
-        else {
-            m = month - 1;
-            y = year;
-        }
-        return { 'month': m, 'year': y };
-    }
-    getNextMonthAndYear(month, year) {
-        let m, y;
-        if (month === 11) {
-            m = 0;
-            y = year + 1;
-        }
-        else {
-            m = month + 1;
-            y = year;
-        }
-        return { 'month': m, 'year': y };
-    }
-    getSundayIndex() {
-        return this.locale.firstDayOfWeek > 0 ? 7 - this.locale.firstDayOfWeek : 0;
-    }
-    isSelected(dateMeta) {
-        if (this.value) {
-            if (this.isSingleSelection()) {
-                return this.isDateEquals(this.value, dateMeta);
-            }
-            else if (this.isMultipleSelection()) {
-                let selected = false;
-                for (let date of this.value) {
-                    selected = this.isDateEquals(date, dateMeta);
-                    if (selected) {
-                        break;
-                    }
-                }
-                return selected;
-            }
-            else if (this.isRangeSelection()) {
-                if (this.value[1])
-                    return this.isDateEquals(this.value[0], dateMeta) || this.isDateEquals(this.value[1], dateMeta) || this.isDateBetween(this.value[0], this.value[1], dateMeta);
-                else
-                    return this.isDateEquals(this.value[0], dateMeta);
-            }
-        }
-        else {
-            return false;
-        }
-    }
-    isMonthSelected(month) {
-        let day = this.value ? (Array.isArray(this.value) ? this.value[0].getDate() : this.value.getDate()) : 1;
-        return this.isSelected({ year: this.currentYear, month: month, day: day, selectable: true });
-    }
-    isDateEquals(value, dateMeta) {
-        if (value)
-            return value.getDate() === dateMeta.day && value.getMonth() === dateMeta.month && value.getFullYear() === dateMeta.year;
-        else
-            return false;
-    }
-    isDateBetween(start, end, dateMeta) {
-        let between = false;
-        if (start && end) {
-            let date = new Date(dateMeta.year, dateMeta.month, dateMeta.day);
-            return start.getTime() <= date.getTime() && end.getTime() >= date.getTime();
-        }
-        return between;
-    }
-    isSingleSelection() {
-        return this.selectionMode === 'single';
-    }
-    isRangeSelection() {
-        return this.selectionMode === 'range';
-    }
-    isMultipleSelection() {
-        return this.selectionMode === 'multiple';
-    }
-    isToday(today, day, month, year) {
-        return today.getDate() === day && today.getMonth() === month && today.getFullYear() === year;
-    }
-    isSelectable(day, month, year, otherMonth) {
-        let validMin = true;
-        let validMax = true;
-        let validDate = true;
-        let validDay = true;
-        if (otherMonth && !this.selectOtherMonths) {
-            return false;
-        }
-        if (this.minDate) {
-            if (this.minDate.getFullYear() > year) {
-                validMin = false;
-            }
-            else if (this.minDate.getFullYear() === year) {
-                if (this.minDate.getMonth() > month) {
-                    validMin = false;
-                }
-                else if (this.minDate.getMonth() === month) {
-                    if (this.minDate.getDate() > day) {
-                        validMin = false;
-                    }
-                }
-            }
-        }
-        if (this.maxDate) {
-            if (this.maxDate.getFullYear() < year) {
-                validMax = false;
-            }
-            else if (this.maxDate.getFullYear() === year) {
-                if (this.maxDate.getMonth() < month) {
-                    validMax = false;
-                }
-                else if (this.maxDate.getMonth() === month) {
-                    if (this.maxDate.getDate() < day) {
-                        validMax = false;
-                    }
-                }
-            }
-        }
-        if (this.disabledDates) {
-            validDate = !this.isDateDisabled(day, month, year);
-        }
-        if (this.disabledDays) {
-            validDay = !this.isDayDisabled(day, month, year);
-        }
-        return validMin && validMax && validDate && validDay;
-    }
-    isDateDisabled(day, month, year) {
-        if (this.disabledDates) {
-            for (let disabledDate of this.disabledDates) {
-                if (disabledDate.getFullYear() === year && disabledDate.getMonth() === month && disabledDate.getDate() === day) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    isDayDisabled(day, month, year) {
-        if (this.disabledDays) {
-            let weekday = new Date(year, month, day);
-            let weekdayNumber = weekday.getDay();
-            return this.disabledDays.indexOf(weekdayNumber) !== -1;
-        }
-        return false;
-    }
-    onInputFocus(event) {
-        this.focus = true;
-        if (this.showOnFocus) {
-            this.showOverlay();
-        }
-        this.onFocus.emit(event);
-    }
-    onInputClick(event) {
-        if (this.overlay && this.autoZIndex) {
-            this.overlay.style.zIndex = String(this.baseZIndex + (++primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].zindex));
-        }
-        if (this.showOnFocus && !this.overlayVisible) {
-            this.showOverlay();
-        }
-    }
-    onInputBlur(event) {
-        this.focus = false;
-        this.onBlur.emit(event);
-        if (!this.keepInvalid) {
-            this.updateInputfield();
-        }
-        this.onModelTouched();
-    }
-    onButtonClick(event, inputfield) {
-        if (!this.overlayVisible) {
-            inputfield.focus();
-            this.showOverlay();
-        }
-        else {
-            this.hideOverlay();
-        }
-    }
-    onPrevButtonClick(event) {
-        this.navigationState = { backward: true, button: true };
-        this.navBackward(event);
-    }
-    onNextButtonClick(event) {
-        this.navigationState = { backward: false, button: true };
-        this.navForward(event);
-    }
-    onContainerButtonKeydown(event) {
-        switch (event.which) {
-            //tab
-            case 9:
-                if (!this.inline) {
-                    this.trapFocus(event);
-                }
-                break;
-            //escape
-            case 27:
-                this.overlayVisible = false;
-                event.preventDefault();
-                break;
-            default:
-                //Noop
-                break;
-        }
-    }
-    onInputKeydown(event) {
-        this.isKeydown = true;
-        if (event.keyCode === 9 && this.contentViewChild) {
-            this.trapFocus(event);
-        }
-        else if (event.keyCode === 27) {
-            if (this.overlayVisible) {
-                this.overlayVisible = false;
-                event.preventDefault();
-            }
-        }
-    }
-    onDateCellKeydown(event, date, groupIndex) {
-        const cellContent = event.currentTarget;
-        const cell = cellContent.parentElement;
-        switch (event.which) {
-            //down arrow
-            case 40: {
-                cellContent.tabIndex = '-1';
-                let cellIndex = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].index(cell);
-                let nextRow = cell.parentElement.nextElementSibling;
-                if (nextRow) {
-                    let focusCell = nextRow.children[cellIndex].children[0];
-                    if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell, 'ui-state-disabled')) {
-                        this.navigationState = { backward: false };
-                        this.navForward(event);
-                    }
-                    else {
-                        nextRow.children[cellIndex].children[0].tabIndex = '0';
-                        nextRow.children[cellIndex].children[0].focus();
-                    }
-                }
-                else {
-                    this.navigationState = { backward: false };
-                    this.navForward(event);
-                }
-                event.preventDefault();
-                break;
-            }
-            //up arrow
-            case 38: {
-                cellContent.tabIndex = '-1';
-                let cellIndex = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].index(cell);
-                let prevRow = cell.parentElement.previousElementSibling;
-                if (prevRow) {
-                    let focusCell = prevRow.children[cellIndex].children[0];
-                    if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell, 'ui-state-disabled')) {
-                        this.navigationState = { backward: true };
-                        this.navBackward(event);
-                    }
-                    else {
-                        focusCell.tabIndex = '0';
-                        focusCell.focus();
-                    }
-                }
-                else {
-                    this.navigationState = { backward: true };
-                    this.navBackward(event);
-                }
-                event.preventDefault();
-                break;
-            }
-            //left arrow
-            case 37: {
-                cellContent.tabIndex = '-1';
-                let prevCell = cell.previousElementSibling;
-                if (prevCell) {
-                    let focusCell = prevCell.children[0];
-                    if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell, 'ui-state-disabled') || primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell.parentElement, 'ui-datepicker-weeknumber')) {
-                        this.navigateToMonth(true, groupIndex);
-                    }
-                    else {
-                        focusCell.tabIndex = '0';
-                        focusCell.focus();
-                    }
-                }
-                else {
-                    this.navigateToMonth(true, groupIndex);
-                }
-                event.preventDefault();
-                break;
-            }
-            //right arrow
-            case 39: {
-                cellContent.tabIndex = '-1';
-                let nextCell = cell.nextElementSibling;
-                if (nextCell) {
-                    let focusCell = nextCell.children[0];
-                    if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell, 'ui-state-disabled')) {
-                        this.navigateToMonth(false, groupIndex);
-                    }
-                    else {
-                        focusCell.tabIndex = '0';
-                        focusCell.focus();
-                    }
-                }
-                else {
-                    this.navigateToMonth(false, groupIndex);
-                }
-                event.preventDefault();
-                break;
-            }
-            //enter
-            case 13: {
-                this.onDateSelect(event, date);
-                event.preventDefault();
-                break;
-            }
-            //escape
-            case 27: {
-                this.overlayVisible = false;
-                event.preventDefault();
-                break;
-            }
-            //tab
-            case 9: {
-                if (!this.inline) {
-                    this.trapFocus(event);
-                }
-                break;
-            }
-            default:
-                //no op
-                break;
-        }
-    }
-    onMonthCellKeydown(event, index) {
-        const cell = event.currentTarget;
-        switch (event.which) {
-            //arrows
-            case 38:
-            case 40: {
-                cell.tabIndex = '-1';
-                var cells = cell.parentElement.children;
-                var cellIndex = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].index(cell);
-                let nextCell = cells[event.which === 40 ? cellIndex + 3 : cellIndex - 3];
-                if (nextCell) {
-                    nextCell.tabIndex = '0';
-                    nextCell.focus();
-                }
-                event.preventDefault();
-                break;
-            }
-            //left arrow
-            case 37: {
-                cell.tabIndex = '-1';
-                let prevCell = cell.previousElementSibling;
-                if (prevCell) {
-                    prevCell.tabIndex = '0';
-                    prevCell.focus();
-                }
-                event.preventDefault();
-                break;
-            }
-            //right arrow
-            case 39: {
-                cell.tabIndex = '-1';
-                let nextCell = cell.nextElementSibling;
-                if (nextCell) {
-                    nextCell.tabIndex = '0';
-                    nextCell.focus();
-                }
-                event.preventDefault();
-                break;
-            }
-            //enter
-            case 13: {
-                this.onMonthSelect(event, index);
-                event.preventDefault();
-                break;
-            }
-            //escape
-            case 27: {
-                this.overlayVisible = false;
-                event.preventDefault();
-                break;
-            }
-            //tab
-            case 9: {
-                if (!this.inline) {
-                    this.trapFocus(event);
-                }
-                break;
-            }
-            default:
-                //no op
-                break;
-        }
-    }
-    navigateToMonth(prev, groupIndex) {
-        if (prev) {
-            if (this.numberOfMonths === 1 || (groupIndex === 0)) {
-                this.navigationState = { backward: true };
-                this.navBackward(event);
-            }
-            else {
-                let prevMonthContainer = this.contentViewChild.nativeElement.children[groupIndex - 1];
-                let cells = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].find(prevMonthContainer, '.ui-datepicker-calendar td a');
-                let focusCell = cells[cells.length - 1];
-                focusCell.tabIndex = '0';
-                focusCell.focus();
-            }
-        }
-        else {
-            if (this.numberOfMonths === 1 || (groupIndex === this.numberOfMonths - 1)) {
-                this.navigationState = { backward: false };
-                this.navForward(event);
-            }
-            else {
-                let nextMonthContainer = this.contentViewChild.nativeElement.children[groupIndex + 1];
-                let focusCell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(nextMonthContainer, '.ui-datepicker-calendar td a');
-                focusCell.tabIndex = '0';
-                focusCell.focus();
-            }
-        }
-    }
-    updateFocus() {
-        let cell;
-        if (this.navigationState) {
-            if (this.navigationState.button) {
-                this.initFocusableCell();
-                if (this.navigationState.backward)
-                    primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-datepicker-prev').focus();
-                else
-                    primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-datepicker-next').focus();
-            }
-            else {
-                if (this.navigationState.backward) {
-                    let cells = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].find(this.contentViewChild.nativeElement, '.ui-datepicker-calendar td a');
-                    cell = cells[cells.length - 1];
-                }
-                else {
-                    cell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-datepicker-calendar td a');
-                }
-                if (cell) {
-                    cell.tabIndex = '0';
-                    cell.focus();
-                }
-            }
-            this.navigationState = null;
-        }
-        else {
-            this.initFocusableCell();
-        }
-    }
-    initFocusableCell() {
-        let cell;
-        if (this.view === 'month') {
-            let cells = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].find(this.contentViewChild.nativeElement, '.ui-monthpicker .ui-monthpicker-month');
-            let selectedCell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-monthpicker .ui-monthpicker-month.ui-state-highlight');
-            cells.forEach(cell => cell.tabIndex = -1);
-            cell = selectedCell || cells[0];
-        }
-        else {
-            cell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, 'a.ui-state-active');
-            if (!cell) {
-                let todayCell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, 'td.ui-datepicker-today a:not(.ui-state-disabled)');
-                if (todayCell)
-                    cell = todayCell;
-                else
-                    cell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-datepicker-calendar td a');
-            }
-        }
-        if (cell) {
-            cell.tabIndex = '0';
-        }
-    }
-    trapFocus(event) {
-        event.preventDefault();
-        let focusableElements = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].getFocusableElements(this.contentViewChild.nativeElement);
-        if (focusableElements && focusableElements.length > 0) {
-            if (!document.activeElement) {
-                focusableElements[0].focus();
-            }
-            else {
-                let focusedIndex = focusableElements.indexOf(document.activeElement);
-                if (event.shiftKey) {
-                    if (focusedIndex == -1 || focusedIndex === 0)
-                        focusableElements[focusableElements.length - 1].focus();
-                    else
-                        focusableElements[focusedIndex - 1].focus();
-                }
-                else {
-                    if (focusedIndex == -1 || focusedIndex === (focusableElements.length - 1))
-                        focusableElements[0].focus();
-                    else
-                        focusableElements[focusedIndex + 1].focus();
-                }
-            }
-        }
-    }
-    onMonthDropdownChange(m) {
-        this.currentMonth = parseInt(m);
-        this.onMonthChange.emit({ month: this.currentMonth + 1, year: this.currentYear });
-        this.createMonths(this.currentMonth, this.currentYear);
-    }
-    onYearDropdownChange(y) {
-        this.currentYear = parseInt(y);
-        this.onYearChange.emit({ month: this.currentMonth + 1, year: this.currentYear });
-        this.createMonths(this.currentMonth, this.currentYear);
-    }
-    incrementHour(event) {
-        const prevHour = this.currentHour;
-        const newHour = this.currentHour + this.stepHour;
-        if (this.validateHour(newHour)) {
-            if (this.hourFormat == '24')
-                this.currentHour = (newHour >= 24) ? (newHour - 24) : newHour;
-            else if (this.hourFormat == '12') {
-                // Before the AM/PM break, now after
-                if (prevHour < 12 && newHour > 11) {
-                    this.pm = !this.pm;
-                }
-                this.currentHour = (newHour >= 13) ? (newHour - 12) : newHour;
-            }
-        }
-        event.preventDefault();
-    }
-    onTimePickerElementMouseDown(event, type, direction) {
-        if (!this.disabled) {
-            this.repeat(event, null, type, direction);
-            event.preventDefault();
-        }
-    }
-    onTimePickerElementMouseUp(event) {
-        if (!this.disabled) {
-            this.clearTimePickerTimer();
-            this.updateTime();
-        }
-    }
-    onTimePickerElementMouseOut(event) {
-        if (!this.disabled) {
-            this.clearTimePickerTimer();
-            this.updateTime();
-        }
-    }
-    repeat(event, interval, type, direction) {
-        let i = interval || 500;
-        this.clearTimePickerTimer();
-        this.timePickerTimer = setTimeout(() => {
-            this.repeat(event, 100, type, direction);
-        }, i);
-        switch (type) {
-            case 0:
-                if (direction === 1)
-                    this.incrementHour(event);
-                else
-                    this.decrementHour(event);
-                break;
-            case 1:
-                if (direction === 1)
-                    this.incrementMinute(event);
-                else
-                    this.decrementMinute(event);
-                break;
-            case 2:
-                if (direction === 1)
-                    this.incrementSecond(event);
-                else
-                    this.decrementSecond(event);
-                break;
-        }
-        this.updateInputfield();
-    }
-    clearTimePickerTimer() {
-        if (this.timePickerTimer) {
-            clearInterval(this.timePickerTimer);
-        }
-    }
-    decrementHour(event) {
-        const newHour = this.currentHour - this.stepHour;
-        if (this.validateHour(newHour)) {
-            if (this.hourFormat == '24')
-                this.currentHour = (newHour < 0) ? (24 + newHour) : newHour;
-            else if (this.hourFormat == '12') {
-                // If we were at noon/midnight, then switch
-                if (this.currentHour === 12) {
-                    this.pm = !this.pm;
-                }
-                this.currentHour = (newHour <= 0) ? (12 + newHour) : newHour;
-            }
-        }
-        event.preventDefault();
-    }
-    validateHour(hour) {
-        let valid = true;
-        let value = this.value;
-        if (this.isRangeSelection()) {
-            value = this.value[1] || this.value[0];
-        }
-        if (this.isMultipleSelection()) {
-            value = this.value[this.value.length - 1];
-        }
-        let valueDateString = value ? value.toDateString() : null;
-        if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
-            if (this.minDate.getHours() > hour) {
-                valid = false;
-            }
-        }
-        if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
-            if (this.maxDate.getHours() < hour) {
-                valid = false;
-            }
-        }
-        return valid;
-    }
-    incrementMinute(event) {
-        let newMinute = this.currentMinute + this.stepMinute;
-        if (this.validateMinute(newMinute)) {
-            this.currentMinute = (newMinute > 59) ? newMinute - 60 : newMinute;
-        }
-        event.preventDefault();
-    }
-    decrementMinute(event) {
-        let newMinute = this.currentMinute - this.stepMinute;
-        newMinute = (newMinute < 0) ? 60 + newMinute : newMinute;
-        if (this.validateMinute(newMinute)) {
-            this.currentMinute = newMinute;
-        }
-        event.preventDefault();
-    }
-    validateMinute(minute) {
-        let valid = true;
-        let value = this.value;
-        if (this.isRangeSelection()) {
-            value = this.value[1] || this.value[0];
-        }
-        if (this.isMultipleSelection()) {
-            value = this.value[this.value.length - 1];
-        }
-        let valueDateString = value ? value.toDateString() : null;
-        if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
-            if (value.getHours() == this.minDate.getHours()) {
-                if (this.minDate.getMinutes() > minute) {
-                    valid = false;
-                }
-            }
-        }
-        if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
-            if (value.getHours() == this.maxDate.getHours()) {
-                if (this.maxDate.getMinutes() < minute) {
-                    valid = false;
-                }
-            }
-        }
-        return valid;
-    }
-    incrementSecond(event) {
-        let newSecond = this.currentSecond + this.stepSecond;
-        if (this.validateSecond(newSecond)) {
-            this.currentSecond = (newSecond > 59) ? newSecond - 60 : newSecond;
-        }
-        event.preventDefault();
-    }
-    decrementSecond(event) {
-        let newSecond = this.currentSecond - this.stepSecond;
-        newSecond = (newSecond < 0) ? 60 + newSecond : newSecond;
-        if (this.validateSecond(newSecond)) {
-            this.currentSecond = newSecond;
-        }
-        event.preventDefault();
-    }
-    validateSecond(second) {
-        let valid = true;
-        let value = this.value;
-        if (this.isRangeSelection()) {
-            value = this.value[1] || this.value[0];
-        }
-        if (this.isMultipleSelection()) {
-            value = this.value[this.value.length - 1];
-        }
-        let valueDateString = value ? value.toDateString() : null;
-        if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
-            if (this.minDate.getSeconds() > second) {
-                valid = false;
-            }
-        }
-        if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
-            if (this.maxDate.getSeconds() < second) {
-                valid = false;
-            }
-        }
-        return valid;
-    }
-    updateTime() {
-        let value = this.value;
-        if (this.isRangeSelection()) {
-            value = this.value[1] || this.value[0];
-        }
-        if (this.isMultipleSelection()) {
-            value = this.value[this.value.length - 1];
-        }
-        value = value ? new Date(value.getTime()) : new Date();
-        if (this.hourFormat == '12') {
-            if (this.currentHour === 12)
-                value.setHours(this.pm ? 12 : 0);
-            else
-                value.setHours(this.pm ? this.currentHour + 12 : this.currentHour);
-        }
-        else {
-            value.setHours(this.currentHour);
-        }
-        value.setMinutes(this.currentMinute);
-        value.setSeconds(this.currentSecond);
-        if (this.isRangeSelection()) {
-            if (this.value[1])
-                value = [this.value[0], value];
-            else
-                value = [value, null];
-        }
-        if (this.isMultipleSelection()) {
-            value = [...this.value.slice(0, -1), value];
-        }
-        this.updateModel(value);
-        this.onSelect.emit(value);
-        this.updateInputfield();
-    }
-    toggleAMPM(event) {
-        this.pm = !this.pm;
-        this.updateTime();
-        event.preventDefault();
-    }
-    onUserInput(event) {
-        // IE 11 Workaround for input placeholder : https://github.com/primefaces/primeng/issues/2026
-        if (!this.isKeydown) {
-            return;
-        }
-        this.isKeydown = false;
-        let val = event.target.value;
-        try {
-            let value = this.parseValueFromString(val);
-            if (this.isValidSelection(value)) {
-                this.updateModel(value);
-                this.updateUI();
-            }
-        }
-        catch (err) {
-            //invalid date
-            this.updateModel(null);
-        }
-        this.filled = val != null && val.length;
-        this.onInput.emit(event);
-    }
-    isValidSelection(value) {
-        let isValid = true;
-        if (this.isSingleSelection()) {
-            if (!this.isSelectable(value.getDate(), value.getMonth(), value.getFullYear(), false)) {
-                isValid = false;
-            }
-        }
-        else if (value.every(v => this.isSelectable(v.getDate(), v.getMonth(), v.getFullYear(), false))) {
-            if (this.isRangeSelection()) {
-                isValid = value.length > 1 && value[1] > value[0] ? true : false;
-            }
-        }
-        return isValid;
-    }
-    parseValueFromString(text) {
-        if (!text || text.trim().length === 0) {
-            return null;
-        }
-        let value;
-        if (this.isSingleSelection()) {
-            value = this.parseDateTime(text);
-        }
-        else if (this.isMultipleSelection()) {
-            let tokens = text.split(this.multipleSeparator);
-            value = [];
-            for (let token of tokens) {
-                value.push(this.parseDateTime(token.trim()));
-            }
-        }
-        else if (this.isRangeSelection()) {
-            let tokens = text.split(' ' + this.rangeSeparator + ' ');
-            value = [];
-            for (let i = 0; i < tokens.length; i++) {
-                value[i] = this.parseDateTime(tokens[i].trim());
-            }
-        }
-        return value;
-    }
-    parseDateTime(text) {
-        let date;
-        let parts = text.split(' ');
-        if (this.timeOnly) {
-            date = new Date();
-            this.populateTime(date, parts[0], parts[1]);
-        }
-        else {
-            const dateFormat = this.getDateFormat();
-            if (this.showTime) {
-                let ampm = this.hourFormat == '12' ? parts.pop() : null;
-                let timeString = parts.pop();
-                date = this.parseDate(parts.join(' '), dateFormat);
-                this.populateTime(date, timeString, ampm);
-            }
-            else {
-                date = this.parseDate(text, dateFormat);
-            }
-        }
-        return date;
-    }
-    populateTime(value, timeString, ampm) {
-        if (this.hourFormat == '12' && !ampm) {
-            throw 'Invalid Time';
-        }
-        this.pm = (ampm === 'PM' || ampm === 'pm');
-        let time = this.parseTime(timeString);
-        value.setHours(time.hour);
-        value.setMinutes(time.minute);
-        value.setSeconds(time.second);
-    }
-    updateUI() {
-        let val = this.value || this.defaultDate || new Date();
-        if (Array.isArray(val)) {
-            val = val[0];
-        }
-        this.currentMonth = val.getMonth();
-        this.currentYear = val.getFullYear();
-        this.createMonths(this.currentMonth, this.currentYear);
-        if (this.showTime || this.timeOnly) {
-            let hours = val.getHours();
-            if (this.hourFormat == '12') {
-                this.pm = hours > 11;
-                if (hours >= 12) {
-                    this.currentHour = (hours == 12) ? 12 : hours - 12;
-                }
-                else {
-                    this.currentHour = (hours == 0) ? 12 : hours;
-                }
-            }
-            else {
-                this.currentHour = val.getHours();
-            }
-            this.currentMinute = val.getMinutes();
-            this.currentSecond = val.getSeconds();
-        }
-    }
-    showOverlay() {
-        if (!this.overlayVisible) {
-            this.updateUI();
-            this.overlayVisible = true;
-        }
-    }
-    hideOverlay() {
-        this.overlayVisible = false;
-        this.clearTimePickerTimer();
-        if (this.touchUI) {
-            this.disableModality();
-        }
-    }
-    toggle() {
-        if (!this.inline) {
-            if (!this.overlayVisible) {
-                this.showOverlay();
-                this.inputfieldViewChild.nativeElement.focus();
-            }
-            else {
-                this.hideOverlay();
-            }
-        }
-    }
-    onOverlayAnimationStart(event) {
-        switch (event.toState) {
-            case 'visible':
-            case 'visibleTouchUI':
-                if (!this.inline) {
-                    this.overlay = event.element;
-                    this.appendOverlay();
-                    if (this.autoZIndex) {
-                        this.overlay.style.zIndex = String(this.baseZIndex + (++primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].zindex));
-                    }
-                    this.alignOverlay();
-                }
-                break;
-            case 'void':
-                this.onOverlayHide();
-                this.onClose.emit(event);
-                break;
-        }
-    }
-    onOverlayAnimationDone(event) {
-        switch (event.toState) {
-            case 'visible':
-            case 'visibleTouchUI':
-                if (!this.inline) {
-                    this.bindDocumentClickListener();
-                    this.bindDocumentResizeListener();
-                }
-                break;
-        }
-    }
-    appendOverlay() {
-        if (this.appendTo) {
-            if (this.appendTo === 'body')
-                document.body.appendChild(this.overlay);
-            else
-                primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].appendChild(this.overlay, this.appendTo);
-        }
-    }
-    restoreOverlayAppend() {
-        if (this.overlay && this.appendTo) {
-            this.el.nativeElement.appendChild(this.overlay);
-        }
-    }
-    alignOverlay() {
-        if (this.touchUI) {
-            this.enableModality(this.overlay);
-        }
-        else {
-            if (this.appendTo)
-                primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].absolutePosition(this.overlay, this.inputfieldViewChild.nativeElement);
-            else
-                primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].relativePosition(this.overlay, this.inputfieldViewChild.nativeElement);
-        }
-    }
-    enableModality(element) {
-        if (!this.mask) {
-            this.mask = document.createElement('div');
-            this.mask.style.zIndex = String(parseInt(element.style.zIndex) - 1);
-            let maskStyleClass = 'ui-widget-overlay ui-datepicker-mask ui-datepicker-mask-scrollblocker';
-            primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].addMultipleClasses(this.mask, maskStyleClass);
-            this.maskClickListener = this.renderer.listen(this.mask, 'click', (event) => {
-                this.disableModality();
-            });
-            document.body.appendChild(this.mask);
-            primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].addClass(document.body, 'ui-overflow-hidden');
-        }
-    }
-    disableModality() {
-        if (this.mask) {
-            document.body.removeChild(this.mask);
-            let bodyChildren = document.body.children;
-            let hasBlockerMasks;
-            for (let i = 0; i < bodyChildren.length; i++) {
-                let bodyChild = bodyChildren[i];
-                if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(bodyChild, 'ui-datepicker-mask-scrollblocker')) {
-                    hasBlockerMasks = true;
-                    break;
-                }
-            }
-            if (!hasBlockerMasks) {
-                primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].removeClass(document.body, 'ui-overflow-hidden');
-            }
-            this.unbindMaskClickListener();
-            this.mask = null;
-        }
-    }
-    unbindMaskClickListener() {
-        if (this.maskClickListener) {
-            this.maskClickListener();
-            this.maskClickListener = null;
-        }
-    }
-    writeValue(value) {
-        this.value = value;
-        if (this.value && typeof this.value === 'string') {
-            this.value = this.parseValueFromString(this.value);
-        }
-        this.updateInputfield();
-        this.updateUI();
-    }
-    registerOnChange(fn) {
-        this.onModelChange = fn;
-    }
-    registerOnTouched(fn) {
-        this.onModelTouched = fn;
-    }
-    setDisabledState(val) {
-        this.disabled = val;
-    }
-    getDateFormat() {
-        return this.dateFormat || this.locale.dateFormat;
-    }
-    // Ported from jquery-ui datepicker formatDate
-    formatDate(date, format) {
-        if (!date) {
-            return '';
-        }
-        let iFormat;
-        const lookAhead = (match) => {
-            const matches = (iFormat + 1 < format.length && format.charAt(iFormat + 1) === match);
-            if (matches) {
-                iFormat++;
-            }
-            return matches;
-        }, formatNumber = (match, value, len) => {
-            let num = '' + value;
-            if (lookAhead(match)) {
-                while (num.length < len) {
-                    num = '0' + num;
-                }
-            }
-            return num;
-        }, formatName = (match, value, shortNames, longNames) => {
-            return (lookAhead(match) ? longNames[value] : shortNames[value]);
-        };
-        let output = '';
-        let literal = false;
-        if (date) {
-            for (iFormat = 0; iFormat < format.length; iFormat++) {
-                if (literal) {
-                    if (format.charAt(iFormat) === '\'' && !lookAhead('\'')) {
-                        literal = false;
-                    }
-                    else {
-                        output += format.charAt(iFormat);
-                    }
-                }
-                else {
-                    switch (format.charAt(iFormat)) {
-                        case 'd':
-                            output += formatNumber('d', date.getDate(), 2);
-                            break;
-                        case 'D':
-                            output += formatName('D', date.getDay(), this.locale.dayNamesShort, this.locale.dayNames);
-                            break;
-                        case 'o':
-                            output += formatNumber('o', Math.round((new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime() -
-                                new Date(date.getFullYear(), 0, 0).getTime()) / 86400000), 3);
-                            break;
-                        case 'm':
-                            output += formatNumber('m', date.getMonth() + 1, 2);
-                            break;
-                        case 'M':
-                            output += formatName('M', date.getMonth(), this.locale.monthNamesShort, this.locale.monthNames);
-                            break;
-                        case 'y':
-                            output += lookAhead('y') ? date.getFullYear() : (date.getFullYear() % 100 < 10 ? '0' : '') + (date.getFullYear() % 100);
-                            break;
-                        case '@':
-                            output += date.getTime();
-                            break;
-                        case '!':
-                            output += date.getTime() * 10000 + this.ticksTo1970;
-                            break;
-                        case '\'':
-                            if (lookAhead('\'')) {
-                                output += '\'';
-                            }
-                            else {
-                                literal = true;
-                            }
-                            break;
-                        default:
-                            output += format.charAt(iFormat);
-                    }
-                }
-            }
-        }
-        return output;
-    }
-    formatTime(date) {
-        if (!date) {
-            return '';
-        }
-        let output = '';
-        let hours = date.getHours();
-        let minutes = date.getMinutes();
-        let seconds = date.getSeconds();
-        if (this.hourFormat == '12' && hours > 11 && hours != 12) {
-            hours -= 12;
-        }
-        if (this.hourFormat == '12') {
-            output += hours === 0 ? 12 : (hours < 10) ? '0' + hours : hours;
-        }
-        else {
-            output += (hours < 10) ? '0' + hours : hours;
-        }
-        output += ':';
-        output += (minutes < 10) ? '0' + minutes : minutes;
-        if (this.showSeconds) {
-            output += ':';
-            output += (seconds < 10) ? '0' + seconds : seconds;
-        }
-        if (this.hourFormat == '12') {
-            output += date.getHours() > 11 ? ' PM' : ' AM';
-        }
-        return output;
-    }
-    parseTime(value) {
-        let tokens = value.split(':');
-        let validTokenLength = this.showSeconds ? 3 : 2;
-        if (tokens.length !== validTokenLength) {
-            throw "Invalid time";
-        }
-        let h = parseInt(tokens[0]);
-        let m = parseInt(tokens[1]);
-        let s = this.showSeconds ? parseInt(tokens[2]) : null;
-        if (isNaN(h) || isNaN(m) || h > 23 || m > 59 || (this.hourFormat == '12' && h > 12) || (this.showSeconds && (isNaN(s) || s > 59))) {
-            throw "Invalid time";
-        }
-        else {
-            if (this.hourFormat == '12') {
-                if (h !== 12 && this.pm) {
-                    h += 12;
-                }
-                else if (!this.pm && h === 12) {
-                    h -= 12;
-                }
-            }
-            return { hour: h, minute: m, second: s };
-        }
-    }
-    // Ported from jquery-ui datepicker parseDate
-    parseDate(value, format) {
-        if (format == null || value == null) {
-            throw "Invalid arguments";
-        }
-        value = (typeof value === "object" ? value.toString() : value + "");
-        if (value === "") {
-            return null;
-        }
-        let iFormat, dim, extra, iValue = 0, shortYearCutoff = (typeof this.shortYearCutoff !== "string" ? this.shortYearCutoff : new Date().getFullYear() % 100 + parseInt(this.shortYearCutoff, 10)), year = -1, month = -1, day = -1, doy = -1, literal = false, date, lookAhead = (match) => {
-            let matches = (iFormat + 1 < format.length && format.charAt(iFormat + 1) === match);
-            if (matches) {
-                iFormat++;
-            }
-            return matches;
-        }, getNumber = (match) => {
-            let isDoubled = lookAhead(match), size = (match === "@" ? 14 : (match === "!" ? 20 :
-                (match === "y" && isDoubled ? 4 : (match === "o" ? 3 : 2)))), minSize = (match === "y" ? size : 1), digits = new RegExp("^\\d{" + minSize + "," + size + "}"), num = value.substring(iValue).match(digits);
-            if (!num) {
-                throw "Missing number at position " + iValue;
-            }
-            iValue += num[0].length;
-            return parseInt(num[0], 10);
-        }, getName = (match, shortNames, longNames) => {
-            let index = -1;
-            let arr = lookAhead(match) ? longNames : shortNames;
-            let names = [];
-            for (let i = 0; i < arr.length; i++) {
-                names.push([i, arr[i]]);
-            }
-            names.sort((a, b) => {
-                return -(a[1].length - b[1].length);
-            });
-            for (let i = 0; i < names.length; i++) {
-                let name = names[i][1];
-                if (value.substr(iValue, name.length).toLowerCase() === name.toLowerCase()) {
-                    index = names[i][0];
-                    iValue += name.length;
-                    break;
-                }
-            }
-            if (index !== -1) {
-                return index + 1;
-            }
-            else {
-                throw "Unknown name at position " + iValue;
-            }
-        }, checkLiteral = () => {
-            if (value.charAt(iValue) !== format.charAt(iFormat)) {
-                throw "Unexpected literal at position " + iValue;
-            }
-            iValue++;
-        };
-        if (this.view === 'month') {
-            day = 1;
-        }
-        for (iFormat = 0; iFormat < format.length; iFormat++) {
-            if (literal) {
-                if (format.charAt(iFormat) === "'" && !lookAhead("'")) {
-                    literal = false;
-                }
-                else {
-                    checkLiteral();
-                }
-            }
-            else {
-                switch (format.charAt(iFormat)) {
-                    case "d":
-                        day = getNumber("d");
-                        break;
-                    case "D":
-                        getName("D", this.locale.dayNamesShort, this.locale.dayNames);
-                        break;
-                    case "o":
-                        doy = getNumber("o");
-                        break;
-                    case "m":
-                        month = getNumber("m");
-                        break;
-                    case "M":
-                        month = getName("M", this.locale.monthNamesShort, this.locale.monthNames);
-                        break;
-                    case "y":
-                        year = getNumber("y");
-                        break;
-                    case "@":
-                        date = new Date(getNumber("@"));
-                        year = date.getFullYear();
-                        month = date.getMonth() + 1;
-                        day = date.getDate();
-                        break;
-                    case "!":
-                        date = new Date((getNumber("!") - this.ticksTo1970) / 10000);
-                        year = date.getFullYear();
-                        month = date.getMonth() + 1;
-                        day = date.getDate();
-                        break;
-                    case "'":
-                        if (lookAhead("'")) {
-                            checkLiteral();
-                        }
-                        else {
-                            literal = true;
-                        }
-                        break;
-                    default:
-                        checkLiteral();
-                }
-            }
-        }
-        if (iValue < value.length) {
-            extra = value.substr(iValue);
-            if (!/^\s+/.test(extra)) {
-                throw "Extra/unparsed characters found in date: " + extra;
-            }
-        }
-        if (year === -1) {
-            year = new Date().getFullYear();
-        }
-        else if (year < 100) {
-            year += new Date().getFullYear() - new Date().getFullYear() % 100 +
-                (year <= shortYearCutoff ? 0 : -100);
-        }
-        if (doy > -1) {
-            month = 1;
-            day = doy;
-            do {
-                dim = this.getDaysCountInMonth(year, month - 1);
-                if (day <= dim) {
-                    break;
-                }
-                month++;
-                day -= dim;
-            } while (true);
-        }
-        date = this.daylightSavingAdjust(new Date(year, month - 1, day));
-        if (date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day) {
-            throw "Invalid date"; // E.g. 31/02/00
-        }
-        return date;
-    }
-    daylightSavingAdjust(date) {
-        if (!date) {
-            return null;
-        }
-        date.setHours(date.getHours() > 12 ? date.getHours() + 2 : 0);
-        return date;
-    }
-    updateFilledState() {
-        this.filled = this.inputFieldValue && this.inputFieldValue != '';
-    }
-    onTodayButtonClick(event) {
-        let date = new Date();
-        let dateMeta = { day: date.getDate(), month: date.getMonth(), year: date.getFullYear(), otherMonth: date.getMonth() !== this.currentMonth || date.getFullYear() !== this.currentYear, today: true, selectable: true };
-        this.onDateSelect(event, dateMeta);
-        this.onTodayClick.emit(event);
-    }
-    onClearButtonClick(event) {
-        this.updateModel(null);
-        this.updateInputfield();
-        this.hideOverlay();
-        this.onClearClick.emit(event);
-    }
-    bindDocumentClickListener() {
-        if (!this.documentClickListener) {
-            this.zone.runOutsideAngular(() => {
-                this.documentClickListener = this.renderer.listen('document', 'click', (event) => {
-                    if (this.isOutsideClicked(event) && this.overlayVisible) {
-                        this.zone.run(() => {
-                            this.hideOverlay();
-                            this.cd.markForCheck();
-                        });
-                    }
-                });
-            });
-        }
-    }
-    unbindDocumentClickListener() {
-        if (this.documentClickListener) {
-            this.documentClickListener();
-            this.documentClickListener = null;
-        }
-    }
-    bindDocumentResizeListener() {
-        if (!this.documentResizeListener && !this.touchUI) {
-            this.documentResizeListener = this.onWindowResize.bind(this);
-            window.addEventListener('resize', this.documentResizeListener);
-        }
-    }
-    unbindDocumentResizeListener() {
-        if (this.documentResizeListener) {
-            window.removeEventListener('resize', this.documentResizeListener);
-            this.documentResizeListener = null;
-        }
-    }
-    isOutsideClicked(event) {
-        return !(this.el.nativeElement.isSameNode(event.target) || this.isNavIconClicked(event) ||
-            this.el.nativeElement.contains(event.target) || (this.overlay && this.overlay.contains(event.target)));
-    }
-    isNavIconClicked(event) {
-        return (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(event.target, 'ui-datepicker-prev') || primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(event.target, 'ui-datepicker-prev-icon')
-            || primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(event.target, 'ui-datepicker-next') || primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(event.target, 'ui-datepicker-next-icon'));
-    }
-    onWindowResize() {
-        if (this.overlayVisible && !primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].isAndroid()) {
-            this.hideOverlay();
-        }
-    }
-    onOverlayHide() {
-        this.unbindDocumentClickListener();
-        this.unbindMaskClickListener();
-        this.unbindDocumentResizeListener();
-        this.overlay = null;
-        this.disableModality();
-    }
-    ngOnDestroy() {
-        this.clearTimePickerTimer();
-        this.restoreOverlayAppend();
-        this.onOverlayHide();
-    }
-};
-Calendar.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
-];
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "defaultDate", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "style", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "styleClass", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "inputStyle", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "inputId", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "name", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "inputStyleClass", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "placeholder", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "ariaLabelledBy", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "disabled", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "dateFormat", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "multipleSeparator", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "rangeSeparator", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "inline", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showOtherMonths", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "selectOtherMonths", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showIcon", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "icon", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "appendTo", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "readonlyInput", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "shortYearCutoff", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "monthNavigator", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "yearNavigator", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "hourFormat", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "timeOnly", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "stepHour", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "stepMinute", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "stepSecond", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showSeconds", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "required", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showOnFocus", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showWeek", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "dataType", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "selectionMode", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "maxDateCount", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showButtonBar", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "todayButtonStyleClass", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "clearButtonStyleClass", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "autoZIndex", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "baseZIndex", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "panelStyleClass", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "panelStyle", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "keepInvalid", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "hideOnDateTimeSelect", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "numberOfMonths", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "view", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "touchUI", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "timeSeparator", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showTransitionOptions", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "hideTransitionOptions", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onFocus", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onBlur", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onClose", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onSelect", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onInput", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onTodayClick", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onClearClick", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onMonthChange", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onYearChange", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChildren"])(primeng_api__WEBPACK_IMPORTED_MODULE_5__["PrimeTemplate"])
-], Calendar.prototype, "templates", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "tabindex", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('inputfield', { static: false })
-], Calendar.prototype, "inputfieldViewChild", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('contentWrapper', { static: false })
-], Calendar.prototype, "content", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "minDate", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "maxDate", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "disabledDates", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "disabledDays", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "yearRange", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showTime", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "locale", null);
-Calendar = __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-        selector: 'p-calendar',
-        template: `
-        <span [ngClass]="{'ui-calendar':true, 'ui-calendar-w-btn': showIcon, 'ui-calendar-timeonly': timeOnly}" [ngStyle]="style" [class]="styleClass">
-            <ng-template [ngIf]="!inline">
-                <input #inputfield type="text" [attr.id]="inputId" [attr.name]="name" [attr.required]="required" [attr.aria-required]="required" [value]="inputFieldValue" (focus)="onInputFocus($event)" (keydown)="onInputKeydown($event)" (click)="onInputClick($event)" (blur)="onInputBlur($event)"
-                    [readonly]="readonlyInput" (input)="onUserInput($event)" [ngStyle]="inputStyle" [class]="inputStyleClass" [placeholder]="placeholder||''" [disabled]="disabled" [attr.tabindex]="tabindex"
-                    [ngClass]="'ui-inputtext ui-widget ui-state-default ui-corner-all'" autocomplete="off" [attr.aria-labelledby]="ariaLabelledBy"
-                    ><button type="button" [icon]="icon" pButton *ngIf="showIcon" (click)="onButtonClick($event,inputfield)" class="ui-datepicker-trigger ui-calendar-button"
-                    [ngClass]="{'ui-state-disabled':disabled}" [disabled]="disabled" tabindex="0"></button>
-            </ng-template>
-            <div #contentWrapper [class]="panelStyleClass" [ngStyle]="panelStyle" [ngClass]="{'ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all': true, 'ui-datepicker-inline':inline,'ui-shadow':!inline,
-                'ui-state-disabled':disabled,'ui-datepicker-timeonly':timeOnly,'ui-datepicker-multiple-month': this.numberOfMonths > 1, 'ui-datepicker-monthpicker': (view === 'month'), 'ui-datepicker-touch-ui': touchUI}"
-                [@overlayAnimation]="touchUI ? {value: 'visibleTouchUI', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}: 
-                                            {value: 'visible', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" 
-                                            [@.disabled]="inline === true" (@overlayAnimation.start)="onOverlayAnimationStart($event)" (@overlayAnimation.done)="onOverlayAnimationDone($event)" *ngIf="inline || overlayVisible">
-                <ng-content select="p-header"></ng-content>
-                <ng-container *ngIf="!timeOnly">
-                    <div class="ui-datepicker-group ui-widget-content" *ngFor="let month of months; let i = index;">
-                        <div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all">
-                            <a class="ui-datepicker-prev ui-corner-all" (click)="onPrevButtonClick($event)" (keydown.enter)="onPrevButtonClick($event)" *ngIf="i === 0" tabindex="0" (keydown)="onInputKeydown($event)">
-                                <span class="ui-datepicker-prev-icon pi pi-chevron-left"></span>
-                            </a>
-                            <div class="ui-datepicker-title">
-                                <span class="ui-datepicker-month" *ngIf="!monthNavigator && (view !== 'month')">{{locale.monthNames[month.month]}}</span>
-                                <select tabindex="0" class="ui-datepicker-month" *ngIf="monthNavigator && (view !== 'month') && numberOfMonths === 1" (change)="onMonthDropdownChange($event.target.value)">
-                                    <option [value]="i" *ngFor="let monthName of locale.monthNames;let i = index" [selected]="i === month.month">{{monthName}}</option>
-                                </select>
-                                <select tabindex="0" class="ui-datepicker-year" *ngIf="yearNavigator && numberOfMonths === 1" (change)="onYearDropdownChange($event.target.value)">
-                                    <option [value]="year" *ngFor="let year of yearOptions" [selected]="year === currentYear">{{year}}</option>
-                                </select>
-                                <span class="ui-datepicker-year" *ngIf="!yearNavigator">{{view === 'month' ? currentYear : month.year}}</span>
-                            </div>
-                            <a class="ui-datepicker-next ui-corner-all" (click)="onNextButtonClick($event)" (keydown.enter)="onNextButtonClick($event)" *ngIf="numberOfMonths === 1 ? true : (i === numberOfMonths -1)" tabindex="0" (keydown)="onInputKeydown($event)">
-                                <span class="ui-datepicker-next-icon pi pi-chevron-right"></span>
-                            </a>
-                        </div>
-                        <div class="ui-datepicker-calendar-container" *ngIf="view ==='date'">
-                            <table class="ui-datepicker-calendar">
-                                <thead>
-                                    <tr>
-                                        <th *ngIf="showWeek" class="ui-datepicker-weekheader">
-                                            <span>{{locale['weekHeader']}}</span>
-                                        </th>
-                                        <th scope="col" *ngFor="let weekDay of weekDays;let begin = first; let end = last">
-                                            <span>{{weekDay}}</span>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let week of month.dates; let j = index;">
-                                        <td *ngIf="showWeek" class="ui-datepicker-weeknumber ui-state-disabled">
-                                            <span>
-                                                {{month.weekNumbers[j]}}
-                                            </span>
-                                        </td>
-                                        <td *ngFor="let date of week" [ngClass]="{'ui-datepicker-other-month': date.otherMonth,
-                                            'ui-datepicker-current-day':isSelected(date),'ui-datepicker-today':date.today}">
-                                            <ng-container *ngIf="date.otherMonth ? showOtherMonths : true">
-                                                <a class="ui-state-default" *ngIf="date.selectable" [ngClass]="{'ui-state-active':isSelected(date), 'ui-state-highlight':date.today}"
-                                                    (click)="onDateSelect($event,date)" draggable="false" (keydown)="onDateCellKeydown($event,date,i)">
-                                                    <ng-container *ngIf="!dateTemplate">{{date.day}}</ng-container>
-                                                    <ng-container *ngTemplateOutlet="dateTemplate; context: {$implicit: date}"></ng-container>
-                                                </a>
-                                                <span class="ui-state-default ui-state-disabled" [ngClass]="{'ui-state-active':isSelected(date), 'ui-state-highlight':date.today}" *ngIf="!date.selectable">
-                                                    {{date.day}}
-                                                </span>
-                                            </ng-container>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="ui-monthpicker" *ngIf="view === 'month'">
-                        <a  *ngFor="let m of monthPickerValues; let i = index" (click)="onMonthSelect($event, i)" (keydown)="onMonthCellKeydown($event,i)" class="ui-monthpicker-month" [ngClass]="{'ui-state-active': isMonthSelected(i)}">
-                            {{m}}
-                        </a>
-                    </div>
-                </ng-container>
-                <div class="ui-timepicker ui-widget-header ui-corner-all" *ngIf="showTime||timeOnly">
-                    <div class="ui-hour-picker">
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="incrementHour($event)" (mousedown)="onTimePickerElementMouseDown($event, 0, 1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
-                            <span class="pi pi-chevron-up"></span>
-                        </a>
-                        <span [ngStyle]="{'display': currentHour < 10 ? 'inline': 'none'}">0</span><span>{{currentHour}}</span>
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="decrementHour($event)" (mousedown)="onTimePickerElementMouseDown($event, 0, -1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
-                            <span class="pi pi-chevron-down"></span>
-                        </a>
-                    </div>
-                    <div class="ui-separator">
-                        <a>
-                            <span class="pi pi-chevron-up"></span>
-                        </a>
-                        <span>{{timeSeparator}}</span>
-                        <a>
-                            <span class="pi pi-chevron-down"></span>
-                        </a>
-                    </div>
-                    <div class="ui-minute-picker">
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="incrementMinute($event)" (mousedown)="onTimePickerElementMouseDown($event, 1, 1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
-                            <span class="pi pi-chevron-up"></span>
-                        </a>
-                        <span [ngStyle]="{'display': currentMinute < 10 ? 'inline': 'none'}">0</span><span>{{currentMinute}}</span>
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="decrementMinute($event)" (mousedown)="onTimePickerElementMouseDown($event, 1, -1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
-                            <span class="pi pi-chevron-down"></span>
-                        </a>
-                    </div>
-                    <div class="ui-separator" *ngIf="showSeconds">
-                        <a>
-                            <span class="pi pi-chevron-up"></span>
-                        </a>
-                        <span>{{timeSeparator}}</span>
-                        <a>
-                            <span class="pi pi-chevron-down"></span>
-                        </a>
-                    </div>
-                    <div class="ui-second-picker" *ngIf="showSeconds">
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="incrementSecond($event)" (mousedown)="onTimePickerElementMouseDown($event, 2, 1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
-                            <span class="pi pi-chevron-up"></span>
-                        </a>
-                        <span [ngStyle]="{'display': currentSecond < 10 ? 'inline': 'none'}">0</span><span>{{currentSecond}}</span>
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="decrementSecond($event)" (mousedown)="onTimePickerElementMouseDown($event, 2, -1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
-                            <span class="pi pi-chevron-down"></span>
-                        </a>
-                    </div>
-                    <div class="ui-ampm-picker" *ngIf="hourFormat=='12'">
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (click)="toggleAMPM($event)" (keydown.enter)="toggleAMPM($event)">
-                            <span class="pi pi-chevron-up"></span>
-                        </a>
-                        <span>{{pm ? 'PM' : 'AM'}}</span>
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (click)="toggleAMPM($event)" (keydown.enter)="toggleAMPM($event)">
-                            <span class="pi pi-chevron-down"></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="ui-datepicker-buttonbar ui-widget-header" *ngIf="showButtonBar">
-                    <div class="ui-g">
-                        <div class="ui-g-6">
-                            <button type="button" tabindex="0" [label]="_locale.today" (keydown)="onContainerButtonKeydown($event)" (click)="onTodayButtonClick($event)" pButton [ngClass]="[todayButtonStyleClass]"></button>
-                        </div>
-                        <div class="ui-g-6">
-                            <button type="button" tabindex="0" [label]="_locale.clear" (keydown)="onContainerButtonKeydown($event)" (click)="onClearButtonClick($event)" pButton [ngClass]="[clearButtonStyleClass]"></button>
-                        </div>
-                    </div>
-                </div>
-                <ng-content select="p-footer"></ng-content>
-            </div>
-        </span>
-    `,
-        animations: [
-            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["trigger"])('overlayAnimation', [
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('visible', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-                    transform: 'translateY(0)',
-                    opacity: 1
-                })),
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('visibleTouchUI', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-                    transform: 'translate(-50%,-50%)',
-                    opacity: 1
-                })),
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('void => visible', [
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateY(5%)', opacity: 0 }),
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('{{showTransitionParams}}')
-                ]),
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('visible => void', [
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])(('{{hideTransitionParams}}'), Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-                        opacity: 0,
-                        transform: 'translateY(5%)'
-                    }))
-                ]),
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('void => visibleTouchUI', [
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ opacity: 0, transform: 'translate3d(-50%, -40%, 0) scale(0.9)' }),
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('{{showTransitionParams}}')
-                ]),
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('visibleTouchUI => void', [
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])(('{{hideTransitionParams}}'), Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-                        opacity: 0,
-                        transform: 'translate3d(-50%, -40%, 0) scale(0.9)'
-                    }))
-                ])
-            ])
-        ],
-        host: {
-            '[class.ui-inputwrapper-filled]': 'filled',
-            '[class.ui-inputwrapper-focus]': 'focus'
-        },
-        providers: [CALENDAR_VALUE_ACCESSOR]
-    })
-], Calendar);
-let CalendarModule = class CalendarModule {
-};
-CalendarModule = __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], primeng_button__WEBPACK_IMPORTED_MODULE_3__["ButtonModule"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]],
-        exports: [Calendar, primeng_button__WEBPACK_IMPORTED_MODULE_3__["ButtonModule"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]],
-        declarations: [Calendar]
-    })
-], CalendarModule);
+    });
+}
 
 /**
- * Generated bundle index. Do not edit.
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
+class Utils {
+    /* tslint:disable-next-line: no-any */
+    /**
+     * @param {?} element
+     * @return {?}
+     */
+    static reflow(element) {
+        /* tslint:disable-next-line: no-any */
+        ((/**
+         * @param {?} bs
+         * @return {?}
+         */
+        (bs) => bs))(element.offsetHeight);
+    }
+    // source: https://github.com/jquery/jquery/blob/master/src/css/var/getStyles.js
+    /* tslint:disable-next-line: no-any */
+    /**
+     * @param {?} elem
+     * @return {?}
+     */
+    static getStyles(elem) {
+        // Support: IE <=11 only, Firefox <=30 (#15098, #14150)
+        // IE throws on elements created in popups
+        // FF meanwhile throws on frame elements through "defaultView.getComputedStyle"
+        /** @type {?} */
+        let view = elem.ownerDocument.defaultView;
+        if (!view || !view.opener) {
+            view = win;
+        }
+        return view.getComputedStyle(elem);
+    }
+}
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/** @type {?} */
+const _messagesHash = {};
+/** @type {?} */
+const _hideMsg = typeof console === 'undefined' || !('warn' in console);
+/**
+ * @param {?} msg
+ * @return {?}
+ */
+function warnOnce(msg) {
+    if (!Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["isDevMode"])() || _hideMsg || msg in _messagesHash) {
+        return;
+    }
+    _messagesHash[msg] = true;
+    /*tslint:disable-next-line*/
+    console.warn(msg);
+}
 
 
-//# sourceMappingURL=primeng-calendar.js.map
+//# sourceMappingURL=ngx-bootstrap-utils.js.map
 
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/businesshours/businesshours.component.html":
-/*!***************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/businesshours/businesshours.component.html ***!
-  \***************************************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/editprofile/editprofile.component.html":
+/*!***********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/editprofile/editprofile.component.html ***!
+  \***********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <form [formGroup]='form' (ngSubmit)=\"submit()\">\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Sunday\">\n                <div class=\"col-sm-2 middle day\">Sunday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Sunday','Sun')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Sunday','Sun')\"></p-calendar>\n                    <p class=\"color error\" *ngIf=\"(isSunOpnReq)\">{{'SUNREQ'| translate}}</p>\n                    <p class=\"color error\" *ngIf=\"(isSunValid)\">{{'SUNNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Sunday','Sun')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSunClosReq)\">{{'SUNCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Sun')\"><img\n                            [src]=\"isSunBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isSunBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\"(onClose)=\"validatetime('Sunday','Sun')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSunOpnBrkReq)\">{{'SUNBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isSunBrkValid)\">{{'SUNBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isSunBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Sunday','Sun')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSunClosBrkReq)\">{{'SUNBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Monday\">\n                <div class=\"col-sm-2 middle day\">Monday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Monday','Mon')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Monday','Mon')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isMonOpnReq)\">{{'MONREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isMonValid)\">{{'MONNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Monday','Mon')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isMonClosReq)\">{{'MONCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Mon')\"><img\n                            [src]=\"isMonBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isMonBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Monday','Mon')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isMonOpnBrkReq)\">{{'MONBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isMonBrkValid)\">{{'MONBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isMonBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Monday','Mon')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isMonClosBrkReq)\">{{'MONBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Tuesday\">\n                <div class=\"col-sm-2 middle day\">Tuesday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Tuesday','Tues')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Tuesday','Tues')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isTuesOpnReq)\">{{'TUESREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isTuesValid)\">{{'TUESNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Tuesday','Tues')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isTuesClosReq)\">{{'TUESCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Tues')\"><img\n                            [src]=\"isTuesBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"\"> Add Break\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isTuesBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Tuesday','Tues')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isTuesOpnBrkReq)\">{{'TUESBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isTuesBrkValid)\">{{'TUESBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isTuesBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Tuesday','Tues')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isTuesClosBrkReq)\">{{'TUESBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Wednesday\">\n                <div class=\"col-sm-2 middle day\">Wednesday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Wednesday','Wed')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Wednesday','Wed')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isWedOpnReq)\">{{'WEDREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isWedValid)\">{{'WEDNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Wednesday','Wed')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isWedClosReq)\">{{'WEDCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Wed')\"><img\n                            [src]=\"isWedBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isWedBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Wednesday','Wed')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isWedOpnBrkReq)\">{{'WEDBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isWedBrkValid)\">{{'WEDBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isWedBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Wednesday','Wed')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isWedClosBrkReq)\">{{'WEDBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Thursday\">\n                <div class=\"col-sm-2 middle day\">Thursday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Thursday','Thurs')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Thursday','Thurs')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isThursOpnReq)\">{{'THURSREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isThursValid)\">{{'THURSNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Thursday','Thurs')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isThursClosReq)\">{{'THURSCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Thurs')\"><img\n                            [src]=\"isThursBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"\"> Add Break\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isThursBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Thursday','Thurs')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isThursOpnBrkReq)\">{{'THURSBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isThursBrkValid)\">{{'THURSBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isThursBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Thursday','Thurs')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isThursClosBrkReq)\">{{'THURSBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Friday\">\n                <div class=\"col-sm-2 middle day\">Friday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Friday','Fri')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Friday','Fri')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isFriOpnReq)\">{{'FRIREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isFriValid)\">{{'FRINTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Friday','Fri')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isFriClosReq)\">{{'FRICLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Fri')\"><img\n                            [src]=\"isFriBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isFriBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Friday','Fri')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isFriOpnBrkReq)\">{{'FRIBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isFriBrkValid)\">{{'FRIBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isFriBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Friday','Fri')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isFriClosBrkReq)\">{{'FRIBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Saturday\">\n                <div class=\"col-sm-2 middle day\">Saturday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Saturday','Sat')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Saturday','Sat')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSatOpnReq)\">{{'SATREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isSatValid)\">{{'SATNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Saturday','Sat')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSatClosReq)\">{{'SATCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Sat')\"><img\n                            [src]=\"isSatBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isSatBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Saturday','Sat')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSatOpnBrkReq)\">{{'SATBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isSatBrkValid)\">{{'SATBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isSatBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Saturday','Sat')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSatOpnBrkReq)\">{{'SATBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <button class=\"btn btn-submit\">Save</button>\n    </form>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form [formGroup]='profile' (ngSubmit)='update()'>\n            <div class=\"text-center\">\n                <div class=\"file_input\">\n                    <img [src]=\"url\" alt=\"\">\n                </div>\n                <label for=\"\" class=\"custom_label upload-image\">\n                    <input type=\"file\" accept=\"image/jpeg,image/png\" (change)=\"readUrl($event)\">\n                    {{'CHNGPIC'| translate}}</label>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/edit-user.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Salon Name\" class=\"form-control\" formControlName=\"name\" maxlength=\"100\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.name.dirty|| getControl.name.touched) && getControl.name.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.name.errors.required\">{{'INCRTSALONNAME'| translate}}</p>\n                <!-- <p class=\"color error\" *ngIf=\"!getControl.name.errors.required && getControl.name.errors.invalidName\">\n                    {{'INCRTSALONNAME'| translate}}</p> -->\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/email.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'EMAIL'| translate | titlecase}}\" class=\"form-control\"\n                    formControlName=\"email\" maxlength=\"100\" readonly>\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.email.dirty|| getControl.email.touched) && getControl.email.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.email.errors.required\">{{'LOGINEMAIL'| translate}}</p>\n                <p class=\"color error\"\n                    *ngIf=\"!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress\">\n                    {{'LOGINVALIDEMAIL'| translate}}</p>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img phone\"><img src=\"assets/images/mobile.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PHONE'| translate}}\"\n                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' class=\"form-control\"\n                    formControlName=\"phone\" maxlength=\"12\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.phone.dirty|| getControl.phone.touched) && getControl.phone.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.phone.errors.required\">{{'PHNREQ'|translate}}</p>\n                <p class=\"color error\"\n                    *ngIf=\"!getControl.phone.errors.required && getControl.phone.errors.Invalidphone \">\n                    {{'PHNLNGTH'|translate}}</p>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/location.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Location\" class=\"form-control\" #search autocorrect=\"off\"\n                    autocapitalize=\"off\" spellcheck=\"off\" formControlName=\"location\">\n                <div\n                    *ngIf=\"(submitted || getControl.location.dirty|| getControl.location.touched) && getControl.location.errors\">\n                    <p class=\"color error\" *ngIf=\"getControl.location.errors.required\">{{'LOCREQ' | translate}}</p>\n                </div>\n                <!-- <img class=\"full_width\" src=\"assets/images/maps.png\" alt=\"\"> -->\n                <div class=\"map full_width\">\n                    <agm-map [latitude]=\"location.lat\" [longitude]=\"location.lng\" [(zoom)]=\"location.zoom\"\n                        [zoomControl]=\"true\">\n                        <agm-marker [latitude]=\"location.lat\" [longitude]=\"location.lng\"></agm-marker>\n                    </agm-map>\n                </div>\n            </mat-form-field>\n\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/description.png\" alt=\"envelope\"></span>\n                <textarea matInput placeholder=\"{{'DESCRIPTION'| translate}}\" class=\"form-control\"\n                    formControlName=\"description\" maxlength=\"500\"></textarea>\n            </mat-form-field>\n            <div\n                *ngIf=\"(submitted || getControl.description.dirty|| getControl.description.touched) && getControl.description.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.description.errors.required\">{{'DESCREQ' | translate}}</p>\n                <p class=\"color error\" *ngIf=\"getControl.description.errors.minlength \">{{'DESCLNGTH'| translate}}</p>\n            </div>\n            <div class=\"work_gallery\">\n                <label for=\"\" class=\"block\">{{'WORKGALLERY'| translate}}</label>\n                <div class=\"form-group form-primary custom_formgroup\">\n\n                    <label class=\"detail_content\">\n                        <a class=\"margin_top\" *ngFor=\"let image of salonImageUrlArray; index as i\">\n                            <img class=\"file_upload2\" [src]=\"image\" alt=\"Upload\">\n                            <span (click)=\"removeSalonImages(image,i)\">x</span> </a>\n                    </label>\n                    <span class=\"file_div\">\n                        <input type=\"file\" class=\"custom_upload1\" multiple\n                            accept=\"image/x-png,image/gif,image/jpeg,image/jpg\" (change)=\"readUrlMultipleImage($event)\"\n                            formControlName='multiImage'>\n                        <img class=\"file_upload1\" src=\"assets/images/add-edit.png\" alt=\"Upload\">\n                    </span>\n                </div>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/web.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Website\" class=\"form-control\" formControlName=\"website\">\n            </mat-form-field>\n            <div\n                *ngIf=\"(submitted || getControl.website.dirty|| getControl.website.touched) && getControl.website.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.website.errors.invalidWebsite \">{{'WBSTINVLD' | translate}}</p>\n            </div>\n            <!-- <div class=\"setting_list\">\n                <div class=\"row\">\n                    <div class=\"col-md-6\">{{'ONLINBOOKING'| translate}}</div>\n                    <div class=\"col-md-6 alignright\">\n                        <mat-slide-toggle></mat-slide-toggle>\n                    </div>\n                </div>\n            </div> -->\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/service.png\" alt=\"envelope\"></span>\n                <mat-label>Service At</mat-label>\n                <mat-select formControlName='serviceat'>\n                    <mat-option *ngFor=\"let service of services\" [value]=\"service.value\">\n                        {{service.viewValue}}\n                    </mat-option>\n                </mat-select>\n            </mat-form-field>\n            <a [routerLink]=\"['/staff']\">\n                <mat-form-field>\n                    <span class=\"email-img pass\"><img src=\"assets/images/edit-staff.png\" alt=\"envelope\"></span>\n                    <input matInput placeholder=\"{{'MANAGESTAFF'| translate}}\" class=\"form-control cursor\" disabled>\n                </mat-form-field>\n            </a>\n            <a [routerLink]=\"['/profile/business-hours']\">\n                <mat-form-field>\n                    <span class=\"email-img pass\"><img src=\"assets/images/time.png\" alt=\"envelope\"></span>\n                    <input matInput placeholder=\"{{'BUSINESSHOURS'| translate}}\" class=\"form-control cursor\" disabled>\n                </mat-form-field>\n            </a>\n\n            <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">{{'SAVE'| translate}}</button>\n            </div>\n        </form>\n    </div>\n    <!-- <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8\">\n        \n                     \n                        <ng-container matColumnDef=\"No.\">\n                          <th mat-header-cell *matHeaderCellDef>No.</th>\n                          <td mat-cell *matCellDef=\"let element\">{{1}}</td>\n                        </ng-container>\n                      \n                        \n                        <ng-container matColumnDef=\"name\">\n                          <th mat-header-cell *matHeaderCellDef>Name</th>\n                          <td mat-cell *matCellDef=\"let element\">{{element.cat_name}}</td>\n                        </ng-container>\n                      \n                        \n                        <ng-container matColumnDef=\"price\">\n                          <th mat-header-cell *matHeaderCellDef>Price</th>\n                          <td mat-cell *matCellDef=\"let element\">{{element.price}}</td>\n                        </ng-container>\n                      \n                        \n                        <ng-container matColumnDef=\"discount_price\">\n                          <th mat-header-cell *matHeaderCellDef>Discount</th>\n                          <td mat-cell *matCellDef=\"let element\">{{element.discount_price}}</td>\n                        </ng-container>\n                      \n                        <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n                        <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n                      </table> -->\n    <!-- <button mat-raised-button (click)=\"openModal(template)\">Pick one</button> -->\n\n</div>\n\n<ng-template #template>\n    <div class=\"modal-content px-5\">\n        <h4 class=\"mt-3 text-left\">Salon Images</h4>\n        <div class=\"modal-body px-0\">\n            <slideshow #slideshow [imageUrls]=\"slide\" [height]=\"height\" [minHeight]=\"'200px'\" [autoPlay]=\"false\"\n                [showArrows]=\"true\" [lazyLoad]=\"true\" [backgroundSize]=\"'auto'\" [imageUrls]=\"imageSources\"\n                [lazyLoad]=\"imageSources?.length > 1\" [autoPlayWaitForLazyLoad]=\"true\"></slideshow>\n        </div>\n    </div>\n</ng-template>");
 
 /***/ }),
 
-/***/ "./src/app/home/profile/businesshours/businesshours-routing.module.ts":
-/*!****************************************************************************!*\
-  !*** ./src/app/home/profile/businesshours/businesshours-routing.module.ts ***!
-  \****************************************************************************/
-/*! exports provided: BusinesshoursRoutingModule */
+/***/ "./src/app/home/profile/editprofile/editprofile-routing.module.ts":
+/*!************************************************************************!*\
+  !*** ./src/app/home/profile/editprofile/editprofile-routing.module.ts ***!
+  \************************************************************************/
+/*! exports provided: EditprofileRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BusinesshoursRoutingModule", function() { return BusinesshoursRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditprofileRoutingModule", function() { return EditprofileRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _businesshours_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./businesshours.component */ "./src/app/home/profile/businesshours/businesshours.component.ts");
+/* harmony import */ var _editprofile_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editprofile.component */ "./src/app/home/profile/editprofile/editprofile.component.ts");
 
 
 
 
 const routes = [{
-        path: '', component: _businesshours_component__WEBPACK_IMPORTED_MODULE_3__["BusinesshoursComponent"]
+        path: '', component: _editprofile_component__WEBPACK_IMPORTED_MODULE_3__["EditprofileComponent"]
     }];
-let BusinesshoursRoutingModule = class BusinesshoursRoutingModule {
+let EditprofileRoutingModule = class EditprofileRoutingModule {
 };
-BusinesshoursRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+EditprofileRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], BusinesshoursRoutingModule);
+], EditprofileRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/profile/businesshours/businesshours.component.scss":
-/*!*************************************************************************!*\
-  !*** ./src/app/home/profile/businesshours/businesshours.component.scss ***!
-  \*************************************************************************/
+/***/ "./src/app/home/profile/editprofile/editprofile.component.scss":
+/*!*********************************************************************!*\
+  !*** ./src/app/home/profile/editprofile/editprofile.component.scss ***!
+  \*********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcHJvZmlsZS9idXNpbmVzc2hvdXJzL2J1c2luZXNzaG91cnMuY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".file_input img {\n  border-radius: 50%;\n  height: 110px;\n  width: 110px;\n  border: 5px solid whitesmoke;\n}\n\nimg.file_upload2 {\n  height: 100px !important;\n  width: 100px !important;\n  margin: 5px !important;\n  margin-left: 0px !important;\n  border: 5px solid whitesmoke;\n  position: relative;\n  border-radius: 7px;\n}\n\n.custom_upload1 {\n  position: absolute;\n  width: 100px;\n  height: 100%;\n  cursor: pointer;\n  opacity: 0;\n  text-indent: -110px;\n  z-index: 990;\n}\n\n.detail_content a.btn {\n  position: relative;\n  background: #f96ab3;\n  color: #fff !important;\n  margin: 0;\n  font-size: 17px;\n  margin-right: 15px;\n  padding: 5px 20px;\n  box-shadow: 2px 2px 7px #f96ab3;\n  margin-bottom: 15px;\n}\n\n.detail_content a.btn span {\n  cursor: pointer;\n  position: absolute;\n  right: 0px;\n  background: #FF2626;\n  height: 22px;\n  width: 22px;\n  border-radius: 50%;\n  font-size: 14px;\n  font-weight: 600;\n  text-align: center;\n  padding: 1px 0px;\n  line-height: 18px;\n}\n\n.detail_content a.margin_top {\n  position: relative;\n  color: #fff !important;\n  margin: 0;\n  font-size: 17px;\n  margin-right: 15px;\n  margin-bottom: 15px;\n}\n\n.detail_content a.margin_top span {\n  cursor: pointer;\n  position: absolute;\n  right: 0px;\n  background: #FF2626;\n  height: 22px;\n  width: 22px;\n  border-radius: 50%;\n  font-size: 14px;\n  font-weight: 600;\n  text-align: center;\n  padding: 1px 0px;\n  line-height: 18px;\n}\n\n.upload-image input[type=file] {\n  cursor: pointer;\n  position: absolute;\n  left: 0;\n  opacity: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: 999;\n  text-indent: -110px;\n}\n\n.file_div {\n  position: relative;\n  display: inline-block;\n  margin-right: 15px;\n}\n\nlabel.block {\n  display: block;\n}\n\n.work_gallery label {\n  display: contents;\n}\n\n.setting {\n  top: 16px;\n}\n\n.main-card .setting_list {\n  margin-bottom: 15px;\n  padding-bottom: 0;\n  border-bottom: 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9wcm9maWxlL2VkaXRwcm9maWxlL2VkaXRwcm9maWxlLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9ob21lL3Byb2ZpbGUvZWRpdHByb2ZpbGUvZWRpdHByb2ZpbGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxrQkFBQTtFQUNBLGFBQUE7RUFDQSxZQUFBO0VBQ0EsNEJBQUE7QUNDSjs7QURFQTtFQUFpQix3QkFBQTtFQUF5Qix1QkFBQTtFQUEwQixzQkFBQTtFQUF3QiwyQkFBQTtFQUE2Qiw0QkFBQTtFQUNySCxrQkFBQTtFQUNBLGtCQUFBO0FDTUo7O0FETEE7RUFBZ0Isa0JBQUE7RUFBbUIsWUFBQTtFQUFhLFlBQUE7RUFBYSxlQUFBO0VBQWdCLFVBQUE7RUFBVyxtQkFBQTtFQUFvQixZQUFBO0FDZTVHOztBRGJBO0VBQXNCLGtCQUFBO0VBQWtCLG1CQUFBO0VBQW9CLHNCQUFBO0VBQXdCLFNBQUE7RUFBVSxlQUFBO0VBQWdCLGtCQUFBO0VBQW1CLGlCQUFBO0VBQWtCLCtCQUFBO0VBQWdDLG1CQUFBO0FDeUJuTDs7QUR4QkE7RUFBMkIsZUFBQTtFQUFnQixrQkFBQTtFQUFtQixVQUFBO0VBQVcsbUJBQUE7RUFBb0IsWUFBQTtFQUFhLFdBQUE7RUFBWSxrQkFBQTtFQUFvQixlQUFBO0VBQWdCLGdCQUFBO0VBQWlCLGtCQUFBO0VBQW1CLGdCQUFBO0VBQWlCLGlCQUFBO0FDdUMvTTs7QURyQ0E7RUFBNkIsa0JBQUE7RUFBa0Isc0JBQUE7RUFBd0IsU0FBQTtFQUFVLGVBQUE7RUFBZ0Isa0JBQUE7RUFBbUIsbUJBQUE7QUM4Q3BIOztBRDdDQTtFQUFrQyxlQUFBO0VBQWdCLGtCQUFBO0VBQW1CLFVBQUE7RUFBVyxtQkFBQTtFQUFvQixZQUFBO0VBQWEsV0FBQTtFQUFZLGtCQUFBO0VBQW9CLGVBQUE7RUFBZ0IsZ0JBQUE7RUFBaUIsa0JBQUE7RUFBbUIsZ0JBQUE7RUFBaUIsaUJBQUE7QUM0RHROOztBRDFEQTtFQUNJLGVBQUE7RUFDQSxrQkFBQTtFQUNBLE9BQUE7RUFDQSxVQUFBO0VBQ0EsTUFBQTtFQUNBLFdBQUE7RUFDQSxZQUFBO0VBQ0EsWUFBQTtFQUNBLG1CQUFBO0FDNkRKOztBRDNEQTtFQUFVLGtCQUFBO0VBQW1CLHFCQUFBO0VBQXFCLGtCQUFBO0FDaUVsRDs7QURoRUE7RUFBWSxjQUFBO0FDb0VaOztBRG5FQTtFQUFvQixpQkFBQTtBQ3VFcEI7O0FEM0NBO0VBQVMsU0FBQTtBQytDVDs7QUQ5Q0E7RUFDSSxtQkFBQTtFQUNBLGlCQUFBO0VBQ0MsZ0JBQUE7QUNpREwiLCJmaWxlIjoic3JjL2FwcC9ob21lL3Byb2ZpbGUvZWRpdHByb2ZpbGUvZWRpdHByb2ZpbGUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZmlsZV9pbnB1dCBpbWd7XG4gICAgYm9yZGVyLXJhZGl1czogNTAlO1xuICAgIGhlaWdodDogMTEwcHg7XG4gICAgd2lkdGg6IDExMHB4O1xuICAgIGJvcmRlcjogNXB4IHNvbGlkIHdoaXRlc21va2U7XG59XG5cbmltZy5maWxlX3VwbG9hZDJ7aGVpZ2h0OiAxMDBweCAhaW1wb3J0YW50O3dpZHRoOiAxMDBweCAhaW1wb3J0YW50OyAgbWFyZ2luOiA1cHggIWltcG9ydGFudDsgbWFyZ2luLWxlZnQ6IDBweCAhaW1wb3J0YW50OyBib3JkZXI6IDVweCBzb2xpZCB3aGl0ZXNtb2tlO1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBib3JkZXItcmFkaXVzOiA3cHg7fVxuLmN1c3RvbV91cGxvYWQxe3Bvc2l0aW9uOiBhYnNvbHV0ZTt3aWR0aDogMTAwcHg7aGVpZ2h0OiAxMDAlO2N1cnNvcjogcG9pbnRlcjtvcGFjaXR5OiAwO3RleHQtaW5kZW50OiAtMTEwcHg7ei1pbmRleDogOTkwO31cblxuLmRldGFpbF9jb250ZW50IGEuYnRue3Bvc2l0aW9uOnJlbGF0aXZlO2JhY2tncm91bmQ6ICNmOTZhYjM7Y29sb3I6ICNmZmYgIWltcG9ydGFudDsgbWFyZ2luOiAwO2ZvbnQtc2l6ZTogMTdweDttYXJnaW4tcmlnaHQ6IDE1cHg7cGFkZGluZzogNXB4IDIwcHg7Ym94LXNoYWRvdzogMnB4IDJweCA3cHggI2Y5NmFiMzttYXJnaW4tYm90dG9tOiAxNXB4O31cbi5kZXRhaWxfY29udGVudCBhLmJ0biBzcGFue2N1cnNvcjogcG9pbnRlcjtwb3NpdGlvbjogYWJzb2x1dGU7cmlnaHQ6IDBweDtiYWNrZ3JvdW5kOiAjRkYyNjI2O2hlaWdodDogMjJweDt3aWR0aDogMjJweDtib3JkZXItcmFkaXVzOiA1MCU7IGZvbnQtc2l6ZTogMTRweDtmb250LXdlaWdodDogNjAwO3RleHQtYWxpZ246IGNlbnRlcjtwYWRkaW5nOiAxcHggMHB4O2xpbmUtaGVpZ2h0OiAxOHB4O31cblxuLmRldGFpbF9jb250ZW50IGEubWFyZ2luX3RvcHtwb3NpdGlvbjpyZWxhdGl2ZTtjb2xvcjogI2ZmZiAhaW1wb3J0YW50OyBtYXJnaW46IDA7Zm9udC1zaXplOiAxN3B4O21hcmdpbi1yaWdodDogMTVweDttYXJnaW4tYm90dG9tOiAxNXB4O31cbi5kZXRhaWxfY29udGVudCBhLm1hcmdpbl90b3Agc3BhbntjdXJzb3I6IHBvaW50ZXI7cG9zaXRpb246IGFic29sdXRlO3JpZ2h0OiAwcHg7YmFja2dyb3VuZDogI0ZGMjYyNjtoZWlnaHQ6IDIycHg7d2lkdGg6IDIycHg7Ym9yZGVyLXJhZGl1czogNTAlOyBmb250LXNpemU6IDE0cHg7Zm9udC13ZWlnaHQ6IDYwMDt0ZXh0LWFsaWduOiBjZW50ZXI7cGFkZGluZzogMXB4IDBweDtsaW5lLWhlaWdodDogMThweDt9XG5cbi51cGxvYWQtaW1hZ2UgaW5wdXRbdHlwZT1cImZpbGVcIl0ge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgbGVmdDogMDtcbiAgICBvcGFjaXR5OiAwO1xuICAgIHRvcDogMDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBoZWlnaHQ6IDEwMCU7XG4gICAgei1pbmRleDogOTk5O1xuICAgIHRleHQtaW5kZW50OiAtMTEwcHg7XG59XG4uZmlsZV9kaXZ7cG9zaXRpb246IHJlbGF0aXZlO2Rpc3BsYXk6aW5saW5lLWJsb2NrO21hcmdpbi1yaWdodDogMTVweDt9XG5sYWJlbC5ibG9ja3tkaXNwbGF5OiBibG9ja31cbi53b3JrX2dhbGxlcnkgbGFiZWx7ZGlzcGxheTogY29udGVudHN9XG5cbi8vIC51cGxvYWQtaW1hZ2Uge1xuLy8gICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbi8vICAgICBoZWlnaHQ6IDEwMCU7XG4vLyAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuLy8gICAgIG92ZXJmbG93OiBoaWRkZW47XG4vLyB9XG5cbi8vICAucHJvZmlsZSAge1xuLy8gICAgIGRpc3BsYXk6bm9uZTtcbi8vICAgICBtYXJnaW46MTBweDtcbi8vICAgICB9XG4vLyAgICAgIC5wcm9maWxlICArIGxhYmVsIHtcbi8vICAgICBkaXNwbGF5OmlubGluZS1ibG9jaztcbi8vICAgICBtYXJnaW46MjBweDtcbi8vICAgICBwYWRkaW5nOiA0cHggMzJweDtcbi8vICAgICBiYWNrZ3JvdW5kLWNvbG9yOiAjRkZGRkZGO1xuLy8gICAgIGJvcmRlcjpzb2xpZCAxcHggIzY2NkY3Nztcbi8vICAgICBib3JkZXItcmFkaXVzOiA2cHg7XG4vLyAgICAgY29sb3I6IzY2NkY3Nztcbi8vICAgICB9XG4vLyAgICAgIC5wcm9maWxlIDphY3RpdmUgKyBsYWJlbCB7XG4vLyAgICAgYmFja2dyb3VuZC1pbWFnZTogbm9uZTtcbi8vICAgICBiYWNrZ3JvdW5kLWNvbG9yOiMyRDZDN0E7XG4vLyAgICAgY29sb3I6I0ZGRkZGRjtcbi8vICAgICB9XG5cbi5zZXR0aW5ne3RvcDoxNnB4fVxuLm1haW4tY2FyZCAuc2V0dGluZ19saXN0IHtcbiAgICBtYXJnaW4tYm90dG9tOiAxNXB4O1xuICAgIHBhZGRpbmctYm90dG9tOiAwO1xuICAgICBib3JkZXItYm90dG9tOiAwOyBcbn0iLCIuZmlsZV9pbnB1dCBpbWcge1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIGhlaWdodDogMTEwcHg7XG4gIHdpZHRoOiAxMTBweDtcbiAgYm9yZGVyOiA1cHggc29saWQgd2hpdGVzbW9rZTtcbn1cblxuaW1nLmZpbGVfdXBsb2FkMiB7XG4gIGhlaWdodDogMTAwcHggIWltcG9ydGFudDtcbiAgd2lkdGg6IDEwMHB4ICFpbXBvcnRhbnQ7XG4gIG1hcmdpbjogNXB4ICFpbXBvcnRhbnQ7XG4gIG1hcmdpbi1sZWZ0OiAwcHggIWltcG9ydGFudDtcbiAgYm9yZGVyOiA1cHggc29saWQgd2hpdGVzbW9rZTtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBib3JkZXItcmFkaXVzOiA3cHg7XG59XG5cbi5jdXN0b21fdXBsb2FkMSB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgd2lkdGg6IDEwMHB4O1xuICBoZWlnaHQ6IDEwMCU7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgb3BhY2l0eTogMDtcbiAgdGV4dC1pbmRlbnQ6IC0xMTBweDtcbiAgei1pbmRleDogOTkwO1xufVxuXG4uZGV0YWlsX2NvbnRlbnQgYS5idG4ge1xuICBwb3NpdGlvbjogcmVsYXRpdmU7XG4gIGJhY2tncm91bmQ6ICNmOTZhYjM7XG4gIGNvbG9yOiAjZmZmICFpbXBvcnRhbnQ7XG4gIG1hcmdpbjogMDtcbiAgZm9udC1zaXplOiAxN3B4O1xuICBtYXJnaW4tcmlnaHQ6IDE1cHg7XG4gIHBhZGRpbmc6IDVweCAyMHB4O1xuICBib3gtc2hhZG93OiAycHggMnB4IDdweCAjZjk2YWIzO1xuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xufVxuXG4uZGV0YWlsX2NvbnRlbnQgYS5idG4gc3BhbiB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICByaWdodDogMHB4O1xuICBiYWNrZ3JvdW5kOiAjRkYyNjI2O1xuICBoZWlnaHQ6IDIycHg7XG4gIHdpZHRoOiAyMnB4O1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIGZvbnQtc2l6ZTogMTRweDtcbiAgZm9udC13ZWlnaHQ6IDYwMDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBwYWRkaW5nOiAxcHggMHB4O1xuICBsaW5lLWhlaWdodDogMThweDtcbn1cblxuLmRldGFpbF9jb250ZW50IGEubWFyZ2luX3RvcCB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgY29sb3I6ICNmZmYgIWltcG9ydGFudDtcbiAgbWFyZ2luOiAwO1xuICBmb250LXNpemU6IDE3cHg7XG4gIG1hcmdpbi1yaWdodDogMTVweDtcbiAgbWFyZ2luLWJvdHRvbTogMTVweDtcbn1cblxuLmRldGFpbF9jb250ZW50IGEubWFyZ2luX3RvcCBzcGFuIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xuICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gIHJpZ2h0OiAwcHg7XG4gIGJhY2tncm91bmQ6ICNGRjI2MjY7XG4gIGhlaWdodDogMjJweDtcbiAgd2lkdGg6IDIycHg7XG4gIGJvcmRlci1yYWRpdXM6IDUwJTtcbiAgZm9udC1zaXplOiAxNHB4O1xuICBmb250LXdlaWdodDogNjAwO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIHBhZGRpbmc6IDFweCAwcHg7XG4gIGxpbmUtaGVpZ2h0OiAxOHB4O1xufVxuXG4udXBsb2FkLWltYWdlIGlucHV0W3R5cGU9ZmlsZV0ge1xuICBjdXJzb3I6IHBvaW50ZXI7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgbGVmdDogMDtcbiAgb3BhY2l0eTogMDtcbiAgdG9wOiAwO1xuICB3aWR0aDogMTAwJTtcbiAgaGVpZ2h0OiAxMDAlO1xuICB6LWluZGV4OiA5OTk7XG4gIHRleHQtaW5kZW50OiAtMTEwcHg7XG59XG5cbi5maWxlX2RpdiB7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBtYXJnaW4tcmlnaHQ6IDE1cHg7XG59XG5cbmxhYmVsLmJsb2NrIHtcbiAgZGlzcGxheTogYmxvY2s7XG59XG5cbi53b3JrX2dhbGxlcnkgbGFiZWwge1xuICBkaXNwbGF5OiBjb250ZW50cztcbn1cblxuLnNldHRpbmcge1xuICB0b3A6IDE2cHg7XG59XG5cbi5tYWluLWNhcmQgLnNldHRpbmdfbGlzdCB7XG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XG4gIHBhZGRpbmctYm90dG9tOiAwO1xuICBib3JkZXItYm90dG9tOiAwO1xufSJdfQ== */");
 
 /***/ }),
 
-/***/ "./src/app/home/profile/businesshours/businesshours.component.ts":
-/*!***********************************************************************!*\
-  !*** ./src/app/home/profile/businesshours/businesshours.component.ts ***!
-  \***********************************************************************/
-/*! exports provided: BusinesshoursComponent */
+/***/ "./src/app/home/profile/editprofile/editprofile.component.ts":
+/*!*******************************************************************!*\
+  !*** ./src/app/home/profile/editprofile/editprofile.component.ts ***!
+  \*******************************************************************/
+/*! exports provided: EditprofileComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BusinesshoursComponent", function() { return BusinesshoursComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditprofileComponent", function() { return EditprofileComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/service/helper.service */ "./src/app/shared/service/helper.service.ts");
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
-/* harmony import */ var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/service/error.service */ "./src/app/shared/service/error.service.ts");
-/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
+/* harmony import */ var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/service/helper.service */ "./src/app/shared/service/helper.service.ts");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/fesm2015/agm-core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/service/validation-service */ "./src/app/shared/service/validation-service.ts");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/service/message.service */ "./src/app/shared/service/message.service.ts");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
+/* harmony import */ var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/service/error.service */ "./src/app/shared/service/error.service.ts");
+/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
 
 
 
@@ -2600,185 +4936,122 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let BusinesshoursComponent = class BusinesshoursComponent {
-    constructor(httpService, router, helper, messageService, errorserv, fb, trns) {
+
+
+
+
+let EditprofileComponent = class EditprofileComponent {
+    constructor(httpService, router, helper, mapsApiLoader, zone, messageService, modalService, errorserv, trns) {
         this.httpService = httpService;
         this.router = router;
         this.helper = helper;
+        this.mapsApiLoader = mapsApiLoader;
+        this.zone = zone;
         this.messageService = messageService;
+        this.modalService = modalService;
         this.errorserv = errorserv;
-        this.fb = fb;
         this.trns = trns;
+        this.services = [
+            { value: '1', viewValue: 'Home' },
+            { value: '2', viewValue: 'Salon' },
+            { value: '3', viewValue: 'Both' },
+        ];
+        this.clinics = [
+            { value: '2', viewValue: 'Clinic' },
+        ];
+        this.displayedColumns = ['No.', 'name', 'price', 'discount_price'];
+        this.location = {
+            lat: 28.7041,
+            lng: 77.1025,
+            marker: {
+                lat: 28.7041,
+                lng: 77.1025,
+                draggable: true
+            },
+            zoom: 12
+        };
+        this.loader = false;
         this.submitted = false;
-        this.isSunBreak = false;
-        this.isMonBreak = false;
-        this.isTuesBreak = false;
-        this.isWedBreak = false;
-        this.isThursBreak = false;
-        this.isFriBreak = false;
-        this.isSatBreak = false;
-        this.error = [];
-        this.isError = false;
-        this.isSunClosReq = false;
-        this.isSunValid = false;
-        this.isSunOpnReq = false;
-        this.isSunOpnBrkReq = false;
-        this.isSunClosBrkReq = false;
-        this.isSunBrkValid = false;
-        this.isMonClosReq = false;
-        this.isMonValid = false;
-        this.isMonOpnReq = false;
-        this.isMonOpnBrkReq = false;
-        this.isMonClosBrkReq = false;
-        this.isMonBrkValid = false;
-        this.isTuesClosReq = false;
-        this.isTuesValid = false;
-        this.isTuesOpnReq = false;
-        this.isTuesOpnBrkReq = false;
-        this.isTuesClosBrkReq = false;
-        this.isTuesBrkValid = false;
-        this.isWedClosReq = false;
-        this.isWedValid = false;
-        this.isWedOpnReq = false;
-        this.isWedOpnBrkReq = false;
-        this.isWedClosBrkReq = false;
-        this.isWedBrkValid = false;
-        this.isThursClosReq = false;
-        this.isThursValid = false;
-        this.isThursOpnReq = false;
-        this.isThursOpnBrkReq = false;
-        this.isThursClosBrkReq = false;
-        this.isThursBrkValid = false;
-        this.isFriClosReq = false;
-        this.isFriValid = false;
-        this.isFriOpnReq = false;
-        this.isFriOpnBrkReq = false;
-        this.isFriClosBrkReq = false;
-        this.isFriBrkValid = false;
-        this.isSatClosReq = false;
-        this.isSatValid = false;
-        this.isSatOpnReq = false;
-        this.isSatOpnBrkReq = false;
-        this.isSatClosBrkReq = false;
-        this.isSatBrkValid = false;
+        this.url = 'assets/images/change.png';
+        this.salonImageUrlArray = [];
+        this.salonImageArray = [];
+        this.deletedImageArray = [];
+        this.dataSource = [];
+        this.slide = [];
     }
     ngOnInit() {
-        this.form = this.fb.group({
-            Sunday: this.fb.group({
-                open: [null],
-                close: [null],
-                breakStart: [null],
-                breakEnd: [null],
-                isOpen: [true]
-            }),
-            Monday: this.fb.group({
-                open: [null],
-                close: [null],
-                breakStart: [null],
-                breakEnd: [null],
-                isOpen: [true]
-            }),
-            Tuesday: this.fb.group({
-                open: [null],
-                close: [null],
-                breakStart: [null],
-                breakEnd: [null],
-                isOpen: [true]
-            }),
-            Wednesday: this.fb.group({
-                open: [null],
-                close: [null],
-                breakStart: [null],
-                breakEnd: [null],
-                isOpen: [true]
-            }),
-            Thursday: this.fb.group({
-                open: [null],
-                close: [null],
-                breakStart: [null],
-                breakEnd: [null],
-                isOpen: [true]
-            }),
-            Friday: this.fb.group({
-                open: [null],
-                close: [null],
-                breakStart: [null],
-                breakEnd: [null],
-                isOpen: [true]
-            }),
-            Saturday: this.fb.group({
-                open: [null],
-                close: [null],
-                breakStart: [null],
-                breakEnd: [null],
-                isOpen: [true]
-            })
+        this.salonid = localStorage.getItem('salonid');
+        this.searchPlace();
+        this.getUserProfile();
+        this.profile = new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormGroup"]({
+            location: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null, [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required
+            ]),
+            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null, [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].namevalidator
+            ]),
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null, [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].validateEmail
+            ]),
+            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null, [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required,
+                src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].phonevalidator,
+            ]),
+            // clinic: new FormControl(null),
+            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null, [
+                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].required,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].minLength(2),
+                _angular_forms__WEBPACK_IMPORTED_MODULE_6__["Validators"].maxLength(500)
+            ]),
+            website: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null, [
+                src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].validateWebsite
+            ]),
+            multiImage: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null),
+            serviceat: new _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormControl"](null)
         });
-        let date = new Date();
-        // this.form.controls['Sunday'].patchValue({ open: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), 9, 4) })
-        this.getBusinessHours();
     }
-    get getControl() { return this.form.controls; }
-    submit() {
-        // this.submitted = true;
-        // // this.validatetime('Sun');
-        // if (this.isSunOpnReq || this.isSunClosReq || this.isSunValid) {
-        //   return
-        // }
-        // console.log('VALID BUT TESTING');
-        // return
-        console.log(this.validatetime('Sunday', 'Sun'));
-        if (!this.validatetime('Sunday', 'Sun')) {
-            console.log('VALID BUT TESTING Sunday');
+    update() {
+        this.submitted = true;
+        // return false
+        this.formData = new FormData();
+        if (this.salonImageUrlArray.length > 10) {
+            this.errorserv.handleError(39);
             return;
         }
-        else if (!this.validatetime('Monday', 'Mon')) {
-            console.log('VALID BUT TESTING Monday');
-            return;
-        }
-        else if (!this.validatetime('Tuesday', 'Tues')) {
-            console.log('VALID BUT TESTING Tuesday');
-            return;
-        }
-        else if (!this.validatetime('Wednesday', 'Wed')) {
-            console.log('VALID BUT TESTING Wednesday');
-            return;
-        }
-        else if (!this.validatetime('Thursday', 'Thurs')) {
-            console.log('VALID BUT TESTING Thursday');
-            return;
-        }
-        else if (!this.validatetime('Friday', 'Fri')) {
-            console.log('VALID BUT TESTING Friday');
-            return;
-        }
-        else if (!this.validatetime('Saturday', 'Sat')) {
-            console.log('VALID BUT TESTING Satday');
-            return;
-        }
-        console.log('VALID BUT TESTING');
-        let workingHrs = [];
-        this.form.value['Sunday'].isOpen ? workingHrs.push(this.createData('Sunday', 0, 'Sun')) : '';
-        this.form.value['Monday'].isOpen ? workingHrs.push(this.createData('Monday', 1, 'Mon')) : '';
-        this.form.value['Tuesday'].isOpen ? workingHrs.push(this.createData('Tuesday', 2, 'Tues')) : '';
-        this.form.value['Wednesday'].isOpen ? workingHrs.push(this.createData('Wednesday', 3, 'Wed')) : '';
-        this.form.value['Thursday'].isOpen ? workingHrs.push(this.createData('Thursday', 4, 'Thurs')) : '';
-        this.form.value['Friday'].isOpen ? workingHrs.push(this.createData('Friday', 5, 'Fri')) : '';
-        this.form.value['Saturday'].isOpen ? workingHrs.push(this.createData('Saturday', 6, 'Sat')) : '';
-        console.log(workingHrs);
-        // return
-        if (this.form.valid) {
-            this.httpService.getRequest('PUT', 'WRKNGHRS', { 'w_hr': workingHrs }, '')
+        else if (this.profile.valid) {
+            if (this.profileImage)
+                this.formData.append('salon_logo', this.profileImage, this.profileImage.name);
+            for (let i = 0; i < this.salonImageArray.length; i++) {
+                this.formData.append('salon_imgs', this.salonImageArray[i]);
+            }
+            if (this.deletedImageArray.length)
+                this.formData.append('del_imgs', JSON.stringify(this.deletedImageArray));
+            this.formData.append('name', this.profile.value.name);
+            // this.formData.append('email', this.profile.value.email);
+            this.formData.append('phone', this.profile.value.phone);
+            this.formData.append('website', this.profile.value.website ? this.profile.value.website : '');
+            this.formData.append('desc', this.profile.value.description ? this.profile.value.description : '');
+            this.formData.append('address', this.location.full_address ? this.location.full_address : this.profile.value.location);
+            this.formData.append('city', this.location ? this.location.address_level_2 : "");
+            this.formData.append('state', this.location ? this.location.address_state : "");
+            this.formData.append('pincode', this.location ? this.location.address_zip : "");
+            this.formData.append('country', this.location ? this.location.address_country : "");
+            this.formData.append('lat', this.location ? String(this.location.lat) : "");
+            this.formData.append('lng', this.location ? String(this.location.lng) : "");
+            this.formData.append('service_at', this.profile.value.serviceat);
+            this.httpService.getRequest('PUT', 'EDIT', this.formData, '')
                 .subscribe((response) => {
                 if (response.status === 1) {
                     this.submitted = true;
+                    localStorage.setItem('salon', JSON.stringify({ name: this.profile.value.name, logo: response.res.logo ? response.res.logo : this.detail.logo }));
+                    this.messageService.sendMessage('profile changed');
                     this.router.navigateByUrl('/profile')
                         .then(() => {
                         this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('SALONSUCCESS'));
                     });
                 }
                 else {
-                    if (response.err) {
+                    if (!lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(response.err)) {
                         this.errorserv.handleError(response.err.errCode);
                     }
                 }
@@ -2787,320 +5060,214 @@ let BusinesshoursComponent = class BusinesshoursComponent {
             });
         }
         else {
-            this.submitted = false;
-            this.httpService.errTostr(this.trns.transform('ERROR'), this.trns.transform('HOURSREQ'));
-            console.log(this.form);
+            console.log(this.profile);
         }
     }
-    getBusinessHours() {
-        this.httpService.getRequest('GET', 'WRKNGHRS', '')
-            .subscribe((response) => {
-            if (response.status === 1) {
-                let detail = response.res.wrk_hrs;
-                let date = new Date();
-                for (let index = 0; index < 7; index++) {
-                    let day = index == 0 ? 'Sunday' : (index == 1 ? 'Monday' : (index == 2 ? 'Tuesday' : (index == 3 ? 'Wednesday' : (index == 4 ? 'Thursday' : (index == 5 ? 'Friday' : 'Saturday')))));
-                    console.log(detail[index]);
-                    let obj = detail.find(o => o.day === index) || { open_time: { hh: null, mm: null }, close_time: { hh: null, mm: null }, is_open: false, strt_break_time: { hh: null, mm: null }, end_break_time: { hh: null, mm: null }, is_break: false };
-                    // if(detail[index]['day'] == index)
-                    this.form.controls[day].patchValue({
-                        open: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.open_time.hh, obj.open_time.mm),
-                        close: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.close_time.hh, obj.close_time.mm),
-                        isOpen: obj.hasOwnProperty('is_open') ? obj.is_open : false,
-                        breakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.strt_break_time.hh, obj.strt_break_time.mm),
-                        breakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.end_break_time.hh, obj.end_break_time.mm),
-                    });
-                    let dayName = index == 0 ? 'Sun' : (index == 1 ? 'Mon' : (index == 2 ? 'Tues' : (index == 3 ? 'Wed' : (index == 4 ? 'Thurs' : (index == 5 ? 'Fri' : 'Sat')))));
-                    this.toggle(day, dayName);
-                    this['is' + dayName + 'Break'] = obj.is_break;
+    readUrlMultipleImage(event) {
+        var imageData = this.helper.checkImageValidationMultiple(event);
+        if (imageData == true) {
+            let files = event.target.files;
+            if (files.length) {
+                for (let file of files) {
+                    let reader = new FileReader();
+                    reader.onload = (e) => {
+                        this.salonImageUrlArray.push(e.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                    this.salonImageArray.push(file);
                 }
-                // for (let index = 0; index < detail.length; index++) {
-                //   let day = detail[index]['day'] == 0 ? 'Sunday' : (detail[index]['day'] == 1 ? 'Monday' : (detail[index]['day'] == 2 ? 'Tuesday' : (detail[index]['day'] == 3 ? 'Wednesday' : (detail[index]['day'] == 4 ? 'Thursday' : (detail[index]['day'] == 5 ? 'Friday' : 'Saturday')))))
-                //   console.log(detail[index]);
-                //   // if(detail[index]['day'] == index)
-                //   this.form.controls[day].patchValue({
-                //     open: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail[index].open_time.hh, detail[index].open_time.mm),
-                //     close: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail[index].close_time.hh, detail[index].close_time.mm),
-                //     isOpen: detail[index].hasOwnProperty('is_open')?detail[index].is_open:false,
-                //     breakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail[index].strt_break_time.hh, detail[index].strt_break_time.mm),
-                //     breakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail[index].end_break_time.hh, detail[index].end_break_time.mm),
-                //   });
-                //   let dayName = detail[index]['day'] == 0 ? 'Sun' : (detail[index]['day'] == 1 ? 'Mon' : (detail[index]['day'] == 2 ? 'Tues' : (detail[index]['day'] == 3 ? 'Wed' : (detail[index]['day'] == 4 ? 'Thurs' : (detail[index]['day'] == 5 ? 'Fri' : 'Sat')))))
-                //   this.toggle(day,dayName)
-                //   this['is' + dayName + 'Break'] = detail[index].is_break;
-                // }
-                // this.form.patchValue({
-                // sunOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[0].open_time.hh, detail.wrk_hrs[0].open_time.mm),
-                // sunClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[0].close_time.hh, detail.wrk_hrs[0].close_time.mm),
-                // isSunOpen: detail.wrk_hrs[0].is_open,
-                // sunBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[0].strt_break_time.hh, detail.wrk_hrs[0].strt_break_time.mm),
-                // sunBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[0].end_break_time.hh, detail.wrk_hrs[0].end_break_time.mm),
-                // monOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[1].open_time.hh, detail.wrk_hrs[1].open_time.mm),
-                // monClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[1].close_time.hh, detail.wrk_hrs[1].close_time.mm),
-                // monBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[1].strt_break_time.hh, detail.wrk_hrs[1].strt_break_time.mm),
-                // monBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[1].end_break_time.hh, detail.wrk_hrs[1].end_break_time.mm),
-                // isMonOpen: detail.wrk_hrs[1].is_open,
-                // tuesOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[2].open_time.hh, detail.wrk_hrs[2].open_time.mm),
-                // tuesClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[2].close_time.hh, detail.wrk_hrs[2].close_time.mm),
-                // tuesBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[2].strt_break_time.hh, detail.wrk_hrs[2].strt_break_time.mm),
-                // tuesBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[2].end_break_time.hh, detail.wrk_hrs[2].end_break_time.mm),
-                // isTuesOpen: detail.wrk_hrs[2].is_open,
-                // wedOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[3].open_time.hh, detail.wrk_hrs[3].open_time.mm),
-                // wedClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[3].close_time.hh, detail.wrk_hrs[3].close_time.mm),
-                // wedBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[3].strt_break_time.hh, detail.wrk_hrs[3].strt_break_time.mm),
-                // wedBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[3].end_break_time.hh, detail.wrk_hrs[3].end_break_time.mm),
-                // isWedOpen: detail.wrk_hrs[3].is_open,
-                // thursOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[4].open_time.hh, detail.wrk_hrs[4].open_time.mm),
-                // thursClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[4].close_time.hh, detail.wrk_hrs[4].close_time.mm),
-                // thursBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[4].strt_break_time.hh, detail.wrk_hrs[4].strt_break_time.mm),
-                // thursBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[4].end_break_time.hh, detail.wrk_hrs[4].end_break_time.mm),
-                // isThursOpen: detail.wrk_hrs[4].is_open,
-                // friOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[5].open_time.hh, detail.wrk_hrs[5].open_time.mm),
-                // friClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[5].close_time.hh, detail.wrk_hrs[5].close_time.mm),
-                // friBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[5].strt_break_time.hh, detail.wrk_hrs[5].strt_break_time.mm),
-                // friBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[5].end_break_time.hh, detail.wrk_hrs[5].end_break_time.mm),
-                // isFriOpen: detail.wrk_hrs[5].is_open,
-                // satOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[6].open_time.hh, detail.wrk_hrs[6].open_time.mm),
-                // satClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[6].close_time.hh, detail.wrk_hrs[6].close_time.mm),
-                // satBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[6].strt_break_time.hh, detail.wrk_hrs[6].strt_break_time.mm),
-                // satBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[6].end_break_time.hh, detail.wrk_hrs[6].end_break_time.mm),
-                // isSatOpen: detail.wrk_hrs[6].is_open,
-                // });
-                // this.isSunBreak = detail.wrk_hrs[0].is_break;
-                // this.isMonBreak = detail.wrk_hrs[1].is_break;
-                // this.isTuesBreak = detail.wrk_hrs[2].is_break;
-                // this.isWedBreak = detail.wrk_hrs[3].is_break;
-                // this.isThursBreak = detail.wrk_hrs[4].is_break;
-                // this.isFriBreak = detail.wrk_hrs[5].is_break;
-                // this.isSatBreak = detail.wrk_hrs[6].is_break;
+            }
+        }
+    }
+    removeSalonImages(value, itemIndex) {
+        this.salonImageUrlArray = this.salonImageUrlArray.filter((item, index) => {
+            if ((index == itemIndex) && item.includes("https://tieimg.s3.me-south-1.amazonaws.com")) {
+                let image = item.split("/").pop();
+                this.deletedImageArray.push(image);
+            }
+            console.log(this.salonImageUrlArray);
+            return index !== itemIndex;
+        });
+        if (typeof this.salonImageArray[itemIndex] === 'object') {
+            let deleteIndex = itemIndex - this.deletedImageArray.length;
+            this.salonImageArray.splice(deleteIndex, 1);
+        }
+    }
+    readUrl(event) {
+        //  var fileResponse= this.fileUpload.readUrl(event);
+        //  console.log(fileResponse);
+        //  this.url = fileResponse['url'];
+        //  this.profileImage = fileResponse['fileObject '];
+        if (event.target.files && event.target.files[0]) {
+            if (this.helper.isImage(event.target.files[0].type)) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    this.url = event.target.result;
+                };
+                reader.readAsDataURL(event.target.files[0]);
+                this.profileImage = event.target.files[0];
             }
             else {
-                if (response.err) {
+                // this.httpService.showError(MESSAGE.IMG_MSG, MESSAGE.IMG_ERROR, MESSAGE.MSGTIME);
+            }
+        }
+    }
+    getUserProfile() {
+        this.httpService.getRequest('GET', 'PROFILE', '')
+            .subscribe((response) => {
+            this.loader = false;
+            if (response.status === 1) {
+                this.detail = response.res;
+                this.profile.patchValue({
+                    name: this.detail.hasOwnProperty('name') ? this.detail.name : '',
+                    email: this.detail.hasOwnProperty('email') ? this.detail.email : '',
+                    phone: this.detail.hasOwnProperty('phone') ? this.detail.phone : '',
+                    location: this.detail.hasOwnProperty('address') ? this.detail.address : '',
+                    // company details
+                    website: this.detail.hasOwnProperty('website') ? this.detail.website : '',
+                    description: this.detail.hasOwnProperty('desc') ? this.detail.desc : '',
+                    serviceat: this.detail.hasOwnProperty('service_at') ? String(this.detail.service_at) : ''
+                });
+                this.location.address_level_2 = this.detail.city;
+                this.location.address_state = this.detail.state;
+                this.location.address_zip = this.detail.pincode;
+                this.location.address_country = this.detail.country;
+                this.location.lat = this.detail.lat;
+                this.location.lng = this.detail.lng;
+                this.url = this.detail.logo ? this.detail.logo : this.url;
+                this.dataSource = this.detail.services;
+                this.services = this.detail.type !== 2 ? this.clinics : this.services;
+                if (this.detail && this.detail.imgs) {
+                    this.detail.imgs.map(item => {
+                        item = this.detail.bp + item;
+                        this.salonImageUrlArray.push(item);
+                        this.salonImageArray.push(item);
+                        this.slide = [...this.slide, { 'url': item, clickAction: () => alert('custom click function') }];
+                        // this.slide.push({'url':item});
+                    });
+                }
+            }
+            else {
+                if (!lodash__WEBPACK_IMPORTED_MODULE_8___default.a.isEmpty(response.err)) {
                     this.errorserv.handleError(response.err.errCode);
                 }
             }
         }, (error) => {
-            // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
+            console.log(error);
         });
     }
-    createData(dayName, dayNo, daybrk) {
-        return {
-            "open_time": {
-                "hh": this.helper.parsehhmm(this.form.value[dayName].open).hh,
-                "mm": this.helper.parsehhmm(this.form.value[dayName].open).mm
-            },
-            "close_time": {
-                "hh": this.helper.parsehhmm(this.form.value[dayName].close).hh,
-                "mm": this.helper.parsehhmm(this.form.value[dayName].close).mm
-            },
-            "strt_break_time": {
-                "hh": this.helper.parsehhmm(this.form.value[dayName].breakStart).hh,
-                "mm": this.helper.parsehhmm(this.form.value[dayName].breakStart).mm
-            },
-            "end_break_time": {
-                "hh": this.helper.parsehhmm(this.form.value[dayName].breakEnd).hh,
-                "mm": this.helper.parsehhmm(this.form.value[dayName].breakEnd).mm
-            },
-            "is_open": this.form.value[dayName].isOpen,
-            "is_break": this['is' + daybrk + 'Break'],
-            "day": dayNo
+    get getControl() { return this.profile.controls; }
+    searchPlace() {
+        this.mapsApiLoader.load().then(() => {
+            let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement, {
+                types: ['establishment']
+            });
+            autocomplete.addListener("place_changed", () => {
+                this.zone.run(() => {
+                    //get the place result
+                    let place = autocomplete.getPlace();
+                    for (var i = 0; i < place.address_components.length; i++) {
+                        let types = place.address_components[i].types;
+                        if (types.indexOf('locality') != -1) {
+                            this.location.address_level_2 = place.address_components[i].long_name;
+                        }
+                        else if (types.indexOf('administrative_area_level_1') != -1) {
+                            this.location.address_level_2 = place.address_components[i].long_name;
+                        }
+                        if (types.indexOf('country') != -1) {
+                            this.location.address_country = place.address_components[i].long_name;
+                        }
+                        if (types.indexOf('postal_code') != -1) {
+                            this.location.address_zip = place.address_components[i].long_name;
+                        }
+                        if (types.indexOf('administrative_area_level_1') != -1) {
+                            this.location.address_state = place.address_components[i].long_name;
+                        }
+                    }
+                    // console.log(this.location.address_level_2);
+                    // console.log(place);
+                    if (place.formatted_address) {
+                        this.location.full_address = place.formatted_address;
+                    }
+                    if (place.geometry.location) {
+                        this.location.lat = place.geometry.location.lat();
+                        this.location.lng = place.geometry.location.lng();
+                        this.location.marker.lat = place.geometry.location.lat();
+                        this.location.marker.lng = place.geometry.location.lng();
+                        this.location.marker.draggable = true;
+                        this.location.viewport = place.geometry.viewport;
+                    }
+                    //verify result
+                    if (place.geometry === undefined || place.geometry === null) {
+                        return;
+                    }
+                });
+            });
+        });
+    }
+    openModal(template) {
+        let config = {
+            backdrop: true,
+            ignoreBackdropClick: true
         };
-    }
-    validatetime(dayName, daybrk) {
-        if (this.form.value[dayName].isOpen) {
-            console.log('----------', this.form.value[dayName].open, this.form.value[dayName].close);
-            if ((this.form.value[dayName].open == null) && (this.form.value[dayName].close == null)) {
-                console.log('9090-090----');
-                this['is' + daybrk + 'OpnReq'] = true;
-                this['is' + daybrk + 'ClosReq'] = true;
-                return false;
-            }
-            if ((this.form.value[dayName].open == null)) {
-                this['is' + daybrk + 'ClosReq'] = false;
-                this['is' + daybrk + 'OpnReq'] = true;
-                return false;
-            }
-            if ((this.form.value[dayName].close == null)) {
-                console.log('9090-090----jhbnjhghjhgbnjhgf');
-                this['is' + daybrk + 'OpnReq'] = false;
-                this['is' + daybrk + 'ClosReq'] = true;
-                return false;
-            }
-            else if (new Date(this.form.value[dayName].open) > new Date(this.form.value[dayName].close)) {
-                console.log('----------', new Date(this.form.value[dayName].open) > new Date(this.form.value[dayName].close));
-                this['is' + daybrk + 'ClosReq'] = false;
-                this['is' + daybrk + 'OpnReq'] = false;
-                this['is' + daybrk + 'Valid'] = true;
-                return false;
-            }
-            else if (!this['is' + daybrk + 'Break']) {
-                if (new Date(this.form.value[dayName].open) < new Date(this.form.value[dayName].close)) {
-                    console.log('----------+++++++', new Date(this.form.value[dayName].open) > new Date(this.form.value[dayName].close));
-                    this['is' + daybrk + 'ClosReq'] = false;
-                    this['is' + daybrk + 'OpnReq'] = false;
-                    this['is' + daybrk + 'Valid'] = false;
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    this['is' + daybrk + 'OpnBrkReq'] = false;
-                    this['is' + daybrk + 'BrkValid'] = false;
-                    return true;
-                }
-                return false;
-            }
-            else if ((new Date(this.form.value[dayName].open) < new Date(this.form.value[dayName].close)) && this['is' + daybrk + 'Break']) {
-                console.log('---_________');
-                this['is' + daybrk + 'ClosReq'] = false;
-                this['is' + daybrk + 'OpnReq'] = false;
-                this['is' + daybrk + 'Valid'] = false;
-                //sun break validation
-                if ((this.form.value[dayName].breakStart == null) && (this.form.value[dayName].breakEnd == null)) {
-                    this['is' + daybrk + 'OpnBrkReq'] = true;
-                    this['is' + daybrk + 'ClosBrkReq'] = true;
-                    return false;
-                }
-                if ((this.form.value[dayName].breakStart == null)) {
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    this['is' + daybrk + 'OpnBrkReq'] = true;
-                    if (this.form.value[dayName].breakEnd !== null) {
-                        if ((new Date(this.form.value[dayName].breakEnd) < new Date(this.form.value[dayName].open))) {
-                            this['is' + daybrk + 'BrkValid'] = true;
-                        }
-                        else if (new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close)) {
-                            console.log(new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
-                            this['is' + daybrk + 'BrkValid'] = true;
-                        }
-                    }
-                    return false;
-                }
-                else if ((this.form.value[dayName].breakEnd == null)) {
-                    this['is' + daybrk + 'OpnBrkReq'] = false;
-                    this['is' + daybrk + 'ClosBrkReq'] = true;
-                    if (this.form.value[dayName].breakStart !== null) {
-                        if ((new Date(this.form.value[dayName].breakStart) < new Date(this.form.value[dayName].open))) {
-                            this['is' + daybrk + 'BrkValid'] = true;
-                        }
-                        else if (new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close)) {
-                            console.log(new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
-                            this['is' + daybrk + 'BrkValid'] = true;
-                        }
-                    }
-                    return false;
-                }
-                else if ((new Date(this.form.value[dayName].breakStart) < new Date(this.form.value[dayName].open))) {
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    console.log('------------------------');
-                    this['is' + daybrk + 'OpnBrkReq'] = false;
-                    this['is' + daybrk + 'BrkValid'] = true;
-                    return false;
-                }
-                else if (new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close)) {
-                    console.log(new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    this['is' + daybrk + 'OpnBrkReq'] = false;
-                    this['is' + daybrk + 'BrkValid'] = true;
-                    return false;
-                }
-                else if ((new Date(this.form.value[dayName].breakEnd) < new Date(this.form.value[dayName].open))) {
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    this['is' + daybrk + 'BrkValid'] = true;
-                    return false;
-                }
-                else if (new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close)) {
-                    console.log(new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    this['is' + daybrk + 'BrkValid'] = true;
-                    return false;
-                }
-                else if (new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].breakEnd)) {
-                    console.log(new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    this['is' + daybrk + 'BrkValid'] = true;
-                    return false;
-                }
-                else {
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    this['is' + daybrk + 'OpnBrkReq'] = false;
-                    this['is' + daybrk + 'BrkValid'] = false;
-                    return true;
-                }
-            }
-            else {
-                this['is' + daybrk + 'ClosBrkReq'] = false;
-                this['is' + daybrk + 'OpnBrkReq'] = false;
-                this['is' + daybrk + 'BrkValid'] = false;
-                return true;
-            }
-        }
-        else {
-            this['is' + daybrk + 'OpnReq'] = false;
-            this['is' + daybrk + 'ClosReq'] = false;
-            this['is' + daybrk + 'ClosBrkReq'] = false;
-            this['is' + daybrk + 'OpnBrkReq'] = false;
-            this['is' + daybrk + 'BrkValid'] = false;
-            return true;
-        }
-    }
-    toggle(dayName, day) {
-        this['is' + day + 'OpnReq'] = false;
-        this['is' + day + 'ClosReq'] = false;
-        this['is' + day + 'ClosBrkReq'] = false;
-        this['is' + day + 'OpnBrkReq'] = false;
-        this['is' + day + 'BrkValid'] = false;
-        if (!this.form.value[dayName].isOpen) {
-            this.form.controls[dayName].disable();
-            this.form.controls[dayName]['controls']['isOpen'].enable();
-        }
-        else {
-            this.form.controls[dayName].enable();
-        }
-    }
-    isBreak(day) {
-        this['is' + day + 'Break'] = !this['is' + day + 'Break'];
-        this['is' + day + 'ClosBrkReq'] = false;
-        this['is' + day + 'OpnBrkReq'] = false;
-        this['is' + day + 'BrkValid'] = false;
+        console.log(this.slideshow);
+        // this.slideshow.goToSlide(3);
+        this.modalRef = this.modalService.show(template, config);
     }
 };
-BusinesshoursComponent.ctorParameters = () => [
-    { type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_5__["Helper"] },
-    { type: primeng_api__WEBPACK_IMPORTED_MODULE_6__["MessageService"] },
-    { type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_7__["ErrorService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-    { type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__["TranslatePipe"] }
+EditprofileComponent.ctorParameters = () => [
+    { type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
+    { type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_4__["Helper"] },
+    { type: _agm_core__WEBPACK_IMPORTED_MODULE_5__["MapsAPILoader"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"] },
+    { type: src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_9__["MessageService"] },
+    { type: ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_10__["BsModalService"] },
+    { type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_11__["ErrorService"] },
+    { type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_12__["TranslatePipe"] }
 ];
-BusinesshoursComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])("search", { static: false })
+], EditprofileComponent.prototype, "searchElementRef", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('slideshow', { static: true })
+], EditprofileComponent.prototype, "slideshow", void 0);
+EditprofileComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-businesshours',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./businesshours.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/businesshours/businesshours.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./businesshours.component.scss */ "./src/app/home/profile/businesshours/businesshours.component.scss")).default]
+        selector: 'app-editprofile',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./editprofile.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/editprofile/editprofile.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./editprofile.component.scss */ "./src/app/home/profile/editprofile/editprofile.component.scss")).default]
     })
-], BusinesshoursComponent);
+], EditprofileComponent);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/profile/businesshours/businesshours.module.ts":
-/*!********************************************************************!*\
-  !*** ./src/app/home/profile/businesshours/businesshours.module.ts ***!
-  \********************************************************************/
-/*! exports provided: BusinesshoursModule */
+/***/ "./src/app/home/profile/editprofile/editprofile.module.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/home/profile/editprofile/editprofile.module.ts ***!
+  \****************************************************************/
+/*! exports provided: EditprofileModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BusinesshoursModule", function() { return BusinesshoursModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EditprofileModule", function() { return EditprofileModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _businesshours_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./businesshours-routing.module */ "./src/app/home/profile/businesshours/businesshours-routing.module.ts");
-/* harmony import */ var _businesshours_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./businesshours.component */ "./src/app/home/profile/businesshours/businesshours.component.ts");
+/* harmony import */ var _editprofile_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editprofile-routing.module */ "./src/app/home/profile/editprofile/editprofile-routing.module.ts");
+/* harmony import */ var _editprofile_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editprofile.component */ "./src/app/home/profile/editprofile/editprofile.component.ts");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/calendar */ "./node_modules/primeng/fesm2015/primeng-calendar.js");
-/* harmony import */ var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
-/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
+/* harmony import */ var _agm_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @agm/core */ "./node_modules/@agm/core/fesm2015/agm-core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var ng_simple_slideshow__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ng-simple-slideshow */ "./node_modules/ng-simple-slideshow/ng-simple-slideshow.js");
+/* harmony import */ var ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ngx-bootstrap/modal */ "./node_modules/ngx-bootstrap/modal/fesm2015/ngx-bootstrap-modal.js");
+/* harmony import */ var src_app_shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! src/app/shared/breadcrumb/breadcrumb.module */ "./src/app/shared/breadcrumb/breadcrumb.module.ts");
+/* harmony import */ var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! src/app/shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
+/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
 
 
 
@@ -3111,23 +5278,33 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let BusinesshoursModule = class BusinesshoursModule {
+
+
+
+
+let EditprofileModule = class EditprofileModule {
 };
-BusinesshoursModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+EditprofileModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_businesshours_component__WEBPACK_IMPORTED_MODULE_4__["BusinesshoursComponent"]],
+        declarations: [_editprofile_component__WEBPACK_IMPORTED_MODULE_4__["EditprofileComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
-            _businesshours_routing_module__WEBPACK_IMPORTED_MODULE_3__["BusinesshoursRoutingModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"],
+            _editprofile_routing_module__WEBPACK_IMPORTED_MODULE_3__["EditprofileRoutingModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
-            primeng_calendar__WEBPACK_IMPORTED_MODULE_7__["CalendarModule"],
-            src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"]
+            _agm_core__WEBPACK_IMPORTED_MODULE_6__["AgmCoreModule"].forRoot({
+                apiKey: 'AIzaSyAFagdwUB5_7TgN2G4Ss6q_qnwgg5BX3Qg',
+                libraries: ["places"]
+            }),
+            ng_simple_slideshow__WEBPACK_IMPORTED_MODULE_8__["SlideshowModule"],
+            ngx_bootstrap_modal__WEBPACK_IMPORTED_MODULE_9__["ModalModule"].forRoot(),
+            src_app_shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_10__["BreadcrumbModule"],
+            src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_11__["ApplicationpipeModule"]
         ],
-        providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"]]
+        providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_12__["TranslatePipe"], primeng_api__WEBPACK_IMPORTED_MODULE_13__["MessageService"]]
     })
-], BusinesshoursModule);
+], EditprofileModule);
 
 
 

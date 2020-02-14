@@ -2,23 +2,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[53], {
   /***/
-  "./src/app/home/profile/profile-routing.module.ts":
-  /*!********************************************************!*\
-    !*** ./src/app/home/profile/profile-routing.module.ts ***!
-    \********************************************************/
+  "./src/app/home/bookings/bookings-routing.module.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/bookings/bookings-routing.module.ts ***!
+    \**********************************************************/
 
-  /*! exports provided: ProfileRoutingModule */
+  /*! exports provided: BookingsRoutingModule */
 
   /***/
-  function srcAppHomeProfileProfileRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingsRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ProfileRoutingModule", function () {
-      return ProfileRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "BookingsRoutingModule", function () {
+      return BookingsRoutingModule;
     });
     /* harmony import */
 
@@ -37,96 +37,71 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js"); // import { ProfileComponent } from './profile.component';
-
+    "./node_modules/@angular/router/fesm2015/router.js");
 
     var routes = [{
       path: '',
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(1), __webpack_require__.e(4), __webpack_require__.e(28)]).then(__webpack_require__.bind(null,
-        /*! ./viewprofile/viewprofile.module */
-        "./src/app/home/profile/viewprofile/viewprofile.module.ts")).then(function (mod) {
-          return mod.ViewprofileModule;
+        [__webpack_require__.e("common"), __webpack_require__.e(17)]).then(__webpack_require__.bind(null,
+        /*! ./list/list.module */
+        "./src/app/home/bookings/list/list.module.ts")).then(function (mod) {
+          return mod.ListModule;
         });
+      },
+      data: {
+        title: "List",
+        status: false
       }
-    }, {
-      path: 'edit',
+    }, // { path: 'add', loadChildren: () => import('./addstaff/addstaff.module').then(mod => mod.AddstaffModule), data: { title: "Add", status: false } },
+    // { path: 'edit', loadChildren: () => import('./editstaff/editstaff.module').then(mod => mod.EditstaffModule), data: { title: "Edit", status: false } },
+    {
+      path: 'info/:id',
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(4), __webpack_require__.e("common"), __webpack_require__.e(6)]).then(__webpack_require__.bind(null,
-        /*! ./editprofile/editprofile.module */
-        "./src/app/home/profile/editprofile/editprofile.module.ts")).then(function (mod) {
-          return mod.EditprofileModule;
+        [__webpack_require__.e("common"), __webpack_require__.e(10)]).then(__webpack_require__.bind(null,
+        /*! ./bookingdetail/bookingdetail.module */
+        "./src/app/home/bookings/bookingdetail/bookingdetail.module.ts")).then(function (mod) {
+          return mod.BookingdetailModule;
         });
       },
       data: {
-        title: "Edit",
-        status: false
-      }
-    }, {
-      path: 'change-password',
-      loadChildren: function loadChildren() {
-        return Promise.all(
-        /*! import() */
-        [__webpack_require__.e("common"), __webpack_require__.e(27)]).then(__webpack_require__.bind(null,
-        /*! ./changepassword/changepassword.module */
-        "./src/app/home/profile/changepassword/changepassword.module.ts")).then(function (mod) {
-          return mod.ChangepasswordModule;
-        });
-      },
-      data: {
-        title: "Change Password",
-        status: false
-      }
-    }, {
-      path: 'business-hours',
-      loadChildren: function loadChildren() {
-        return __webpack_require__.e(
-        /*! import() */
-        7).then(__webpack_require__.bind(null,
-        /*! ./businesshours/businesshours.module */
-        "./src/app/home/profile/businesshours/businesshours.module.ts")).then(function (mod) {
-          return mod.BusinesshoursModule;
-        });
-      },
-      data: {
-        title: "Business Hours",
+        title: "Info",
         status: false
       }
     }];
 
-    var ProfileRoutingModule = function ProfileRoutingModule() {
-      _classCallCheck(this, ProfileRoutingModule);
+    var BookingsRoutingModule = function BookingsRoutingModule() {
+      _classCallCheck(this, BookingsRoutingModule);
     };
 
-    ProfileRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    BookingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], ProfileRoutingModule);
+    })], BookingsRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/profile/profile.module.ts":
-  /*!************************************************!*\
-    !*** ./src/app/home/profile/profile.module.ts ***!
-    \************************************************/
+  "./src/app/home/bookings/bookings.module.ts":
+  /*!**************************************************!*\
+    !*** ./src/app/home/bookings/bookings.module.ts ***!
+    \**************************************************/
 
-  /*! exports provided: ProfileModule */
+  /*! exports provided: BookingsModule */
 
   /***/
-  function srcAppHomeProfileProfileModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingsModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ProfileModule", function () {
-      return ProfileModule;
+    __webpack_require__.d(__webpack_exports__, "BookingsModule", function () {
+      return BookingsModule;
     });
     /* harmony import */
 
@@ -149,19 +124,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _profile_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./profile-routing.module */
-    "./src/app/home/profile/profile-routing.module.ts"); // import { ProfileComponent } from './profile.component';
+    var _bookings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./bookings-routing.module */
+    "./src/app/home/bookings/bookings-routing.module.ts");
+    /* harmony import */
 
 
-    var ProfileModule = function ProfileModule() {
-      _classCallCheck(this, ProfileModule);
+    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/shared.module */
+    "./src/app/shared/shared.module.ts");
+    /* harmony import */
+
+
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+
+    var BookingsModule = function BookingsModule() {
+      _classCallCheck(this, BookingsModule);
     };
 
-    ProfileModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    BookingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _profile_routing_module__WEBPACK_IMPORTED_MODULE_3__["ProfileRoutingModule"]]
-    })], ProfileModule);
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _bookings_routing_module__WEBPACK_IMPORTED_MODULE_3__["BookingsRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ApplicationModule"]],
+      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_5__["TranslatePipe"]]
+    })], BookingsModule);
     /***/
   }
 }]);

@@ -446,8 +446,8 @@ let ListService = class ListService {
         }
         return this.httpService.getRequest('GET', dataObj.api, queryParams)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((res) => {
-            res.res.list = res.res['staffs'] || res.res['wlkUsr'] || res.res['promo'];
-            delete res.res['staffs'] || res.res['wlkUsr'] || res.res['promo'];
+            res.res.list = res.res['staffs'] || res.res['wlkUsr'] || res.res['promo'] || res.res['bkngs'];
+            delete res.res['staffs'] || res.res['wlkUsr'] || res.res['promo'] || res.res['bkngs'];
             return res;
         }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])((err, caught) => {
             if (err.status === 401) {

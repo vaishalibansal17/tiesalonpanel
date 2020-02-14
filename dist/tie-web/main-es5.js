@@ -987,7 +987,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e(5)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null,
         /*! ./home/home.module */
         "./src/app/home/home.module.ts")).then(function (m) {
           return m.HomeModule;
@@ -1516,7 +1516,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       WALKING_ADD: BASE_URL + 'user/walking/add',
       WALKING_BOOK: BASE_URL + 'booking/walking',
       PROMO: BASE_URL + 'promocode',
-      PROMO_DETAIL: BASE_URL + 'promocode/detail'
+      PROMO_DETAIL: BASE_URL + 'promocode/detail',
+      BOOKING: BASE_URL + 'salon/booking/list'
     };
     /***/
   },

@@ -6,63 +6,83 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[9], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/booking-email.html":
-  /*!******************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/booking-email.html ***!
-    \******************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings-bookings.html":
+  /*!********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings-bookings.html ***!
+    \********************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeBookingsBookingdetailBookingEmailHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeSettingsSettingsBookingsHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<mat-dialog-content class=\"text-center\">\n    <h3>Please enter your Email</h3>\n    <form>\n        <mat-form-field>\n            <!-- <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span> -->\n            <input matInput placeholder=\"Enter your email address\" class=\"form-control popup\">\n        </mat-form-field>\n    <div class=\"text-center\"><button type=\"submit\" class=\"btn btn-submit\">Send</button></div>\n</form>\n\n  </mat-dialog-content>\n    <button mat-button mat-dialog-close><img src=\"assets/images/close.png\" alt=\"Close\"></button>\n  ";
+    __webpack_exports__["default"] = "<mat-dialog-content>\n  <h3>{{'NUMOFBOOK'|translate}}</h3>\n  <form action=\"\">\n    <mat-form-field>\n      <input matInput placeholder=\"Number of Bookings\" class=\"form-control\"> \n    </mat-form-field>\n      <div class=\"text-center\"><button type=\"submit\" class=\"btn btn-submit\">Save</button></div>\n    </form>\n  </mat-dialog-content>\n  <button mat-button mat-dialog-close><img src=\"assets/images/close.png\" alt=\"Close\"></button>\n";
     /***/
   },
 
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/bookingdetail.component.html":
-  /*!****************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/bookingdetail.component.html ***!
-    \****************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings-dialog.component.html":
+  /*!****************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings-dialog.component.html ***!
+    \****************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeBookingsBookingdetailBookingdetailComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeSettingsSettingsDialogComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-6 top_view\"><img src=\"assets/images/change.png\" alt=\"\"><span class=\"user_name\">Jane Doe</span></div>\n        <div class=\"col-md-6 alignright\">\n            <ul class=\"inline\">\n                <li><a class=\"btn btn-export\" href=\"javascript:void(0);\">PDF</a></li>\n                <li><button class=\"action_btn red\" (click)=\"openDialog()\"><img src=\"assets/images/email_pink.png\" alt=\"Email\"></button></li>\n                <li><button><img src=\"assets/images/print.png\" alt=\"Print\"></button></li>\n            </ul>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-9\">\n                <div class=\"row\">\n                    <div class=\"col-md-3 label\">Date:</div>\n                    <div class=\"col-md-9 description\">22 Oct, 2019</div>\n                    <div class=\"col-md-3 label\">Time:</div>\n                    <div class=\"col-md-9 description\">10:00AM</div>\n                    <div class=\"col-md-3 label\">Booking ID:</div>\n                    <div class=\"col-md-9 description\">#QW1234</div>\n                    <div class=\"col-md-3 label\">Staff Name:</div>\n                    <div class=\"col-md-9 description\">Allen</div>\n                    <div class=\"col-md-3 label\">Address:</div>\n                    <div class=\"col-md-9 description\">246 Chris Avenue, New York</div>\n                    <div class=\"col-md-12 label\">Booking Location:</div>\n                    <div class=\"col-md-12 description\"><img class=\"full_width\" src=\"assets/images/maps.png\" alt=\"Maps\"></div>\n                    <div class=\"col-md-3 label\">Service At:</div>\n                    <div class=\"col-md-9 description\">Salon</div>\n                    <div class=\"col-md-12 label\">Services:</div>\n                    <div class=\"col-md-3 label\">Hair Wash Basic (Blast Dry)<span>Anybody</span></div>\n                    <div class=\"col-md-9 description alignright\">$250.00<span>10:00AM - 11:00AM</span></div>\n                    <div class=\"col-md-3 label\">Hair Wash Basic (Blast Dry)<span>You</span></div>\n                    <div class=\"col-md-9 description alignright\">$250.00<span>11:00AM - 12:00PM</span></div>\n                    <div class=\"col-md-12 text-center\"><a href=\"javascript:void(0);\" class=\"btn btn-submit\">Mark as Complete</a></div>\n                </div>\n            </div>\n            <div class=\"col-md-3 mobile_hidden\"></div>\n        </div>\n\n        </div>\n    </div>\n";
+    __webpack_exports__["default"] = "<h2 mat-dialog-title>{{'SCHEDULEAPPT' | translate}}</h2>\n<mat-dialog-content>\n  <h3>On 15 minute intervals</h3>\n  <p>Clients can book at 02:00PM, 02:15PM, 02:30PM, 02:45PM, etc.</p>\n  <h3>On 30 minute intervals</h3>\n  <p>Clients can book at 02:00PM, 02:30PM, 03:00PM, 03:30PM, etc.</p>\n  <h3>On hourly intervals</h3>\n  <p>Clients can book at 02:00PM, 03:00PM, 04:00PM, 05:00PM, etc.</p>\n  <h3>Based on service duration</h3>\n  <p>Clients can book based on the total time their service takes and what is currently available in your schedule (i.e. a 2.5 hour service will allow clients to book at 12:00PM, 02:30PM, 05:00PM, etc.)</p>\n</mat-dialog-content>\n  <button mat-button mat-dialog-close><img src=\"assets/images/close.png\" alt=\"Close\"></button>\n";
     /***/
   },
 
   /***/
-  "./src/app/home/bookings/bookingdetail/bookingdetail-routing.module.ts":
-  /*!*****************************************************************************!*\
-    !*** ./src/app/home/bookings/bookingdetail/bookingdetail-routing.module.ts ***!
-    \*****************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings.component.html":
+  /*!*********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings.component.html ***!
+    \*********************************************************************************************/
 
-  /*! exports provided: BookingdetailRoutingModule */
+  /*! exports provided: default */
 
   /***/
-  function srcAppHomeBookingsBookingdetailBookingdetailRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeSettingsSettingsComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'NOTIFICATION'| translate}}</div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'LANG'| translate}}</div>\n            <div class=\"col-md-6 alignright\">\n                <ul>\n                    <li class=\"{{lang=='en'?'active':''}}\" (click)=\"setLang('en')\">En <img src=\"assets/images/flag_en.png\" alt=\"English\"></li>\n                    <li class=\"{{lang=='ua'?'active':''}}\" (click)=\"setLang('ua')\">Ar <img src=\"assets/images/flag_ar.png\" alt=\"Arabic\"></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'ONLINBOOKING'| translate}}</div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"setting_list\"> \n        <div class=\"row\">\n            <div class=\"col-md-8\">{{'SCHEDULEAPPT'| translate}} <button mat-raised-button matTooltip=\"{{'SCHEDULEAPPT'| translate}}\" [matTooltipPosition]=\"position.value\" aria-label=\"Button that displays a tooltip in various positions\"><img src=\"assets/images/info.png\" alt=\"Info\"></button></div>\n            <div class=\"col-md-4 alignright\">  \n             <mat-form-field>\n                <mat-label>{{'SCHEDULEAPPT'| translate}}</mat-label>\n                <mat-select (click)=\"openDialog()\" [disableRipple]=\"true\">\n                  <mat-option *ngFor=\"let appointment of appointments\" [value]=\"appointment.value\">\n                    {{appointment.viewValue}}\n                  </mat-option>\n                </mat-select>\n              </mat-form-field></div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'ALLOWMULTISETTINGS'| translate}}</div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'HOURSPRIORBOOKING'| translate}}</div>\n            <div class=\"col-md-6 alignright\">3</div>\n        </div>\n    </div>\n    <!-- <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\"><button mat-raised-button (click)=\"openDialog2()\" [disableRipple]=\"true\">{{'NUMOFBOOK'| translate}}</button></div>\n            <div class=\"col-md-6 alignright\">8</div>\n        </div>\n    </div> -->\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'DEACACC'| translate}} \n                <button  [disableRipple]=\"true\" mat-raised-button matTooltip=\"{{'DEACTEXT'| translate}}\" [matTooltipPosition]=\"position.value\" aria-label=\"Button that displays a tooltip in various positions\"><img src=\"assets/images/info.png\" alt=\"Info\"></button>\n            </div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"text-center\"><a href=\"#\" class=\"link\">{{'DELACC'| translate}}</a></div>\n</div>\n\n\n";
+    /***/
+  },
+
+  /***/
+  "./src/app/home/settings/settings-routing.module.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/settings/settings-routing.module.ts ***!
+    \**********************************************************/
+
+  /*! exports provided: SettingsRoutingModule */
+
+  /***/
+  function srcAppHomeSettingsSettingsRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "BookingdetailRoutingModule", function () {
-      return BookingdetailRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "SettingsRoutingModule", function () {
+      return SettingsRoutingModule;
     });
     /* harmony import */
 
@@ -85,70 +105,76 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _bookingdetail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./bookingdetail.component */
-    "./src/app/home/bookings/bookingdetail/bookingdetail.component.ts");
+    var _settings_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./settings.component */
+    "./src/app/home/settings/settings.component.ts");
 
     var routes = [{
       path: '',
-      component: _bookingdetail_component__WEBPACK_IMPORTED_MODULE_3__["BookingdetailComponent"]
+      component: _settings_component__WEBPACK_IMPORTED_MODULE_3__["SettingsComponent"]
     }];
 
-    var BookingdetailRoutingModule = function BookingdetailRoutingModule() {
-      _classCallCheck(this, BookingdetailRoutingModule);
+    var SettingsRoutingModule = function SettingsRoutingModule() {
+      _classCallCheck(this, SettingsRoutingModule);
     };
 
-    BookingdetailRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    SettingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], BookingdetailRoutingModule);
+    })], SettingsRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/bookings/bookingdetail/bookingdetail.component.scss":
-  /*!**************************************************************************!*\
-    !*** ./src/app/home/bookings/bookingdetail/bookingdetail.component.scss ***!
-    \**************************************************************************/
+  "./src/app/home/settings/settings.component.scss":
+  /*!*******************************************************!*\
+    !*** ./src/app/home/settings/settings.component.scss ***!
+    \*******************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeBookingsBookingdetailBookingdetailComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeSettingsSettingsComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".main-card ul.inline {\n  padding-top: 20px;\n}\n\n@media (max-width: 992px) {\n  .main-card .label, .main-card .description {\n    padding: 0px 30px;\n  }\n}\n\n@media (max-width: 767px) {\n  .main-card ul.inline {\n    text-align: left;\n  }\n\n  .main-card ul.inline li {\n    display: contents;\n  }\n\n  .main-card ul.inline li button.action_btn.red {\n    padding: 2px 12px 2px 16px;\n  }\n\n  .main-card span.user_name {\n    margin-left: 0;\n    display: block;\n    margin-top: 10px;\n  }\n\n  .main-card ul.inline {\n    padding-top: 0px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9ib29raW5ncy9ib29raW5nZGV0YWlsL2Jvb2tpbmdkZXRhaWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvYm9va2luZ3MvYm9va2luZ2RldGFpbC9ib29raW5nZGV0YWlsLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQXFCLGlCQUFBO0FDRXJCOztBREFBO0VBQ0k7SUFBMEMsaUJBQUE7RUNJNUM7QUFDRjs7QURGQTtFQUNBO0lBQXFCLGdCQUFBO0VDS25COztFREpGO0lBQXdCLGlCQUFBO0VDUXRCOztFRFBGO0lBQThDLDBCQUFBO0VDVzVDOztFRFZGO0lBQTJCLGNBQUE7SUFBZSxjQUFBO0lBQWUsZ0JBQUE7RUNnQnZEOztFRGZGO0lBQXFCLGdCQUFBO0VDbUJuQjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9ib29raW5ncy9ib29raW5nZGV0YWlsL2Jvb2tpbmdkZXRhaWwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbi1jYXJkIHVsLmlubGluZXtwYWRkaW5nLXRvcDogMjBweDt9XG5cbkBtZWRpYShtYXgtd2lkdGg6OTkycHgpe1xuICAgIC5tYWluLWNhcmQgLmxhYmVsLC5tYWluLWNhcmQgLmRlc2NyaXB0aW9ue3BhZGRpbmc6IDBweCAzMHB4O31cbn1cblxuQG1lZGlhKG1heC13aWR0aDo3NjdweCl7XG4ubWFpbi1jYXJkIHVsLmlubGluZXt0ZXh0LWFsaWduOiBsZWZ0O31cbi5tYWluLWNhcmQgdWwuaW5saW5lIGxpe2Rpc3BsYXk6IGNvbnRlbnRzfVxuLm1haW4tY2FyZCB1bC5pbmxpbmUgbGkgYnV0dG9uLmFjdGlvbl9idG4ucmVke3BhZGRpbmc6IDJweCAxMnB4IDJweCAxNnB4O31cbi5tYWluLWNhcmQgc3Bhbi51c2VyX25hbWUge21hcmdpbi1sZWZ0OiAwO2Rpc3BsYXk6IGJsb2NrO21hcmdpbi10b3A6IDEwcHg7fVxuLm1haW4tY2FyZCB1bC5pbmxpbmV7cGFkZGluZy10b3A6IDBweDt9XG59IiwiLm1haW4tY2FyZCB1bC5pbmxpbmUge1xuICBwYWRkaW5nLXRvcDogMjBweDtcbn1cblxuQG1lZGlhIChtYXgtd2lkdGg6IDk5MnB4KSB7XG4gIC5tYWluLWNhcmQgLmxhYmVsLCAubWFpbi1jYXJkIC5kZXNjcmlwdGlvbiB7XG4gICAgcGFkZGluZzogMHB4IDMwcHg7XG4gIH1cbn1cbkBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAubWFpbi1jYXJkIHVsLmlubGluZSB7XG4gICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgfVxuXG4gIC5tYWluLWNhcmQgdWwuaW5saW5lIGxpIHtcbiAgICBkaXNwbGF5OiBjb250ZW50cztcbiAgfVxuXG4gIC5tYWluLWNhcmQgdWwuaW5saW5lIGxpIGJ1dHRvbi5hY3Rpb25fYnRuLnJlZCB7XG4gICAgcGFkZGluZzogMnB4IDEycHggMnB4IDE2cHg7XG4gIH1cblxuICAubWFpbi1jYXJkIHNwYW4udXNlcl9uYW1lIHtcbiAgICBtYXJnaW4tbGVmdDogMDtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBtYXJnaW4tdG9wOiAxMHB4O1xuICB9XG5cbiAgLm1haW4tY2FyZCB1bC5pbmxpbmUge1xuICAgIHBhZGRpbmctdG9wOiAwcHg7XG4gIH1cbn0iXX0= */";
+    __webpack_exports__["default"] = ".main-card .setting_list ul li {\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9zZXR0aW5ncy9zZXR0aW5ncy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9zZXR0aW5ncy9zZXR0aW5ncy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUErQixlQUFBO0FDRS9CIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9zZXR0aW5ncy9zZXR0aW5ncy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tYWluLWNhcmQgLnNldHRpbmdfbGlzdCB1bCBsaXtjdXJzb3I6IHBvaW50ZXI7fSIsIi5tYWluLWNhcmQgLnNldHRpbmdfbGlzdCB1bCBsaSB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn0iXX0= */";
     /***/
   },
 
   /***/
-  "./src/app/home/bookings/bookingdetail/bookingdetail.component.ts":
-  /*!************************************************************************!*\
-    !*** ./src/app/home/bookings/bookingdetail/bookingdetail.component.ts ***!
-    \************************************************************************/
+  "./src/app/home/settings/settings.component.ts":
+  /*!*****************************************************!*\
+    !*** ./src/app/home/settings/settings.component.ts ***!
+    \*****************************************************/
 
-  /*! exports provided: BookingdetailComponent, BookingEmailDialogPopup */
+  /*! exports provided: SettingsComponent, DialogContentExampleDialog, DialogBookingSettings */
 
   /***/
-  function srcAppHomeBookingsBookingdetailBookingdetailComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeSettingsSettingsComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "BookingdetailComponent", function () {
-      return BookingdetailComponent;
+    __webpack_require__.d(__webpack_exports__, "SettingsComponent", function () {
+      return SettingsComponent;
     });
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "BookingEmailDialogPopup", function () {
-      return BookingEmailDialogPopup;
+    __webpack_require__.d(__webpack_exports__, "DialogContentExampleDialog", function () {
+      return DialogContentExampleDialog;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "DialogBookingSettings", function () {
+      return DialogBookingSettings;
     });
     /* harmony import */
 
@@ -165,24 +191,47 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/material */
     "./node_modules/@angular/material/esm2015/material.js");
+    /* harmony import */
 
-    var BookingdetailComponent =
+
+    var src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/service/translate.service */
+    "./src/app/shared/service/translate.service.ts");
+
+    var SettingsComponent =
     /*#__PURE__*/
     function () {
-      function BookingdetailComponent(dialog) {
-        _classCallCheck(this, BookingdetailComponent);
+      function SettingsComponent(dialog, trns) {
+        _classCallCheck(this, SettingsComponent);
 
         this.dialog = dialog;
+        this.trns = trns;
+        this.positionOptions = ['after', 'before', 'above', 'below', 'left', 'right'];
+        this.position = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](this.positionOptions[0]);
+        this.lang = localStorage.getItem('lang') || 'en';
       }
 
-      _createClass(BookingdetailComponent, [{
+      _createClass(SettingsComponent, [{
         key: "openDialog",
         value: function openDialog() {
-          console.log('-----');
-          var dialogRef = this.dialog.open(BookingEmailDialogPopup, {
+          var dialogRef = this.dialog.open(DialogContentExampleDialog, {
+            width: '500px',
+            disableClose: true
+          });
+        }
+      }, {
+        key: "openDialog2",
+        value: function openDialog2() {
+          var dialogRef = this.dialog.open(DialogBookingSettings, {
             width: '500px',
             disableClose: true
           });
@@ -190,61 +239,84 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "ngOnInit",
         value: function ngOnInit() {}
+      }, {
+        key: "setLang",
+        value: function setLang(lang) {
+          localStorage.setItem('lang', lang);
+          this.lang = lang;
+          this.trns.use(this.lang);
+        }
       }]);
 
-      return BookingdetailComponent;
+      return SettingsComponent;
     }();
 
-    BookingdetailComponent.ctorParameters = function () {
+    SettingsComponent.ctorParameters = function () {
       return [{
-        type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
+        type: _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
+      }, {
+        type: src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_4__["TranslateService"]
       }];
     };
 
-    BookingdetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-bookingdetail',
+    SettingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-settings',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./bookingdetail.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/bookingdetail.component.html")).default,
+      /*! raw-loader!./settings.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./bookingdetail.component.scss */
-      "./src/app/home/bookings/bookingdetail/bookingdetail.component.scss")).default]
-    })], BookingdetailComponent);
+      /*! ./settings.component.scss */
+      "./src/app/home/settings/settings.component.scss")).default]
+    })], SettingsComponent);
 
-    var BookingEmailDialogPopup = function BookingEmailDialogPopup() {
-      _classCallCheck(this, BookingEmailDialogPopup);
+    var DialogContentExampleDialog = function DialogContentExampleDialog() {
+      _classCallCheck(this, DialogContentExampleDialog);
     };
 
-    BookingEmailDialogPopup = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'booking-email',
+    DialogContentExampleDialog = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'settings-dialog.component',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./booking-email.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/booking-email.html")).default,
+      /*! raw-loader!./settings-dialog.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings-dialog.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./bookingdetail.component.scss */
-      "./src/app/home/bookings/bookingdetail/bookingdetail.component.scss")).default]
-    })], BookingEmailDialogPopup);
+      /*! ./settings.component.scss */
+      "./src/app/home/settings/settings.component.scss")).default]
+    })], DialogContentExampleDialog);
+
+    var DialogBookingSettings = function DialogBookingSettings() {
+      _classCallCheck(this, DialogBookingSettings);
+    };
+
+    DialogBookingSettings = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'settings-bookings',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./settings-bookings.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings-bookings.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./settings.component.scss */
+      "./src/app/home/settings/settings.component.scss")).default]
+    })], DialogBookingSettings);
     /***/
   },
 
   /***/
-  "./src/app/home/bookings/bookingdetail/bookingdetail.module.ts":
-  /*!*********************************************************************!*\
-    !*** ./src/app/home/bookings/bookingdetail/bookingdetail.module.ts ***!
-    \*********************************************************************/
+  "./src/app/home/settings/settings.module.ts":
+  /*!**************************************************!*\
+    !*** ./src/app/home/settings/settings.module.ts ***!
+    \**************************************************/
 
-  /*! exports provided: BookingdetailModule */
+  /*! exports provided: SettingsModule */
 
   /***/
-  function srcAppHomeBookingsBookingdetailBookingdetailModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeSettingsSettingsModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "BookingdetailModule", function () {
-      return BookingdetailModule;
+    __webpack_require__.d(__webpack_exports__, "SettingsModule", function () {
+      return SettingsModule;
     });
     /* harmony import */
 
@@ -267,31 +339,44 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _bookingdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./bookingdetail-routing.module */
-    "./src/app/home/bookings/bookingdetail/bookingdetail-routing.module.ts");
+    var _settings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./settings-routing.module */
+    "./src/app/home/settings/settings-routing.module.ts");
     /* harmony import */
 
 
-    var _bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./bookingdetail.component */
-    "./src/app/home/bookings/bookingdetail/bookingdetail.component.ts");
+    var _settings_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./settings.component */
+    "./src/app/home/settings/settings.component.ts");
     /* harmony import */
 
 
     var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/shared/shared.module */
     "./src/app/shared/shared.module.ts");
+    /* harmony import */
 
-    var BookingdetailModule = function BookingdetailModule() {
-      _classCallCheck(this, BookingdetailModule);
+
+    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/module/applicationpipe/applicationpipe.module */
+    "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
+    /* harmony import */
+
+
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+
+    var SettingsModule = function SettingsModule() {
+      _classCallCheck(this, SettingsModule);
     };
 
-    BookingdetailModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__["BookingdetailComponent"], _bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__["BookingEmailDialogPopup"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _bookingdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__["BookingdetailRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]],
-      entryComponents: [_bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__["BookingEmailDialogPopup"]]
-    })], BookingdetailModule);
+    SettingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_settings_component__WEBPACK_IMPORTED_MODULE_4__["SettingsComponent"], _settings_component__WEBPACK_IMPORTED_MODULE_4__["DialogContentExampleDialog"], _settings_component__WEBPACK_IMPORTED_MODULE_4__["DialogBookingSettings"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _settings_routing_module__WEBPACK_IMPORTED_MODULE_3__["SettingsRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__["ApplicationpipeModule"]],
+      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]],
+      entryComponents: [_settings_component__WEBPACK_IMPORTED_MODULE_4__["DialogContentExampleDialog"], _settings_component__WEBPACK_IMPORTED_MODULE_4__["DialogBookingSettings"]]
+    })], SettingsModule);
     /***/
   }
 }]);

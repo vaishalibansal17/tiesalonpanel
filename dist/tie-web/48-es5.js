@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[48], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/add/add.component.html":
-  /*!************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/add/add.component.html ***!
-    \************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html":
+  /*!****************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html ***!
+    \****************************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserAddAddComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserAddbookingsAddbookingsComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form [formGroup]='profile' (ngSubmit)='add()'>\n            <!-- <div class=\"text-center\">\n                <div class=\"file_input\">\n                    <img [src]=\"url\" alt=\"\">\n                </div>\n                <label for=\"\" class=\"custom_label upload-image\">\n                    <input type=\"file\" accept=\"image/jpeg,image/png\" (change)=\"readUrl($event)\">\n                    {{'Add Profile Picture'| translate}}</label>\n            </div> -->\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/email.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'EMAIL'| translate | titlecase}}\" class=\"form-control\" (keyup)=\"checkUser($event)\"\n                    formControlName=\"email\" maxlength=\"100\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.email.dirty|| getControl.email.touched) && getControl.email.errors\">\n                <p class=\"color\" *ngIf=\"getControl.email.errors.required\">{{'LOGINEMAIL'| translate}}</p>\n                <p class=\"color\"\n                    *ngIf=\"!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress\">\n                    {{'LOGINVALIDEMAIL'| translate}}</p>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/edit-user.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Full name\" class=\"form-control\" formControlName=\"name\" maxlength=\"100\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.name.dirty|| getControl.name.touched) && getControl.name.errors\">\n                <p class=\"color\" *ngIf=\"getControl.name.errors.required\">{{'INCRTSTAFFNAME'| translate}}</p>\n                <!-- <p class=\"color\" *ngIf=\"!getControl.name.errors.required && getControl.name.errors.invalidName\">\n                    {{'INCRTSALONNAME'| translate}}</p> -->\n            </div>\n            <mat-form-field>\n                <span class=\"email-img phone\"><img src=\"assets/images/mobile.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PHONE'| translate | titlecase}}\"\n                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' class=\"form-control\"\n                    formControlName=\"phone\" maxlength=\"12\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.phone.dirty|| getControl.phone.touched) && getControl.phone.errors\">\n                <p class=\"color\" *ngIf=\"getControl.phone.errors.required\">{{'PHNREQ'|translate}}</p>\n                <p class=\"color\" *ngIf=\"!getControl.phone.errors.required && getControl.phone.errors.Invalidphone \">\n                    {{'PHNLNGTH'|translate}}</p>\n            </div>\n\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/description.png\" alt=\"envelope\"></span>\n                <textarea matInput placeholder=\"{{'DESCRIPTION'| translate}}\" class=\"form-control\"\n                    formControlName=\"description\" maxlength=\"150\"></textarea>\n            </mat-form-field>\n            <div\n                *ngIf=\"(submitted || getControl.description.dirty|| getControl.description.touched) && getControl.description.errors\">\n                <p class=\"color\" *ngIf=\"getControl.description.errors.required\">{{'DESCREQ' | translate}}</p>\n                <p class=\"color\" *ngIf=\"getControl.description.errors.minlength \">{{'DESCLNGTH'| translate}}</p>\n            </div>\n            <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Proceed</button>\n            </div>\n        </form>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form action=\"\" [formGroup]='profile' (ngSubmit)=\"submit()\">\n            <mat-form-field class=\"multi_field\">\n                <span class=\"email-img pass\"><img src=\"assets/images/service.png\" alt=\"envelope\"></span>\n                <mat-label>{{'SERVICE'| translate}}</mat-label>\n                <mat-select (selectionChange)=\"slctsrv($event.value)\" class=\"multiselect\">\n                    <mat-option *ngFor=\"let service of services\" [value]=\"service\">\n                        {{service.cat_name | titlecase}}\n                    </mat-option>\n                </mat-select>\n                <div *ngIf=\"(submitted && !chips.length)\">\n                    <p class=\"color error\" *ngIf=\"!chips.length\">{{'SRVREQ'|translate}}</p>\n                    <!-- <p class=\"color error\" *ngIf=\"!getControl.price.errors.required && getControl.price.errors.Invalidphone \">\n                        {{'PHNLNGTH'|translate}}</p> -->\n                </div>\n                <mat-chip-list aria-label=\"Fish selection\">\n                    <mat-chip *ngFor=\"let chip of chips; let i =index\" [disableRipple]=\"true\" [selectable]=\"selectable\" [removable]=\"removable\"\n                        (removed)=\"remove(i, chip)\">{{chip.cat_name | titlecase}}\n                        <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\n                    </mat-chip>\n                    <!-- <mat-chip>Two fish</mat-chip>\n                    <mat-chip color=\"primary\" selected>Primary fish</mat-chip>\n                    <mat-chip color=\"accent\" selected>Accent fish</mat-chip> -->\n                </mat-chip-list>\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/price_form.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Price\" formControlName=\"price\" readonly='true' class=\"form-control\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted && getControl.price.errors)\">\n                <p class=\"color error\" *ngIf=\"getControl.price.errors.required\">{{'PRICREQ'|translate}}</p>\n                <!-- <p class=\"color error\" *ngIf=\"!getControl.price.errors.required && getControl.price.errors.Invalidphone \">\n                    {{'PHNLNGTH'|translate}}</p> -->\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/edit-staff.png\" alt=\"envelope\"></span>\n                <mat-label>{{'STAFF'| translate}}</mat-label>\n                <mat-select formControlName=\"staf_id\" class=\"multiselect\">\n                    <mat-option *ngFor=\"let staff of staff\" [value]=\"staff\">\n                        {{staff.name | titlecase}}\n                    </mat-option>\n                </mat-select>\n            </mat-form-field>\n            <div *ngIf=\"(submitted && getControl.staf_id.errors)\">\n                <p class=\"color error\" *ngIf=\"getControl.staf_id.errors.required\">{{'STFREQ'|translate}}</p>\n            </div>\n            <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Save</button>\n            </div>\n        </form>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/add/add-routing.module.ts":
-  /*!*************************************************************!*\
-    !*** ./src/app/home/walking-user/add/add-routing.module.ts ***!
-    \*************************************************************/
+  "./src/app/home/walking-user/addbookings/addbookings-routing.module.ts":
+  /*!*****************************************************************************!*\
+    !*** ./src/app/home/walking-user/addbookings/addbookings-routing.module.ts ***!
+    \*****************************************************************************/
 
-  /*! exports provided: AddRoutingModule */
+  /*! exports provided: AddbookingsRoutingModule */
 
   /***/
-  function srcAppHomeWalkingUserAddAddRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddbookingsAddbookingsRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AddRoutingModule", function () {
-      return AddRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "AddbookingsRoutingModule", function () {
+      return AddbookingsRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _add_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./add.component */
-    "./src/app/home/walking-user/add/add.component.ts");
+    var _addbookings_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./addbookings.component */
+    "./src/app/home/walking-user/addbookings/addbookings.component.ts");
 
     var routes = [{
       path: '',
-      component: _add_component__WEBPACK_IMPORTED_MODULE_3__["AddComponent"]
+      component: _addbookings_component__WEBPACK_IMPORTED_MODULE_3__["AddbookingsComponent"]
     }];
 
-    var AddRoutingModule = function AddRoutingModule() {
-      _classCallCheck(this, AddRoutingModule);
+    var AddbookingsRoutingModule = function AddbookingsRoutingModule() {
+      _classCallCheck(this, AddbookingsRoutingModule);
     };
 
-    AddRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    AddbookingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], AddRoutingModule);
+    })], AddbookingsRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/add/add.component.scss":
-  /*!**********************************************************!*\
-    !*** ./src/app/home/walking-user/add/add.component.scss ***!
-    \**********************************************************/
+  "./src/app/home/walking-user/addbookings/addbookings.component.scss":
+  /*!**************************************************************************!*\
+    !*** ./src/app/home/walking-user/addbookings/addbookings.component.scss ***!
+    \**************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeWalkingUserAddAddComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddbookingsAddbookingsComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".file_input img {\n  border-radius: 50%;\n  height: 90px;\n  width: 90px;\n  border: 5px solid whitesmoke;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvYWRkL2FkZC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvYWRkL2FkZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7RUFDQSw0QkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvYWRkL2FkZC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5maWxlX2lucHV0IGltZ3tcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XG4gICAgaGVpZ2h0OiA5MHB4O1xuICAgIHdpZHRoOiA5MHB4O1xuICAgIGJvcmRlcjogNXB4IHNvbGlkIHdoaXRlc21va2U7XG59XG4iLCIuZmlsZV9pbnB1dCBpbWcge1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIGhlaWdodDogOTBweDtcbiAgd2lkdGg6IDkwcHg7XG4gIGJvcmRlcjogNXB4IHNvbGlkIHdoaXRlc21va2U7XG59Il19 */";
+    __webpack_exports__["default"] = ".custom_form span.email-img.pass {\n  top: 15px !important;\n}\n\n.mat-form-field.multi_field {\n  display: inline-table !important;\n}\n\n.mat-select.multiselect {\n  border: 1px solid #dad9d9 !important;\n  border-radius: 4px;\n  margin-bottom: 10px;\n}\n\n.custom_form mat-form-field.mat-form-field.multi_field {\n  border: none;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvYWRkYm9va2luZ3MvYWRkYm9va2luZ3MuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL2FkZGJvb2tpbmdzL2FkZGJvb2tpbmdzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQWtDLG9CQUFBO0FDRWxDOztBREFBO0VBQTRCLGdDQUFBO0FDSTVCOztBREhBO0VBQXdCLG9DQUFBO0VBQXFDLGtCQUFBO0VBQW1CLG1CQUFBO0FDU2hGOztBRFBBO0VBQXVELFlBQUE7QUNXdkQiLCJmaWxlIjoic3JjL2FwcC9ob21lL3dhbGtpbmctdXNlci9hZGRib29raW5ncy9hZGRib29raW5ncy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jdXN0b21fZm9ybSBzcGFuLmVtYWlsLWltZy5wYXNzIHt0b3A6IDE1cHggIWltcG9ydGFudDt9XG5cbi5tYXQtZm9ybS1maWVsZC5tdWx0aV9maWVsZHtkaXNwbGF5OiBpbmxpbmUtdGFibGUgIWltcG9ydGFudH1cbi5tYXQtc2VsZWN0Lm11bHRpc2VsZWN0e2JvcmRlcjogMXB4IHNvbGlkICNkYWQ5ZDkgIWltcG9ydGFudDtib3JkZXItcmFkaXVzOiA0cHg7bWFyZ2luLWJvdHRvbTogMTBweDt9XG5cbi5jdXN0b21fZm9ybSBtYXQtZm9ybS1maWVsZC5tYXQtZm9ybS1maWVsZC5tdWx0aV9maWVsZHtib3JkZXI6bm9uZX0iLCIuY3VzdG9tX2Zvcm0gc3Bhbi5lbWFpbC1pbWcucGFzcyB7XG4gIHRvcDogMTVweCAhaW1wb3J0YW50O1xufVxuXG4ubWF0LWZvcm0tZmllbGQubXVsdGlfZmllbGQge1xuICBkaXNwbGF5OiBpbmxpbmUtdGFibGUgIWltcG9ydGFudDtcbn1cblxuLm1hdC1zZWxlY3QubXVsdGlzZWxlY3Qge1xuICBib3JkZXI6IDFweCBzb2xpZCAjZGFkOWQ5ICFpbXBvcnRhbnQ7XG4gIGJvcmRlci1yYWRpdXM6IDRweDtcbiAgbWFyZ2luLWJvdHRvbTogMTBweDtcbn1cblxuLmN1c3RvbV9mb3JtIG1hdC1mb3JtLWZpZWxkLm1hdC1mb3JtLWZpZWxkLm11bHRpX2ZpZWxkIHtcbiAgYm9yZGVyOiBub25lO1xufSJdfQ== */";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/add/add.component.ts":
-  /*!********************************************************!*\
-    !*** ./src/app/home/walking-user/add/add.component.ts ***!
-    \********************************************************/
+  "./src/app/home/walking-user/addbookings/addbookings.component.ts":
+  /*!************************************************************************!*\
+    !*** ./src/app/home/walking-user/addbookings/addbookings.component.ts ***!
+    \************************************************************************/
 
-  /*! exports provided: AddComponent */
+  /*! exports provided: AddbookingsComponent */
 
   /***/
-  function srcAppHomeWalkingUserAddAddComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddbookingsAddbookingsComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AddComponent", function () {
-      return AddComponent;
+    __webpack_require__.d(__webpack_exports__, "AddbookingsComponent", function () {
+      return AddbookingsComponent;
     });
     /* harmony import */
 
@@ -139,27 +139,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    var src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/shared/service/message.service */
+    "./src/app/shared/service/message.service.ts");
     /* harmony import */
 
 
-    var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/shared/service/validation-service */
-    "./src/app/shared/service/validation-service.ts");
-    /* harmony import */
-
-
-    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/shared/service/http-request.service */
-    "./src/app/shared/service/http-request.service.ts");
-    /* harmony import */
-
-
-    var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/service/error.service */
+    "./src/app/shared/service/error.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/service/http-request.service */
+    "./src/app/shared/service/http-request.service.ts");
     /* harmony import */
 
 
@@ -169,33 +169,45 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! src/app/shared/service/error.service */
-    "./src/app/shared/service/error.service.ts");
-    /* harmony import */
-
-
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/shared/_pipes/translate.pipe */
     "./src/app/shared/_pipes/translate.pipe.ts");
     /* harmony import */
 
 
-    var src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! src/app/shared/constants/constant */
-    "./src/app/shared/constants/constant.ts");
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
     /* harmony import */
 
 
-    var src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-    /*! src/app/shared/service/message.service */
-    "./src/app/shared/service/message.service.ts");
+    var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/shared/service/validation-service */
+    "./src/app/shared/service/validation-service.ts");
+    /* harmony import */
 
-    var AddComponent =
+
+    var lodash__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! lodash */
+    "./node_modules/lodash/lodash.js");
+    /* harmony import */
+
+
+    var lodash__WEBPACK_IMPORTED_MODULE_10___default =
+    /*#__PURE__*/
+    __webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_10__);
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+
+    var AddbookingsComponent =
     /*#__PURE__*/
     function () {
-      function AddComponent(httpService, router, messageService, helper, errorserv, trns) {
-        _classCallCheck(this, AddComponent);
+      function AddbookingsComponent(httpService, router, messageService, helper, errorserv, trns) {
+        _classCallCheck(this, AddbookingsComponent);
 
         this.httpService = httpService;
         this.router = router;
@@ -203,116 +215,123 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.helper = helper;
         this.errorserv = errorserv;
         this.trns = trns;
-        this.url = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_9__["IMG"].PRO;
-        this.isExist = false;
+        this.servicea = [{
+          value: '1',
+          viewValue: 'Hair Spa'
+        }, {
+          value: '2',
+          viewValue: 'Spa'
+        }];
+        this.chips = [];
+        this.sendServ = [];
+        this.selectable = true;
+        this.removable = true;
+        this.price = 0;
+        this.submitted = false;
       }
 
-      _createClass(AddComponent, [{
+      _createClass(AddbookingsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          this.profile = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
-            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_3__["ValidationService"].namevalidator]),
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_3__["ValidationService"].validateEmail]),
-            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_3__["ValidationService"].phonevalidator]),
-            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [// Validators.required,
-            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(500)]),
-            multiImage: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null),
-            serviceat: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null)
+          var _this = this;
+
+          this.responseData = this.messageService.getBooking();
+
+          if (!this.responseData) {
+            this.router.navigateByUrl('walking-user/add-user').then(function () {
+              _this.errorserv.handleError(0);
+            });
+          } else this.getServices();
+
+          this.profile = new _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormGroup"]({
+            staf_id: new _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required]),
+            price: new _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_9__["ValidationService"].numberValidator])
           });
         }
       }, {
-        key: "add",
-        value: function add() {
-          var _this = this;
+        key: "submit",
+        value: function submit() {
+          var _this2 = this;
 
-          this.submitted = true; // return false
-
-          this.formData = new FormData();
-          console.log(this.profile.value); // return
-
-          this.profile.enable();
+          this.submitted = true;
 
           if (this.profile.valid) {
-            if (!this.isExist) {
-              this.profile.value['desc'] = this.profile.value.description;
-              this.profile.value['pno'] = this.profile.value.phone;
-              this.profile.value['fullname'] = this.profile.value.name;
-              this.httpService.getRequest('POST', 'WALKING_ADD', this.profile.value).subscribe(function (response) {
-                if (response.status === 1) {
-                  _this.submitted = true;
+            // this.profile.controls['price'].enable();
+            console.log(this.profile);
+            this.profile.value['service'] = JSON.stringify(this.chips);
+            this.profile.value['user_id'] = this.responseData.user_id;
+            this.profile.value['staf_name'] = this.profile.value.staf_id.name;
+            this.profile.value['staf_id'] = this.profile.value.staf_id._id; // return
 
-                  _this.messageService.setBooking({
-                    'user_id': response.res._id
-                  });
+            this.httpService.getRequest('POST', 'WALKING_BOOK', this.profile.value).subscribe(function (response) {
+              if (response.status === 1) {
+                _this2.submitted = true;
 
-                  _this.router.navigateByUrl('/walking-user/add-booking');
-                } else {
-                  if (response.err) {
-                    _this.errorserv.handleError(response.err.errCode);
-                  }
+                _this2.router.navigateByUrl('/walking-user').then(function () {
+                  _this2.httpService.sucsTostr(_this2.trns.transform('SUCCESS'), _this2.trns.transform('WALKNGSUCCESS'));
+                });
+              } else {
+                if (response.err) {
+                  _this2.errorserv.handleError(response.err.errCode);
                 }
-              }, function (error) {
-                _this.errorserv.handleError(0);
-              });
-            } else {
-              this.messageService.setBooking({
-                'user_id': this.detail._id
-              });
-              this.router.navigateByUrl('/walking-user/add-booking');
-            }
+              }
+            }, function (error) {
+              _this2.errorserv.handleError(0);
+            });
           } else {
             console.log(this.profile);
           }
         }
       }, {
-        key: "readUrl",
-        value: function readUrl(event) {
-          var _this2 = this;
-
-          if (event.target.files && event.target.files[0]) {
-            if (this.helper.isImage(event.target.files[0].type)) {
-              var reader = new FileReader();
-
-              reader.onload = function (event) {
-                _this2.url = event.target.result;
-              };
-
-              reader.readAsDataURL(event.target.files[0]);
-              this.profileImage = event.target.files[0];
-            } else {// this.httpService.showError(MESSAGE.IMG_MSG, MESSAGE.IMG_ERROR, MESSAGE.MSGTIME);
-            }
-          }
-        }
-      }, {
-        key: "checkUser",
-        value: function checkUser(event) {
+        key: "getServices",
+        value: function getServices() {
           var _this3 = this;
 
-          if (this.profile.controls.email.status == 'INVALID') return;else {
-            this.httpService.getRequest('POST', 'WALKING_CHK', {
-              email: event.target.value
-            }).subscribe(function (response) {
-              if (response.status === 1) {
-                console.log(response.res);
-                _this3.detail = response.res;
-
-                _this3.profile.patchValue({
-                  name: response.res.hasOwnProperty('fullname') ? response.res.fullname : '',
-                  email: response.res.hasOwnProperty('email') ? response.res.email : '',
-                  phone: response.res.hasOwnProperty('pno') ? response.res.pno : ''
-                });
-
-                _this3.isExist = true;
-
-                _this3.profile.disable();
-              } else {
-                if (response.err) {
-                  _this3.errorserv.handleError(response.err.errCode);
-                }
-              }
-            }, function (error) {
-              console.log(error);
+          var service = this.httpService.getRequest('GET', 'SERVICES', '');
+          var staff = this.httpService.getRequest('GET', 'STAFF', '?all=true');
+          Object(rxjs__WEBPACK_IMPORTED_MODULE_11__["forkJoin"])([service, staff]).subscribe(function (result) {
+            _this3.services = result[0].res.services;
+            _this3.staff = result[1].res.staffs;
+          }, function (error) {
+            console.log(error);
+          });
+        }
+      }, {
+        key: "slctsrv",
+        value: function slctsrv(state) {
+          // let isFound = this.httpService.arraySearch(this.sendServ, state)
+          if (!this.httpService.arraySearch(this.sendServ, state)) {
+            this.chips.push({
+              id: state._id,
+              cat_name: lodash__WEBPACK_IMPORTED_MODULE_10__["startCase"](lodash__WEBPACK_IMPORTED_MODULE_10__["camelCase"](state.cat_name)),
+              title: lodash__WEBPACK_IMPORTED_MODULE_10__["startCase"](lodash__WEBPACK_IMPORTED_MODULE_10__["camelCase"](state.cat_name)),
+              price: state.price
             });
+            this.sendServ.push(state._id);
+            this.price = this.price + state.price;
+            this.profile.controls['price'].setValue(this.price);
+            return;
+          } else {}
+        }
+      }, {
+        key: "remove",
+        value: function remove(service, data) {
+          var rmvsrv = this.chips.find(function (v) {
+            return v.id == data.id;
+          });
+          this.chips = this.chips.filter(function (v) {
+            return v.id !== data.id;
+          });
+          this.sendServ = this.sendServ.filter(function (v) {
+            return v !== data.id;
+          });
+
+          if (this.chips.length == 0) {
+            this.price = 0;
+            this.profile.controls['price'].setValue(0);
+          } else {
+            this.price = this.price - rmvsrv.price;
+            this.profile.controls['price'].setValue(this.price);
           }
         }
       }, {
@@ -322,55 +341,55 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }
       }]);
 
-      return AddComponent;
+      return AddbookingsComponent;
     }();
 
-    AddComponent.ctorParameters = function () {
+    AddbookingsComponent.ctorParameters = function () {
       return [{
-        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_4__["HttpRequestService"]
+        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_5__["HttpRequestService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
       }, {
-        type: src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_10__["MessageService"]
+        type: src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_2__["MessageService"]
       }, {
         type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_6__["Helper"]
       }, {
-        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_7__["ErrorService"]
+        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_4__["ErrorService"]
       }, {
-        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__["TranslatePipe"]
+        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]
       }];
     };
 
-    AddComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-add',
+    AddbookingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-addbookings',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./add.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/add/add.component.html")).default,
+      /*! raw-loader!./addbookings.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./add.component.scss */
-      "./src/app/home/walking-user/add/add.component.scss")).default]
-    })], AddComponent);
+      /*! ./addbookings.component.scss */
+      "./src/app/home/walking-user/addbookings/addbookings.component.scss")).default]
+    })], AddbookingsComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/add/add.module.ts":
-  /*!*****************************************************!*\
-    !*** ./src/app/home/walking-user/add/add.module.ts ***!
-    \*****************************************************/
+  "./src/app/home/walking-user/addbookings/addbookings.module.ts":
+  /*!*********************************************************************!*\
+    !*** ./src/app/home/walking-user/addbookings/addbookings.module.ts ***!
+    \*********************************************************************/
 
-  /*! exports provided: AddModule */
+  /*! exports provided: AddbookingsModule */
 
   /***/
-  function srcAppHomeWalkingUserAddAddModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddbookingsAddbookingsModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AddModule", function () {
-      return AddModule;
+    __webpack_require__.d(__webpack_exports__, "AddbookingsModule", function () {
+      return AddbookingsModule;
     });
     /* harmony import */
 
@@ -393,15 +412,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _add_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./add-routing.module */
-    "./src/app/home/walking-user/add/add-routing.module.ts");
+    var _addbookings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./addbookings-routing.module */
+    "./src/app/home/walking-user/addbookings/addbookings-routing.module.ts");
     /* harmony import */
 
 
-    var _add_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./add.component */
-    "./src/app/home/walking-user/add/add.component.ts");
+    var _addbookings_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./addbookings.component */
+    "./src/app/home/walking-user/addbookings/addbookings.component.ts");
     /* harmony import */
 
 
@@ -427,15 +446,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/forms */
     "./node_modules/@angular/forms/fesm2015/forms.js");
 
-    var AddModule = function AddModule() {
-      _classCallCheck(this, AddModule);
+    var AddbookingsModule = function AddbookingsModule() {
+      _classCallCheck(this, AddbookingsModule);
     };
 
-    AddModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_add_component__WEBPACK_IMPORTED_MODULE_4__["AddComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"], _add_routing_module__WEBPACK_IMPORTED_MODULE_3__["AddRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__["ApplicationpipeModule"]],
+    AddbookingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_addbookings_component__WEBPACK_IMPORTED_MODULE_4__["AddbookingsComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _addbookings_routing_module__WEBPACK_IMPORTED_MODULE_3__["AddbookingsRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__["ApplicationpipeModule"]],
       providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]]
-    })], AddModule);
+    })], AddbookingsModule);
     /***/
   }
 }]);
