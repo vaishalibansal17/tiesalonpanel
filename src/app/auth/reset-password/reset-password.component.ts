@@ -4,11 +4,9 @@ import { HttpRequestService } from 'src/app/shared/service/http-request.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { PassValid, ValidationService, passValidator } from 'src/app/shared/service/validation-service';
+import { ValidationService, passValidator } from 'src/app/shared/service/validation-service';
 import { ErrorService } from 'src/app/shared/service/error.service';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
-
-
 
 @Component({
   selector: 'app-reset-password',
@@ -24,8 +22,6 @@ export class ResetPasswordComponent implements OnInit {
   submitted: boolean;
   token: string;
   isLoading = false;
-  passShow = true;
-  cPassShow = true;
   public formData = new FormData();
   constructor(private httpService: HttpRequestService, 
     private router: Router, private fb: FormBuilder, 
@@ -37,8 +33,8 @@ export class ResetPasswordComponent implements OnInit {
     this.token = this.routes.snapshot.params.token;
     if (this.token)
       this.token = this.token.replace(/\s/g, "+");
-
-    this.reset = this.fb.group({
+    localStorage.clear();
+      this.reset = this.fb.group({
       newPassword: new FormControl(null, [
         Validators.required, Validators.minLength(6),
         ValidationService.passwordValidator

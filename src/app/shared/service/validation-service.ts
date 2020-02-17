@@ -79,21 +79,57 @@ export class ValidationService {
   static phonevalidator(control) {
     // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {
     // if (control.value && control.value.match(/^[^-\s][0-9_\s-]+$/)) {
-    if (control && control.value && control.value.match(/^[0-9]{7,12}$/)) {
+    if (control.value && control.value.match(/^[0-9]{7,12}$/)) {
       return null;
     } else {
       return { Invalidphone: true };
     }
   }
 
+  static date(control: AbstractControl) {
+    console.log(control);
+    if (control && (control.value !== null || control.value !== undefined)) {
+      let frm = control.get("frm").value || "";
+      let to = control.get("to").value || "";
+      // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {\
+      console.log(frm && !to);
+  
+      if (frm && !to) {
+        control.get('to').enable();
+        return null;
+      } else if (frm && to) {
+        new Date(frm) > new Date(to)
+        return { invalid: true };
+      }
+      else
+        return { invalid: true };
+    }
+    return null;
+  }
+
+
   static numberValidator(control) {
     // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {
-    if (control.value && control.value.match(/^[0-9]*$/)) {
+    if (control.value && String(control.value).match(/^[0-9]*$/)) {
       return null;
-    } else {
-      return { InvalidNumber: true };
+    } else if (!control.value) {
+      return null;
     }
+    else
+      return { invalid: true };
   }
+
+  static codeValidator(control) {
+    // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {
+    if (control.value && control.value.match(/^[a-zA-Z0-9]*$/)) {
+      return null;
+    } else if (control.value) {
+      return null;
+    }
+    else
+      return { invalid: true };
+  }
+
 
   static dateValidator(control) {
     // for yyyy-mm-dd formate
@@ -127,16 +163,16 @@ export class ValidationService {
 
 export function passValidator(control: AbstractControl) {
   if (control && (control.value !== null || control.value !== undefined)) {
-      const cnfpassValue = control.value;
-      const passControl = control.root.get('newPassword'); // magic is this
-      if (passControl) {
-          const passValue = passControl.value;
-          if (passValue !== cnfpassValue || passValue === '') {
-              return {
-                  isError: true
-              };
-          }
+    const cnfpassValue = control.value;
+    const passControl = control.root.get('newPassword'); // magic is this
+    if (passControl) {
+      const passValue = passControl.value;
+      if (passValue !== cnfpassValue || passValue === '') {
+        return {
+          isError: true
+        };
       }
+    }
   }
 
   return null;
@@ -146,8 +182,6 @@ export class PassValid {
   static MatchPassword(AC: AbstractControl) {
     let password = AC.get("newPassword").value || ""; // to get value in input tag
     let confirmPassword = AC.get("confirmPassword").value || ""; // to get value in input tagc
-    console.log(confirmPassword,'========');
-    
     // if (confirmPassword.length < 0)
     //   return AC.get("confirmPassword").setErrors({ required: true });
     if (password.length >= 1 && confirmPassword.length <= 20) {
@@ -159,4 +193,58 @@ export class PassValid {
     }
     return null;
   }
+
 }
+export function date(control: AbstractControl) {
+  console.log(control);
+  if (control && (control.value !== null || control.value !== undefined)) {
+    let frm = control.get("frm").value || "";
+    let to = control.get("to").value || "";
+    // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {\
+    console.log(frm && !to);
+
+    if (frm && !to) {
+      control.get('to').enable();
+      return null;
+    } else if (frm && to) {
+      new Date(frm) > new Date(to)
+      return { invalid: true };
+    }
+    else
+      return { invalid: true };
+  }
+  return false;
+}
+
+export class DateValidators {
+  static valid(control : AbstractControl){
+    if (control && (control.value !== null || control.value !== undefined)) {
+      let frm = control.get("frm").value || "";
+      let to = control.get("to").value || "";
+      // if (control.value && control.value.match(/^0|[1-9]\d*$/)) {\
+      console.log(frm && !to);
+  
+      if (frm && !to) {
+        control.get('to').enable();
+        return null;
+      } else if (frm && to) {
+        new Date(frm) > new Date(to)
+        return { invalid: true };
+      }
+      else
+        return { invalid: true };
+    }
+    return null;
+  }
+  // static dateLessThan(dateField1: string, dateField2: string, validatorField: { [key: string]: boolean }){
+  //     return (c: AbstractControl): { [key: string]: boolean } | null => {
+  //         const date1 = c.get(dateField1).value;
+  //         const date2 = c.get(dateField2).value;
+  //         if ((date1 !== null && date2 !== null) && date1 > date2) {
+  //             return validatorField;
+  //         }
+  //         return null;
+  //     };
+  // }
+}
+

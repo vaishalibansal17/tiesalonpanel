@@ -1,31 +1,50 @@
 <div class="main-card">
     <div class="custom_form">
-        <form action="">
-            <mat-form-field>
-                <span class="email-img pass"><img src="assets/images/category_form.png" alt="envelope"></span>
-                <input matInput placeholder="Category" class="form-control">
-            </mat-form-field>
-            <mat-form-field>
+        <form action="" [formGroup]='profile' (ngSubmit)="submit()">
+            <mat-form-field class="multi_field">
                 <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
-                <mat-label>Service At</mat-label>
-                <mat-select>
-                  <mat-option *ngFor="let service of services" [value]="service.value">
-                    {{service.viewValue}}
-                  </mat-option>
+                <mat-label>{{'SERVICE'| translate}}</mat-label>
+                <mat-select (selectionChange)="slctsrv($event.value)" class="multiselect">
+                    <mat-option *ngFor="let service of services" [value]="service">
+                        {{service.cat_name | titlecase}}
+                    </mat-option>
                 </mat-select>
-              </mat-form-field>
+                <div *ngIf="(submitted && !chips.length)">
+                    <p class="color error" *ngIf="!chips.length">{{'SRVREQ'|translate}}</p>
+                    <!-- <p class="color error" *ngIf="!getControl.price.errors.required && getControl.price.errors.Invalidphone ">
+                        {{'PHNLNGTH'|translate}}</p> -->
+                </div>
+                <mat-chip-list aria-label="Fish selection">
+                    <mat-chip *ngFor="let chip of chips; let i =index" [disableRipple]="true" [selectable]="selectable" [removable]="removable"
+                        (removed)="remove(i, chip)">{{chip.cat_name | titlecase}}
+                        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                    </mat-chip>
+                    <!-- <mat-chip>Two fish</mat-chip>
+                    <mat-chip color="primary" selected>Primary fish</mat-chip>
+                    <mat-chip color="accent" selected>Accent fish</mat-chip> -->
+                </mat-chip-list>
+            </mat-form-field>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/price_form.png" alt="envelope"></span>
-                <input matInput placeholder="Price" class="form-control">
+                <input matInput placeholder="Price" formControlName="price" readonly='true' class="form-control">
             </mat-form-field>
-            <mat-form-field>
-                <span class="email-img pass"><img src="assets/images/calendar_form.png" alt="envelope"></span>
-                <input matInput placeholder="Date & Time" class="form-control">
-            </mat-form-field>
+            <div *ngIf="(submitted && getControl.price.errors)">
+                <p class="color error" *ngIf="getControl.price.errors.required">{{'PRICREQ'|translate}}</p>
+                <!-- <p class="color error" *ngIf="!getControl.price.errors.required && getControl.price.errors.Invalidphone ">
+                    {{'PHNLNGTH'|translate}}</p> -->
+            </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/edit-staff.png" alt="envelope"></span>
-                <input matInput placeholder="Assigned Staff" class="form-control">
+                <mat-label>{{'STAFF'| translate}}</mat-label>
+                <mat-select formControlName="staf_id" class="multiselect">
+                    <mat-option *ngFor="let staff of staff" [value]="staff">
+                        {{staff.name | titlecase}}
+                    </mat-option>
+                </mat-select>
             </mat-form-field>
+            <div *ngIf="(submitted && getControl.staf_id.errors)">
+                <p class="color error" *ngIf="getControl.staf_id.errors.required">{{'STFREQ'|translate}}</p>
+            </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-submit">Save</button>
             </div>

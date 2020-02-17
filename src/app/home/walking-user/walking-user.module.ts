@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { WalkingUserRoutingModule } from './walking-user-routing.module';
-import { WalkingUserComponent } from './walking-user.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { InfoComponent } from './info/info.component';
 
 
 @NgModule({
-  declarations: [WalkingUserComponent],
+  declarations: [],
   imports: [
     CommonModule,
     WalkingUserRoutingModule,

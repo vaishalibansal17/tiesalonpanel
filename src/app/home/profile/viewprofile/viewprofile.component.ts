@@ -12,6 +12,7 @@ export class ViewprofileComponent implements OnInit {
   url: any = 'assets/images/change.png';
   salonImageUrlArray=[];
   slide = [];
+  chips= [];
 
   constructor(private httpService: HttpRequestService, private error : ErrorService) { }
 
@@ -23,7 +24,7 @@ export class ViewprofileComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.status === 1) {
           this.detail = response.res;
-          
+          this.chips.push(...this.detail.services);
           this.url = this.detail.logo ? this.detail.logo : this.url;
           if (this.detail && this.detail.imgs) {
             this.detail.imgs.map(item => {

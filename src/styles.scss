@@ -14,7 +14,49 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import '../node_modules/ngx-toastr/toastr.css';
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+span.star.zero-star {height: auto !important;width: auto !important;}
+.main-card a {color: #f96bb3;}
 .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {color: #f96bb3;}
+
+p.color.error {
+    position: relative;
+    top: -17px;
+    margin-bottom: 0px;
+    font-size: 12px;
+    color: #d91e29;
+}
+
+.mat-calendar-body-selected {
+    background-color: #f96bb3;
+    color: #fff;
+}
+.cdk-overlay-pane button.mat-calendar-period-button.mat-button.mat-button-base {position: initial;top: inherit;right: inherit;padding: 0px 18px;}
+
+.mat-chip{overflow: initial !important;}
+.mat-standard-chip .mat-chip-remove.mat-icon {width: 20px; height: 20px;position: absolute;top: -7px;right: -5px;opacity: 1;margin-left: 0px;}
+    .mat-chip.mat-standard-chip .mat-chip-remove {color: #000;background: #fff;border-radius: 100%;}
+    .mat-standard-chip.mat-chip-with-trailing-icon{padding: 6px 15px !important;}
+.mat-standard-chip.mat-chip-with-trailing-icon {padding-top: 6px;padding-bottom: 6px;padding-right: 15px;padding-left: 15px;font-size: 12px;}
+
+span.star.star-empty, .star-full {
+    height: 21px !important;
+    width: 21px !important;
+}
+
+.top_view img{
+    border-radius: 50%;
+    height: 110px;
+    width: 110px;
+    border: 5px solid #e0e0e0;
+}
+ .noti_left img{
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+    border: 3px solid #e0e0e0;
+}
+
 .ui-toast{
     width: 24em !important;
 }
@@ -37,6 +79,10 @@ agm-map {
     border-radius: 7px;
     margin: 20px 0px;
   }
+
+  .mat-chip.mat-standard-chip {
+    background-color: #72E1D1;
+}
 body{font-size:14px !important;line-height:24px !important;font-family: 'Conv_GothamRounded-Book' !important;}
 button,.mat-table,.mat-form-field-infix,.mat-form-field,.mat-select-value,.mat-slide-toggle-content{font-family: 'Conv_GothamRounded-Book' !important;}
 ul{list-style: none;margin: 0;padding: 0;}
@@ -158,14 +204,15 @@ ul.breadcrumb li a{color: #F96BB3;}
     left: 40px;
     z-index: 999;
     a{color: #000;}
-    i.fa{
+    mat-icon{
         background: #fff;
         height: 40px;
         width: 40px;
         border-radius: 50%;
         font-size: 25px;
-        padding: 7px 14px;
+        padding: 7px 5px;
         font-weight: 600;
+        text-align: center;
         &:hover{
             background: #c7458c;
             color: #fff;
@@ -719,8 +766,8 @@ img.full_width{width:100%;margin-bottom: 20px;}
     background: #fff;
     box-shadow: 0px 0px 10px #ccc;
     color: #000 !important;
-    font-size: 14px !important;
-    line-height: 23px !important;
+    font-size: 13px !important;
+    line-height: 22px !important;
     padding: 10px 15px !important;
     border-radius: 5px !important;
     position: relative;
@@ -818,6 +865,12 @@ img.full_width{width:100%;margin-bottom: 20px;}
     img{
         width: 60px;
     }
+    }
+    button.close.mat-button.mat-button-base {
+        top: -30px;
+        right: -30px;
+        left: initial;
+        opacity: 1;
     }
 }
 
@@ -926,12 +979,15 @@ img.full_width{width:100%;margin-bottom: 20px;}
             span.rejected{color: #FF2626;}
         }
         .mat-column-action {
-            min-width: 120px;
+            min-width: 175px;
         }
         a{color: #F96BB3;
         &:hover{
             color: #000;
         }
+    }
+    .staff_star{
+         .stars-line{top: 7px !important;}
     }
     }
 
@@ -1040,6 +1096,7 @@ img.full_width{width:100%;margin-bottom: 20px;}
                 img{
                     border: 2px solid #e3e3e3;
                     border-radius: 50%;
+                    height: 90px;
                 }
             }
             }
@@ -1074,17 +1131,20 @@ img.full_width{width:100%;margin-bottom: 20px;}
 .main-card{
     h3{
         font-size: 20px;
-        margin-bottom: 15px;
+        margin-bottom: 25px;
     }
     .staffdetail_notifi{
     .notifi_list{
         .noti_right{
             padding: 0px 0px 15px;
             margin-bottom: 5px;
+            font-size: 14px;
+            color: #999;
             .author-review{
                 display: inline-flex;
                 clear: both;
                 width: 100%;
+                color: #000;
                 .author{
                     min-width: 160px;
                     font-size: 16px;
@@ -1093,6 +1153,11 @@ img.full_width{width:100%;margin-bottom: 20px;}
                 .reviews{
                     position: relative;
                     top: -3px;
+                    .staffdetail_staff{
+                        .stars-line{
+                            top: 5px !important
+                        }
+                    }
                 }
             }
             }
@@ -1250,6 +1315,7 @@ img.full_width{width:100%;margin-bottom: 20px;}
     // .main-right .custom-width .btn-submit {margin: 10px 0px;}
     .main-card .notifi_list{margin-bottom: 2px;}
     body.nav-close .left-nav .logo{margin-bottom: 5px;}
+    .main-card table td.mat-cell, .main-card table td.mat-footer-cell, .main-card table th.mat-header-cell{padding: 7px 10px;font-size: 13px;}
 }
 
 @media(max-width:1200px){
@@ -1407,6 +1473,7 @@ body.nav-open .main-header, body.nav-close .main-header {padding: 10px ;}
 .main-card .add,.alignright{text-align: center;}
 .main-card .btn.btn-export {font-size: 12px;padding: 8px 30px;float: none;border-radius: 30px;}
 .mobile_visible .cards .top_info .left_status{padding:3px 10px;}
+.main-card .staffdetail_notifi .notifi_list .noti_right .author-review{display: block;}
 }
 
 @media(max-width:380px){

@@ -16,6 +16,10 @@ export interface Service {
   value: string;
   viewValue: string;
 }
+export interface Clinic {
+  value: string;
+  viewValue: string;
+}
 
 declare var google;
 interface SalonServices {
@@ -55,10 +59,17 @@ interface Location {
 
 export class EditprofileComponent implements OnInit {
   services: Service[] = [
-    { value: '1', viewValue: 'Salon' },
-    { value: '2', viewValue: 'Home' },
+    { value: '1', viewValue: 'Home' },
+    { value: '2', viewValue: 'Salon' },
     { value: '3', viewValue: 'Both' },
   ];
+
+  clinics: Clinic[] = [
+    { value: '2', viewValue: 'Clinic' },
+  ];
+
+
+  
   // google map
   @ViewChild("search", { static: false })
   public searchElementRef: ElementRef;
@@ -124,6 +135,7 @@ export class EditprofileComponent implements OnInit {
         Validators.required,
         ValidationService.phonevalidator,
       ]),
+      // clinic: new FormControl(null),
       description: new FormControl(null, [
         Validators.required,
         Validators.minLength(2),
@@ -154,7 +166,7 @@ export class EditprofileComponent implements OnInit {
       if (this.deletedImageArray.length)
         this.formData.append('del_imgs', JSON.stringify(this.deletedImageArray));
       this.formData.append('name', this.profile.value.name);
-      this.formData.append('email', this.profile.value.email);
+      // this.formData.append('email', this.profile.value.email);
       this.formData.append('phone', this.profile.value.phone);
       this.formData.append('website', this.profile.value.website ? this.profile.value.website : '');
       this.formData.append('desc', this.profile.value.description ? this.profile.value.description : '');
@@ -266,6 +278,7 @@ export class EditprofileComponent implements OnInit {
           this.location.lng = this.detail.lng;
           this.url = this.detail.logo ? this.detail.logo : this.url;
           this.dataSource = this.detail.services;
+          this.services = this.detail.type!==2?this.clinics: this.services;
           if (this.detail && this.detail.imgs) {
             this.detail.imgs.map(item => {
               item = this.detail.bp + item;
@@ -312,9 +325,9 @@ export class EditprofileComponent implements OnInit {
               this.location.address_state = place.address_components[i].long_name
             }
           }
-          console.log(this.location.address_level_2);
+          // console.log(this.location.address_level_2);
 
-          console.log(place);
+          // console.log(place);
 
           if (place.formatted_address) {
             this.location.full_address = place.formatted_address

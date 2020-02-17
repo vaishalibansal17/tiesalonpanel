@@ -1,17 +1,18 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ApplicationModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BookingsRoutingModule } from './bookings-routing.module';
-import { BookingsComponent } from './bookings.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 
 
 @NgModule({
-  declarations: [BookingsComponent],
+  declarations: [],
   imports: [
     CommonModule,
     BookingsRoutingModule,
-    SharedModule
-  ]
+    SharedModule,
+    ApplicationModule
+  ], providers:[TranslatePipe]
 })
 export class BookingsModule { }

@@ -18,9 +18,9 @@
             </div>
         </div>
         <div class="col-md-3 label">{{'BUSINESSHOURS'| translate}}:</div>
-        <div class="col-md-9 description">NA</div>
+        <div class="col-md-9 description"><a [routerLink]="['/profile/business-hours']">View</a></div>
         <div class="col-md-3 label">{{'REVIEWS'| translate}}:</div>
-        <div class="col-md-9 description"><img src="assets/images/reviews.png" alt="Review"></div>
+        <div class="col-md-9 description staff_star"><ngx-stars [readonly]="true" [color]="'#f7c133'" [size]="5" [initialStars]="detail?.rvw_rt | round"></ngx-stars></div>
         <div class="col-md-3 label">{{'DESCRIPTION'| translate}}:</div>
         <div class="col-md-9 description">{{detail?.desc}}</div>
         <div class="col-md-3 label">{{'WORKGALLERY'| translate}}:</div>
@@ -35,12 +35,21 @@
             </div>
         </div>
         <div class="col-md-3 label">{{'WEBSITE'| translate}}:</div>
-        <div class="col-md-9 description">{{detail?.website}}</div>
+        <div class="col-md-9 description"><a href="https://{{detail?.website}}" target="blank">{{detail?.website}}</a></div>
+        <div class="col-md-3 label">{{'SERVICETYP'| translate}}:</div>
+        <div class="col-md-9 description">{{detail?.type == 2?'Salon' : detail?.type==3?'Clinic':'NA'}}</div>
         <div class="col-md-3 label">{{'SERVICEAT'| translate}}:</div>
-        <div class="col-md-9 description">{{detail?.service_at == 1?'Salon': detail?.service_at==2?'Home':'Both'}}</div>
+        <div class="col-md-9 description">{{detail?.service_at == 1?'Home': detail?.service_at==2? (detail?.type==3?'Clinic' : 'Salon'):'Both'}}</div> 
+        <div class="col-md-3 label">{{'SERVICE'| translate}}:</div>
+        <div class="col-md-9 description">
+            <mat-chip-list aria-label="Fish selection">
+                <mat-chip *ngFor="let chip of chips; let i =index" [disableRipple]="true">{{chip.cat_name | titlecase}}
+                </mat-chip>
+            </mat-chip-list>
+        </div>
         <div class="col-md-3 label">{{'STAFFNAME'| translate}}:</div>
         <div class="col-md-9 description">
-            {{'NA'}}
+            <a [routerLink]="['/staff']">View</a>
             <!-- <ul class="staff_name">
                 <li>Allen</li>
                 <li>James</li>

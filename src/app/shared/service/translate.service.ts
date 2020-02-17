@@ -8,7 +8,7 @@ export class TranslateService {
   constructor(private http: HttpClient) { }
 
   use(lang: string): Promise<{}> {
-    console.log(localStorage.getItem('lang'), lang,'-----------');
+    // console.log(localStorage.getItem('lang'), lang,'-----------');
     return new Promise<{}>((resolve, reject) => {
       // lang = localStorage.getItem('lang');
       const langPath = `assets/i18n/${lang||'en'}.json`;

@@ -20,9 +20,11 @@
   "NUMOFMEM":"No. of Members",
   "NUMOFBOOKING":"No. of Bookings",
 
+  "OK": "OK",
+
   "STAFF": "STAFF",
   "BOOKING": "BOOKINGS",
-  "WALKUSR": "WALKING USERS",
+  "WALKUSR": "WALK-IN CUSTOMER",
   "MANAGECALENDER": "MANAGE CALENDER",
   "PROMOCODE": "PROMO CODES/OFFERS",
   "REPORTS": "REPORTS",
@@ -41,6 +43,14 @@
   "CURRENTPASS" : "Please enter old password.",
   "LOGIN":"Login",
   "TKNREQ":"Reset token is required.",
+
+  "PRICREQ":"Price is required.",
+  "STFREQ":"Staff is required.",
+  "SRVREQ":"Service is required.",
+  "WALKNGSUCCESS": "User added Successfully.",
+
+  "HOURSREQ":"Business hours is required.",
+
   "PLACEHOLDERLCPASS":"Old Password",
   "PLACEHOLDERLNPASS":"New Password",
   "PLACEHOLDERLCONFIRMPASS":"Confirm New Password",
@@ -72,13 +82,20 @@
   "EDITPROF":"Edit Profile",
   "SALONSUCCESS" :"Salon has been updated successfully.",
   "CHNGPIC":"Change Profile Picture",
+  "ADDSTFCHNGPIC":"Add Staff Picture",
+  "EDITSTFCHNGPIC":"Change Staff Picture",
   "MANAGESTAFF" :"Manage Staff",
   "WELCOMETOOUR":"Welcome to our",
   "FRGTPASS":"Forgot Password",
   "RSTPASS":"Reset Password",
   "ENTREGISTRMAIL":"Please enter your Registered Email to Reset Password",
   "ENTRNWPASS":"Please enter your new password",
-
+  "AVAILBILITY" : "Availability",
+  "WEEKOFF" : "Week off",
+  "STAFFSUCCESS" :"Staff has been updated successfully.",
+  "INCRTPROMONNAME" :"Enter Only alphabets.",
+  "ONLYNUM" :"Enter Only numbers.",
+  "ADDSTAFFSUCCESS" :"Staff has been added successfully.",
   "FREERESETPASS":"Freelancer Reset Password",
   "MAXFILE" :"Maximum 10 images are allowed to upload.",
   "PHNREQ":"Please enter phone number.",
@@ -87,7 +104,7 @@
   "DESCREQ":"Please enter description.",
   "DESCLNGTH":"Description should be between 2 to 500 characters.",
   "WBSTINVLD":"Website is not valid.",
-
+  "INVALIDDATE":"Start date should be less than end date.",
   "NOTIFICATION":"Notifications",
   "LANG":"Language",
   "ONLINBOOKING":"Online Booking",
@@ -98,6 +115,85 @@
   "DEACACC":"Deactivate Account",
   "DEACTEXT":"You can deactivate your account for weeks or months, based on your availability. Users will not be able to see you while your account is deactivated.",
   "DELACC":"Delete Account",
+  "DESIGNATION":"Designation",
+  "RATING":"Rating",
+  "RCNTREVIW" : "Recent Reviews",
+  "PROFESS":"Professionalism",
+  "CUSTMRSRV" : "Customer Service",
+  "TIMING":"Timing",
+  "CLEANES":"Cleanness",
+  
+  "COUPNNAME":"Please enter coupon title.",
+  "CODEREQ":"Please enter coupon code.",
+  "DISEREQ":"Please enter discount percentage.",
+  "CODEINVLID":"Please enter alphabets and number.",
+  "MINPRCREQ":"Please enter minimum discount.",
+  "MAXPRCREQ":"Please enter maximum discount.",
+  "USEREQ":"Please enter limit for coupon code uses.",
+  "FRMREQ":"Please enter starting date for coupon code.",
+  "TOREQ":"Please enter ending date for coupon code.",
+  "SALONALRDYEXIST":"Salon with this phone number or email already exist.",
+
+  
+  "INCRTSTAFFNAME": "Please enter staff name.",
+  "DELETE_STAFF":"Deleted successfully.",
+  "EXPORTD":"Data exported successfully.",
+
+
+  "SUNREQ":"Opening hours for sunday is required.",
+  "SUNCLSREQ":"Closing hours for sunday is required.",
+  "SUNNTVALID":"Invalid Salon hours.",
+  "SUNBRKREQ":"Break Opening hours for sunday is required.",
+  "SUNBRKCLSREQ":"Break Closing hours for sunday is required.",
+  "SUNBRKNTVALID":"Invalid Salon break hours.",
+
+
+  "MONREQ":"Opening hours for monday is required.",
+  "MONCLSREQ":"Closing hours for monday is required.",
+  "MONNTVALID":"Invalid Salon hours.",
+  "MONBRKREQ":"Break Opening hours for monday is required.",
+  "MONBRKCLSREQ":"Break Closing hours for monday is required.",
+  "MONBRKNTVALID":"Invalid Salon break hours.",
+
+
+  "TUESREQ":"Opening hours for tuesday is required.",
+  "TUESCLSREQ":"Closing hours for tuesday is required.",
+  "TUESNTVALID":"Invalid Salon hours.",
+  "TUESBRKREQ":"Break Opening hours for tuesday is required.",
+  "TUESBRKCLSREQ":"Break Closing hours for tuesday is required.",
+  "TUESBRKNTVALID":"Invalid Salon break hours.",
+
+
+  "WEDREQ":"Opening hours for wednesday is required.",
+  "WEDCLSREQ":"Closing hours for wednesday is required.",
+  "WEDNTVALID":"Invalid Salon hours.",
+  "WEDBRKREQ":"Break Opening hours for wednesday is required.",
+  "WEDBRKCLSREQ":"Break Closing hours for wednesday is required.",
+  "WEDBRKNTVALID":"Invalid Salon break hours.",
+
+
+  "THURSREQ":"Opening hours for thursday is required.",
+  "THURSCLSREQ":"Closing hours for thursday is required.",
+  "THURSNTVALID":"Invalid Salon hours.",
+  "THURSBRKREQ":"Break Opening hours for thursday is required.",
+  "THURSBRKCLSREQ":"Break Closing hours for thursday is required.",
+  "THURSBRKNTVALID":"Invalid Salon break hours.",
+
+
+  "FRIREQ":"Opening hours for friday is required.",
+  "FRICLSREQ":"Closing hours for friday is required.",
+  "FRINTVALID":"Invalid Salon hours.",
+  "FRIBRKREQ":"Break Opening hours for friday is required.",
+  "FRIBRKCLSREQ":"Break Closing hours for friday is required.",
+  "FRIBRKNTVALID":"Invalid Salon break hours.",
+
+
+  "SATREQ":"Opening hours for saturday is required.",
+  "SATCLSREQ":"Closing hours for saturday is required.",
+  "SATNTVALID":"Invalid Salon hours.",
+  "SATBRKREQ":"Break Opening hours for saturday is required.",
+  "SATBRKCLSREQ":"Break Closing hours for saturday is required.",
+  "SATBRKNTVALID":"Invalid Salon break hours.",
 
   "UI ELEMENT": "Modules",
   "NAVIGATION": "Navigation",
@@ -157,6 +253,7 @@
   "DISC": "Description",
   "DISC_REQ": "Please enter description",
   "SERVICE": "Services",
+  "SERVICETYP": "Salon Type",
   "SERVICE_ADD": "Add Services",
   "FREE_TYPE": "Freelancer Type",
   "COMMI": "Commission",

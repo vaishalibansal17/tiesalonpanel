@@ -10,5 +10,17 @@ export const APIURLS = {
     PROFILE: BASE_URL + 'salon/detail',
     EDIT : BASE_URL + 'salon',
     WRKNGHRS : BASE_URL + 'salon/working/hour',
-    FREELNCERESET : BASE_URL + 'freelance/reset/pass'
+    FREELNCERESET : BASE_URL + 'freelance/reset/pass',
+    STAFF : BASE_URL + 'staff',
+    STAFF_REVIEW : BASE_URL + 'staff/user/review',
+    STAFF_DETAIL : BASE_URL + 'staff/detail',
+    SERVICES: BASE_URL + 'service',
+    WALKING:BASE_URL + 'user/walking',
+    WALKING_CHK:BASE_URL + 'user/walking/check',
+    WALKING_ADD:BASE_URL + 'user/walking/add',
+    WALKING_BOOK:BASE_URL + 'booking/walking',
+    PROMO:BASE_URL + 'promocode',
+    PROMO_DETAIL:BASE_URL + 'promocode/detail',
+    BOOKING : BASE_URL + 'salon/booking/list'
+
 };

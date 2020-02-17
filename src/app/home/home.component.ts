@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpRequestService } from '../shared/service/http-request.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +7,9 @@ import { HttpRequestService } from '../shared/service/http-request.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private http : HttpRequestService) { }
+  constructor() { }
 
-  ngOnInit() {
+  ngOnInit() {    
   }
 
 }

@@ -2,7 +2,7 @@
     <!--right-side-content-->
     <div class="main-header">
         <div class="right-nav">
-          <h1>{{'WELCOMETOOUR'| translate}} {{detail? detail.name : ''}} Admin</h1>
+          <h1>{{route}} </h1>
           <div class="top-right">
             <ul>
               <li>
@@ -40,10 +40,10 @@
                 <button mat-button [matMenuTriggerFor]="beforeMenu" [disableRipple]="true"><img class="profile_img" src="{{detail.logo}}" alt="">
                  <span class="mobile_hidden"> {{detail.name | titlecase}} Admin</span> <img class="drop_img" src="assets/images/dropdown_grey.png" alt=""></button>
                 <mat-menu #beforeMenu="matMenu" xPosition="before">
-                  <button mat-menu-item><a [routerLink]="['/profile']"><img src="assets/images/edit-profile.png" alt="">{{'MPROFILE'| translate}}</a></button>
-                  <button mat-menu-item><a [routerLink]="['/profile/change-password']"><img src="assets/images/password.png" alt="">{{'CHNAGE_PASS'| translate}}</a></button>
-                  <button mat-menu-item><a [routerLink]="['/settings']"><img src="assets/images/settings.png" alt="">{{'SETTINGS'| translate}}</a></button>
-                  <button mat-menu-item (click)='logout()'><img src="assets/images/log_out.png" alt="">{{'LOGOUT' | translate}}</button>
+                  <button  mat-menu-item><a [routerLink]="['/profile']"><img src="assets/images/edit-profile.png" alt="">{{'MPROFILE'| translate}}</a></button>
+                  <button  mat-menu-item><a [routerLink]="['/profile/change-password']"><img src="assets/images/password.png" alt="">{{'CHNAGE_PASS'| translate}}</a></button>
+                  <button  mat-menu-item><a [routerLink]="['/settings']"><img src="assets/images/settings.png" alt="">{{'SETTINGS'| translate}}</a></button>
+                  <button  mat-menu-item (click)='logout()'><img src="assets/images/log_out.png" alt="">{{'LOGOUT' | translate}}</button>
                 </mat-menu>
               </li>
             </ul>

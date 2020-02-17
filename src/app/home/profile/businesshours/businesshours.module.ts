@@ -6,6 +6,8 @@ import { BusinesshoursComponent } from './businesshours.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalendarModule } from 'primeng/calendar';
+import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/applicationpipe.module';
+import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { CalendarModule } from 'primeng/calendar';
     ReactiveFormsModule,
     BusinesshoursRoutingModule,
     SharedModule,
-    CalendarModule
-  ]
+    CalendarModule,
+    ApplicationpipeModule
+  ],
+  providers: [TranslatePipe]
 })
 export class BusinesshoursModule { }

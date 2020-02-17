@@ -2,207 +2,258 @@
     <form [formGroup]='form' (ngSubmit)="submit()">
         <div class="hour-section">
 
-            <div class="row">
+            <div class="row" formGroupName="Sunday">
                 <div class="col-sm-2 middle day">Sunday</div>
                 <div class="col-sm-2 middle">
-                    <mat-slide-toggle formControlName="isSunOpen"></mat-slide-toggle>
+                    <mat-slide-toggle formControlName="isOpen" (change)="toggle('Sunday','Sun')"></mat-slide-toggle>
                 </div>
                 <div class="col-sm-4">
-                    <p-calendar [timeOnly]="true" formControlName="sunOpen" placeholder="Opening Hours"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [timeOnly]="true" formControlName="open" placeholder="Opening Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Sunday','Sun')"></p-calendar>
+                    <p class="color error" *ngIf="(isSunOpnReq)">{{'SUNREQ'| translate}}</p>
+                    <p class="color error" *ngIf="(isSunValid)">{{'SUNNTVALID'| translate}}</p>
                 </div>
                 <div class="col-sm-4">
-                    <p-calendar [timeOnly]="true" formControlName="sunClose" placeholder="Closing Hours"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [timeOnly]="true" formControlName="close" placeholder="Closing Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Sunday','Sun')"></p-calendar>
+                        <p class="color error" *ngIf="(isSunClosReq)">{{'SUNCLSREQ'| translate}}</p>
                 </div>
                 <div class="col-sm-4">
-                    <div class="add" (click)="isBreak('sun')"><img [src]="isSunBreak?'assets/images/minus.png':'assets/images/add.png'" alt=""> Add Break</div>
+                    <div class="add" (click)="isBreak('Sun')"><img
+                            [src]="isSunBreak?'assets/images/minus.png':'assets/images/add.png'" alt=""> Add Break</div>
                 </div>
-                <div class="col-sm-4" *ngIf="isSunBreak">
-                    <p-calendar [timeOnly]="true" formControlName="sunBreakStart" placeholder="Start Break"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                <div class="col-sm-4" [hidden]="!isSunBreak">
+                    <p-calendar [timeOnly]="true" formControlName="breakStart" placeholder="Start Break"
+                        inputStyleClass="form-control" [readonlyInput]="true"(onClose)="validatetime('Sunday','Sun')"></p-calendar>
+                        <p class="color error" *ngIf="(isSunOpnBrkReq)">{{'SUNBRKREQ'| translate}}</p>
+                        <p class="color error" *ngIf="(isSunBrkValid)">{{'SUNBRKNTVALID'| translate}}</p>
                 </div>
-                <div class="col-sm-4" *ngIf="isSunBreak">
-                    <p-calendar [timeOnly]="true" formControlName="sunBreakEnd" placeholder="End Break"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                <div class="col-sm-4" [hidden]="!isSunBreak">
+                    <p-calendar [timeOnly]="true" formControlName="breakEnd" placeholder="End Break"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Sunday','Sun')"></p-calendar>
+                        <p class="color error" *ngIf="(isSunClosBrkReq)">{{'SUNBRKCLSREQ'| translate}}</p>
                 </div>
             </div>
 
         </div>
         <div class="hour-section">
 
-            <div class="row">
+            <div class="row" formGroupName="Monday">
                 <div class="col-sm-2 middle day">Monday</div>
                 <div class="col-sm-2 middle">
-                    <mat-slide-toggle formControlName="isMonOpen"></mat-slide-toggle>
+                    <mat-slide-toggle formControlName="isOpen" (change)="toggle('Monday','Mon')"></mat-slide-toggle>
                 </div>
                 <div class="col-sm-4">
-                    <p-calendar [timeOnly]="true" formControlName="monOpen" placeholder="Opening Hours"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [timeOnly]="true" formControlName="open" placeholder="Opening Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Monday','Mon')"></p-calendar>
+                        <p class="color error" *ngIf="(isMonOpnReq)">{{'MONREQ'| translate}}</p>
+                        <p class="color error" *ngIf="(isMonValid)">{{'MONNTVALID'| translate}}</p>
                 </div>
                 <div class="col-sm-4">
-                    <p-calendar [timeOnly]="true" formControlName="monClose" placeholder="Closing Hours"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [timeOnly]="true" formControlName="close" placeholder="Closing Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Monday','Mon')"></p-calendar>
+                        <p class="color error" *ngIf="(isMonClosReq)">{{'MONCLSREQ'| translate}}</p>
                 </div>
                 <div class="col-sm-4">
-                    <div class="add" (click)="isBreak('mon')"><img [src]="isMonBreak?'assets/images/minus.png':'assets/images/add.png'" alt=""> Add Break</div>
+                    <div class="add" (click)="isBreak('Mon')"><img
+                            [src]="isMonBreak?'assets/images/minus.png':'assets/images/add.png'" alt=""> Add Break</div>
                 </div>
-                <div class="col-sm-4" *ngIf="isMonBreak">
-                    <p-calendar [timeOnly]="true" formControlName="monBreakStart" placeholder="Start Break"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                <div class="col-sm-4" [hidden]="!isMonBreak">
+                    <p-calendar [timeOnly]="true" formControlName="breakStart" placeholder="Start Break"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Monday','Mon')"></p-calendar>
+                        <p class="color error" *ngIf="(isMonOpnBrkReq)">{{'MONBRKREQ'| translate}}</p>
+                        <p class="color error" *ngIf="(isMonBrkValid)">{{'MONBRKNTVALID'| translate}}</p>
                 </div>
-                <div class="col-sm-4" *ngIf="isMonBreak">
-                    <p-calendar [timeOnly]="true" formControlName="monBreakEnd" placeholder="End Break"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                <div class="col-sm-4" [hidden]="!isMonBreak">
+                    <p-calendar [timeOnly]="true" formControlName="breakEnd" placeholder="End Break"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Monday','Mon')"></p-calendar>
+                        <p class="color error" *ngIf="(isMonClosBrkReq)">{{'MONBRKCLSREQ'| translate}}</p>
                 </div>
             </div>
 
         </div>
         <div class="hour-section">
 
-            <div class="row">
+            <div class="row" formGroupName="Tuesday">
                 <div class="col-sm-2 middle day">Tuesday</div>
                 <div class="col-sm-2 middle">
-                    <mat-slide-toggle formControlName="isTuesOpen"></mat-slide-toggle>
+                    <mat-slide-toggle formControlName="isOpen" (change)="toggle('Tuesday','Tues')"></mat-slide-toggle>
                 </div>
                 <div class="col-sm-4">
-                    <p-calendar [timeOnly]="true" formControlName="tuesOpen" placeholder="Opening Hours"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [timeOnly]="true" formControlName="open" placeholder="Opening Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Tuesday','Tues')"></p-calendar>
+                        <p class="color error" *ngIf="(isTuesOpnReq)">{{'TUESREQ'| translate}}</p>
+                        <p class="color error" *ngIf="(isTuesValid)">{{'TUESNTVALID'| translate}}</p>
                 </div>
                 <div class="col-sm-4">
-                    <p-calendar [timeOnly]="true" formControlName="tuesClose" placeholder="Closing Hours"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [timeOnly]="true" formControlName="close" placeholder="Closing Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Tuesday','Tues')"></p-calendar>
+                        <p class="color error" *ngIf="(isTuesClosReq)">{{'TUESCLSREQ'| translate}}</p>
                 </div>
                 <div class="col-sm-4">
-                    <div class="add" (click)="isBreak('tues')"><img [src]="isTuesBreak?'assets/images/minus.png':'assets/images/add.png'" alt=""> Add Break</div>
+                    <div class="add" (click)="isBreak('Tues')"><img
+                            [src]="isTuesBreak?'assets/images/minus.png':'assets/images/add.png'" alt=""> Add Break
+                    </div>
                 </div>
-                <div class="col-sm-4" *ngIf="isTuesBreak">
-                    <p-calendar [timeOnly]="true" formControlName="tuesBreakStart" placeholder="Start Break"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                <div class="col-sm-4" [hidden]="!isTuesBreak">
+                    <p-calendar [timeOnly]="true" formControlName="breakStart" placeholder="Start Break"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Tuesday','Tues')"></p-calendar>
+                        <p class="color error" *ngIf="(isTuesOpnBrkReq)">{{'TUESBRKREQ'| translate}}</p>
+                        <p class="color error" *ngIf="(isTuesBrkValid)">{{'TUESBRKNTVALID'| translate}}</p>
                 </div>
-                <div class="col-sm-4" *ngIf="isTuesBreak">
-                    <p-calendar [timeOnly]="true" formControlName="tuesBreakEnd" placeholder="End Break"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                <div class="col-sm-4" [hidden]="!isTuesBreak">
+                    <p-calendar [timeOnly]="true" formControlName="breakEnd" placeholder="End Break"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Tuesday','Tues')"></p-calendar>
+                        <p class="color error" *ngIf="(isTuesClosBrkReq)">{{'TUESBRKCLSREQ'| translate}}</p>
                 </div>
             </div>
 
         </div>
         <div class="hour-section">
 
-            <div class="row">
+            <div class="row" formGroupName="Wednesday">
                 <div class="col-sm-2 middle day">Wednesday</div>
                 <div class="col-sm-2 middle">
-                    <mat-slide-toggle formControlName="isWedOpen" ></mat-slide-toggle>
+                    <mat-slide-toggle formControlName="isOpen" (change)="toggle('Wednesday','Wed')"></mat-slide-toggle>
                 </div>
                 <div class="col-sm-4">
-                    <p-calendar [timeOnly]="true" formControlName="wedOpen" placeholder="Opening Hours"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [timeOnly]="true" formControlName="open" placeholder="Opening Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Wednesday','Wed')"></p-calendar>
+                        <p class="color error" *ngIf="(isWedOpnReq)">{{'WEDREQ'| translate}}</p>
+                        <p class="color error" *ngIf="(isWedValid)">{{'WEDNTVALID'| translate}}</p>
                 </div>
                 <div class="col-sm-4">
-                    <p-calendar [timeOnly]="true" formControlName="wedClose" placeholder="Closing Hours"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [timeOnly]="true" formControlName="close" placeholder="Closing Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Wednesday','Wed')"></p-calendar>
+                        <p class="color error" *ngIf="(isWedClosReq)">{{'WEDCLSREQ'| translate}}</p>
                 </div>
                 <div class="col-sm-4">
-                    <div class="add" (click)="isBreak('wed')" ><img [src]="isWedBreak?'assets/images/minus.png':'assets/images/add.png'" alt=""> Add Break</div>
+                    <div class="add" (click)="isBreak('Wed')"><img
+                            [src]="isWedBreak?'assets/images/minus.png':'assets/images/add.png'" alt=""> Add Break</div>
                 </div>
-                <div class="col-sm-4" *ngIf="isWedBreak">
-                    <p-calendar [timeOnly]="true" formControlName="wedBreakStart" placeholder="Start Break"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                <div class="col-sm-4" [hidden]="!isWedBreak">
+                    <p-calendar [timeOnly]="true" formControlName="breakStart" placeholder="Start Break"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Wednesday','Wed')"></p-calendar>
+                        <p class="color error" *ngIf="(isWedOpnBrkReq)">{{'WEDBRKREQ'| translate}}</p>
+                        <p class="color error" *ngIf="(isWedBrkValid)">{{'WEDBRKNTVALID'| translate}}</p>
                 </div>
-                <div class="col-sm-4" *ngIf="isWedBreak">
-                    <p-calendar [timeOnly]="true" formControlName="wedBreakEnd" placeholder="End Break"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                <div class="col-sm-4" [hidden]="!isWedBreak">
+                    <p-calendar [timeOnly]="true" formControlName="breakEnd" placeholder="End Break"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Wednesday','Wed')"></p-calendar>
+                        <p class="color error" *ngIf="(isWedClosBrkReq)">{{'WEDBRKCLSREQ'| translate}}</p>
                 </div>
             </div>
 
         </div>
         <div class="hour-section">
 
-            <div class="row">
+            <div class="row" formGroupName="Thursday">
                 <div class="col-sm-2 middle day">Thursday</div>
                 <div class="col-sm-2 middle">
-                    <mat-slide-toggle formControlName="isThursOpen"></mat-slide-toggle>
+                    <mat-slide-toggle formControlName="isOpen" (change)="toggle('Thursday','Thurs')"></mat-slide-toggle>
                 </div>
                 <div class="col-sm-4">
-                    <p-calendar [timeOnly]="true" formControlName="thursOpen" placeholder="Opening Hours"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [timeOnly]="true" formControlName="open" placeholder="Opening Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Thursday','Thurs')"></p-calendar>
+                        <p class="color error" *ngIf="(isThursOpnReq)">{{'THURSREQ'| translate}}</p>
+                        <p class="color error" *ngIf="(isThursValid)">{{'THURSNTVALID'| translate}}</p>
                 </div>
                 <div class="col-sm-4">
-                    <p-calendar [timeOnly]="true" formControlName="thursClose" placeholder="Closing Hours"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [timeOnly]="true" formControlName="close" placeholder="Closing Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Thursday','Thurs')"></p-calendar>
+                        <p class="color error" *ngIf="(isThursClosReq)">{{'THURSCLSREQ'| translate}}</p>
                 </div>
                 <div class="col-sm-4">
-                    <div class="add" (click)="isBreak('thurs')"><img [src]="isThursBreak?'assets/images/minus.png':'assets/images/add.png'" alt=""> Add Break</div>
+                    <div class="add" (click)="isBreak('Thurs')"><img
+                            [src]="isThursBreak?'assets/images/minus.png':'assets/images/add.png'" alt=""> Add Break
+                    </div>
                 </div>
-                <div class="col-sm-4" *ngIf="isThursBreak">
-                    <p-calendar [timeOnly]="true" formControlName="thursBreakStart" placeholder="Start Break"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                <div class="col-sm-4" [hidden]="!isThursBreak">
+                    <p-calendar [timeOnly]="true" formControlName="breakStart" placeholder="Start Break"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Thursday','Thurs')"></p-calendar>
+                        <p class="color error" *ngIf="(isThursOpnBrkReq)">{{'THURSBRKREQ'| translate}}</p>
+                        <p class="color error" *ngIf="(isThursBrkValid)">{{'THURSBRKNTVALID'| translate}}</p>
                 </div>
-                <div class="col-sm-4" *ngIf="isThursBreak">
-                    <p-calendar [timeOnly]="true" formControlName="thursBreakEnd" placeholder="End Break"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                <div class="col-sm-4" [hidden]="!isThursBreak">
+                    <p-calendar [timeOnly]="true" formControlName="breakEnd" placeholder="End Break"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Thursday','Thurs')"></p-calendar>
+                        <p class="color error" *ngIf="(isThursClosBrkReq)">{{'THURSBRKCLSREQ'| translate}}</p>
                 </div>
             </div>
 
         </div>
         <div class="hour-section">
 
-            <div class="row">
+            <div class="row" formGroupName="Friday">
                 <div class="col-sm-2 middle day">Friday</div>
                 <div class="col-sm-2 middle">
-                    <mat-slide-toggle formControlName="isFriOpen"></mat-slide-toggle>
+                    <mat-slide-toggle formControlName="isOpen" (change)="toggle('Friday','Fri')"></mat-slide-toggle>
                 </div>
                 <div class="col-sm-4">
-                    <p-calendar [timeOnly]="true" formControlName="friOpen" placeholder="Opening Hours"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [timeOnly]="true" formControlName="open" placeholder="Opening Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Friday','Fri')"></p-calendar>
+                        <p class="color error" *ngIf="(isFriOpnReq)">{{'FRIREQ'| translate}}</p>
+                        <p class="color error" *ngIf="(isFriValid)">{{'FRINTVALID'| translate}}</p>
                 </div>
                 <div class="col-sm-4">
-                    <p-calendar [timeOnly]="true" formControlName="friClose" placeholder="Closing Hours"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [timeOnly]="true" formControlName="close" placeholder="Closing Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Friday','Fri')"></p-calendar>
+                        <p class="color error" *ngIf="(isFriClosReq)">{{'FRICLSREQ'| translate}}</p>
                 </div>
                 <div class="col-sm-4">
-                    <div class="add" (click)="isBreak('fri')"><img [src]="isFriBreak?'assets/images/minus.png':'assets/images/add.png'" alt=""> Add Break</div>
+                    <div class="add" (click)="isBreak('Fri')"><img
+                            [src]="isFriBreak?'assets/images/minus.png':'assets/images/add.png'" alt=""> Add Break</div>
                 </div>
-                <div class="col-sm-4" *ngIf="isFriBreak">
-                    <p-calendar [timeOnly]="true" formControlName="friBreakStart" placeholder="Start Break"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                <div class="col-sm-4" [hidden]="!isFriBreak">
+                    <p-calendar [timeOnly]="true" formControlName="breakStart" placeholder="Start Break"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Friday','Fri')"></p-calendar>
+                        <p class="color error" *ngIf="(isFriOpnBrkReq)">{{'FRIBRKREQ'| translate}}</p>
+                        <p class="color error" *ngIf="(isFriBrkValid)">{{'FRIBRKNTVALID'| translate}}</p>
                 </div>
-                <div class="col-sm-4" *ngIf="isFriBreak">
-                    <p-calendar [timeOnly]="true" formControlName="friBreakEnd" placeholder="End Break"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                <div class="col-sm-4" [hidden]="!isFriBreak">
+                    <p-calendar [timeOnly]="true" formControlName="breakEnd" placeholder="End Break"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Friday','Fri')"></p-calendar>
+                        <p class="color error" *ngIf="(isFriClosBrkReq)">{{'FRIBRKCLSREQ'| translate}}</p>
                 </div>
             </div>
 
         </div>
         <div class="hour-section">
 
-            <div class="row">
+            <div class="row" formGroupName="Saturday">
                 <div class="col-sm-2 middle day">Saturday</div>
                 <div class="col-sm-2 middle">
-                    <mat-slide-toggle formControlName="isSatOpen"></mat-slide-toggle>
+                    <mat-slide-toggle formControlName="isOpen" (change)="toggle('Saturday','Sat')"></mat-slide-toggle>
                 </div>
                 <div class="col-sm-4">
-                    <p-calendar [timeOnly]="true" formControlName="satOpen" placeholder="Opening Hours"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [timeOnly]="true" formControlName="open" placeholder="Opening Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Saturday','Sat')"></p-calendar>
+                        <p class="color error" *ngIf="(isSatOpnReq)">{{'SATREQ'| translate}}</p>
+                        <p class="color error" *ngIf="(isSatValid)">{{'SATNTVALID'| translate}}</p>
                 </div>
                 <div class="col-sm-4">
-                    <p-calendar [timeOnly]="true" formControlName="satClose" placeholder="Closing Hours"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                    <p-calendar [timeOnly]="true" formControlName="close" placeholder="Closing Hours"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Saturday','Sat')"></p-calendar>
+                        <p class="color error" *ngIf="(isSatClosReq)">{{'SATCLSREQ'| translate}}</p>
                 </div>
                 <div class="col-sm-4">
-                    <div class="add" (click)="isBreak('sat')"><img [src]="isSatBreak?'assets/images/minus.png':'assets/images/add.png'" alt=""> Add Break</div>
+                    <div class="add" (click)="isBreak('Sat')"><img
+                            [src]="isSatBreak?'assets/images/minus.png':'assets/images/add.png'" alt=""> Add Break</div>
                 </div>
-                <div class="col-sm-4" *ngIf="isSatBreak">
-                    <p-calendar [timeOnly]="true" formControlName="satBreakStart" placeholder="Start Break"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                <div class="col-sm-4" [hidden]="!isSatBreak">
+                    <p-calendar [timeOnly]="true" formControlName="breakStart" placeholder="Start Break"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Saturday','Sat')"></p-calendar>
+                        <p class="color error" *ngIf="(isSatOpnBrkReq)">{{'SATBRKREQ'| translate}}</p>
+                        <p class="color error" *ngIf="(isSatBrkValid)">{{'SATBRKNTVALID'| translate}}</p>
                 </div>
-                <div class="col-sm-4" *ngIf="isSatBreak">
-                    <p-calendar [timeOnly]="true" formControlName="satBreakEnd" placeholder="End Break"
-                        inputStyleClass="form-control" [readonlyInput]="true"></p-calendar>
+                <div class="col-sm-4" [hidden]="!isSatBreak">
+                    <p-calendar [timeOnly]="true" formControlName="breakEnd" placeholder="End Break"
+                        inputStyleClass="form-control" [readonlyInput]="true" (onClose)="validatetime('Saturday','Sat')"></p-calendar>
+                        <p class="color error" *ngIf="(isSatOpnBrkReq)">{{'SATBRKCLSREQ'| translate}}</p>
                 </div>
             </div>
 
         </div>
-        <button class="btn btn-submit">Save</button>
+        <div class="text-center"><button class="btn btn-submit">Save</button></div>
     </form>
 </div>

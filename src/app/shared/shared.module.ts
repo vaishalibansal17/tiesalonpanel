@@ -8,6 +8,9 @@ import { StampToDate } from './_pipes/stamptoDate.pipe';
 import { TimePipe } from './_pipes/time.pipe';
 import { SafePipe } from './_pipes/safe.pipe';
 import { MaterialModule } from './material/material.module';
+import { PercentPipe } from './_pipes/percent.pipe';
+import { RoundPipe } from './_pipes/round.pipe';
+import { ConfimDialogComponent } from './confim-dialog/confim-dialog.component';
 
 @NgModule({
 	imports: [
@@ -23,7 +26,9 @@ import { MaterialModule } from './material/material.module';
 		StampToDate,
 		TimePipe,
 		SafePipe,
-		MaterialModule
+		MaterialModule,
+		PercentPipe,
+		RoundPipe
 	],
 	declarations: [
 		DataFilterPipe,
@@ -31,8 +36,11 @@ import { MaterialModule } from './material/material.module';
 		DatePipe,
 		StampToDate,
 		TimePipe,
-		SafePipe
-	],
+		SafePipe,
+		PercentPipe,
+		RoundPipe,
+		ConfimDialogComponent
+	], entryComponents:[ConfimDialogComponent],
 	providers: [],
 	schemas: [NO_ERRORS_SCHEMA]
 })

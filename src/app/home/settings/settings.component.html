@@ -10,8 +10,8 @@
             <div class="col-md-6">{{'LANG'| translate}}</div>
             <div class="col-md-6 alignright">
                 <ul>
-                    <li class="active">En <img src="assets/images/flag_en.png" alt="English"></li>
-                    <li>Ar <img src="assets/images/flag_ar.png" alt="Arabic"></li>
+                    <li class="{{lang=='en'?'active':''}}" (click)="setLang('en')">En <img src="assets/images/flag_en.png" alt="English"></li>
+                    <li class="{{lang=='ua'?'active':''}}" (click)="setLang('ua')">Ar <img src="assets/images/flag_ar.png" alt="Arabic"></li>
                 </ul>
             </div>
         </div>
@@ -48,12 +48,12 @@
             <div class="col-md-6 alignright">3</div>
         </div>
     </div>
-    <div class="setting_list">
+    <!-- <div class="setting_list">
         <div class="row">
             <div class="col-md-6"><button mat-raised-button (click)="openDialog2()" [disableRipple]="true">{{'NUMOFBOOK'| translate}}</button></div>
             <div class="col-md-6 alignright">8</div>
         </div>
-    </div>
+    </div> -->
     <div class="setting_list">
         <div class="row">
             <div class="col-md-6">{{'DEACACC'| translate}} 

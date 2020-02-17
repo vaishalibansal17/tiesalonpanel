@@ -1,17 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PromocodeComponent } from './promocode.component';
 
 
-const routes: Routes = [{
-  path: '', component: PromocodeComponent,
-  data: { title: "Promocode" },
-  children: [
-    { path: '', loadChildren: () => import('./promolist/promolist.module').then(mod => mod.PromolistModule), data: { title: "Promocode List", status: false } },
-    { path: 'promocode-add', loadChildren: () => import('./promoadd/promoadd.module').then(mod => mod.PromoaddModule), data: { title: "Promocode Add", status: false } },
-    { path: 'promocode-info', loadChildren: () => import('./promoinfo/promoinfo.module').then(mod => mod.PromoinfoModule), data: { title: "Promocode Offers", status: false } },
-  ]
-}];
+const routes: Routes = [
+    { path: '', loadChildren: () => import('./list/list.module').then(mod => mod.ListModule), data: { title: "List", status: false } },
+    { path: 'add', loadChildren: () => import('./add/add.module').then(mod => mod.AddModule), data: { title: "Add", status: false } },
+    { path: 'info/:id', loadChildren: () => import('./info/info.module').then(mod => mod.InfoModule), data: { title: "Offers", status: false } },
+    { path: 'edit/:id', loadChildren: () => import('./edit/edit.module').then(mod => mod.EditModule), data: { title: "Edit", status: false } },
+  ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

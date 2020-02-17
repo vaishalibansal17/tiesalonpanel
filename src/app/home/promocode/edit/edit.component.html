@@ -1,0 +1,136 @@
+<div class="main-card">
+    <div class="custom_form">
+        <form [formGroup]='promo' (ngSubmit)='edit()'>
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/category_form.png" alt="Code"></span>
+                <input matInput placeholder="Coupon Name" class="form-control" formControlName="name" maxlength="100">
+            </mat-form-field>
+            <div *ngIf="(submitted || getControl.name.dirty|| getControl.name.touched) && getControl.name.errors">
+                <p class="color error" *ngIf="getControl.name.errors.required">{{'COUPNNAME'| translate}}</p>
+                <p class="color error" *ngIf="!getControl.name.errors.required && getControl.name.errors.invalidName">
+                    {{'INCRTPROMONNAME'| translate}}</p>
+            </div>
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/category_form.png" alt="Code"></span>
+                <input matInput placeholder="Coupon Code" class="form-control" formControlName="code" maxlength="100">
+            </mat-form-field>
+            <div *ngIf="(submitted || getControl.code.dirty|| getControl.code.touched) && getControl.code.errors">
+                <p class="color error" *ngIf="getControl.code.errors.required">{{'CODEREQ'| translate}}</p>
+                <p class="color error" *ngIf="!getControl.code.errors.required && getControl.code.errors.invalid">
+                    {{'CODEINVLID'| translate}}</p>
+            </div>
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/price_form.png" alt="Discount"></span>
+                <input matInput placeholder="Discount" class="form-control" formControlName="discount" maxlength="10">
+            </mat-form-field>
+            <div
+                *ngIf="(submitted || getControl.discount.dirty|| getControl.discount.touched) && getControl.discount.errors">
+                <p class="color error" *ngIf="getControl.discount.errors.required">{{'CODEREQ'| translate}}</p>
+                <p class="color error"
+                    *ngIf="!getControl.discount.errors.required && getControl.discount.errors.invalid">
+                    {{'ONLYNUM'| translate}}</p>
+            </div>
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/price_form.png" alt="Discount"></span>
+                <input matInput placeholder="Min. Discount Amount" class="form-control" formControlName="min_price"
+                    maxlength="10">
+            </mat-form-field>
+            <div
+                *ngIf="(submitted || getControl.min_price.dirty|| getControl.min_price.touched) && getControl.min_price.errors">
+                <p class="color error" *ngIf="getControl.min_price.errors.required">{{'MINPRCREQ'| translate}}</p>
+                <p class="color error"
+                    *ngIf="!getControl.min_price.errors.required && getControl.min_price.errors.invalid">
+                    {{'ONLYNUM'| translate}}</p>
+            </div>
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/price_form.png" alt="Discount"></span>
+                <input matInput placeholder="Max. Discount Amount" class="form-control" formControlName="upto"
+                    maxlength="10">
+            </mat-form-field>
+            <div *ngIf="(submitted || getControl.upto.dirty|| getControl.upto.touched) && getControl.upto.errors">
+                <p class="color error" *ngIf="getControl.upto.errors.required">{{'MAXPRCREQ'| translate}}</p>
+                <p class="color error" *ngIf="!getControl.upto.errors.required && getControl.upto.errors.invalid">
+                    {{'ONLYNUM'| translate}}</p>
+            </div>
+            <mat-form-field class="multi_field">
+                <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
+                <mat-label>Service</mat-label>
+                <mat-select (selectionChange)="slctsrv($event.value)" class="multiselect">
+                    <mat-option *ngFor="let service of services" [value]="service">
+                        {{service.cat_name | titlecase}}
+                    </mat-option>
+                </mat-select>
+                <div class="mat-chips">
+                    <mat-chip-list aria-label="Fish selection">
+                        <mat-chip [disableRipple]="true" *ngFor="let chip of chips; let i =index"
+                            [selectable]="selectable" [removable]="removable" (removed)="remove(i)">
+                            {{chip.cat_name | titlecase}}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                    </mat-chip-list>
+                </div>
+            </mat-form-field>
+            <!-- <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/edit-user.png" alt="Added"></span>
+                <input matInput placeholder="Added By" class="form-control" formControlName="desc">
+            </mat-form-field> -->
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/edit-staff.png" alt="Uses"></span>
+                <input matInput placeholder="Total Uses" class="form-control" formControlName="uses" maxlength="10">
+            </mat-form-field>
+            <div *ngIf="(submitted || getControl.uses.dirty|| getControl.uses.touched) && getControl.uses.errors">
+                <p class="color error" *ngIf="getControl.uses.errors.required">{{'USEREQ'| translate}}</p>
+                <p class="color error" *ngIf="!getControl.uses.errors.required && getControl.uses.errors.invalid">
+                    {{'CODEINVLID'| translate}}</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 left">
+                    <mat-form-field>
+                        <span class="email-img pass"><img src="assets/images/calendar_form.png" alt="From"></span>
+                        <input matInput placeholder="From" class="form-control" [min]="todaydate" [matDatepicker]="fromDatepicker"
+                            formControlName="frm" disabled>
+                        <mat-datepicker-toggle matSuffix [for]="fromDatepicker">
+                            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #fromDatepicker disabled="false"></mat-datepicker>
+                    </mat-form-field>
+                    <div *ngIf="(submitted || getControl.frm.dirty|| getControl.frm.touched) && getControl.frm.errors">
+                        <p class="color error" *ngIf="getControl.frm.errors.required">{{'FRMREQ'| translate}}</p>
+                        <!-- <p class="color error" *ngIf="!getControl.name.errors.required && getControl.name.errors.invalidName">
+                            {{'INCRTSALONNAME'| translate}}</p> -->
+                    </div>
+                    <p class="color error" *ngIf="!validDte">{{'INVALIDDATE'| translate}}</p>
+                </div>
+                <div class="col-md-6 right">
+                    <mat-form-field>
+                        <span class="email-img pass"><img src="assets/images/calendar_form.png" alt="From"></span>
+                        <input matInput placeholder="To" class="form-control" [min]="todaydate" [matDatepicker]="toDatepicker"
+                            formControlName="to" disabled>
+                        <mat-datepicker-toggle matSuffix [for]="toDatepicker">
+                            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                        </mat-datepicker-toggle>
+                        <mat-datepicker #toDatepicker disabled="false"></mat-datepicker>
+                    </mat-form-field>
+                    <div *ngIf="(submitted || getControl.to.dirty|| getControl.to.touched) && getControl.to.errors">
+                        <p class="color error" *ngIf="getControl.to.errors.required">{{'TOREQ'| translate}}</p>
+                        <!-- <p class="color error" *ngIf="!getControl.name.errors.required && getControl.name.errors.invalidName">
+                            {{'INCRTSALONNAME'| translate}}</p> -->
+                    </div>
+                </div>
+            </div>
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/description.png" alt="envelope"></span>
+                <textarea matInput placeholder="{{'DESCRIPTION'| translate}}" class="form-control"
+                    formControlName="desc" maxlength="500"></textarea>
+            </mat-form-field>
+            <div
+                *ngIf="(submitted || getControl.desc.dirty|| getControl.desc.touched) && getControl.desc.errors">
+                <p class="color error" *ngIf="getControl.desc.errors.required">{{'DESCREQ' | translate}}</p>
+                <p class="color error" *ngIf="getControl.desc.errors.minlength ">{{'DESCLNGTH'| translate}}</p>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-submit">Save</button>
+            </div>
+        </form>
+    </div>
+</div>

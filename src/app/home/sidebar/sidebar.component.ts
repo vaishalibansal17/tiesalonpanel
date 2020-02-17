@@ -1,4 +1,6 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { MessageService } from 'src/app/shared/service/message.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +14,9 @@ public type: any;
 toggleButton: any;
 sidebarVisible= true;
   constructor(
-    private element: ElementRef
+    private element: ElementRef,
+    private messageserv : MessageService,
+    private router : Router
   ) { }
 
   ngOnInit() {
@@ -50,6 +54,11 @@ sidebarVisible= true;
       } else {
           this.sidebarClose();
       }
+  }
+
+  route(route){
+    this.messageserv.sendRoute(route);
+    this.router.navigateByUrl('/'+route).then(()=>this.router.isActive(this.router.url, true))
   }
 
 
