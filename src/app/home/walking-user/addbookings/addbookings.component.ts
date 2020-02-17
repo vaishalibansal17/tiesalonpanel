@@ -42,7 +42,7 @@ export class AddbookingsComponent implements OnInit {
   ngOnInit() {
     this.responseData = this.messageService.getBooking();
     if (!this.responseData) {
-      this.router.navigateByUrl('walking-user/add-user').then(() => {
+      this.router.navigateByUrl('walkin-customer/add-user').then(() => {
         this.errorserv.handleError(0);
       })
     } else
@@ -73,7 +73,7 @@ export class AddbookingsComponent implements OnInit {
       this.httpService.getRequest('POST', 'WALKING_BOOK', this.profile.value).subscribe((response: any) => {
         if (response.status === 1) {
           this.submitted = true;
-          this.router.navigateByUrl('/walking-user').then(() => {
+          this.router.navigateByUrl('/walkin-customer').then(() => {
             this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('WALKNGSUCCESS'));
           })
         } else {

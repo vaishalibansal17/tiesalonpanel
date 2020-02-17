@@ -140,15 +140,19 @@ export class EditComponent implements OnInit {
   }
 
   slctsrv(state: any) {
-    this.chips.push({ id: state.cat_id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
-    this.sendServ.push(state.cat_id)
+    // let isFound = this.httpService.arraySearch(this.sendServ, state)
+    if (!this.httpService.arraySearch(this.sendServ, state)) {
+      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)),price: state.price });
+      this.sendServ.push(state._id);
+      return
+    } else {
+    }
   }
 
 
-  remove(service: string): void {
-    const index = this.chips.indexOf(service);
-    this.chips.splice(index, 1);
-    this.sendServ.splice(index, 1);
+  remove(service: string, data?: any): void {
+    let rmvsrv = this.chips.find(v => v.id == data.id);
+    this.chips = this.chips.filter(v => v.id !== data.id);
+    this.sendServ = this.sendServ.filter(v => v !== data.id);
   }
-
 }

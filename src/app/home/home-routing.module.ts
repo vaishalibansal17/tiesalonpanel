@@ -16,7 +16,7 @@ const routes: Routes = [{
     { path: 'manage-calender', loadChildren: () => import('./manage-calender/manage-calender.module').then(mod => mod.ManageCalenderModule)},
     { path: 'booking', loadChildren: () => import('./bookings/bookings.module').then(mod => mod.BookingsModule)},   
     { path: 'promocode', loadChildren: () => import('./promocode/promocode.module').then(mod => mod.PromocodeModule), data: { title: "Promocode", status: true } },
-    { path: 'walking-user', loadChildren: () => import('./walking-user/walking-user.module').then(mod => mod.WalkingUserModule), data: { title: "Walk-in User", status: true } },
+    { path: 'walkin-customer', loadChildren: () => import('./walking-user/walking-user.module').then(mod => mod.WalkingUserModule), data: { title: "Walkin Customer", status: true } },
     { path: 'chat', loadChildren: () => import('./chat-management/chat-management.module').then(mod => mod.ChatManagementModule), data: { title: "Chat Management", status: true } },   
     { path: 'promocode', loadChildren: () => import('./promocode/promocode.module').then(mod => mod.PromocodeModule), data: { title: "Promocode", status: true } },
     { path: 'cancellation-policy', loadChildren: () => import('./cancellation-policy/cancellation-policy.module').then(mod => mod.CancellationPolicyModule), },
