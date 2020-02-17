@@ -84,7 +84,7 @@ agm-map {
     background-color: #72E1D1;
 }
 body{font-size:14px !important;line-height:24px !important;font-family: 'Conv_GothamRounded-Book' !important;}
-button,.mat-table,.mat-form-field-infix,.mat-form-field,.mat-select-value,.mat-slide-toggle-content{font-family: 'Conv_GothamRounded-Book' !important;}
+button,.mat-table,.mat-form-field-infix,.mat-form-field,.mat-select-value,.mat-slide-toggle-content,.mat-expansion-panel-header{font-family: 'Conv_GothamRounded-Book' !important;}
 ul{list-style: none;margin: 0;padding: 0;}
 .form-control:focus{box-shadow: none !important;border:none !important;outline: none !important;}
 a:hover{text-decoration: none !important;}
@@ -1307,7 +1307,12 @@ img.full_width{width:100%;margin-bottom: 20px;}
     .mat-datepicker-toggle-active {color: #f96bb3;}
 }
 
-
+.mat-expansion-panel:not([class*=mat-elevation-z]){box-shadow: none;}
+.mat-expansion-panel-header{padding: 10px 10px 10px 0px!important;height: auto !important;}
+.mat-expansion-panel-body{padding: 0px !important;}
+.mat-expansion-indicator::after {color: rgb(249, 107, 179);}
+.mat-expansion-panel{border-bottom: 1px solid #eaeaea}
+.mat-accordion .mat-expansion-panel:last-of-type{border-radius: 0px;margin-bottom: 20px;}
 
 /*------------------MEDIA CSS------------*/
 
