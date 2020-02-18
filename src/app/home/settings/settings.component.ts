@@ -2,7 +2,10 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TooltipPosition, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { TranslateService } from 'src/app/shared/service/translate.service';
-
+export interface Appointment {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-settings',
@@ -15,6 +18,13 @@ export class SettingsComponent implements OnInit {
   lang: string = localStorage.getItem('lang') || 'en';
   constructor(public dialog: MatDialog, private trns: TranslateService,) {}
 
+  appointments: Appointment[] = [
+    {value: '15-minutes', viewValue: 'On 15 minute intervals'},
+    {value: '30-minutes', viewValue: 'On 30 minute intervals'},
+    {value: 'hourly', viewValue: 'On hourly intervals'},
+    {value: 'service-duration', viewValue: 'Based on service duration'},
+  ];
+  
   openDialog() {
     const dialogRef = this.dialog.open(DialogContentExampleDialog, { width: '500px', disableClose: true });
 

@@ -2,3 +2,11 @@
 .staffdetail_notifi{width: 100%;}
 .btn.btn-submit { margin: 10px auto 0px;font-size: 15px;padding: 10px 50px;}
 
+@media(max-width:992px){
+    .staffdetail_notifi{padding: 0px 12px;}
+}
+
+@media(max-width:480px){
+.reviews {text-align: left;float: left; display: block;width: 100%;}
+
+}
