@@ -55,7 +55,7 @@
             <mat-form-field class="multi_field">
                 <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
                 <mat-label>Service</mat-label>
-                <mat-select (selectionChange)="slctsrv($event.value)" class="multiselect">
+                <mat-select (selectionChange)="slctsrv($event)" class="multiselect">
                     <mat-option *ngFor="let service of services" [value]="service">
                         {{service.cat_name | titlecase}}
                     </mat-option>
@@ -63,7 +63,7 @@
                 <div class="mat-chips">
                     <mat-chip-list aria-label="Fish selection">
                         <mat-chip [disableRipple]="true" *ngFor="let chip of chips; let i =index"
-                            [selectable]="selectable" [removable]="removable" (removed)="remove(i)">
+                            [selectable]="selectable" [removable]="removable" (removed)="remove(i, chip)">
                             {{chip.cat_name | titlecase}}
                             <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                         </mat-chip>

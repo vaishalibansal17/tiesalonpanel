@@ -24,7 +24,7 @@ export class ListComponent implements OnInit {
   search: string;
   sortData: any = {};
   displayedColumns = ['Sno', 'name', 'photo', 'email', 'phone', 'review', 'Action'];
-  url: any = 'assets/images/change.png';
+  url: any = 'assets/images/user-add.png';
   private paginator: MatPaginator;
   detail = [];
   loading: boolean;
@@ -73,7 +73,7 @@ export class ListComponent implements OnInit {
     this.dataSource = new ListDataSource(this.list);
     this.loadStaffList();
     this.dataSource.usersData.subscribe((val) => {
-      // this.detail = val;
+      this.detail = val;
     });
 
     this.dataSource.loadingUsers.subscribe(e => this.loading = !e);

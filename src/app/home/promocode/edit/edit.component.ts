@@ -7,6 +7,7 @@ import { ErrorService } from 'src/app/shared/service/error.service';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { ValidationService } from 'src/app/shared/service/validation-service';
 import * as _ from "lodash";
+import { MatSelect } from '@angular/material';
 
 @Component({
   selector: 'app-edit',
@@ -14,7 +15,7 @@ import * as _ from "lodash";
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
-  todaydate:Date = new Date();
+  todaydate: Date = new Date();
   services = [];
   chips = [];
   submitted = false;
@@ -140,9 +141,13 @@ export class EditComponent implements OnInit {
   }
 
   slctsrv(state: any) {
-    // let isFound = this.httpService.arraySearch(this.sendServ, state)
+    const matSelect: MatSelect = state.source;
+    matSelect.writeValue(null);
+    state = state.value;
+    console.log(state);
+    
     if (!this.httpService.arraySearch(this.sendServ, state)) {
-      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)),price: state.price });
+      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)) });
       this.sendServ.push(state._id);
       return
     } else {
@@ -151,7 +156,8 @@ export class EditComponent implements OnInit {
 
 
   remove(service: string, data?: any): void {
-    let rmvsrv = this.chips.find(v => v.id == data.id);
+    console.log(data);
+    
     this.chips = this.chips.filter(v => v.id !== data.id);
     this.sendServ = this.sendServ.filter(v => v !== data.id);
   }

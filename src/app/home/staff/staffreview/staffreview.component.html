@@ -5,7 +5,7 @@
         </div>
         <div class="col-md-6 alignright">
             <div class="rating"><span class="big">{{detail && detail.avg_rating?(detail.avg_rating | round):0}}</span><span class="small">(5)</span></div>
-            <div class="reviews"><ngx-stars [readonly]="true" [color]="'#f7c133'" [size]="5" [initialStars]="detail.avg_rating ? (detail.avg_rating | round):0"></ngx-stars>
+            <div class="reviews"><ngx-stars [readonly]="true" [color]="'#f7c133'" [size]="5" [initialStars]="detail?.avg_rating ? (detail?.avg_rating | round):0"></ngx-stars>
             </div>
         </div>
 

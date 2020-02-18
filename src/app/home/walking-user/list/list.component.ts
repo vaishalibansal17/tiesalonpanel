@@ -113,10 +113,10 @@ export class ListComponent implements OnInit {
         obj = {
           "Serial": ++i,
           "Name": element.fullname? element.fullname:'NA',
-          "Email": element.email,
+          "Email": element.email?element.email:'NA',
           "Services": element.service?element.service:"NA",
-          "Staff": element.staff,
-          "Contact Number": element.pno,
+          "Staff": element.staff?element.staff:'NA',
+          "Contact Number": element.pno?element.pno:'NA',
           "Booking-Id": element.bookingid?element.bookingid:"NA",
           "Date": datePipe.transform(element.bookDateTime, "dd/MM/yyyy"),
         };

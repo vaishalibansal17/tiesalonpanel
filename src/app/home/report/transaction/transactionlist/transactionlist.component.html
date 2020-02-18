@@ -1,5 +1,5 @@
 <div class="main-card">
-    <div class="row">
+    <div class="row report_forms">
         <div class="col-md-2">
             <mat-form-field>
                 <mat-label>All</mat-label>
@@ -32,14 +32,14 @@
         </div>
         <div class="col-md-2">
             <mat-form-field>
-                <input matInput [matDatepicker]="pickerfrom" placeholder="From">
+                <input matInput [matDatepicker]="pickerfrom" placeholder="From" class="form-control">
                 <mat-datepicker-toggle matSuffix [for]="pickerfrom"></mat-datepicker-toggle>
                 <mat-datepicker #pickerfrom></mat-datepicker>
               </mat-form-field>
         </div>
         <div class="col-md-2">
             <mat-form-field>
-                <input matInput [matDatepicker]="pickerto" placeholder="To">
+                <input matInput [matDatepicker]="pickerto" placeholder="To" class="form-control">
                 <mat-datepicker-toggle matSuffix [for]="pickerto"></mat-datepicker-toggle>
                 <mat-datepicker #pickerto></mat-datepicker>
               </mat-form-field>

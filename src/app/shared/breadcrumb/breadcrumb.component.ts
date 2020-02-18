@@ -59,13 +59,29 @@ export class BreadcrumbComponent implements OnInit {
 
 								if (!this.tempState.includes(routes.snapshot.data.title)) {
 									this.tempState.push(routes.snapshot.data.title);
-									this.breadcrumbs.push({
-										label: _.startCase(_.toLower(routes.snapshot.data.title)).replace('-', ' '),
-										icon: icon,
-										caption: caption,
-										status: status,
-										url: url
-									});
+									
+									if(routes.snapshot.data.title.includes('/')){
+										let path = routes.snapshot.data.title.split('/')
+										let routepath = url.split(_.toLower(_.trim(path[1])));
+										routepath.splice( 1, 0, _.trim(_.toLower(path[0])));
+										for (let index = 0; index < path.length; index++) {
+											this.breadcrumbs.push({
+												label: _.startCase(_.toLower(path[index])),
+												icon: icon,
+												caption: caption,
+												status: path.length - index == 1?status: true,
+												url: routepath.join('')
+											});
+										}
+									} else{
+										this.breadcrumbs.push({
+											label: routes.snapshot.data.title,
+											icon: icon,
+											caption: caption,
+											status: status,
+											url: url
+										});
+									}
 								}
 							}
 							currentRoute = routes;
@@ -73,18 +89,6 @@ export class BreadcrumbComponent implements OnInit {
 					});
 				} while (currentRoute);
 			});
-			
-		// var activeRoute = ['event-privacy','about-event','rsvp','view','speakers', 'attendees', 'exhibitors', 'agenda', 'sponsors', 'media-partners', 'floor-plan'];
-		// let routeArr = this.router.url.split('/');
-		
-		// this.isShowEventName = _.includes(activeRoute, (routeArr[this.router.url.split('/').length-2]));
-		
-		// this.isEdit = localStorage.getItem('isEdit') == '1' || localStorage.getItem('isView') == '1' ? true : false;
-		// this.eventName = localStorage.getItem('eventDetail') && localStorage.getItem('eventDetail') != '' ? JSON.parse(localStorage.getItem('eventDetail')).event.eventName : '';
-		// this.subscription = this.messageService.getEventName().subscribe((name) => {
-		// 	this.eventName = this.eventName == "" || this.eventName == null ? name.text : this.eventName;
-		// });
-		// this.eventName = this.eventName == "" ? this.eventName : this.eventName;
 	}
 
 	ngOnInit() { }

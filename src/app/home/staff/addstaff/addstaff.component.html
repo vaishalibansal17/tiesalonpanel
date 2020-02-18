@@ -31,7 +31,7 @@
             </div>
             <mat-form-field>
                 <span class="email-img phone"><img src="assets/images/mobile.png" alt="envelope"></span>
-                <input matInput placeholder="{{'PHONE'| translate}}"
+                <input matInput placeholder="{{'PHONE'| translate | titlecase}}"
                     onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control"
                     formControlName="phone" maxlength="12">
             </mat-form-field>
@@ -40,10 +40,20 @@
                 <p class="color error" *ngIf="!getControl.phone.errors.required && getControl.phone.errors.Invalidphone ">
                     {{'PHNLNGTH'|translate}}</p>
             </div>
+            <mat-form-field>
+                <span class="email-img phone"><img src="assets/images/description.png" alt="envelope"></span>
+                <input matInput placeholder="{{'DESIGNATION'| translate | titlecase}}" class="form-control"
+                    formControlName="designation">
+            </mat-form-field>
+            <div *ngIf="(submitted || getControl.designation.dirty|| getControl.designation.touched) && getControl.designation.errors">
+                <p class="color error" *ngIf="getControl.designation.errors.required">{{'DESREQ'|translate}}</p>
+                <p class="color error" *ngIf="!getControl.designation.errors.required && getControl.designation.errors.invalidName ">
+                    {{'ONLYLETR'|translate}}</p>
+            </div>
             <mat-form-field class="multi_field">
                 <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
                 <mat-label>{{'SERVICE'| translate}}</mat-label>
-                <mat-select (selectionChange)="slctsrv($event.value)"  class="multiselect">
+                <mat-select (selectionChange)="slctsrv($event)"  class="multiselect">
                     <mat-option *ngFor="let service of services" [value]="service">
                         {{service.cat_name | titlecase}}
                     </mat-option>
@@ -51,7 +61,7 @@
                 <div class="mat-chips">
                 <mat-chip-list aria-label="Fish selection">
                     <mat-chip [disableRipple]="true" *ngFor="let chip of chips; let i =index" [selectable]="selectable" [removable]="removable"
-                        (removed)="remove(i)">{{chip.cat_name | titlecase}}
+                        (removed)="remove(i, chip)">{{chip.cat_name | titlecase}}
                         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                     </mat-chip>
                 </mat-chip-list>
