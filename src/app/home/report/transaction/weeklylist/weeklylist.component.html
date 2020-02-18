@@ -1,32 +1,386 @@
+<div class="main-card">
+  <div class="row report_forms">
+    <div class="col-md-2">
+        <mat-form-field>
+            <mat-label>All</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let time of times" [value]="time.value">
+                {{time.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <div class="col-md-2">
+        <mat-form-field>
+            <mat-label>Service Type</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let service of services" [value]="service.value">
+                {{service.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <div class="col-md-2">
+        <mat-form-field>
+            <mat-label>Service At</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let serviceat of serviceats" [value]="serviceat.value">
+                {{serviceat.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <div class="col-md-2">
+        <mat-form-field>
+            <input matInput [matDatepicker]="pickerfrom" placeholder="From" class="form-control">
+            <mat-datepicker-toggle matSuffix [for]="pickerfrom"></mat-datepicker-toggle>
+            <mat-datepicker #pickerfrom></mat-datepicker>
+          </mat-form-field>
+    </div>
+    <div class="col-md-2">
+        <mat-form-field>
+            <input matInput [matDatepicker]="pickerto" placeholder="To" class="form-control">
+            <mat-datepicker-toggle matSuffix [for]="pickerto"></mat-datepicker-toggle>
+            <mat-datepicker #pickerto></mat-datepicker>
+          </mat-form-field>
+    </div>
+
+    <div class="col-md-2 alignright"><a href="#" class="btn btn-export">Export</a></div>
+</div>
+
+
 <mat-accordion>
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Personal data
-        </mat-panel-title>
-        <mat-panel-description>
-          Type your name and age
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-  
-      <mat-form-field>
-        <input matInput placeholder="First name">
-      </mat-form-field>
-  
-      <mat-form-field>
-        <input matInput placeholder="Age">
-      </mat-form-field>
-    </mat-expansion-panel>
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          Self aware panel
-        </mat-panel-title>
-        <mat-panel-description>
-          Currently I am {{panelOpenState ? 'open' : 'closed'}}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      <p>I'm visible because I am open</p>
-    </mat-expansion-panel>
-  </mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Week 5 <span class="right">$560</span></mat-panel-title>
+      <!-- <mat-panel-description></mat-panel-description> -->
+    </mat-expansion-panel-header>
+    <div class="table_wrap">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef>No.</th>
+            <td mat-cell *matCellDef="let element">{{element.position}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Customer Name</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="discount">
+            <th mat-header-cell *matHeaderCellDef>Discount</th>
+            <td mat-cell *matCellDef="let element">{{element.discount}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="service">
+            <th mat-header-cell *matHeaderCellDef>Service</th>
+            <td mat-cell *matCellDef="let element">{{element.service}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="serviceat">
+            <th mat-header-cell *matHeaderCellDef>Service At</th>
+            <td mat-cell *matCellDef="let element">{{element.serviceat}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef>Date</th>
+              <td mat-cell *matCellDef="let element">{{element.date}}</td>
+          </ng-container>  
+
+          <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let element">{{element.status}}</td>
+          </ng-container>  
+
+          <ng-container matColumnDef="code">
+              <th mat-header-cell *matHeaderCellDef>Coupon Code</th>
+              <td mat-cell *matCellDef="let element">{{element.code}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="amount">
+              <th mat-header-cell *matHeaderCellDef>Amount</th>
+              <td mat-cell *matCellDef="let element">{{element.amount}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="tamount">
+              <th mat-header-cell *matHeaderCellDef>Total Amount</th>
+              <td mat-cell *matCellDef="let element">{{element.tamount}}</td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Week 4 <span class="right">$560</span></mat-panel-title>
+      <!-- <mat-panel-description>$560</mat-panel-description> -->
+    </mat-expansion-panel-header>
+    <div class="table_wrap">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef>No.</th>
+            <td mat-cell *matCellDef="let element">{{element.position}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Customer Name</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="discount">
+            <th mat-header-cell *matHeaderCellDef>Discount</th>
+            <td mat-cell *matCellDef="let element">{{element.discount}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="service">
+            <th mat-header-cell *matHeaderCellDef>Service</th>
+            <td mat-cell *matCellDef="let element">{{element.service}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="serviceat">
+            <th mat-header-cell *matHeaderCellDef>Service At</th>
+            <td mat-cell *matCellDef="let element">{{element.serviceat}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef>Date</th>
+              <td mat-cell *matCellDef="let element">{{element.date}}</td>
+          </ng-container>  
+
+          <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let element">{{element.status}}</td>
+          </ng-container>  
+
+          <ng-container matColumnDef="code">
+              <th mat-header-cell *matHeaderCellDef>Coupon Code</th>
+              <td mat-cell *matCellDef="let element">{{element.code}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="amount">
+              <th mat-header-cell *matHeaderCellDef>Amount</th>
+              <td mat-cell *matCellDef="let element">{{element.amount}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="tamount">
+              <th mat-header-cell *matHeaderCellDef>Total Amount</th>
+              <td mat-cell *matCellDef="let element">{{element.tamount}}</td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+  </mat-expansion-panel>
+
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Week 3 <span class="right">$560</span></mat-panel-title>
+      <!-- <mat-panel-description>$560</mat-panel-description> -->
+    </mat-expansion-panel-header>
+    <div class="table_wrap">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef>No.</th>
+            <td mat-cell *matCellDef="let element">{{element.position}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Customer Name</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="discount">
+            <th mat-header-cell *matHeaderCellDef>Discount</th>
+            <td mat-cell *matCellDef="let element">{{element.discount}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="service">
+            <th mat-header-cell *matHeaderCellDef>Service</th>
+            <td mat-cell *matCellDef="let element">{{element.service}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="serviceat">
+            <th mat-header-cell *matHeaderCellDef>Service At</th>
+            <td mat-cell *matCellDef="let element">{{element.serviceat}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef>Date</th>
+              <td mat-cell *matCellDef="let element">{{element.date}}</td>
+          </ng-container>  
+
+          <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let element">{{element.status}}</td>
+          </ng-container>  
+
+          <ng-container matColumnDef="code">
+              <th mat-header-cell *matHeaderCellDef>Coupon Code</th>
+              <td mat-cell *matCellDef="let element">{{element.code}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="amount">
+              <th mat-header-cell *matHeaderCellDef>Amount</th>
+              <td mat-cell *matCellDef="let element">{{element.amount}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="tamount">
+              <th mat-header-cell *matHeaderCellDef>Total Amount</th>
+              <td mat-cell *matCellDef="let element">{{element.tamount}}</td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Week 2 <span class="right">$560</span></mat-panel-title>
+      <!-- <mat-panel-description>$560</mat-panel-description> -->
+    </mat-expansion-panel-header>
+    <div class="table_wrap">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef>No.</th>
+            <td mat-cell *matCellDef="let element">{{element.position}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Customer Name</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="discount">
+            <th mat-header-cell *matHeaderCellDef>Discount</th>
+            <td mat-cell *matCellDef="let element">{{element.discount}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="service">
+            <th mat-header-cell *matHeaderCellDef>Service</th>
+            <td mat-cell *matCellDef="let element">{{element.service}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="serviceat">
+            <th mat-header-cell *matHeaderCellDef>Service At</th>
+            <td mat-cell *matCellDef="let element">{{element.serviceat}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef>Date</th>
+              <td mat-cell *matCellDef="let element">{{element.date}}</td>
+          </ng-container>  
+
+          <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let element">{{element.status}}</td>
+          </ng-container>  
+
+          <ng-container matColumnDef="code">
+              <th mat-header-cell *matHeaderCellDef>Coupon Code</th>
+              <td mat-cell *matCellDef="let element">{{element.code}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="amount">
+              <th mat-header-cell *matHeaderCellDef>Amount</th>
+              <td mat-cell *matCellDef="let element">{{element.amount}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="tamount">
+              <th mat-header-cell *matHeaderCellDef>Total Amount</th>
+              <td mat-cell *matCellDef="let element">{{element.tamount}}</td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>Week 1 <span class="right">$560</span></mat-panel-title>
+      <!-- <mat-panel-description>$560</mat-panel-description> -->
+    </mat-expansion-panel-header>
+    <div class="table_wrap">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
+          <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef>No.</th>
+            <td mat-cell *matCellDef="let element">{{element.position}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Customer Name</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="discount">
+            <th mat-header-cell *matHeaderCellDef>Discount</th>
+            <td mat-cell *matCellDef="let element">{{element.discount}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="service">
+            <th mat-header-cell *matHeaderCellDef>Service</th>
+            <td mat-cell *matCellDef="let element">{{element.service}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="serviceat">
+            <th mat-header-cell *matHeaderCellDef>Service At</th>
+            <td mat-cell *matCellDef="let element">{{element.serviceat}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef>Date</th>
+              <td mat-cell *matCellDef="let element">{{element.date}}</td>
+          </ng-container>  
+
+          <ng-container matColumnDef="status">
+              <th mat-header-cell *matHeaderCellDef>Status</th>
+              <td mat-cell *matCellDef="let element">{{element.status}}</td>
+          </ng-container>  
+
+          <ng-container matColumnDef="code">
+              <th mat-header-cell *matHeaderCellDef>Coupon Code</th>
+              <td mat-cell *matCellDef="let element">{{element.code}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="amount">
+              <th mat-header-cell *matHeaderCellDef>Amount</th>
+              <td mat-cell *matCellDef="let element">{{element.amount}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="tamount">
+              <th mat-header-cell *matHeaderCellDef>Total Amount</th>
+              <td mat-cell *matCellDef="let element">{{element.tamount}}</td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+<ul class="pagination">
+  <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+  <li class="active"><a href="#">1</a></li>
+  <li><a href="#">2</a></li>
+  <li><a href="#">3</a></li>
+  <li><a href="#">4</a></li>
+  <li><a href="#">5</a></li>
+  <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+</ul>
+
+</div>
+

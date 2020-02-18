@@ -24,18 +24,20 @@
     </div>
     <div class="setting_list"> 
         <div class="row">
-            <div class="col-md-8">{{'SCHEDULEAPPT'| translate}} <button mat-raised-button matTooltip="{{'SCHEDULEAPPT'| translate}}" [matTooltipPosition]="position.value" aria-label="Button that displays a tooltip in various positions"><img src="assets/images/info.png" alt="Info"></button></div>
+            <div class="col-md-8">{{'SCHEDULEAPPT'| translate}} <button mat-raised-button matTooltip="{{'SCHEDULEAPPT'| translate}}" [matTooltipPosition]="position.value" aria-label="Button that displays a tooltip in various positions" (click)="openDialog()" ><img src="assets/images/info.png" alt="Info"></button></div>
             <div class="col-md-4 alignright">  
-             <mat-form-field>
-                <mat-label>{{'SCHEDULEAPPT'| translate}}</mat-label>
-                <mat-select (click)="openDialog()" [disableRipple]="true">
-                  <mat-option *ngFor="let appointment of appointments" [value]="appointment.value">
-                    {{appointment.viewValue}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field></div>
+                <mat-form-field>
+                    <mat-label>{{'SCHEDULEAPPT'| translate}}</mat-label>
+                    <mat-select [disableRipple]="true">
+                      <mat-option *ngFor="let appointment of appointments" [value]="appointment.value">
+                        {{appointment.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
         </div>
     </div>
+
     <div class="setting_list">
         <div class="row">
             <div class="col-md-6">{{'ALLOWMULTISETTINGS'| translate}}</div>

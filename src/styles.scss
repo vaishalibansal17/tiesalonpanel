@@ -18,7 +18,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 span.star.zero-star {height: auto !important;width: auto !important;}
 .main-card a {color: #f96bb3;}
 .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {color: #f96bb3;}
-
+body .ui-inputtext:enabled:hover:not(.ui-state-error) {border-color: #ffc7e4 !important;}
 p.color.error {
     position: relative;
     top: -17px;
@@ -84,7 +84,7 @@ agm-map {
     background-color: #72E1D1;
 }
 body{font-size:14px !important;line-height:24px !important;font-family: 'Conv_GothamRounded-Book' !important;}
-button,.mat-table,.mat-form-field-infix,.mat-form-field,.mat-select-value,.mat-slide-toggle-content{font-family: 'Conv_GothamRounded-Book' !important;}
+button,.mat-table,.mat-form-field-infix,.mat-form-field,.mat-select-value,.mat-slide-toggle-content,.mat-expansion-panel-header{font-family: 'Conv_GothamRounded-Book' !important;}
 ul{list-style: none;margin: 0;padding: 0;}
 .form-control:focus{box-shadow: none !important;border:none !important;outline: none !important;}
 a:hover{text-decoration: none !important;}
@@ -1307,6 +1307,16 @@ img.full_width{width:100%;margin-bottom: 20px;}
     .mat-datepicker-toggle-active {color: #f96bb3;}
 }
 
+/*---------mat-accordion-----------*/
+.mat-expansion-panel:not([class*=mat-elevation-z]){box-shadow: none;}
+.mat-expansion-panel-header{padding: 10px 10px 10px 0px!important;height: auto !important;}
+.mat-expansion-panel-body{padding: 0px !important;}
+.mat-expansion-indicator::after {color: rgb(249, 107, 179);top: -3px;position: relative;}
+.mat-expansion-panel{border-bottom: 1px solid #eaeaea}
+.mat-accordion .mat-expansion-panel:last-of-type{border-radius: 0px;margin-bottom: 20px;}
+.mat-expansion-panel-header-title {display: initial !important;}
+.mat-expansion-panel-header-title span.right{float: right;}
+
 
 
 /*------------------MEDIA CSS------------*/
@@ -1403,7 +1413,7 @@ body.nav-open ul li a:hover img.hover, body.nav-open ul li img.non-hover, body.n
 body.nav-open .left-nav li span,body.nav-close .left-nav li span {padding-left: 0px;opacity: 0;}
 body.nav-open ul li.active a,body.nav-close ul li.active a {padding: 5px 17px 5px 20px;background: #fff;border-radius: 30px 0px 0px 30px;display: block;}
 body.nav-open .main-header,body.nav-close .main-header {padding: 10px;left: 65px;width: calc(100% - 65px);}
-body.nav-open .main-data,body.nav-close .main-data  {margin-left: 70px;margin-top: 100px;}
+body.nav-open .main-data,body.nav-close .main-data  {margin-left: 70px;margin-top: 65px;}
 body.nav-open .left-nav li a:hover, body.nav-close .left-nav li a:hover{padding: 5px 17px 5px 20px;}
 
 .main-header .top-right img.profile_img {margin-right: 1px;}
@@ -1418,6 +1428,8 @@ img.drop_img {margin-left: 4px;}
 .main-card .notifi_list .noti_left{width: 60px;}
 .main-card .notifi_list .noti_right {width: calc(100% - 70px);}
 .main-card .notifi_list .noti_right span.right_btn a.btn.btn-accept,.main-card .notifi_list .noti_right span.right_btn a.btn.btn-decline {font-size: 13px;padding: 6px 25px;margin-right: 10px;}
+.top_report .left_report_head ul li.active a {padding: 4px 20px;}
+.top_report .left_report_head ul li a {font-size: 13px;padding: 8px 25px;}
 }
 
 @media(max-width:767px){
@@ -1457,6 +1469,12 @@ body.nav-open .main-header, body.nav-close .main-header {padding: 10px ;}
     .add{margin-bottom: 10px;}
     // .col-md-6.add{float: left;width: 50%;padding-right: 5px;}
     // .col-md-6.alignright{float: right;width: 50%;padding-left: 5px;}
+    .main-card .rating_head{margin: 5px 0px 0px;}
+    .main-card .rating_mat{margin: 0px;}
+    .main-card .rating_mark {margin: 5px 0px 15px;}
+    .clearfix.space{display: none}
+    body.nav-open .main-data,body.nav-close .main-data  {margin-left: 70px;margin-top: 100px;}
+
 }
 
 
@@ -1474,6 +1492,10 @@ body.nav-open .main-header, body.nav-close .main-header {padding: 10px ;}
 .main-card .btn.btn-export {font-size: 12px;padding: 8px 30px;float: none;border-radius: 30px;}
 .mobile_visible .cards .top_info .left_status{padding:3px 10px;}
 .main-card .staffdetail_notifi .notifi_list .noti_right .author-review{display: block;}
+span.star.star-empty, .star-full {height: 17px !important;width: 17px !important;}
+.main-card .staffdetail_notifi .notifi_list .noti_right .author-review .author{min-width: auto;}
+.alignright .rating {text-align: left;}
+.main-card h3{margin-bottom: 10px;}
 }
 
 @media(max-width:380px){
