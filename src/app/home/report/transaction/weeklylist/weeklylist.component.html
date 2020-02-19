@@ -55,7 +55,7 @@
       <mat-panel-title>Week 5 <span class="right">$560</span></mat-panel-title>
       <!-- <mat-panel-description></mat-panel-description> -->
     </mat-expansion-panel-header>
-    <div class="table_wrap">
+    <div class="table_wrap mobile_hidden">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
           <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -112,6 +112,32 @@
         </table>
       </div>
 
+      <div class="card_view mobile_visible">
+
+        <div class="cards">
+            <div class="top_info">
+              <!-- add class for background color Completed, rejected -->
+              <div class="left_status completed">Completed</div>
+              <div class="right_status">
+                <ul>
+                  <li>22 Oct, 2019</li>
+                  <!-- <li>10:00AM</li>-->
+                </ul>
+              </div>
+            </div>
+            <div class="description">
+            <p class="user"><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
+            <p class="service"><img src="assets/images/discount-pink.png" alt="Discount">10%</p>
+            <p class="service"><img src="assets/images/service-pink.png" alt="Service">Haircut, Hair Spa</p>
+            <p class="location"><img src="assets/images/location-pink.png" alt="location">At Home</p>
+            <p class="number"><img src="assets/images/code-pink.png" alt="Coupon">New Coupon code</p>
+            <p class="service"><img src="assets/images/commissions.png" alt="Commissions">$280</p>
+            <p class="service"><img src="assets/images/commissions.png" alt="Commissions">$200</p>
+
+        </div>
+        </div>
+      </div>
+
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -119,7 +145,7 @@
       <mat-panel-title>Week 4 <span class="right">$560</span></mat-panel-title>
       <!-- <mat-panel-description>$560</mat-panel-description> -->
     </mat-expansion-panel-header>
-    <div class="table_wrap">
+    <div class="table_wrap mobile_hidden">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
           <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -174,6 +200,32 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+      </div>
+
+      <div class="card_view mobile_visible">
+
+        <div class="cards">
+            <div class="top_info">
+              <!-- add class for background color Completed, rejected -->
+              <div class="left_status completed">Completed</div>
+              <div class="right_status">
+                <ul>
+                  <li>22 Oct, 2019</li>
+                  <!-- <li>10:00AM</li>-->
+                </ul>
+              </div>
+            </div>
+            <div class="description">
+            <p class="user"><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
+            <p class="service"><img src="assets/images/discount-pink.png" alt="Discount">10%</p>
+            <p class="service"><img src="assets/images/service-pink.png" alt="Service">Haircut, Hair Spa</p>
+            <p class="location"><img src="assets/images/location-pink.png" alt="location">At Home</p>
+            <p class="number"><img src="assets/images/code-pink.png" alt="Coupon">New Coupon code</p>
+            <p class="service"><img src="assets/images/commissions.png" alt="Commissions">$280</p>
+            <p class="service"><img src="assets/images/commissions.png" alt="Commissions">$200</p>
+
+        </div>
+        </div>
       </div>
 
   </mat-expansion-panel>
@@ -184,7 +236,7 @@
       <mat-panel-title>Week 3 <span class="right">$560</span></mat-panel-title>
       <!-- <mat-panel-description>$560</mat-panel-description> -->
     </mat-expansion-panel-header>
-    <div class="table_wrap">
+    <div class="table_wrap mobile_hidden">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
           <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -239,6 +291,32 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+      </div>
+
+      <div class="card_view mobile_visible">
+
+        <div class="cards">
+            <div class="top_info">
+              <!-- add class for background color Completed, rejected -->
+              <div class="left_status completed">Completed</div>
+              <div class="right_status">
+                <ul>
+                  <li>22 Oct, 2019</li>
+                  <!-- <li>10:00AM</li>-->
+                </ul>
+              </div>
+            </div>
+            <div class="description">
+            <p class="user"><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
+            <p class="service"><img src="assets/images/discount-pink.png" alt="Discount">10%</p>
+            <p class="service"><img src="assets/images/service-pink.png" alt="Service">Haircut, Hair Spa</p>
+            <p class="location"><img src="assets/images/location-pink.png" alt="location">At Home</p>
+            <p class="number"><img src="assets/images/code-pink.png" alt="Coupon">New Coupon code</p>
+            <p class="service"><img src="assets/images/commissions.png" alt="Commissions">$280</p>
+            <p class="service"><img src="assets/images/commissions.png" alt="Commissions">$200</p>
+
+        </div>
+        </div>
       </div>
 
   </mat-expansion-panel>
@@ -248,7 +326,7 @@
       <mat-panel-title>Week 2 <span class="right">$560</span></mat-panel-title>
       <!-- <mat-panel-description>$560</mat-panel-description> -->
     </mat-expansion-panel-header>
-    <div class="table_wrap">
+    <div class="table_wrap mobile_hidden">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
           <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -305,6 +383,32 @@
         </table>
       </div>
 
+      <div class="card_view mobile_visible">
+
+        <div class="cards">
+            <div class="top_info">
+              <!-- add class for background color Completed, rejected -->
+              <div class="left_status completed">Completed</div>
+              <div class="right_status">
+                <ul>
+                  <li>22 Oct, 2019</li>
+                  <!-- <li>10:00AM</li>-->
+                </ul>
+              </div>
+            </div>
+            <div class="description">
+            <p class="user"><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
+            <p class="service"><img src="assets/images/discount-pink.png" alt="Discount">10%</p>
+            <p class="service"><img src="assets/images/service-pink.png" alt="Service">Haircut, Hair Spa</p>
+            <p class="location"><img src="assets/images/location-pink.png" alt="location">At Home</p>
+            <p class="number"><img src="assets/images/code-pink.png" alt="Coupon">New Coupon code</p>
+            <p class="service"><img src="assets/images/commissions.png" alt="Commissions">$280</p>
+            <p class="service"><img src="assets/images/commissions.png" alt="Commissions">$200</p>
+
+        </div>
+        </div>
+      </div>
+
   </mat-expansion-panel>
 
   <mat-expansion-panel>
@@ -312,7 +416,7 @@
       <mat-panel-title>Week 1 <span class="right">$560</span></mat-panel-title>
       <!-- <mat-panel-description>$560</mat-panel-description> -->
     </mat-expansion-panel-header>
-    <div class="table_wrap">
+    <div class="table_wrap mobile_hidden">
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
           <ng-container matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -367,6 +471,32 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
+      </div>
+
+      <div class="card_view mobile_visible">
+
+        <div class="cards">
+            <div class="top_info">
+              <!-- add class for background color Completed, rejected -->
+              <div class="left_status completed">Completed</div>
+              <div class="right_status">
+                <ul>
+                  <li>22 Oct, 2019</li>
+                  <!-- <li>10:00AM</li>-->
+                </ul>
+              </div>
+            </div>
+            <div class="description">
+            <p class="user"><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
+            <p class="service"><img src="assets/images/discount-pink.png" alt="Discount">10%</p>
+            <p class="service"><img src="assets/images/service-pink.png" alt="Service">Haircut, Hair Spa</p>
+            <p class="location"><img src="assets/images/location-pink.png" alt="location">At Home</p>
+            <p class="number"><img src="assets/images/code-pink.png" alt="Coupon">New Coupon code</p>
+            <p class="service"><img src="assets/images/commissions.png" alt="Commissions">$280</p>
+            <p class="service"><img src="assets/images/commissions.png" alt="Commissions">$200</p>
+
+        </div>
+        </div>
       </div>
 
   </mat-expansion-panel>

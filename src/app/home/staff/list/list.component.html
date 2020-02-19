@@ -64,9 +64,9 @@
   <div class="card_view mobile_visible" *ngIf="loading">
     <div class="cards" *ngFor="let element of detail; let i =index" >
       <div class="description">
-        <p class="user"><span class="author-img"><img [src]="element.img? imgurl + element.img : url" alt=""></span><img src="assets/images/user-pink.png" alt="">{{element?.name | titlecase}} </p>
-        <p class="service"><img src="assets/images/envelope-pink.png" alt="">{{element?.email}} </p>
-        <p class="number"><img src="assets/images/mobile-pink.png" alt="">+{{element?.phone}}</p>
+        <p class="user"><span class="author-img"><img [src]="element.img? imgurl + element.img : url" alt="User"></span><img src="assets/images/user-pink.png" alt="User">{{element?.name | titlecase}} </p>
+        <p class="service"><img src="assets/images/envelope-pink.png" alt="Email">{{element?.email}} </p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="Mobile">+{{element?.phone}}</p>
         <p class="review"><ngx-stars [readonly]="true" [color]="'#f7c133'" [size]="5" [initialStars]="element.avg_rating | round"></ngx-stars></p>
         <div class="buttons">
           <button class="action_btn pink"><a [routerLink]="['/staff/info', element._id]">View</a></button>  
@@ -78,10 +78,10 @@
     <div class="text-center"><button type="button" class="btn btn-submit" (click)="paginate()">Load More</button></div>
     <!-- <div class="cards">
       <div class="description">
-        <p class="user"><span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
-        <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
-        <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
-        <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
+        <p class="user"><span class="author-img"><img src="assets/images/noti-pro.png" alt="Notification Profile"></span><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
+        <p class="service"><img src="assets/images/envelope-pink.png" alt="Email">jane@gmail.com</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="Mobile">+919999999999</p>
+        <p class="review"><img src="assets/images/reviews-star.png" alt="Review"></p>
         <div class="buttons">
           <button class="action_btn pink"><a [routerLink]="['/staff/info']">View</a></button>  
           <button class="action_btn black"><a [routerLink]="['/staff/edit']">Edit</a></button>  
@@ -91,10 +91,10 @@
     </div>
     <div class="cards">
       <div class="description">
-        <p class="user"><span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
-        <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
-        <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
-        <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
+        <p class="user"><span class="author-img"><img src="assets/images/noti-pro.png" alt="Notification Profile"></span><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
+        <p class="service"><img src="assets/images/envelope-pink.png" alt="Email">jane@gmail.com</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="Mobile">+919999999999</p>
+        <p class="review"><img src="assets/images/reviews-star.png" alt="Review"></p>
         <div class="buttons">
           <button class="action_btn pink"><a [routerLink]="['/staff/info']">View</a></button>  
           <button class="action_btn black"><a [routerLink]="['/staff/edit']">Edit</a></button>  
@@ -104,10 +104,10 @@
     </div>
     <div class="cards">
       <div class="description">
-        <p class="user"><span class="author-img"><img src="assets/images/noti-pro.png" alt=""></span><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
-        <p class="service"><img src="assets/images/envelope-pink.png" alt="">jane@gmail.com</p>
-        <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
-        <p class="review"><img src="assets/images/reviews-star.png" alt=""></p>
+        <p class="user"><span class="author-img"><img src="assets/images/noti-pro.png" alt="Notification Profile"></span><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
+        <p class="service"><img src="assets/images/envelope-pink.png" alt="Email">jane@gmail.com</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="Mobile">+919999999999</p>
+        <p class="review"><img src="assets/images/reviews-star.png" alt="Review"></p>
         <div class="buttons">
           <button class="action_btn pink"><a [routerLink]="['/staff/info']">View</a></button>  
           <button class="action_btn black"><a [routerLink]="['/staff/edit']">Edit</a></button>  

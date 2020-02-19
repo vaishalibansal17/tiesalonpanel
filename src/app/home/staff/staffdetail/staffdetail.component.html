@@ -1,6 +1,6 @@
 <div class="main-card">
     <div class="row">
-        <div class="col-md-12 top_view"><img [src]="url" alt=""><span class="user_name">{{detail?.name | titlecase }}</span></div>
+        <div class="col-md-12 top_view"><img [src]="url" alt="User"><span class="user_name">{{detail?.name | titlecase }}</span></div>
         <div class="col-md-3 label">{{'EMAIL'| translate | titlecase}}:</div>
         <div class="col-md-9 description">{{detail && detail.email ? detail.email:'NA'}}</div>
         <div class="col-md-3 label">{{'MOBILENUMBER'| translate}}:</div>
@@ -22,7 +22,7 @@
         <div class="staffdetail_notifi">
             <div class="staffdetail_notifi" *ngIf="detail">
                 <div class="notifi_list" *ngFor="let review of detail.reviews">
-                    <div class="noti_left"><img [src]="review.img? (detail.usr_bp + review.img):usrurl" alt=""></div>
+                    <div class="noti_left"><img [src]="review.img? (detail.usr_bp + review.img):usrurl" alt="Notification User"></div>
                     <div class="noti_right">
                         <div class="author-review">
                             <div class="author">{{review.name | titlecase}}</div>

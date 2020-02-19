@@ -29,7 +29,7 @@
             </div>
         </div>
     </div>
-    <div class="table_wrap">
+    <div class="table_wrap mobile_hidden">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
             <ng-container matColumnDef="position">
               <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -70,6 +70,27 @@
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
         </div>
+
+        <div class="card_view mobile_visible">
+          <div class="cards">
+              <div class="top_info">
+                <div class="right_status">
+                  <ul>
+                    <li>22 Oct, 2019</li>
+                    <!--<li>10:00AM</li>-->
+                  </ul>
+                </div>
+              </div>
+              <div class="description">
+              <p class="user"><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
+              <p class="service"><img src="assets/images/commissions.png" alt="Commissions">#TIE1234</p>
+              <p class="service"><img src="assets/images/service-pink.png" alt="Service">Haircut, Hair Spa</p>
+              <p class="service"><img src="assets/images/location-pink.png" alt="Location">Home</p>
+              <p class="service"><img src="assets/images/discount-pink.png" alt="Discount">$100</p>
+          </div>
+          </div>
+        </div>
+
         <ul class="pagination">
             <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
             <li class="active"><a href="#">1</a></li>

@@ -7,7 +7,7 @@
             <ul>
               <li>
                 <button mat-button [matMenuTriggerFor]="lan_menu" [disableRipple]="true">{{lang=='en'?"En":"Ar"}} <img src="{{lang=='en'?'assets/images/flag_en.png':'assets/images/flag_ar.png'}}" alt="England">
-                  <img class="drop_img" src="assets/images/dropdown_grey.png" alt=""></button>
+                  <img class="drop_img" src="assets/images/dropdown_grey.png" alt="Dropdown"></button>
                 <mat-menu #lan_menu="matMenu" xPosition="before">
                   <button class="flag_drop" mat-menu-item (click)="setLang('ua')">Ar <img src="assets/images/flag_ar.png"  alt="England"></button>
                   <button class="flag_drop" mat-menu-item (click)="setLang('en')">En <img src="assets/images/flag_en.png"  alt="England"></button>
@@ -16,19 +16,19 @@
                 <button mat-button [matMenuTriggerFor]="dropdown_notification" [disableRipple]="true"><img src="assets/images/notification.png" alt="Notification"></button>
                 <mat-menu #dropdown_notification="matMenu" xPosition="before">
                     <div class="notifi_list">
-                        <div class="noti_left"><img src="assets/images/noti-pro.png" alt=""></div>
+                        <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
                         <div class="noti_right">
                             Jane Doe wants to book you for haircut.
                         </div>
                     </div>
                     <div class="notifi_list">
-                      <div class="noti_left"><img src="assets/images/noti-pro.png" alt=""></div>
+                      <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
                       <div class="noti_right">
                           Jane Doe wants to book you for haircut.
                       </div>
                   </div>
                   <div class="notifi_list">
-                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt=""></div>
+                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
                     <div class="noti_right">
                         Jane Doe wants to book you for haircut.
                     </div>
@@ -37,13 +37,13 @@
                 </mat-menu>
               </li>
               <li>
-                <button mat-button [matMenuTriggerFor]="beforeMenu" [disableRipple]="true"><img class="profile_img" src="{{detail.logo}}" alt="">
-                 <span class="mobile_hidden"> {{detail.name | titlecase}} Admin</span> <img class="drop_img" src="assets/images/dropdown_grey.png" alt=""></button>
+                <button mat-button [matMenuTriggerFor]="beforeMenu" [disableRipple]="true"><img class="profile_img" src="{{detail.logo}}" alt="ProfileImage">
+                 <span class="mobile_hidden"> {{detail.name | titlecase}} Admin</span> <img class="drop_img" src="assets/images/dropdown_grey.png" alt="Dropdown"></button>
                 <mat-menu #beforeMenu="matMenu" xPosition="before">
-                  <button  mat-menu-item><a [routerLink]="['/profile']"><img src="assets/images/edit-profile.png" alt="">{{'MPROFILE'| translate}}</a></button>
-                  <button  mat-menu-item><a [routerLink]="['/profile/change-password']"><img src="assets/images/password.png" alt="">{{'CHNAGE_PASS'| translate}}</a></button>
-                  <button  mat-menu-item><a [routerLink]="['/settings']"><img src="assets/images/settings.png" alt="">{{'SETTINGS'| translate}}</a></button>
-                  <button  mat-menu-item (click)='logout()'><img src="assets/images/log_out.png" alt="">{{'LOGOUT' | translate}}</button>
+                  <button  mat-menu-item><a [routerLink]="['/profile']"><img src="assets/images/edit-profile.png" alt="Edit Profile">{{'MPROFILE'| translate}}</a></button>
+                  <button  mat-menu-item><a [routerLink]="['/profile/change-password']"><img src="assets/images/password.png" alt="Password">{{'CHNAGE_PASS'| translate}}</a></button>
+                  <button  mat-menu-item><a [routerLink]="['/settings']"><img src="assets/images/settings.png" alt="Setting">{{'SETTINGS'| translate}}</a></button>
+                  <button  mat-menu-item (click)='logout()'><img src="assets/images/log_out.png" alt="Logout">{{'LOGOUT' | translate}}</button>
                 </mat-menu>
               </li>
             </ul>
