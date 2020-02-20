@@ -125,6 +125,8 @@
   
   "COUPNNAME":"Please enter coupon title.",
   "CODEREQ":"Please enter coupon code.",
+  "DESREQ":"Please enter designation.",
+  "ONLYLETR":"Please enter alphabets only.",
   "DISEREQ":"Please enter discount percentage.",
   "CODEINVLID":"Please enter alphabets and number.",
   "MINPRCREQ":"Please enter minimum discount.",
@@ -134,7 +136,7 @@
   "TOREQ":"Please enter ending date for coupon code.",
   "SALONALRDYEXIST":"Salon with this phone number or email already exist.",
   "STAFFALRDYEXIST":"Staff with this phone number or email already exist.",
-
+  "PROMOALRDYEXIST":"Promocode already exist.",
 
   
   "INCRTSTAFFNAME": "Please enter staff name.",

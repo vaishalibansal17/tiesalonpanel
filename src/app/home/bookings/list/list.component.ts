@@ -23,7 +23,7 @@ export interface Booking {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'service', 'serviceat', 'staff', 'number', 'status', 'time', 'bookingid', 'date', 'action' ];
+  displayedColumns: string[] = ['position', 'name', 'service', 'serviceat', 'staff', 'number', 'status', 'bookingid', 'date', 'action' ];
   bookings: Booking[] = [
     { value: '1', viewValue: 'All Bookings' },
     { value: '2', viewValue: 'New Bookings' },
