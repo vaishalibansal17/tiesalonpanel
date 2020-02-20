@@ -4,7 +4,7 @@
             <mat-form-field class="multi_field">
                 <span class="email-img pass"><img src="assets/images/service.png" alt="envelope"></span>
                 <mat-label>{{'SERVICE'| translate}}</mat-label>
-                <mat-select (selectionChange)="slctsrv($event.value)" class="multiselect">
+                <mat-select (selectionChange)="slctsrv($event)" class="multiselect">
                     <mat-option *ngFor="let service of services" [value]="service">
                         {{service.cat_name | titlecase}}
                     </mat-option>

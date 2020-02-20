@@ -24,7 +24,7 @@ export class HttpRequestService {
 		if (type === 'GET') {
 			return this.http.get<any>(this.getApi(requestUrl) + '?' + data);
 		} else if (type === 'GET_PARMS') {
-			return this.http.get<any>(this.getApi(requestUrl) + '/' + data + '?' + queryParams);
+			return this.http.get<any>(this.getApi(requestUrl) + '/' + data + (queryParams?`?${queryParams}`:''));
 		} else if (type === 'POST') {
 			return this.http.post<any>(this.getApi(requestUrl), data);;
 		} else if (type === 'POST_WITHDATA') {

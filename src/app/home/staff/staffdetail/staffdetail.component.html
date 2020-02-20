@@ -15,11 +15,15 @@
         <div class="col-md-9 description">{{detail && detail.avlblity ? 'Available':'Not Available'}}</div>
         <div class="col-md-3 label">{{'WEEKOFF'| translate | titlecase}}:</div>
         <div class="col-md-9 description">{{detail && detail.doff ? detail.doff:'NA'}}</div>
-        <div class="col-md-12 alignright"><a [routerLink]="['review']" class="btn btn-link">View All</a></div>
-        <div class="col-md-12">
+        <div class="col-md-12 alignright"><a [routerLink]="['/staff/review', id]" class="btn btn-link">View All</a></div>
+        <div class="col-md-3">
             <h3>{{'REVIEWS'| translate}}:</h3>
         </div>
+        <div class="col-md-9" *ngIf="(detail?.reviews.length>0?0:1)">
+            <span> *NO REVIEWS.</span>
+        </div>
         <div class="staffdetail_notifi">
+           
             <div class="staffdetail_notifi" *ngIf="detail">
                 <div class="notifi_list" *ngFor="let review of detail.reviews">
                     <div class="noti_left"><img [src]="review.img? (detail.usr_bp + review.img):usrurl" alt="Notification User"></div>
@@ -33,7 +37,6 @@
                         {{review.comment}}
                     </div>
                 </div>
-    
             </div>
         </div>
     </div>

@@ -73,7 +73,7 @@ export class ListComponent implements OnInit {
     this.dataSource = new ListDataSource(this.list);
     this.loadStaffList();
     this.dataSource.usersData.subscribe((val) => {
-      // this.detail = val;
+      this.detail = val;
     });
 
     this.dataSource.loadingUsers.subscribe(e => this.loading = !e);

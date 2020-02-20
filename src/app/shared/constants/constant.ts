@@ -6,7 +6,7 @@ export const ERROR_MSG = {
 export const LIMIT = [10,20,30];
 
 export const IMG ={
-  PRO: 'assets/images/change.png',
+  PRO: 'assets/images/user-add.png',
   USR : 'assets/images/noti-pro.png'
 }
 

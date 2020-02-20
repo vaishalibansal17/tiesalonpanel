@@ -7,6 +7,7 @@ import { ErrorService } from 'src/app/shared/service/error.service';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { ValidationService } from 'src/app/shared/service/validation-service';
 import * as _ from "lodash";
+import { MatSelect } from '@angular/material';
 
 @Component({
   selector: 'app-edit',
@@ -14,7 +15,7 @@ import * as _ from "lodash";
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
-  todaydate:Date = new Date();
+  todaydate: Date = new Date();
   services = [];
   chips = [];
   submitted = false;
@@ -140,15 +141,24 @@ export class EditComponent implements OnInit {
   }
 
   slctsrv(state: any) {
-    this.chips.push({ id: state.cat_id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
-    this.sendServ.push(state.cat_id)
+    const matSelect: MatSelect = state.source;
+    matSelect.writeValue(null);
+    state = state.value;
+    console.log(state);
+    
+    if (!this.httpService.arraySearch(this.sendServ, state)) {
+      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)) });
+      this.sendServ.push(state._id);
+      return
+    } else {
+    }
   }
 
 
-  remove(service: string): void {
-    const index = this.chips.indexOf(service);
-    this.chips.splice(index, 1);
-    this.sendServ.splice(index, 1);
+  remove(service: string, data?: any): void {
+    console.log(data);
+    
+    this.chips = this.chips.filter(v => v.id !== data.id);
+    this.sendServ = this.sendServ.filter(v => v !== data.id);
   }
-
 }

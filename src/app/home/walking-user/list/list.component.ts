@@ -112,11 +112,11 @@ export class ListComponent implements OnInit {
       rs.res.wlkUsr.forEach(element => {
         obj = {
           "Serial": ++i,
-          "Name": element.fullname,
-          "Email": element.email,
+          "Name": element.fullname? element.fullname:'NA',
+          "Email": element.email?element.email:'NA',
           "Services": element.service?element.service:"NA",
-          "Staff": element.discount,
-          "Contact Number": element.pno,
+          "Staff": element.staff?element.staff:'NA',
+          "Contact Number": element.pno?element.pno:'NA',
           "Booking-Id": element.bookingid?element.bookingid:"NA",
           "Date": datePipe.transform(element.bookDateTime, "dd/MM/yyyy"),
         };

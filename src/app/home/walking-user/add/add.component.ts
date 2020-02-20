@@ -67,7 +67,7 @@ export class AddComponent implements OnInit {
           if (response.status === 1) {
             this.submitted = true;
             this.messageService.setBooking({ 'user_id': response.res._id });
-            this.router.navigateByUrl('/walking-user/add-booking')
+            this.router.navigateByUrl('/walk-in-customer/add-booking')
           } else {
             if (response.err) {
               this.errorserv.handleError(response.err.errCode);
@@ -78,7 +78,7 @@ export class AddComponent implements OnInit {
         });
       } else {
         this.messageService.setBooking({ 'user_id': this.detail._id });
-        this.router.navigateByUrl('/walking-user/add-booking')
+        this.router.navigateByUrl('/walk-in-customer/add-booking')
       }
 
 

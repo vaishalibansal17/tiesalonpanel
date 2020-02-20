@@ -7,6 +7,7 @@ import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/app
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { NgxStarsModule } from 'ngx-stars';
 
+console.log('---=-=-=-=-=-=-=--');
 
 @NgModule({
   declarations: [StaffdetailComponent],

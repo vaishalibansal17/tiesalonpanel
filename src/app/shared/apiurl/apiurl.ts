@@ -16,6 +16,7 @@ export const APIURLS = {
     STAFF_DETAIL : BASE_URL + 'staff/detail',
     SERVICES: BASE_URL + 'service',
     WALKING:BASE_URL + 'user/walking',
+    WLK_DETAIL:BASE_URL + 'user/walking/view',
     WALKING_CHK:BASE_URL + 'user/walking/check',
     WALKING_ADD:BASE_URL + 'user/walking/add',
     WALKING_BOOK:BASE_URL + 'booking/walking',

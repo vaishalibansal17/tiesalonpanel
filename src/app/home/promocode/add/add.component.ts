@@ -7,6 +7,7 @@ import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ValidationService, date } from 'src/app/shared/service/validation-service';
 import * as _ from "lodash";
+import { MatSelect } from '@angular/material';
 
 export interface Service {
   value: string;
@@ -21,7 +22,7 @@ export interface Service {
 export class AddComponent implements OnInit {
   services: Service[];
   chips = [];
-  todaydate:Date = new Date();
+  todaydate: Date = new Date();
   submitted = false;
   dataSource = [];
   selectable = true;
@@ -88,7 +89,7 @@ export class AddComponent implements OnInit {
   add() {
     this.submitted = true;
     // return false
-     console.log(this.promo )
+    console.log(this.promo)
     var startDateUtc = this.promo.value.frm && this.helper.parseDate(this.promo.value.frm, new Date(new Date().setHours(0, 0, 0, 0)));
     var endDateUtc = this.promo.value.to && this.helper.parseDate(this.promo.value.to, new Date(new Date().setHours(23, 59, 59)));
     if (!(startDateUtc < endDateUtc)) {
@@ -103,7 +104,7 @@ export class AddComponent implements OnInit {
 
       if (!this.validDte)
         return false
-       /** if selected date is from today then promocode time is from current date and time. */ 
+      /** if selected date is from today then promocode time is from current date and time. */
       var currentdate = new Date();
       let data = new Date(this.promo.value.frm);
       if (data.getDate() == currentdate.getDate() && data.getMonth() == currentdate.getMonth())
@@ -140,17 +141,41 @@ export class AddComponent implements OnInit {
   //     this.httpService.showError(MESSAGE.DATE.END_DATE, '', MESSAGE.MSGTIME);
   //     return false;
   //   }
+  // } 
+
+  // slctsrv(state: any) {
+  //   this.chips.push({ id: state.cat_id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
+  //   this.sendServ.push(state.cat_id)
   // }
 
+
+  // remove(service: string): void {
+  //   const index = this.chips.indexOf(service);
+  //   this.chips.splice(index, 1);
+  //   this.sendServ.splice(index, 1);
+  // }
+
+
   slctsrv(state: any) {
-    this.chips.push({ id: state.cat_id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
-    this.sendServ.push(state.cat_id)
+    console.log(state);
+    
+    const matSelect: MatSelect = state.source;
+    matSelect.writeValue(null);
+    // let isFound = this.httpService.arraySearch(this.sendServ, state)
+    state=state.value
+    if (!this.httpService.arraySearch(this.sendServ, state)) {
+      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)), price: state.price });
+      this.sendServ.push(state._id);
+      return
+    } else {
+    }
   }
 
 
-  remove(service: string): void {
-    const index = this.chips.indexOf(service);
-    this.chips.splice(index, 1);
-    this.sendServ.splice(index, 1);
+  remove(service: string, data?: any): void {
+    let rmvsrv = this.chips.find(v => v.id == data.id);
+    this.chips = this.chips.filter(v => v.id !== data.id);
+    this.sendServ = this.sendServ.filter(v => v !== data.id);
   }
+
 }

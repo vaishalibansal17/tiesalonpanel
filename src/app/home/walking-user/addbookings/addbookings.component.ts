@@ -9,6 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ValidationService } from 'src/app/shared/service/validation-service';
 import * as _ from 'lodash';
 import { forkJoin } from 'rxjs';
+import { MatSelect } from '@angular/material';
 export interface Service {
   value: string;
   viewValue: string;
@@ -42,7 +43,7 @@ export class AddbookingsComponent implements OnInit {
   ngOnInit() {
     this.responseData = this.messageService.getBooking();
     if (!this.responseData) {
-      this.router.navigateByUrl('walking-user/add-user').then(() => {
+      this.router.navigateByUrl('walkin-customer/add-user').then(() => {
         this.errorserv.handleError(0);
       })
     } else
@@ -73,7 +74,7 @@ export class AddbookingsComponent implements OnInit {
       this.httpService.getRequest('POST', 'WALKING_BOOK', this.profile.value).subscribe((response: any) => {
         if (response.status === 1) {
           this.submitted = true;
-          this.router.navigateByUrl('/walking-user').then(() => {
+          this.router.navigateByUrl('/walk-in-customer').then(() => {
             this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('WALKNGSUCCESS'));
           })
         } else {
@@ -102,7 +103,9 @@ export class AddbookingsComponent implements OnInit {
   }
 
   slctsrv(state: any) {
-    // let isFound = this.httpService.arraySearch(this.sendServ, state)
+    const matSelect: MatSelect = state.source;
+    matSelect.writeValue(null);
+    state=state.value
     if (!this.httpService.arraySearch(this.sendServ, state)) {
       this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)),price: state.price });
       this.sendServ.push(state._id);

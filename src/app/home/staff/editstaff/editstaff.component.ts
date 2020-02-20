@@ -9,8 +9,9 @@ import { ValidationService } from 'src/app/shared/service/validation-service';
 
 import * as _ from "lodash";
 import { Day } from '../addstaff/addstaff.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSelect } from '@angular/material';
 import { ConfimDialogComponent } from 'src/app/shared/confim-dialog/confim-dialog.component';
+import { IMG } from 'src/app/shared/constants/constant';
 export interface Service {
   value: string;
   viewValue: string;
@@ -36,7 +37,7 @@ export class EditstaffComponent implements OnInit {
   id: any;
   profile: FormGroup;
   detail: any;
-  url: any = 'assets/images/change.png';
+  url: any = IMG.PRO;
   formData: FormData;
   profileImage: any;
   loader = false;
@@ -59,6 +60,9 @@ export class EditstaffComponent implements OnInit {
     this.getUserProfile();
     this.profile = new FormGroup({
       name: new FormControl(null, [
+        Validators.required, ValidationService.namevalidator
+      ]),
+      designation: new FormControl(null, [
         Validators.required, ValidationService.namevalidator
       ]),
       email: new FormControl(null, [
@@ -88,6 +92,7 @@ export class EditstaffComponent implements OnInit {
           this.profile.patchValue({
             name: this.detail.hasOwnProperty('name') ? this.detail.name : '',
             email: this.detail.hasOwnProperty('email') ? this.detail.email : '',
+            designation: this.detail.hasOwnProperty('designation') ? this.detail.designation : '',
             phone: this.detail.hasOwnProperty('phone') ? this.detail.phone : '',
             serviceat: this.detail.hasOwnProperty('service_at') ? String(this.detail.service_at) : '',
             description: this.detail.hasOwnProperty('desc') ? this.detail.desc : '',
@@ -140,6 +145,7 @@ export class EditstaffComponent implements OnInit {
       this.formData.append('desc', this.profile.value.description ? this.profile.value.description : '');
       this.formData.append('services', JSON.stringify(this.sendServ));
       this.formData.append('day_off', this.profile.value.day_off);
+      this.formData.append('designation', this.profile.value.designation);
       this.formData.append('avlblity', this.profile.value.isAvailable);
       this.httpService.getRequest('PUT', 'STAFF', this.formData, this.id)
         .subscribe((response: any) => {
@@ -192,9 +198,11 @@ export class EditstaffComponent implements OnInit {
   }
 
   slctsrv(state: any) {
-    let isFound =this.httpService.arraySearch(this.sendServ,state)
+    const matSelect: MatSelect = state.source;
+    matSelect.writeValue(null);
+    state=state.value;
     if(!this.httpService.arraySearch(this.sendServ,state)){
-      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
+      this.chips.push({ _id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
       this.sendServ.push(state._id);
       return
     } else {
@@ -202,10 +210,9 @@ export class EditstaffComponent implements OnInit {
   }
 
 
-  remove(service: string): void {
-    const index = this.chips.indexOf(service);
-    this.chips.splice(index, 1);
-    this.sendServ.splice(index, 1);
+  remove(service: string, data?: any): void {
+    this.chips = this.chips.filter(v => v._id !== data._id);
+    this.sendServ = this.sendServ.filter(v => v !== data._id);
   }
 
 }

@@ -8,7 +8,7 @@ import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { ValidationService } from 'src/app/shared/service/validation-service';
 import * as _ from "lodash";
 import { ConfimDialogComponent } from 'src/app/shared/confim-dialog/confim-dialog.component';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatSelect } from '@angular/material';
 
 export interface Service {
   name: string;
@@ -67,6 +67,9 @@ export class AddstaffComponent implements OnInit {
 
     this.profile = new FormGroup({
       name: new FormControl(null, [
+        Validators.required, ValidationService.namevalidator
+      ]),
+      designation: new FormControl(null, [
         Validators.required, ValidationService.namevalidator
       ]),
       email: new FormControl(null, [
@@ -131,6 +134,7 @@ export class AddstaffComponent implements OnInit {
       this.formData.append('name', this.profile.value.name);
       this.formData.append('email', this.profile.value.email);
       this.formData.append('phone', this.profile.value.phone);
+      this.formData.append('designation', this.profile.value.designation);
       this.formData.append('desc', this.profile.value.description ? this.profile.value.description : '');
       this.formData.append('services', JSON.stringify(this.sendServ));
       if (this.profile.value.day_off) {
@@ -172,8 +176,11 @@ export class AddstaffComponent implements OnInit {
   }
 
   slctsrv(state: any) {
-    if (!this.httpService.arraySearch(this.sendServ, state)) {
-      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
+    const matSelect: MatSelect = state.source;
+    matSelect.writeValue(null);
+    state=state.value;
+    if(!this.httpService.arraySearch(this.sendServ,state)){
+      this.chips.push({ _id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
       this.sendServ.push(state._id);
       return
     } else {
@@ -181,9 +188,8 @@ export class AddstaffComponent implements OnInit {
   }
 
 
-  remove(service: string): void {
-    const index = this.chips.indexOf(service);
-    this.chips.splice(index, 1);
-    this.sendServ.splice(index, 1);
+  remove(service: string, data?: any): void {
+    this.chips = this.chips.filter(v => v._id !== data._id);
+    this.sendServ = this.sendServ.filter(v => v !== data._id);
   }
 }

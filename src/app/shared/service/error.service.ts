@@ -40,6 +40,12 @@ export class ErrorService {
       case 31:
         this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
         break;
+      case 34:
+        this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['PROMOALRDYEXIST']);
+        break;
+      case 32:
+        this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['STAFFALRDYEXIST']);
+        break;
       case 15:
         this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONALRDYEXIST']);
         break;
