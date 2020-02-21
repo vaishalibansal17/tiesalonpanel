@@ -1,7 +1,7 @@
 <div class="main-card">
 
     <div class="row">
-        <div class="col-md-6 top_view"><img [src]="url" alt=""><span class="user_name">{{detail?.name}}</span></div>
+        <div class="col-md-6 top_view"><img [src]="url" alt="Username"><span class="user_name">{{detail?.name}}</span></div>
         <div class="col-md-6 alignright"><a class="btn btn-edit" [routerLink]="['/profile/edit']"> {{'EDITPROF'| translate}}</a></div>
         <div class="col-md-3 label">{{'EMAIL'| translate | titlecase}}:</div>
         <div class="col-md-9 description">{{detail?.email}}</div>

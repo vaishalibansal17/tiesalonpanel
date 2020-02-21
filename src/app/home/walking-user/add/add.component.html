@@ -3,7 +3,7 @@
         <form [formGroup]='profile' (ngSubmit)='add()'>
             <!-- <div class="text-center">
                 <div class="file_input">
-                    <img [src]="url" alt="">
+                    <img [src]="url" alt="File">
                 </div>
                 <label for="" class="custom_label upload-image">
                     <input type="file" accept="image/jpeg,image/png" (change)="readUrl($event)">
@@ -39,17 +39,6 @@
                 <p class="color" *ngIf="getControl.phone.errors.required">{{'PHNREQ'|translate}}</p>
                 <p class="color" *ngIf="!getControl.phone.errors.required && getControl.phone.errors.Invalidphone ">
                     {{'PHNLNGTH'|translate}}</p>
-            </div>
-
-            <mat-form-field>
-                <span class="email-img pass"><img src="assets/images/description.png" alt="envelope"></span>
-                <textarea matInput placeholder="{{'DESCRIPTION'| translate}}" class="form-control"
-                    formControlName="description" maxlength="150"></textarea>
-            </mat-form-field>
-            <div
-                *ngIf="(submitted || getControl.description.dirty|| getControl.description.touched) && getControl.description.errors">
-                <p class="color" *ngIf="getControl.description.errors.required">{{'DESCREQ' | translate}}</p>
-                <p class="color" *ngIf="getControl.description.errors.minlength ">{{'DESCLNGTH'| translate}}</p>
             </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-submit">Proceed</button>

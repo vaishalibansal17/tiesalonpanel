@@ -60,9 +60,6 @@ export class AddComponent implements OnInit {
     this.profile.enable();
     if (this.profile.valid) {
       if (!this.isExist) {
-        this.profile.value['desc'] = this.profile.value.description;
-        this.profile.value['pno'] = this.profile.value.phone;
-        this.profile.value['fullname'] = this.profile.value.name;
         this.httpService.getRequest('POST', 'WALKING_ADD', this.profile.value).subscribe((response: any) => {
           if (response.status === 1) {
             this.submitted = true;
@@ -114,9 +111,9 @@ export class AddComponent implements OnInit {
             console.log(response.res);
             this.detail = response.res;
             this.profile.patchValue({
-              name: response.res.hasOwnProperty('fullname') ? response.res.fullname : '',
-              email: response.res.hasOwnProperty('email') ? response.res.email : '',
-              phone: response.res.hasOwnProperty('pno') ? response.res.pno : '',
+              name: this.detail.hasOwnProperty('name') ? this.detail.name : '',
+              email: this.detail.hasOwnProperty('email') ? this.detail.email : '',
+              phone: this.detail.hasOwnProperty('phone') ? response.res.phone : '',
             });
             this.isExist = true;
             this.profile.disable();

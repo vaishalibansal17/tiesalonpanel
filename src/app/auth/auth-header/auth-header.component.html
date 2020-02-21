@@ -1,5 +1,5 @@
 <div class="fixed-select">
-    <button mat-button [matMenuTriggerFor]="lan_menu" [disableRipple]="true">{{lang=='en'?"En":"Ar"}} <img src="{{lang=='en'?'assets/images/flag_en.png':'assets/images/flag_ar.png'}}" alt="England"><img class="drop_img" src="assets/images/dropdown.png" alt=""></button>
+    <button mat-button [matMenuTriggerFor]="lan_menu" [disableRipple]="true">{{lang=='en'?"En":"Ar"}} <img src="{{lang=='en'?'assets/images/flag_en.png':'assets/images/flag_ar.png'}}" alt="England"><img class="drop_img" src="assets/images/dropdown.png" alt="Dropdown"></button>
     <mat-menu #lan_menu="matMenu" xPosition="before">
     <button class="flag_drop" mat-menu-item (click)="setLang('ua')">Ar <img src="assets/images/flag_ar.png" alt="England"></button>
     <button class="flag_drop" mat-menu-item (click)="setLang('en')">En <img src="assets/images/flag_en.png" alt="England"></button>

@@ -64,9 +64,9 @@
   <div class="card_view mobile_visible" *ngIf="loading">
     <div class="cards" *ngFor="let element of detail; let i =index" >
       <div class="description">
-        <p class="user"><span class="author-img"><img [src]="element.img? imgurl + element.img : url" alt=""></span><img src="assets/images/user-pink.png" alt="">{{element?.name | titlecase}} </p>
-        <p class="service"><img src="assets/images/envelope-pink.png" alt="">{{element?.email}} </p>
-        <p class="number"><img src="assets/images/mobile-pink.png" alt="">+{{element?.phone}}</p>
+        <p class="user"><span class="author-img"><img [src]="element.img? imgurl + element.img : url" alt="User"></span><img src="assets/images/user-pink.png" alt="User">{{element?.name | titlecase}} </p>
+        <p class="service"><img src="assets/images/envelope-pink.png" alt="Email">{{element?.email}} </p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="Mobile">+{{element?.phone}}</p>
         <p class="review"><ngx-stars [readonly]="true" [color]="'#f7c133'" [size]="5" [initialStars]="element.avg_rating | round"></ngx-stars></p>
         <div class="buttons">
           <button class="action_btn pink"><a [routerLink]="['/staff/info', element._id]">View</a></button>  

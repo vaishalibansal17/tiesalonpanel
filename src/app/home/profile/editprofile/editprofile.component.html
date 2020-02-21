@@ -3,7 +3,7 @@
         <form [formGroup]='profile' (ngSubmit)='update()'>
             <div class="text-center">
                 <div class="file_input">
-                    <img [src]="url" alt="">
+                    <img [src]="url" alt="File">
                 </div>
                 <label for="" class="custom_label upload-image">
                     <input type="file" accept="image/jpeg,image/png" (change)="readUrl($event)">
@@ -49,7 +49,7 @@
                     *ngIf="(submitted || getControl.location.dirty|| getControl.location.touched) && getControl.location.errors">
                     <p class="color error" *ngIf="getControl.location.errors.required">{{'LOCREQ' | translate}}</p>
                 </div>
-                <!-- <img class="full_width" src="assets/images/maps.png" alt=""> -->
+                <!-- <img class="full_width" src="assets/images/maps.png" alt="Maps"> -->
                 <div class="map full_width">
                     <agm-map [latitude]="location.lat" [longitude]="location.lng" [(zoom)]="location.zoom"
                         [zoomControl]="true">

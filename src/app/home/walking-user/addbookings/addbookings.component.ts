@@ -56,6 +56,7 @@ export class AddbookingsComponent implements OnInit {
       price: new FormControl(null, [
         Validators.required, ValidationService.numberValidator
       ]),
+      desc: new FormControl(null),
     })
   }
   get getControl() { return this.profile.controls; }
@@ -105,9 +106,9 @@ export class AddbookingsComponent implements OnInit {
   slctsrv(state: any) {
     const matSelect: MatSelect = state.source;
     matSelect.writeValue(null);
-    state=state.value
+    state = state.value
     if (!this.httpService.arraySearch(this.sendServ, state)) {
-      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)),price: state.price });
+      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)), price: state.price });
       this.sendServ.push(state._id);
       this.price = this.price + state.price;
       this.profile.controls['price'].setValue(this.price);

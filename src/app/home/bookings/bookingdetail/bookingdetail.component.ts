@@ -24,12 +24,11 @@ export class BookingdetailComponent implements OnInit {
     this.getUserProfile();
   }
   getUserProfile() {
-    this.httpService.getRequest('GET_PARMS', 'BOOKING', this.id, '')
+    this.httpService.getRequest('GET_PARMS', 'BOOKING_VIEW', this.id, '')
       .subscribe((response: any) => {
         if (response.status === 1) {
           this.detail = response.res;
-          console.log(this.detail);
-          
+          this.url = this.detail.logo ? this.detail.usr_bp + this.detail.img : this.url;
         } else {
           if (response.err) {
             this.error.handleError(response.err.errCode);

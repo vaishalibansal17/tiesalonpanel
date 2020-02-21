@@ -42,6 +42,16 @@
                     </mat-option>
                 </mat-select>
             </mat-form-field>
+            <mat-form-field>
+                <span class="email-img pass"><img src="assets/images/description.png" alt="envelope"></span>
+                <textarea matInput placeholder="{{'DESCRIPTION'| translate}}" class="form-control"
+                    formControlName="desc" maxlength="150"></textarea>
+            </mat-form-field>
+            <div
+                *ngIf="(submitted || getControl.desc.dirty|| getControl.desc.touched) && getControl.desc.errors">
+                <p class="color" *ngIf="getControl.desc.errors.required">{{'DESCREQ' | translate}}</p>
+                <p class="color" *ngIf="getControl.desc.errors.minlength ">{{'DESCLNGTH'| translate}}</p>
+            </div>
             <div *ngIf="(submitted && getControl.staf_id.errors)">
                 <p class="color error" *ngIf="getControl.staf_id.errors.required">{{'STFREQ'|translate}}</p>
             </div>

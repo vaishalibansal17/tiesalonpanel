@@ -3,131 +3,132 @@
   <p>It will set up in further milestone.</p>
 </div> -->
 <div class="main-card">
-    <div class="row">
-        <div class="col-md-6 add">
-            <form action="" class="list_booking">
-                <mat-form-field>
-                    <mat-label>All Bookings</mat-label>
-                    <mat-select formControlName='booking'>
-                        <mat-option *ngFor="let booking of bookings" [value]="booking.value">
-                            {{booking.viewValue}}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </form>
-        </div>
-        <div class="col-md-6 alignright">
-          <a href="javascript:void(0)" (click)="exportCSV()" class="btn btn-export">Export</a>
-          <form action="" class="search_field">
-            <mat-form-field>
-              <span class="email-img search"><img src="assets/images/search.png" alt="envelope"></span>
-              <input matInput placeholder="Search" [(ngModel)]="search" [ngModelOptions]="{standalone: true}"
-                (keyup)="applyFilters()" #input autocomplete="off" class="form-control">
-            </mat-form-field>
-          </form>
-        </div>
-      </div>
-      <div class="table_wrap mobile_hidden" [hidden]="(dataSource.loading$ | async)"> 
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll" matSort>
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef>No.</th>
-          <td mat-cell *matCellDef="let post; let i =index;"> {{(paginator.pageIndex * paginator.pageSize)+i + 1}}  </td>
-        </ng-container>
-      
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef>User Name</th>
-          <td mat-cell *matCellDef="let element"><a [routerLink]="['/booking/info', element._id]">{{element.user_name | titlecase}}</a></td>
-        </ng-container>
-      
-        <ng-container matColumnDef="service">
-          <th mat-header-cell *matHeaderCellDef>Service</th>
-          <td mat-cell *matCellDef="let element">{{element.service | titlecase}}</td>
-        </ng-container>
-      
-        <ng-container matColumnDef="serviceat">
-          <th mat-header-cell *matHeaderCellDef>Service At</th>
-          <td mat-cell *matCellDef="let element">{{element.serviceat}}</td>
-        </ng-container>
-      
-        <ng-container matColumnDef="staff">
-          <th mat-header-cell *matHeaderCellDef>Staff Name</th>
-          <td mat-cell *matCellDef="let element">{{element.staf_name | titlecase}}</td>
-        </ng-container>
-      
-        <ng-container matColumnDef="number">
-          <th mat-header-cell *matHeaderCellDef>Contact</th>
-          <td mat-cell *matCellDef="let element">{{element.user_contact}}</td>
-        </ng-container>
-      
-        <ng-container matColumnDef="status">
-          <th mat-header-cell *matHeaderCellDef>Status</th> 
-          <!--Please add class for status for diefferent colors ->  confirmed, pending, completed, rejected PENDING: 0, CONFIRMED: 1, CANCELLED: 2,SERVERD: 3, RESCHEDULED: 4, UNSERVED: 5-->
-          <td mat-cell *matCellDef="let element"> 
-            <span class="confirmed"  *ngIf="element.bookingStatus==1">Confirmed</span> 
-            <span class="completed"  *ngIf="element.bookingStatus==3">Completed</span> 
-            <span class="pending"  *ngIf="element.bookingStatus==0">Pending</span> 
-            <span class="rejected"  *ngIf="element.bookingStatus==2">Rejected</span>
-            <span class="pending"  *ngIf="element.bookingStatus==4">Rescheduled</span> 
-            <span class="pending"  *ngIf="element.bookingStatus==5">Unserved</span> 
-          </td>
-        </ng-container>
-      
-        <!-- <ng-container matColumnDef="time">
+  <div class="row">
+    <div class="col-md-6 add">
+      <form action="" class="list_booking">
+        <mat-form-field>
+          <mat-label>{{'ALLBOOKING' | translate}}</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let booking of bookings" [value]="booking.value">
+              {{booking.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="col-md-6 alignright">
+      <a href="javascript:void(0)" (click)="exportCSV()" class="btn btn-export">{{'EXPORT_EXL' | translate}}</a>
+      <form action="" class="search_field">
+        <mat-form-field>
+          <span class="email-img search"><img src="assets/images/search.png" alt="envelope"></span>
+          <input matInput placeholder="Search" [(ngModel)]="search" [ngModelOptions]="{standalone: true}"
+            (keyup)="applyFilters()" #input autocomplete="off" class="form-control">
+        </mat-form-field>
+      </form>
+    </div>
+  </div>
+  <div class="table_wrap mobile_hidden" [hidden]="(dataSource.loading$ | async)">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll" matSort>
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let post; let i =index;"> {{(paginator.pageIndex * paginator.pageSize)+i + 1}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>{{'USRNAME' | translate}}</th>
+        <td mat-cell *matCellDef="let element"><a
+            [routerLink]="['/booking/info', element._id]">{{element.user_name | titlecase}}</a></td>
+      </ng-container>
+
+      <ng-container matColumnDef="service">
+        <th mat-header-cell *matHeaderCellDef>{{'SERVICE' | translate}}</th>
+        <td mat-cell *matCellDef="let element">{{element.service | titlecase}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="serviceat">
+        <th mat-header-cell *matHeaderCellDef>{{'STAFFNAME' | translate}}</th>
+        <td mat-cell *matCellDef="let element">{{element.serviceat}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="staff">
+        <th mat-header-cell *matHeaderCellDef>{{'STAFFNAME' | translate}}</th>
+        <td mat-cell *matCellDef="let element">{{element.staf_name | titlecase}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef>{{'CONTCT' | translate}}</th>
+        <td mat-cell *matCellDef="let element">{{element.user_contact}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>{{'STATUS' | translate}}</th>
+        <!--Please add class for status for diefferent colors ->  confirmed, pending, completed, rejected PENDING: 0, CONFIRMED: 1, CANCELLED: 2,SERVERD: 3, RESCHEDULED: 4, UNSERVED: 5-->
+        <td mat-cell *matCellDef="let element">
+          <span class="confirmed" *ngIf="element.bookingStatus==1">{{'CONFIRMD' | translate}}</span>
+          <span class="completed" *ngIf="element.bookingStatus==3">{{'COMPELETED' | translate}}</span>
+          <span class="pending" *ngIf="element.bookingStatus==0">{{'PENDING' | translate}}</span>
+          <span class="rejected" *ngIf="element.bookingStatus==2">{{'REJECT' | translate}}</span>
+          <span class="pending" *ngIf="element.bookingStatus==4">{{'RESCHEDULED' | translate}}</span>
+          <span class="pending" *ngIf="element.bookingStatus==5">{{'STATUS' | translate}}</span>
+        </td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="time">
           <th mat-header-cell *matHeaderCellDef>Time</th>
           <td mat-cell *matCellDef="let element">{{element.bookDateTime | date : 'h:mm a'}}</td>
         </ng-container> -->
-      
-        <ng-container matColumnDef="bookingid">
-          <th mat-header-cell *matHeaderCellDef>Booking ID</th>
-          <td mat-cell *matCellDef="let element">{{element.booking_id | uppercase}}</td>
-        </ng-container>
-      
-        <ng-container matColumnDef="date">
-          <th mat-header-cell *matHeaderCellDef>Date & Time</th>
-          <td mat-cell *matCellDef="let element">{{element.bookDateTime | date : 'dd, MMM yyyy h:mm a'}}</td>
-        </ng-container>
-      
-        <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef>Actions</th> 
-          <!--use same class for accepted as accept and decline for declined-->
-          <td mat-cell *matCellDef="let user"> 
-          <button class="booking_btn accept" (click)="openDialog()">Accept</button>  
-          </td>
-        </ng-container>
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-      <mat-paginator [length]="dataSource.totalCount$ | async" [pageSize]="limitPage[0]" [pageSizeOptions]="limitPage">
-      </mat-paginator>
-      <div class="margin_center"
-          *ngIf=" !(dataSource.loading$ | async) && ((dataSource.totalCount$ | async)<=0) ">
-           {{'NO_RCD' | translate}}
-        </div>
+
+      <ng-container matColumnDef="bookingid">
+        <th mat-header-cell *matHeaderCellDef>{{'BOOKINGID' | translate}}</th>
+        <td mat-cell *matCellDef="let element">{{element.booking_id | uppercase}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>{{'DATE&TIME' | translate}}</th>
+        <td mat-cell *matCellDef="let element">{{element.bookDateTime | date : 'dd, MMM yyyy, h:mm a'}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>{{'ACTION' | translate}}</th>
+        <!--use same class for accepted as accept and decline for declined-->
+        <td mat-cell *matCellDef="let user">
+          <button class="booking_btn accept" (click)="openDialog()">{{'ACCEPT' | translate}}</button>
+          <button class="booking_btn decline" (click)="openDialog()">{{'REJECT' | translate}}</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [length]="dataSource.totalCount$ | async" [pageSize]="limitPage[0]" [pageSizeOptions]="limitPage">
+    </mat-paginator>
+    <div class="margin_center" *ngIf=" !(dataSource.loading$ | async) && ((dataSource.totalCount$ | async)<=0) ">
+      {{'NO_RCD' | translate}}
     </div>
+  </div>
 
-    <div class="card_view mobile_visible">
+  <div class="card_view mobile_visible">
 
-      <div class="cards">
-          <div class="top_info">
-            <!-- add class for background color confirmed, pending, rejected, completed -->
-            <div class="left_status confirmed">confirmed</div>
-            <div class="right_status">
-              <ul>
-                <li>22 Oct, 2019</li>
-                <li>10:00AM</li>
-              </ul>
-            </div>
-          </div>
-          <div class="description">
-          <p class="user"><img src="assets/images/user-pink.png" alt="">Jane Doe</p>
-          <p class="service"><img src="assets/images/service-pink.png" alt="">Haircut, Hair Spa</p>
-          <p class="location"><img src="assets/images/location-pink.png" alt="">At Home</p>
-          <p class="number"><img src="assets/images/mobile-pink.png" alt="">+919999999999</p>
-          <div class="buttons">
-            <button class="booking_btn decline" (click)="openDialog()">Decline</button> 
-          </div>
+    <div class="cards">
+      <div class="top_info">
+        <!-- add class for background color confirmed, pending, rejected, completed -->
+        <div class="left_status confirmed">confirmed</div>
+        <div class="right_status">
+          <ul>
+            <li>22 Oct, 2019</li>
+            <li>10:00AM</li>
+          </ul>
+        </div>
       </div>
+      <div class="description">
+        <p class="user"><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
+        <p class="service"><img src="assets/images/service-pink.png" alt="Service">Haircut, Hair Spa</p>
+        <p class="location"><img src="assets/images/location-pink.png" alt="Location">At Home</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="Number">+919999999999</p>
+        <div class="buttons">
+          <button class="booking_btn decline" (click)="openDialog()">Decline</button>
+        </div>
       </div>
     </div>
   </div>
+</div>

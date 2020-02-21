@@ -16,6 +16,7 @@
   "ABOUTUS": "معلومات عنا",
   "AVAILBILITY" : "توفر",
   "WEEKOFF" : "إسبوع إجازة",
+  "ALLBOOKING":"جميع الحجوزات",
 
 
   "DESREQ":"الرجاء إدخال التعيين",
@@ -124,6 +125,19 @@
 
   "SALONALRDYEXIST":"صالون مع هذا رقم الهاتف أو البريد الإلكتروني موجود بالفعل",
 
+  "USRNAME" : "اسم المستخدم",
+  "CONTCT":"اتصل",
+  "STATUS":"الحالة",
+  "BOOKINGID" : "معرف الحجز",
+  "DATE&TIME" : "التاريخ و الوقت",
+
+  "ACCEPT":"قبول",
+  "REJECT":"رفض",
+  "CONFIRMD":"تم تأكيد",
+  "PENDING":"قيد الانتظار",
+  "RESCHEDULED":"إعادة جدولتها",
+  "COMPELETED":"منجز",
+
   "RATING":"تقييم",
   "RCNTREVIW" : "المراجعات الأخيرة",
   "PROFESS":"احترافية",
@@ -179,7 +193,7 @@
   "COMMISSION_MNG": "إدارة العمولة",
   "COMMISSION": "عمولة",
   "ADD_COM": "إضافة لجنة",
-  "EXPORT_EXL": "تصدير اكسل",
+  "EXPORT_EXL": "تصدير",
   "SEARCH": "بحث",
   "NO_RCD": "لا يوجد سجلات",
   "NAME_REQ": "من فضلك ادخل الاسم",
