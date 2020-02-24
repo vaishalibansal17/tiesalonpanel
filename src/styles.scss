@@ -19,7 +19,8 @@ span.star.zero-star {height: auto !important;width: auto !important;}
 .main-card a {color: #f96bb3;}
 .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {color: #f96bb3;}
 body .ui-inputtext:enabled:hover:not(.ui-state-error) {border-color: #ffc7e4 !important;}
-.mat-paginator-container{justify-content: inherit !important;}
+.mat-paginator-container{justify-content: inherit !important;padding: 0px !important;}
+.mat-paginator-page-size-label{margin-left: 0px !important;}
 p.color.error {
     position: relative;
     top: -17px;
@@ -229,7 +230,7 @@ ul.breadcrumb li a{color: #F96BB3;}
     img{
         border-radius: 50%;
         box-shadow: 0px 0px 15px #c5c5c5;
-        width: 100px;
+        // width: 100px;
     }
 }
 
@@ -490,7 +491,7 @@ ul li a:hover img.non-hover,ul li img.hover, ul li.active a img.non-hover{displa
 body.nav-open{
 .main-header{
     padding: 15px 10px 15px 15px;
-    z-index: 999;
+    z-index: 1000;
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
     position: fixed;
@@ -545,7 +546,7 @@ button.mat-menu-item img.drop-select{margin-right: 0px;margin-left: 5px;}
 body.nav-close{
     .main-header{
         padding: 15px 15px;
-        z-index: 999;
+        z-index: 1000;
         transition: all .5s ease-in-out;
         position: fixed;
         left: 80px;
@@ -942,7 +943,7 @@ img.full_width{width:100%;margin-bottom: 20px;}
             border-left: 1px solid #efefef;
             border-right: 1px solid #efefef;
             border-bottom: none;
-            max-width: 200px;
+            max-width: 160px;
             // word-break: break-all;
         }
         th.mat-header-cell{
@@ -1100,6 +1101,7 @@ img.full_width{width:100%;margin-bottom: 20px;}
                     border: 2px solid #e3e3e3;
                     border-radius: 50%;
                     height: 90px;
+                    width: 90px;
                 }
             }
             }
