@@ -154,7 +154,7 @@ export class ListComponent implements OnInit {
         finalData.push(obj);
       });
       var options = { noDownload: false, headers: ["Serial", "Name", "Code", "Discount", "Min. Price Discount", "Max. Price Discount", "Total Uses", "Starting Date", "Starting End", "Services"] };
-      new Angular5Csv(finalData, 'staff_list', options);
+      new Angular5Csv(finalData, 'Offer_list', options);
       this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('EXPORTD'));
     })
 

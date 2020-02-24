@@ -212,7 +212,7 @@ let ListComponent = class ListComponent {
                 finalData.push(obj);
             });
             var options = { noDownload: false, headers: ["Serial", "Name", "Code", "Discount", "Min. Price Discount", "Max. Price Discount", "Total Uses", "Starting Date", "Starting End", "Services"] };
-            new angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_9__["Angular5Csv"](finalData, 'staff_list', options);
+            new angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_9__["Angular5Csv"](finalData, 'Offer_list', options);
             this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('EXPORTD'));
         });
     }
