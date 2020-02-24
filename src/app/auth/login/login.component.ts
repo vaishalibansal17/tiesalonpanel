@@ -56,10 +56,10 @@ export class LoginComponent implements OnInit {
       this.httpService.getRequest('POST', 'LOGIN', this.loginfrm.value)
         .subscribe((data: any) => {
           if (data.status) {
-            let { acsTkn, _id, logo, email, name } = data.res;
+            let { acsTkn, _id, logo, email, name, c_policy, is_charge } = data.res;
             localStorage.setItem('acsTkn', acsTkn);
             localStorage.setItem('salonid', _id);
-            localStorage.setItem('salon', JSON.stringify({ 'name': name, 'logo': logo, 'email': email }));
+            localStorage.setItem('salon', JSON.stringify({ 'name': name, 'logo': logo, 'email': email, 'c_policy':c_policy, 'is_charge':is_charge }));
             this.isLoading = !this.isLoading;
             this.router.navigate(['/']).then(() => this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('LOGINSUCCESS')))
           } else {

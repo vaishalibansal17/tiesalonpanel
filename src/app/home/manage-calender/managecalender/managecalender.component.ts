@@ -4,6 +4,8 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGrigPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction'; 
 import { EventInput } from '@fullcalendar/core';
+import { Router } from '@angular/router';
+import { Helper } from 'src/app/shared/service/helper.service';
 function getTimezoneOffsetString(date: Date): string {
   const timezoneOffset = date.getTimezoneOffset();
   const hoursOffset = String(
@@ -23,19 +25,20 @@ export class ManagecalenderComponent implements OnInit {
   calendarPlugins =  [dayGridPlugin, timeGrigPlugin, interactionPlugin]; // important!
 
   calendarEvents: EventInput[] = [
-    { title: 'Event Now', start: new Date() },
-    { title: 'Event Now', start: new Date() },{ title: 'Event Now', start: new Date() },{ title: 'Event Now', start: new Date() },
-    { title: 'Event Now', start: new Date() },{ title: 'Event Now', start: new Date() },{ title: 'Event Now', start: new Date() },
-    { title: 'Event Now', start: new Date() },{ title: 'Event Now', start: new Date() },{ title: 'Event Now', start: new Date() },
+    { title: 'Event Now Event Now Event Now', start: new Date('Mon Feb 03 2020 00:00:00 GMT+0530 (India Standard Time)') },
+    { title: 'Event Now', start: new Date('Mon Feb 03 2020 00:00:00 GMT+0530 (India Standard Time)') },{ title: 'Event Now', start: new Date('Mon Feb 15 2020 00:00:00 GMT+0530 (India Standard Time)') },{ title: 'Event Now', start: new Date() },
+    { title: 'Event Now', start: new Date('Mon Feb 06 2020 00:00:00 GMT+0530 (India Standard Time)') },{ title: 'Event Now', start: new Date() },{ title: 'Event Now', start: new Date() },
+    { title: 'Event Now', start: new Date('Mon Feb 11 2020 00:00:00 GMT+0530 (India Standard Time)') },{ title: 'Event Now', start: new Date() },{ title: 'Event Now', start: new Date() },
   ];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route : Router, private helper : Helper) {}
 
   ngOnInit(): void {
   }
  
   handleDateClick(calDate) {
-    console.log(calDate);
+    console.log(calDate, this.helper.parseDate(calDate.date));
+    this.route.navigateByUrl('manage-calender/calender-list/' + this.helper.parseDate(calDate.date));
   }
 
   eventClicked(calDate) {

@@ -23,7 +23,7 @@ import { MessageService } from 'primeng/api';
     EditprofileRoutingModule,
     SharedModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAFagdwUB5_7TgN2G4Ss6q_qnwgg5BX3Qg',
+      apiKey: 'AIzaSyDiESz5lmd8ZNxAGBg3ILiQ8w9SFuYwAB8',
       libraries: ["places"]
     }),
     SlideshowModule,

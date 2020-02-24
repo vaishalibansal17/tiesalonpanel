@@ -21,6 +21,9 @@
   "NUMOFBOOKING":"No. of Bookings",
 
   "OK": "OK",
+  
+  "FEEDSUCCESS":"Feedback send successfully.",
+  "SETSUCCESS":"Settings updated successfully.",
 
   "STAFF": "STAFF",
   "BOOKING": "BOOKINGS",
@@ -50,7 +53,17 @@
   "WALKNGSUCCESS": "User added Successfully.",
 
   "HOURSREQ":"Business hours is required.",
+  "CONTCT":"Contact",
+  "STATUS":"Status",
+  "BOOKINGID" : "Booking ID",
+  "DATE&TIME" : "Date & Time",
+  "ACCEPT":"Accept",
+  "REJECT":"Reject",
+  "CONFIRMD":"Confirmed",
+  "PENDING":"Pending",
+  "COMPELETED":"Completed",
 
+  
   "PLACEHOLDERLCPASS":"Old Password",
   "PLACEHOLDERLNPASS":"New Password",
   "PLACEHOLDERLCONFIRMPASS":"Confirm New Password",
@@ -142,7 +155,7 @@
   "INCRTSTAFFNAME": "Please enter staff name.",
   "DELETE_STAFF":"Deleted successfully.",
   "EXPORTD":"Data exported successfully.",
-
+  "ALLBOOKING":"All Bookings",
 
   "SUNREQ":"Opening hours for sunday is required.",
   "SUNCLSREQ":"Closing hours for sunday is required.",
@@ -199,6 +212,8 @@
   "SATBRKCLSREQ":"Break Closing hours for saturday is required.",
   "SATBRKNTVALID":"Invalid Salon break hours.",
 
+  "USRNAME" : "User name",
+
   "UI ELEMENT": "Modules",
   "NAVIGATION": "Navigation",
   "USERMANG": "User Management",
@@ -235,7 +250,7 @@
   "COMMISSION_MNG": "Commission Management",
   "COMMISSION": "Commission",
   "ADD_COM": "Add Commission",
-  "EXPORT_EXL": "Export Excel",
+  "EXPORT_EXL": "Export",
   "SEARCH": "search",
   "NO_RCD": "No record found",
   "NAME_REQ": "Please enter name",

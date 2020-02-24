@@ -15,7 +15,7 @@ import { NgxStarsModule } from 'ngx-stars';
     CommonModule,
     ViewprofileRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAFagdwUB5_7TgN2G4Ss6q_qnwgg5BX3Qg',
+      apiKey: 'AIzaSyAHEv0pFxjFfAOWbrLVw1szHKb2aakZ3YU',
       libraries: ["places"]
     }),
     ApplicationpipeModule,

@@ -2,7 +2,7 @@
     <div class="setting_list">
         <div class="row">
             <div class="col-md-6">{{'NOTIFICATION'| translate}}</div>
-            <div class="col-md-6 alignright"><mat-slide-toggle></mat-slide-toggle></div>
+            <div class="col-md-6 alignright"><mat-slide-toggle [(ngModel)]="is_notif" name="is_notif" (change)="toggle('is_notif', is_notif)"></mat-slide-toggle></div>
         </div>
     </div>
     <div class="setting_list">
@@ -19,7 +19,7 @@
     <div class="setting_list">
         <div class="row">
             <div class="col-md-6">{{'ONLINBOOKING'| translate}}</div>
-            <div class="col-md-6 alignright"><mat-slide-toggle></mat-slide-toggle></div>
+            <div class="col-md-6 alignright"><mat-slide-toggle [(ngModel)]="onl_booking" name="onl_booking" (change)="toggle('onl_booking', onl_booking)"></mat-slide-toggle></div>
         </div>
     </div>
     <div class="setting_list"> 
@@ -28,7 +28,7 @@
             <div class="col-md-4 alignright">  
                 <mat-form-field>
                     <mat-label>{{'SCHEDULEAPPT'| translate}}</mat-label>
-                    <mat-select [disableRipple]="true">
+                    <mat-select [disableRipple]="true" [(ngModel)]="sch_apt" name="sch_apt" (selectionChange)="feedbackSubmit()">
                       <mat-option *ngFor="let appointment of appointments" [value]="appointment.value">
                         {{appointment.viewValue}}
                       </mat-option>
@@ -41,7 +41,7 @@
     <div class="setting_list">
         <div class="row">
             <div class="col-md-6">{{'ALLOWMULTISETTINGS'| translate}}</div>
-            <div class="col-md-6 alignright"><mat-slide-toggle></mat-slide-toggle></div>
+            <div class="col-md-6 alignright"><mat-slide-toggle name="allow_multi" [(ngModel)]="allow_multi" (change)="toggle('allow_multi', allow_multi)"></mat-slide-toggle></div>
         </div>
     </div>
     <div class="setting_list">
@@ -61,10 +61,10 @@
             <div class="col-md-6">{{'DEACACC'| translate}} 
                 <button  [disableRipple]="true" mat-raised-button matTooltip="{{'DEACTEXT'| translate}}" [matTooltipPosition]="position.value" aria-label="Button that displays a tooltip in various positions"><img src="assets/images/info.png" alt="Info"></button>
             </div>
-            <div class="col-md-6 alignright"><mat-slide-toggle></mat-slide-toggle></div>
+            <div class="col-md-6 alignright"><mat-slide-toggle [(ngModel)]="is_delete" name="is_delete" (change)="openDialog()"></mat-slide-toggle></div>
         </div>
     </div>
-    <div class="text-center"><a href="#" class="link">{{'DELACC'| translate}}</a></div>
+    <div class="text-center"><a href="javascript:void(0)" (click)="openDialog()" class="link">{{'DELACC'| translate}}</a></div>
 </div>
 
 

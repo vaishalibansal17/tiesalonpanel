@@ -9,10 +9,10 @@
         <div class="left">
             <p>How strict would you like your policy to be?</p>
 
-            <mat-radio-group aria-label="Select an option">
-                <mat-radio-button value="flexible" [disableRipple]="true">Flexible <span>0% Late Cancellation Fee<br>50% No-Show Fee</span></mat-radio-button>
-                <mat-radio-button value="moderate" [disableRipple]="true">Moderate <span>25% Late Cancellation Fee<br>50% No-Show Fee</span></mat-radio-button>
-                <mat-radio-button value="strict" [disableRipple]="true">Strict <span>50% Late Cancellation Fee<br>100% No-Show Fee</span></mat-radio-button>
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="c_policy">
+                <mat-radio-button value="1" [disableRipple]="true">Flexible <span>0% Late Cancellation Fee<br>50% No-Show Fee</span></mat-radio-button>
+                <mat-radio-button value="2" [disableRipple]="true">Moderate <span>25% Late Cancellation Fee<br>50% No-Show Fee</span></mat-radio-button>
+                <mat-radio-button value="3" [disableRipple]="true">Strict <span>50% Late Cancellation Fee<br>100% No-Show Fee</span></mat-radio-button>
               </mat-radio-group>
         </div>
     </div>
@@ -20,6 +20,6 @@
         <a href="#" class="warning">How does it work?</a>
     </div>
     <div class="text-center">
-        <button type="submit" class="btn btn-submit">Save</button>
+        <button type="button" (click)="feedbackSubmit()" class="btn btn-submit">Save</button>
     </div>
 </div>

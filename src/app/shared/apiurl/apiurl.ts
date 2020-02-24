@@ -15,13 +15,19 @@ export const APIURLS = {
     STAFF_REVIEW : BASE_URL + 'staff/user/review',
     STAFF_DETAIL : BASE_URL + 'staff/detail',
     SERVICES: BASE_URL + 'service',
-    WALKING:BASE_URL + 'user/walking',
-    WLK_DETAIL:BASE_URL + 'user/walking/view',
-    WALKING_CHK:BASE_URL + 'user/walking/check',
-    WALKING_ADD:BASE_URL + 'user/walking/add',
-    WALKING_BOOK:BASE_URL + 'booking/walking',
+    WALKING:BASE_URL + 'walking',
+    WLK_DETAIL:BASE_URL + 'walking/booking',
+    WALKING_CHK:BASE_URL + 'walking/check',
+    WALKING_ADD:BASE_URL + 'walking/user',
+    WALKING_BOOK:BASE_URL + 'walking/booking',
     PROMO:BASE_URL + 'promocode',
     PROMO_DETAIL:BASE_URL + 'promocode/detail',
-    BOOKING : BASE_URL + 'salon/booking/list'
+    BOOKING : BASE_URL + 'salon/booking/list',
+    BOOKING_VIEW : BASE_URL + 'booking/salon',
+    FEEDBCK : BASE_URL + 'feedback',
+    CANCELPOLICY : BASE_URL + 'salon/policy',
+    HELP_CENTER : BASE_URL + 'compPortfolio',
+
+    SLOT : BASE_URL + 'salon/slot/duration',
 
 };

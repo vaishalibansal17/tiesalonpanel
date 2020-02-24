@@ -1,18 +1,37 @@
 <div class="main-card">
     <div class="custom_form">
-        <form action="">
+        <form [formGroup]='feedback' (ngSubmit)='feedbackSubmit()'>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/email.png" alt="envelope"></span>
-                <input matInput placeholder="Email" class="form-control">
+                <input matInput placeholder="{{'EMAIL'| translate | titlecase}}" class="form-control"
+                    formControlName="email" maxlength="100" readonly>
             </mat-form-field>
-            <mat-form-field>
+            <div *ngIf="(submitted || getControl.email.dirty|| getControl.email.touched) && getControl.email.errors">
+                <p class="color error" *ngIf="getControl.email.errors.required">{{'LOGINEMAIL'| translate}}</p>
+                <p class="color error"
+                    *ngIf="!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress">
+                    {{'LOGINVALIDEMAIL'| translate}}</p>
+            </div>
+            <!-- <mat-form-field>
                 <span class="email-img phone"><img src="assets/images/mobile.png" alt="envelope"></span>
-                <input matInput placeholder="Phone" class="form-control">
+                <input matInput placeholder="{{'PHONE'| translate | titlecase}}"
+                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control"
+                    formControlName="phone" maxlength="12">
             </mat-form-field>
+            <div *ngIf="(submitted || getControl.phone.dirty|| getControl.phone.touched) && getControl.phone.errors">
+                <p class="color error" *ngIf="getControl.phone.errors.required">{{'PHNREQ'|translate}}</p>
+                <p class="color error" *ngIf="!getControl.phone.errors.required && getControl.phone.errors.Invalidphone ">{{'PHNLNGTH'|translate}}</p>
+            </div> -->
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/description.png" alt="envelope"></span>
-                <textarea matInput placeholder="Description" class="form-control"></textarea>
+                <textarea matInput placeholder="{{'DESCRIPTION'| translate}}" class="form-control"
+                    formControlName="description" maxlength="500"></textarea>
             </mat-form-field>
+            <div
+                *ngIf="(submitted || getControl.description.dirty|| getControl.description.touched) && getControl.description.errors">
+                <p class="color error" *ngIf="getControl.description.errors.required">{{'DESCREQ' | translate}}</p>
+                <p class="color error" *ngIf="getControl.description.errors.minlength ">{{'DESCLNGTH'| translate}}</p>
+            </div>
             <div class="text-center">
                 <button type="submit" class="btn btn-submit">Send Feedback</button>
             </div>

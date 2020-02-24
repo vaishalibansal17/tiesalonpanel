@@ -22,7 +22,7 @@ export class InfoComponent implements OnInit {
     this.httpService.getRequest('GET_PARMS', 'WLK_DETAIL', this.id)
       .subscribe((response: any) => {
         if (response.status === 1) {
-          this.detail = response.res.usr;
+          this.detail = response.res;
           console.log(this.detail);
           
         } else {

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CancelupdateRoutingModule } from './cancelupdate-routing.module';
 import { CancelupdateComponent } from './cancelupdate.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     CancelupdateRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CancelupdateModule { }
