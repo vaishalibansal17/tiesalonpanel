@@ -108,7 +108,7 @@ export class AddbookingsComponent implements OnInit {
     matSelect.writeValue(null);
     state = state.value
     if (!this.httpService.arraySearch(this.sendServ, state)) {
-      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)), price: state.price });
+      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)), cost: state.price });
       this.sendServ.push(state._id);
       this.price = this.price + state.price;
       this.profile.controls['price'].setValue(this.price);
