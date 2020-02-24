@@ -5,9 +5,11 @@
 
 <div class="main-card">
   <div class="row">
-    <div class="col-md-6 add"><a [routerLink]="['/walk-in-customer/add-user']"><img src="assets/images/add.png" alt="Add">
+    <div class="col-md-6 add"><a [routerLink]="['/walk-in-customer/add-user']"><img src="assets/images/add.png"
+          alt="Add">
         Add Customer</a></div>
-    <div class="col-md-6 alignright"><a href="javascript:void(0)" (click)="exportCSV()"class="btn btn-export">Export</a>
+    <div class="col-md-6 alignright"><a href="javascript:void(0)" (click)="exportCSV()"
+        class="btn btn-export">Export</a>
       <form action="" class="search_field">
         <mat-form-field>
           <span class="email-img search"><img src="assets/images/search.png" alt="envelope"></span>
@@ -73,8 +75,8 @@
       <ng-container matColumnDef="Action">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
         <td mat-cell *matCellDef="let element">
-          <button class="action_btn pink"><a [routerLink]="['/walk-in-customer/info', element.bk_id]"><img src="assets/images/view.png"
-                alt="View"></a></button>
+          <button class="action_btn pink"><a [routerLink]="['/walk-in-customer/info', element.bk_id]"><img
+                src="assets/images/view.png" alt="View"></a></button>
         </td>
       </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -88,85 +90,31 @@
     </div>
   </div>
 
-  <div class="card_view mobile_visible">
+  <div class="card_view mobile_visible" *ngIf="loading">
 
-    <div class="cards">
+    <div class="cards" *ngFor="let element of detail; let i =index">
       <div class="top_info">
         <!--add class for background color confirmed, pending, rejected, completed-->
         <div class="left_status confirmed">confirmed</div>
         <div class="right_status">
           <ul>
-            <li>22 Oct, 2019</li>
-            <li>10:00AM</li>
+            <li>{{element?.bookDateTime | date : 'dd, MMM yyyy '}}</li>
           </ul>
         </div>
       </div>
       <div class="description">
-        <p class="user"><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
-        <p class="service"><img src="assets/images/service-pink.png" alt="Service">Haircut, Hair Spa</p>
-        <p class="location"><img src="assets/images/location-pink.png" alt="Location">At Home</p>
-        <p class="number"><img src="assets/images/mobile-pink.png" alt="Mobile">+919999999999</p>
-        <p class="id"><img src="assets/images/id.png" alt="Id">#Q1234</p>
-      </div>
-    </div>
-    <div class="cards">
-      <div class="top_info">
-        <!--add class for background color confirmed, pending, rejected, completed-->
-        <div class="left_status pending">pending</div>
-        <div class="right_status">
-          <ul>
-            <li>22 Oct, 2019</li>
-            <li>10:00AM</li>
-          </ul>
+        <p class="user"><img src="assets/images/user-pink.png" alt="User">{{element?.name || 'NA'  | titlecase}}</p>
+        <p class="service"><img src="assets/images/service-pink.png"
+            alt="Service">{{element?.service || 'NA' | titlecase }}</p>
+        <p class="location"><img src="assets/images/location-pink.png" alt="Location">Salon</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="Mobile">{{element?.phone || 'NA'}}</p>
+        <p class="id"><img src="assets/images/id.png" alt="Id">{{element?.booking_id || 'NA'}}</p>
+        <p class="id"><img src="assets/images/staff.png" alt="Id">{{element?.staff || 'NA' | titlecase}}</p>
+        <div class="buttons">
+          <button class="action_btn pink"><a [routerLink]="['/walk-in-customer/info', element.bk_id]">View</a></button>
         </div>
       </div>
-      <div class="description">
-        <p class="user"><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
-        <p class="service"><img src="assets/images/service-pink.png" alt="Service">Haircut, Hair Spa</p>
-        <p class="location"><img src="assets/images/location-pink.png" alt="Location">At Home</p>
-        <p class="number"><img src="assets/images/mobile-pink.png" alt="Mobile">+919999999999</p>
-        <p class="id"><img src="assets/images/id.png" alt="Id">#Q1234</p>
-      </div>
     </div>
-    <div class="cards">
-      <div class="top_info">
-        <!--add class for background color confirmed, pending, rejected, completed-->
-        <div class="left_status rejected">rejected</div>
-        <div class="right_status">
-          <ul>
-            <li>22 Oct, 2019</li>
-            <li>10:00AM</li>
-          </ul>
-        </div>
-      </div>
-      <div class="description">
-        <p class="user"><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
-        <p class="service"><img src="assets/images/service-pink.png" alt="Service">Haircut, Hair Spa</p>
-        <p class="location"><img src="assets/images/location-pink.png" alt="Location">At Home</p>
-        <p class="number"><img src="assets/images/mobile-pink.png" alt="Mobile">+919999999999</p>
-        <p class="id"><img src="assets/images/id.png" alt="Id">#Q1234</p>
-      </div>
-    </div>
-    <div class="cards">
-      <div class="top_info">
-        <!--add class for background color confirmed, pending, rejected, completed-->
-        <div class="left_status completed">completed</div>
-        <div class="right_status">
-          <ul>
-            <li>22 Oct, 2019</li>
-            <li>10:00AM</li>
-          </ul>
-        </div>
-      </div>
-      <div class="description">
-        <p class="user"><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
-        <p class="service"><img src="assets/images/service-pink.png" alt="Service">Haircut, Hair Spa</p>
-        <p class="location"><img src="assets/images/location-pink.png" alt="Location">At Home</p>
-        <p class="number"><img src="assets/images/mobile-pink.png" alt="Mobile">+919999999999</p>
-        <p class="id"><img src="assets/images/id.png" alt="Id">#Q1234</p>
-      </div>
-    </div>
-
   </div>
   <!-- <ul class="pagination">
       <ul class="pagination">
@@ -178,4 +126,4 @@
         <li><a href="#">5</a></li>
         <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
       </ul> -->
-  <!-- </div> -->
+</div>

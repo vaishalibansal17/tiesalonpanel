@@ -53,9 +53,8 @@ export class ListComponent implements OnInit {
   salonId: any;
   constructor(public dialog: MatDialog, private list: ListService, private errsrv: ErrorService, private httpservice: HttpRequestService, private trns: TranslatePipe, ) { }
 
-  openDialog(id) {
-    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: "Are you sure you want to accept/decline the Booking?", btn: this.trns.transform('ACCEPT'), cncl: this.trns.transform('CANCEL') } });
-
+  openDialog(id, type) {
+    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: `${'Are you sure you want to '}${type=="accept"? 'accept':'decline'+' the Booking?'}`, btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
     dialogRef.beforeClosed().subscribe(
       (val) => {
         if (val) {
@@ -85,7 +84,7 @@ export class ListComponent implements OnInit {
     this.dataSource = new ListDataSource(this.list);
     this.loadBookingList();
     this.dataSource.usersData.subscribe((val) => {
-      // this.detail = val;
+      this.detail = val;
     });
 
     this.dataSource.loadingUsers.subscribe(e => this.loading = !e);

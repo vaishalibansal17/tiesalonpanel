@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { InfoRoutingModule } from './info-routing.module';
 import { InfoComponent } from './info.component';
 import { AgmCoreModule } from '@agm/core';
+import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/applicationpipe.module';
+import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import { AgmCoreModule } from '@agm/core';
       apiKey: 'AIzaSyAHEv0pFxjFfAOWbrLVw1szHKb2aakZ3YU',
       libraries: ["places"]
     }),
-  ]
+    ApplicationpipeModule,
+  ],
+  providers :[TranslatePipe]
 })
 export class InfoModule { }

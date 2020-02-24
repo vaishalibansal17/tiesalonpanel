@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { IMG } from 'src/app/shared/constants/constant';
+import { HttpRequestService } from 'src/app/shared/service/http-request.service';
+import { ActivatedRoute } from '@angular/router';
+import { ErrorService } from 'src/app/shared/service/error.service';
 
 @Component({
   selector: 'app-managecalender-info',
@@ -7,9 +11,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManagecalenderInfoComponent implements OnInit {
 
-  constructor() { }
+  detail: any;
+  url: any = IMG.PRO;
+  usrurl: any = IMG.PRO
+  id: any;
+
+  constructor(private httpService: HttpRequestService, private routes: ActivatedRoute, private error: ErrorService) { }
 
   ngOnInit() {
+    this.id = this.routes.snapshot.params.id;
+    this.getUserProfile();
   }
-
+  getUserProfile() {
+    this.httpService.getRequest('GET_PARMS', 'BOOKING_VIEW', this.id, '')
+      .subscribe((response: any) => {
+        if (response.status === 1) {
+          this.detail = response.res;
+          this.url = this.detail.logo ? this.detail.usr_bp + this.detail.img : this.url;
+        } else {
+          if (response.err) {
+            this.error.handleError(response.err.errCode);
+          }
+        }
+      }, (error) => {
+        this.error.handleError(0);
+      });
+  }
 }

@@ -25,6 +25,9 @@
   "FEEDSUCCESS":"Feedback send successfully.",
   "SETSUCCESS":"Settings updated successfully.",
 
+  "NOBOOK":"No bookings available for this profile.",
+
+
   "STAFF": "STAFF",
   "BOOKING": "BOOKINGS",
   "WALKUSR": "WALK-IN CUSTOMER",

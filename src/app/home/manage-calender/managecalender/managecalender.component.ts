@@ -38,7 +38,7 @@ export class ManagecalenderComponent implements OnInit {
  
   handleDateClick(calDate) {
     console.log(calDate, this.helper.parseDate(calDate.date));
-    this.route.navigateByUrl('manage-calender/calender-list/' + this.helper.parseDate(calDate.date));
+    this.route.navigateByUrl('manage-calender/list/' + this.helper.parseDate(calDate.date));
   }
 
   eventClicked(calDate) {

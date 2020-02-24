@@ -33,6 +33,8 @@
                     <div class="col-md-3 label">Service At:</div>
                     <div class="col-md-9 description">Salon</div>
                     <div class="col-md-12 label">Services:</div>
+                    <div class="col-md-3 label">Hair Wash Basic (Blast Dry)<span>Anybody</span></div>
+                    <div class="col-md-9 description alignright">$250.00<span>10:00AM - 11:00AM</span></div>
                     <div class="col-sm-12" *ngFor="let element of detail?.service; let i =index">
                         <div class="col-md-3 label">{{element?.title | titlecase}}<span>{{detail?.staf || 'Anybody' | titlecase}}</span></div>
                         <div class="col-md-9 description alignright">${{element?.cost}}<span>{{element?.startDateTime | date : 'h:mm a'}}{{' - '}}{{element?.endDateTime | date : 'h:mm a'}}</span></div>

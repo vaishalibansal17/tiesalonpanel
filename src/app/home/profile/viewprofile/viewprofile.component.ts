@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpRequestService } from 'src/app/shared/service/http-request.service';
 import { ErrorService } from 'src/app/shared/service/error.service';
+import { MessageService } from 'src/app/shared/service/message.service';
 
 @Component({
   selector: 'app-viewprofile',
@@ -14,7 +15,7 @@ export class ViewprofileComponent implements OnInit {
   slide = [];
   chips= [];
 
-  constructor(private httpService: HttpRequestService, private error : ErrorService) { }
+  constructor(private httpService: HttpRequestService, private error : ErrorService, private messageService: MessageService,) { }
 
   ngOnInit() {
     this.getUserProfile();
@@ -26,6 +27,14 @@ export class ViewprofileComponent implements OnInit {
           this.detail = response.res;
           this.chips.push(...this.detail.services);
           this.url = this.detail.logo ? this.detail.logo : this.url;
+          // localStorage.setItem('salon', JSON.stringify({ name: this.detail.name, logo: response.res.logo }));
+          let salon = localStorage.getItem('salon');
+          console.log(salon);
+          salon['logo'] = this.detail.logo;
+          salon['name'] = this.detail.name;
+          
+          localStorage.setItem('salon', JSON.stringify(salon));
+            this.messageService.sendMessage('profile changed');
           if (this.detail && this.detail.imgs) {
             this.detail.imgs.map(item => {
               item = this.detail.bp + item;
