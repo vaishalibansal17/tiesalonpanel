@@ -23,6 +23,11 @@ export const APIURLS = {
     PROMO:BASE_URL + 'promocode',
     PROMO_DETAIL:BASE_URL + 'promocode/detail',
     BOOKING : BASE_URL + 'salon/booking/list',
-    BOOKING_VIEW : BASE_URL + 'booking/salon'
+    BOOKING_VIEW : BASE_URL + 'booking/salon',
+    FEEDBCK : BASE_URL + 'feedback',
+    CANCELPOLICY : BASE_URL + 'salon/policy',
+    HELP_CENTER : BASE_URL + 'compPortfolio',
+
+    SLOT : BASE_URL + 'salon/slot/duration',
 
 };

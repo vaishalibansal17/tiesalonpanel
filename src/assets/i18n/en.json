@@ -21,6 +21,9 @@
   "NUMOFBOOKING":"No. of Bookings",
 
   "OK": "OK",
+  
+  "FEEDSUCCESS":"Feedback send successfully.",
+  "SETSUCCESS":"Settings updated successfully.",
 
   "STAFF": "STAFF",
   "BOOKING": "BOOKINGS",

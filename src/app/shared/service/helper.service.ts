@@ -41,7 +41,9 @@ export class Helper {
         var date = new Date(data),
             mnth = ("0" + (date.getMonth())).slice(-2),
             day = ("0" + date.getDate()).slice(-2);
-        let bac = moment.utc(date)
+        let bac = moment.utc(date);
+        console.log(bac,'---------');
+        
         return bac.valueOf();
     }
 

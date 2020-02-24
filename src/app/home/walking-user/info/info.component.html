@@ -1,34 +1,38 @@
-<router-outlet></router-outlet>
 <div class="main-card">
     <div class="row">
-        <div class="col-md-9">
-            <div class="row">
-                <div class="col-md-3 label">User Name:</div>
-                <div class="col-md-9 description">{{detail && detail.username?(detail.username | titlecase):'' }}</div>
-                <div class="col-md-3 label">Email:</div>
-                <div class="col-md-9 description">{{detail && detail.email ?(detail.email | uppercase):''}}</div>
-                <div class="col-md-3 label">Contact Number:</div>
-                <div class="col-md-9 description">{{detail && detail.pno ?detail.pno:'NA'}}%</div>
-                <div class="col-md-3 label">Min. Discount Amount:</div>
-                <div class="col-md-9 description">{{detail && detail.min_price ? detail.min_price:'NA'}}</div>
-                <div class="col-md-3 label">Max. Discount Amount:</div>
-                <div class="col-md-9 description">{{detail && detail.upto ? detail.upto:'NA'}}</div>
-                <div class="col-md-3 label">Service:</div>
-                <div class="col-md-9 description">Hair Spa</div>
-                <div class="col-md-3 label">Added By:</div>
-                <div class="col-md-9 description">Salon</div>
-                <div class="col-md-3 label">Total Uses:</div>
-                <div class="col-md-9 description">{{detail && detail.uses ? detail.uses:'NA'}}</div>
-                <div class="col-md-3 label">From Date:</div>
-                <div class="col-md-9 description">{{detail && detail.frm ? (detail.frm | date : 'dd MMM yyyy'):'' }}</div>
-                <div class="col-md-3 label">To Date:</div>
-                <div class="col-md-9 description">{{detail && detail.to ?( detail.to | date : 'dd MMM yyyy'):''}}</div>
-                <div class="col-md-3 label">Description:</div>
-                <div class="col-md-9 description">{{detail && detail.desc ? detail.desc:''}}</div>
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-3 label">Name:</div>
+                    <div class="col-md-9 description">{{detail?.name || 'NA'  | titlecase}}</div>
+                    <div class="col-md-3 label">Date:</div>
+                    <div class="col-md-9 description">{{detail?.bookDateTime | date : 'dd, MMM yyyy '}}</div>
+                    <div class="col-md-3 label">Booking ID:</div>
+                    <div class="col-md-9 description">{{detail?.booking_id || 'NA'}}</div>
+                    <div class="col-md-3 label">Staff Name:</div>
+                    <div class="col-md-9 description">{{detail?.staf || 'NA' | titlecase}}</div>
+                    <div class="col-md-3 label">Address:</div>
+                    <div class="col-md-9 description">246 Chris Avenue, New York</div>
+                    <div class="col-md-12 label">Booking Location:</div>
+                    <div class="col-md-12 description">
+                        <div class="map full_width">
+                            <agm-map [latitude]="detail?.slnLoc[1]" [longitude]="detail?.slnLoc[0]"
+                                [zoomControl]="true">
+                                <agm-marker [latitude]="detail?.slnLoc[1]" [longitude]="detail?.slnLoc[0]"></agm-marker>
+                            </agm-map>
+                        </div>
+                    </div>
+                    <div class="col-md-3 label">Service At:</div>
+                    <div class="col-md-9 description">Salon</div>
+                    <div class="col-md-12 label">Services:</div>
+                    <div class="col-sm-12" *ngFor="let element of detail?.service; let i =index">
+                        <div class="col-md-3 label">{{element?.title | titlecase}}<span>{{detail?.staf || 'Anybody' | titlecase}}</span></div>
+                        <div class="col-md-9 description alignright">${{element?.cost}}</div>
+                    </div>
+                </div>
             </div>
+            <div class="col-md-3 mobile_hidden"></div>
         </div>
-        <div class="col-md-3 mobile_hidden"></div>
 
-
+        </div>
     </div>
-</div>
