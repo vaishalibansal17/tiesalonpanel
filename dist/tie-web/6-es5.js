@@ -512,7 +512,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          20).then(__webpack_require__.bind(null,
+          21).then(__webpack_require__.bind(null,
           /*! ./chat-management/chat-management.module */
           "./src/app/home/chat-management/chat-management.module.ts")).then(function (mod) {
             return mod.ChatManagementModule;
@@ -542,7 +542,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          17).then(__webpack_require__.bind(null,
+          18).then(__webpack_require__.bind(null,
           /*! ./cancellation-policy/cancellation-policy.module */
           "./src/app/home/cancellation-policy/cancellation-policy.module.ts")).then(function (mod) {
             return mod.CancellationPolicyModule;
@@ -564,7 +564,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() */
-          [__webpack_require__.e("common"), __webpack_require__.e(21)]).then(__webpack_require__.bind(null,
+          [__webpack_require__.e("common"), __webpack_require__.e(22)]).then(__webpack_require__.bind(null,
           /*! ./feedback/feedback.module */
           "./src/app/home/feedback/feedback.module.ts")).then(function (mod) {
             return mod.FeedbackModule;
@@ -579,7 +579,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() */
-          15).then(__webpack_require__.bind(null,
+          16).then(__webpack_require__.bind(null,
           /*! ./aboutus/aboutus.module */
           "./src/app/home/aboutus/aboutus.module.ts")).then(function (mod) {
             return mod.AboutusModule;

@@ -86,7 +86,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return __webpack_require__.e(
         /*! import() */
-        8).then(__webpack_require__.bind(null,
+        9).then(__webpack_require__.bind(null,
         /*! ./businesshours/businesshours.module */
         "./src/app/home/profile/businesshours/businesshours.module.ts")).then(function (mod) {
           return mod.BusinesshoursModule;

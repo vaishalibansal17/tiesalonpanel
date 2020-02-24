@@ -17,10 +17,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(16)]).then(__webpack_require__.bind(null, /*! ./list/list.module */ "./src/app/home/bookings/list/list.module.ts")).then(mod => mod.ListModule), data: { title: "List", status: false } },
+    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(17)]).then(__webpack_require__.bind(null, /*! ./list/list.module */ "./src/app/home/bookings/list/list.module.ts")).then(mod => mod.ListModule), data: { title: "List", status: false } },
     // { path: 'add', loadChildren: () => import('./addstaff/addstaff.module').then(mod => mod.AddstaffModule), data: { title: "Add", status: false } },
     // { path: 'edit', loadChildren: () => import('./editstaff/editstaff.module').then(mod => mod.EditstaffModule), data: { title: "Edit", status: false } },
-    { path: 'info/:id', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ./bookingdetail/bookingdetail.module */ "./src/app/home/bookings/bookingdetail/bookingdetail.module.ts")).then(mod => mod.BookingdetailModule), data: { title: "Info", status: false } },
+    { path: 'info/:id', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ./bookingdetail/bookingdetail.module */ "./src/app/home/bookings/bookingdetail/bookingdetail.module.ts")).then(mod => mod.BookingdetailModule), data: { title: "Info", status: false } },
 ];
 let BookingsRoutingModule = class BookingsRoutingModule {
 };

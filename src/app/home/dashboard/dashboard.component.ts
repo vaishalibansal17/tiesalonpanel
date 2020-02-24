@@ -1,11 +1,7 @@
-import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGrigPlugin from '@fullcalendar/timegrid';
-import interactionPlugin from '@fullcalendar/interaction'; 
+import { Component, OnInit } from '@angular/core';
+
 // import { colors } from '../demo-utils/colors';
 import { HttpRequestService } from 'src/app/shared/service/http-request.service';
-import { EventInput } from '@fullcalendar/core';
 function getTimezoneOffsetString(date: Date): string {
   const timezoneOffset = date.getTimezoneOffset();
   const hoursOffset = String(
@@ -19,31 +15,30 @@ function getTimezoneOffsetString(date: Date): string {
 
 @Component({
   selector: 'mwl-demo-component',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  calendarPlugins =  [dayGridPlugin, timeGrigPlugin, interactionPlugin]; // important!
+  dashboard :any ={staffs:0};
+  isloaded = false
+  constructor(private httprequest: HttpRequestService) { }
 
-  calendarEvents: EventInput[] = [
-    { title: 'Event Now', start: new Date() },
-    { title: 'Event Now', start: new Date() },{ title: 'Event Now', start: new Date() },{ title: 'Event Now', start: new Date() },
-    { title: 'Event Now', start: new Date() },{ title: 'Event Now', start: new Date() },{ title: 'Event Now', start: new Date() },
-    { title: 'Event Now', start: new Date() },{ title: 'Event Now', start: new Date() },{ title: 'Event Now', start: new Date() },
-  ];
+  ngOnInit() {
+    this.httprequest.getRequest('GET', 'DASHBOARD', '')
+      .subscribe((res) => {
+        this.isloaded = true
+        if (res.status) {
 
-  constructor(private http: HttpClient) {}
+          this.dashboard = res.res;
+          console.log(this.dashboard);
+        } else {
+          new Error();
+        }
 
-  ngOnInit(): void {
-  }
- 
-  handleDateClick(calDate) {
-    console.log(calDate);
-  }
-
-  eventClicked(calDate) {
-    console.log(calDate);
+      },
+        (error) => {
+          // this.httprequest.showError('Failed to get');
+        });
   }
 
 }

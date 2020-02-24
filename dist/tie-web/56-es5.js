@@ -104,7 +104,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(2), __webpack_require__.e("common"), __webpack_require__.e(11)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(2), __webpack_require__.e("common"), __webpack_require__.e(12)]).then(__webpack_require__.bind(null,
         /*! ./staffreview/staffreview.module */
         "./src/app/home/staff/staffreview/staffreview.module.ts")).then(function (mod) {
           return mod.StaffreviewModule;

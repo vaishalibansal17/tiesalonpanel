@@ -17,9 +17,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(23)]).then(__webpack_require__.bind(null, /*! ./managecalender/managecalender.module */ "./src/app/home/manage-calender/managecalender/managecalender.module.ts")).then(mod => mod.ManagecalenderModule), data: { title: "Manage Calender", status: false } },
-    { path: 'list/:time', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(10)]).then(__webpack_require__.bind(null, /*! ./managecalender-list/managecalender-list.module */ "./src/app/home/manage-calender/managecalender-list/managecalender-list.module.ts")).then(mod => mod.ManagecalenderListModule), data: { title: "List", status: false } },
-    { path: 'info/:id', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(22)]).then(__webpack_require__.bind(null, /*! ./managecalender-info/managecalender-info.module */ "./src/app/home/manage-calender/managecalender-info/managecalender-info.module.ts")).then(mod => mod.ManagecalenderInfoModule), data: { title: "Info", status: false } },
+    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./managecalender/managecalender.module */ "./src/app/home/manage-calender/managecalender/managecalender.module.ts")).then(mod => mod.ManagecalenderModule), data: { title: "Manage Calender", status: false } },
+    { path: 'list/:time', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! ./managecalender-list/managecalender-list.module */ "./src/app/home/manage-calender/managecalender-list/managecalender-list.module.ts")).then(mod => mod.ManagecalenderListModule), data: { title: "List", status: false } },
+    { path: 'info/:id', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(23)]).then(__webpack_require__.bind(null, /*! ./managecalender-info/managecalender-info.module */ "./src/app/home/manage-calender/managecalender-info/managecalender-info.module.ts")).then(mod => mod.ManagecalenderInfoModule), data: { title: "Info", status: false } },
 ];
 let ManageCalenderRoutingModule = class ManageCalenderRoutingModule {
 };

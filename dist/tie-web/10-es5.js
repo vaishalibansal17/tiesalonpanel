@@ -6,63 +6,63 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[10], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender-list/calender-list-accept.html":
-  /*!**************************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender-list/calender-list-accept.html ***!
-    \**************************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/booking-email.html":
+  /*!******************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/booking-email.html ***!
+    \******************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeManageCalenderManagecalenderListCalenderListAcceptHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeBookingsBookingdetailBookingEmailHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<mat-dialog-content class=\"text-center\">\n  <h3>Are you sure you want to accept/decline\n    the Booking?</h3>\n  <div class=\"text-center\"><button type=\"submit\" class=\"btn btn-submit\">Accept</button></div>\n  <div class=\"text-center\"><button type=\"submit\" class=\"btn btn-cancel\">Decline</button></div>\n</mat-dialog-content>\n  <button mat-button mat-dialog-close><img src=\"assets/images/close.png\" alt=\"Close\"></button>\n";
+    __webpack_exports__["default"] = "<mat-dialog-content class=\"text-center\">\n    <h3>Please enter your Email</h3>\n    <form>\n        <mat-form-field>\n            <!-- <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span> -->\n            <input matInput placeholder=\"Enter your email address\" class=\"form-control popup\">\n        </mat-form-field>\n    <div class=\"text-center\"><button type=\"submit\" class=\"btn btn-submit\">Send</button></div>\n</form>\n\n  </mat-dialog-content>\n    <button mat-button mat-dialog-close><img src=\"assets/images/close.png\" alt=\"Close\"></button>\n  ";
     /***/
   },
 
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender-list/managecalender-list.component.html":
-  /*!***********************************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender-list/managecalender-list.component.html ***!
-    \***********************************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/bookingdetail.component.html":
+  /*!****************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/bookingdetail.component.html ***!
+    \****************************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeManageCalenderManagecalenderListManagecalenderListComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeBookingsBookingdetailBookingdetailComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n  <div class=\"row\">\n    <div class=\"col-md-6 top-text\">Booking Date: {{time | date : 'dd, MMM yyyy'}}</div>\n    <div class=\"col-md-6 alignright\">      <a href=\"javascript:void(0)\" (click)=\"exportCSV()\" class=\"btn btn-export\">{{'EXPORT_EXL' | translate}}</a>\n    </div>\n  </div>\n  <div class=\"table_wrap mobile_hidden\" [hidden]=\"(dataSource.loading$ | async)\">\n    <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8 table_scroll\" matSort>\n      <ng-container matColumnDef=\"position\">\n        <th mat-header-cell *matHeaderCellDef>No.</th>\n        <td mat-cell *matCellDef=\"let post; let i =index;\"> {{(paginator.pageIndex * paginator.pageSize)+i + 1}} </td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"name\">\n        <th mat-header-cell *matHeaderCellDef>{{'USRNAME' | translate}}</th>\n        <td mat-cell *matCellDef=\"let element\"><a\n            [routerLink]=\"['/manage-calender/info', element._id]\">{{element.user_name | titlecase}}</a></td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"service\">\n        <th mat-header-cell *matHeaderCellDef>{{'SERVICE' | translate}}</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.service | titlecase}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"serviceat\">\n        <th mat-header-cell *matHeaderCellDef>{{'SERVICEAT' | translate}}</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.serviceat}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"staff\">\n        <th mat-header-cell *matHeaderCellDef>{{'STAFFNAME' | translate}}</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.staf_name | titlecase}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"number\">\n        <th mat-header-cell *matHeaderCellDef>{{'CONTCT' | translate}}</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.user_contact}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"status\">\n        <th mat-header-cell *matHeaderCellDef>{{'STATUS' | translate}}</th>\n        <!--Please add class for status for diefferent colors ->  confirmed, pending, completed, rejected PENDING: 0, CONFIRMED: 1, CANCELLED: 2,SERVERD: 3, RESCHEDULED: 4, UNSERVED: 5-->\n        <td mat-cell *matCellDef=\"let element\">\n          <span class=\"confirmed\" *ngIf=\"element.bookingStatus==1\">{{'CONFIRMD' | translate}}</span>\n          <span class=\"completed\" *ngIf=\"element.bookingStatus==3\">{{'COMPELETED' | translate}}</span>\n          <span class=\"pending\" *ngIf=\"element.bookingStatus==0\">{{'PENDING' | translate}}</span>\n          <span class=\"rejected\" *ngIf=\"element.bookingStatus==2\">{{'REJECT' | translate}}</span>\n          <span class=\"pending\" *ngIf=\"element.bookingStatus==4\">{{'RESCHEDULED' | translate}}</span>\n          <span class=\"pending\" *ngIf=\"element.bookingStatus==5\">{{'STATUS' | translate}}</span>\n        </td>\n      </ng-container>\n\n      <!-- <ng-container matColumnDef=\"time\">\n              <th mat-header-cell *matHeaderCellDef>Time</th>\n              <td mat-cell *matCellDef=\"let element\">{{element.bookDateTime | date : 'h:mm a'}}</td>\n            </ng-container> -->\n\n      <ng-container matColumnDef=\"bookingid\">\n        <th mat-header-cell *matHeaderCellDef>{{'BOOKINGID' | translate}}</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.booking_id | uppercase}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"date\">\n        <th mat-header-cell *matHeaderCellDef>{{'DATE&TIME' | translate}}</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.bookDateTime | date : 'dd, MMM yyyy, h:mm a'}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"action\">\n        <th mat-header-cell *matHeaderCellDef>{{'ACTION' | translate}}</th>\n        <!--use same class for accepted as accept and decline for declined-->\n        <td mat-cell *matCellDef=\"let user\">\n          <button class=\"booking_btn accept\" (click)=\"openDialog()\">{{'ACCEPT' | translate}}</button>\n          <button class=\"booking_btn decline\" (click)=\"openDialog()\">{{'REJECT' | translate}}</button>\n        </td>\n      </ng-container>\n\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n    </table>\n    <mat-paginator [length]=\"dataSource.totalCount$ | async\" [pageSize]=\"limitPage[0]\" [pageSizeOptions]=\"limitPage\">\n    </mat-paginator>\n  </div>\n\n\n  <div class=\"card_view mobile_visible\">\n\n    <div class=\"cards\">\n      <div class=\"top_info\">\n        <!--add class for background color confirmed, pending, rejected, completed-->\n        <div class=\"left_status confirmed\">confirmed</div>\n        <div class=\"right_status\">\n          <ul>\n            <li>22 Oct, 2019</li>\n            <li>10:00AM</li>\n          </ul>\n        </div>\n      </div>\n      <div class=\"description\">\n        <p class=\"user\"><img src=\"assets/images/user-pink.png\" alt=\"User\">Jane Doe</p>\n        <p class=\"service\"><img src=\"assets/images/service-pink.png\" alt=\"Service\">Haircut, Hair Spa</p>\n        <p class=\"location\"><img src=\"assets/images/location-pink.png\" alt=\"Location\">At Home</p>\n        <p class=\"number\"><img src=\"assets/images/mobile-pink.png\" alt=\"Mobile\">+919999999999</p>\n        <p class=\"id\"><img src=\"assets/images/id.png\" alt=\"Id\">#Q1234</p>\n        <div class=\"buttons\">\n          <button class=\"booking_btn cancel\">Cancel</button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-6 top_view\"><img [src]=\"url\" alt=\"User Add\"><span class=\"user_name\">{{detail?.fullname || 'NA'  | titlecase}}</span></div>\n        <div class=\"col-md-6 alignright\">\n            <ul class=\"inline\">\n                <li><a class=\"btn btn-export\" href=\"javascript:void(0);\">PDF</a></li>\n                <li><button class=\"action_btn red\" (click)=\"openDialog()\"><img src=\"assets/images/email_pink.png\" alt=\"Email\"></button></li>\n                <li><button><img src=\"assets/images/print.png\" alt=\"Print\"></button></li>\n            </ul>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-9\">\n                <div class=\"row\">\n                    <div class=\"col-md-3 label\">Date:</div>\n                    <div class=\"col-md-9 description\">{{detail?.bookDateTime | date : 'dd, MMM yyyy '}}</div>\n                    <div class=\"col-md-3 label\">Time:</div>\n                    <div class=\"col-md-9 description\">{{detail?.bookDateTime | date : 'h:mm a '}}</div>\n                    <div class=\"col-md-3 label\">Booking ID:</div>\n                    <div class=\"col-md-9 description\">{{detail?.booking_id || 'NA'}}</div>\n                    <div class=\"col-md-3 label\">Staff Name:</div>\n                    <div class=\"col-md-9 description\">{{detail?.staf || 'NA' | titlecase}}</div>\n                    <div class=\"col-md-3 label\">Address:</div>\n                    <div class=\"col-md-9 description\">246 Chris Avenue, New York</div>\n                    <div class=\"col-md-12 label\">Booking Location:</div>\n                    <div class=\"col-md-12 description\">\n                        <div class=\"map full_width\">\n                            <agm-map [latitude]=\"detail?.loc[1]\" [longitude]=\"detail?.loc[0]\"\n                                [zoomControl]=\"true\">\n                                <agm-marker [latitude]=\"detail?.loc[1]\" [longitude]=\"detail?.loc[0]\"></agm-marker>\n                            </agm-map>\n                        </div>\n                    </div>\n                    <div class=\"col-md-3 label\">Service At:</div>\n                    <div class=\"col-md-9 description\">Salon</div>\n                    <div class=\"col-md-12 label\">Services:</div>\n                    <div class=\"col-md-3 label\">Hair Wash Basic (Blast Dry)<span>Anybody</span></div>\n                    <div class=\"col-md-9 description alignright\">$250.00<span>10:00AM - 11:00AM</span></div>\n                    <div class=\"col-sm-12\">\n                        <div class=\"row\" *ngFor=\"let element of detail?.service; let i =index\">\n                            <div class=\"col-md-3 label\">{{element?.title | titlecase}}<span>{{detail?.staf || 'Anybody' | titlecase}}</span></div>\n                            <div class=\"col-md-9 description alignright\">${{element?.cost}}<span>{{element?.startDateTime | date : 'h:mm a'}}{{' - '}}{{element?.endDateTime | date : 'h:mm a'}}</span></div>\n                        </div>\n                    </div>\n                    <div class=\"col-md-12 text-center\"><a href=\"javascript:void(0);\" class=\"btn btn-submit\">Mark as Complete</a></div>\n                </div>\n            </div>\n            <div class=\"col-md-3 mobile_hidden\"></div>\n        </div>\n\n        </div>\n    </div>\n";
     /***/
   },
 
   /***/
-  "./src/app/home/manage-calender/managecalender-list/managecalender-list-routing.module.ts":
-  /*!************************************************************************************************!*\
-    !*** ./src/app/home/manage-calender/managecalender-list/managecalender-list-routing.module.ts ***!
-    \************************************************************************************************/
+  "./src/app/home/bookings/bookingdetail/bookingdetail-routing.module.ts":
+  /*!*****************************************************************************!*\
+    !*** ./src/app/home/bookings/bookingdetail/bookingdetail-routing.module.ts ***!
+    \*****************************************************************************/
 
-  /*! exports provided: ManagecalenderListRoutingModule */
+  /*! exports provided: BookingdetailRoutingModule */
 
   /***/
-  function srcAppHomeManageCalenderManagecalenderListManagecalenderListRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingdetailBookingdetailRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ManagecalenderListRoutingModule", function () {
-      return ManagecalenderListRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "BookingdetailRoutingModule", function () {
+      return BookingdetailRoutingModule;
     });
     /* harmony import */
 
@@ -85,70 +85,70 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _managecalender_list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./managecalender-list.component */
-    "./src/app/home/manage-calender/managecalender-list/managecalender-list.component.ts");
+    var _bookingdetail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./bookingdetail.component */
+    "./src/app/home/bookings/bookingdetail/bookingdetail.component.ts");
 
     var routes = [{
       path: '',
-      component: _managecalender_list_component__WEBPACK_IMPORTED_MODULE_3__["ManagecalenderListComponent"]
+      component: _bookingdetail_component__WEBPACK_IMPORTED_MODULE_3__["BookingdetailComponent"]
     }];
 
-    var ManagecalenderListRoutingModule = function ManagecalenderListRoutingModule() {
-      _classCallCheck(this, ManagecalenderListRoutingModule);
+    var BookingdetailRoutingModule = function BookingdetailRoutingModule() {
+      _classCallCheck(this, BookingdetailRoutingModule);
     };
 
-    ManagecalenderListRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    BookingdetailRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], ManagecalenderListRoutingModule);
+    })], BookingdetailRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/manage-calender/managecalender-list/managecalender-list.component.scss":
-  /*!*********************************************************************************************!*\
-    !*** ./src/app/home/manage-calender/managecalender-list/managecalender-list.component.scss ***!
-    \*********************************************************************************************/
+  "./src/app/home/bookings/bookingdetail/bookingdetail.component.scss":
+  /*!**************************************************************************!*\
+    !*** ./src/app/home/bookings/bookingdetail/bookingdetail.component.scss ***!
+    \**************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeManageCalenderManagecalenderListManagecalenderListComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingdetailBookingdetailComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvbWFuYWdlLWNhbGVuZGVyL21hbmFnZWNhbGVuZGVyLWxpc3QvbWFuYWdlY2FsZW5kZXItbGlzdC5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = ".main-card ul.inline {\n  padding-top: 20px;\n}\n\n@media (max-width: 992px) {\n  .main-card .label, .main-card .description {\n    padding: 0px 30px;\n  }\n}\n\n@media (max-width: 767px) {\n  .main-card ul.inline {\n    text-align: left;\n  }\n\n  .main-card ul.inline li {\n    display: contents;\n  }\n\n  .main-card ul.inline li button.action_btn.red {\n    padding: 2px 12px 2px 16px;\n  }\n\n  .main-card span.user_name {\n    margin-left: 0;\n    display: block;\n    margin-top: 10px;\n  }\n\n  .main-card ul.inline {\n    padding-top: 0px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9ib29raW5ncy9ib29raW5nZGV0YWlsL2Jvb2tpbmdkZXRhaWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvYm9va2luZ3MvYm9va2luZ2RldGFpbC9ib29raW5nZGV0YWlsLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQXFCLGlCQUFBO0FDRXJCOztBREFBO0VBQ0k7SUFBMEMsaUJBQUE7RUNJNUM7QUFDRjs7QURGQTtFQUNBO0lBQXFCLGdCQUFBO0VDS25COztFREpGO0lBQXdCLGlCQUFBO0VDUXRCOztFRFBGO0lBQThDLDBCQUFBO0VDVzVDOztFRFZGO0lBQTJCLGNBQUE7SUFBZSxjQUFBO0lBQWUsZ0JBQUE7RUNnQnZEOztFRGZGO0lBQXFCLGdCQUFBO0VDbUJuQjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9ib29raW5ncy9ib29raW5nZGV0YWlsL2Jvb2tpbmdkZXRhaWwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbi1jYXJkIHVsLmlubGluZXtwYWRkaW5nLXRvcDogMjBweDt9XG5cbkBtZWRpYShtYXgtd2lkdGg6OTkycHgpe1xuICAgIC5tYWluLWNhcmQgLmxhYmVsLC5tYWluLWNhcmQgLmRlc2NyaXB0aW9ue3BhZGRpbmc6IDBweCAzMHB4O31cbn1cblxuQG1lZGlhKG1heC13aWR0aDo3NjdweCl7XG4ubWFpbi1jYXJkIHVsLmlubGluZXt0ZXh0LWFsaWduOiBsZWZ0O31cbi5tYWluLWNhcmQgdWwuaW5saW5lIGxpe2Rpc3BsYXk6IGNvbnRlbnRzfVxuLm1haW4tY2FyZCB1bC5pbmxpbmUgbGkgYnV0dG9uLmFjdGlvbl9idG4ucmVke3BhZGRpbmc6IDJweCAxMnB4IDJweCAxNnB4O31cbi5tYWluLWNhcmQgc3Bhbi51c2VyX25hbWUge21hcmdpbi1sZWZ0OiAwO2Rpc3BsYXk6IGJsb2NrO21hcmdpbi10b3A6IDEwcHg7fVxuLm1haW4tY2FyZCB1bC5pbmxpbmV7cGFkZGluZy10b3A6IDBweDt9XG59IiwiLm1haW4tY2FyZCB1bC5pbmxpbmUge1xuICBwYWRkaW5nLXRvcDogMjBweDtcbn1cblxuQG1lZGlhIChtYXgtd2lkdGg6IDk5MnB4KSB7XG4gIC5tYWluLWNhcmQgLmxhYmVsLCAubWFpbi1jYXJkIC5kZXNjcmlwdGlvbiB7XG4gICAgcGFkZGluZzogMHB4IDMwcHg7XG4gIH1cbn1cbkBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAubWFpbi1jYXJkIHVsLmlubGluZSB7XG4gICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgfVxuXG4gIC5tYWluLWNhcmQgdWwuaW5saW5lIGxpIHtcbiAgICBkaXNwbGF5OiBjb250ZW50cztcbiAgfVxuXG4gIC5tYWluLWNhcmQgdWwuaW5saW5lIGxpIGJ1dHRvbi5hY3Rpb25fYnRuLnJlZCB7XG4gICAgcGFkZGluZzogMnB4IDEycHggMnB4IDE2cHg7XG4gIH1cblxuICAubWFpbi1jYXJkIHNwYW4udXNlcl9uYW1lIHtcbiAgICBtYXJnaW4tbGVmdDogMDtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBtYXJnaW4tdG9wOiAxMHB4O1xuICB9XG5cbiAgLm1haW4tY2FyZCB1bC5pbmxpbmUge1xuICAgIHBhZGRpbmctdG9wOiAwcHg7XG4gIH1cbn0iXX0= */";
     /***/
   },
 
   /***/
-  "./src/app/home/manage-calender/managecalender-list/managecalender-list.component.ts":
-  /*!*******************************************************************************************!*\
-    !*** ./src/app/home/manage-calender/managecalender-list/managecalender-list.component.ts ***!
-    \*******************************************************************************************/
+  "./src/app/home/bookings/bookingdetail/bookingdetail.component.ts":
+  /*!************************************************************************!*\
+    !*** ./src/app/home/bookings/bookingdetail/bookingdetail.component.ts ***!
+    \************************************************************************/
 
-  /*! exports provided: ManagecalenderListComponent, CalenderActionDialogBox */
+  /*! exports provided: BookingdetailComponent, BookingEmailDialogPopup */
 
   /***/
-  function srcAppHomeManageCalenderManagecalenderListManagecalenderListComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingdetailBookingdetailComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ManagecalenderListComponent", function () {
-      return ManagecalenderListComponent;
+    __webpack_require__.d(__webpack_exports__, "BookingdetailComponent", function () {
+      return BookingdetailComponent;
     });
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CalenderActionDialogBox", function () {
-      return CalenderActionDialogBox;
+    __webpack_require__.d(__webpack_exports__, "BookingEmailDialogPopup", function () {
+      return BookingEmailDialogPopup;
     });
     /* harmony import */
 
@@ -165,9 +165,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/material */
-    "./node_modules/@angular/material/esm2015/material.js");
+    var src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/shared/constants/constant */
+    "./src/app/shared/constants/constant.ts");
     /* harmony import */
 
 
@@ -186,216 +186,53 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/shared/service/error.service */
     "./src/app/shared/service/error.service.ts");
-    /* harmony import */
 
-
-    var src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/app/shared/constants/constant */
-    "./src/app/shared/constants/constant.ts");
-    /* harmony import */
-
-
-    var src_app_shared_service_list_list_dataSource__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! src/app/shared/service/list/list.dataSource */
-    "./src/app/shared/service/list/list.dataSource.ts");
-    /* harmony import */
-
-
-    var angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! angular5-csv/dist/Angular5-csv */
-    "./node_modules/angular5-csv/dist/Angular5-csv.js");
-    /* harmony import */
-
-
-    var angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_8___default =
-    /*#__PURE__*/
-    __webpack_require__.n(angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_8__);
-    /* harmony import */
-
-
-    var _angular_common__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
-    /* harmony import */
-
-
-    var src_app_shared_service_list_list_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-    /*! src/app/shared/service/list/list.service */
-    "./src/app/shared/service/list/list.service.ts");
-    /* harmony import */
-
-
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
-    /*! src/app/shared/_pipes/translate.pipe */
-    "./src/app/shared/_pipes/translate.pipe.ts");
-    /* harmony import */
-
-
-    var rxjs__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
-    /*! rxjs */
-    "./node_modules/rxjs/_esm2015/index.js");
-    /* harmony import */
-
-
-    var rxjs_operators__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
-    /*! rxjs/operators */
-    "./node_modules/rxjs/_esm2015/operators/index.js");
-
-    var ManagecalenderListComponent =
+    var BookingdetailComponent =
     /*#__PURE__*/
     function () {
-      function ManagecalenderListComponent(dialog, httpService, list, trns, routes, error) {
-        _classCallCheck(this, ManagecalenderListComponent);
+      function BookingdetailComponent(httpService, routes, error) {
+        _classCallCheck(this, BookingdetailComponent);
 
-        this.dialog = dialog;
         this.httpService = httpService;
-        this.list = list;
-        this.trns = trns;
         this.routes = routes;
         this.error = error;
-        this.displayedColumns = ['position', 'name', 'service', 'serviceat', 'staff', 'number', 'status', 'bookingid', 'date', 'action'];
-        this.limitPage = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_6__["LIMIT"];
-        this.sortData = {};
-        this.url = 'assets/images/change.png';
-        this.detail = [];
-        this.isApplied = false;
+        this.url = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_2__["IMG"].PRO;
+        this.usrurl = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_2__["IMG"].PRO;
       }
 
-      _createClass(ManagecalenderListComponent, [{
-        key: "openDialog",
-        value: function openDialog() {
-          console.log('-----');
-          var dialogRef = this.dialog.open(CalenderActionDialogBox, {
-            width: '500px',
-            disableClose: true
-          });
-        }
-      }, {
+      _createClass(BookingdetailComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          this.time = this.routes.snapshot.params.time;
-          this.getBookings();
+          this.id = this.routes.snapshot.params.id;
+          this.getUserProfile();
         }
       }, {
-        key: "getBookings",
-        value: function getBookings() {
+        key: "getUserProfile",
+        value: function getUserProfile() {
           var _this = this;
 
-          this.dataSource = new src_app_shared_service_list_list_dataSource__WEBPACK_IMPORTED_MODULE_7__["ListDataSource"](this.list);
-          this.loadBookingList();
-          this.dataSource.usersData.subscribe(function (val) {// this.detail = val;
-          });
-          this.dataSource.loadingUsers.subscribe(function (e) {
-            return _this.loading = !e;
-          });
-          this.dataSource.extra$.subscribe(function (e) {
-            return _this.imgurl = e;
-          });
-          this.dataSource.totalCount$.subscribe(function (e) {
-            return _this.totalLength = e;
-          });
-        }
-      }, {
-        key: "ngAfterViewInit",
-        value: function ngAfterViewInit() {
-          var _this2 = this;
+          this.httpService.getRequest('GET_PARMS', 'BOOKING_VIEW', this.id, '').subscribe(function (response) {
+            if (response.status === 1) {
+              _this.detail = response.res;
+              _this.url = _this.detail.logo ? _this.detail.usr_bp + _this.detail.img : _this.url;
+            } else {
+              if (response.err) {
+                _this.error.handleError(response.err.errCode);
+              }
+            }
+          }, function (error) {
+            _this.error.handleError(0); // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
 
-          this.sort.sortChange.subscribe(function () {
-            return _this2.paginator.pageIndex = 0;
           });
-          Object(rxjs__WEBPACK_IMPORTED_MODULE_12__["merge"])(this.sort.sortChange, this.paginator.page).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_13__["tap"])(function () {
-            return _this2.loadBookingList();
-          })).subscribe();
-        }
-      }, {
-        key: "loadBookingList",
-        value: function loadBookingList() {
-          if (this.sort.active == 'name') {
-            this.sortData.sortValue = '1';
-          } else if (this.sort.active == 'email') {
-            this.sortData.sortValue = '2';
-          } else {
-            this.sortData.sortValue = '3';
-          }
-
-          this.sortData.direction = this.sort.direction || null;
-          var listObj = {
-            page: this.paginator.pageIndex - 1 + 1,
-            limit: this.paginator.pageSize || this.limitPage[0],
-            sort_val: this.sortData.sortValue,
-            dt_time: this.time,
-            dir: this.sortData.direction == 'asc' ? '1' : '-1'
-          };
-          if (this.search) listObj['srch'] = this.search;
-          this.dataSource.load(listObj, {
-            api: 'BOOKING'
-          });
-        }
-      }, {
-        key: "applyFilters",
-        value: function applyFilters() {
-          this.loadBookingList();
-          this.isApplied = true;
-        }
-      }, {
-        key: "paginate",
-        value: function paginate() {
-          this.paginator.pageSize = this.paginator.pageSize + 1;
-          this.getBookings();
-        } // ********************** Account Manager List Api Integration with search End******************
-
-      }, {
-        key: "exportCSV",
-        value: function exportCSV(data) {
-          var _this3 = this;
-
-          var finalData = [];
-          var obj;
-          var i = 0;
-          this.httpService.getRequest('GET', 'BOOKING', "?all=true").subscribe(function (rs) {
-            var datePipe = new _angular_common__WEBPACK_IMPORTED_MODULE_9__["DatePipe"]('en-US');
-            rs.res.bkngs.forEach(function (element) {
-              obj = {
-                "Serial": ++i,
-                "Name": element.user_name,
-                "Service": element.user_email,
-                "Contact Number": element.user_contact,
-                "Staff": element.staf_name ? element.staf_name : "NA",
-                "Booking id": element.booking_id,
-                "Status": element.status == 0 ? 'Pending' : element.status == 1 ? 'Confirmed' : element.status == 2 ? 'Rejected' : element.status == 3 ? 'Completed' : element.status == 4 ? 'Rescheduled' : 'Unserved',
-                "date": datePipe.transform(element.bookDateTime, "dd/MM/yyyy"),
-                "time": datePipe.transform(element.bookDateTime, "h:mm a")
-              };
-              finalData.push(obj);
-            });
-            var options = {
-              noDownload: false,
-              headers: ["Serial", "Name", 'Service', 'serviceat', 'Staff', 'Contact Number', 'Status', 'time', 'Booking id', 'Date']
-            };
-            new angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_8__["Angular5Csv"](finalData, 'Booking list', options);
-
-            _this3.httpService.sucsTostr(_this3.trns.transform('SUCCESS'), _this3.trns.transform('EXPORTD'));
-          });
-        }
-      }, {
-        key: "matPaginator",
-        set: function set(mp) {
-          this.paginator = mp;
         }
       }]);
 
-      return ManagecalenderListComponent;
+      return BookingdetailComponent;
     }();
 
-    ManagecalenderListComponent.ctorParameters = function () {
+    BookingdetailComponent.ctorParameters = function () {
       return [{
-        type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
-      }, {
         type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
-      }, {
-        type: src_app_shared_service_list_list_service__WEBPACK_IMPORTED_MODULE_10__["ListService"]
-      }, {
-        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_11__["TranslatePipe"]
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
       }, {
@@ -403,145 +240,50 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }];
     };
 
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"], {
-      static: true
-    })], ManagecalenderListComponent.prototype, "matPaginator", null);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"], {
-      static: true
-    })], ManagecalenderListComponent.prototype, "sort", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('input', {
-      static: true
-    })], ManagecalenderListComponent.prototype, "input", void 0);
-    ManagecalenderListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-managecalender-list',
+    BookingdetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-bookingdetail',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./managecalender-list.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender-list/managecalender-list.component.html")).default,
+      /*! raw-loader!./bookingdetail.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/bookingdetail.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./managecalender-list.component.scss */
-      "./src/app/home/manage-calender/managecalender-list/managecalender-list.component.scss")).default]
-    })], ManagecalenderListComponent);
-    var ELEMENT_DATA = [{
-      position: 1,
-      name: 'Jane Doe',
-      service: 'Haircut, Hair Spa',
-      serviceat: 'Salon',
-      staff: 'Allen',
-      number: +919999999999,
-      status: 'Confirmed',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }, {
-      position: 2,
-      name: 'Jane Doe',
-      service: 'Haircut, Hair Spa',
-      serviceat: 'Home',
-      staff: 'James',
-      number: +919999999999,
-      status: 'Pending',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }, {
-      position: 3,
-      name: 'Jane Doe',
-      service: 'Haircut, Hair Spa',
-      serviceat: 'Salon',
-      staff: 'Allen',
-      number: +919999999999,
-      status: '--',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }, {
-      position: 4,
-      name: 'Jane Doe',
-      service: 'Haircut',
-      serviceat: 'Home',
-      staff: 'James',
-      number: +919999999999,
-      status: 'Completed',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }, {
-      position: 5,
-      name: 'Jane Doe',
-      service: 'Massage',
-      serviceat: 'Salon',
-      staff: 'Allen',
-      number: +919999999999,
-      status: 'Completed',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }, {
-      position: 6,
-      name: 'Jane Doe',
-      service: 'Haircut',
-      serviceat: 'Home',
-      staff: 'James',
-      number: +919999999999,
-      status: 'Pending',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }, {
-      position: 7,
-      name: 'Jane Doe',
-      service: 'Haircut, Hair Spa',
-      serviceat: 'Salon',
-      staff: 'Allen',
-      number: +919999999999,
-      status: 'Confirmed',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }, {
-      position: 8,
-      name: 'Jane Doe',
-      service: 'Massage',
-      serviceat: 'Home',
-      staff: 'Allen',
-      number: +919999999999,
-      status: 'Rejected',
-      time: '10:00AM',
-      bookingid: '#QW1234',
-      date: '22 Oct, 2019'
-    }];
+      /*! ./bookingdetail.component.scss */
+      "./src/app/home/bookings/bookingdetail/bookingdetail.component.scss")).default]
+    })], BookingdetailComponent);
 
-    var CalenderActionDialogBox = function CalenderActionDialogBox() {
-      _classCallCheck(this, CalenderActionDialogBox);
+    var BookingEmailDialogPopup = function BookingEmailDialogPopup() {
+      _classCallCheck(this, BookingEmailDialogPopup);
     };
 
-    CalenderActionDialogBox = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'calender-list-accept',
+    BookingEmailDialogPopup = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'booking-email',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./calender-list-accept.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender-list/calender-list-accept.html")).default
-    })], CalenderActionDialogBox);
+      /*! raw-loader!./booking-email.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/booking-email.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./bookingdetail.component.scss */
+      "./src/app/home/bookings/bookingdetail/bookingdetail.component.scss")).default]
+    })], BookingEmailDialogPopup);
     /***/
   },
 
   /***/
-  "./src/app/home/manage-calender/managecalender-list/managecalender-list.module.ts":
-  /*!****************************************************************************************!*\
-    !*** ./src/app/home/manage-calender/managecalender-list/managecalender-list.module.ts ***!
-    \****************************************************************************************/
+  "./src/app/home/bookings/bookingdetail/bookingdetail.module.ts":
+  /*!*********************************************************************!*\
+    !*** ./src/app/home/bookings/bookingdetail/bookingdetail.module.ts ***!
+    \*********************************************************************/
 
-  /*! exports provided: ManagecalenderListModule */
+  /*! exports provided: BookingdetailModule */
 
   /***/
-  function srcAppHomeManageCalenderManagecalenderListManagecalenderListModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingdetailBookingdetailModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ManagecalenderListModule", function () {
-      return ManagecalenderListModule;
+    __webpack_require__.d(__webpack_exports__, "BookingdetailModule", function () {
+      return BookingdetailModule;
     });
     /* harmony import */
 
@@ -564,15 +306,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _managecalender_list_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./managecalender-list-routing.module */
-    "./src/app/home/manage-calender/managecalender-list/managecalender-list-routing.module.ts");
+    var _bookingdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./bookingdetail-routing.module */
+    "./src/app/home/bookings/bookingdetail/bookingdetail-routing.module.ts");
     /* harmony import */
 
 
-    var _managecalender_list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./managecalender-list.component */
-    "./src/app/home/manage-calender/managecalender-list/managecalender-list.component.ts");
+    var _bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./bookingdetail.component */
+    "./src/app/home/bookings/bookingdetail/bookingdetail.component.ts");
     /* harmony import */
 
 
@@ -582,26 +324,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/app/shared/_pipes/translate.pipe */
-    "./src/app/shared/_pipes/translate.pipe.ts");
-    /* harmony import */
+    var _agm_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @agm/core */
+    "./node_modules/@agm/core/fesm2015/agm-core.js");
 
-
-    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! src/app/shared/module/applicationpipe/applicationpipe.module */
-    "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
-
-    var ManagecalenderListModule = function ManagecalenderListModule() {
-      _classCallCheck(this, ManagecalenderListModule);
+    var BookingdetailModule = function BookingdetailModule() {
+      _classCallCheck(this, BookingdetailModule);
     };
 
-    ManagecalenderListModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_managecalender_list_component__WEBPACK_IMPORTED_MODULE_4__["ManagecalenderListComponent"], _managecalender_list_component__WEBPACK_IMPORTED_MODULE_4__["CalenderActionDialogBox"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _managecalender_list_routing_module__WEBPACK_IMPORTED_MODULE_3__["ManagecalenderListRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_7__["ApplicationpipeModule"]],
-      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__["TranslatePipe"]],
-      entryComponents: [_managecalender_list_component__WEBPACK_IMPORTED_MODULE_4__["CalenderActionDialogBox"]]
-    })], ManagecalenderListModule);
+    BookingdetailModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__["BookingdetailComponent"], _bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__["BookingEmailDialogPopup"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _bookingdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__["BookingdetailRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], _agm_core__WEBPACK_IMPORTED_MODULE_6__["AgmCoreModule"].forRoot({
+        apiKey: 'AIzaSyAHEv0pFxjFfAOWbrLVw1szHKb2aakZ3YU',
+        libraries: ["places"]
+      })],
+      entryComponents: [_bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__["BookingEmailDialogPopup"]]
+    })], BookingdetailModule);
     /***/
   }
 }]);

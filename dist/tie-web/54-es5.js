@@ -44,7 +44,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(3), __webpack_require__.e(23)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(3), __webpack_require__.e(8)]).then(__webpack_require__.bind(null,
         /*! ./managecalender/managecalender.module */
         "./src/app/home/manage-calender/managecalender/managecalender.module.ts")).then(function (mod) {
           return mod.ManagecalenderModule;
@@ -59,7 +59,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e("common"), __webpack_require__.e(10)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("common"), __webpack_require__.e(11)]).then(__webpack_require__.bind(null,
         /*! ./managecalender-list/managecalender-list.module */
         "./src/app/home/manage-calender/managecalender-list/managecalender-list.module.ts")).then(function (mod) {
           return mod.ManagecalenderListModule;
@@ -74,7 +74,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(22)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(23)]).then(__webpack_require__.bind(null,
         /*! ./managecalender-info/managecalender-info.module */
         "./src/app/home/manage-calender/managecalender-info/managecalender-info.module.ts")).then(function (mod) {
           return mod.ManagecalenderInfoModule;

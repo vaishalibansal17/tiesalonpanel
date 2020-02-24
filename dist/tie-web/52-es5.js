@@ -48,7 +48,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(12)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(13)]).then(__webpack_require__.bind(null,
         /*! ./forgot-password/forgot-password.module */
         "./src/app/auth/forgot-password/forgot-password.module.ts")).then(function (m) {
           return m.ForgotPasswordModule;
@@ -59,7 +59,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(14)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(15)]).then(__webpack_require__.bind(null,
         /*! ./reset-password/reset-password.module */
         "./src/app/auth/reset-password/reset-password.module.ts")).then(function (m) {
           return m.ResetPasswordModule;
@@ -70,7 +70,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(13)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(14)]).then(__webpack_require__.bind(null,
         /*! ./login/login.module */
         "./src/app/auth/login/login.module.ts")).then(function (m) {
           return m.LoginModule;

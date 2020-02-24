@@ -1523,7 +1523,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       FEEDBCK: BASE_URL + 'feedback',
       CANCELPOLICY: BASE_URL + 'salon/policy',
       HELP_CENTER: BASE_URL + 'compPortfolio',
-      SLOT: BASE_URL + 'salon/slot/duration'
+      SLOT: BASE_URL + 'salon/slot/duration',
+      DASHBOARD: BASE_URL + 'salon/dashboard'
     };
     /***/
   },

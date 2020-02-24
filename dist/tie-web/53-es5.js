@@ -44,7 +44,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e("common"), __webpack_require__.e(16)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("common"), __webpack_require__.e(17)]).then(__webpack_require__.bind(null,
         /*! ./list/list.module */
         "./src/app/home/bookings/list/list.module.ts")).then(function (mod) {
           return mod.ListModule;
@@ -61,7 +61,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(9)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(10)]).then(__webpack_require__.bind(null,
         /*! ./bookingdetail/bookingdetail.module */
         "./src/app/home/bookings/bookingdetail/bookingdetail.module.ts")).then(function (mod) {
           return mod.BookingdetailModule;

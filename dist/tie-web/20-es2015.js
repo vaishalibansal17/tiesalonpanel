@@ -1,128 +1,177 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[20],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html":
-/*!***********************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html ***!
-  \***********************************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.html":
+/*!*************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.html ***!
+  \*************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <app-breadcrumb></app-breadcrumb> -->\n<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-12 space_bot\">\n          <form action=\"\" class=\"search_field\">\n            <mat-form-field>\n              <span class=\"email-img search\"><img src=\"assets/images/search.png\" alt=\"envelope\"></span>\n              <input matInput placeholder=\"Search\" class=\"form-control\">\n            </mat-form-field>\n          </form>\n        </div>\n      </div>\n\n    <div class=\"chat_mgmt\">\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"Notification Profile\"></div>\n        <div class=\"noti_right\">\n            <div class=\"sub_rightsection\">\n                <div class=\"author-review\">Jane Doe <span class=\"alignright\">12:43 PM</span></div>\n                Hello...\n            </div>\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"Notification Profile\"></div>\n        <div class=\"noti_right\">\n            <div class=\"sub_rightsection\">\n                <div class=\"author-review\">Jane Doe <span class=\"alignright\">12:43 PM</span></div>\n                Hello...\n            </div>\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"Notification Profile\"></div>\n        <div class=\"noti_right\">\n            <div class=\"sub_rightsection\">\n                <div class=\"author-review\">Jane Doe <span class=\"alignright\">12:43 PM</span></div>\n                Hello...\n            </div>\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"Notification Profile\"></div>\n        <div class=\"noti_right\">\n            <div class=\"sub_rightsection\">\n                <div class=\"author-review\">Jane Doe <span class=\"alignright\">12:43 PM</span></div>\n                Hello...\n            </div>\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"Notification Profile\"></div>\n        <div class=\"noti_right\">\n            <div class=\"sub_rightsection\">\n                <div class=\"author-review\">Jane Doe <span class=\"alignright\">12:43 PM</span></div>\n                Hello...\n            </div>\n        </div>\n    </div>\n    <div class=\"notifi_list\">\n        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"Notification Profile\"></div>\n        <div class=\"noti_right\">\n            <div class=\"sub_rightsection\">\n                <div class=\"author-review\">Jane Doe <span class=\"alignright\">12:43 PM</span></div>\n                Hello...\n            </div>\n        </div>\n    </div>\n</div>\n<ul class=\"pagination\">\n    <li><a href=\"#\"><i class=\"fa fa-angle-left\"></i></a></li>\n    <li class=\"active\"><a href=\"#\">1</a></li>\n    <li><a href=\"#\">2</a></li>\n    <li><a href=\"#\">3</a></li>\n    <li><a href=\"#\">4</a></li>\n    <li><a href=\"#\">5</a></li>\n    <li><a href=\"#\"><i class=\"fa fa-angle-right\"></i></a></li>\n  </ul>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <div class=\"policy_list\">\n        <div class=\"left\">\n            <p>Set your No-Show/Late-Cancellation Policy for Clients.</p>\n            <p>Clients will be required to enter a credit card when they book with you in order to enforce your policy.</p>\n        </div>\n    </div>\n    <div class=\"policy_list\">\n        <div class=\"left\">\n            <p>How strict would you like your policy to be?</p>\n\n            <mat-radio-group aria-label=\"Select an option\" [(ngModel)]=\"c_policy\">\n                <mat-radio-button value=\"1\" [disableRipple]=\"true\">Flexible <span>0% Late Cancellation Fee<br>50% No-Show Fee</span></mat-radio-button>\n                <mat-radio-button value=\"2\" [disableRipple]=\"true\">Moderate <span>25% Late Cancellation Fee<br>50% No-Show Fee</span></mat-radio-button>\n                <mat-radio-button value=\"3\" [disableRipple]=\"true\">Strict <span>50% Late Cancellation Fee<br>100% No-Show Fee</span></mat-radio-button>\n              </mat-radio-group>\n        </div>\n    </div>\n    <div class=\"warning_link\">\n        <a href=\"#\" class=\"warning\">How does it work?</a>\n    </div>\n    <div class=\"text-center\">\n        <button type=\"button\" (click)=\"feedbackSubmit()\" class=\"btn btn-submit\">Save</button>\n    </div>\n</div>");
 
 /***/ }),
 
-/***/ "./src/app/home/chat-management/chat-management-routing.module.ts":
-/*!************************************************************************!*\
-  !*** ./src/app/home/chat-management/chat-management-routing.module.ts ***!
-  \************************************************************************/
-/*! exports provided: ChatManagementRoutingModule */
+/***/ "./src/app/home/cancellation-policy/cancelupdate/cancelupdate-routing.module.ts":
+/*!**************************************************************************************!*\
+  !*** ./src/app/home/cancellation-policy/cancelupdate/cancelupdate-routing.module.ts ***!
+  \**************************************************************************************/
+/*! exports provided: CancelupdateRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatManagementRoutingModule", function() { return ChatManagementRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CancelupdateRoutingModule", function() { return CancelupdateRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _chat_management_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./chat-management.component */ "./src/app/home/chat-management/chat-management.component.ts");
+/* harmony import */ var _cancelupdate_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./cancelupdate.component */ "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.ts");
 
 
 
 
-const routes = [{ path: '', component: _chat_management_component__WEBPACK_IMPORTED_MODULE_3__["ChatManagementComponent"] }];
-let ChatManagementRoutingModule = class ChatManagementRoutingModule {
+const routes = [{ path: '', component: _cancelupdate_component__WEBPACK_IMPORTED_MODULE_3__["CancelupdateComponent"] }];
+let CancelupdateRoutingModule = class CancelupdateRoutingModule {
 };
-ChatManagementRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+CancelupdateRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], ChatManagementRoutingModule);
+], CancelupdateRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/chat-management/chat-management.component.scss":
-/*!*********************************************************************!*\
-  !*** ./src/app/home/chat-management/chat-management.component.scss ***!
-  \*********************************************************************/
+/***/ "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.scss":
+/*!***********************************************************************************!*\
+  !*** ./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.scss ***!
+  \***********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".main-card {\n  padding: 30px 30px 30px 15px !important;\n}\n.main-card .chat_mgmt .notifi_list {\n  margin-bottom: 5px;\n}\n.main-card .chat_mgmt .notifi_list .noti_right {\n  padding-top: 0px;\n  color: #999999;\n  font-size: 13px;\n}\n.main-card .chat_mgmt .notifi_list .noti_right .author-review {\n  font-size: 15px;\n  color: #000;\n}\n.main-card .chat_mgmt .notifi_list .noti_right .author-review .alignright {\n  text-align: right;\n  float: right;\n  color: #999;\n  font-size: 13px;\n}\n.main-card ul.pagination {\n  margin-top: 15px;\n}\nform {\n  display: initial;\n}\n.space_bot {\n  margin-bottom: 15px;\n}\n@media (max-width: 380px) {\n  form {\n    margin-left: 0px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9jaGF0LW1hbmFnZW1lbnQvY2hhdC1tYW5hZ2VtZW50LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9ob21lL2NoYXQtbWFuYWdlbWVudC9jaGF0LW1hbmFnZW1lbnQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSx1Q0FBQTtBQ0NKO0FEQ1E7RUFDSSxrQkFBQTtBQ0NaO0FER1k7RUFDSSxnQkFBQTtFQUNBLGNBQUE7RUFDQSxlQUFBO0FDRGhCO0FERWdCO0VBQ0ksZUFBQTtFQUNBLFdBQUE7QUNBcEI7QURDb0I7RUFDSSxpQkFBQTtFQUNBLFlBQUE7RUFDQSxXQUFBO0VBQ0EsZUFBQTtBQ0N4QjtBRE1JO0VBQ0ksZ0JBQUE7QUNKUjtBRFFBO0VBQUssZ0JBQUE7QUNKTDtBREtBO0VBQVcsbUJBQUE7QUNEWDtBREdBO0VBQ0k7SUFBSyxnQkFBQTtFQ0NQO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9ob21lL2NoYXQtbWFuYWdlbWVudC9jaGF0LW1hbmFnZW1lbnQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbi1jYXJkIHtcbiAgICBwYWRkaW5nOiAzMHB4IDMwcHggMzBweCAxNXB4ICFpbXBvcnRhbnQ7XG4gICAgLmNoYXRfbWdtdHtcbiAgICAgICAgLm5vdGlmaV9saXN0e1xuICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogNXB4O1xuICAgICAgICAgICAgLm5vdGlfbGVmdHtcblxuICAgICAgICAgICAgfVxuICAgICAgICAgICAgLm5vdGlfcmlnaHR7XG4gICAgICAgICAgICAgICAgcGFkZGluZy10b3A6IDBweDtcbiAgICAgICAgICAgICAgICBjb2xvcjogIzk5OTk5OTtcbiAgICAgICAgICAgICAgICBmb250LXNpemU6IDEzcHg7XG4gICAgICAgICAgICAgICAgLmF1dGhvci1yZXZpZXd7XG4gICAgICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTVweDtcbiAgICAgICAgICAgICAgICAgICAgY29sb3I6ICMwMDA7XG4gICAgICAgICAgICAgICAgICAgIC5hbGlnbnJpZ2h0e1xuICAgICAgICAgICAgICAgICAgICAgICAgdGV4dC1hbGlnbjogcmlnaHQ7XG4gICAgICAgICAgICAgICAgICAgICAgICBmbG9hdDogcmlnaHQ7XG4gICAgICAgICAgICAgICAgICAgICAgICBjb2xvcjogIzk5OTtcbiAgICAgICAgICAgICAgICAgICAgICAgIGZvbnQtc2l6ZTogMTNweDtcbiAgICAgICAgICAgICAgICAgICAgfVxuICAgICAgICAgICAgICAgIH1cbiAgICAgICAgICAgICAgICAucmlnaHRfYnRue31cbiAgICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgIH1cbiAgICB1bC5wYWdpbmF0aW9ue1xuICAgICAgICBtYXJnaW4tdG9wOiAxNXB4O1xuICAgIH1cbn1cblxuZm9ybXtkaXNwbGF5OiBpbml0aWFsO31cbi5zcGFjZV9ib3R7bWFyZ2luLWJvdHRvbTogMTVweDt9XG5cbkBtZWRpYShtYXgtd2lkdGg6MzgwcHgpe1xuICAgIGZvcm17bWFyZ2luLWxlZnQ6IDBweDt9XG59IiwiLm1haW4tY2FyZCB7XG4gIHBhZGRpbmc6IDMwcHggMzBweCAzMHB4IDE1cHggIWltcG9ydGFudDtcbn1cbi5tYWluLWNhcmQgLmNoYXRfbWdtdCAubm90aWZpX2xpc3Qge1xuICBtYXJnaW4tYm90dG9tOiA1cHg7XG59XG4ubWFpbi1jYXJkIC5jaGF0X21nbXQgLm5vdGlmaV9saXN0IC5ub3RpX3JpZ2h0IHtcbiAgcGFkZGluZy10b3A6IDBweDtcbiAgY29sb3I6ICM5OTk5OTk7XG4gIGZvbnQtc2l6ZTogMTNweDtcbn1cbi5tYWluLWNhcmQgLmNoYXRfbWdtdCAubm90aWZpX2xpc3QgLm5vdGlfcmlnaHQgLmF1dGhvci1yZXZpZXcge1xuICBmb250LXNpemU6IDE1cHg7XG4gIGNvbG9yOiAjMDAwO1xufVxuLm1haW4tY2FyZCAuY2hhdF9tZ210IC5ub3RpZmlfbGlzdCAubm90aV9yaWdodCAuYXV0aG9yLXJldmlldyAuYWxpZ25yaWdodCB7XG4gIHRleHQtYWxpZ246IHJpZ2h0O1xuICBmbG9hdDogcmlnaHQ7XG4gIGNvbG9yOiAjOTk5O1xuICBmb250LXNpemU6IDEzcHg7XG59XG4ubWFpbi1jYXJkIHVsLnBhZ2luYXRpb24ge1xuICBtYXJnaW4tdG9wOiAxNXB4O1xufVxuXG5mb3JtIHtcbiAgZGlzcGxheTogaW5pdGlhbDtcbn1cblxuLnNwYWNlX2JvdCB7XG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XG59XG5cbkBtZWRpYSAobWF4LXdpZHRoOiAzODBweCkge1xuICBmb3JtIHtcbiAgICBtYXJnaW4tbGVmdDogMHB4O1xuICB9XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = (".policy_list {\n  padding-bottom: 10px;\n}\n\n@media (min-width: 767px) {\n  .btn.btn-submit {\n    width: 32%;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9jYW5jZWxsYXRpb24tcG9saWN5L2NhbmNlbHVwZGF0ZS9jYW5jZWx1cGRhdGUuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvY2FuY2VsbGF0aW9uLXBvbGljeS9jYW5jZWx1cGRhdGUvY2FuY2VsdXBkYXRlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQWEsb0JBQUE7QUNFYjs7QUREQTtFQUNBO0lBQWdCLFVBQUE7RUNLZDtBQUNGIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9jYW5jZWxsYXRpb24tcG9saWN5L2NhbmNlbHVwZGF0ZS9jYW5jZWx1cGRhdGUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucG9saWN5X2xpc3R7cGFkZGluZy1ib3R0b206IDEwcHg7fVxuQG1lZGlhKG1pbi13aWR0aDo3NjdweCl7XG4uYnRuLmJ0bi1zdWJtaXR7d2lkdGg6IDMyJTt9XG59IiwiLnBvbGljeV9saXN0IHtcbiAgcGFkZGluZy1ib3R0b206IDEwcHg7XG59XG5cbkBtZWRpYSAobWluLXdpZHRoOiA3NjdweCkge1xuICAuYnRuLmJ0bi1zdWJtaXQge1xuICAgIHdpZHRoOiAzMiU7XG4gIH1cbn0iXX0= */");
 
 /***/ }),
 
-/***/ "./src/app/home/chat-management/chat-management.component.ts":
-/*!*******************************************************************!*\
-  !*** ./src/app/home/chat-management/chat-management.component.ts ***!
-  \*******************************************************************/
-/*! exports provided: ChatManagementComponent */
+/***/ "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.ts":
+/*!*********************************************************************************!*\
+  !*** ./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.ts ***!
+  \*********************************************************************************/
+/*! exports provided: CancelupdateComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatManagementComponent", function() { return ChatManagementComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CancelupdateComponent", function() { return CancelupdateComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
+/* harmony import */ var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/service/error.service */ "./src/app/shared/service/error.service.ts");
+/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 
 
-let ChatManagementComponent = class ChatManagementComponent {
-    constructor() { }
+
+
+
+
+let CancelupdateComponent = class CancelupdateComponent {
+    constructor(httpService, errService, trns, router) {
+        this.httpService = httpService;
+        this.errService = errService;
+        this.trns = trns;
+        this.router = router;
+        this.submitted = false;
+        this.c_policy = '1';
+    }
     ngOnInit() {
+        this.c_policy = JSON.parse(localStorage.getItem('salon')).c_policy.toString();
+        console.log(this.c_policy);
+    }
+    feedbackSubmit() {
+        console.log(this.c_policy);
+        // return
+        this.submitted = true;
+        if (this.c_policy) {
+            this.httpService.getRequest('PUT', 'CANCELPOLICY', { c_policy: this.c_policy }, '').subscribe((response) => {
+                if (response.status === 1) {
+                    let salon = JSON.parse(localStorage.getItem('salon'));
+                    salon.c_policy = this.c_policy;
+                    localStorage.setItem('salon', JSON.stringify(salon));
+                    this.router.navigateByUrl('cancellation-policy')
+                        .then(() => {
+                        this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('FEEDSUCCESS'));
+                    });
+                }
+                else {
+                    console.log(response);
+                    this.errService.handleError(response.err.errCode);
+                }
+            });
+        }
     }
 };
-ChatManagementComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+CancelupdateComponent.ctorParameters = () => [
+    { type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"] },
+    { type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_3__["ErrorService"] },
+    { type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_4__["TranslatePipe"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+];
+CancelupdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-chat-management',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./chat-management.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/chat-management/chat-management.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./chat-management.component.scss */ "./src/app/home/chat-management/chat-management.component.scss")).default]
+        selector: 'app-cancelupdate',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./cancelupdate.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./cancelupdate.component.scss */ "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.scss")).default]
     })
-], ChatManagementComponent);
+], CancelupdateComponent);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/chat-management/chat-management.module.ts":
-/*!****************************************************************!*\
-  !*** ./src/app/home/chat-management/chat-management.module.ts ***!
-  \****************************************************************/
-/*! exports provided: ChatManagementModule */
+/***/ "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.module.ts":
+/*!******************************************************************************!*\
+  !*** ./src/app/home/cancellation-policy/cancelupdate/cancelupdate.module.ts ***!
+  \******************************************************************************/
+/*! exports provided: CancelupdateModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatManagementModule", function() { return ChatManagementModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CancelupdateModule", function() { return CancelupdateModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _chat_management_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./chat-management-routing.module */ "./src/app/home/chat-management/chat-management-routing.module.ts");
-/* harmony import */ var _chat_management_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./chat-management.component */ "./src/app/home/chat-management/chat-management.component.ts");
+/* harmony import */ var _cancelupdate_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./cancelupdate-routing.module */ "./src/app/home/cancellation-policy/cancelupdate/cancelupdate-routing.module.ts");
+/* harmony import */ var _cancelupdate_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./cancelupdate.component */ "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.ts");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 
 
 
 
 
 
-let ChatManagementModule = class ChatManagementModule {
+
+let CancelupdateModule = class CancelupdateModule {
 };
-ChatManagementModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+CancelupdateModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_chat_management_component__WEBPACK_IMPORTED_MODULE_4__["ChatManagementComponent"]],
+        declarations: [_cancelupdate_component__WEBPACK_IMPORTED_MODULE_4__["CancelupdateComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _chat_management_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChatManagementRoutingModule"],
-            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]
+            _cancelupdate_routing_module__WEBPACK_IMPORTED_MODULE_3__["CancelupdateRoutingModule"],
+            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"]
         ]
     })
-], ChatManagementModule);
+], CancelupdateModule);
 
 
 

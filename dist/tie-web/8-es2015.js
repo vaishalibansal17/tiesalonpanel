@@ -1,2596 +1,5245 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[8],{
 
-/***/ "./node_modules/primeng/fesm2015/primeng-button.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/primeng/fesm2015/primeng-button.js ***!
-  \*********************************************************/
-/*! exports provided: Button, ButtonDirective, ButtonModule */
+/***/ "./node_modules/@fullcalendar/daygrid/main.esm.js":
+/*!********************************************************!*\
+  !*** ./node_modules/@fullcalendar/daygrid/main.esm.js ***!
+  \********************************************************/
+/*! exports provided: default, AbstractDayGridView, DayBgRow, DayGrid, DayGridSlicer, DayGridView, SimpleDayGrid, buildBasicDayTable */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return Button; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ButtonDirective", function() { return ButtonDirective; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ButtonModule", function() { return ButtonModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/dom */ "./node_modules/primeng/fesm2015/primeng-dom.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AbstractDayGridView", function() { return DayGridView; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DayBgRow", function() { return DayBgRow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DayGrid", function() { return DayGrid; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DayGridSlicer", function() { return DayGridSlicer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DayGridView", function() { return DayGridView$1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SimpleDayGrid", function() { return SimpleDayGrid; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildBasicDayTable", function() { return buildDayTable; });
+/* harmony import */ var _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fullcalendar/core */ "./node_modules/@fullcalendar/core/main.esm.js");
+/*!
+FullCalendar Day Grid Plugin v4.3.0
+Docs & License: https://fullcalendar.io/
+(c) 2019 Adam Shaw
+*/
 
 
 
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
 
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return extendStatics(d, b);
 };
-let ButtonDirective = class ButtonDirective {
-    constructor(el) {
-        this.el = el;
-        this.iconPos = 'left';
-        this.cornerStyleClass = 'ui-corner-all';
-    }
-    ngAfterViewInit() {
-        primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].addMultipleClasses(this.el.nativeElement, this.getStyleClass());
-        if (this.icon) {
-            let iconElement = document.createElement("span");
-            iconElement.setAttribute("aria-hidden", "true");
-            let iconPosClass = (this.iconPos == 'right') ? 'ui-button-icon-right' : 'ui-button-icon-left';
-            iconElement.className = iconPosClass + ' ui-clickable ' + this.icon;
-            this.el.nativeElement.appendChild(iconElement);
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
         }
-        let labelElement = document.createElement("span");
-        labelElement.className = 'ui-button-text ui-clickable';
-        labelElement.appendChild(document.createTextNode(this.label || 'ui-btn'));
-        this.el.nativeElement.appendChild(labelElement);
-        this.initialized = true;
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+var DayGridDateProfileGenerator = /** @class */ (function (_super) {
+    __extends(DayGridDateProfileGenerator, _super);
+    function DayGridDateProfileGenerator() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    getStyleClass() {
-        let styleClass = 'ui-button ui-widget ui-state-default ' + this.cornerStyleClass;
-        if (this.icon) {
-            if (this.label != null && this.label != undefined) {
-                if (this.iconPos == 'left')
-                    styleClass = styleClass + ' ui-button-text-icon-left';
-                else
-                    styleClass = styleClass + ' ui-button-text-icon-right';
+    // Computes the date range that will be rendered.
+    DayGridDateProfileGenerator.prototype.buildRenderRange = function (currentRange, currentRangeUnit, isRangeAllDay) {
+        var dateEnv = this.dateEnv;
+        var renderRange = _super.prototype.buildRenderRange.call(this, currentRange, currentRangeUnit, isRangeAllDay);
+        var start = renderRange.start;
+        var end = renderRange.end;
+        var endOfWeek;
+        // year and month views should be aligned with weeks. this is already done for week
+        if (/^(year|month)$/.test(currentRangeUnit)) {
+            start = dateEnv.startOfWeek(start);
+            // make end-of-week if not already
+            endOfWeek = dateEnv.startOfWeek(end);
+            if (endOfWeek.valueOf() !== end.valueOf()) {
+                end = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["addWeeks"])(endOfWeek, 1);
             }
-            else {
-                styleClass = styleClass + ' ui-button-icon-only';
+        }
+        // ensure 6 weeks
+        if (this.options.monthMode &&
+            this.options.fixedWeekCount) {
+            var rowCnt = Math.ceil(// could be partial weeks due to hiddenDays
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["diffWeeks"])(start, end));
+            end = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["addWeeks"])(end, 6 - rowCnt);
+        }
+        return { start: start, end: end };
+    };
+    return DayGridDateProfileGenerator;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["DateProfileGenerator"]));
+
+/* A rectangular panel that is absolutely positioned over other content
+------------------------------------------------------------------------------------------------------------------------
+Options:
+  - className (string)
+  - content (HTML string, element, or element array)
+  - parentEl
+  - top
+  - left
+  - right (the x coord of where the right edge should be. not a "CSS" right)
+  - autoHide (boolean)
+  - show (callback)
+  - hide (callback)
+*/
+var Popover = /** @class */ (function () {
+    function Popover(options) {
+        var _this = this;
+        this.isHidden = true;
+        this.margin = 10; // the space required between the popover and the edges of the scroll container
+        // Triggered when the user clicks *anywhere* in the document, for the autoHide feature
+        this.documentMousedown = function (ev) {
+            // only hide the popover if the click happened outside the popover
+            if (_this.el && !_this.el.contains(ev.target)) {
+                _this.hide();
             }
-        }
-        else {
-            if (this.label) {
-                styleClass = styleClass + ' ui-button-text-only';
-            }
-            else {
-                styleClass = styleClass + ' ui-button-text-empty';
-            }
-        }
-        return styleClass;
-    }
-    get label() {
-        return this._label;
-    }
-    set label(val) {
-        this._label = val;
-        if (this.initialized) {
-            primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].findSingle(this.el.nativeElement, '.ui-button-text').textContent = this._label;
-            if (!this.icon) {
-                if (this._label) {
-                    primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].removeClass(this.el.nativeElement, 'ui-button-text-empty');
-                    primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].addClass(this.el.nativeElement, 'ui-button-text-only');
-                }
-                else {
-                    primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].addClass(this.el.nativeElement, 'ui-button-text-empty');
-                    primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].removeClass(this.el.nativeElement, 'ui-button-text-only');
-                }
-            }
-        }
-    }
-    get icon() {
-        return this._icon;
-    }
-    set icon(val) {
-        this._icon = val;
-        if (this.initialized) {
-            let iconPosClass = (this.iconPos == 'right') ? 'ui-button-icon-right' : 'ui-button-icon-left';
-            primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].findSingle(this.el.nativeElement, '.ui-clickable').className =
-                iconPosClass + ' ui-clickable ' + this.icon;
-        }
-    }
-    ngOnDestroy() {
-        while (this.el.nativeElement.hasChildNodes()) {
-            this.el.nativeElement.removeChild(this.el.nativeElement.lastChild);
-        }
-        this.initialized = false;
-    }
-};
-ButtonDirective.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }
-];
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], ButtonDirective.prototype, "iconPos", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], ButtonDirective.prototype, "cornerStyleClass", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], ButtonDirective.prototype, "label", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], ButtonDirective.prototype, "icon", null);
-ButtonDirective = __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
-        selector: '[pButton]'
-    })
-], ButtonDirective);
-let Button = class Button {
-    constructor() {
-        this.iconPos = 'left';
-        this.onClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onFocus = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onBlur = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-    }
-};
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Button.prototype, "type", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Button.prototype, "iconPos", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Button.prototype, "icon", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Button.prototype, "label", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Button.prototype, "disabled", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Button.prototype, "style", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Button.prototype, "styleClass", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Button.prototype, "onClick", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Button.prototype, "onFocus", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Button.prototype, "onBlur", void 0);
-Button = __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-        selector: 'p-button',
-        template: `
-        <button [attr.type]="type" [class]="styleClass" [ngStyle]="style" [disabled]="disabled"
-            [ngClass]="{'ui-button ui-widget ui-state-default ui-corner-all':true,
-                        'ui-button-icon-only': (icon && !label),
-                        'ui-button-text-icon-left': (icon && label && iconPos === 'left'),
-                        'ui-button-text-icon-right': (icon && label && iconPos === 'right'),
-                        'ui-button-text-only': (!icon && label),
-                        'ui-button-text-empty': (!icon && !label),
-                        'ui-state-disabled': disabled}"
-                        (click)="onClick.emit($event)" (focus)="onFocus.emit($event)" (blur)="onBlur.emit($event)">
-            <ng-content></ng-content>
-            <span [ngClass]="{'ui-clickable': true,
-                        'ui-button-icon-left': (iconPos === 'left'), 
-                        'ui-button-icon-right': (iconPos === 'right')}"
-                        [class]="icon" *ngIf="icon"></span>
-            <span class="ui-button-text ui-clickable">{{label||'ui-btn'}}</span>
-        </button>
-    `
-    })
-], Button);
-let ButtonModule = class ButtonModule {
-};
-ButtonModule = __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]],
-        exports: [ButtonDirective, Button],
-        declarations: [ButtonDirective, Button]
-    })
-], ButtonModule);
-
-/**
- * Generated bundle index. Do not edit.
- */
-
-
-//# sourceMappingURL=primeng-button.js.map
-
-
-/***/ }),
-
-/***/ "./node_modules/primeng/fesm2015/primeng-calendar.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/primeng/fesm2015/primeng-calendar.js ***!
-  \***********************************************************/
-/*! exports provided: CALENDAR_VALUE_ACCESSOR, Calendar, CalendarModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CALENDAR_VALUE_ACCESSOR", function() { return CALENDAR_VALUE_ACCESSOR; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Calendar", function() { return Calendar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CalendarModule", function() { return CalendarModule; });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm2015/animations.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/button */ "./node_modules/primeng/fesm2015/primeng-button.js");
-/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/dom */ "./node_modules/primeng/fesm2015/primeng-dom.js");
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-
-
-
-
-
-
-
-
-var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-const CALENDAR_VALUE_ACCESSOR = {
-    provide: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NG_VALUE_ACCESSOR"],
-    useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(() => Calendar),
-    multi: true
-};
-let Calendar = class Calendar {
-    constructor(el, renderer, cd, zone) {
-        this.el = el;
-        this.renderer = renderer;
-        this.cd = cd;
-        this.zone = zone;
-        this.dateFormat = 'mm/dd/yy';
-        this.multipleSeparator = ',';
-        this.rangeSeparator = '-';
-        this.inline = false;
-        this.showOtherMonths = true;
-        this.icon = 'pi pi-calendar';
-        this.shortYearCutoff = '+10';
-        this.hourFormat = '24';
-        this.stepHour = 1;
-        this.stepMinute = 1;
-        this.stepSecond = 1;
-        this.showSeconds = false;
-        this.showOnFocus = true;
-        this.showWeek = false;
-        this.dataType = 'date';
-        this.selectionMode = 'single';
-        this.todayButtonStyleClass = 'ui-button-secondary';
-        this.clearButtonStyleClass = 'ui-button-secondary';
-        this.autoZIndex = true;
-        this.baseZIndex = 0;
-        this.keepInvalid = false;
-        this.hideOnDateTimeSelect = false;
-        this.numberOfMonths = 1;
-        this.view = 'date';
-        this.timeSeparator = ":";
-        this.showTransitionOptions = '225ms ease-out';
-        this.hideTransitionOptions = '195ms ease-in';
-        this.onFocus = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onBlur = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onClose = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onSelect = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onInput = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onTodayClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onClearClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onMonthChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this.onYearChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-        this._locale = {
-            firstDayOfWeek: 0,
-            dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-            dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-            dayNamesMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
-            monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-            monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-            today: 'Today',
-            clear: 'Clear',
-            dateFormat: 'mm/dd/yy',
-            weekHeader: 'Wk'
         };
-        this.onModelChange = () => { };
-        this.onModelTouched = () => { };
-        this.inputFieldValue = null;
-        this.navigationState = null;
+        this.options = options;
     }
-    set content(content) {
-        this.contentViewChild = content;
-        if (this.contentViewChild) {
-            if (this.isMonthNavigate) {
-                Promise.resolve(null).then(() => this.updateFocus());
-                this.isMonthNavigate = false;
+    // Shows the popover on the specified position. Renders it if not already
+    Popover.prototype.show = function () {
+        if (this.isHidden) {
+            if (!this.el) {
+                this.render();
             }
-            else {
-                this.initFocusableCell();
-            }
+            this.el.style.display = '';
+            this.position();
+            this.isHidden = false;
+            this.trigger('show');
         }
-    }
-    ;
-    get minDate() {
-        return this._minDate;
-    }
-    set minDate(date) {
-        this._minDate = date;
-        if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
-            this.createMonths(this.currentMonth, this.currentYear);
+    };
+    // Hides the popover, through CSS, but does not remove it from the DOM
+    Popover.prototype.hide = function () {
+        if (!this.isHidden) {
+            this.el.style.display = 'none';
+            this.isHidden = true;
+            this.trigger('hide');
         }
-    }
-    get maxDate() {
-        return this._maxDate;
-    }
-    set maxDate(date) {
-        this._maxDate = date;
-        if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
-            this.createMonths(this.currentMonth, this.currentYear);
-        }
-    }
-    get disabledDates() {
-        return this._disabledDates;
-    }
-    set disabledDates(disabledDates) {
-        this._disabledDates = disabledDates;
-        if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
-            this.createMonths(this.currentMonth, this.currentYear);
-        }
-    }
-    get disabledDays() {
-        return this._disabledDays;
-    }
-    set disabledDays(disabledDays) {
-        this._disabledDays = disabledDays;
-        if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
-            this.createMonths(this.currentMonth, this.currentYear);
-        }
-    }
-    get yearRange() {
-        return this._yearRange;
-    }
-    set yearRange(yearRange) {
-        this._yearRange = yearRange;
-        if (yearRange) {
-            const years = yearRange.split(':');
-            const yearStart = parseInt(years[0]);
-            const yearEnd = parseInt(years[1]);
-            this.populateYearOptions(yearStart, yearEnd);
-        }
-    }
-    get showTime() {
-        return this._showTime;
-    }
-    set showTime(showTime) {
-        this._showTime = showTime;
-        if (this.currentHour === undefined) {
-            this.initTime(this.value || new Date());
-        }
-        this.updateInputfield();
-    }
-    get locale() {
-        return this._locale;
-    }
-    set locale(newLocale) {
-        this._locale = newLocale;
-        if (this.view === 'date') {
-            this.createWeekDays();
-            this.createMonths(this.currentMonth, this.currentYear);
-        }
-        else if (this.view === 'month') {
-            this.createMonthPickerValues();
-        }
-    }
-    ngOnInit() {
-        const date = this.defaultDate || new Date();
-        this.currentMonth = date.getMonth();
-        this.currentYear = date.getFullYear();
-        if (this.view === 'date') {
-            this.createWeekDays();
-            this.initTime(date);
-            this.createMonths(this.currentMonth, this.currentYear);
-            this.ticksTo1970 = (((1970 - 1) * 365 + Math.floor(1970 / 4) - Math.floor(1970 / 100) + Math.floor(1970 / 400)) * 24 * 60 * 60 * 10000000);
-        }
-        else if (this.view === 'month') {
-            this.createMonthPickerValues();
-        }
-    }
-    ngAfterContentInit() {
-        this.templates.forEach((item) => {
-            switch (item.getType()) {
-                case 'date':
-                    this.dateTemplate = item.template;
-                    break;
-                default:
-                    this.dateTemplate = item.template;
-                    break;
+    };
+    // Creates `this.el` and renders content inside of it
+    Popover.prototype.render = function () {
+        var _this = this;
+        var options = this.options;
+        var el = this.el = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', {
+            className: 'fc-popover ' + (options.className || ''),
+            style: {
+                top: '0',
+                left: '0'
             }
         });
-    }
-    populateYearOptions(start, end) {
-        this.yearOptions = [];
-        for (let i = start; i <= end; i++) {
-            this.yearOptions.push(i);
+        if (typeof options.content === 'function') {
+            options.content(el);
         }
-    }
-    createWeekDays() {
-        this.weekDays = [];
-        let dayIndex = this.locale.firstDayOfWeek;
-        for (let i = 0; i < 7; i++) {
-            this.weekDays.push(this.locale.dayNamesMin[dayIndex]);
-            dayIndex = (dayIndex == 6) ? 0 : ++dayIndex;
+        options.parentEl.appendChild(el);
+        // when a click happens on anything inside with a 'fc-close' className, hide the popover
+        Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["listenBySelector"])(el, 'click', '.fc-close', function (ev) {
+            _this.hide();
+        });
+        if (options.autoHide) {
+            document.addEventListener('mousedown', this.documentMousedown);
         }
-    }
-    createMonthPickerValues() {
-        this.monthPickerValues = [];
-        for (let i = 0; i <= 11; i++) {
-            this.monthPickerValues.push(this.locale.monthNamesShort[i]);
+    };
+    // Hides and unregisters any handlers
+    Popover.prototype.destroy = function () {
+        this.hide();
+        if (this.el) {
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["removeElement"])(this.el);
+            this.el = null;
         }
+        document.removeEventListener('mousedown', this.documentMousedown);
+    };
+    // Positions the popover optimally, using the top/left/right options
+    Popover.prototype.position = function () {
+        var options = this.options;
+        var el = this.el;
+        var elDims = el.getBoundingClientRect(); // only used for width,height
+        var origin = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["computeRect"])(el.offsetParent);
+        var clippingRect = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["computeClippingRect"])(options.parentEl);
+        var top; // the "position" (not "offset") values for the popover
+        var left; //
+        // compute top and left
+        top = options.top || 0;
+        if (options.left !== undefined) {
+            left = options.left;
+        }
+        else if (options.right !== undefined) {
+            left = options.right - elDims.width; // derive the left value from the right value
+        }
+        else {
+            left = 0;
+        }
+        // constrain to the view port. if constrained by two edges, give precedence to top/left
+        top = Math.min(top, clippingRect.bottom - elDims.height - this.margin);
+        top = Math.max(top, clippingRect.top + this.margin);
+        left = Math.min(left, clippingRect.right - elDims.width - this.margin);
+        left = Math.max(left, clippingRect.left + this.margin);
+        Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["applyStyle"])(el, {
+            top: top - origin.top,
+            left: left - origin.left
+        });
+    };
+    // Triggers a callback. Calls a function in the option hash of the same name.
+    // Arguments beyond the first `name` are forwarded on.
+    // TODO: better code reuse for this. Repeat code
+    // can kill this???
+    Popover.prototype.trigger = function (name) {
+        if (this.options[name]) {
+            this.options[name].apply(this, Array.prototype.slice.call(arguments, 1));
+        }
+    };
+    return Popover;
+}());
+
+/* Event-rendering methods for the DayGrid class
+----------------------------------------------------------------------------------------------------------------------*/
+// "Simple" is bad a name. has nothing to do with SimpleDayGrid
+var SimpleDayGridEventRenderer = /** @class */ (function (_super) {
+    __extends(SimpleDayGridEventRenderer, _super);
+    function SimpleDayGridEventRenderer() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    createMonths(month, year) {
-        this.months = this.months = [];
-        for (let i = 0; i < this.numberOfMonths; i++) {
-            let m = month + i;
-            let y = year;
-            if (m > 11) {
-                m = m % 11 - 1;
-                y = year + 1;
+    // Builds the HTML to be used for the default element for an individual segment
+    SimpleDayGridEventRenderer.prototype.renderSegHtml = function (seg, mirrorInfo) {
+        var _a = this.context, view = _a.view, options = _a.options;
+        var eventRange = seg.eventRange;
+        var eventDef = eventRange.def;
+        var eventUi = eventRange.ui;
+        var allDay = eventDef.allDay;
+        var isDraggable = view.computeEventDraggable(eventDef, eventUi);
+        var isResizableFromStart = allDay && seg.isStart && view.computeEventStartResizable(eventDef, eventUi);
+        var isResizableFromEnd = allDay && seg.isEnd && view.computeEventEndResizable(eventDef, eventUi);
+        var classes = this.getSegClasses(seg, isDraggable, isResizableFromStart || isResizableFromEnd, mirrorInfo);
+        var skinCss = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["cssToStr"])(this.getSkinCss(eventUi));
+        var timeHtml = '';
+        var timeText;
+        var titleHtml;
+        classes.unshift('fc-day-grid-event', 'fc-h-event');
+        // Only display a timed events time if it is the starting segment
+        if (seg.isStart) {
+            timeText = this.getTimeText(eventRange);
+            if (timeText) {
+                timeHtml = '<span class="fc-time">' + Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlEscape"])(timeText) + '</span>';
             }
-            this.months.push(this.createMonth(m, y));
         }
+        titleHtml =
+            '<span class="fc-title">' +
+                (Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlEscape"])(eventDef.title || '') || '&nbsp;') + // we always want one line of height
+                '</span>';
+        return '<a class="' + classes.join(' ') + '"' +
+            (eventDef.url ?
+                ' href="' + Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlEscape"])(eventDef.url) + '"' :
+                '') +
+            (skinCss ?
+                ' style="' + skinCss + '"' :
+                '') +
+            '>' +
+            '<div class="fc-content">' +
+            (options.dir === 'rtl' ?
+                titleHtml + ' ' + timeHtml : // put a natural space in between
+                timeHtml + ' ' + titleHtml //
+            ) +
+            '</div>' +
+            (isResizableFromStart ?
+                '<div class="fc-resizer fc-start-resizer"></div>' :
+                '') +
+            (isResizableFromEnd ?
+                '<div class="fc-resizer fc-end-resizer"></div>' :
+                '') +
+            '</a>';
+    };
+    // Computes a default event time formatting string if `eventTimeFormat` is not explicitly defined
+    SimpleDayGridEventRenderer.prototype.computeEventTimeFormat = function () {
+        return {
+            hour: 'numeric',
+            minute: '2-digit',
+            omitZeroMinute: true,
+            meridiem: 'narrow'
+        };
+    };
+    SimpleDayGridEventRenderer.prototype.computeDisplayEventEnd = function () {
+        return false; // TODO: somehow consider the originating DayGrid's column count
+    };
+    return SimpleDayGridEventRenderer;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["FgEventRenderer"]));
+
+/* Event-rendering methods for the DayGrid class
+----------------------------------------------------------------------------------------------------------------------*/
+var DayGridEventRenderer = /** @class */ (function (_super) {
+    __extends(DayGridEventRenderer, _super);
+    function DayGridEventRenderer(dayGrid) {
+        var _this = _super.call(this, dayGrid.context) || this;
+        _this.dayGrid = dayGrid;
+        return _this;
     }
-    getWeekNumber(date) {
-        let checkDate = new Date(date.getTime());
-        checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
-        let time = checkDate.getTime();
-        checkDate.setMonth(0);
-        checkDate.setDate(1);
-        return Math.floor(Math.round((time - checkDate.getTime()) / 86400000) / 7) + 1;
-    }
-    createMonth(month, year) {
-        let dates = [];
-        let firstDay = this.getFirstDayOfMonthIndex(month, year);
-        let daysLength = this.getDaysCountInMonth(month, year);
-        let prevMonthDaysLength = this.getDaysCountInPrevMonth(month, year);
-        let dayNo = 1;
-        let today = new Date();
-        let weekNumbers = [];
-        let monthRows = Math.ceil((daysLength + firstDay) / 7);
-        for (let i = 0; i < monthRows; i++) {
-            let week = [];
-            if (i == 0) {
-                for (let j = (prevMonthDaysLength - firstDay + 1); j <= prevMonthDaysLength; j++) {
-                    let prev = this.getPreviousMonthAndYear(month, year);
-                    week.push({ day: j, month: prev.month, year: prev.year, otherMonth: true,
-                        today: this.isToday(today, j, prev.month, prev.year), selectable: this.isSelectable(j, prev.month, prev.year, true) });
+    // Renders the given foreground event segments onto the grid
+    DayGridEventRenderer.prototype.attachSegs = function (segs, mirrorInfo) {
+        var rowStructs = this.rowStructs = this.renderSegRows(segs);
+        // append to each row's content skeleton
+        this.dayGrid.rowEls.forEach(function (rowNode, i) {
+            rowNode.querySelector('.fc-content-skeleton > table').appendChild(rowStructs[i].tbodyEl);
+        });
+        // removes the "more.." events popover
+        if (!mirrorInfo) {
+            this.dayGrid.removeSegPopover();
+        }
+    };
+    // Unrenders all currently rendered foreground event segments
+    DayGridEventRenderer.prototype.detachSegs = function () {
+        var rowStructs = this.rowStructs || [];
+        var rowStruct;
+        while ((rowStruct = rowStructs.pop())) {
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["removeElement"])(rowStruct.tbodyEl);
+        }
+        this.rowStructs = null;
+    };
+    // Uses the given events array to generate <tbody> elements that should be appended to each row's content skeleton.
+    // Returns an array of rowStruct objects (see the bottom of `renderSegRow`).
+    // PRECONDITION: each segment shoud already have a rendered and assigned `.el`
+    DayGridEventRenderer.prototype.renderSegRows = function (segs) {
+        var rowStructs = [];
+        var segRows;
+        var row;
+        segRows = this.groupSegRows(segs); // group into nested arrays
+        // iterate each row of segment groupings
+        for (row = 0; row < segRows.length; row++) {
+            rowStructs.push(this.renderSegRow(row, segRows[row]));
+        }
+        return rowStructs;
+    };
+    // Given a row # and an array of segments all in the same row, render a <tbody> element, a skeleton that contains
+    // the segments. Returns object with a bunch of internal data about how the render was calculated.
+    // NOTE: modifies rowSegs
+    DayGridEventRenderer.prototype.renderSegRow = function (row, rowSegs) {
+        var dayGrid = this.dayGrid;
+        var colCnt = dayGrid.colCnt, isRtl = dayGrid.isRtl;
+        var segLevels = this.buildSegLevels(rowSegs); // group into sub-arrays of levels
+        var levelCnt = Math.max(1, segLevels.length); // ensure at least one level
+        var tbody = document.createElement('tbody');
+        var segMatrix = []; // lookup for which segments are rendered into which level+col cells
+        var cellMatrix = []; // lookup for all <td> elements of the level+col matrix
+        var loneCellMatrix = []; // lookup for <td> elements that only take up a single column
+        var i;
+        var levelSegs;
+        var col;
+        var tr;
+        var j;
+        var seg;
+        var td;
+        // populates empty cells from the current column (`col`) to `endCol`
+        function emptyCellsUntil(endCol) {
+            while (col < endCol) {
+                // try to grab a cell from the level above and extend its rowspan. otherwise, create a fresh cell
+                td = (loneCellMatrix[i - 1] || [])[col];
+                if (td) {
+                    td.rowSpan = (td.rowSpan || 1) + 1;
                 }
-                let remainingDaysLength = 7 - week.length;
-                for (let j = 0; j < remainingDaysLength; j++) {
-                    week.push({ day: dayNo, month: month, year: year, today: this.isToday(today, dayNo, month, year),
-                        selectable: this.isSelectable(dayNo, month, year, false) });
-                    dayNo++;
+                else {
+                    td = document.createElement('td');
+                    tr.appendChild(td);
                 }
+                cellMatrix[i][col] = td;
+                loneCellMatrix[i][col] = td;
+                col++;
             }
-            else {
-                for (let j = 0; j < 7; j++) {
-                    if (dayNo > daysLength) {
-                        let next = this.getNextMonthAndYear(month, year);
-                        week.push({ day: dayNo - daysLength, month: next.month, year: next.year, otherMonth: true,
-                            today: this.isToday(today, dayNo - daysLength, next.month, next.year),
-                            selectable: this.isSelectable((dayNo - daysLength), next.month, next.year, true) });
+        }
+        for (i = 0; i < levelCnt; i++) { // iterate through all levels
+            levelSegs = segLevels[i];
+            col = 0;
+            tr = document.createElement('tr');
+            segMatrix.push([]);
+            cellMatrix.push([]);
+            loneCellMatrix.push([]);
+            // levelCnt might be 1 even though there are no actual levels. protect against this.
+            // this single empty row is useful for styling.
+            if (levelSegs) {
+                for (j = 0; j < levelSegs.length; j++) { // iterate through segments in level
+                    seg = levelSegs[j];
+                    var leftCol = isRtl ? (colCnt - 1 - seg.lastCol) : seg.firstCol;
+                    var rightCol = isRtl ? (colCnt - 1 - seg.firstCol) : seg.lastCol;
+                    emptyCellsUntil(leftCol);
+                    // create a container that occupies or more columns. append the event element.
+                    td = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createElement"])('td', { className: 'fc-event-container' }, seg.el);
+                    if (leftCol !== rightCol) {
+                        td.colSpan = rightCol - leftCol + 1;
                     }
-                    else {
-                        week.push({ day: dayNo, month: month, year: year, today: this.isToday(today, dayNo, month, year),
-                            selectable: this.isSelectable(dayNo, month, year, false) });
+                    else { // a single-column segment
+                        loneCellMatrix[i][col] = td;
                     }
-                    dayNo++;
+                    while (col <= rightCol) {
+                        cellMatrix[i][col] = td;
+                        segMatrix[i][col] = seg;
+                        col++;
+                    }
+                    tr.appendChild(td);
                 }
             }
-            if (this.showWeek) {
-                weekNumbers.push(this.getWeekNumber(new Date(week[0].year, week[0].month, week[0].day)));
+            emptyCellsUntil(colCnt); // finish off the row
+            var introHtml = dayGrid.renderProps.renderIntroHtml();
+            if (introHtml) {
+                if (dayGrid.isRtl) {
+                    Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["appendToElement"])(tr, introHtml);
+                }
+                else {
+                    Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["prependToElement"])(tr, introHtml);
+                }
             }
-            dates.push(week);
+            tbody.appendChild(tr);
         }
         return {
-            month: month,
-            year: year,
-            dates: dates,
-            weekNumbers: weekNumbers
+            row: row,
+            tbodyEl: tbody,
+            cellMatrix: cellMatrix,
+            segMatrix: segMatrix,
+            segLevels: segLevels,
+            segs: rowSegs
         };
-    }
-    initTime(date) {
-        this.pm = date.getHours() > 11;
-        if (this.showTime) {
-            this.currentMinute = date.getMinutes();
-            this.currentSecond = date.getSeconds();
-            if (this.hourFormat == '12')
-                this.currentHour = date.getHours() == 0 ? 12 : date.getHours() % 12;
-            else
-                this.currentHour = date.getHours();
-        }
-        else if (this.timeOnly) {
-            this.currentMinute = 0;
-            this.currentHour = 0;
-            this.currentSecond = 0;
-        }
-    }
-    navBackward(event) {
-        event.stopPropagation();
-        if (this.disabled) {
-            event.preventDefault();
-            return;
-        }
-        this.isMonthNavigate = true;
-        if (this.view === 'month') {
-            this.decrementYear();
-        }
-        else {
-            if (this.currentMonth === 0) {
-                this.currentMonth = 11;
-                this.decrementYear();
-            }
-            else {
-                this.currentMonth--;
-            }
-            this.onMonthChange.emit({ month: this.currentMonth + 1, year: this.currentYear });
-            this.createMonths(this.currentMonth, this.currentYear);
-        }
-    }
-    navForward(event) {
-        event.stopPropagation();
-        if (this.disabled) {
-            event.preventDefault();
-            return;
-        }
-        this.isMonthNavigate = true;
-        if (this.view === 'month') {
-            this.incrementYear();
-        }
-        else {
-            if (this.currentMonth === 11) {
-                this.currentMonth = 0;
-                this.incrementYear();
-            }
-            else {
-                this.currentMonth++;
-            }
-            this.onMonthChange.emit({ month: this.currentMonth + 1, year: this.currentYear });
-            this.createMonths(this.currentMonth, this.currentYear);
-        }
-    }
-    decrementYear() {
-        this.currentYear--;
-        if (this.yearNavigator && this.currentYear < this.yearOptions[0]) {
-            let difference = this.yearOptions[this.yearOptions.length - 1] - this.yearOptions[0];
-            this.populateYearOptions(this.yearOptions[0] - difference, this.yearOptions[this.yearOptions.length - 1] - difference);
-        }
-    }
-    incrementYear() {
-        this.currentYear++;
-        if (this.yearNavigator && this.currentYear > this.yearOptions[this.yearOptions.length - 1]) {
-            let difference = this.yearOptions[this.yearOptions.length - 1] - this.yearOptions[0];
-            this.populateYearOptions(this.yearOptions[0] + difference, this.yearOptions[this.yearOptions.length - 1] + difference);
-        }
-    }
-    onDateSelect(event, dateMeta) {
-        if (this.disabled || !dateMeta.selectable) {
-            event.preventDefault();
-            return;
-        }
-        if (this.isMultipleSelection() && this.isSelected(dateMeta)) {
-            this.value = this.value.filter((date, i) => {
-                return !this.isDateEquals(date, dateMeta);
-            });
-            this.updateModel(this.value);
-        }
-        else {
-            if (this.shouldSelectDate(dateMeta)) {
-                if (dateMeta.otherMonth) {
-                    this.currentMonth = dateMeta.month;
-                    this.currentYear = dateMeta.year;
-                    this.createMonths(this.currentMonth, this.currentYear);
-                    this.selectDate(dateMeta);
-                }
-                else {
-                    this.selectDate(dateMeta);
+    };
+    // Stacks a flat array of segments, which are all assumed to be in the same row, into subarrays of vertical levels.
+    // NOTE: modifies segs
+    DayGridEventRenderer.prototype.buildSegLevels = function (segs) {
+        var _a = this.dayGrid, isRtl = _a.isRtl, colCnt = _a.colCnt;
+        var levels = [];
+        var i;
+        var seg;
+        var j;
+        // Give preference to elements with certain criteria, so they have
+        // a chance to be closer to the top.
+        segs = this.sortEventSegs(segs);
+        for (i = 0; i < segs.length; i++) {
+            seg = segs[i];
+            // loop through levels, starting with the topmost, until the segment doesn't collide with other segments
+            for (j = 0; j < levels.length; j++) {
+                if (!isDaySegCollision(seg, levels[j])) {
+                    break;
                 }
             }
+            // `j` now holds the desired subrow index
+            seg.level = j;
+            seg.leftCol = isRtl ? (colCnt - 1 - seg.lastCol) : seg.firstCol; // for sorting only
+            seg.rightCol = isRtl ? (colCnt - 1 - seg.firstCol) : seg.lastCol // for sorting only
+            ;
+            (levels[j] || (levels[j] = [])).push(seg);
         }
-        if (this.isSingleSelection() && (!this.showTime || this.hideOnDateTimeSelect)) {
-            setTimeout(() => {
-                event.preventDefault();
-                this.hideOverlay();
-                if (this.mask) {
-                    this.disableModality();
-                }
-                this.cd.markForCheck();
-            }, 150);
+        // order segments left-to-right. very important if calendar is RTL
+        for (j = 0; j < levels.length; j++) {
+            levels[j].sort(compareDaySegCols);
         }
-        this.updateInputfield();
-        event.preventDefault();
-    }
-    shouldSelectDate(dateMeta) {
-        if (this.isMultipleSelection())
-            return this.maxDateCount != null ? this.maxDateCount > (this.value ? this.value.length : 0) : true;
-        else
+        return levels;
+    };
+    // Given a flat array of segments, return an array of sub-arrays, grouped by each segment's row
+    DayGridEventRenderer.prototype.groupSegRows = function (segs) {
+        var segRows = [];
+        var i;
+        for (i = 0; i < this.dayGrid.rowCnt; i++) {
+            segRows.push([]);
+        }
+        for (i = 0; i < segs.length; i++) {
+            segRows[segs[i].row].push(segs[i]);
+        }
+        return segRows;
+    };
+    // Computes a default `displayEventEnd` value if one is not expliclty defined
+    DayGridEventRenderer.prototype.computeDisplayEventEnd = function () {
+        return this.dayGrid.colCnt === 1; // we'll likely have space if there's only one day
+    };
+    return DayGridEventRenderer;
+}(SimpleDayGridEventRenderer));
+// Computes whether two segments' columns collide. They are assumed to be in the same row.
+function isDaySegCollision(seg, otherSegs) {
+    var i;
+    var otherSeg;
+    for (i = 0; i < otherSegs.length; i++) {
+        otherSeg = otherSegs[i];
+        if (otherSeg.firstCol <= seg.lastCol &&
+            otherSeg.lastCol >= seg.firstCol) {
             return true;
-    }
-    onMonthSelect(event, index) {
-        this.onDateSelect(event, { year: this.currentYear, month: index, day: 1, selectable: true });
-    }
-    updateInputfield() {
-        let formattedValue = '';
-        if (this.value) {
-            if (this.isSingleSelection()) {
-                formattedValue = this.formatDateTime(this.value);
-            }
-            else if (this.isMultipleSelection()) {
-                for (let i = 0; i < this.value.length; i++) {
-                    let dateAsString = this.formatDateTime(this.value[i]);
-                    formattedValue += dateAsString;
-                    if (i !== (this.value.length - 1)) {
-                        formattedValue += this.multipleSeparator + ' ';
-                    }
-                }
-            }
-            else if (this.isRangeSelection()) {
-                if (this.value && this.value.length) {
-                    let startDate = this.value[0];
-                    let endDate = this.value[1];
-                    formattedValue = this.formatDateTime(startDate);
-                    if (endDate) {
-                        formattedValue += ' ' + this.rangeSeparator + ' ' + this.formatDateTime(endDate);
-                    }
-                }
-            }
-        }
-        this.inputFieldValue = formattedValue;
-        this.updateFilledState();
-        if (this.inputfieldViewChild && this.inputfieldViewChild.nativeElement) {
-            this.inputfieldViewChild.nativeElement.value = this.inputFieldValue;
         }
     }
-    formatDateTime(date) {
-        let formattedValue = null;
-        if (date) {
-            if (this.timeOnly) {
-                formattedValue = this.formatTime(date);
+    return false;
+}
+// A cmp function for determining the leftmost event
+function compareDaySegCols(a, b) {
+    return a.leftCol - b.leftCol;
+}
+
+var DayGridMirrorRenderer = /** @class */ (function (_super) {
+    __extends(DayGridMirrorRenderer, _super);
+    function DayGridMirrorRenderer() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    DayGridMirrorRenderer.prototype.attachSegs = function (segs, mirrorInfo) {
+        var sourceSeg = mirrorInfo.sourceSeg;
+        var rowStructs = this.rowStructs = this.renderSegRows(segs);
+        // inject each new event skeleton into each associated row
+        this.dayGrid.rowEls.forEach(function (rowNode, row) {
+            var skeletonEl = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlToElement"])('<div class="fc-mirror-skeleton"><table></table></div>'); // will be absolutely positioned
+            var skeletonTopEl;
+            var skeletonTop;
+            // If there is an original segment, match the top position. Otherwise, put it at the row's top level
+            if (sourceSeg && sourceSeg.row === row) {
+                skeletonTopEl = sourceSeg.el;
             }
             else {
-                formattedValue = this.formatDate(date, this.getDateFormat());
-                if (this.showTime) {
-                    formattedValue += ' ' + this.formatTime(date);
+                skeletonTopEl = rowNode.querySelector('.fc-content-skeleton tbody');
+                if (!skeletonTopEl) { // when no events
+                    skeletonTopEl = rowNode.querySelector('.fc-content-skeleton table');
                 }
             }
-        }
-        return formattedValue;
+            skeletonTop = skeletonTopEl.getBoundingClientRect().top -
+                rowNode.getBoundingClientRect().top; // the offsetParent origin
+            skeletonEl.style.top = skeletonTop + 'px';
+            skeletonEl.querySelector('table').appendChild(rowStructs[row].tbodyEl);
+            rowNode.appendChild(skeletonEl);
+        });
+    };
+    return DayGridMirrorRenderer;
+}(DayGridEventRenderer));
+
+var EMPTY_CELL_HTML = '<td style="pointer-events:none"></td>';
+var DayGridFillRenderer = /** @class */ (function (_super) {
+    __extends(DayGridFillRenderer, _super);
+    function DayGridFillRenderer(dayGrid) {
+        var _this = _super.call(this, dayGrid.context) || this;
+        _this.fillSegTag = 'td'; // override the default tag name
+        _this.dayGrid = dayGrid;
+        return _this;
     }
-    selectDate(dateMeta) {
-        let date = new Date(dateMeta.year, dateMeta.month, dateMeta.day);
-        if (this.showTime) {
-            if (this.hourFormat == '12') {
-                if (this.currentHour === 12)
-                    date.setHours(this.pm ? 12 : 0);
-                else
-                    date.setHours(this.pm ? this.currentHour + 12 : this.currentHour);
+    DayGridFillRenderer.prototype.renderSegs = function (type, segs) {
+        // don't render timed background events
+        if (type === 'bgEvent') {
+            segs = segs.filter(function (seg) {
+                return seg.eventRange.def.allDay;
+            });
+        }
+        _super.prototype.renderSegs.call(this, type, segs);
+    };
+    DayGridFillRenderer.prototype.attachSegs = function (type, segs) {
+        var els = [];
+        var i;
+        var seg;
+        var skeletonEl;
+        for (i = 0; i < segs.length; i++) {
+            seg = segs[i];
+            skeletonEl = this.renderFillRow(type, seg);
+            this.dayGrid.rowEls[seg.row].appendChild(skeletonEl);
+            els.push(skeletonEl);
+        }
+        return els;
+    };
+    // Generates the HTML needed for one row of a fill. Requires the seg's el to be rendered.
+    DayGridFillRenderer.prototype.renderFillRow = function (type, seg) {
+        var dayGrid = this.dayGrid;
+        var colCnt = dayGrid.colCnt, isRtl = dayGrid.isRtl;
+        var leftCol = isRtl ? (colCnt - 1 - seg.lastCol) : seg.firstCol;
+        var rightCol = isRtl ? (colCnt - 1 - seg.firstCol) : seg.lastCol;
+        var startCol = leftCol;
+        var endCol = rightCol + 1;
+        var className;
+        var skeletonEl;
+        var trEl;
+        if (type === 'businessHours') {
+            className = 'bgevent';
+        }
+        else {
+            className = type.toLowerCase();
+        }
+        skeletonEl = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlToElement"])('<div class="fc-' + className + '-skeleton">' +
+            '<table><tr></tr></table>' +
+            '</div>');
+        trEl = skeletonEl.getElementsByTagName('tr')[0];
+        if (startCol > 0) {
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["appendToElement"])(trEl, 
+            // will create (startCol + 1) td's
+            new Array(startCol + 1).join(EMPTY_CELL_HTML));
+        }
+        seg.el.colSpan = endCol - startCol;
+        trEl.appendChild(seg.el);
+        if (endCol < colCnt) {
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["appendToElement"])(trEl, 
+            // will create (colCnt - endCol) td's
+            new Array(colCnt - endCol + 1).join(EMPTY_CELL_HTML));
+        }
+        var introHtml = dayGrid.renderProps.renderIntroHtml();
+        if (introHtml) {
+            if (dayGrid.isRtl) {
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["appendToElement"])(trEl, introHtml);
             }
             else {
-                date.setHours(this.currentHour);
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["prependToElement"])(trEl, introHtml);
             }
-            date.setMinutes(this.currentMinute);
-            date.setSeconds(this.currentSecond);
         }
-        if (this.minDate && this.minDate > date) {
-            date = this.minDate;
-            this.currentHour = date.getHours();
-            this.currentMinute = date.getMinutes();
-            this.currentSecond = date.getSeconds();
+        return skeletonEl;
+    };
+    return DayGridFillRenderer;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["FillRenderer"]));
+
+var DayTile = /** @class */ (function (_super) {
+    __extends(DayTile, _super);
+    function DayTile(context, el) {
+        var _this = _super.call(this, context, el) || this;
+        var eventRenderer = _this.eventRenderer = new DayTileEventRenderer(_this);
+        var renderFrame = _this.renderFrame = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(_this._renderFrame);
+        _this.renderFgEvents = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(eventRenderer.renderSegs.bind(eventRenderer), eventRenderer.unrender.bind(eventRenderer), [renderFrame]);
+        _this.renderEventSelection = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(eventRenderer.selectByInstanceId.bind(eventRenderer), eventRenderer.unselectByInstanceId.bind(eventRenderer), [_this.renderFgEvents]);
+        _this.renderEventDrag = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(eventRenderer.hideByHash.bind(eventRenderer), eventRenderer.showByHash.bind(eventRenderer), [renderFrame]);
+        _this.renderEventResize = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(eventRenderer.hideByHash.bind(eventRenderer), eventRenderer.showByHash.bind(eventRenderer), [renderFrame]);
+        context.calendar.registerInteractiveComponent(_this, {
+            el: _this.el,
+            useEventCenter: false
+        });
+        return _this;
+    }
+    DayTile.prototype.render = function (props) {
+        this.renderFrame(props.date);
+        this.renderFgEvents(props.fgSegs);
+        this.renderEventSelection(props.eventSelection);
+        this.renderEventDrag(props.eventDragInstances);
+        this.renderEventResize(props.eventResizeInstances);
+    };
+    DayTile.prototype.destroy = function () {
+        _super.prototype.destroy.call(this);
+        this.renderFrame.unrender(); // should unrender everything else
+        this.calendar.unregisterInteractiveComponent(this);
+    };
+    DayTile.prototype._renderFrame = function (date) {
+        var _a = this, theme = _a.theme, dateEnv = _a.dateEnv;
+        var title = dateEnv.format(date, Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createFormatter"])(this.opt('dayPopoverFormat')) // TODO: cache
+        );
+        this.el.innerHTML =
+            '<div class="fc-header ' + theme.getClass('popoverHeader') + '">' +
+                '<span class="fc-title">' +
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlEscape"])(title) +
+                '</span>' +
+                '<span class="fc-close ' + theme.getIconClass('close') + '"></span>' +
+                '</div>' +
+                '<div class="fc-body ' + theme.getClass('popoverContent') + '">' +
+                '<div class="fc-event-container"></div>' +
+                '</div>';
+        this.segContainerEl = this.el.querySelector('.fc-event-container');
+    };
+    DayTile.prototype.queryHit = function (positionLeft, positionTop, elWidth, elHeight) {
+        var date = this.props.date; // HACK
+        if (positionLeft < elWidth && positionTop < elHeight) {
+            return {
+                component: this,
+                dateSpan: {
+                    allDay: true,
+                    range: { start: date, end: Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["addDays"])(date, 1) }
+                },
+                dayEl: this.el,
+                rect: {
+                    left: 0,
+                    top: 0,
+                    right: elWidth,
+                    bottom: elHeight
+                },
+                layer: 1
+            };
         }
-        if (this.maxDate && this.maxDate < date) {
-            date = this.maxDate;
-            this.currentHour = date.getHours();
-            this.currentMinute = date.getMinutes();
-            this.currentSecond = date.getSeconds();
+    };
+    return DayTile;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["DateComponent"]));
+var DayTileEventRenderer = /** @class */ (function (_super) {
+    __extends(DayTileEventRenderer, _super);
+    function DayTileEventRenderer(dayTile) {
+        var _this = _super.call(this, dayTile.context) || this;
+        _this.dayTile = dayTile;
+        return _this;
+    }
+    DayTileEventRenderer.prototype.attachSegs = function (segs) {
+        for (var _i = 0, segs_1 = segs; _i < segs_1.length; _i++) {
+            var seg = segs_1[_i];
+            this.dayTile.segContainerEl.appendChild(seg.el);
         }
-        if (this.isSingleSelection()) {
-            this.updateModel(date);
+    };
+    DayTileEventRenderer.prototype.detachSegs = function (segs) {
+        for (var _i = 0, segs_2 = segs; _i < segs_2.length; _i++) {
+            var seg = segs_2[_i];
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["removeElement"])(seg.el);
         }
-        else if (this.isMultipleSelection()) {
-            this.updateModel(this.value ? [...this.value, date] : [date]);
+    };
+    return DayTileEventRenderer;
+}(SimpleDayGridEventRenderer));
+
+var DayBgRow = /** @class */ (function () {
+    function DayBgRow(context) {
+        this.context = context;
+    }
+    DayBgRow.prototype.renderHtml = function (props) {
+        var parts = [];
+        if (props.renderIntroHtml) {
+            parts.push(props.renderIntroHtml());
         }
-        else if (this.isRangeSelection()) {
-            if (this.value && this.value.length) {
-                let startDate = this.value[0];
-                let endDate = this.value[1];
-                if (!endDate && date.getTime() >= startDate.getTime()) {
-                    endDate = date;
+        for (var _i = 0, _a = props.cells; _i < _a.length; _i++) {
+            var cell = _a[_i];
+            parts.push(renderCellHtml(cell.date, props.dateProfile, this.context, cell.htmlAttrs));
+        }
+        if (!props.cells.length) {
+            parts.push('<td class="fc-day ' + this.context.theme.getClass('widgetContent') + '"></td>');
+        }
+        if (this.context.options.dir === 'rtl') {
+            parts.reverse();
+        }
+        return '<tr>' + parts.join('') + '</tr>';
+    };
+    return DayBgRow;
+}());
+function renderCellHtml(date, dateProfile, context, otherAttrs) {
+    var dateEnv = context.dateEnv, theme = context.theme;
+    var isDateValid = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["rangeContainsMarker"])(dateProfile.activeRange, date); // TODO: called too frequently. cache somehow.
+    var classes = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["getDayClasses"])(date, dateProfile, context);
+    classes.unshift('fc-day', theme.getClass('widgetContent'));
+    return '<td class="' + classes.join(' ') + '"' +
+        (isDateValid ?
+            ' data-date="' + dateEnv.formatIso(date, { omitTime: true }) + '"' :
+            '') +
+        (otherAttrs ?
+            ' ' + otherAttrs :
+            '') +
+        '></td>';
+}
+
+var DAY_NUM_FORMAT = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createFormatter"])({ day: 'numeric' });
+var WEEK_NUM_FORMAT = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createFormatter"])({ week: 'numeric' });
+var DayGrid = /** @class */ (function (_super) {
+    __extends(DayGrid, _super);
+    function DayGrid(context, el, renderProps) {
+        var _this = _super.call(this, context, el) || this;
+        _this.bottomCoordPadding = 0; // hack for extending the hit area for the last row of the coordinate grid
+        _this.isCellSizesDirty = false;
+        var eventRenderer = _this.eventRenderer = new DayGridEventRenderer(_this);
+        var fillRenderer = _this.fillRenderer = new DayGridFillRenderer(_this);
+        _this.mirrorRenderer = new DayGridMirrorRenderer(_this);
+        var renderCells = _this.renderCells = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(_this._renderCells, _this._unrenderCells);
+        _this.renderBusinessHours = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(fillRenderer.renderSegs.bind(fillRenderer, 'businessHours'), fillRenderer.unrender.bind(fillRenderer, 'businessHours'), [renderCells]);
+        _this.renderDateSelection = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(fillRenderer.renderSegs.bind(fillRenderer, 'highlight'), fillRenderer.unrender.bind(fillRenderer, 'highlight'), [renderCells]);
+        _this.renderBgEvents = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(fillRenderer.renderSegs.bind(fillRenderer, 'bgEvent'), fillRenderer.unrender.bind(fillRenderer, 'bgEvent'), [renderCells]);
+        _this.renderFgEvents = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(eventRenderer.renderSegs.bind(eventRenderer), eventRenderer.unrender.bind(eventRenderer), [renderCells]);
+        _this.renderEventSelection = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(eventRenderer.selectByInstanceId.bind(eventRenderer), eventRenderer.unselectByInstanceId.bind(eventRenderer), [_this.renderFgEvents]);
+        _this.renderEventDrag = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(_this._renderEventDrag, _this._unrenderEventDrag, [renderCells]);
+        _this.renderEventResize = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(_this._renderEventResize, _this._unrenderEventResize, [renderCells]);
+        _this.renderProps = renderProps;
+        return _this;
+    }
+    DayGrid.prototype.render = function (props) {
+        var cells = props.cells;
+        this.rowCnt = cells.length;
+        this.colCnt = cells[0].length;
+        this.renderCells(cells, props.isRigid);
+        this.renderBusinessHours(props.businessHourSegs);
+        this.renderDateSelection(props.dateSelectionSegs);
+        this.renderBgEvents(props.bgEventSegs);
+        this.renderFgEvents(props.fgEventSegs);
+        this.renderEventSelection(props.eventSelection);
+        this.renderEventDrag(props.eventDrag);
+        this.renderEventResize(props.eventResize);
+        if (this.segPopoverTile) {
+            this.updateSegPopoverTile();
+        }
+    };
+    DayGrid.prototype.destroy = function () {
+        _super.prototype.destroy.call(this);
+        this.renderCells.unrender(); // will unrender everything else
+    };
+    DayGrid.prototype.getCellRange = function (row, col) {
+        var start = this.props.cells[row][col].date;
+        var end = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["addDays"])(start, 1);
+        return { start: start, end: end };
+    };
+    DayGrid.prototype.updateSegPopoverTile = function (date, segs) {
+        var ownProps = this.props;
+        this.segPopoverTile.receiveProps({
+            date: date || this.segPopoverTile.props.date,
+            fgSegs: segs || this.segPopoverTile.props.fgSegs,
+            eventSelection: ownProps.eventSelection,
+            eventDragInstances: ownProps.eventDrag ? ownProps.eventDrag.affectedInstances : null,
+            eventResizeInstances: ownProps.eventResize ? ownProps.eventResize.affectedInstances : null
+        });
+    };
+    /* Date Rendering
+    ------------------------------------------------------------------------------------------------------------------*/
+    DayGrid.prototype._renderCells = function (cells, isRigid) {
+        var _a = this, view = _a.view, dateEnv = _a.dateEnv;
+        var _b = this, rowCnt = _b.rowCnt, colCnt = _b.colCnt;
+        var html = '';
+        var row;
+        var col;
+        for (row = 0; row < rowCnt; row++) {
+            html += this.renderDayRowHtml(row, isRigid);
+        }
+        this.el.innerHTML = html;
+        this.rowEls = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findElements"])(this.el, '.fc-row');
+        this.cellEls = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findElements"])(this.el, '.fc-day, .fc-disabled-day');
+        if (this.isRtl) {
+            this.cellEls.reverse();
+        }
+        this.rowPositions = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["PositionCache"](this.el, this.rowEls, false, true // vertical
+        );
+        this.colPositions = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["PositionCache"](this.el, this.cellEls.slice(0, colCnt), // only the first row
+        true, false // horizontal
+        );
+        // trigger dayRender with each cell's element
+        for (row = 0; row < rowCnt; row++) {
+            for (col = 0; col < colCnt; col++) {
+                this.publiclyTrigger('dayRender', [
+                    {
+                        date: dateEnv.toDate(cells[row][col].date),
+                        el: this.getCellEl(row, col),
+                        view: view
+                    }
+                ]);
+            }
+        }
+        this.isCellSizesDirty = true;
+    };
+    DayGrid.prototype._unrenderCells = function () {
+        this.removeSegPopover();
+    };
+    // Generates the HTML for a single row, which is a div that wraps a table.
+    // `row` is the row number.
+    DayGrid.prototype.renderDayRowHtml = function (row, isRigid) {
+        var theme = this.theme;
+        var classes = ['fc-row', 'fc-week', theme.getClass('dayRow')];
+        if (isRigid) {
+            classes.push('fc-rigid');
+        }
+        var bgRow = new DayBgRow(this.context);
+        return '' +
+            '<div class="' + classes.join(' ') + '">' +
+            '<div class="fc-bg">' +
+            '<table class="' + theme.getClass('tableGrid') + '">' +
+            bgRow.renderHtml({
+                cells: this.props.cells[row],
+                dateProfile: this.props.dateProfile,
+                renderIntroHtml: this.renderProps.renderBgIntroHtml
+            }) +
+            '</table>' +
+            '</div>' +
+            '<div class="fc-content-skeleton">' +
+            '<table>' +
+            (this.getIsNumbersVisible() ?
+                '<thead>' +
+                    this.renderNumberTrHtml(row) +
+                    '</thead>' :
+                '') +
+            '</table>' +
+            '</div>' +
+            '</div>';
+    };
+    DayGrid.prototype.getIsNumbersVisible = function () {
+        return this.getIsDayNumbersVisible() ||
+            this.renderProps.cellWeekNumbersVisible ||
+            this.renderProps.colWeekNumbersVisible;
+    };
+    DayGrid.prototype.getIsDayNumbersVisible = function () {
+        return this.rowCnt > 1;
+    };
+    /* Grid Number Rendering
+    ------------------------------------------------------------------------------------------------------------------*/
+    DayGrid.prototype.renderNumberTrHtml = function (row) {
+        var intro = this.renderProps.renderNumberIntroHtml(row, this);
+        return '' +
+            '<tr>' +
+            (this.isRtl ? '' : intro) +
+            this.renderNumberCellsHtml(row) +
+            (this.isRtl ? intro : '') +
+            '</tr>';
+    };
+    DayGrid.prototype.renderNumberCellsHtml = function (row) {
+        var htmls = [];
+        var col;
+        var date;
+        for (col = 0; col < this.colCnt; col++) {
+            date = this.props.cells[row][col].date;
+            htmls.push(this.renderNumberCellHtml(date));
+        }
+        if (this.isRtl) {
+            htmls.reverse();
+        }
+        return htmls.join('');
+    };
+    // Generates the HTML for the <td>s of the "number" row in the DayGrid's content skeleton.
+    // The number row will only exist if either day numbers or week numbers are turned on.
+    DayGrid.prototype.renderNumberCellHtml = function (date) {
+        var _a = this, view = _a.view, dateEnv = _a.dateEnv;
+        var html = '';
+        var isDateValid = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["rangeContainsMarker"])(this.props.dateProfile.activeRange, date); // TODO: called too frequently. cache somehow.
+        var isDayNumberVisible = this.getIsDayNumbersVisible() && isDateValid;
+        var classes;
+        var weekCalcFirstDow;
+        if (!isDayNumberVisible && !this.renderProps.cellWeekNumbersVisible) {
+            // no numbers in day cell (week number must be along the side)
+            return '<td></td>'; //  will create an empty space above events :(
+        }
+        classes = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["getDayClasses"])(date, this.props.dateProfile, this.context);
+        classes.unshift('fc-day-top');
+        if (this.renderProps.cellWeekNumbersVisible) {
+            weekCalcFirstDow = dateEnv.weekDow;
+        }
+        html += '<td class="' + classes.join(' ') + '"' +
+            (isDateValid ?
+                ' data-date="' + dateEnv.formatIso(date, { omitTime: true }) + '"' :
+                '') +
+            '>';
+        if (this.renderProps.cellWeekNumbersVisible && (date.getUTCDay() === weekCalcFirstDow)) {
+            html += Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["buildGotoAnchorHtml"])(view, { date: date, type: 'week' }, { 'class': 'fc-week-number' }, dateEnv.format(date, WEEK_NUM_FORMAT) // inner HTML
+            );
+        }
+        if (isDayNumberVisible) {
+            html += Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["buildGotoAnchorHtml"])(view, date, { 'class': 'fc-day-number' }, dateEnv.format(date, DAY_NUM_FORMAT) // inner HTML
+            );
+        }
+        html += '</td>';
+        return html;
+    };
+    /* Sizing
+    ------------------------------------------------------------------------------------------------------------------*/
+    DayGrid.prototype.updateSize = function (isResize) {
+        var _a = this, fillRenderer = _a.fillRenderer, eventRenderer = _a.eventRenderer, mirrorRenderer = _a.mirrorRenderer;
+        if (isResize ||
+            this.isCellSizesDirty ||
+            this.view.calendar.isEventsUpdated // hack
+        ) {
+            this.buildPositionCaches();
+            this.isCellSizesDirty = false;
+        }
+        fillRenderer.computeSizes(isResize);
+        eventRenderer.computeSizes(isResize);
+        mirrorRenderer.computeSizes(isResize);
+        fillRenderer.assignSizes(isResize);
+        eventRenderer.assignSizes(isResize);
+        mirrorRenderer.assignSizes(isResize);
+    };
+    DayGrid.prototype.buildPositionCaches = function () {
+        this.buildColPositions();
+        this.buildRowPositions();
+    };
+    DayGrid.prototype.buildColPositions = function () {
+        this.colPositions.build();
+    };
+    DayGrid.prototype.buildRowPositions = function () {
+        this.rowPositions.build();
+        this.rowPositions.bottoms[this.rowCnt - 1] += this.bottomCoordPadding; // hack
+    };
+    /* Hit System
+    ------------------------------------------------------------------------------------------------------------------*/
+    DayGrid.prototype.positionToHit = function (leftPosition, topPosition) {
+        var _a = this, colPositions = _a.colPositions, rowPositions = _a.rowPositions;
+        var col = colPositions.leftToIndex(leftPosition);
+        var row = rowPositions.topToIndex(topPosition);
+        if (row != null && col != null) {
+            return {
+                row: row,
+                col: col,
+                dateSpan: {
+                    range: this.getCellRange(row, col),
+                    allDay: true
+                },
+                dayEl: this.getCellEl(row, col),
+                relativeRect: {
+                    left: colPositions.lefts[col],
+                    right: colPositions.rights[col],
+                    top: rowPositions.tops[row],
+                    bottom: rowPositions.bottoms[row]
                 }
-                else {
-                    startDate = date;
-                    endDate = null;
-                }
-                this.updateModel([startDate, endDate]);
+            };
+        }
+    };
+    /* Cell System
+    ------------------------------------------------------------------------------------------------------------------*/
+    // FYI: the first column is the leftmost column, regardless of date
+    DayGrid.prototype.getCellEl = function (row, col) {
+        return this.cellEls[row * this.colCnt + col];
+    };
+    /* Event Drag Visualization
+    ------------------------------------------------------------------------------------------------------------------*/
+    DayGrid.prototype._renderEventDrag = function (state) {
+        if (state) {
+            this.eventRenderer.hideByHash(state.affectedInstances);
+            this.fillRenderer.renderSegs('highlight', state.segs);
+        }
+    };
+    DayGrid.prototype._unrenderEventDrag = function (state) {
+        if (state) {
+            this.eventRenderer.showByHash(state.affectedInstances);
+            this.fillRenderer.unrender('highlight');
+        }
+    };
+    /* Event Resize Visualization
+    ------------------------------------------------------------------------------------------------------------------*/
+    DayGrid.prototype._renderEventResize = function (state) {
+        if (state) {
+            this.eventRenderer.hideByHash(state.affectedInstances);
+            this.fillRenderer.renderSegs('highlight', state.segs);
+            this.mirrorRenderer.renderSegs(state.segs, { isResizing: true, sourceSeg: state.sourceSeg });
+        }
+    };
+    DayGrid.prototype._unrenderEventResize = function (state) {
+        if (state) {
+            this.eventRenderer.showByHash(state.affectedInstances);
+            this.fillRenderer.unrender('highlight');
+            this.mirrorRenderer.unrender(state.segs, { isResizing: true, sourceSeg: state.sourceSeg });
+        }
+    };
+    /* More+ Link Popover
+    ------------------------------------------------------------------------------------------------------------------*/
+    DayGrid.prototype.removeSegPopover = function () {
+        if (this.segPopover) {
+            this.segPopover.hide(); // in handler, will call segPopover's removeElement
+        }
+    };
+    // Limits the number of "levels" (vertically stacking layers of events) for each row of the grid.
+    // `levelLimit` can be false (don't limit), a number, or true (should be computed).
+    DayGrid.prototype.limitRows = function (levelLimit) {
+        var rowStructs = this.eventRenderer.rowStructs || [];
+        var row; // row #
+        var rowLevelLimit;
+        for (row = 0; row < rowStructs.length; row++) {
+            this.unlimitRow(row);
+            if (!levelLimit) {
+                rowLevelLimit = false;
+            }
+            else if (typeof levelLimit === 'number') {
+                rowLevelLimit = levelLimit;
             }
             else {
-                this.updateModel([date, null]);
+                rowLevelLimit = this.computeRowLevelLimit(row);
+            }
+            if (rowLevelLimit !== false) {
+                this.limitRow(row, rowLevelLimit);
             }
         }
-        this.onSelect.emit(date);
-    }
-    updateModel(value) {
-        this.value = value;
-        if (this.dataType == 'date') {
-            this.onModelChange(this.value);
+    };
+    // Computes the number of levels a row will accomodate without going outside its bounds.
+    // Assumes the row is "rigid" (maintains a constant height regardless of what is inside).
+    // `row` is the row number.
+    DayGrid.prototype.computeRowLevelLimit = function (row) {
+        var rowEl = this.rowEls[row]; // the containing "fake" row div
+        var rowBottom = rowEl.getBoundingClientRect().bottom; // relative to viewport!
+        var trEls = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findChildren"])(this.eventRenderer.rowStructs[row].tbodyEl);
+        var i;
+        var trEl;
+        // Reveal one level <tr> at a time and stop when we find one out of bounds
+        for (i = 0; i < trEls.length; i++) {
+            trEl = trEls[i];
+            trEl.classList.remove('fc-limited'); // reset to original state (reveal)
+            if (trEl.getBoundingClientRect().bottom > rowBottom) {
+                return i;
+            }
         }
-        else if (this.dataType == 'string') {
-            if (this.isSingleSelection()) {
-                this.onModelChange(this.formatDateTime(this.value));
+        return false; // should not limit at all
+    };
+    // Limits the given grid row to the maximum number of levels and injects "more" links if necessary.
+    // `row` is the row number.
+    // `levelLimit` is a number for the maximum (inclusive) number of levels allowed.
+    DayGrid.prototype.limitRow = function (row, levelLimit) {
+        var _this = this;
+        var _a = this, colCnt = _a.colCnt, isRtl = _a.isRtl;
+        var rowStruct = this.eventRenderer.rowStructs[row];
+        var moreNodes = []; // array of "more" <a> links and <td> DOM nodes
+        var col = 0; // col #, left-to-right (not chronologically)
+        var levelSegs; // array of segment objects in the last allowable level, ordered left-to-right
+        var cellMatrix; // a matrix (by level, then column) of all <td> elements in the row
+        var limitedNodes; // array of temporarily hidden level <tr> and segment <td> DOM nodes
+        var i;
+        var seg;
+        var segsBelow; // array of segment objects below `seg` in the current `col`
+        var totalSegsBelow; // total number of segments below `seg` in any of the columns `seg` occupies
+        var colSegsBelow; // array of segment arrays, below seg, one for each column (offset from segs's first column)
+        var td;
+        var rowSpan;
+        var segMoreNodes; // array of "more" <td> cells that will stand-in for the current seg's cell
+        var j;
+        var moreTd;
+        var moreWrap;
+        var moreLink;
+        // Iterates through empty level cells and places "more" links inside if need be
+        var emptyCellsUntil = function (endCol) {
+            while (col < endCol) {
+                segsBelow = _this.getCellSegs(row, col, levelLimit);
+                if (segsBelow.length) {
+                    td = cellMatrix[levelLimit - 1][col];
+                    moreLink = _this.renderMoreLink(row, col, segsBelow);
+                    moreWrap = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', null, moreLink);
+                    td.appendChild(moreWrap);
+                    moreNodes.push(moreWrap);
+                }
+                col++;
+            }
+        };
+        if (levelLimit && levelLimit < rowStruct.segLevels.length) { // is it actually over the limit?
+            levelSegs = rowStruct.segLevels[levelLimit - 1];
+            cellMatrix = rowStruct.cellMatrix;
+            limitedNodes = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findChildren"])(rowStruct.tbodyEl).slice(levelLimit); // get level <tr> elements past the limit
+            limitedNodes.forEach(function (node) {
+                node.classList.add('fc-limited'); // hide elements and get a simple DOM-nodes array
+            });
+            // iterate though segments in the last allowable level
+            for (i = 0; i < levelSegs.length; i++) {
+                seg = levelSegs[i];
+                var leftCol = isRtl ? (colCnt - 1 - seg.lastCol) : seg.firstCol;
+                var rightCol = isRtl ? (colCnt - 1 - seg.firstCol) : seg.lastCol;
+                emptyCellsUntil(leftCol); // process empty cells before the segment
+                // determine *all* segments below `seg` that occupy the same columns
+                colSegsBelow = [];
+                totalSegsBelow = 0;
+                while (col <= rightCol) {
+                    segsBelow = this.getCellSegs(row, col, levelLimit);
+                    colSegsBelow.push(segsBelow);
+                    totalSegsBelow += segsBelow.length;
+                    col++;
+                }
+                if (totalSegsBelow) { // do we need to replace this segment with one or many "more" links?
+                    td = cellMatrix[levelLimit - 1][leftCol]; // the segment's parent cell
+                    rowSpan = td.rowSpan || 1;
+                    segMoreNodes = [];
+                    // make a replacement <td> for each column the segment occupies. will be one for each colspan
+                    for (j = 0; j < colSegsBelow.length; j++) {
+                        moreTd = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createElement"])('td', { className: 'fc-more-cell', rowSpan: rowSpan });
+                        segsBelow = colSegsBelow[j];
+                        moreLink = this.renderMoreLink(row, leftCol + j, [seg].concat(segsBelow) // count seg as hidden too
+                        );
+                        moreWrap = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', null, moreLink);
+                        moreTd.appendChild(moreWrap);
+                        segMoreNodes.push(moreTd);
+                        moreNodes.push(moreTd);
+                    }
+                    td.classList.add('fc-limited');
+                    Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["insertAfterElement"])(td, segMoreNodes);
+                    limitedNodes.push(td);
+                }
+            }
+            emptyCellsUntil(this.colCnt); // finish off the level
+            rowStruct.moreEls = moreNodes; // for easy undoing later
+            rowStruct.limitedEls = limitedNodes; // for easy undoing later
+        }
+    };
+    // Reveals all levels and removes all "more"-related elements for a grid's row.
+    // `row` is a row number.
+    DayGrid.prototype.unlimitRow = function (row) {
+        var rowStruct = this.eventRenderer.rowStructs[row];
+        if (rowStruct.moreEls) {
+            rowStruct.moreEls.forEach(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["removeElement"]);
+            rowStruct.moreEls = null;
+        }
+        if (rowStruct.limitedEls) {
+            rowStruct.limitedEls.forEach(function (limitedEl) {
+                limitedEl.classList.remove('fc-limited');
+            });
+            rowStruct.limitedEls = null;
+        }
+    };
+    // Renders an <a> element that represents hidden event element for a cell.
+    // Responsible for attaching click handler as well.
+    DayGrid.prototype.renderMoreLink = function (row, col, hiddenSegs) {
+        var _this = this;
+        var _a = this, view = _a.view, dateEnv = _a.dateEnv;
+        var a = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createElement"])('a', { className: 'fc-more' });
+        a.innerText = this.getMoreLinkText(hiddenSegs.length);
+        a.addEventListener('click', function (ev) {
+            var clickOption = _this.opt('eventLimitClick');
+            var _col = _this.isRtl ? _this.colCnt - col - 1 : col; // HACK: props.cells has different dir system?
+            var date = _this.props.cells[row][_col].date;
+            var moreEl = ev.currentTarget;
+            var dayEl = _this.getCellEl(row, col);
+            var allSegs = _this.getCellSegs(row, col);
+            // rescope the segments to be within the cell's date
+            var reslicedAllSegs = _this.resliceDaySegs(allSegs, date);
+            var reslicedHiddenSegs = _this.resliceDaySegs(hiddenSegs, date);
+            if (typeof clickOption === 'function') {
+                // the returned value can be an atomic option
+                clickOption = _this.publiclyTrigger('eventLimitClick', [
+                    {
+                        date: dateEnv.toDate(date),
+                        allDay: true,
+                        dayEl: dayEl,
+                        moreEl: moreEl,
+                        segs: reslicedAllSegs,
+                        hiddenSegs: reslicedHiddenSegs,
+                        jsEvent: ev,
+                        view: view
+                    }
+                ]);
+            }
+            if (clickOption === 'popover') {
+                _this.showSegPopover(row, col, moreEl, reslicedAllSegs);
+            }
+            else if (typeof clickOption === 'string') { // a view name
+                view.calendar.zoomTo(date, clickOption);
+            }
+        });
+        return a;
+    };
+    // Reveals the popover that displays all events within a cell
+    DayGrid.prototype.showSegPopover = function (row, col, moreLink, segs) {
+        var _this = this;
+        var _a = this, calendar = _a.calendar, view = _a.view, theme = _a.theme;
+        var _col = this.isRtl ? this.colCnt - col - 1 : col; // HACK: props.cells has different dir system?
+        var moreWrap = moreLink.parentNode; // the <div> wrapper around the <a>
+        var topEl; // the element we want to match the top coordinate of
+        var options;
+        if (this.rowCnt === 1) {
+            topEl = view.el; // will cause the popover to cover any sort of header
+        }
+        else {
+            topEl = this.rowEls[row]; // will align with top of row
+        }
+        options = {
+            className: 'fc-more-popover ' + theme.getClass('popover'),
+            parentEl: view.el,
+            top: Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["computeRect"])(topEl).top,
+            autoHide: true,
+            content: function (el) {
+                _this.segPopoverTile = new DayTile(_this.context, el);
+                _this.updateSegPopoverTile(_this.props.cells[row][_col].date, segs);
+            },
+            hide: function () {
+                _this.segPopoverTile.destroy();
+                _this.segPopoverTile = null;
+                _this.segPopover.destroy();
+                _this.segPopover = null;
+            }
+        };
+        // Determine horizontal coordinate.
+        // We use the moreWrap instead of the <td> to avoid border confusion.
+        if (this.isRtl) {
+            options.right = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["computeRect"])(moreWrap).right + 1; // +1 to be over cell border
+        }
+        else {
+            options.left = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["computeRect"])(moreWrap).left - 1; // -1 to be over cell border
+        }
+        this.segPopover = new Popover(options);
+        this.segPopover.show();
+        calendar.releaseAfterSizingTriggers(); // hack for eventPositioned
+    };
+    // Given the events within an array of segment objects, reslice them to be in a single day
+    DayGrid.prototype.resliceDaySegs = function (segs, dayDate) {
+        var dayStart = dayDate;
+        var dayEnd = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["addDays"])(dayStart, 1);
+        var dayRange = { start: dayStart, end: dayEnd };
+        var newSegs = [];
+        for (var _i = 0, segs_1 = segs; _i < segs_1.length; _i++) {
+            var seg = segs_1[_i];
+            var eventRange = seg.eventRange;
+            var origRange = eventRange.range;
+            var slicedRange = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["intersectRanges"])(origRange, dayRange);
+            if (slicedRange) {
+                newSegs.push(__assign({}, seg, { eventRange: {
+                        def: eventRange.def,
+                        ui: __assign({}, eventRange.ui, { durationEditable: false }),
+                        instance: eventRange.instance,
+                        range: slicedRange
+                    }, isStart: seg.isStart && slicedRange.start.valueOf() === origRange.start.valueOf(), isEnd: seg.isEnd && slicedRange.end.valueOf() === origRange.end.valueOf() }));
+            }
+        }
+        return newSegs;
+    };
+    // Generates the text that should be inside a "more" link, given the number of events it represents
+    DayGrid.prototype.getMoreLinkText = function (num) {
+        var opt = this.opt('eventLimitText');
+        if (typeof opt === 'function') {
+            return opt(num);
+        }
+        else {
+            return '+' + num + ' ' + opt;
+        }
+    };
+    // Returns segments within a given cell.
+    // If `startLevel` is specified, returns only events including and below that level. Otherwise returns all segs.
+    DayGrid.prototype.getCellSegs = function (row, col, startLevel) {
+        var segMatrix = this.eventRenderer.rowStructs[row].segMatrix;
+        var level = startLevel || 0;
+        var segs = [];
+        var seg;
+        while (level < segMatrix.length) {
+            seg = segMatrix[level][col];
+            if (seg) {
+                segs.push(seg);
+            }
+            level++;
+        }
+        return segs;
+    };
+    return DayGrid;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["DateComponent"]));
+
+var WEEK_NUM_FORMAT$1 = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createFormatter"])({ week: 'numeric' });
+/* An abstract class for the daygrid views, as well as month view. Renders one or more rows of day cells.
+----------------------------------------------------------------------------------------------------------------------*/
+// It is a manager for a DayGrid subcomponent, which does most of the heavy lifting.
+// It is responsible for managing width/height.
+var DayGridView = /** @class */ (function (_super) {
+    __extends(DayGridView, _super);
+    function DayGridView(context, viewSpec, dateProfileGenerator, parentEl) {
+        var _this = _super.call(this, context, viewSpec, dateProfileGenerator, parentEl) || this;
+        /* Header Rendering
+        ------------------------------------------------------------------------------------------------------------------*/
+        // Generates the HTML that will go before the day-of week header cells
+        _this.renderHeadIntroHtml = function () {
+            var theme = _this.theme;
+            if (_this.colWeekNumbersVisible) {
+                return '' +
+                    '<th class="fc-week-number ' + theme.getClass('widgetHeader') + '" ' + _this.weekNumberStyleAttr() + '>' +
+                    '<span>' + // needed for matchCellWidths
+                    Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlEscape"])(_this.opt('weekLabel')) +
+                    '</span>' +
+                    '</th>';
+            }
+            return '';
+        };
+        /* Day Grid Rendering
+        ------------------------------------------------------------------------------------------------------------------*/
+        // Generates the HTML that will go before content-skeleton cells that display the day/week numbers
+        _this.renderDayGridNumberIntroHtml = function (row, dayGrid) {
+            var dateEnv = _this.dateEnv;
+            var weekStart = dayGrid.props.cells[row][0].date;
+            if (_this.colWeekNumbersVisible) {
+                return '' +
+                    '<td class="fc-week-number" ' + _this.weekNumberStyleAttr() + '>' +
+                    Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["buildGotoAnchorHtml"])(// aside from link, important for matchCellWidths
+                    _this, { date: weekStart, type: 'week', forceOff: dayGrid.colCnt === 1 }, dateEnv.format(weekStart, WEEK_NUM_FORMAT$1) // inner HTML
+                    ) +
+                    '</td>';
+            }
+            return '';
+        };
+        // Generates the HTML that goes before the day bg cells for each day-row
+        _this.renderDayGridBgIntroHtml = function () {
+            var theme = _this.theme;
+            if (_this.colWeekNumbersVisible) {
+                return '<td class="fc-week-number ' + theme.getClass('widgetContent') + '" ' + _this.weekNumberStyleAttr() + '></td>';
+            }
+            return '';
+        };
+        // Generates the HTML that goes before every other type of row generated by DayGrid.
+        // Affects mirror-skeleton and highlight-skeleton rows.
+        _this.renderDayGridIntroHtml = function () {
+            if (_this.colWeekNumbersVisible) {
+                return '<td class="fc-week-number" ' + _this.weekNumberStyleAttr() + '></td>';
+            }
+            return '';
+        };
+        _this.el.classList.add('fc-dayGrid-view');
+        _this.el.innerHTML = _this.renderSkeletonHtml();
+        _this.scroller = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["ScrollComponent"]('hidden', // overflow x
+        'auto' // overflow y
+        );
+        var dayGridContainerEl = _this.scroller.el;
+        _this.el.querySelector('.fc-body > tr > td').appendChild(dayGridContainerEl);
+        dayGridContainerEl.classList.add('fc-day-grid-container');
+        var dayGridEl = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', { className: 'fc-day-grid' });
+        dayGridContainerEl.appendChild(dayGridEl);
+        var cellWeekNumbersVisible;
+        if (_this.opt('weekNumbers')) {
+            if (_this.opt('weekNumbersWithinDays')) {
+                cellWeekNumbersVisible = true;
+                _this.colWeekNumbersVisible = false;
             }
             else {
-                let stringArrValue = null;
-                if (this.value) {
-                    stringArrValue = this.value.map(date => this.formatDateTime(date));
-                }
-                this.onModelChange(stringArrValue);
-            }
-        }
-    }
-    getFirstDayOfMonthIndex(month, year) {
-        let day = new Date();
-        day.setDate(1);
-        day.setMonth(month);
-        day.setFullYear(year);
-        let dayIndex = day.getDay() + this.getSundayIndex();
-        return dayIndex >= 7 ? dayIndex - 7 : dayIndex;
-    }
-    getDaysCountInMonth(month, year) {
-        return 32 - this.daylightSavingAdjust(new Date(year, month, 32)).getDate();
-    }
-    getDaysCountInPrevMonth(month, year) {
-        let prev = this.getPreviousMonthAndYear(month, year);
-        return this.getDaysCountInMonth(prev.month, prev.year);
-    }
-    getPreviousMonthAndYear(month, year) {
-        let m, y;
-        if (month === 0) {
-            m = 11;
-            y = year - 1;
-        }
-        else {
-            m = month - 1;
-            y = year;
-        }
-        return { 'month': m, 'year': y };
-    }
-    getNextMonthAndYear(month, year) {
-        let m, y;
-        if (month === 11) {
-            m = 0;
-            y = year + 1;
-        }
-        else {
-            m = month + 1;
-            y = year;
-        }
-        return { 'month': m, 'year': y };
-    }
-    getSundayIndex() {
-        return this.locale.firstDayOfWeek > 0 ? 7 - this.locale.firstDayOfWeek : 0;
-    }
-    isSelected(dateMeta) {
-        if (this.value) {
-            if (this.isSingleSelection()) {
-                return this.isDateEquals(this.value, dateMeta);
-            }
-            else if (this.isMultipleSelection()) {
-                let selected = false;
-                for (let date of this.value) {
-                    selected = this.isDateEquals(date, dateMeta);
-                    if (selected) {
-                        break;
-                    }
-                }
-                return selected;
-            }
-            else if (this.isRangeSelection()) {
-                if (this.value[1])
-                    return this.isDateEquals(this.value[0], dateMeta) || this.isDateEquals(this.value[1], dateMeta) || this.isDateBetween(this.value[0], this.value[1], dateMeta);
-                else
-                    return this.isDateEquals(this.value[0], dateMeta);
+                cellWeekNumbersVisible = false;
+                _this.colWeekNumbersVisible = true;
             }
         }
         else {
-            return false;
+            _this.colWeekNumbersVisible = false;
+            cellWeekNumbersVisible = false;
         }
+        _this.dayGrid = new DayGrid(_this.context, dayGridEl, {
+            renderNumberIntroHtml: _this.renderDayGridNumberIntroHtml,
+            renderBgIntroHtml: _this.renderDayGridBgIntroHtml,
+            renderIntroHtml: _this.renderDayGridIntroHtml,
+            colWeekNumbersVisible: _this.colWeekNumbersVisible,
+            cellWeekNumbersVisible: cellWeekNumbersVisible
+        });
+        return _this;
     }
-    isMonthSelected(month) {
-        let day = this.value ? (Array.isArray(this.value) ? this.value[0].getDate() : this.value.getDate()) : 1;
-        return this.isSelected({ year: this.currentYear, month: month, day: day, selectable: true });
-    }
-    isDateEquals(value, dateMeta) {
-        if (value)
-            return value.getDate() === dateMeta.day && value.getMonth() === dateMeta.month && value.getFullYear() === dateMeta.year;
-        else
-            return false;
-    }
-    isDateBetween(start, end, dateMeta) {
-        let between = false;
-        if (start && end) {
-            let date = new Date(dateMeta.year, dateMeta.month, dateMeta.day);
-            return start.getTime() <= date.getTime() && end.getTime() >= date.getTime();
+    DayGridView.prototype.destroy = function () {
+        _super.prototype.destroy.call(this);
+        this.dayGrid.destroy();
+        this.scroller.destroy();
+    };
+    // Builds the HTML skeleton for the view.
+    // The day-grid component will render inside of a container defined by this HTML.
+    DayGridView.prototype.renderSkeletonHtml = function () {
+        var theme = this.theme;
+        return '' +
+            '<table class="' + theme.getClass('tableGrid') + '">' +
+            (this.opt('columnHeader') ?
+                '<thead class="fc-head">' +
+                    '<tr>' +
+                    '<td class="fc-head-container ' + theme.getClass('widgetHeader') + '">&nbsp;</td>' +
+                    '</tr>' +
+                    '</thead>' :
+                '') +
+            '<tbody class="fc-body">' +
+            '<tr>' +
+            '<td class="' + theme.getClass('widgetContent') + '"></td>' +
+            '</tr>' +
+            '</tbody>' +
+            '</table>';
+    };
+    // Generates an HTML attribute string for setting the width of the week number column, if it is known
+    DayGridView.prototype.weekNumberStyleAttr = function () {
+        if (this.weekNumberWidth != null) {
+            return 'style="width:' + this.weekNumberWidth + 'px"';
         }
-        return between;
-    }
-    isSingleSelection() {
-        return this.selectionMode === 'single';
-    }
-    isRangeSelection() {
-        return this.selectionMode === 'range';
-    }
-    isMultipleSelection() {
-        return this.selectionMode === 'multiple';
-    }
-    isToday(today, day, month, year) {
-        return today.getDate() === day && today.getMonth() === month && today.getFullYear() === year;
-    }
-    isSelectable(day, month, year, otherMonth) {
-        let validMin = true;
-        let validMax = true;
-        let validDate = true;
-        let validDay = true;
-        if (otherMonth && !this.selectOtherMonths) {
-            return false;
-        }
-        if (this.minDate) {
-            if (this.minDate.getFullYear() > year) {
-                validMin = false;
+        return '';
+    };
+    // Determines whether each row should have a constant height
+    DayGridView.prototype.hasRigidRows = function () {
+        var eventLimit = this.opt('eventLimit');
+        return eventLimit && typeof eventLimit !== 'number';
+    };
+    /* Dimensions
+    ------------------------------------------------------------------------------------------------------------------*/
+    DayGridView.prototype.updateSize = function (isResize, viewHeight, isAuto) {
+        _super.prototype.updateSize.call(this, isResize, viewHeight, isAuto); // will call updateBaseSize. important that executes first
+        this.dayGrid.updateSize(isResize);
+    };
+    // Refreshes the horizontal dimensions of the view
+    DayGridView.prototype.updateBaseSize = function (isResize, viewHeight, isAuto) {
+        var dayGrid = this.dayGrid;
+        var eventLimit = this.opt('eventLimit');
+        var headRowEl = this.header ? this.header.el : null; // HACK
+        var scrollerHeight;
+        var scrollbarWidths;
+        // hack to give the view some height prior to dayGrid's columns being rendered
+        // TODO: separate setting height from scroller VS dayGrid.
+        if (!dayGrid.rowEls) {
+            if (!isAuto) {
+                scrollerHeight = this.computeScrollerHeight(viewHeight);
+                this.scroller.setHeight(scrollerHeight);
             }
-            else if (this.minDate.getFullYear() === year) {
-                if (this.minDate.getMonth() > month) {
-                    validMin = false;
-                }
-                else if (this.minDate.getMonth() === month) {
-                    if (this.minDate.getDate() > day) {
-                        validMin = false;
-                    }
-                }
-            }
-        }
-        if (this.maxDate) {
-            if (this.maxDate.getFullYear() < year) {
-                validMax = false;
-            }
-            else if (this.maxDate.getFullYear() === year) {
-                if (this.maxDate.getMonth() < month) {
-                    validMax = false;
-                }
-                else if (this.maxDate.getMonth() === month) {
-                    if (this.maxDate.getDate() < day) {
-                        validMax = false;
-                    }
-                }
-            }
-        }
-        if (this.disabledDates) {
-            validDate = !this.isDateDisabled(day, month, year);
-        }
-        if (this.disabledDays) {
-            validDay = !this.isDayDisabled(day, month, year);
-        }
-        return validMin && validMax && validDate && validDay;
-    }
-    isDateDisabled(day, month, year) {
-        if (this.disabledDates) {
-            for (let disabledDate of this.disabledDates) {
-                if (disabledDate.getFullYear() === year && disabledDate.getMonth() === month && disabledDate.getDate() === day) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    isDayDisabled(day, month, year) {
-        if (this.disabledDays) {
-            let weekday = new Date(year, month, day);
-            let weekdayNumber = weekday.getDay();
-            return this.disabledDays.indexOf(weekdayNumber) !== -1;
-        }
-        return false;
-    }
-    onInputFocus(event) {
-        this.focus = true;
-        if (this.showOnFocus) {
-            this.showOverlay();
-        }
-        this.onFocus.emit(event);
-    }
-    onInputClick(event) {
-        if (this.overlay && this.autoZIndex) {
-            this.overlay.style.zIndex = String(this.baseZIndex + (++primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].zindex));
-        }
-        if (this.showOnFocus && !this.overlayVisible) {
-            this.showOverlay();
-        }
-    }
-    onInputBlur(event) {
-        this.focus = false;
-        this.onBlur.emit(event);
-        if (!this.keepInvalid) {
-            this.updateInputfield();
-        }
-        this.onModelTouched();
-    }
-    onButtonClick(event, inputfield) {
-        if (!this.overlayVisible) {
-            inputfield.focus();
-            this.showOverlay();
-        }
-        else {
-            this.hideOverlay();
-        }
-    }
-    onPrevButtonClick(event) {
-        this.navigationState = { backward: true, button: true };
-        this.navBackward(event);
-    }
-    onNextButtonClick(event) {
-        this.navigationState = { backward: false, button: true };
-        this.navForward(event);
-    }
-    onContainerButtonKeydown(event) {
-        switch (event.which) {
-            //tab
-            case 9:
-                if (!this.inline) {
-                    this.trapFocus(event);
-                }
-                break;
-            //escape
-            case 27:
-                this.overlayVisible = false;
-                event.preventDefault();
-                break;
-            default:
-                //Noop
-                break;
-        }
-    }
-    onInputKeydown(event) {
-        this.isKeydown = true;
-        if (event.keyCode === 9 && this.contentViewChild) {
-            this.trapFocus(event);
-        }
-        else if (event.keyCode === 27) {
-            if (this.overlayVisible) {
-                this.overlayVisible = false;
-                event.preventDefault();
-            }
-        }
-    }
-    onDateCellKeydown(event, date, groupIndex) {
-        const cellContent = event.currentTarget;
-        const cell = cellContent.parentElement;
-        switch (event.which) {
-            //down arrow
-            case 40: {
-                cellContent.tabIndex = '-1';
-                let cellIndex = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].index(cell);
-                let nextRow = cell.parentElement.nextElementSibling;
-                if (nextRow) {
-                    let focusCell = nextRow.children[cellIndex].children[0];
-                    if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell, 'ui-state-disabled')) {
-                        this.navigationState = { backward: false };
-                        this.navForward(event);
-                    }
-                    else {
-                        nextRow.children[cellIndex].children[0].tabIndex = '0';
-                        nextRow.children[cellIndex].children[0].focus();
-                    }
-                }
-                else {
-                    this.navigationState = { backward: false };
-                    this.navForward(event);
-                }
-                event.preventDefault();
-                break;
-            }
-            //up arrow
-            case 38: {
-                cellContent.tabIndex = '-1';
-                let cellIndex = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].index(cell);
-                let prevRow = cell.parentElement.previousElementSibling;
-                if (prevRow) {
-                    let focusCell = prevRow.children[cellIndex].children[0];
-                    if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell, 'ui-state-disabled')) {
-                        this.navigationState = { backward: true };
-                        this.navBackward(event);
-                    }
-                    else {
-                        focusCell.tabIndex = '0';
-                        focusCell.focus();
-                    }
-                }
-                else {
-                    this.navigationState = { backward: true };
-                    this.navBackward(event);
-                }
-                event.preventDefault();
-                break;
-            }
-            //left arrow
-            case 37: {
-                cellContent.tabIndex = '-1';
-                let prevCell = cell.previousElementSibling;
-                if (prevCell) {
-                    let focusCell = prevCell.children[0];
-                    if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell, 'ui-state-disabled') || primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell.parentElement, 'ui-datepicker-weeknumber')) {
-                        this.navigateToMonth(true, groupIndex);
-                    }
-                    else {
-                        focusCell.tabIndex = '0';
-                        focusCell.focus();
-                    }
-                }
-                else {
-                    this.navigateToMonth(true, groupIndex);
-                }
-                event.preventDefault();
-                break;
-            }
-            //right arrow
-            case 39: {
-                cellContent.tabIndex = '-1';
-                let nextCell = cell.nextElementSibling;
-                if (nextCell) {
-                    let focusCell = nextCell.children[0];
-                    if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell, 'ui-state-disabled')) {
-                        this.navigateToMonth(false, groupIndex);
-                    }
-                    else {
-                        focusCell.tabIndex = '0';
-                        focusCell.focus();
-                    }
-                }
-                else {
-                    this.navigateToMonth(false, groupIndex);
-                }
-                event.preventDefault();
-                break;
-            }
-            //enter
-            case 13: {
-                this.onDateSelect(event, date);
-                event.preventDefault();
-                break;
-            }
-            //escape
-            case 27: {
-                this.overlayVisible = false;
-                event.preventDefault();
-                break;
-            }
-            //tab
-            case 9: {
-                if (!this.inline) {
-                    this.trapFocus(event);
-                }
-                break;
-            }
-            default:
-                //no op
-                break;
-        }
-    }
-    onMonthCellKeydown(event, index) {
-        const cell = event.currentTarget;
-        switch (event.which) {
-            //arrows
-            case 38:
-            case 40: {
-                cell.tabIndex = '-1';
-                var cells = cell.parentElement.children;
-                var cellIndex = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].index(cell);
-                let nextCell = cells[event.which === 40 ? cellIndex + 3 : cellIndex - 3];
-                if (nextCell) {
-                    nextCell.tabIndex = '0';
-                    nextCell.focus();
-                }
-                event.preventDefault();
-                break;
-            }
-            //left arrow
-            case 37: {
-                cell.tabIndex = '-1';
-                let prevCell = cell.previousElementSibling;
-                if (prevCell) {
-                    prevCell.tabIndex = '0';
-                    prevCell.focus();
-                }
-                event.preventDefault();
-                break;
-            }
-            //right arrow
-            case 39: {
-                cell.tabIndex = '-1';
-                let nextCell = cell.nextElementSibling;
-                if (nextCell) {
-                    nextCell.tabIndex = '0';
-                    nextCell.focus();
-                }
-                event.preventDefault();
-                break;
-            }
-            //enter
-            case 13: {
-                this.onMonthSelect(event, index);
-                event.preventDefault();
-                break;
-            }
-            //escape
-            case 27: {
-                this.overlayVisible = false;
-                event.preventDefault();
-                break;
-            }
-            //tab
-            case 9: {
-                if (!this.inline) {
-                    this.trapFocus(event);
-                }
-                break;
-            }
-            default:
-                //no op
-                break;
-        }
-    }
-    navigateToMonth(prev, groupIndex) {
-        if (prev) {
-            if (this.numberOfMonths === 1 || (groupIndex === 0)) {
-                this.navigationState = { backward: true };
-                this.navBackward(event);
-            }
-            else {
-                let prevMonthContainer = this.contentViewChild.nativeElement.children[groupIndex - 1];
-                let cells = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].find(prevMonthContainer, '.ui-datepicker-calendar td a');
-                let focusCell = cells[cells.length - 1];
-                focusCell.tabIndex = '0';
-                focusCell.focus();
-            }
-        }
-        else {
-            if (this.numberOfMonths === 1 || (groupIndex === this.numberOfMonths - 1)) {
-                this.navigationState = { backward: false };
-                this.navForward(event);
-            }
-            else {
-                let nextMonthContainer = this.contentViewChild.nativeElement.children[groupIndex + 1];
-                let focusCell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(nextMonthContainer, '.ui-datepicker-calendar td a');
-                focusCell.tabIndex = '0';
-                focusCell.focus();
-            }
-        }
-    }
-    updateFocus() {
-        let cell;
-        if (this.navigationState) {
-            if (this.navigationState.button) {
-                this.initFocusableCell();
-                if (this.navigationState.backward)
-                    primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-datepicker-prev').focus();
-                else
-                    primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-datepicker-next').focus();
-            }
-            else {
-                if (this.navigationState.backward) {
-                    let cells = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].find(this.contentViewChild.nativeElement, '.ui-datepicker-calendar td a');
-                    cell = cells[cells.length - 1];
-                }
-                else {
-                    cell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-datepicker-calendar td a');
-                }
-                if (cell) {
-                    cell.tabIndex = '0';
-                    cell.focus();
-                }
-            }
-            this.navigationState = null;
-        }
-        else {
-            this.initFocusableCell();
-        }
-    }
-    initFocusableCell() {
-        let cell;
-        if (this.view === 'month') {
-            let cells = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].find(this.contentViewChild.nativeElement, '.ui-monthpicker .ui-monthpicker-month');
-            let selectedCell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-monthpicker .ui-monthpicker-month.ui-state-highlight');
-            cells.forEach(cell => cell.tabIndex = -1);
-            cell = selectedCell || cells[0];
-        }
-        else {
-            cell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, 'a.ui-state-active');
-            if (!cell) {
-                let todayCell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, 'td.ui-datepicker-today a:not(.ui-state-disabled)');
-                if (todayCell)
-                    cell = todayCell;
-                else
-                    cell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-datepicker-calendar td a');
-            }
-        }
-        if (cell) {
-            cell.tabIndex = '0';
-        }
-    }
-    trapFocus(event) {
-        event.preventDefault();
-        let focusableElements = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].getFocusableElements(this.contentViewChild.nativeElement);
-        if (focusableElements && focusableElements.length > 0) {
-            if (!document.activeElement) {
-                focusableElements[0].focus();
-            }
-            else {
-                let focusedIndex = focusableElements.indexOf(document.activeElement);
-                if (event.shiftKey) {
-                    if (focusedIndex == -1 || focusedIndex === 0)
-                        focusableElements[focusableElements.length - 1].focus();
-                    else
-                        focusableElements[focusedIndex - 1].focus();
-                }
-                else {
-                    if (focusedIndex == -1 || focusedIndex === (focusableElements.length - 1))
-                        focusableElements[0].focus();
-                    else
-                        focusableElements[focusedIndex + 1].focus();
-                }
-            }
-        }
-    }
-    onMonthDropdownChange(m) {
-        this.currentMonth = parseInt(m);
-        this.onMonthChange.emit({ month: this.currentMonth + 1, year: this.currentYear });
-        this.createMonths(this.currentMonth, this.currentYear);
-    }
-    onYearDropdownChange(y) {
-        this.currentYear = parseInt(y);
-        this.onYearChange.emit({ month: this.currentMonth + 1, year: this.currentYear });
-        this.createMonths(this.currentMonth, this.currentYear);
-    }
-    incrementHour(event) {
-        const prevHour = this.currentHour;
-        const newHour = this.currentHour + this.stepHour;
-        if (this.validateHour(newHour)) {
-            if (this.hourFormat == '24')
-                this.currentHour = (newHour >= 24) ? (newHour - 24) : newHour;
-            else if (this.hourFormat == '12') {
-                // Before the AM/PM break, now after
-                if (prevHour < 12 && newHour > 11) {
-                    this.pm = !this.pm;
-                }
-                this.currentHour = (newHour >= 13) ? (newHour - 12) : newHour;
-            }
-        }
-        event.preventDefault();
-    }
-    onTimePickerElementMouseDown(event, type, direction) {
-        if (!this.disabled) {
-            this.repeat(event, null, type, direction);
-            event.preventDefault();
-        }
-    }
-    onTimePickerElementMouseUp(event) {
-        if (!this.disabled) {
-            this.clearTimePickerTimer();
-            this.updateTime();
-        }
-    }
-    onTimePickerElementMouseOut(event) {
-        if (!this.disabled) {
-            this.clearTimePickerTimer();
-            this.updateTime();
-        }
-    }
-    repeat(event, interval, type, direction) {
-        let i = interval || 500;
-        this.clearTimePickerTimer();
-        this.timePickerTimer = setTimeout(() => {
-            this.repeat(event, 100, type, direction);
-        }, i);
-        switch (type) {
-            case 0:
-                if (direction === 1)
-                    this.incrementHour(event);
-                else
-                    this.decrementHour(event);
-                break;
-            case 1:
-                if (direction === 1)
-                    this.incrementMinute(event);
-                else
-                    this.decrementMinute(event);
-                break;
-            case 2:
-                if (direction === 1)
-                    this.incrementSecond(event);
-                else
-                    this.decrementSecond(event);
-                break;
-        }
-        this.updateInputfield();
-    }
-    clearTimePickerTimer() {
-        if (this.timePickerTimer) {
-            clearInterval(this.timePickerTimer);
-        }
-    }
-    decrementHour(event) {
-        const newHour = this.currentHour - this.stepHour;
-        if (this.validateHour(newHour)) {
-            if (this.hourFormat == '24')
-                this.currentHour = (newHour < 0) ? (24 + newHour) : newHour;
-            else if (this.hourFormat == '12') {
-                // If we were at noon/midnight, then switch
-                if (this.currentHour === 12) {
-                    this.pm = !this.pm;
-                }
-                this.currentHour = (newHour <= 0) ? (12 + newHour) : newHour;
-            }
-        }
-        event.preventDefault();
-    }
-    validateHour(hour) {
-        let valid = true;
-        let value = this.value;
-        if (this.isRangeSelection()) {
-            value = this.value[1] || this.value[0];
-        }
-        if (this.isMultipleSelection()) {
-            value = this.value[this.value.length - 1];
-        }
-        let valueDateString = value ? value.toDateString() : null;
-        if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
-            if (this.minDate.getHours() > hour) {
-                valid = false;
-            }
-        }
-        if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
-            if (this.maxDate.getHours() < hour) {
-                valid = false;
-            }
-        }
-        return valid;
-    }
-    incrementMinute(event) {
-        let newMinute = this.currentMinute + this.stepMinute;
-        if (this.validateMinute(newMinute)) {
-            this.currentMinute = (newMinute > 59) ? newMinute - 60 : newMinute;
-        }
-        event.preventDefault();
-    }
-    decrementMinute(event) {
-        let newMinute = this.currentMinute - this.stepMinute;
-        newMinute = (newMinute < 0) ? 60 + newMinute : newMinute;
-        if (this.validateMinute(newMinute)) {
-            this.currentMinute = newMinute;
-        }
-        event.preventDefault();
-    }
-    validateMinute(minute) {
-        let valid = true;
-        let value = this.value;
-        if (this.isRangeSelection()) {
-            value = this.value[1] || this.value[0];
-        }
-        if (this.isMultipleSelection()) {
-            value = this.value[this.value.length - 1];
-        }
-        let valueDateString = value ? value.toDateString() : null;
-        if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
-            if (value.getHours() == this.minDate.getHours()) {
-                if (this.minDate.getMinutes() > minute) {
-                    valid = false;
-                }
-            }
-        }
-        if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
-            if (value.getHours() == this.maxDate.getHours()) {
-                if (this.maxDate.getMinutes() < minute) {
-                    valid = false;
-                }
-            }
-        }
-        return valid;
-    }
-    incrementSecond(event) {
-        let newSecond = this.currentSecond + this.stepSecond;
-        if (this.validateSecond(newSecond)) {
-            this.currentSecond = (newSecond > 59) ? newSecond - 60 : newSecond;
-        }
-        event.preventDefault();
-    }
-    decrementSecond(event) {
-        let newSecond = this.currentSecond - this.stepSecond;
-        newSecond = (newSecond < 0) ? 60 + newSecond : newSecond;
-        if (this.validateSecond(newSecond)) {
-            this.currentSecond = newSecond;
-        }
-        event.preventDefault();
-    }
-    validateSecond(second) {
-        let valid = true;
-        let value = this.value;
-        if (this.isRangeSelection()) {
-            value = this.value[1] || this.value[0];
-        }
-        if (this.isMultipleSelection()) {
-            value = this.value[this.value.length - 1];
-        }
-        let valueDateString = value ? value.toDateString() : null;
-        if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
-            if (this.minDate.getSeconds() > second) {
-                valid = false;
-            }
-        }
-        if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
-            if (this.maxDate.getSeconds() < second) {
-                valid = false;
-            }
-        }
-        return valid;
-    }
-    updateTime() {
-        let value = this.value;
-        if (this.isRangeSelection()) {
-            value = this.value[1] || this.value[0];
-        }
-        if (this.isMultipleSelection()) {
-            value = this.value[this.value.length - 1];
-        }
-        value = value ? new Date(value.getTime()) : new Date();
-        if (this.hourFormat == '12') {
-            if (this.currentHour === 12)
-                value.setHours(this.pm ? 12 : 0);
-            else
-                value.setHours(this.pm ? this.currentHour + 12 : this.currentHour);
-        }
-        else {
-            value.setHours(this.currentHour);
-        }
-        value.setMinutes(this.currentMinute);
-        value.setSeconds(this.currentSecond);
-        if (this.isRangeSelection()) {
-            if (this.value[1])
-                value = [this.value[0], value];
-            else
-                value = [value, null];
-        }
-        if (this.isMultipleSelection()) {
-            value = [...this.value.slice(0, -1), value];
-        }
-        this.updateModel(value);
-        this.onSelect.emit(value);
-        this.updateInputfield();
-    }
-    toggleAMPM(event) {
-        this.pm = !this.pm;
-        this.updateTime();
-        event.preventDefault();
-    }
-    onUserInput(event) {
-        // IE 11 Workaround for input placeholder : https://github.com/primefaces/primeng/issues/2026
-        if (!this.isKeydown) {
             return;
         }
-        this.isKeydown = false;
-        let val = event.target.value;
-        try {
-            let value = this.parseValueFromString(val);
-            if (this.isValidSelection(value)) {
-                this.updateModel(value);
-                this.updateUI();
+        if (this.colWeekNumbersVisible) {
+            // Make sure all week number cells running down the side have the same width.
+            this.weekNumberWidth = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["matchCellWidths"])(Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findElements"])(this.el, '.fc-week-number'));
+        }
+        // reset all heights to be natural
+        this.scroller.clear();
+        if (headRowEl) {
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["uncompensateScroll"])(headRowEl);
+        }
+        dayGrid.removeSegPopover(); // kill the "more" popover if displayed
+        // is the event limit a constant level number?
+        if (eventLimit && typeof eventLimit === 'number') {
+            dayGrid.limitRows(eventLimit); // limit the levels first so the height can redistribute after
+        }
+        // distribute the height to the rows
+        // (viewHeight is a "recommended" value if isAuto)
+        scrollerHeight = this.computeScrollerHeight(viewHeight);
+        this.setGridHeight(scrollerHeight, isAuto);
+        // is the event limit dynamically calculated?
+        if (eventLimit && typeof eventLimit !== 'number') {
+            dayGrid.limitRows(eventLimit); // limit the levels after the grid's row heights have been set
+        }
+        if (!isAuto) { // should we force dimensions of the scroll container?
+            this.scroller.setHeight(scrollerHeight);
+            scrollbarWidths = this.scroller.getScrollbarWidths();
+            if (scrollbarWidths.left || scrollbarWidths.right) { // using scrollbars?
+                if (headRowEl) {
+                    Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["compensateScroll"])(headRowEl, scrollbarWidths);
+                }
+                // doing the scrollbar compensation might have created text overflow which created more height. redo
+                scrollerHeight = this.computeScrollerHeight(viewHeight);
+                this.scroller.setHeight(scrollerHeight);
             }
+            // guarantees the same scrollbar widths
+            this.scroller.lockOverflow(scrollbarWidths);
         }
-        catch (err) {
-            //invalid date
-            this.updateModel(null);
-        }
-        this.filled = val != null && val.length;
-        this.onInput.emit(event);
-    }
-    isValidSelection(value) {
-        let isValid = true;
-        if (this.isSingleSelection()) {
-            if (!this.isSelectable(value.getDate(), value.getMonth(), value.getFullYear(), false)) {
-                isValid = false;
+    };
+    // given a desired total height of the view, returns what the height of the scroller should be
+    DayGridView.prototype.computeScrollerHeight = function (viewHeight) {
+        return viewHeight -
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["subtractInnerElHeight"])(this.el, this.scroller.el); // everything that's NOT the scroller
+    };
+    // Sets the height of just the DayGrid component in this view
+    DayGridView.prototype.setGridHeight = function (height, isAuto) {
+        if (this.opt('monthMode')) {
+            // if auto, make the height of each row the height that it would be if there were 6 weeks
+            if (isAuto) {
+                height *= this.dayGrid.rowCnt / 6;
             }
-        }
-        else if (value.every(v => this.isSelectable(v.getDate(), v.getMonth(), v.getFullYear(), false))) {
-            if (this.isRangeSelection()) {
-                isValid = value.length > 1 && value[1] > value[0] ? true : false;
-            }
-        }
-        return isValid;
-    }
-    parseValueFromString(text) {
-        if (!text || text.trim().length === 0) {
-            return null;
-        }
-        let value;
-        if (this.isSingleSelection()) {
-            value = this.parseDateTime(text);
-        }
-        else if (this.isMultipleSelection()) {
-            let tokens = text.split(this.multipleSeparator);
-            value = [];
-            for (let token of tokens) {
-                value.push(this.parseDateTime(token.trim()));
-            }
-        }
-        else if (this.isRangeSelection()) {
-            let tokens = text.split(' ' + this.rangeSeparator + ' ');
-            value = [];
-            for (let i = 0; i < tokens.length; i++) {
-                value[i] = this.parseDateTime(tokens[i].trim());
-            }
-        }
-        return value;
-    }
-    parseDateTime(text) {
-        let date;
-        let parts = text.split(' ');
-        if (this.timeOnly) {
-            date = new Date();
-            this.populateTime(date, parts[0], parts[1]);
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["distributeHeight"])(this.dayGrid.rowEls, height, !isAuto); // if auto, don't compensate for height-hogging rows
         }
         else {
-            const dateFormat = this.getDateFormat();
-            if (this.showTime) {
-                let ampm = this.hourFormat == '12' ? parts.pop() : null;
-                let timeString = parts.pop();
-                date = this.parseDate(parts.join(' '), dateFormat);
-                this.populateTime(date, timeString, ampm);
+            if (isAuto) {
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["undistributeHeight"])(this.dayGrid.rowEls); // let the rows be their natural height with no expanding
             }
             else {
-                date = this.parseDate(text, dateFormat);
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["distributeHeight"])(this.dayGrid.rowEls, height, true); // true = compensate for height-hogging rows
             }
         }
-        return date;
+    };
+    /* Scroll
+    ------------------------------------------------------------------------------------------------------------------*/
+    DayGridView.prototype.computeDateScroll = function (duration) {
+        return { top: 0 };
+    };
+    DayGridView.prototype.queryDateScroll = function () {
+        return { top: this.scroller.getScrollTop() };
+    };
+    DayGridView.prototype.applyDateScroll = function (scroll) {
+        if (scroll.top !== undefined) {
+            this.scroller.setScrollTop(scroll.top);
+        }
+    };
+    return DayGridView;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["View"]));
+DayGridView.prototype.dateProfileGeneratorClass = DayGridDateProfileGenerator;
+
+var SimpleDayGrid = /** @class */ (function (_super) {
+    __extends(SimpleDayGrid, _super);
+    function SimpleDayGrid(context, dayGrid) {
+        var _this = _super.call(this, context, dayGrid.el) || this;
+        _this.slicer = new DayGridSlicer();
+        _this.dayGrid = dayGrid;
+        context.calendar.registerInteractiveComponent(_this, { el: _this.dayGrid.el });
+        return _this;
     }
-    populateTime(value, timeString, ampm) {
-        if (this.hourFormat == '12' && !ampm) {
-            throw 'Invalid Time';
+    SimpleDayGrid.prototype.destroy = function () {
+        _super.prototype.destroy.call(this);
+        this.calendar.unregisterInteractiveComponent(this);
+    };
+    SimpleDayGrid.prototype.render = function (props) {
+        var dayGrid = this.dayGrid;
+        var dateProfile = props.dateProfile, dayTable = props.dayTable;
+        dayGrid.receiveProps(__assign({}, this.slicer.sliceProps(props, dateProfile, props.nextDayThreshold, dayGrid, dayTable), { dateProfile: dateProfile, cells: dayTable.cells, isRigid: props.isRigid }));
+    };
+    SimpleDayGrid.prototype.buildPositionCaches = function () {
+        this.dayGrid.buildPositionCaches();
+    };
+    SimpleDayGrid.prototype.queryHit = function (positionLeft, positionTop) {
+        var rawHit = this.dayGrid.positionToHit(positionLeft, positionTop);
+        if (rawHit) {
+            return {
+                component: this.dayGrid,
+                dateSpan: rawHit.dateSpan,
+                dayEl: rawHit.dayEl,
+                rect: {
+                    left: rawHit.relativeRect.left,
+                    right: rawHit.relativeRect.right,
+                    top: rawHit.relativeRect.top,
+                    bottom: rawHit.relativeRect.bottom
+                },
+                layer: 0
+            };
         }
-        this.pm = (ampm === 'PM' || ampm === 'pm');
-        let time = this.parseTime(timeString);
-        value.setHours(time.hour);
-        value.setMinutes(time.minute);
-        value.setSeconds(time.second);
+    };
+    return SimpleDayGrid;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["DateComponent"]));
+var DayGridSlicer = /** @class */ (function (_super) {
+    __extends(DayGridSlicer, _super);
+    function DayGridSlicer() {
+        return _super !== null && _super.apply(this, arguments) || this;
     }
-    updateUI() {
-        let val = this.value || this.defaultDate || new Date();
-        if (Array.isArray(val)) {
-            val = val[0];
+    DayGridSlicer.prototype.sliceRange = function (dateRange, dayTable) {
+        return dayTable.sliceRange(dateRange);
+    };
+    return DayGridSlicer;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["Slicer"]));
+
+var DayGridView$1 = /** @class */ (function (_super) {
+    __extends(DayGridView, _super);
+    function DayGridView(_context, viewSpec, dateProfileGenerator, parentEl) {
+        var _this = _super.call(this, _context, viewSpec, dateProfileGenerator, parentEl) || this;
+        _this.buildDayTable = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoize"])(buildDayTable);
+        if (_this.opt('columnHeader')) {
+            _this.header = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["DayHeader"](_this.context, _this.el.querySelector('.fc-head-container'));
         }
-        this.currentMonth = val.getMonth();
-        this.currentYear = val.getFullYear();
-        this.createMonths(this.currentMonth, this.currentYear);
-        if (this.showTime || this.timeOnly) {
-            let hours = val.getHours();
-            if (this.hourFormat == '12') {
-                this.pm = hours > 11;
-                if (hours >= 12) {
-                    this.currentHour = (hours == 12) ? 12 : hours - 12;
-                }
-                else {
-                    this.currentHour = (hours == 0) ? 12 : hours;
-                }
-            }
-            else {
-                this.currentHour = val.getHours();
-            }
-            this.currentMinute = val.getMinutes();
-            this.currentSecond = val.getSeconds();
-        }
+        _this.simpleDayGrid = new SimpleDayGrid(_this.context, _this.dayGrid);
+        return _this;
     }
-    showOverlay() {
-        if (!this.overlayVisible) {
-            this.updateUI();
-            this.overlayVisible = true;
+    DayGridView.prototype.destroy = function () {
+        _super.prototype.destroy.call(this);
+        if (this.header) {
+            this.header.destroy();
         }
-    }
-    hideOverlay() {
-        this.overlayVisible = false;
-        this.clearTimePickerTimer();
-        if (this.touchUI) {
-            this.disableModality();
-        }
-    }
-    toggle() {
-        if (!this.inline) {
-            if (!this.overlayVisible) {
-                this.showOverlay();
-                this.inputfieldViewChild.nativeElement.focus();
-            }
-            else {
-                this.hideOverlay();
-            }
-        }
-    }
-    onOverlayAnimationStart(event) {
-        switch (event.toState) {
-            case 'visible':
-            case 'visibleTouchUI':
-                if (!this.inline) {
-                    this.overlay = event.element;
-                    this.appendOverlay();
-                    if (this.autoZIndex) {
-                        this.overlay.style.zIndex = String(this.baseZIndex + (++primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].zindex));
-                    }
-                    this.alignOverlay();
-                }
-                break;
-            case 'void':
-                this.onOverlayHide();
-                this.onClose.emit(event);
-                break;
-        }
-    }
-    onOverlayAnimationDone(event) {
-        switch (event.toState) {
-            case 'visible':
-            case 'visibleTouchUI':
-                if (!this.inline) {
-                    this.bindDocumentClickListener();
-                    this.bindDocumentResizeListener();
-                }
-                break;
-        }
-    }
-    appendOverlay() {
-        if (this.appendTo) {
-            if (this.appendTo === 'body')
-                document.body.appendChild(this.overlay);
-            else
-                primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].appendChild(this.overlay, this.appendTo);
-        }
-    }
-    restoreOverlayAppend() {
-        if (this.overlay && this.appendTo) {
-            this.el.nativeElement.appendChild(this.overlay);
-        }
-    }
-    alignOverlay() {
-        if (this.touchUI) {
-            this.enableModality(this.overlay);
-        }
-        else {
-            if (this.appendTo)
-                primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].absolutePosition(this.overlay, this.inputfieldViewChild.nativeElement);
-            else
-                primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].relativePosition(this.overlay, this.inputfieldViewChild.nativeElement);
-        }
-    }
-    enableModality(element) {
-        if (!this.mask) {
-            this.mask = document.createElement('div');
-            this.mask.style.zIndex = String(parseInt(element.style.zIndex) - 1);
-            let maskStyleClass = 'ui-widget-overlay ui-datepicker-mask ui-datepicker-mask-scrollblocker';
-            primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].addMultipleClasses(this.mask, maskStyleClass);
-            this.maskClickListener = this.renderer.listen(this.mask, 'click', (event) => {
-                this.disableModality();
-            });
-            document.body.appendChild(this.mask);
-            primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].addClass(document.body, 'ui-overflow-hidden');
-        }
-    }
-    disableModality() {
-        if (this.mask) {
-            document.body.removeChild(this.mask);
-            let bodyChildren = document.body.children;
-            let hasBlockerMasks;
-            for (let i = 0; i < bodyChildren.length; i++) {
-                let bodyChild = bodyChildren[i];
-                if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(bodyChild, 'ui-datepicker-mask-scrollblocker')) {
-                    hasBlockerMasks = true;
-                    break;
-                }
-            }
-            if (!hasBlockerMasks) {
-                primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].removeClass(document.body, 'ui-overflow-hidden');
-            }
-            this.unbindMaskClickListener();
-            this.mask = null;
-        }
-    }
-    unbindMaskClickListener() {
-        if (this.maskClickListener) {
-            this.maskClickListener();
-            this.maskClickListener = null;
-        }
-    }
-    writeValue(value) {
-        this.value = value;
-        if (this.value && typeof this.value === 'string') {
-            this.value = this.parseValueFromString(this.value);
-        }
-        this.updateInputfield();
-        this.updateUI();
-    }
-    registerOnChange(fn) {
-        this.onModelChange = fn;
-    }
-    registerOnTouched(fn) {
-        this.onModelTouched = fn;
-    }
-    setDisabledState(val) {
-        this.disabled = val;
-    }
-    getDateFormat() {
-        return this.dateFormat || this.locale.dateFormat;
-    }
-    // Ported from jquery-ui datepicker formatDate
-    formatDate(date, format) {
-        if (!date) {
-            return '';
-        }
-        let iFormat;
-        const lookAhead = (match) => {
-            const matches = (iFormat + 1 < format.length && format.charAt(iFormat + 1) === match);
-            if (matches) {
-                iFormat++;
-            }
-            return matches;
-        }, formatNumber = (match, value, len) => {
-            let num = '' + value;
-            if (lookAhead(match)) {
-                while (num.length < len) {
-                    num = '0' + num;
-                }
-            }
-            return num;
-        }, formatName = (match, value, shortNames, longNames) => {
-            return (lookAhead(match) ? longNames[value] : shortNames[value]);
-        };
-        let output = '';
-        let literal = false;
-        if (date) {
-            for (iFormat = 0; iFormat < format.length; iFormat++) {
-                if (literal) {
-                    if (format.charAt(iFormat) === '\'' && !lookAhead('\'')) {
-                        literal = false;
-                    }
-                    else {
-                        output += format.charAt(iFormat);
-                    }
-                }
-                else {
-                    switch (format.charAt(iFormat)) {
-                        case 'd':
-                            output += formatNumber('d', date.getDate(), 2);
-                            break;
-                        case 'D':
-                            output += formatName('D', date.getDay(), this.locale.dayNamesShort, this.locale.dayNames);
-                            break;
-                        case 'o':
-                            output += formatNumber('o', Math.round((new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime() -
-                                new Date(date.getFullYear(), 0, 0).getTime()) / 86400000), 3);
-                            break;
-                        case 'm':
-                            output += formatNumber('m', date.getMonth() + 1, 2);
-                            break;
-                        case 'M':
-                            output += formatName('M', date.getMonth(), this.locale.monthNamesShort, this.locale.monthNames);
-                            break;
-                        case 'y':
-                            output += lookAhead('y') ? date.getFullYear() : (date.getFullYear() % 100 < 10 ? '0' : '') + (date.getFullYear() % 100);
-                            break;
-                        case '@':
-                            output += date.getTime();
-                            break;
-                        case '!':
-                            output += date.getTime() * 10000 + this.ticksTo1970;
-                            break;
-                        case '\'':
-                            if (lookAhead('\'')) {
-                                output += '\'';
-                            }
-                            else {
-                                literal = true;
-                            }
-                            break;
-                        default:
-                            output += format.charAt(iFormat);
-                    }
-                }
-            }
-        }
-        return output;
-    }
-    formatTime(date) {
-        if (!date) {
-            return '';
-        }
-        let output = '';
-        let hours = date.getHours();
-        let minutes = date.getMinutes();
-        let seconds = date.getSeconds();
-        if (this.hourFormat == '12' && hours > 11 && hours != 12) {
-            hours -= 12;
-        }
-        if (this.hourFormat == '12') {
-            output += hours === 0 ? 12 : (hours < 10) ? '0' + hours : hours;
-        }
-        else {
-            output += (hours < 10) ? '0' + hours : hours;
-        }
-        output += ':';
-        output += (minutes < 10) ? '0' + minutes : minutes;
-        if (this.showSeconds) {
-            output += ':';
-            output += (seconds < 10) ? '0' + seconds : seconds;
-        }
-        if (this.hourFormat == '12') {
-            output += date.getHours() > 11 ? ' PM' : ' AM';
-        }
-        return output;
-    }
-    parseTime(value) {
-        let tokens = value.split(':');
-        let validTokenLength = this.showSeconds ? 3 : 2;
-        if (tokens.length !== validTokenLength) {
-            throw "Invalid time";
-        }
-        let h = parseInt(tokens[0]);
-        let m = parseInt(tokens[1]);
-        let s = this.showSeconds ? parseInt(tokens[2]) : null;
-        if (isNaN(h) || isNaN(m) || h > 23 || m > 59 || (this.hourFormat == '12' && h > 12) || (this.showSeconds && (isNaN(s) || s > 59))) {
-            throw "Invalid time";
-        }
-        else {
-            if (this.hourFormat == '12') {
-                if (h !== 12 && this.pm) {
-                    h += 12;
-                }
-                else if (!this.pm && h === 12) {
-                    h -= 12;
-                }
-            }
-            return { hour: h, minute: m, second: s };
-        }
-    }
-    // Ported from jquery-ui datepicker parseDate
-    parseDate(value, format) {
-        if (format == null || value == null) {
-            throw "Invalid arguments";
-        }
-        value = (typeof value === "object" ? value.toString() : value + "");
-        if (value === "") {
-            return null;
-        }
-        let iFormat, dim, extra, iValue = 0, shortYearCutoff = (typeof this.shortYearCutoff !== "string" ? this.shortYearCutoff : new Date().getFullYear() % 100 + parseInt(this.shortYearCutoff, 10)), year = -1, month = -1, day = -1, doy = -1, literal = false, date, lookAhead = (match) => {
-            let matches = (iFormat + 1 < format.length && format.charAt(iFormat + 1) === match);
-            if (matches) {
-                iFormat++;
-            }
-            return matches;
-        }, getNumber = (match) => {
-            let isDoubled = lookAhead(match), size = (match === "@" ? 14 : (match === "!" ? 20 :
-                (match === "y" && isDoubled ? 4 : (match === "o" ? 3 : 2)))), minSize = (match === "y" ? size : 1), digits = new RegExp("^\\d{" + minSize + "," + size + "}"), num = value.substring(iValue).match(digits);
-            if (!num) {
-                throw "Missing number at position " + iValue;
-            }
-            iValue += num[0].length;
-            return parseInt(num[0], 10);
-        }, getName = (match, shortNames, longNames) => {
-            let index = -1;
-            let arr = lookAhead(match) ? longNames : shortNames;
-            let names = [];
-            for (let i = 0; i < arr.length; i++) {
-                names.push([i, arr[i]]);
-            }
-            names.sort((a, b) => {
-                return -(a[1].length - b[1].length);
-            });
-            for (let i = 0; i < names.length; i++) {
-                let name = names[i][1];
-                if (value.substr(iValue, name.length).toLowerCase() === name.toLowerCase()) {
-                    index = names[i][0];
-                    iValue += name.length;
-                    break;
-                }
-            }
-            if (index !== -1) {
-                return index + 1;
-            }
-            else {
-                throw "Unknown name at position " + iValue;
-            }
-        }, checkLiteral = () => {
-            if (value.charAt(iValue) !== format.charAt(iFormat)) {
-                throw "Unexpected literal at position " + iValue;
-            }
-            iValue++;
-        };
-        if (this.view === 'month') {
-            day = 1;
-        }
-        for (iFormat = 0; iFormat < format.length; iFormat++) {
-            if (literal) {
-                if (format.charAt(iFormat) === "'" && !lookAhead("'")) {
-                    literal = false;
-                }
-                else {
-                    checkLiteral();
-                }
-            }
-            else {
-                switch (format.charAt(iFormat)) {
-                    case "d":
-                        day = getNumber("d");
-                        break;
-                    case "D":
-                        getName("D", this.locale.dayNamesShort, this.locale.dayNames);
-                        break;
-                    case "o":
-                        doy = getNumber("o");
-                        break;
-                    case "m":
-                        month = getNumber("m");
-                        break;
-                    case "M":
-                        month = getName("M", this.locale.monthNamesShort, this.locale.monthNames);
-                        break;
-                    case "y":
-                        year = getNumber("y");
-                        break;
-                    case "@":
-                        date = new Date(getNumber("@"));
-                        year = date.getFullYear();
-                        month = date.getMonth() + 1;
-                        day = date.getDate();
-                        break;
-                    case "!":
-                        date = new Date((getNumber("!") - this.ticksTo1970) / 10000);
-                        year = date.getFullYear();
-                        month = date.getMonth() + 1;
-                        day = date.getDate();
-                        break;
-                    case "'":
-                        if (lookAhead("'")) {
-                            checkLiteral();
-                        }
-                        else {
-                            literal = true;
-                        }
-                        break;
-                    default:
-                        checkLiteral();
-                }
-            }
-        }
-        if (iValue < value.length) {
-            extra = value.substr(iValue);
-            if (!/^\s+/.test(extra)) {
-                throw "Extra/unparsed characters found in date: " + extra;
-            }
-        }
-        if (year === -1) {
-            year = new Date().getFullYear();
-        }
-        else if (year < 100) {
-            year += new Date().getFullYear() - new Date().getFullYear() % 100 +
-                (year <= shortYearCutoff ? 0 : -100);
-        }
-        if (doy > -1) {
-            month = 1;
-            day = doy;
-            do {
-                dim = this.getDaysCountInMonth(year, month - 1);
-                if (day <= dim) {
-                    break;
-                }
-                month++;
-                day -= dim;
-            } while (true);
-        }
-        date = this.daylightSavingAdjust(new Date(year, month - 1, day));
-        if (date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day) {
-            throw "Invalid date"; // E.g. 31/02/00
-        }
-        return date;
-    }
-    daylightSavingAdjust(date) {
-        if (!date) {
-            return null;
-        }
-        date.setHours(date.getHours() > 12 ? date.getHours() + 2 : 0);
-        return date;
-    }
-    updateFilledState() {
-        this.filled = this.inputFieldValue && this.inputFieldValue != '';
-    }
-    onTodayButtonClick(event) {
-        let date = new Date();
-        let dateMeta = { day: date.getDate(), month: date.getMonth(), year: date.getFullYear(), otherMonth: date.getMonth() !== this.currentMonth || date.getFullYear() !== this.currentYear, today: true, selectable: true };
-        this.onDateSelect(event, dateMeta);
-        this.onTodayClick.emit(event);
-    }
-    onClearButtonClick(event) {
-        this.updateModel(null);
-        this.updateInputfield();
-        this.hideOverlay();
-        this.onClearClick.emit(event);
-    }
-    bindDocumentClickListener() {
-        if (!this.documentClickListener) {
-            this.zone.runOutsideAngular(() => {
-                this.documentClickListener = this.renderer.listen('document', 'click', (event) => {
-                    if (this.isOutsideClicked(event) && this.overlayVisible) {
-                        this.zone.run(() => {
-                            this.hideOverlay();
-                            this.cd.markForCheck();
-                        });
-                    }
-                });
+        this.simpleDayGrid.destroy();
+    };
+    DayGridView.prototype.render = function (props) {
+        _super.prototype.render.call(this, props);
+        var dateProfile = this.props.dateProfile;
+        var dayTable = this.dayTable =
+            this.buildDayTable(dateProfile, this.dateProfileGenerator);
+        if (this.header) {
+            this.header.receiveProps({
+                dateProfile: dateProfile,
+                dates: dayTable.headerDates,
+                datesRepDistinctDays: dayTable.rowCnt === 1,
+                renderIntroHtml: this.renderHeadIntroHtml
             });
         }
-    }
-    unbindDocumentClickListener() {
-        if (this.documentClickListener) {
-            this.documentClickListener();
-            this.documentClickListener = null;
-        }
-    }
-    bindDocumentResizeListener() {
-        if (!this.documentResizeListener && !this.touchUI) {
-            this.documentResizeListener = this.onWindowResize.bind(this);
-            window.addEventListener('resize', this.documentResizeListener);
-        }
-    }
-    unbindDocumentResizeListener() {
-        if (this.documentResizeListener) {
-            window.removeEventListener('resize', this.documentResizeListener);
-            this.documentResizeListener = null;
-        }
-    }
-    isOutsideClicked(event) {
-        return !(this.el.nativeElement.isSameNode(event.target) || this.isNavIconClicked(event) ||
-            this.el.nativeElement.contains(event.target) || (this.overlay && this.overlay.contains(event.target)));
-    }
-    isNavIconClicked(event) {
-        return (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(event.target, 'ui-datepicker-prev') || primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(event.target, 'ui-datepicker-prev-icon')
-            || primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(event.target, 'ui-datepicker-next') || primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(event.target, 'ui-datepicker-next-icon'));
-    }
-    onWindowResize() {
-        if (this.overlayVisible && !primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].isAndroid()) {
-            this.hideOverlay();
-        }
-    }
-    onOverlayHide() {
-        this.unbindDocumentClickListener();
-        this.unbindMaskClickListener();
-        this.unbindDocumentResizeListener();
-        this.overlay = null;
-        this.disableModality();
-    }
-    ngOnDestroy() {
-        this.clearTimePickerTimer();
-        this.restoreOverlayAppend();
-        this.onOverlayHide();
-    }
-};
-Calendar.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"] },
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
-];
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "defaultDate", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "style", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "styleClass", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "inputStyle", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "inputId", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "name", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "inputStyleClass", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "placeholder", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "ariaLabelledBy", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "disabled", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "dateFormat", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "multipleSeparator", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "rangeSeparator", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "inline", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showOtherMonths", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "selectOtherMonths", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showIcon", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "icon", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "appendTo", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "readonlyInput", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "shortYearCutoff", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "monthNavigator", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "yearNavigator", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "hourFormat", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "timeOnly", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "stepHour", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "stepMinute", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "stepSecond", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showSeconds", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "required", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showOnFocus", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showWeek", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "dataType", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "selectionMode", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "maxDateCount", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showButtonBar", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "todayButtonStyleClass", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "clearButtonStyleClass", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "autoZIndex", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "baseZIndex", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "panelStyleClass", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "panelStyle", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "keepInvalid", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "hideOnDateTimeSelect", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "numberOfMonths", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "view", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "touchUI", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "timeSeparator", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showTransitionOptions", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "hideTransitionOptions", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onFocus", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onBlur", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onClose", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onSelect", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onInput", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onTodayClick", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onClearClick", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onMonthChange", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
-], Calendar.prototype, "onYearChange", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChildren"])(primeng_api__WEBPACK_IMPORTED_MODULE_5__["PrimeTemplate"])
-], Calendar.prototype, "templates", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "tabindex", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('inputfield', { static: false })
-], Calendar.prototype, "inputfieldViewChild", void 0);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('contentWrapper', { static: false })
-], Calendar.prototype, "content", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "minDate", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "maxDate", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "disabledDates", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "disabledDays", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "yearRange", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "showTime", null);
-__decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
-], Calendar.prototype, "locale", null);
-Calendar = __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
-        selector: 'p-calendar',
-        template: `
-        <span [ngClass]="{'ui-calendar':true, 'ui-calendar-w-btn': showIcon, 'ui-calendar-timeonly': timeOnly}" [ngStyle]="style" [class]="styleClass">
-            <ng-template [ngIf]="!inline">
-                <input #inputfield type="text" [attr.id]="inputId" [attr.name]="name" [attr.required]="required" [attr.aria-required]="required" [value]="inputFieldValue" (focus)="onInputFocus($event)" (keydown)="onInputKeydown($event)" (click)="onInputClick($event)" (blur)="onInputBlur($event)"
-                    [readonly]="readonlyInput" (input)="onUserInput($event)" [ngStyle]="inputStyle" [class]="inputStyleClass" [placeholder]="placeholder||''" [disabled]="disabled" [attr.tabindex]="tabindex"
-                    [ngClass]="'ui-inputtext ui-widget ui-state-default ui-corner-all'" autocomplete="off" [attr.aria-labelledby]="ariaLabelledBy"
-                    ><button type="button" [icon]="icon" pButton *ngIf="showIcon" (click)="onButtonClick($event,inputfield)" class="ui-datepicker-trigger ui-calendar-button"
-                    [ngClass]="{'ui-state-disabled':disabled}" [disabled]="disabled" tabindex="0"></button>
-            </ng-template>
-            <div #contentWrapper [class]="panelStyleClass" [ngStyle]="panelStyle" [ngClass]="{'ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all': true, 'ui-datepicker-inline':inline,'ui-shadow':!inline,
-                'ui-state-disabled':disabled,'ui-datepicker-timeonly':timeOnly,'ui-datepicker-multiple-month': this.numberOfMonths > 1, 'ui-datepicker-monthpicker': (view === 'month'), 'ui-datepicker-touch-ui': touchUI}"
-                [@overlayAnimation]="touchUI ? {value: 'visibleTouchUI', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}: 
-                                            {value: 'visible', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" 
-                                            [@.disabled]="inline === true" (@overlayAnimation.start)="onOverlayAnimationStart($event)" (@overlayAnimation.done)="onOverlayAnimationDone($event)" *ngIf="inline || overlayVisible">
-                <ng-content select="p-header"></ng-content>
-                <ng-container *ngIf="!timeOnly">
-                    <div class="ui-datepicker-group ui-widget-content" *ngFor="let month of months; let i = index;">
-                        <div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all">
-                            <a class="ui-datepicker-prev ui-corner-all" (click)="onPrevButtonClick($event)" (keydown.enter)="onPrevButtonClick($event)" *ngIf="i === 0" tabindex="0" (keydown)="onInputKeydown($event)">
-                                <span class="ui-datepicker-prev-icon pi pi-chevron-left"></span>
-                            </a>
-                            <div class="ui-datepicker-title">
-                                <span class="ui-datepicker-month" *ngIf="!monthNavigator && (view !== 'month')">{{locale.monthNames[month.month]}}</span>
-                                <select tabindex="0" class="ui-datepicker-month" *ngIf="monthNavigator && (view !== 'month') && numberOfMonths === 1" (change)="onMonthDropdownChange($event.target.value)">
-                                    <option [value]="i" *ngFor="let monthName of locale.monthNames;let i = index" [selected]="i === month.month">{{monthName}}</option>
-                                </select>
-                                <select tabindex="0" class="ui-datepicker-year" *ngIf="yearNavigator && numberOfMonths === 1" (change)="onYearDropdownChange($event.target.value)">
-                                    <option [value]="year" *ngFor="let year of yearOptions" [selected]="year === currentYear">{{year}}</option>
-                                </select>
-                                <span class="ui-datepicker-year" *ngIf="!yearNavigator">{{view === 'month' ? currentYear : month.year}}</span>
-                            </div>
-                            <a class="ui-datepicker-next ui-corner-all" (click)="onNextButtonClick($event)" (keydown.enter)="onNextButtonClick($event)" *ngIf="numberOfMonths === 1 ? true : (i === numberOfMonths -1)" tabindex="0" (keydown)="onInputKeydown($event)">
-                                <span class="ui-datepicker-next-icon pi pi-chevron-right"></span>
-                            </a>
-                        </div>
-                        <div class="ui-datepicker-calendar-container" *ngIf="view ==='date'">
-                            <table class="ui-datepicker-calendar">
-                                <thead>
-                                    <tr>
-                                        <th *ngIf="showWeek" class="ui-datepicker-weekheader">
-                                            <span>{{locale['weekHeader']}}</span>
-                                        </th>
-                                        <th scope="col" *ngFor="let weekDay of weekDays;let begin = first; let end = last">
-                                            <span>{{weekDay}}</span>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr *ngFor="let week of month.dates; let j = index;">
-                                        <td *ngIf="showWeek" class="ui-datepicker-weeknumber ui-state-disabled">
-                                            <span>
-                                                {{month.weekNumbers[j]}}
-                                            </span>
-                                        </td>
-                                        <td *ngFor="let date of week" [ngClass]="{'ui-datepicker-other-month': date.otherMonth,
-                                            'ui-datepicker-current-day':isSelected(date),'ui-datepicker-today':date.today}">
-                                            <ng-container *ngIf="date.otherMonth ? showOtherMonths : true">
-                                                <a class="ui-state-default" *ngIf="date.selectable" [ngClass]="{'ui-state-active':isSelected(date), 'ui-state-highlight':date.today}"
-                                                    (click)="onDateSelect($event,date)" draggable="false" (keydown)="onDateCellKeydown($event,date,i)">
-                                                    <ng-container *ngIf="!dateTemplate">{{date.day}}</ng-container>
-                                                    <ng-container *ngTemplateOutlet="dateTemplate; context: {$implicit: date}"></ng-container>
-                                                </a>
-                                                <span class="ui-state-default ui-state-disabled" [ngClass]="{'ui-state-active':isSelected(date), 'ui-state-highlight':date.today}" *ngIf="!date.selectable">
-                                                    {{date.day}}
-                                                </span>
-                                            </ng-container>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="ui-monthpicker" *ngIf="view === 'month'">
-                        <a  *ngFor="let m of monthPickerValues; let i = index" (click)="onMonthSelect($event, i)" (keydown)="onMonthCellKeydown($event,i)" class="ui-monthpicker-month" [ngClass]="{'ui-state-active': isMonthSelected(i)}">
-                            {{m}}
-                        </a>
-                    </div>
-                </ng-container>
-                <div class="ui-timepicker ui-widget-header ui-corner-all" *ngIf="showTime||timeOnly">
-                    <div class="ui-hour-picker">
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="incrementHour($event)" (mousedown)="onTimePickerElementMouseDown($event, 0, 1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
-                            <span class="pi pi-chevron-up"></span>
-                        </a>
-                        <span [ngStyle]="{'display': currentHour < 10 ? 'inline': 'none'}">0</span><span>{{currentHour}}</span>
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="decrementHour($event)" (mousedown)="onTimePickerElementMouseDown($event, 0, -1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
-                            <span class="pi pi-chevron-down"></span>
-                        </a>
-                    </div>
-                    <div class="ui-separator">
-                        <a>
-                            <span class="pi pi-chevron-up"></span>
-                        </a>
-                        <span>{{timeSeparator}}</span>
-                        <a>
-                            <span class="pi pi-chevron-down"></span>
-                        </a>
-                    </div>
-                    <div class="ui-minute-picker">
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="incrementMinute($event)" (mousedown)="onTimePickerElementMouseDown($event, 1, 1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
-                            <span class="pi pi-chevron-up"></span>
-                        </a>
-                        <span [ngStyle]="{'display': currentMinute < 10 ? 'inline': 'none'}">0</span><span>{{currentMinute}}</span>
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="decrementMinute($event)" (mousedown)="onTimePickerElementMouseDown($event, 1, -1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
-                            <span class="pi pi-chevron-down"></span>
-                        </a>
-                    </div>
-                    <div class="ui-separator" *ngIf="showSeconds">
-                        <a>
-                            <span class="pi pi-chevron-up"></span>
-                        </a>
-                        <span>{{timeSeparator}}</span>
-                        <a>
-                            <span class="pi pi-chevron-down"></span>
-                        </a>
-                    </div>
-                    <div class="ui-second-picker" *ngIf="showSeconds">
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="incrementSecond($event)" (mousedown)="onTimePickerElementMouseDown($event, 2, 1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
-                            <span class="pi pi-chevron-up"></span>
-                        </a>
-                        <span [ngStyle]="{'display': currentSecond < 10 ? 'inline': 'none'}">0</span><span>{{currentSecond}}</span>
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="decrementSecond($event)" (mousedown)="onTimePickerElementMouseDown($event, 2, -1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
-                            <span class="pi pi-chevron-down"></span>
-                        </a>
-                    </div>
-                    <div class="ui-ampm-picker" *ngIf="hourFormat=='12'">
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (click)="toggleAMPM($event)" (keydown.enter)="toggleAMPM($event)">
-                            <span class="pi pi-chevron-up"></span>
-                        </a>
-                        <span>{{pm ? 'PM' : 'AM'}}</span>
-                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (click)="toggleAMPM($event)" (keydown.enter)="toggleAMPM($event)">
-                            <span class="pi pi-chevron-down"></span>
-                        </a>
-                    </div>
-                </div>
-                <div class="ui-datepicker-buttonbar ui-widget-header" *ngIf="showButtonBar">
-                    <div class="ui-g">
-                        <div class="ui-g-6">
-                            <button type="button" tabindex="0" [label]="_locale.today" (keydown)="onContainerButtonKeydown($event)" (click)="onTodayButtonClick($event)" pButton [ngClass]="[todayButtonStyleClass]"></button>
-                        </div>
-                        <div class="ui-g-6">
-                            <button type="button" tabindex="0" [label]="_locale.clear" (keydown)="onContainerButtonKeydown($event)" (click)="onClearButtonClick($event)" pButton [ngClass]="[clearButtonStyleClass]"></button>
-                        </div>
-                    </div>
-                </div>
-                <ng-content select="p-footer"></ng-content>
-            </div>
-        </span>
-    `,
-        animations: [
-            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["trigger"])('overlayAnimation', [
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('visible', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-                    transform: 'translateY(0)',
-                    opacity: 1
-                })),
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('visibleTouchUI', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-                    transform: 'translate(-50%,-50%)',
-                    opacity: 1
-                })),
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('void => visible', [
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateY(5%)', opacity: 0 }),
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('{{showTransitionParams}}')
-                ]),
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('visible => void', [
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])(('{{hideTransitionParams}}'), Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-                        opacity: 0,
-                        transform: 'translateY(5%)'
-                    }))
-                ]),
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('void => visibleTouchUI', [
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ opacity: 0, transform: 'translate3d(-50%, -40%, 0) scale(0.9)' }),
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('{{showTransitionParams}}')
-                ]),
-                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('visibleTouchUI => void', [
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])(('{{hideTransitionParams}}'), Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-                        opacity: 0,
-                        transform: 'translate3d(-50%, -40%, 0) scale(0.9)'
-                    }))
-                ])
-            ])
-        ],
-        host: {
-            '[class.ui-inputwrapper-filled]': 'filled',
-            '[class.ui-inputwrapper-focus]': 'focus'
+        this.simpleDayGrid.receiveProps({
+            dateProfile: dateProfile,
+            dayTable: dayTable,
+            businessHours: props.businessHours,
+            dateSelection: props.dateSelection,
+            eventStore: props.eventStore,
+            eventUiBases: props.eventUiBases,
+            eventSelection: props.eventSelection,
+            eventDrag: props.eventDrag,
+            eventResize: props.eventResize,
+            isRigid: this.hasRigidRows(),
+            nextDayThreshold: this.nextDayThreshold
+        });
+    };
+    return DayGridView;
+}(DayGridView));
+function buildDayTable(dateProfile, dateProfileGenerator) {
+    var daySeries = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["DaySeries"](dateProfile.renderRange, dateProfileGenerator);
+    return new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["DayTable"](daySeries, /year|month|week/.test(dateProfile.currentRangeUnit));
+}
+
+var main = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createPlugin"])({
+    defaultView: 'dayGridMonth',
+    views: {
+        dayGrid: DayGridView$1,
+        dayGridDay: {
+            type: 'dayGrid',
+            duration: { days: 1 }
         },
-        providers: [CALENDAR_VALUE_ACCESSOR]
-    })
-], Calendar);
-let CalendarModule = class CalendarModule {
-};
-CalendarModule = __decorate([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], primeng_button__WEBPACK_IMPORTED_MODULE_3__["ButtonModule"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]],
-        exports: [Calendar, primeng_button__WEBPACK_IMPORTED_MODULE_3__["ButtonModule"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]],
-        declarations: [Calendar]
-    })
-], CalendarModule);
+        dayGridWeek: {
+            type: 'dayGrid',
+            duration: { weeks: 1 }
+        },
+        dayGridMonth: {
+            type: 'dayGrid',
+            duration: { months: 1 },
+            monthMode: true,
+            fixedWeekCount: true
+        }
+    }
+});
 
-/**
- * Generated bundle index. Do not edit.
- */
+/* harmony default export */ __webpack_exports__["default"] = (main);
 
-
-//# sourceMappingURL=primeng-calendar.js.map
 
 
 /***/ }),
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/businesshours/businesshours.component.html":
-/*!***************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/businesshours/businesshours.component.html ***!
-  \***************************************************************************************************************/
+/***/ "./node_modules/@fullcalendar/interaction/main.esm.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@fullcalendar/interaction/main.esm.js ***!
+  \************************************************************/
+/*! exports provided: default, Draggable, FeaturefulElementDragging, PointerDragging, ThirdPartyDraggable */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Draggable", function() { return ExternalDraggable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FeaturefulElementDragging", function() { return FeaturefulElementDragging; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PointerDragging", function() { return PointerDragging; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ThirdPartyDraggable", function() { return ThirdPartyDraggable; });
+/* harmony import */ var _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fullcalendar/core */ "./node_modules/@fullcalendar/core/main.esm.js");
+/*!
+FullCalendar Interaction Plugin v4.3.0
+Docs & License: https://fullcalendar.io/
+(c) 2019 Adam Shaw
+*/
+
+
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["config"].touchMouseIgnoreWait = 500;
+var ignoreMouseDepth = 0;
+var listenerCnt = 0;
+var isWindowTouchMoveCancelled = false;
+/*
+Uses a "pointer" abstraction, which monitors UI events for both mouse and touch.
+Tracks when the pointer "drags" on a certain element, meaning down+move+up.
+
+Also, tracks if there was touch-scrolling.
+Also, can prevent touch-scrolling from happening.
+Also, can fire pointermove events when scrolling happens underneath, even when no real pointer movement.
+
+emits:
+- pointerdown
+- pointermove
+- pointerup
+*/
+var PointerDragging = /** @class */ (function () {
+    function PointerDragging(containerEl) {
+        var _this = this;
+        this.subjectEl = null;
+        this.downEl = null;
+        // options that can be directly assigned by caller
+        this.selector = ''; // will cause subjectEl in all emitted events to be this element
+        this.handleSelector = '';
+        this.shouldIgnoreMove = false;
+        this.shouldWatchScroll = true; // for simulating pointermove on scroll
+        // internal states
+        this.isDragging = false;
+        this.isTouchDragging = false;
+        this.wasTouchScroll = false;
+        // Mouse
+        // ----------------------------------------------------------------------------------------------------
+        this.handleMouseDown = function (ev) {
+            if (!_this.shouldIgnoreMouse() &&
+                isPrimaryMouseButton(ev) &&
+                _this.tryStart(ev)) {
+                var pev = _this.createEventFromMouse(ev, true);
+                _this.emitter.trigger('pointerdown', pev);
+                _this.initScrollWatch(pev);
+                if (!_this.shouldIgnoreMove) {
+                    document.addEventListener('mousemove', _this.handleMouseMove);
+                }
+                document.addEventListener('mouseup', _this.handleMouseUp);
+            }
+        };
+        this.handleMouseMove = function (ev) {
+            var pev = _this.createEventFromMouse(ev);
+            _this.recordCoords(pev);
+            _this.emitter.trigger('pointermove', pev);
+        };
+        this.handleMouseUp = function (ev) {
+            document.removeEventListener('mousemove', _this.handleMouseMove);
+            document.removeEventListener('mouseup', _this.handleMouseUp);
+            _this.emitter.trigger('pointerup', _this.createEventFromMouse(ev));
+            _this.cleanup(); // call last so that pointerup has access to props
+        };
+        // Touch
+        // ----------------------------------------------------------------------------------------------------
+        this.handleTouchStart = function (ev) {
+            if (_this.tryStart(ev)) {
+                _this.isTouchDragging = true;
+                var pev = _this.createEventFromTouch(ev, true);
+                _this.emitter.trigger('pointerdown', pev);
+                _this.initScrollWatch(pev);
+                // unlike mouse, need to attach to target, not document
+                // https://stackoverflow.com/a/45760014
+                var target = ev.target;
+                if (!_this.shouldIgnoreMove) {
+                    target.addEventListener('touchmove', _this.handleTouchMove);
+                }
+                target.addEventListener('touchend', _this.handleTouchEnd);
+                target.addEventListener('touchcancel', _this.handleTouchEnd); // treat it as a touch end
+                // attach a handler to get called when ANY scroll action happens on the page.
+                // this was impossible to do with normal on/off because 'scroll' doesn't bubble.
+                // http://stackoverflow.com/a/32954565/96342
+                window.addEventListener('scroll', _this.handleTouchScroll, true // useCapture
+                );
+            }
+        };
+        this.handleTouchMove = function (ev) {
+            var pev = _this.createEventFromTouch(ev);
+            _this.recordCoords(pev);
+            _this.emitter.trigger('pointermove', pev);
+        };
+        this.handleTouchEnd = function (ev) {
+            if (_this.isDragging) { // done to guard against touchend followed by touchcancel
+                var target = ev.target;
+                target.removeEventListener('touchmove', _this.handleTouchMove);
+                target.removeEventListener('touchend', _this.handleTouchEnd);
+                target.removeEventListener('touchcancel', _this.handleTouchEnd);
+                window.removeEventListener('scroll', _this.handleTouchScroll, true); // useCaptured=true
+                _this.emitter.trigger('pointerup', _this.createEventFromTouch(ev));
+                _this.cleanup(); // call last so that pointerup has access to props
+                _this.isTouchDragging = false;
+                startIgnoringMouse();
+            }
+        };
+        this.handleTouchScroll = function () {
+            _this.wasTouchScroll = true;
+        };
+        this.handleScroll = function (ev) {
+            if (!_this.shouldIgnoreMove) {
+                var pageX = (window.pageXOffset - _this.prevScrollX) + _this.prevPageX;
+                var pageY = (window.pageYOffset - _this.prevScrollY) + _this.prevPageY;
+                _this.emitter.trigger('pointermove', {
+                    origEvent: ev,
+                    isTouch: _this.isTouchDragging,
+                    subjectEl: _this.subjectEl,
+                    pageX: pageX,
+                    pageY: pageY,
+                    deltaX: pageX - _this.origPageX,
+                    deltaY: pageY - _this.origPageY
+                });
+            }
+        };
+        this.containerEl = containerEl;
+        this.emitter = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["EmitterMixin"]();
+        containerEl.addEventListener('mousedown', this.handleMouseDown);
+        containerEl.addEventListener('touchstart', this.handleTouchStart, { passive: true });
+        listenerCreated();
+    }
+    PointerDragging.prototype.destroy = function () {
+        this.containerEl.removeEventListener('mousedown', this.handleMouseDown);
+        this.containerEl.removeEventListener('touchstart', this.handleTouchStart, { passive: true });
+        listenerDestroyed();
+    };
+    PointerDragging.prototype.tryStart = function (ev) {
+        var subjectEl = this.querySubjectEl(ev);
+        var downEl = ev.target;
+        if (subjectEl &&
+            (!this.handleSelector || Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["elementClosest"])(downEl, this.handleSelector))) {
+            this.subjectEl = subjectEl;
+            this.downEl = downEl;
+            this.isDragging = true; // do this first so cancelTouchScroll will work
+            this.wasTouchScroll = false;
+            return true;
+        }
+        return false;
+    };
+    PointerDragging.prototype.cleanup = function () {
+        isWindowTouchMoveCancelled = false;
+        this.isDragging = false;
+        this.subjectEl = null;
+        this.downEl = null;
+        // keep wasTouchScroll around for later access
+        this.destroyScrollWatch();
+    };
+    PointerDragging.prototype.querySubjectEl = function (ev) {
+        if (this.selector) {
+            return Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["elementClosest"])(ev.target, this.selector);
+        }
+        else {
+            return this.containerEl;
+        }
+    };
+    PointerDragging.prototype.shouldIgnoreMouse = function () {
+        return ignoreMouseDepth || this.isTouchDragging;
+    };
+    // can be called by user of this class, to cancel touch-based scrolling for the current drag
+    PointerDragging.prototype.cancelTouchScroll = function () {
+        if (this.isDragging) {
+            isWindowTouchMoveCancelled = true;
+        }
+    };
+    // Scrolling that simulates pointermoves
+    // ----------------------------------------------------------------------------------------------------
+    PointerDragging.prototype.initScrollWatch = function (ev) {
+        if (this.shouldWatchScroll) {
+            this.recordCoords(ev);
+            window.addEventListener('scroll', this.handleScroll, true); // useCapture=true
+        }
+    };
+    PointerDragging.prototype.recordCoords = function (ev) {
+        if (this.shouldWatchScroll) {
+            this.prevPageX = ev.pageX;
+            this.prevPageY = ev.pageY;
+            this.prevScrollX = window.pageXOffset;
+            this.prevScrollY = window.pageYOffset;
+        }
+    };
+    PointerDragging.prototype.destroyScrollWatch = function () {
+        if (this.shouldWatchScroll) {
+            window.removeEventListener('scroll', this.handleScroll, true); // useCaptured=true
+        }
+    };
+    // Event Normalization
+    // ----------------------------------------------------------------------------------------------------
+    PointerDragging.prototype.createEventFromMouse = function (ev, isFirst) {
+        var deltaX = 0;
+        var deltaY = 0;
+        // TODO: repeat code
+        if (isFirst) {
+            this.origPageX = ev.pageX;
+            this.origPageY = ev.pageY;
+        }
+        else {
+            deltaX = ev.pageX - this.origPageX;
+            deltaY = ev.pageY - this.origPageY;
+        }
+        return {
+            origEvent: ev,
+            isTouch: false,
+            subjectEl: this.subjectEl,
+            pageX: ev.pageX,
+            pageY: ev.pageY,
+            deltaX: deltaX,
+            deltaY: deltaY
+        };
+    };
+    PointerDragging.prototype.createEventFromTouch = function (ev, isFirst) {
+        var touches = ev.touches;
+        var pageX;
+        var pageY;
+        var deltaX = 0;
+        var deltaY = 0;
+        // if touch coords available, prefer,
+        // because FF would give bad ev.pageX ev.pageY
+        if (touches && touches.length) {
+            pageX = touches[0].pageX;
+            pageY = touches[0].pageY;
+        }
+        else {
+            pageX = ev.pageX;
+            pageY = ev.pageY;
+        }
+        // TODO: repeat code
+        if (isFirst) {
+            this.origPageX = pageX;
+            this.origPageY = pageY;
+        }
+        else {
+            deltaX = pageX - this.origPageX;
+            deltaY = pageY - this.origPageY;
+        }
+        return {
+            origEvent: ev,
+            isTouch: true,
+            subjectEl: this.subjectEl,
+            pageX: pageX,
+            pageY: pageY,
+            deltaX: deltaX,
+            deltaY: deltaY
+        };
+    };
+    return PointerDragging;
+}());
+// Returns a boolean whether this was a left mouse click and no ctrl key (which means right click on Mac)
+function isPrimaryMouseButton(ev) {
+    return ev.button === 0 && !ev.ctrlKey;
+}
+// Ignoring fake mouse events generated by touch
+// ----------------------------------------------------------------------------------------------------
+function startIgnoringMouse() {
+    ignoreMouseDepth++;
+    setTimeout(function () {
+        ignoreMouseDepth--;
+    }, _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["config"].touchMouseIgnoreWait);
+}
+// We want to attach touchmove as early as possible for Safari
+// ----------------------------------------------------------------------------------------------------
+function listenerCreated() {
+    if (!(listenerCnt++)) {
+        window.addEventListener('touchmove', onWindowTouchMove, { passive: false });
+    }
+}
+function listenerDestroyed() {
+    if (!(--listenerCnt)) {
+        window.removeEventListener('touchmove', onWindowTouchMove, { passive: false });
+    }
+}
+function onWindowTouchMove(ev) {
+    if (isWindowTouchMoveCancelled) {
+        ev.preventDefault();
+    }
+}
+
+/*
+An effect in which an element follows the movement of a pointer across the screen.
+The moving element is a clone of some other element.
+Must call start + handleMove + stop.
+*/
+var ElementMirror = /** @class */ (function () {
+    function ElementMirror() {
+        this.isVisible = false; // must be explicitly enabled
+        this.sourceEl = null;
+        this.mirrorEl = null;
+        this.sourceElRect = null; // screen coords relative to viewport
+        // options that can be set directly by caller
+        this.parentNode = document.body;
+        this.zIndex = 9999;
+        this.revertDuration = 0;
+    }
+    ElementMirror.prototype.start = function (sourceEl, pageX, pageY) {
+        this.sourceEl = sourceEl;
+        this.sourceElRect = this.sourceEl.getBoundingClientRect();
+        this.origScreenX = pageX - window.pageXOffset;
+        this.origScreenY = pageY - window.pageYOffset;
+        this.deltaX = 0;
+        this.deltaY = 0;
+        this.updateElPosition();
+    };
+    ElementMirror.prototype.handleMove = function (pageX, pageY) {
+        this.deltaX = (pageX - window.pageXOffset) - this.origScreenX;
+        this.deltaY = (pageY - window.pageYOffset) - this.origScreenY;
+        this.updateElPosition();
+    };
+    // can be called before start
+    ElementMirror.prototype.setIsVisible = function (bool) {
+        if (bool) {
+            if (!this.isVisible) {
+                if (this.mirrorEl) {
+                    this.mirrorEl.style.display = '';
+                }
+                this.isVisible = bool; // needs to happen before updateElPosition
+                this.updateElPosition(); // because was not updating the position while invisible
+            }
+        }
+        else {
+            if (this.isVisible) {
+                if (this.mirrorEl) {
+                    this.mirrorEl.style.display = 'none';
+                }
+                this.isVisible = bool;
+            }
+        }
+    };
+    // always async
+    ElementMirror.prototype.stop = function (needsRevertAnimation, callback) {
+        var _this = this;
+        var done = function () {
+            _this.cleanup();
+            callback();
+        };
+        if (needsRevertAnimation &&
+            this.mirrorEl &&
+            this.isVisible &&
+            this.revertDuration && // if 0, transition won't work
+            (this.deltaX || this.deltaY) // if same coords, transition won't work
+        ) {
+            this.doRevertAnimation(done, this.revertDuration);
+        }
+        else {
+            setTimeout(done, 0);
+        }
+    };
+    ElementMirror.prototype.doRevertAnimation = function (callback, revertDuration) {
+        var mirrorEl = this.mirrorEl;
+        var finalSourceElRect = this.sourceEl.getBoundingClientRect(); // because autoscrolling might have happened
+        mirrorEl.style.transition =
+            'top ' + revertDuration + 'ms,' +
+                'left ' + revertDuration + 'ms';
+        Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["applyStyle"])(mirrorEl, {
+            left: finalSourceElRect.left,
+            top: finalSourceElRect.top
+        });
+        Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["whenTransitionDone"])(mirrorEl, function () {
+            mirrorEl.style.transition = '';
+            callback();
+        });
+    };
+    ElementMirror.prototype.cleanup = function () {
+        if (this.mirrorEl) {
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["removeElement"])(this.mirrorEl);
+            this.mirrorEl = null;
+        }
+        this.sourceEl = null;
+    };
+    ElementMirror.prototype.updateElPosition = function () {
+        if (this.sourceEl && this.isVisible) {
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["applyStyle"])(this.getMirrorEl(), {
+                left: this.sourceElRect.left + this.deltaX,
+                top: this.sourceElRect.top + this.deltaY
+            });
+        }
+    };
+    ElementMirror.prototype.getMirrorEl = function () {
+        var sourceElRect = this.sourceElRect;
+        var mirrorEl = this.mirrorEl;
+        if (!mirrorEl) {
+            mirrorEl = this.mirrorEl = this.sourceEl.cloneNode(true); // cloneChildren=true
+            // we don't want long taps or any mouse interaction causing selection/menus.
+            // would use preventSelection(), but that prevents selectstart, causing problems.
+            mirrorEl.classList.add('fc-unselectable');
+            mirrorEl.classList.add('fc-dragging');
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["applyStyle"])(mirrorEl, {
+                position: 'fixed',
+                zIndex: this.zIndex,
+                visibility: '',
+                boxSizing: 'border-box',
+                width: sourceElRect.right - sourceElRect.left,
+                height: sourceElRect.bottom - sourceElRect.top,
+                right: 'auto',
+                bottom: 'auto',
+                margin: 0
+            });
+            this.parentNode.appendChild(mirrorEl);
+        }
+        return mirrorEl;
+    };
+    return ElementMirror;
+}());
+
+/*
+Is a cache for a given element's scroll information (all the info that ScrollController stores)
+in addition the "client rectangle" of the element.. the area within the scrollbars.
+
+The cache can be in one of two modes:
+- doesListening:false - ignores when the container is scrolled by someone else
+- doesListening:true - watch for scrolling and update the cache
+*/
+var ScrollGeomCache = /** @class */ (function (_super) {
+    __extends(ScrollGeomCache, _super);
+    function ScrollGeomCache(scrollController, doesListening) {
+        var _this = _super.call(this) || this;
+        _this.handleScroll = function () {
+            _this.scrollTop = _this.scrollController.getScrollTop();
+            _this.scrollLeft = _this.scrollController.getScrollLeft();
+            _this.handleScrollChange();
+        };
+        _this.scrollController = scrollController;
+        _this.doesListening = doesListening;
+        _this.scrollTop = _this.origScrollTop = scrollController.getScrollTop();
+        _this.scrollLeft = _this.origScrollLeft = scrollController.getScrollLeft();
+        _this.scrollWidth = scrollController.getScrollWidth();
+        _this.scrollHeight = scrollController.getScrollHeight();
+        _this.clientWidth = scrollController.getClientWidth();
+        _this.clientHeight = scrollController.getClientHeight();
+        _this.clientRect = _this.computeClientRect(); // do last in case it needs cached values
+        if (_this.doesListening) {
+            _this.getEventTarget().addEventListener('scroll', _this.handleScroll);
+        }
+        return _this;
+    }
+    ScrollGeomCache.prototype.destroy = function () {
+        if (this.doesListening) {
+            this.getEventTarget().removeEventListener('scroll', this.handleScroll);
+        }
+    };
+    ScrollGeomCache.prototype.getScrollTop = function () {
+        return this.scrollTop;
+    };
+    ScrollGeomCache.prototype.getScrollLeft = function () {
+        return this.scrollLeft;
+    };
+    ScrollGeomCache.prototype.setScrollTop = function (top) {
+        this.scrollController.setScrollTop(top);
+        if (!this.doesListening) {
+            // we are not relying on the element to normalize out-of-bounds scroll values
+            // so we need to sanitize ourselves
+            this.scrollTop = Math.max(Math.min(top, this.getMaxScrollTop()), 0);
+            this.handleScrollChange();
+        }
+    };
+    ScrollGeomCache.prototype.setScrollLeft = function (top) {
+        this.scrollController.setScrollLeft(top);
+        if (!this.doesListening) {
+            // we are not relying on the element to normalize out-of-bounds scroll values
+            // so we need to sanitize ourselves
+            this.scrollLeft = Math.max(Math.min(top, this.getMaxScrollLeft()), 0);
+            this.handleScrollChange();
+        }
+    };
+    ScrollGeomCache.prototype.getClientWidth = function () {
+        return this.clientWidth;
+    };
+    ScrollGeomCache.prototype.getClientHeight = function () {
+        return this.clientHeight;
+    };
+    ScrollGeomCache.prototype.getScrollWidth = function () {
+        return this.scrollWidth;
+    };
+    ScrollGeomCache.prototype.getScrollHeight = function () {
+        return this.scrollHeight;
+    };
+    ScrollGeomCache.prototype.handleScrollChange = function () {
+    };
+    return ScrollGeomCache;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["ScrollController"]));
+var ElementScrollGeomCache = /** @class */ (function (_super) {
+    __extends(ElementScrollGeomCache, _super);
+    function ElementScrollGeomCache(el, doesListening) {
+        return _super.call(this, new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["ElementScrollController"](el), doesListening) || this;
+    }
+    ElementScrollGeomCache.prototype.getEventTarget = function () {
+        return this.scrollController.el;
+    };
+    ElementScrollGeomCache.prototype.computeClientRect = function () {
+        return Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["computeInnerRect"])(this.scrollController.el);
+    };
+    return ElementScrollGeomCache;
+}(ScrollGeomCache));
+var WindowScrollGeomCache = /** @class */ (function (_super) {
+    __extends(WindowScrollGeomCache, _super);
+    function WindowScrollGeomCache(doesListening) {
+        return _super.call(this, new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["WindowScrollController"](), doesListening) || this;
+    }
+    WindowScrollGeomCache.prototype.getEventTarget = function () {
+        return window;
+    };
+    WindowScrollGeomCache.prototype.computeClientRect = function () {
+        return {
+            left: this.scrollLeft,
+            right: this.scrollLeft + this.clientWidth,
+            top: this.scrollTop,
+            bottom: this.scrollTop + this.clientHeight
+        };
+    };
+    // the window is the only scroll object that changes it's rectangle relative
+    // to the document's topleft as it scrolls
+    WindowScrollGeomCache.prototype.handleScrollChange = function () {
+        this.clientRect = this.computeClientRect();
+    };
+    return WindowScrollGeomCache;
+}(ScrollGeomCache));
+
+// If available we are using native "performance" API instead of "Date"
+// Read more about it on MDN:
+// https://developer.mozilla.org/en-US/docs/Web/API/Performance
+var getTime = typeof performance === 'function' ? performance.now : Date.now;
+/*
+For a pointer interaction, automatically scrolls certain scroll containers when the pointer
+approaches the edge.
+
+The caller must call start + handleMove + stop.
+*/
+var AutoScroller = /** @class */ (function () {
+    function AutoScroller() {
+        var _this = this;
+        // options that can be set by caller
+        this.isEnabled = true;
+        this.scrollQuery = [window, '.fc-scroller'];
+        this.edgeThreshold = 50; // pixels
+        this.maxVelocity = 300; // pixels per second
+        // internal state
+        this.pointerScreenX = null;
+        this.pointerScreenY = null;
+        this.isAnimating = false;
+        this.scrollCaches = null;
+        // protect against the initial pointerdown being too close to an edge and starting the scroll
+        this.everMovedUp = false;
+        this.everMovedDown = false;
+        this.everMovedLeft = false;
+        this.everMovedRight = false;
+        this.animate = function () {
+            if (_this.isAnimating) { // wasn't cancelled between animation calls
+                var edge = _this.computeBestEdge(_this.pointerScreenX + window.pageXOffset, _this.pointerScreenY + window.pageYOffset);
+                if (edge) {
+                    var now = getTime();
+                    _this.handleSide(edge, (now - _this.msSinceRequest) / 1000);
+                    _this.requestAnimation(now);
+                }
+                else {
+                    _this.isAnimating = false; // will stop animation
+                }
+            }
+        };
+    }
+    AutoScroller.prototype.start = function (pageX, pageY) {
+        if (this.isEnabled) {
+            this.scrollCaches = this.buildCaches();
+            this.pointerScreenX = null;
+            this.pointerScreenY = null;
+            this.everMovedUp = false;
+            this.everMovedDown = false;
+            this.everMovedLeft = false;
+            this.everMovedRight = false;
+            this.handleMove(pageX, pageY);
+        }
+    };
+    AutoScroller.prototype.handleMove = function (pageX, pageY) {
+        if (this.isEnabled) {
+            var pointerScreenX = pageX - window.pageXOffset;
+            var pointerScreenY = pageY - window.pageYOffset;
+            var yDelta = this.pointerScreenY === null ? 0 : pointerScreenY - this.pointerScreenY;
+            var xDelta = this.pointerScreenX === null ? 0 : pointerScreenX - this.pointerScreenX;
+            if (yDelta < 0) {
+                this.everMovedUp = true;
+            }
+            else if (yDelta > 0) {
+                this.everMovedDown = true;
+            }
+            if (xDelta < 0) {
+                this.everMovedLeft = true;
+            }
+            else if (xDelta > 0) {
+                this.everMovedRight = true;
+            }
+            this.pointerScreenX = pointerScreenX;
+            this.pointerScreenY = pointerScreenY;
+            if (!this.isAnimating) {
+                this.isAnimating = true;
+                this.requestAnimation(getTime());
+            }
+        }
+    };
+    AutoScroller.prototype.stop = function () {
+        if (this.isEnabled) {
+            this.isAnimating = false; // will stop animation
+            for (var _i = 0, _a = this.scrollCaches; _i < _a.length; _i++) {
+                var scrollCache = _a[_i];
+                scrollCache.destroy();
+            }
+            this.scrollCaches = null;
+        }
+    };
+    AutoScroller.prototype.requestAnimation = function (now) {
+        this.msSinceRequest = now;
+        requestAnimationFrame(this.animate);
+    };
+    AutoScroller.prototype.handleSide = function (edge, seconds) {
+        var scrollCache = edge.scrollCache;
+        var edgeThreshold = this.edgeThreshold;
+        var invDistance = edgeThreshold - edge.distance;
+        var velocity = // the closer to the edge, the faster we scroll
+         (invDistance * invDistance) / (edgeThreshold * edgeThreshold) * // quadratic
+            this.maxVelocity * seconds;
+        var sign = 1;
+        switch (edge.name) {
+            case 'left':
+                sign = -1;
+            // falls through
+            case 'right':
+                scrollCache.setScrollLeft(scrollCache.getScrollLeft() + velocity * sign);
+                break;
+            case 'top':
+                sign = -1;
+            // falls through
+            case 'bottom':
+                scrollCache.setScrollTop(scrollCache.getScrollTop() + velocity * sign);
+                break;
+        }
+    };
+    // left/top are relative to document topleft
+    AutoScroller.prototype.computeBestEdge = function (left, top) {
+        var edgeThreshold = this.edgeThreshold;
+        var bestSide = null;
+        for (var _i = 0, _a = this.scrollCaches; _i < _a.length; _i++) {
+            var scrollCache = _a[_i];
+            var rect = scrollCache.clientRect;
+            var leftDist = left - rect.left;
+            var rightDist = rect.right - left;
+            var topDist = top - rect.top;
+            var bottomDist = rect.bottom - top;
+            // completely within the rect?
+            if (leftDist >= 0 && rightDist >= 0 && topDist >= 0 && bottomDist >= 0) {
+                if (topDist <= edgeThreshold && this.everMovedUp && scrollCache.canScrollUp() &&
+                    (!bestSide || bestSide.distance > topDist)) {
+                    bestSide = { scrollCache: scrollCache, name: 'top', distance: topDist };
+                }
+                if (bottomDist <= edgeThreshold && this.everMovedDown && scrollCache.canScrollDown() &&
+                    (!bestSide || bestSide.distance > bottomDist)) {
+                    bestSide = { scrollCache: scrollCache, name: 'bottom', distance: bottomDist };
+                }
+                if (leftDist <= edgeThreshold && this.everMovedLeft && scrollCache.canScrollLeft() &&
+                    (!bestSide || bestSide.distance > leftDist)) {
+                    bestSide = { scrollCache: scrollCache, name: 'left', distance: leftDist };
+                }
+                if (rightDist <= edgeThreshold && this.everMovedRight && scrollCache.canScrollRight() &&
+                    (!bestSide || bestSide.distance > rightDist)) {
+                    bestSide = { scrollCache: scrollCache, name: 'right', distance: rightDist };
+                }
+            }
+        }
+        return bestSide;
+    };
+    AutoScroller.prototype.buildCaches = function () {
+        return this.queryScrollEls().map(function (el) {
+            if (el === window) {
+                return new WindowScrollGeomCache(false); // false = don't listen to user-generated scrolls
+            }
+            else {
+                return new ElementScrollGeomCache(el, false); // false = don't listen to user-generated scrolls
+            }
+        });
+    };
+    AutoScroller.prototype.queryScrollEls = function () {
+        var els = [];
+        for (var _i = 0, _a = this.scrollQuery; _i < _a.length; _i++) {
+            var query = _a[_i];
+            if (typeof query === 'object') {
+                els.push(query);
+            }
+            else {
+                els.push.apply(els, Array.prototype.slice.call(document.querySelectorAll(query)));
+            }
+        }
+        return els;
+    };
+    return AutoScroller;
+}());
+
+/*
+Monitors dragging on an element. Has a number of high-level features:
+- minimum distance required before dragging
+- minimum wait time ("delay") before dragging
+- a mirror element that follows the pointer
+*/
+var FeaturefulElementDragging = /** @class */ (function (_super) {
+    __extends(FeaturefulElementDragging, _super);
+    function FeaturefulElementDragging(containerEl) {
+        var _this = _super.call(this, containerEl) || this;
+        // options that can be directly set by caller
+        // the caller can also set the PointerDragging's options as well
+        _this.delay = null;
+        _this.minDistance = 0;
+        _this.touchScrollAllowed = true; // prevents drag from starting and blocks scrolling during drag
+        _this.mirrorNeedsRevert = false;
+        _this.isInteracting = false; // is the user validly moving the pointer? lasts until pointerup
+        _this.isDragging = false; // is it INTENTFULLY dragging? lasts until after revert animation
+        _this.isDelayEnded = false;
+        _this.isDistanceSurpassed = false;
+        _this.delayTimeoutId = null;
+        _this.onPointerDown = function (ev) {
+            if (!_this.isDragging) { // so new drag doesn't happen while revert animation is going
+                _this.isInteracting = true;
+                _this.isDelayEnded = false;
+                _this.isDistanceSurpassed = false;
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["preventSelection"])(document.body);
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["preventContextMenu"])(document.body);
+                // prevent links from being visited if there's an eventual drag.
+                // also prevents selection in older browsers (maybe?).
+                // not necessary for touch, besides, browser would complain about passiveness.
+                if (!ev.isTouch) {
+                    ev.origEvent.preventDefault();
+                }
+                _this.emitter.trigger('pointerdown', ev);
+                if (!_this.pointer.shouldIgnoreMove) {
+                    // actions related to initiating dragstart+dragmove+dragend...
+                    _this.mirror.setIsVisible(false); // reset. caller must set-visible
+                    _this.mirror.start(ev.subjectEl, ev.pageX, ev.pageY); // must happen on first pointer down
+                    _this.startDelay(ev);
+                    if (!_this.minDistance) {
+                        _this.handleDistanceSurpassed(ev);
+                    }
+                }
+            }
+        };
+        _this.onPointerMove = function (ev) {
+            if (_this.isInteracting) { // if false, still waiting for previous drag's revert
+                _this.emitter.trigger('pointermove', ev);
+                if (!_this.isDistanceSurpassed) {
+                    var minDistance = _this.minDistance;
+                    var distanceSq = void 0; // current distance from the origin, squared
+                    var deltaX = ev.deltaX, deltaY = ev.deltaY;
+                    distanceSq = deltaX * deltaX + deltaY * deltaY;
+                    if (distanceSq >= minDistance * minDistance) { // use pythagorean theorem
+                        _this.handleDistanceSurpassed(ev);
+                    }
+                }
+                if (_this.isDragging) {
+                    // a real pointer move? (not one simulated by scrolling)
+                    if (ev.origEvent.type !== 'scroll') {
+                        _this.mirror.handleMove(ev.pageX, ev.pageY);
+                        _this.autoScroller.handleMove(ev.pageX, ev.pageY);
+                    }
+                    _this.emitter.trigger('dragmove', ev);
+                }
+            }
+        };
+        _this.onPointerUp = function (ev) {
+            if (_this.isInteracting) { // if false, still waiting for previous drag's revert
+                _this.isInteracting = false;
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["allowSelection"])(document.body);
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["allowContextMenu"])(document.body);
+                _this.emitter.trigger('pointerup', ev); // can potentially set mirrorNeedsRevert
+                if (_this.isDragging) {
+                    _this.autoScroller.stop();
+                    _this.tryStopDrag(ev); // which will stop the mirror
+                }
+                if (_this.delayTimeoutId) {
+                    clearTimeout(_this.delayTimeoutId);
+                    _this.delayTimeoutId = null;
+                }
+            }
+        };
+        var pointer = _this.pointer = new PointerDragging(containerEl);
+        pointer.emitter.on('pointerdown', _this.onPointerDown);
+        pointer.emitter.on('pointermove', _this.onPointerMove);
+        pointer.emitter.on('pointerup', _this.onPointerUp);
+        _this.mirror = new ElementMirror();
+        _this.autoScroller = new AutoScroller();
+        return _this;
+    }
+    FeaturefulElementDragging.prototype.destroy = function () {
+        this.pointer.destroy();
+    };
+    FeaturefulElementDragging.prototype.startDelay = function (ev) {
+        var _this = this;
+        if (typeof this.delay === 'number') {
+            this.delayTimeoutId = setTimeout(function () {
+                _this.delayTimeoutId = null;
+                _this.handleDelayEnd(ev);
+            }, this.delay); // not assignable to number!
+        }
+        else {
+            this.handleDelayEnd(ev);
+        }
+    };
+    FeaturefulElementDragging.prototype.handleDelayEnd = function (ev) {
+        this.isDelayEnded = true;
+        this.tryStartDrag(ev);
+    };
+    FeaturefulElementDragging.prototype.handleDistanceSurpassed = function (ev) {
+        this.isDistanceSurpassed = true;
+        this.tryStartDrag(ev);
+    };
+    FeaturefulElementDragging.prototype.tryStartDrag = function (ev) {
+        if (this.isDelayEnded && this.isDistanceSurpassed) {
+            if (!this.pointer.wasTouchScroll || this.touchScrollAllowed) {
+                this.isDragging = true;
+                this.mirrorNeedsRevert = false;
+                this.autoScroller.start(ev.pageX, ev.pageY);
+                this.emitter.trigger('dragstart', ev);
+                if (this.touchScrollAllowed === false) {
+                    this.pointer.cancelTouchScroll();
+                }
+            }
+        }
+    };
+    FeaturefulElementDragging.prototype.tryStopDrag = function (ev) {
+        // .stop() is ALWAYS asynchronous, which we NEED because we want all pointerup events
+        // that come from the document to fire beforehand. much more convenient this way.
+        this.mirror.stop(this.mirrorNeedsRevert, this.stopDrag.bind(this, ev) // bound with args
+        );
+    };
+    FeaturefulElementDragging.prototype.stopDrag = function (ev) {
+        this.isDragging = false;
+        this.emitter.trigger('dragend', ev);
+    };
+    // fill in the implementations...
+    FeaturefulElementDragging.prototype.setIgnoreMove = function (bool) {
+        this.pointer.shouldIgnoreMove = bool;
+    };
+    FeaturefulElementDragging.prototype.setMirrorIsVisible = function (bool) {
+        this.mirror.setIsVisible(bool);
+    };
+    FeaturefulElementDragging.prototype.setMirrorNeedsRevert = function (bool) {
+        this.mirrorNeedsRevert = bool;
+    };
+    FeaturefulElementDragging.prototype.setAutoScrollEnabled = function (bool) {
+        this.autoScroller.isEnabled = bool;
+    };
+    return FeaturefulElementDragging;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["ElementDragging"]));
+
+/*
+When this class is instantiated, it records the offset of an element (relative to the document topleft),
+and continues to monitor scrolling, updating the cached coordinates if it needs to.
+Does not access the DOM after instantiation, so highly performant.
+
+Also keeps track of all scrolling/overflow:hidden containers that are parents of the given element
+and an determine if a given point is inside the combined clipping rectangle.
+*/
+var OffsetTracker = /** @class */ (function () {
+    function OffsetTracker(el) {
+        this.origRect = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["computeRect"])(el);
+        // will work fine for divs that have overflow:hidden
+        this.scrollCaches = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["getClippingParents"])(el).map(function (el) {
+            return new ElementScrollGeomCache(el, true); // listen=true
+        });
+    }
+    OffsetTracker.prototype.destroy = function () {
+        for (var _i = 0, _a = this.scrollCaches; _i < _a.length; _i++) {
+            var scrollCache = _a[_i];
+            scrollCache.destroy();
+        }
+    };
+    OffsetTracker.prototype.computeLeft = function () {
+        var left = this.origRect.left;
+        for (var _i = 0, _a = this.scrollCaches; _i < _a.length; _i++) {
+            var scrollCache = _a[_i];
+            left += scrollCache.origScrollLeft - scrollCache.getScrollLeft();
+        }
+        return left;
+    };
+    OffsetTracker.prototype.computeTop = function () {
+        var top = this.origRect.top;
+        for (var _i = 0, _a = this.scrollCaches; _i < _a.length; _i++) {
+            var scrollCache = _a[_i];
+            top += scrollCache.origScrollTop - scrollCache.getScrollTop();
+        }
+        return top;
+    };
+    OffsetTracker.prototype.isWithinClipping = function (pageX, pageY) {
+        var point = { left: pageX, top: pageY };
+        for (var _i = 0, _a = this.scrollCaches; _i < _a.length; _i++) {
+            var scrollCache = _a[_i];
+            if (!isIgnoredClipping(scrollCache.getEventTarget()) &&
+                !Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["pointInsideRect"])(point, scrollCache.clientRect)) {
+                return false;
+            }
+        }
+        return true;
+    };
+    return OffsetTracker;
+}());
+// certain clipping containers should never constrain interactions, like <html> and <body>
+// https://github.com/fullcalendar/fullcalendar/issues/3615
+function isIgnoredClipping(node) {
+    var tagName = node.tagName;
+    return tagName === 'HTML' || tagName === 'BODY';
+}
+
+/*
+Tracks movement over multiple droppable areas (aka "hits")
+that exist in one or more DateComponents.
+Relies on an existing draggable.
+
+emits:
+- pointerdown
+- dragstart
+- hitchange - fires initially, even if not over a hit
+- pointerup
+- (hitchange - again, to null, if ended over a hit)
+- dragend
+*/
+var HitDragging = /** @class */ (function () {
+    function HitDragging(dragging, droppableStore) {
+        var _this = this;
+        // options that can be set by caller
+        this.useSubjectCenter = false;
+        this.requireInitial = true; // if doesn't start out on a hit, won't emit any events
+        this.initialHit = null;
+        this.movingHit = null;
+        this.finalHit = null; // won't ever be populated if shouldIgnoreMove
+        this.handlePointerDown = function (ev) {
+            var dragging = _this.dragging;
+            _this.initialHit = null;
+            _this.movingHit = null;
+            _this.finalHit = null;
+            _this.prepareHits();
+            _this.processFirstCoord(ev);
+            if (_this.initialHit || !_this.requireInitial) {
+                dragging.setIgnoreMove(false);
+                _this.emitter.trigger('pointerdown', ev); // TODO: fire this before computing processFirstCoord, so listeners can cancel. this gets fired by almost every handler :(
+            }
+            else {
+                dragging.setIgnoreMove(true);
+            }
+        };
+        this.handleDragStart = function (ev) {
+            _this.emitter.trigger('dragstart', ev);
+            _this.handleMove(ev, true); // force = fire even if initially null
+        };
+        this.handleDragMove = function (ev) {
+            _this.emitter.trigger('dragmove', ev);
+            _this.handleMove(ev);
+        };
+        this.handlePointerUp = function (ev) {
+            _this.releaseHits();
+            _this.emitter.trigger('pointerup', ev);
+        };
+        this.handleDragEnd = function (ev) {
+            if (_this.movingHit) {
+                _this.emitter.trigger('hitupdate', null, true, ev);
+            }
+            _this.finalHit = _this.movingHit;
+            _this.movingHit = null;
+            _this.emitter.trigger('dragend', ev);
+        };
+        this.droppableStore = droppableStore;
+        dragging.emitter.on('pointerdown', this.handlePointerDown);
+        dragging.emitter.on('dragstart', this.handleDragStart);
+        dragging.emitter.on('dragmove', this.handleDragMove);
+        dragging.emitter.on('pointerup', this.handlePointerUp);
+        dragging.emitter.on('dragend', this.handleDragEnd);
+        this.dragging = dragging;
+        this.emitter = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["EmitterMixin"]();
+    }
+    // sets initialHit
+    // sets coordAdjust
+    HitDragging.prototype.processFirstCoord = function (ev) {
+        var origPoint = { left: ev.pageX, top: ev.pageY };
+        var adjustedPoint = origPoint;
+        var subjectEl = ev.subjectEl;
+        var subjectRect;
+        if (subjectEl !== document) {
+            subjectRect = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["computeRect"])(subjectEl);
+            adjustedPoint = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["constrainPoint"])(adjustedPoint, subjectRect);
+        }
+        var initialHit = this.initialHit = this.queryHitForOffset(adjustedPoint.left, adjustedPoint.top);
+        if (initialHit) {
+            if (this.useSubjectCenter && subjectRect) {
+                var slicedSubjectRect = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["intersectRects"])(subjectRect, initialHit.rect);
+                if (slicedSubjectRect) {
+                    adjustedPoint = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["getRectCenter"])(slicedSubjectRect);
+                }
+            }
+            this.coordAdjust = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["diffPoints"])(adjustedPoint, origPoint);
+        }
+        else {
+            this.coordAdjust = { left: 0, top: 0 };
+        }
+    };
+    HitDragging.prototype.handleMove = function (ev, forceHandle) {
+        var hit = this.queryHitForOffset(ev.pageX + this.coordAdjust.left, ev.pageY + this.coordAdjust.top);
+        if (forceHandle || !isHitsEqual(this.movingHit, hit)) {
+            this.movingHit = hit;
+            this.emitter.trigger('hitupdate', hit, false, ev);
+        }
+    };
+    HitDragging.prototype.prepareHits = function () {
+        this.offsetTrackers = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["mapHash"])(this.droppableStore, function (interactionSettings) {
+            interactionSettings.component.buildPositionCaches();
+            return new OffsetTracker(interactionSettings.el);
+        });
+    };
+    HitDragging.prototype.releaseHits = function () {
+        var offsetTrackers = this.offsetTrackers;
+        for (var id in offsetTrackers) {
+            offsetTrackers[id].destroy();
+        }
+        this.offsetTrackers = {};
+    };
+    HitDragging.prototype.queryHitForOffset = function (offsetLeft, offsetTop) {
+        var _a = this, droppableStore = _a.droppableStore, offsetTrackers = _a.offsetTrackers;
+        var bestHit = null;
+        for (var id in droppableStore) {
+            var component = droppableStore[id].component;
+            var offsetTracker = offsetTrackers[id];
+            if (offsetTracker.isWithinClipping(offsetLeft, offsetTop)) {
+                var originLeft = offsetTracker.computeLeft();
+                var originTop = offsetTracker.computeTop();
+                var positionLeft = offsetLeft - originLeft;
+                var positionTop = offsetTop - originTop;
+                var origRect = offsetTracker.origRect;
+                var width = origRect.right - origRect.left;
+                var height = origRect.bottom - origRect.top;
+                if (
+                // must be within the element's bounds
+                positionLeft >= 0 && positionLeft < width &&
+                    positionTop >= 0 && positionTop < height) {
+                    var hit = component.queryHit(positionLeft, positionTop, width, height);
+                    if (hit &&
+                        (
+                        // make sure the hit is within activeRange, meaning it's not a deal cell
+                        !component.props.dateProfile || // hack for DayTile
+                            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["rangeContainsRange"])(component.props.dateProfile.activeRange, hit.dateSpan.range)) &&
+                        (!bestHit || hit.layer > bestHit.layer)) {
+                        // TODO: better way to re-orient rectangle
+                        hit.rect.left += originLeft;
+                        hit.rect.right += originLeft;
+                        hit.rect.top += originTop;
+                        hit.rect.bottom += originTop;
+                        bestHit = hit;
+                    }
+                }
+            }
+        }
+        return bestHit;
+    };
+    return HitDragging;
+}());
+function isHitsEqual(hit0, hit1) {
+    if (!hit0 && !hit1) {
+        return true;
+    }
+    if (Boolean(hit0) !== Boolean(hit1)) {
+        return false;
+    }
+    return Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["isDateSpansEqual"])(hit0.dateSpan, hit1.dateSpan);
+}
+
+/*
+Monitors when the user clicks on a specific date/time of a component.
+A pointerdown+pointerup on the same "hit" constitutes a click.
+*/
+var DateClicking = /** @class */ (function (_super) {
+    __extends(DateClicking, _super);
+    function DateClicking(settings) {
+        var _this = _super.call(this, settings) || this;
+        _this.handlePointerDown = function (ev) {
+            var dragging = _this.dragging;
+            // do this in pointerdown (not dragend) because DOM might be mutated by the time dragend is fired
+            dragging.setIgnoreMove(!_this.component.isValidDateDownEl(dragging.pointer.downEl));
+        };
+        // won't even fire if moving was ignored
+        _this.handleDragEnd = function (ev) {
+            var component = _this.component;
+            var pointer = _this.dragging.pointer;
+            if (!pointer.wasTouchScroll) {
+                var _a = _this.hitDragging, initialHit = _a.initialHit, finalHit = _a.finalHit;
+                if (initialHit && finalHit && isHitsEqual(initialHit, finalHit)) {
+                    component.calendar.triggerDateClick(initialHit.dateSpan, initialHit.dayEl, component.view, ev.origEvent);
+                }
+            }
+        };
+        var component = settings.component;
+        // we DO want to watch pointer moves because otherwise finalHit won't get populated
+        _this.dragging = new FeaturefulElementDragging(component.el);
+        _this.dragging.autoScroller.isEnabled = false;
+        var hitDragging = _this.hitDragging = new HitDragging(_this.dragging, Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["interactionSettingsToStore"])(settings));
+        hitDragging.emitter.on('pointerdown', _this.handlePointerDown);
+        hitDragging.emitter.on('dragend', _this.handleDragEnd);
+        return _this;
+    }
+    DateClicking.prototype.destroy = function () {
+        this.dragging.destroy();
+    };
+    return DateClicking;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["Interaction"]));
+
+/*
+Tracks when the user selects a portion of time of a component,
+constituted by a drag over date cells, with a possible delay at the beginning of the drag.
+*/
+var DateSelecting = /** @class */ (function (_super) {
+    __extends(DateSelecting, _super);
+    function DateSelecting(settings) {
+        var _this = _super.call(this, settings) || this;
+        _this.dragSelection = null;
+        _this.handlePointerDown = function (ev) {
+            var _a = _this, component = _a.component, dragging = _a.dragging;
+            var canSelect = component.opt('selectable') &&
+                component.isValidDateDownEl(ev.origEvent.target);
+            // don't bother to watch expensive moves if component won't do selection
+            dragging.setIgnoreMove(!canSelect);
+            // if touch, require user to hold down
+            dragging.delay = ev.isTouch ? getComponentTouchDelay(component) : null;
+        };
+        _this.handleDragStart = function (ev) {
+            _this.component.calendar.unselect(ev); // unselect previous selections
+        };
+        _this.handleHitUpdate = function (hit, isFinal) {
+            var calendar = _this.component.calendar;
+            var dragSelection = null;
+            var isInvalid = false;
+            if (hit) {
+                dragSelection = joinHitsIntoSelection(_this.hitDragging.initialHit, hit, calendar.pluginSystem.hooks.dateSelectionTransformers);
+                if (!dragSelection || !_this.component.isDateSelectionValid(dragSelection)) {
+                    isInvalid = true;
+                    dragSelection = null;
+                }
+            }
+            if (dragSelection) {
+                calendar.dispatch({ type: 'SELECT_DATES', selection: dragSelection });
+            }
+            else if (!isFinal) { // only unselect if moved away while dragging
+                calendar.dispatch({ type: 'UNSELECT_DATES' });
+            }
+            if (!isInvalid) {
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["enableCursor"])();
+            }
+            else {
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["disableCursor"])();
+            }
+            if (!isFinal) {
+                _this.dragSelection = dragSelection; // only clear if moved away from all hits while dragging
+            }
+        };
+        _this.handlePointerUp = function (pev) {
+            if (_this.dragSelection) {
+                // selection is already rendered, so just need to report selection
+                _this.component.calendar.triggerDateSelect(_this.dragSelection, pev);
+                _this.dragSelection = null;
+            }
+        };
+        var component = settings.component;
+        var dragging = _this.dragging = new FeaturefulElementDragging(component.el);
+        dragging.touchScrollAllowed = false;
+        dragging.minDistance = component.opt('selectMinDistance') || 0;
+        dragging.autoScroller.isEnabled = component.opt('dragScroll');
+        var hitDragging = _this.hitDragging = new HitDragging(_this.dragging, Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["interactionSettingsToStore"])(settings));
+        hitDragging.emitter.on('pointerdown', _this.handlePointerDown);
+        hitDragging.emitter.on('dragstart', _this.handleDragStart);
+        hitDragging.emitter.on('hitupdate', _this.handleHitUpdate);
+        hitDragging.emitter.on('pointerup', _this.handlePointerUp);
+        return _this;
+    }
+    DateSelecting.prototype.destroy = function () {
+        this.dragging.destroy();
+    };
+    return DateSelecting;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["Interaction"]));
+function getComponentTouchDelay(component) {
+    var delay = component.opt('selectLongPressDelay');
+    if (delay == null) {
+        delay = component.opt('longPressDelay');
+    }
+    return delay;
+}
+function joinHitsIntoSelection(hit0, hit1, dateSelectionTransformers) {
+    var dateSpan0 = hit0.dateSpan;
+    var dateSpan1 = hit1.dateSpan;
+    var ms = [
+        dateSpan0.range.start,
+        dateSpan0.range.end,
+        dateSpan1.range.start,
+        dateSpan1.range.end
+    ];
+    ms.sort(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["compareNumbers"]);
+    var props = {};
+    for (var _i = 0, dateSelectionTransformers_1 = dateSelectionTransformers; _i < dateSelectionTransformers_1.length; _i++) {
+        var transformer = dateSelectionTransformers_1[_i];
+        var res = transformer(hit0, hit1);
+        if (res === false) {
+            return null;
+        }
+        else if (res) {
+            __assign(props, res);
+        }
+    }
+    props.range = { start: ms[0], end: ms[3] };
+    props.allDay = dateSpan0.allDay;
+    return props;
+}
+
+var EventDragging = /** @class */ (function (_super) {
+    __extends(EventDragging, _super);
+    function EventDragging(settings) {
+        var _this = _super.call(this, settings) || this;
+        // internal state
+        _this.subjectSeg = null; // the seg being selected/dragged
+        _this.isDragging = false;
+        _this.eventRange = null;
+        _this.relevantEvents = null; // the events being dragged
+        _this.receivingCalendar = null;
+        _this.validMutation = null;
+        _this.mutatedRelevantEvents = null;
+        _this.handlePointerDown = function (ev) {
+            var origTarget = ev.origEvent.target;
+            var _a = _this, component = _a.component, dragging = _a.dragging;
+            var mirror = dragging.mirror;
+            var initialCalendar = component.calendar;
+            var subjectSeg = _this.subjectSeg = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["getElSeg"])(ev.subjectEl);
+            var eventRange = _this.eventRange = subjectSeg.eventRange;
+            var eventInstanceId = eventRange.instance.instanceId;
+            _this.relevantEvents = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["getRelevantEvents"])(initialCalendar.state.eventStore, eventInstanceId);
+            dragging.minDistance = ev.isTouch ? 0 : component.opt('eventDragMinDistance');
+            dragging.delay =
+                // only do a touch delay if touch and this event hasn't been selected yet
+                (ev.isTouch && eventInstanceId !== component.props.eventSelection) ?
+                    getComponentTouchDelay$1(component) :
+                    null;
+            mirror.parentNode = initialCalendar.el;
+            mirror.revertDuration = component.opt('dragRevertDuration');
+            var isValid = component.isValidSegDownEl(origTarget) &&
+                !Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["elementClosest"])(origTarget, '.fc-resizer'); // NOT on a resizer
+            dragging.setIgnoreMove(!isValid);
+            // disable dragging for elements that are resizable (ie, selectable)
+            // but are not draggable
+            _this.isDragging = isValid &&
+                ev.subjectEl.classList.contains('fc-draggable');
+        };
+        _this.handleDragStart = function (ev) {
+            var initialCalendar = _this.component.calendar;
+            var eventRange = _this.eventRange;
+            var eventInstanceId = eventRange.instance.instanceId;
+            if (ev.isTouch) {
+                // need to select a different event?
+                if (eventInstanceId !== _this.component.props.eventSelection) {
+                    initialCalendar.dispatch({ type: 'SELECT_EVENT', eventInstanceId: eventInstanceId });
+                }
+            }
+            else {
+                // if now using mouse, but was previous touch interaction, clear selected event
+                initialCalendar.dispatch({ type: 'UNSELECT_EVENT' });
+            }
+            if (_this.isDragging) {
+                initialCalendar.unselect(ev); // unselect *date* selection
+                initialCalendar.publiclyTrigger('eventDragStart', [
+                    {
+                        el: _this.subjectSeg.el,
+                        event: new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["EventApi"](initialCalendar, eventRange.def, eventRange.instance),
+                        jsEvent: ev.origEvent,
+                        view: _this.component.view
+                    }
+                ]);
+            }
+        };
+        _this.handleHitUpdate = function (hit, isFinal) {
+            if (!_this.isDragging) {
+                return;
+            }
+            var relevantEvents = _this.relevantEvents;
+            var initialHit = _this.hitDragging.initialHit;
+            var initialCalendar = _this.component.calendar;
+            // states based on new hit
+            var receivingCalendar = null;
+            var mutation = null;
+            var mutatedRelevantEvents = null;
+            var isInvalid = false;
+            var interaction = {
+                affectedEvents: relevantEvents,
+                mutatedEvents: Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createEmptyEventStore"])(),
+                isEvent: true,
+                origSeg: _this.subjectSeg
+            };
+            if (hit) {
+                var receivingComponent = hit.component;
+                receivingCalendar = receivingComponent.calendar;
+                if (initialCalendar === receivingCalendar ||
+                    receivingComponent.opt('editable') && receivingComponent.opt('droppable')) {
+                    mutation = computeEventMutation(initialHit, hit, receivingCalendar.pluginSystem.hooks.eventDragMutationMassagers);
+                    if (mutation) {
+                        mutatedRelevantEvents = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["applyMutationToEventStore"])(relevantEvents, receivingCalendar.eventUiBases, mutation, receivingCalendar);
+                        interaction.mutatedEvents = mutatedRelevantEvents;
+                        if (!receivingComponent.isInteractionValid(interaction)) {
+                            isInvalid = true;
+                            mutation = null;
+                            mutatedRelevantEvents = null;
+                            interaction.mutatedEvents = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createEmptyEventStore"])();
+                        }
+                    }
+                }
+                else {
+                    receivingCalendar = null;
+                }
+            }
+            _this.displayDrag(receivingCalendar, interaction);
+            if (!isInvalid) {
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["enableCursor"])();
+            }
+            else {
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["disableCursor"])();
+            }
+            if (!isFinal) {
+                if (initialCalendar === receivingCalendar && // TODO: write test for this
+                    isHitsEqual(initialHit, hit)) {
+                    mutation = null;
+                }
+                _this.dragging.setMirrorNeedsRevert(!mutation);
+                // render the mirror if no already-rendered mirror
+                // TODO: wish we could somehow wait for dispatch to guarantee render
+                _this.dragging.setMirrorIsVisible(!hit || !document.querySelector('.fc-mirror'));
+                // assign states based on new hit
+                _this.receivingCalendar = receivingCalendar;
+                _this.validMutation = mutation;
+                _this.mutatedRelevantEvents = mutatedRelevantEvents;
+            }
+        };
+        _this.handlePointerUp = function () {
+            if (!_this.isDragging) {
+                _this.cleanup(); // because handleDragEnd won't fire
+            }
+        };
+        _this.handleDragEnd = function (ev) {
+            if (_this.isDragging) {
+                var initialCalendar_1 = _this.component.calendar;
+                var initialView = _this.component.view;
+                var _a = _this, receivingCalendar = _a.receivingCalendar, validMutation = _a.validMutation;
+                var eventDef = _this.eventRange.def;
+                var eventInstance = _this.eventRange.instance;
+                var eventApi = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["EventApi"](initialCalendar_1, eventDef, eventInstance);
+                var relevantEvents_1 = _this.relevantEvents;
+                var mutatedRelevantEvents = _this.mutatedRelevantEvents;
+                var finalHit = _this.hitDragging.finalHit;
+                _this.clearDrag(); // must happen after revert animation
+                initialCalendar_1.publiclyTrigger('eventDragStop', [
+                    {
+                        el: _this.subjectSeg.el,
+                        event: eventApi,
+                        jsEvent: ev.origEvent,
+                        view: initialView
+                    }
+                ]);
+                if (validMutation) {
+                    // dropped within same calendar
+                    if (receivingCalendar === initialCalendar_1) {
+                        initialCalendar_1.dispatch({
+                            type: 'MERGE_EVENTS',
+                            eventStore: mutatedRelevantEvents
+                        });
+                        var transformed = {};
+                        for (var _i = 0, _b = initialCalendar_1.pluginSystem.hooks.eventDropTransformers; _i < _b.length; _i++) {
+                            var transformer = _b[_i];
+                            __assign(transformed, transformer(validMutation, initialCalendar_1));
+                        }
+                        var eventDropArg = __assign({}, transformed, { el: ev.subjectEl, delta: validMutation.datesDelta, oldEvent: eventApi, event: new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["EventApi"](// the data AFTER the mutation
+                            initialCalendar_1, mutatedRelevantEvents.defs[eventDef.defId], eventInstance ? mutatedRelevantEvents.instances[eventInstance.instanceId] : null), revert: function () {
+                                initialCalendar_1.dispatch({
+                                    type: 'MERGE_EVENTS',
+                                    eventStore: relevantEvents_1
+                                });
+                            }, jsEvent: ev.origEvent, view: initialView });
+                        initialCalendar_1.publiclyTrigger('eventDrop', [eventDropArg]);
+                        // dropped in different calendar
+                    }
+                    else if (receivingCalendar) {
+                        initialCalendar_1.publiclyTrigger('eventLeave', [
+                            {
+                                draggedEl: ev.subjectEl,
+                                event: eventApi,
+                                view: initialView
+                            }
+                        ]);
+                        initialCalendar_1.dispatch({
+                            type: 'REMOVE_EVENT_INSTANCES',
+                            instances: _this.mutatedRelevantEvents.instances
+                        });
+                        receivingCalendar.dispatch({
+                            type: 'MERGE_EVENTS',
+                            eventStore: _this.mutatedRelevantEvents
+                        });
+                        if (ev.isTouch) {
+                            receivingCalendar.dispatch({
+                                type: 'SELECT_EVENT',
+                                eventInstanceId: eventInstance.instanceId
+                            });
+                        }
+                        var dropArg = __assign({}, receivingCalendar.buildDatePointApi(finalHit.dateSpan), { draggedEl: ev.subjectEl, jsEvent: ev.origEvent, view: finalHit.component // should this be finalHit.component.view? See #4644
+                         });
+                        receivingCalendar.publiclyTrigger('drop', [dropArg]);
+                        receivingCalendar.publiclyTrigger('eventReceive', [
+                            {
+                                draggedEl: ev.subjectEl,
+                                event: new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["EventApi"](// the data AFTER the mutation
+                                receivingCalendar, mutatedRelevantEvents.defs[eventDef.defId], mutatedRelevantEvents.instances[eventInstance.instanceId]),
+                                view: finalHit.component // should this be finalHit.component.view? See #4644
+                            }
+                        ]);
+                    }
+                }
+                else {
+                    initialCalendar_1.publiclyTrigger('_noEventDrop');
+                }
+            }
+            _this.cleanup();
+        };
+        var component = _this.component;
+        var dragging = _this.dragging = new FeaturefulElementDragging(component.el);
+        dragging.pointer.selector = EventDragging.SELECTOR;
+        dragging.touchScrollAllowed = false;
+        dragging.autoScroller.isEnabled = component.opt('dragScroll');
+        var hitDragging = _this.hitDragging = new HitDragging(_this.dragging, _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["interactionSettingsStore"]);
+        hitDragging.useSubjectCenter = settings.useEventCenter;
+        hitDragging.emitter.on('pointerdown', _this.handlePointerDown);
+        hitDragging.emitter.on('dragstart', _this.handleDragStart);
+        hitDragging.emitter.on('hitupdate', _this.handleHitUpdate);
+        hitDragging.emitter.on('pointerup', _this.handlePointerUp);
+        hitDragging.emitter.on('dragend', _this.handleDragEnd);
+        return _this;
+    }
+    EventDragging.prototype.destroy = function () {
+        this.dragging.destroy();
+    };
+    // render a drag state on the next receivingCalendar
+    EventDragging.prototype.displayDrag = function (nextCalendar, state) {
+        var initialCalendar = this.component.calendar;
+        var prevCalendar = this.receivingCalendar;
+        // does the previous calendar need to be cleared?
+        if (prevCalendar && prevCalendar !== nextCalendar) {
+            // does the initial calendar need to be cleared?
+            // if so, don't clear all the way. we still need to to hide the affectedEvents
+            if (prevCalendar === initialCalendar) {
+                prevCalendar.dispatch({
+                    type: 'SET_EVENT_DRAG',
+                    state: {
+                        affectedEvents: state.affectedEvents,
+                        mutatedEvents: Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createEmptyEventStore"])(),
+                        isEvent: true,
+                        origSeg: state.origSeg
+                    }
+                });
+                // completely clear the old calendar if it wasn't the initial
+            }
+            else {
+                prevCalendar.dispatch({ type: 'UNSET_EVENT_DRAG' });
+            }
+        }
+        if (nextCalendar) {
+            nextCalendar.dispatch({ type: 'SET_EVENT_DRAG', state: state });
+        }
+    };
+    EventDragging.prototype.clearDrag = function () {
+        var initialCalendar = this.component.calendar;
+        var receivingCalendar = this.receivingCalendar;
+        if (receivingCalendar) {
+            receivingCalendar.dispatch({ type: 'UNSET_EVENT_DRAG' });
+        }
+        // the initial calendar might have an dummy drag state from displayDrag
+        if (initialCalendar !== receivingCalendar) {
+            initialCalendar.dispatch({ type: 'UNSET_EVENT_DRAG' });
+        }
+    };
+    EventDragging.prototype.cleanup = function () {
+        this.subjectSeg = null;
+        this.isDragging = false;
+        this.eventRange = null;
+        this.relevantEvents = null;
+        this.receivingCalendar = null;
+        this.validMutation = null;
+        this.mutatedRelevantEvents = null;
+    };
+    EventDragging.SELECTOR = '.fc-draggable, .fc-resizable'; // TODO: test this in IE11
+    return EventDragging;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["Interaction"]));
+function computeEventMutation(hit0, hit1, massagers) {
+    var dateSpan0 = hit0.dateSpan;
+    var dateSpan1 = hit1.dateSpan;
+    var date0 = dateSpan0.range.start;
+    var date1 = dateSpan1.range.start;
+    var standardProps = {};
+    if (dateSpan0.allDay !== dateSpan1.allDay) {
+        standardProps.allDay = dateSpan1.allDay;
+        standardProps.hasEnd = hit1.component.opt('allDayMaintainDuration');
+        if (dateSpan1.allDay) {
+            // means date1 is already start-of-day,
+            // but date0 needs to be converted
+            date0 = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["startOfDay"])(date0);
+        }
+    }
+    var delta = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["diffDates"])(date0, date1, hit0.component.dateEnv, hit0.component === hit1.component ?
+        hit0.component.largeUnit :
+        null);
+    if (delta.milliseconds) { // has hours/minutes/seconds
+        standardProps.allDay = false;
+    }
+    var mutation = {
+        datesDelta: delta,
+        standardProps: standardProps
+    };
+    for (var _i = 0, massagers_1 = massagers; _i < massagers_1.length; _i++) {
+        var massager = massagers_1[_i];
+        massager(mutation, hit0, hit1);
+    }
+    return mutation;
+}
+function getComponentTouchDelay$1(component) {
+    var delay = component.opt('eventLongPressDelay');
+    if (delay == null) {
+        delay = component.opt('longPressDelay');
+    }
+    return delay;
+}
+
+var EventDragging$1 = /** @class */ (function (_super) {
+    __extends(EventDragging, _super);
+    function EventDragging(settings) {
+        var _this = _super.call(this, settings) || this;
+        // internal state
+        _this.draggingSeg = null; // TODO: rename to resizingSeg? subjectSeg?
+        _this.eventRange = null;
+        _this.relevantEvents = null;
+        _this.validMutation = null;
+        _this.mutatedRelevantEvents = null;
+        _this.handlePointerDown = function (ev) {
+            var component = _this.component;
+            var seg = _this.querySeg(ev);
+            var eventRange = _this.eventRange = seg.eventRange;
+            _this.dragging.minDistance = component.opt('eventDragMinDistance');
+            // if touch, need to be working with a selected event
+            _this.dragging.setIgnoreMove(!_this.component.isValidSegDownEl(ev.origEvent.target) ||
+                (ev.isTouch && _this.component.props.eventSelection !== eventRange.instance.instanceId));
+        };
+        _this.handleDragStart = function (ev) {
+            var calendar = _this.component.calendar;
+            var eventRange = _this.eventRange;
+            _this.relevantEvents = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["getRelevantEvents"])(calendar.state.eventStore, _this.eventRange.instance.instanceId);
+            _this.draggingSeg = _this.querySeg(ev);
+            calendar.unselect();
+            calendar.publiclyTrigger('eventResizeStart', [
+                {
+                    el: _this.draggingSeg.el,
+                    event: new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["EventApi"](calendar, eventRange.def, eventRange.instance),
+                    jsEvent: ev.origEvent,
+                    view: _this.component.view
+                }
+            ]);
+        };
+        _this.handleHitUpdate = function (hit, isFinal, ev) {
+            var calendar = _this.component.calendar;
+            var relevantEvents = _this.relevantEvents;
+            var initialHit = _this.hitDragging.initialHit;
+            var eventInstance = _this.eventRange.instance;
+            var mutation = null;
+            var mutatedRelevantEvents = null;
+            var isInvalid = false;
+            var interaction = {
+                affectedEvents: relevantEvents,
+                mutatedEvents: Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createEmptyEventStore"])(),
+                isEvent: true,
+                origSeg: _this.draggingSeg
+            };
+            if (hit) {
+                mutation = computeMutation(initialHit, hit, ev.subjectEl.classList.contains('fc-start-resizer'), eventInstance.range, calendar.pluginSystem.hooks.eventResizeJoinTransforms);
+            }
+            if (mutation) {
+                mutatedRelevantEvents = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["applyMutationToEventStore"])(relevantEvents, calendar.eventUiBases, mutation, calendar);
+                interaction.mutatedEvents = mutatedRelevantEvents;
+                if (!_this.component.isInteractionValid(interaction)) {
+                    isInvalid = true;
+                    mutation = null;
+                    mutatedRelevantEvents = null;
+                    interaction.mutatedEvents = null;
+                }
+            }
+            if (mutatedRelevantEvents) {
+                calendar.dispatch({
+                    type: 'SET_EVENT_RESIZE',
+                    state: interaction
+                });
+            }
+            else {
+                calendar.dispatch({ type: 'UNSET_EVENT_RESIZE' });
+            }
+            if (!isInvalid) {
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["enableCursor"])();
+            }
+            else {
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["disableCursor"])();
+            }
+            if (!isFinal) {
+                if (mutation && isHitsEqual(initialHit, hit)) {
+                    mutation = null;
+                }
+                _this.validMutation = mutation;
+                _this.mutatedRelevantEvents = mutatedRelevantEvents;
+            }
+        };
+        _this.handleDragEnd = function (ev) {
+            var calendar = _this.component.calendar;
+            var view = _this.component.view;
+            var eventDef = _this.eventRange.def;
+            var eventInstance = _this.eventRange.instance;
+            var eventApi = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["EventApi"](calendar, eventDef, eventInstance);
+            var relevantEvents = _this.relevantEvents;
+            var mutatedRelevantEvents = _this.mutatedRelevantEvents;
+            calendar.publiclyTrigger('eventResizeStop', [
+                {
+                    el: _this.draggingSeg.el,
+                    event: eventApi,
+                    jsEvent: ev.origEvent,
+                    view: view
+                }
+            ]);
+            if (_this.validMutation) {
+                calendar.dispatch({
+                    type: 'MERGE_EVENTS',
+                    eventStore: mutatedRelevantEvents
+                });
+                calendar.publiclyTrigger('eventResize', [
+                    {
+                        el: _this.draggingSeg.el,
+                        startDelta: _this.validMutation.startDelta || Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createDuration"])(0),
+                        endDelta: _this.validMutation.endDelta || Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createDuration"])(0),
+                        prevEvent: eventApi,
+                        event: new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["EventApi"](// the data AFTER the mutation
+                        calendar, mutatedRelevantEvents.defs[eventDef.defId], eventInstance ? mutatedRelevantEvents.instances[eventInstance.instanceId] : null),
+                        revert: function () {
+                            calendar.dispatch({
+                                type: 'MERGE_EVENTS',
+                                eventStore: relevantEvents
+                            });
+                        },
+                        jsEvent: ev.origEvent,
+                        view: view
+                    }
+                ]);
+            }
+            else {
+                calendar.publiclyTrigger('_noEventResize');
+            }
+            // reset all internal state
+            _this.draggingSeg = null;
+            _this.relevantEvents = null;
+            _this.validMutation = null;
+            // okay to keep eventInstance around. useful to set it in handlePointerDown
+        };
+        var component = settings.component;
+        var dragging = _this.dragging = new FeaturefulElementDragging(component.el);
+        dragging.pointer.selector = '.fc-resizer';
+        dragging.touchScrollAllowed = false;
+        dragging.autoScroller.isEnabled = component.opt('dragScroll');
+        var hitDragging = _this.hitDragging = new HitDragging(_this.dragging, Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["interactionSettingsToStore"])(settings));
+        hitDragging.emitter.on('pointerdown', _this.handlePointerDown);
+        hitDragging.emitter.on('dragstart', _this.handleDragStart);
+        hitDragging.emitter.on('hitupdate', _this.handleHitUpdate);
+        hitDragging.emitter.on('dragend', _this.handleDragEnd);
+        return _this;
+    }
+    EventDragging.prototype.destroy = function () {
+        this.dragging.destroy();
+    };
+    EventDragging.prototype.querySeg = function (ev) {
+        return Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["getElSeg"])(Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["elementClosest"])(ev.subjectEl, this.component.fgSegSelector));
+    };
+    return EventDragging;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["Interaction"]));
+function computeMutation(hit0, hit1, isFromStart, instanceRange, transforms) {
+    var dateEnv = hit0.component.dateEnv;
+    var date0 = hit0.dateSpan.range.start;
+    var date1 = hit1.dateSpan.range.start;
+    var delta = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["diffDates"])(date0, date1, dateEnv, hit0.component.largeUnit);
+    var props = {};
+    for (var _i = 0, transforms_1 = transforms; _i < transforms_1.length; _i++) {
+        var transform = transforms_1[_i];
+        var res = transform(hit0, hit1);
+        if (res === false) {
+            return null;
+        }
+        else if (res) {
+            __assign(props, res);
+        }
+    }
+    if (isFromStart) {
+        if (dateEnv.add(instanceRange.start, delta) < instanceRange.end) {
+            props.startDelta = delta;
+            return props;
+        }
+    }
+    else {
+        if (dateEnv.add(instanceRange.end, delta) > instanceRange.start) {
+            props.endDelta = delta;
+            return props;
+        }
+    }
+    return null;
+}
+
+var UnselectAuto = /** @class */ (function () {
+    function UnselectAuto(calendar) {
+        var _this = this;
+        this.isRecentPointerDateSelect = false; // wish we could use a selector to detect date selection, but uses hit system
+        this.onSelect = function (selectInfo) {
+            if (selectInfo.jsEvent) {
+                _this.isRecentPointerDateSelect = true;
+            }
+        };
+        this.onDocumentPointerUp = function (pev) {
+            var _a = _this, calendar = _a.calendar, documentPointer = _a.documentPointer;
+            var state = calendar.state;
+            // touch-scrolling should never unfocus any type of selection
+            if (!documentPointer.wasTouchScroll) {
+                if (state.dateSelection && // an existing date selection?
+                    !_this.isRecentPointerDateSelect // a new pointer-initiated date selection since last onDocumentPointerUp?
+                ) {
+                    var unselectAuto = calendar.viewOpt('unselectAuto');
+                    var unselectCancel = calendar.viewOpt('unselectCancel');
+                    if (unselectAuto && (!unselectAuto || !Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["elementClosest"])(documentPointer.downEl, unselectCancel))) {
+                        calendar.unselect(pev);
+                    }
+                }
+                if (state.eventSelection && // an existing event selected?
+                    !Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["elementClosest"])(documentPointer.downEl, EventDragging.SELECTOR) // interaction DIDN'T start on an event
+                ) {
+                    calendar.dispatch({ type: 'UNSELECT_EVENT' });
+                }
+            }
+            _this.isRecentPointerDateSelect = false;
+        };
+        this.calendar = calendar;
+        var documentPointer = this.documentPointer = new PointerDragging(document);
+        documentPointer.shouldIgnoreMove = true;
+        documentPointer.shouldWatchScroll = false;
+        documentPointer.emitter.on('pointerup', this.onDocumentPointerUp);
+        /*
+        TODO: better way to know about whether there was a selection with the pointer
+        */
+        calendar.on('select', this.onSelect);
+    }
+    UnselectAuto.prototype.destroy = function () {
+        this.calendar.off('select', this.onSelect);
+        this.documentPointer.destroy();
+    };
+    return UnselectAuto;
+}());
+
+/*
+Given an already instantiated draggable object for one-or-more elements,
+Interprets any dragging as an attempt to drag an events that lives outside
+of a calendar onto a calendar.
+*/
+var ExternalElementDragging = /** @class */ (function () {
+    function ExternalElementDragging(dragging, suppliedDragMeta) {
+        var _this = this;
+        this.receivingCalendar = null;
+        this.droppableEvent = null; // will exist for all drags, even if create:false
+        this.suppliedDragMeta = null;
+        this.dragMeta = null;
+        this.handleDragStart = function (ev) {
+            _this.dragMeta = _this.buildDragMeta(ev.subjectEl);
+        };
+        this.handleHitUpdate = function (hit, isFinal, ev) {
+            var dragging = _this.hitDragging.dragging;
+            var receivingCalendar = null;
+            var droppableEvent = null;
+            var isInvalid = false;
+            var interaction = {
+                affectedEvents: Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createEmptyEventStore"])(),
+                mutatedEvents: Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createEmptyEventStore"])(),
+                isEvent: _this.dragMeta.create,
+                origSeg: null
+            };
+            if (hit) {
+                receivingCalendar = hit.component.calendar;
+                if (_this.canDropElOnCalendar(ev.subjectEl, receivingCalendar)) {
+                    droppableEvent = computeEventForDateSpan(hit.dateSpan, _this.dragMeta, receivingCalendar);
+                    interaction.mutatedEvents = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["eventTupleToStore"])(droppableEvent);
+                    isInvalid = !Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["isInteractionValid"])(interaction, receivingCalendar);
+                    if (isInvalid) {
+                        interaction.mutatedEvents = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createEmptyEventStore"])();
+                        droppableEvent = null;
+                    }
+                }
+            }
+            _this.displayDrag(receivingCalendar, interaction);
+            // show mirror if no already-rendered mirror element OR if we are shutting down the mirror (?)
+            // TODO: wish we could somehow wait for dispatch to guarantee render
+            dragging.setMirrorIsVisible(isFinal || !droppableEvent || !document.querySelector('.fc-mirror'));
+            if (!isInvalid) {
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["enableCursor"])();
+            }
+            else {
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["disableCursor"])();
+            }
+            if (!isFinal) {
+                dragging.setMirrorNeedsRevert(!droppableEvent);
+                _this.receivingCalendar = receivingCalendar;
+                _this.droppableEvent = droppableEvent;
+            }
+        };
+        this.handleDragEnd = function (pev) {
+            var _a = _this, receivingCalendar = _a.receivingCalendar, droppableEvent = _a.droppableEvent;
+            _this.clearDrag();
+            if (receivingCalendar && droppableEvent) {
+                var finalHit = _this.hitDragging.finalHit;
+                var finalView = finalHit.component.view;
+                var dragMeta = _this.dragMeta;
+                var arg = __assign({}, receivingCalendar.buildDatePointApi(finalHit.dateSpan), { draggedEl: pev.subjectEl, jsEvent: pev.origEvent, view: finalView });
+                receivingCalendar.publiclyTrigger('drop', [arg]);
+                if (dragMeta.create) {
+                    receivingCalendar.dispatch({
+                        type: 'MERGE_EVENTS',
+                        eventStore: Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["eventTupleToStore"])(droppableEvent)
+                    });
+                    if (pev.isTouch) {
+                        receivingCalendar.dispatch({
+                            type: 'SELECT_EVENT',
+                            eventInstanceId: droppableEvent.instance.instanceId
+                        });
+                    }
+                    // signal that an external event landed
+                    receivingCalendar.publiclyTrigger('eventReceive', [
+                        {
+                            draggedEl: pev.subjectEl,
+                            event: new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["EventApi"](receivingCalendar, droppableEvent.def, droppableEvent.instance),
+                            view: finalView
+                        }
+                    ]);
+                }
+            }
+            _this.receivingCalendar = null;
+            _this.droppableEvent = null;
+        };
+        var hitDragging = this.hitDragging = new HitDragging(dragging, _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["interactionSettingsStore"]);
+        hitDragging.requireInitial = false; // will start outside of a component
+        hitDragging.emitter.on('dragstart', this.handleDragStart);
+        hitDragging.emitter.on('hitupdate', this.handleHitUpdate);
+        hitDragging.emitter.on('dragend', this.handleDragEnd);
+        this.suppliedDragMeta = suppliedDragMeta;
+    }
+    ExternalElementDragging.prototype.buildDragMeta = function (subjectEl) {
+        if (typeof this.suppliedDragMeta === 'object') {
+            return Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["parseDragMeta"])(this.suppliedDragMeta);
+        }
+        else if (typeof this.suppliedDragMeta === 'function') {
+            return Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["parseDragMeta"])(this.suppliedDragMeta(subjectEl));
+        }
+        else {
+            return getDragMetaFromEl(subjectEl);
+        }
+    };
+    ExternalElementDragging.prototype.displayDrag = function (nextCalendar, state) {
+        var prevCalendar = this.receivingCalendar;
+        if (prevCalendar && prevCalendar !== nextCalendar) {
+            prevCalendar.dispatch({ type: 'UNSET_EVENT_DRAG' });
+        }
+        if (nextCalendar) {
+            nextCalendar.dispatch({ type: 'SET_EVENT_DRAG', state: state });
+        }
+    };
+    ExternalElementDragging.prototype.clearDrag = function () {
+        if (this.receivingCalendar) {
+            this.receivingCalendar.dispatch({ type: 'UNSET_EVENT_DRAG' });
+        }
+    };
+    ExternalElementDragging.prototype.canDropElOnCalendar = function (el, receivingCalendar) {
+        var dropAccept = receivingCalendar.opt('dropAccept');
+        if (typeof dropAccept === 'function') {
+            return dropAccept(el);
+        }
+        else if (typeof dropAccept === 'string' && dropAccept) {
+            return Boolean(Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["elementMatches"])(el, dropAccept));
+        }
+        return true;
+    };
+    return ExternalElementDragging;
+}());
+// Utils for computing event store from the DragMeta
+// ----------------------------------------------------------------------------------------------------
+function computeEventForDateSpan(dateSpan, dragMeta, calendar) {
+    var defProps = __assign({}, dragMeta.leftoverProps);
+    for (var _i = 0, _a = calendar.pluginSystem.hooks.externalDefTransforms; _i < _a.length; _i++) {
+        var transform = _a[_i];
+        __assign(defProps, transform(dateSpan, dragMeta));
+    }
+    var def = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["parseEventDef"])(defProps, dragMeta.sourceId, dateSpan.allDay, calendar.opt('forceEventDuration') || Boolean(dragMeta.duration), // hasEnd
+    calendar);
+    var start = dateSpan.range.start;
+    // only rely on time info if drop zone is all-day,
+    // otherwise, we already know the time
+    if (dateSpan.allDay && dragMeta.startTime) {
+        start = calendar.dateEnv.add(start, dragMeta.startTime);
+    }
+    var end = dragMeta.duration ?
+        calendar.dateEnv.add(start, dragMeta.duration) :
+        calendar.getDefaultEventEnd(dateSpan.allDay, start);
+    var instance = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createEventInstance"])(def.defId, { start: start, end: end });
+    return { def: def, instance: instance };
+}
+// Utils for extracting data from element
+// ----------------------------------------------------------------------------------------------------
+function getDragMetaFromEl(el) {
+    var str = getEmbeddedElData(el, 'event');
+    var obj = str ?
+        JSON.parse(str) :
+        { create: false }; // if no embedded data, assume no event creation
+    return Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["parseDragMeta"])(obj);
+}
+_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["config"].dataAttrPrefix = '';
+function getEmbeddedElData(el, name) {
+    var prefix = _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["config"].dataAttrPrefix;
+    var prefixedName = (prefix ? prefix + '-' : '') + name;
+    return el.getAttribute('data-' + prefixedName) || '';
+}
+
+/*
+Makes an element (that is *external* to any calendar) draggable.
+Can pass in data that determines how an event will be created when dropped onto a calendar.
+Leverages FullCalendar's internal drag-n-drop functionality WITHOUT a third-party drag system.
+*/
+var ExternalDraggable = /** @class */ (function () {
+    function ExternalDraggable(el, settings) {
+        var _this = this;
+        if (settings === void 0) { settings = {}; }
+        this.handlePointerDown = function (ev) {
+            var dragging = _this.dragging;
+            var _a = _this.settings, minDistance = _a.minDistance, longPressDelay = _a.longPressDelay;
+            dragging.minDistance =
+                minDistance != null ?
+                    minDistance :
+                    (ev.isTouch ? 0 : _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["globalDefaults"].eventDragMinDistance);
+            dragging.delay =
+                ev.isTouch ? // TODO: eventually read eventLongPressDelay instead vvv
+                    (longPressDelay != null ? longPressDelay : _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["globalDefaults"].longPressDelay) :
+                    0;
+        };
+        this.handleDragStart = function (ev) {
+            if (ev.isTouch &&
+                _this.dragging.delay &&
+                ev.subjectEl.classList.contains('fc-event')) {
+                _this.dragging.mirror.getMirrorEl().classList.add('fc-selected');
+            }
+        };
+        this.settings = settings;
+        var dragging = this.dragging = new FeaturefulElementDragging(el);
+        dragging.touchScrollAllowed = false;
+        if (settings.itemSelector != null) {
+            dragging.pointer.selector = settings.itemSelector;
+        }
+        if (settings.appendTo != null) {
+            dragging.mirror.parentNode = settings.appendTo; // TODO: write tests
+        }
+        dragging.emitter.on('pointerdown', this.handlePointerDown);
+        dragging.emitter.on('dragstart', this.handleDragStart);
+        new ExternalElementDragging(dragging, settings.eventData);
+    }
+    ExternalDraggable.prototype.destroy = function () {
+        this.dragging.destroy();
+    };
+    return ExternalDraggable;
+}());
+
+/*
+Detects when a *THIRD-PARTY* drag-n-drop system interacts with elements.
+The third-party system is responsible for drawing the visuals effects of the drag.
+This class simply monitors for pointer movements and fires events.
+It also has the ability to hide the moving element (the "mirror") during the drag.
+*/
+var InferredElementDragging = /** @class */ (function (_super) {
+    __extends(InferredElementDragging, _super);
+    function InferredElementDragging(containerEl) {
+        var _this = _super.call(this, containerEl) || this;
+        _this.shouldIgnoreMove = false;
+        _this.mirrorSelector = '';
+        _this.currentMirrorEl = null;
+        _this.handlePointerDown = function (ev) {
+            _this.emitter.trigger('pointerdown', ev);
+            if (!_this.shouldIgnoreMove) {
+                // fire dragstart right away. does not support delay or min-distance
+                _this.emitter.trigger('dragstart', ev);
+            }
+        };
+        _this.handlePointerMove = function (ev) {
+            if (!_this.shouldIgnoreMove) {
+                _this.emitter.trigger('dragmove', ev);
+            }
+        };
+        _this.handlePointerUp = function (ev) {
+            _this.emitter.trigger('pointerup', ev);
+            if (!_this.shouldIgnoreMove) {
+                // fire dragend right away. does not support a revert animation
+                _this.emitter.trigger('dragend', ev);
+            }
+        };
+        var pointer = _this.pointer = new PointerDragging(containerEl);
+        pointer.emitter.on('pointerdown', _this.handlePointerDown);
+        pointer.emitter.on('pointermove', _this.handlePointerMove);
+        pointer.emitter.on('pointerup', _this.handlePointerUp);
+        return _this;
+    }
+    InferredElementDragging.prototype.destroy = function () {
+        this.pointer.destroy();
+    };
+    InferredElementDragging.prototype.setIgnoreMove = function (bool) {
+        this.shouldIgnoreMove = bool;
+    };
+    InferredElementDragging.prototype.setMirrorIsVisible = function (bool) {
+        if (bool) {
+            // restore a previously hidden element.
+            // use the reference in case the selector class has already been removed.
+            if (this.currentMirrorEl) {
+                this.currentMirrorEl.style.visibility = '';
+                this.currentMirrorEl = null;
+            }
+        }
+        else {
+            var mirrorEl = this.mirrorSelector ?
+                document.querySelector(this.mirrorSelector) :
+                null;
+            if (mirrorEl) {
+                this.currentMirrorEl = mirrorEl;
+                mirrorEl.style.visibility = 'hidden';
+            }
+        }
+    };
+    return InferredElementDragging;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["ElementDragging"]));
+
+/*
+Bridges third-party drag-n-drop systems with FullCalendar.
+Must be instantiated and destroyed by caller.
+*/
+var ThirdPartyDraggable = /** @class */ (function () {
+    function ThirdPartyDraggable(containerOrSettings, settings) {
+        var containerEl = document;
+        if (
+        // wish we could just test instanceof EventTarget, but doesn't work in IE11
+        containerOrSettings === document ||
+            containerOrSettings instanceof Element) {
+            containerEl = containerOrSettings;
+            settings = settings || {};
+        }
+        else {
+            settings = (containerOrSettings || {});
+        }
+        var dragging = this.dragging = new InferredElementDragging(containerEl);
+        if (typeof settings.itemSelector === 'string') {
+            dragging.pointer.selector = settings.itemSelector;
+        }
+        else if (containerEl === document) {
+            dragging.pointer.selector = '[data-event]';
+        }
+        if (typeof settings.mirrorSelector === 'string') {
+            dragging.mirrorSelector = settings.mirrorSelector;
+        }
+        new ExternalElementDragging(dragging, settings.eventData);
+    }
+    ThirdPartyDraggable.prototype.destroy = function () {
+        this.dragging.destroy();
+    };
+    return ThirdPartyDraggable;
+}());
+
+var main = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createPlugin"])({
+    componentInteractions: [DateClicking, DateSelecting, EventDragging, EventDragging$1],
+    calendarInteractions: [UnselectAuto],
+    elementDraggingImpl: FeaturefulElementDragging
+});
+
+/* harmony default export */ __webpack_exports__["default"] = (main);
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@fullcalendar/timegrid/main.esm.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/@fullcalendar/timegrid/main.esm.js ***!
+  \*********************************************************/
+/*! exports provided: default, AbstractTimeGridView, TimeGrid, TimeGridSlicer, TimeGridView, buildDayRanges, buildDayTable */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AbstractTimeGridView", function() { return TimeGridView; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimeGrid", function() { return TimeGrid; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimeGridSlicer", function() { return TimeGridSlicer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimeGridView", function() { return TimeGridView$1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildDayRanges", function() { return buildDayRanges; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "buildDayTable", function() { return buildDayTable; });
+/* harmony import */ var _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fullcalendar/core */ "./node_modules/@fullcalendar/core/main.esm.js");
+/* harmony import */ var _fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @fullcalendar/daygrid */ "./node_modules/@fullcalendar/daygrid/main.esm.js");
+/*!
+FullCalendar Time Grid Plugin v4.3.0
+Docs & License: https://fullcalendar.io/
+(c) 2019 Adam Shaw
+*/
+
+
+
+
+/*! *****************************************************************************
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
+/* global Reflect, Promise */
+
+var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return extendStatics(d, b);
+};
+
+function __extends(d, b) {
+    extendStatics(d, b);
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+}
+
+var __assign = function() {
+    __assign = Object.assign || function __assign(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+
+/*
+Only handles foreground segs.
+Does not own rendering. Use for low-level util methods by TimeGrid.
+*/
+var TimeGridEventRenderer = /** @class */ (function (_super) {
+    __extends(TimeGridEventRenderer, _super);
+    function TimeGridEventRenderer(timeGrid) {
+        var _this = _super.call(this, timeGrid.context) || this;
+        _this.timeGrid = timeGrid;
+        _this.fullTimeFormat = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createFormatter"])({
+            hour: 'numeric',
+            minute: '2-digit',
+            separator: _this.context.options.defaultRangeSeparator
+        });
+        return _this;
+    }
+    // Given an array of foreground segments, render a DOM element for each, computes position,
+    // and attaches to the column inner-container elements.
+    TimeGridEventRenderer.prototype.attachSegs = function (segs, mirrorInfo) {
+        var segsByCol = this.timeGrid.groupSegsByCol(segs);
+        // order the segs within each column
+        // TODO: have groupSegsByCol do this?
+        for (var col = 0; col < segsByCol.length; col++) {
+            segsByCol[col] = this.sortEventSegs(segsByCol[col]);
+        }
+        this.segsByCol = segsByCol;
+        this.timeGrid.attachSegsByCol(segsByCol, this.timeGrid.fgContainerEls);
+    };
+    TimeGridEventRenderer.prototype.detachSegs = function (segs) {
+        segs.forEach(function (seg) {
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["removeElement"])(seg.el);
+        });
+        this.segsByCol = null;
+    };
+    TimeGridEventRenderer.prototype.computeSegSizes = function (allSegs) {
+        var _a = this, timeGrid = _a.timeGrid, segsByCol = _a.segsByCol;
+        var colCnt = timeGrid.colCnt;
+        timeGrid.computeSegVerticals(allSegs); // horizontals relies on this
+        if (segsByCol) {
+            for (var col = 0; col < colCnt; col++) {
+                this.computeSegHorizontals(segsByCol[col]); // compute horizontal coordinates, z-index's, and reorder the array
+            }
+        }
+    };
+    TimeGridEventRenderer.prototype.assignSegSizes = function (allSegs) {
+        var _a = this, timeGrid = _a.timeGrid, segsByCol = _a.segsByCol;
+        var colCnt = timeGrid.colCnt;
+        timeGrid.assignSegVerticals(allSegs); // horizontals relies on this
+        if (segsByCol) {
+            for (var col = 0; col < colCnt; col++) {
+                this.assignSegCss(segsByCol[col]);
+            }
+        }
+    };
+    // Computes a default event time formatting string if `eventTimeFormat` is not explicitly defined
+    TimeGridEventRenderer.prototype.computeEventTimeFormat = function () {
+        return {
+            hour: 'numeric',
+            minute: '2-digit',
+            meridiem: false
+        };
+    };
+    // Computes a default `displayEventEnd` value if one is not expliclty defined
+    TimeGridEventRenderer.prototype.computeDisplayEventEnd = function () {
+        return true;
+    };
+    // Renders the HTML for a single event segment's default rendering
+    TimeGridEventRenderer.prototype.renderSegHtml = function (seg, mirrorInfo) {
+        var view = this.context.view;
+        var eventRange = seg.eventRange;
+        var eventDef = eventRange.def;
+        var eventUi = eventRange.ui;
+        var allDay = eventDef.allDay;
+        var isDraggable = view.computeEventDraggable(eventDef, eventUi);
+        var isResizableFromStart = seg.isStart && view.computeEventStartResizable(eventDef, eventUi);
+        var isResizableFromEnd = seg.isEnd && view.computeEventEndResizable(eventDef, eventUi);
+        var classes = this.getSegClasses(seg, isDraggable, isResizableFromStart || isResizableFromEnd, mirrorInfo);
+        var skinCss = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["cssToStr"])(this.getSkinCss(eventUi));
+        var timeText;
+        var fullTimeText; // more verbose time text. for the print stylesheet
+        var startTimeText; // just the start time text
+        classes.unshift('fc-time-grid-event');
+        // if the event appears to span more than one day...
+        if (Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["isMultiDayRange"])(eventRange.range)) {
+            // Don't display time text on segments that run entirely through a day.
+            // That would appear as midnight-midnight and would look dumb.
+            // Otherwise, display the time text for the *segment's* times (like 6pm-midnight or midnight-10am)
+            if (seg.isStart || seg.isEnd) {
+                var unzonedStart = seg.start;
+                var unzonedEnd = seg.end;
+                timeText = this._getTimeText(unzonedStart, unzonedEnd, allDay); // TODO: give the timezones
+                fullTimeText = this._getTimeText(unzonedStart, unzonedEnd, allDay, this.fullTimeFormat);
+                startTimeText = this._getTimeText(unzonedStart, unzonedEnd, allDay, null, false); // displayEnd=false
+            }
+        }
+        else {
+            // Display the normal time text for the *event's* times
+            timeText = this.getTimeText(eventRange);
+            fullTimeText = this.getTimeText(eventRange, this.fullTimeFormat);
+            startTimeText = this.getTimeText(eventRange, null, false); // displayEnd=false
+        }
+        return '<a class="' + classes.join(' ') + '"' +
+            (eventDef.url ?
+                ' href="' + Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlEscape"])(eventDef.url) + '"' :
+                '') +
+            (skinCss ?
+                ' style="' + skinCss + '"' :
+                '') +
+            '>' +
+            '<div class="fc-content">' +
+            (timeText ?
+                '<div class="fc-time"' +
+                    ' data-start="' + Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlEscape"])(startTimeText) + '"' +
+                    ' data-full="' + Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlEscape"])(fullTimeText) + '"' +
+                    '>' +
+                    '<span>' + Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlEscape"])(timeText) + '</span>' +
+                    '</div>' :
+                '') +
+            (eventDef.title ?
+                '<div class="fc-title">' +
+                    Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlEscape"])(eventDef.title) +
+                    '</div>' :
+                '') +
+            '</div>' +
+            /* TODO: write CSS for this
+            (isResizableFromStart ?
+              '<div class="fc-resizer fc-start-resizer"></div>' :
+              ''
+              ) +
+            */
+            (isResizableFromEnd ?
+                '<div class="fc-resizer fc-end-resizer"></div>' :
+                '') +
+            '</a>';
+    };
+    // Given an array of segments that are all in the same column, sets the backwardCoord and forwardCoord on each.
+    // Assumed the segs are already ordered.
+    // NOTE: Also reorders the given array by date!
+    TimeGridEventRenderer.prototype.computeSegHorizontals = function (segs) {
+        var levels;
+        var level0;
+        var i;
+        levels = buildSlotSegLevels(segs);
+        computeForwardSlotSegs(levels);
+        if ((level0 = levels[0])) {
+            for (i = 0; i < level0.length; i++) {
+                computeSlotSegPressures(level0[i]);
+            }
+            for (i = 0; i < level0.length; i++) {
+                this.computeSegForwardBack(level0[i], 0, 0);
+            }
+        }
+    };
+    // Calculate seg.forwardCoord and seg.backwardCoord for the segment, where both values range
+    // from 0 to 1. If the calendar is left-to-right, the seg.backwardCoord maps to "left" and
+    // seg.forwardCoord maps to "right" (via percentage). Vice-versa if the calendar is right-to-left.
+    //
+    // The segment might be part of a "series", which means consecutive segments with the same pressure
+    // who's width is unknown until an edge has been hit. `seriesBackwardPressure` is the number of
+    // segments behind this one in the current series, and `seriesBackwardCoord` is the starting
+    // coordinate of the first segment in the series.
+    TimeGridEventRenderer.prototype.computeSegForwardBack = function (seg, seriesBackwardPressure, seriesBackwardCoord) {
+        var forwardSegs = seg.forwardSegs;
+        var i;
+        if (seg.forwardCoord === undefined) { // not already computed
+            if (!forwardSegs.length) {
+                // if there are no forward segments, this segment should butt up against the edge
+                seg.forwardCoord = 1;
+            }
+            else {
+                // sort highest pressure first
+                this.sortForwardSegs(forwardSegs);
+                // this segment's forwardCoord will be calculated from the backwardCoord of the
+                // highest-pressure forward segment.
+                this.computeSegForwardBack(forwardSegs[0], seriesBackwardPressure + 1, seriesBackwardCoord);
+                seg.forwardCoord = forwardSegs[0].backwardCoord;
+            }
+            // calculate the backwardCoord from the forwardCoord. consider the series
+            seg.backwardCoord = seg.forwardCoord -
+                (seg.forwardCoord - seriesBackwardCoord) / // available width for series
+                    (seriesBackwardPressure + 1); // # of segments in the series
+            // use this segment's coordinates to computed the coordinates of the less-pressurized
+            // forward segments
+            for (i = 0; i < forwardSegs.length; i++) {
+                this.computeSegForwardBack(forwardSegs[i], 0, seg.forwardCoord);
+            }
+        }
+    };
+    TimeGridEventRenderer.prototype.sortForwardSegs = function (forwardSegs) {
+        var objs = forwardSegs.map(buildTimeGridSegCompareObj);
+        var specs = [
+            // put higher-pressure first
+            { field: 'forwardPressure', order: -1 },
+            // put segments that are closer to initial edge first (and favor ones with no coords yet)
+            { field: 'backwardCoord', order: 1 }
+        ].concat(this.context.view.eventOrderSpecs);
+        objs.sort(function (obj0, obj1) {
+            return Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["compareByFieldSpecs"])(obj0, obj1, specs);
+        });
+        return objs.map(function (c) {
+            return c._seg;
+        });
+    };
+    // Given foreground event segments that have already had their position coordinates computed,
+    // assigns position-related CSS values to their elements.
+    TimeGridEventRenderer.prototype.assignSegCss = function (segs) {
+        for (var _i = 0, segs_1 = segs; _i < segs_1.length; _i++) {
+            var seg = segs_1[_i];
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["applyStyle"])(seg.el, this.generateSegCss(seg));
+            if (seg.level > 0) {
+                seg.el.classList.add('fc-time-grid-event-inset');
+            }
+            // if the event is short that the title will be cut off,
+            // attach a className that condenses the title into the time area.
+            if (seg.eventRange.def.title && seg.bottom - seg.top < 30) {
+                seg.el.classList.add('fc-short'); // TODO: "condensed" is a better name
+            }
+        }
+    };
+    // Generates an object with CSS properties/values that should be applied to an event segment element.
+    // Contains important positioning-related properties that should be applied to any event element, customized or not.
+    TimeGridEventRenderer.prototype.generateSegCss = function (seg) {
+        var shouldOverlap = this.context.options.slotEventOverlap;
+        var backwardCoord = seg.backwardCoord; // the left side if LTR. the right side if RTL. floating-point
+        var forwardCoord = seg.forwardCoord; // the right side if LTR. the left side if RTL. floating-point
+        var props = this.timeGrid.generateSegVerticalCss(seg); // get top/bottom first
+        var isRtl = this.timeGrid.isRtl;
+        var left; // amount of space from left edge, a fraction of the total width
+        var right; // amount of space from right edge, a fraction of the total width
+        if (shouldOverlap) {
+            // double the width, but don't go beyond the maximum forward coordinate (1.0)
+            forwardCoord = Math.min(1, backwardCoord + (forwardCoord - backwardCoord) * 2);
+        }
+        if (isRtl) {
+            left = 1 - forwardCoord;
+            right = backwardCoord;
+        }
+        else {
+            left = backwardCoord;
+            right = 1 - forwardCoord;
+        }
+        props.zIndex = seg.level + 1; // convert from 0-base to 1-based
+        props.left = left * 100 + '%';
+        props.right = right * 100 + '%';
+        if (shouldOverlap && seg.forwardPressure) {
+            // add padding to the edge so that forward stacked events don't cover the resizer's icon
+            props[isRtl ? 'marginLeft' : 'marginRight'] = 10 * 2; // 10 is a guesstimate of the icon's width
+        }
+        return props;
+    };
+    return TimeGridEventRenderer;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["FgEventRenderer"]));
+// Builds an array of segments "levels". The first level will be the leftmost tier of segments if the calendar is
+// left-to-right, or the rightmost if the calendar is right-to-left. Assumes the segments are already ordered by date.
+function buildSlotSegLevels(segs) {
+    var levels = [];
+    var i;
+    var seg;
+    var j;
+    for (i = 0; i < segs.length; i++) {
+        seg = segs[i];
+        // go through all the levels and stop on the first level where there are no collisions
+        for (j = 0; j < levels.length; j++) {
+            if (!computeSlotSegCollisions(seg, levels[j]).length) {
+                break;
+            }
+        }
+        seg.level = j;
+        (levels[j] || (levels[j] = [])).push(seg);
+    }
+    return levels;
+}
+// For every segment, figure out the other segments that are in subsequent
+// levels that also occupy the same vertical space. Accumulate in seg.forwardSegs
+function computeForwardSlotSegs(levels) {
+    var i;
+    var level;
+    var j;
+    var seg;
+    var k;
+    for (i = 0; i < levels.length; i++) {
+        level = levels[i];
+        for (j = 0; j < level.length; j++) {
+            seg = level[j];
+            seg.forwardSegs = [];
+            for (k = i + 1; k < levels.length; k++) {
+                computeSlotSegCollisions(seg, levels[k], seg.forwardSegs);
+            }
+        }
+    }
+}
+// Figure out which path forward (via seg.forwardSegs) results in the longest path until
+// the furthest edge is reached. The number of segments in this path will be seg.forwardPressure
+function computeSlotSegPressures(seg) {
+    var forwardSegs = seg.forwardSegs;
+    var forwardPressure = 0;
+    var i;
+    var forwardSeg;
+    if (seg.forwardPressure === undefined) { // not already computed
+        for (i = 0; i < forwardSegs.length; i++) {
+            forwardSeg = forwardSegs[i];
+            // figure out the child's maximum forward path
+            computeSlotSegPressures(forwardSeg);
+            // either use the existing maximum, or use the child's forward pressure
+            // plus one (for the forwardSeg itself)
+            forwardPressure = Math.max(forwardPressure, 1 + forwardSeg.forwardPressure);
+        }
+        seg.forwardPressure = forwardPressure;
+    }
+}
+// Find all the segments in `otherSegs` that vertically collide with `seg`.
+// Append into an optionally-supplied `results` array and return.
+function computeSlotSegCollisions(seg, otherSegs, results) {
+    if (results === void 0) { results = []; }
+    for (var i = 0; i < otherSegs.length; i++) {
+        if (isSlotSegCollision(seg, otherSegs[i])) {
+            results.push(otherSegs[i]);
+        }
+    }
+    return results;
+}
+// Do these segments occupy the same vertical space?
+function isSlotSegCollision(seg1, seg2) {
+    return seg1.bottom > seg2.top && seg1.top < seg2.bottom;
+}
+function buildTimeGridSegCompareObj(seg) {
+    var obj = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["buildSegCompareObj"])(seg);
+    obj.forwardPressure = seg.forwardPressure;
+    obj.backwardCoord = seg.backwardCoord;
+    return obj;
+}
+
+var TimeGridMirrorRenderer = /** @class */ (function (_super) {
+    __extends(TimeGridMirrorRenderer, _super);
+    function TimeGridMirrorRenderer() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    TimeGridMirrorRenderer.prototype.attachSegs = function (segs, mirrorInfo) {
+        this.segsByCol = this.timeGrid.groupSegsByCol(segs);
+        this.timeGrid.attachSegsByCol(this.segsByCol, this.timeGrid.mirrorContainerEls);
+        this.sourceSeg = mirrorInfo.sourceSeg;
+    };
+    TimeGridMirrorRenderer.prototype.generateSegCss = function (seg) {
+        var props = _super.prototype.generateSegCss.call(this, seg);
+        var sourceSeg = this.sourceSeg;
+        if (sourceSeg && sourceSeg.col === seg.col) {
+            var sourceSegProps = _super.prototype.generateSegCss.call(this, sourceSeg);
+            props.left = sourceSegProps.left;
+            props.right = sourceSegProps.right;
+            props.marginLeft = sourceSegProps.marginLeft;
+            props.marginRight = sourceSegProps.marginRight;
+        }
+        return props;
+    };
+    return TimeGridMirrorRenderer;
+}(TimeGridEventRenderer));
+
+var TimeGridFillRenderer = /** @class */ (function (_super) {
+    __extends(TimeGridFillRenderer, _super);
+    function TimeGridFillRenderer(timeGrid) {
+        var _this = _super.call(this, timeGrid.context) || this;
+        _this.timeGrid = timeGrid;
+        return _this;
+    }
+    TimeGridFillRenderer.prototype.attachSegs = function (type, segs) {
+        var timeGrid = this.timeGrid;
+        var containerEls;
+        // TODO: more efficient lookup
+        if (type === 'bgEvent') {
+            containerEls = timeGrid.bgContainerEls;
+        }
+        else if (type === 'businessHours') {
+            containerEls = timeGrid.businessContainerEls;
+        }
+        else if (type === 'highlight') {
+            containerEls = timeGrid.highlightContainerEls;
+        }
+        timeGrid.attachSegsByCol(timeGrid.groupSegsByCol(segs), containerEls);
+        return segs.map(function (seg) {
+            return seg.el;
+        });
+    };
+    TimeGridFillRenderer.prototype.computeSegSizes = function (segs) {
+        this.timeGrid.computeSegVerticals(segs);
+    };
+    TimeGridFillRenderer.prototype.assignSegSizes = function (segs) {
+        this.timeGrid.assignSegVerticals(segs);
+    };
+    return TimeGridFillRenderer;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["FillRenderer"]));
+
+/* A component that renders one or more columns of vertical time slots
+----------------------------------------------------------------------------------------------------------------------*/
+// potential nice values for the slot-duration and interval-duration
+// from largest to smallest
+var AGENDA_STOCK_SUB_DURATIONS = [
+    { hours: 1 },
+    { minutes: 30 },
+    { minutes: 15 },
+    { seconds: 30 },
+    { seconds: 15 }
+];
+var TimeGrid = /** @class */ (function (_super) {
+    __extends(TimeGrid, _super);
+    function TimeGrid(context, el, renderProps) {
+        var _this = _super.call(this, context, el) || this;
+        _this.isSlatSizesDirty = false;
+        _this.isColSizesDirty = false;
+        _this.renderSlats = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(_this._renderSlats);
+        var eventRenderer = _this.eventRenderer = new TimeGridEventRenderer(_this);
+        var fillRenderer = _this.fillRenderer = new TimeGridFillRenderer(_this);
+        _this.mirrorRenderer = new TimeGridMirrorRenderer(_this);
+        var renderColumns = _this.renderColumns = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(_this._renderColumns, _this._unrenderColumns);
+        _this.renderBusinessHours = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(fillRenderer.renderSegs.bind(fillRenderer, 'businessHours'), fillRenderer.unrender.bind(fillRenderer, 'businessHours'), [renderColumns]);
+        _this.renderDateSelection = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(_this._renderDateSelection, _this._unrenderDateSelection, [renderColumns]);
+        _this.renderFgEvents = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(eventRenderer.renderSegs.bind(eventRenderer), eventRenderer.unrender.bind(eventRenderer), [renderColumns]);
+        _this.renderBgEvents = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(fillRenderer.renderSegs.bind(fillRenderer, 'bgEvent'), fillRenderer.unrender.bind(fillRenderer, 'bgEvent'), [renderColumns]);
+        _this.renderEventSelection = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(eventRenderer.selectByInstanceId.bind(eventRenderer), eventRenderer.unselectByInstanceId.bind(eventRenderer), [_this.renderFgEvents]);
+        _this.renderEventDrag = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(_this._renderEventDrag, _this._unrenderEventDrag, [renderColumns]);
+        _this.renderEventResize = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoizeRendering"])(_this._renderEventResize, _this._unrenderEventResize, [renderColumns]);
+        _this.processOptions();
+        el.innerHTML =
+            '<div class="fc-bg"></div>' +
+                '<div class="fc-slats"></div>' +
+                '<hr class="fc-divider ' + _this.theme.getClass('widgetHeader') + '" style="display:none" />';
+        _this.rootBgContainerEl = el.querySelector('.fc-bg');
+        _this.slatContainerEl = el.querySelector('.fc-slats');
+        _this.bottomRuleEl = el.querySelector('.fc-divider');
+        _this.renderProps = renderProps;
+        return _this;
+    }
+    /* Options
+    ------------------------------------------------------------------------------------------------------------------*/
+    // Parses various options into properties of this object
+    TimeGrid.prototype.processOptions = function () {
+        var slotDuration = this.opt('slotDuration');
+        var snapDuration = this.opt('snapDuration');
+        var snapsPerSlot;
+        var input;
+        slotDuration = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createDuration"])(slotDuration);
+        snapDuration = snapDuration ? Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createDuration"])(snapDuration) : slotDuration;
+        snapsPerSlot = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["wholeDivideDurations"])(slotDuration, snapDuration);
+        if (snapsPerSlot === null) {
+            snapDuration = slotDuration;
+            snapsPerSlot = 1;
+            // TODO: say warning?
+        }
+        this.slotDuration = slotDuration;
+        this.snapDuration = snapDuration;
+        this.snapsPerSlot = snapsPerSlot;
+        // might be an array value (for TimelineView).
+        // if so, getting the most granular entry (the last one probably).
+        input = this.opt('slotLabelFormat');
+        if (Array.isArray(input)) {
+            input = input[input.length - 1];
+        }
+        this.labelFormat = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createFormatter"])(input || {
+            hour: 'numeric',
+            minute: '2-digit',
+            omitZeroMinute: true,
+            meridiem: 'short'
+        });
+        input = this.opt('slotLabelInterval');
+        this.labelInterval = input ?
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createDuration"])(input) :
+            this.computeLabelInterval(slotDuration);
+    };
+    // Computes an automatic value for slotLabelInterval
+    TimeGrid.prototype.computeLabelInterval = function (slotDuration) {
+        var i;
+        var labelInterval;
+        var slotsPerLabel;
+        // find the smallest stock label interval that results in more than one slots-per-label
+        for (i = AGENDA_STOCK_SUB_DURATIONS.length - 1; i >= 0; i--) {
+            labelInterval = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createDuration"])(AGENDA_STOCK_SUB_DURATIONS[i]);
+            slotsPerLabel = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["wholeDivideDurations"])(labelInterval, slotDuration);
+            if (slotsPerLabel !== null && slotsPerLabel > 1) {
+                return labelInterval;
+            }
+        }
+        return slotDuration; // fall back
+    };
+    /* Rendering
+    ------------------------------------------------------------------------------------------------------------------*/
+    TimeGrid.prototype.render = function (props) {
+        var cells = props.cells;
+        this.colCnt = cells.length;
+        this.renderSlats(props.dateProfile);
+        this.renderColumns(props.cells, props.dateProfile);
+        this.renderBusinessHours(props.businessHourSegs);
+        this.renderDateSelection(props.dateSelectionSegs);
+        this.renderFgEvents(props.fgEventSegs);
+        this.renderBgEvents(props.bgEventSegs);
+        this.renderEventSelection(props.eventSelection);
+        this.renderEventDrag(props.eventDrag);
+        this.renderEventResize(props.eventResize);
+    };
+    TimeGrid.prototype.destroy = function () {
+        _super.prototype.destroy.call(this);
+        // should unrender everything else too
+        this.renderSlats.unrender();
+        this.renderColumns.unrender();
+    };
+    TimeGrid.prototype.updateSize = function (isResize) {
+        var _a = this, fillRenderer = _a.fillRenderer, eventRenderer = _a.eventRenderer, mirrorRenderer = _a.mirrorRenderer;
+        if (isResize || this.isSlatSizesDirty) {
+            this.buildSlatPositions();
+            this.isSlatSizesDirty = false;
+        }
+        if (isResize || this.isColSizesDirty) {
+            this.buildColPositions();
+            this.isColSizesDirty = false;
+        }
+        fillRenderer.computeSizes(isResize);
+        eventRenderer.computeSizes(isResize);
+        mirrorRenderer.computeSizes(isResize);
+        fillRenderer.assignSizes(isResize);
+        eventRenderer.assignSizes(isResize);
+        mirrorRenderer.assignSizes(isResize);
+    };
+    TimeGrid.prototype._renderSlats = function (dateProfile) {
+        var theme = this.theme;
+        this.slatContainerEl.innerHTML =
+            '<table class="' + theme.getClass('tableGrid') + '">' +
+                this.renderSlatRowHtml(dateProfile) +
+                '</table>';
+        this.slatEls = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findElements"])(this.slatContainerEl, 'tr');
+        this.slatPositions = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["PositionCache"](this.el, this.slatEls, false, true // vertical
+        );
+        this.isSlatSizesDirty = true;
+    };
+    // Generates the HTML for the horizontal "slats" that run width-wise. Has a time axis on a side. Depends on RTL.
+    TimeGrid.prototype.renderSlatRowHtml = function (dateProfile) {
+        var _a = this, dateEnv = _a.dateEnv, theme = _a.theme, isRtl = _a.isRtl;
+        var html = '';
+        var dayStart = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["startOfDay"])(dateProfile.renderRange.start);
+        var slotTime = dateProfile.minTime;
+        var slotIterator = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createDuration"])(0);
+        var slotDate; // will be on the view's first day, but we only care about its time
+        var isLabeled;
+        var axisHtml;
+        // Calculate the time for each slot
+        while (Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["asRoughMs"])(slotTime) < Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["asRoughMs"])(dateProfile.maxTime)) {
+            slotDate = dateEnv.add(dayStart, slotTime);
+            isLabeled = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["wholeDivideDurations"])(slotIterator, this.labelInterval) !== null;
+            axisHtml =
+                '<td class="fc-axis fc-time ' + theme.getClass('widgetContent') + '">' +
+                    (isLabeled ?
+                        '<span>' + // for matchCellWidths
+                            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlEscape"])(dateEnv.format(slotDate, this.labelFormat)) +
+                            '</span>' :
+                        '') +
+                    '</td>';
+            html +=
+                '<tr data-time="' + Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["formatIsoTimeString"])(slotDate) + '"' +
+                    (isLabeled ? '' : ' class="fc-minor"') +
+                    '>' +
+                    (!isRtl ? axisHtml : '') +
+                    '<td class="' + theme.getClass('widgetContent') + '"></td>' +
+                    (isRtl ? axisHtml : '') +
+                    '</tr>';
+            slotTime = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["addDurations"])(slotTime, this.slotDuration);
+            slotIterator = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["addDurations"])(slotIterator, this.slotDuration);
+        }
+        return html;
+    };
+    TimeGrid.prototype._renderColumns = function (cells, dateProfile) {
+        var _a = this, theme = _a.theme, dateEnv = _a.dateEnv, view = _a.view;
+        var bgRow = new _fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_1__["DayBgRow"](this.context);
+        this.rootBgContainerEl.innerHTML =
+            '<table class="' + theme.getClass('tableGrid') + '">' +
+                bgRow.renderHtml({
+                    cells: cells,
+                    dateProfile: dateProfile,
+                    renderIntroHtml: this.renderProps.renderBgIntroHtml
+                }) +
+                '</table>';
+        this.colEls = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findElements"])(this.el, '.fc-day, .fc-disabled-day');
+        for (var col = 0; col < this.colCnt; col++) {
+            this.publiclyTrigger('dayRender', [
+                {
+                    date: dateEnv.toDate(cells[col].date),
+                    el: this.colEls[col],
+                    view: view
+                }
+            ]);
+        }
+        if (this.isRtl) {
+            this.colEls.reverse();
+        }
+        this.colPositions = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["PositionCache"](this.el, this.colEls, true, // horizontal
+        false);
+        this.renderContentSkeleton();
+        this.isColSizesDirty = true;
+    };
+    TimeGrid.prototype._unrenderColumns = function () {
+        this.unrenderContentSkeleton();
+    };
+    /* Content Skeleton
+    ------------------------------------------------------------------------------------------------------------------*/
+    // Renders the DOM that the view's content will live in
+    TimeGrid.prototype.renderContentSkeleton = function () {
+        var parts = [];
+        var skeletonEl;
+        parts.push(this.renderProps.renderIntroHtml());
+        for (var i = 0; i < this.colCnt; i++) {
+            parts.push('<td>' +
+                '<div class="fc-content-col">' +
+                '<div class="fc-event-container fc-mirror-container"></div>' +
+                '<div class="fc-event-container"></div>' +
+                '<div class="fc-highlight-container"></div>' +
+                '<div class="fc-bgevent-container"></div>' +
+                '<div class="fc-business-container"></div>' +
+                '</div>' +
+                '</td>');
+        }
+        if (this.isRtl) {
+            parts.reverse();
+        }
+        skeletonEl = this.contentSkeletonEl = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlToElement"])('<div class="fc-content-skeleton">' +
+            '<table>' +
+            '<tr>' + parts.join('') + '</tr>' +
+            '</table>' +
+            '</div>');
+        this.colContainerEls = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findElements"])(skeletonEl, '.fc-content-col');
+        this.mirrorContainerEls = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findElements"])(skeletonEl, '.fc-mirror-container');
+        this.fgContainerEls = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findElements"])(skeletonEl, '.fc-event-container:not(.fc-mirror-container)');
+        this.bgContainerEls = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findElements"])(skeletonEl, '.fc-bgevent-container');
+        this.highlightContainerEls = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findElements"])(skeletonEl, '.fc-highlight-container');
+        this.businessContainerEls = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findElements"])(skeletonEl, '.fc-business-container');
+        if (this.isRtl) {
+            this.colContainerEls.reverse();
+            this.mirrorContainerEls.reverse();
+            this.fgContainerEls.reverse();
+            this.bgContainerEls.reverse();
+            this.highlightContainerEls.reverse();
+            this.businessContainerEls.reverse();
+        }
+        this.el.appendChild(skeletonEl);
+    };
+    TimeGrid.prototype.unrenderContentSkeleton = function () {
+        Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["removeElement"])(this.contentSkeletonEl);
+    };
+    // Given a flat array of segments, return an array of sub-arrays, grouped by each segment's col
+    TimeGrid.prototype.groupSegsByCol = function (segs) {
+        var segsByCol = [];
+        var i;
+        for (i = 0; i < this.colCnt; i++) {
+            segsByCol.push([]);
+        }
+        for (i = 0; i < segs.length; i++) {
+            segsByCol[segs[i].col].push(segs[i]);
+        }
+        return segsByCol;
+    };
+    // Given segments grouped by column, insert the segments' elements into a parallel array of container
+    // elements, each living within a column.
+    TimeGrid.prototype.attachSegsByCol = function (segsByCol, containerEls) {
+        var col;
+        var segs;
+        var i;
+        for (col = 0; col < this.colCnt; col++) { // iterate each column grouping
+            segs = segsByCol[col];
+            for (i = 0; i < segs.length; i++) {
+                containerEls[col].appendChild(segs[i].el);
+            }
+        }
+    };
+    /* Now Indicator
+    ------------------------------------------------------------------------------------------------------------------*/
+    TimeGrid.prototype.getNowIndicatorUnit = function () {
+        return 'minute'; // will refresh on the minute
+    };
+    TimeGrid.prototype.renderNowIndicator = function (segs, date) {
+        // HACK: if date columns not ready for some reason (scheduler)
+        if (!this.colContainerEls) {
+            return;
+        }
+        var top = this.computeDateTop(date);
+        var nodes = [];
+        var i;
+        // render lines within the columns
+        for (i = 0; i < segs.length; i++) {
+            var lineEl = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', { className: 'fc-now-indicator fc-now-indicator-line' });
+            lineEl.style.top = top + 'px';
+            this.colContainerEls[segs[i].col].appendChild(lineEl);
+            nodes.push(lineEl);
+        }
+        // render an arrow over the axis
+        if (segs.length > 0) { // is the current time in view?
+            var arrowEl = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', { className: 'fc-now-indicator fc-now-indicator-arrow' });
+            arrowEl.style.top = top + 'px';
+            this.contentSkeletonEl.appendChild(arrowEl);
+            nodes.push(arrowEl);
+        }
+        this.nowIndicatorEls = nodes;
+    };
+    TimeGrid.prototype.unrenderNowIndicator = function () {
+        if (this.nowIndicatorEls) {
+            this.nowIndicatorEls.forEach(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["removeElement"]);
+            this.nowIndicatorEls = null;
+        }
+    };
+    /* Coordinates
+    ------------------------------------------------------------------------------------------------------------------*/
+    TimeGrid.prototype.getTotalSlatHeight = function () {
+        return this.slatContainerEl.getBoundingClientRect().height;
+    };
+    // Computes the top coordinate, relative to the bounds of the grid, of the given date.
+    // A `startOfDayDate` must be given for avoiding ambiguity over how to treat midnight.
+    TimeGrid.prototype.computeDateTop = function (when, startOfDayDate) {
+        if (!startOfDayDate) {
+            startOfDayDate = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["startOfDay"])(when);
+        }
+        return this.computeTimeTop(Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createDuration"])(when.valueOf() - startOfDayDate.valueOf()));
+    };
+    // Computes the top coordinate, relative to the bounds of the grid, of the given time (a Duration).
+    TimeGrid.prototype.computeTimeTop = function (duration) {
+        var len = this.slatEls.length;
+        var dateProfile = this.props.dateProfile;
+        var slatCoverage = (duration.milliseconds - Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["asRoughMs"])(dateProfile.minTime)) / Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["asRoughMs"])(this.slotDuration); // floating-point value of # of slots covered
+        var slatIndex;
+        var slatRemainder;
+        // compute a floating-point number for how many slats should be progressed through.
+        // from 0 to number of slats (inclusive)
+        // constrained because minTime/maxTime might be customized.
+        slatCoverage = Math.max(0, slatCoverage);
+        slatCoverage = Math.min(len, slatCoverage);
+        // an integer index of the furthest whole slat
+        // from 0 to number slats (*exclusive*, so len-1)
+        slatIndex = Math.floor(slatCoverage);
+        slatIndex = Math.min(slatIndex, len - 1);
+        // how much further through the slatIndex slat (from 0.0-1.0) must be covered in addition.
+        // could be 1.0 if slatCoverage is covering *all* the slots
+        slatRemainder = slatCoverage - slatIndex;
+        return this.slatPositions.tops[slatIndex] +
+            this.slatPositions.getHeight(slatIndex) * slatRemainder;
+    };
+    // For each segment in an array, computes and assigns its top and bottom properties
+    TimeGrid.prototype.computeSegVerticals = function (segs) {
+        var eventMinHeight = this.opt('timeGridEventMinHeight');
+        var i;
+        var seg;
+        var dayDate;
+        for (i = 0; i < segs.length; i++) {
+            seg = segs[i];
+            dayDate = this.props.cells[seg.col].date;
+            seg.top = this.computeDateTop(seg.start, dayDate);
+            seg.bottom = Math.max(seg.top + eventMinHeight, this.computeDateTop(seg.end, dayDate));
+        }
+    };
+    // Given segments that already have their top/bottom properties computed, applies those values to
+    // the segments' elements.
+    TimeGrid.prototype.assignSegVerticals = function (segs) {
+        var i;
+        var seg;
+        for (i = 0; i < segs.length; i++) {
+            seg = segs[i];
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["applyStyle"])(seg.el, this.generateSegVerticalCss(seg));
+        }
+    };
+    // Generates an object with CSS properties for the top/bottom coordinates of a segment element
+    TimeGrid.prototype.generateSegVerticalCss = function (seg) {
+        return {
+            top: seg.top,
+            bottom: -seg.bottom // flipped because needs to be space beyond bottom edge of event container
+        };
+    };
+    /* Sizing
+    ------------------------------------------------------------------------------------------------------------------*/
+    TimeGrid.prototype.buildPositionCaches = function () {
+        this.buildColPositions();
+        this.buildSlatPositions();
+    };
+    TimeGrid.prototype.buildColPositions = function () {
+        this.colPositions.build();
+    };
+    TimeGrid.prototype.buildSlatPositions = function () {
+        this.slatPositions.build();
+    };
+    /* Hit System
+    ------------------------------------------------------------------------------------------------------------------*/
+    TimeGrid.prototype.positionToHit = function (positionLeft, positionTop) {
+        var _a = this, dateEnv = _a.dateEnv, snapsPerSlot = _a.snapsPerSlot, slatPositions = _a.slatPositions, colPositions = _a.colPositions;
+        var colIndex = colPositions.leftToIndex(positionLeft);
+        var slatIndex = slatPositions.topToIndex(positionTop);
+        if (colIndex != null && slatIndex != null) {
+            var slatTop = slatPositions.tops[slatIndex];
+            var slatHeight = slatPositions.getHeight(slatIndex);
+            var partial = (positionTop - slatTop) / slatHeight; // floating point number between 0 and 1
+            var localSnapIndex = Math.floor(partial * snapsPerSlot); // the snap # relative to start of slat
+            var snapIndex = slatIndex * snapsPerSlot + localSnapIndex;
+            var dayDate = this.props.cells[colIndex].date;
+            var time = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["addDurations"])(this.props.dateProfile.minTime, Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["multiplyDuration"])(this.snapDuration, snapIndex));
+            var start = dateEnv.add(dayDate, time);
+            var end = dateEnv.add(start, this.snapDuration);
+            return {
+                col: colIndex,
+                dateSpan: {
+                    range: { start: start, end: end },
+                    allDay: false
+                },
+                dayEl: this.colEls[colIndex],
+                relativeRect: {
+                    left: colPositions.lefts[colIndex],
+                    right: colPositions.rights[colIndex],
+                    top: slatTop,
+                    bottom: slatTop + slatHeight
+                }
+            };
+        }
+    };
+    /* Event Drag Visualization
+    ------------------------------------------------------------------------------------------------------------------*/
+    TimeGrid.prototype._renderEventDrag = function (state) {
+        if (state) {
+            this.eventRenderer.hideByHash(state.affectedInstances);
+            if (state.isEvent) {
+                this.mirrorRenderer.renderSegs(state.segs, { isDragging: true, sourceSeg: state.sourceSeg });
+            }
+            else {
+                this.fillRenderer.renderSegs('highlight', state.segs);
+            }
+        }
+    };
+    TimeGrid.prototype._unrenderEventDrag = function (state) {
+        if (state) {
+            this.eventRenderer.showByHash(state.affectedInstances);
+            this.mirrorRenderer.unrender(state.segs, { isDragging: true, sourceSeg: state.sourceSeg });
+            this.fillRenderer.unrender('highlight');
+        }
+    };
+    /* Event Resize Visualization
+    ------------------------------------------------------------------------------------------------------------------*/
+    TimeGrid.prototype._renderEventResize = function (state) {
+        if (state) {
+            this.eventRenderer.hideByHash(state.affectedInstances);
+            this.mirrorRenderer.renderSegs(state.segs, { isResizing: true, sourceSeg: state.sourceSeg });
+        }
+    };
+    TimeGrid.prototype._unrenderEventResize = function (state) {
+        if (state) {
+            this.eventRenderer.showByHash(state.affectedInstances);
+            this.mirrorRenderer.unrender(state.segs, { isResizing: true, sourceSeg: state.sourceSeg });
+        }
+    };
+    /* Selection
+    ------------------------------------------------------------------------------------------------------------------*/
+    // Renders a visual indication of a selection. Overrides the default, which was to simply render a highlight.
+    TimeGrid.prototype._renderDateSelection = function (segs) {
+        if (segs) {
+            if (this.opt('selectMirror')) {
+                this.mirrorRenderer.renderSegs(segs, { isSelecting: true });
+            }
+            else {
+                this.fillRenderer.renderSegs('highlight', segs);
+            }
+        }
+    };
+    TimeGrid.prototype._unrenderDateSelection = function (segs) {
+        this.mirrorRenderer.unrender(segs, { isSelecting: true });
+        this.fillRenderer.unrender('highlight');
+    };
+    return TimeGrid;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["DateComponent"]));
+
+var AllDaySplitter = /** @class */ (function (_super) {
+    __extends(AllDaySplitter, _super);
+    function AllDaySplitter() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    AllDaySplitter.prototype.getKeyInfo = function () {
+        return {
+            allDay: {},
+            timed: {}
+        };
+    };
+    AllDaySplitter.prototype.getKeysForDateSpan = function (dateSpan) {
+        if (dateSpan.allDay) {
+            return ['allDay'];
+        }
+        else {
+            return ['timed'];
+        }
+    };
+    AllDaySplitter.prototype.getKeysForEventDef = function (eventDef) {
+        if (!eventDef.allDay) {
+            return ['timed'];
+        }
+        else if (Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["hasBgRendering"])(eventDef)) {
+            return ['timed', 'allDay'];
+        }
+        else {
+            return ['allDay'];
+        }
+    };
+    return AllDaySplitter;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["Splitter"]));
+
+var TIMEGRID_ALL_DAY_EVENT_LIMIT = 5;
+var WEEK_HEADER_FORMAT = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createFormatter"])({ week: 'short' });
+/* An abstract class for all timegrid-related views. Displays one more columns with time slots running vertically.
+----------------------------------------------------------------------------------------------------------------------*/
+// Is a manager for the TimeGrid subcomponent and possibly the DayGrid subcomponent (if allDaySlot is on).
+// Responsible for managing width/height.
+var TimeGridView = /** @class */ (function (_super) {
+    __extends(TimeGridView, _super);
+    function TimeGridView(context, viewSpec, dateProfileGenerator, parentEl) {
+        var _this = _super.call(this, context, viewSpec, dateProfileGenerator, parentEl) || this;
+        _this.splitter = new AllDaySplitter();
+        /* Header Render Methods
+        ------------------------------------------------------------------------------------------------------------------*/
+        // Generates the HTML that will go before the day-of week header cells
+        _this.renderHeadIntroHtml = function () {
+            var _a = _this, theme = _a.theme, dateEnv = _a.dateEnv;
+            var range = _this.props.dateProfile.renderRange;
+            var dayCnt = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["diffDays"])(range.start, range.end);
+            var weekText;
+            if (_this.opt('weekNumbers')) {
+                weekText = dateEnv.format(range.start, WEEK_HEADER_FORMAT);
+                return '' +
+                    '<th class="fc-axis fc-week-number ' + theme.getClass('widgetHeader') + '" ' + _this.axisStyleAttr() + '>' +
+                    Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["buildGotoAnchorHtml"])(// aside from link, important for matchCellWidths
+                    _this, { date: range.start, type: 'week', forceOff: dayCnt > 1 }, Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["htmlEscape"])(weekText) // inner HTML
+                    ) +
+                    '</th>';
+            }
+            else {
+                return '<th class="fc-axis ' + theme.getClass('widgetHeader') + '" ' + _this.axisStyleAttr() + '></th>';
+            }
+        };
+        /* Time Grid Render Methods
+        ------------------------------------------------------------------------------------------------------------------*/
+        // Generates the HTML that goes before the bg of the TimeGrid slot area. Long vertical column.
+        _this.renderTimeGridBgIntroHtml = function () {
+            var theme = _this.theme;
+            return '<td class="fc-axis ' + theme.getClass('widgetContent') + '" ' + _this.axisStyleAttr() + '></td>';
+        };
+        // Generates the HTML that goes before all other types of cells.
+        // Affects content-skeleton, mirror-skeleton, highlight-skeleton for both the time-grid and day-grid.
+        _this.renderTimeGridIntroHtml = function () {
+            return '<td class="fc-axis" ' + _this.axisStyleAttr() + '></td>';
+        };
+        /* Day Grid Render Methods
+        ------------------------------------------------------------------------------------------------------------------*/
+        // Generates the HTML that goes before the all-day cells
+        _this.renderDayGridBgIntroHtml = function () {
+            var theme = _this.theme;
+            return '' +
+                '<td class="fc-axis ' + theme.getClass('widgetContent') + '" ' + _this.axisStyleAttr() + '>' +
+                '<span>' + // needed for matchCellWidths
+                Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["getAllDayHtml"])(_this) +
+                '</span>' +
+                '</td>';
+        };
+        // Generates the HTML that goes before all other types of cells.
+        // Affects content-skeleton, mirror-skeleton, highlight-skeleton for both the time-grid and day-grid.
+        _this.renderDayGridIntroHtml = function () {
+            return '<td class="fc-axis" ' + _this.axisStyleAttr() + '></td>';
+        };
+        _this.el.classList.add('fc-timeGrid-view');
+        _this.el.innerHTML = _this.renderSkeletonHtml();
+        _this.scroller = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["ScrollComponent"]('hidden', // overflow x
+        'auto' // overflow y
+        );
+        var timeGridWrapEl = _this.scroller.el;
+        _this.el.querySelector('.fc-body > tr > td').appendChild(timeGridWrapEl);
+        timeGridWrapEl.classList.add('fc-time-grid-container');
+        var timeGridEl = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createElement"])('div', { className: 'fc-time-grid' });
+        timeGridWrapEl.appendChild(timeGridEl);
+        _this.timeGrid = new TimeGrid(_this.context, timeGridEl, {
+            renderBgIntroHtml: _this.renderTimeGridBgIntroHtml,
+            renderIntroHtml: _this.renderTimeGridIntroHtml
+        });
+        if (_this.opt('allDaySlot')) { // should we display the "all-day" area?
+            _this.dayGrid = new _fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_1__["DayGrid"](// the all-day subcomponent of this view
+            _this.context, _this.el.querySelector('.fc-day-grid'), {
+                renderNumberIntroHtml: _this.renderDayGridIntroHtml,
+                renderBgIntroHtml: _this.renderDayGridBgIntroHtml,
+                renderIntroHtml: _this.renderDayGridIntroHtml,
+                colWeekNumbersVisible: false,
+                cellWeekNumbersVisible: false
+            });
+            // have the day-grid extend it's coordinate area over the <hr> dividing the two grids
+            var dividerEl = _this.el.querySelector('.fc-divider');
+            _this.dayGrid.bottomCoordPadding = dividerEl.getBoundingClientRect().height;
+        }
+        return _this;
+    }
+    TimeGridView.prototype.destroy = function () {
+        _super.prototype.destroy.call(this);
+        this.timeGrid.destroy();
+        if (this.dayGrid) {
+            this.dayGrid.destroy();
+        }
+        this.scroller.destroy();
+    };
+    /* Rendering
+    ------------------------------------------------------------------------------------------------------------------*/
+    // Builds the HTML skeleton for the view.
+    // The day-grid and time-grid components will render inside containers defined by this HTML.
+    TimeGridView.prototype.renderSkeletonHtml = function () {
+        var theme = this.theme;
+        return '' +
+            '<table class="' + theme.getClass('tableGrid') + '">' +
+            (this.opt('columnHeader') ?
+                '<thead class="fc-head">' +
+                    '<tr>' +
+                    '<td class="fc-head-container ' + theme.getClass('widgetHeader') + '">&nbsp;</td>' +
+                    '</tr>' +
+                    '</thead>' :
+                '') +
+            '<tbody class="fc-body">' +
+            '<tr>' +
+            '<td class="' + theme.getClass('widgetContent') + '">' +
+            (this.opt('allDaySlot') ?
+                '<div class="fc-day-grid"></div>' +
+                    '<hr class="fc-divider ' + theme.getClass('widgetHeader') + '" />' :
+                '') +
+            '</td>' +
+            '</tr>' +
+            '</tbody>' +
+            '</table>';
+    };
+    /* Now Indicator
+    ------------------------------------------------------------------------------------------------------------------*/
+    TimeGridView.prototype.getNowIndicatorUnit = function () {
+        return this.timeGrid.getNowIndicatorUnit();
+    };
+    // subclasses should implement
+    // renderNowIndicator(date: DateMarker) {
+    // }
+    TimeGridView.prototype.unrenderNowIndicator = function () {
+        this.timeGrid.unrenderNowIndicator();
+    };
+    /* Dimensions
+    ------------------------------------------------------------------------------------------------------------------*/
+    TimeGridView.prototype.updateSize = function (isResize, viewHeight, isAuto) {
+        _super.prototype.updateSize.call(this, isResize, viewHeight, isAuto); // will call updateBaseSize. important that executes first
+        this.timeGrid.updateSize(isResize);
+        if (this.dayGrid) {
+            this.dayGrid.updateSize(isResize);
+        }
+    };
+    // Adjusts the vertical dimensions of the view to the specified values
+    TimeGridView.prototype.updateBaseSize = function (isResize, viewHeight, isAuto) {
+        var _this = this;
+        var eventLimit;
+        var scrollerHeight;
+        var scrollbarWidths;
+        // make all axis cells line up
+        this.axisWidth = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["matchCellWidths"])(Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findElements"])(this.el, '.fc-axis'));
+        // hack to give the view some height prior to timeGrid's columns being rendered
+        // TODO: separate setting height from scroller VS timeGrid.
+        if (!this.timeGrid.colEls) {
+            if (!isAuto) {
+                scrollerHeight = this.computeScrollerHeight(viewHeight);
+                this.scroller.setHeight(scrollerHeight);
+            }
+            return;
+        }
+        // set of fake row elements that must compensate when scroller has scrollbars
+        var noScrollRowEls = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["findElements"])(this.el, '.fc-row').filter(function (node) {
+            return !_this.scroller.el.contains(node);
+        });
+        // reset all dimensions back to the original state
+        this.timeGrid.bottomRuleEl.style.display = 'none'; // will be shown later if this <hr> is necessary
+        this.scroller.clear(); // sets height to 'auto' and clears overflow
+        noScrollRowEls.forEach(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["uncompensateScroll"]);
+        // limit number of events in the all-day area
+        if (this.dayGrid) {
+            this.dayGrid.removeSegPopover(); // kill the "more" popover if displayed
+            eventLimit = this.opt('eventLimit');
+            if (eventLimit && typeof eventLimit !== 'number') {
+                eventLimit = TIMEGRID_ALL_DAY_EVENT_LIMIT; // make sure "auto" goes to a real number
+            }
+            if (eventLimit) {
+                this.dayGrid.limitRows(eventLimit);
+            }
+        }
+        if (!isAuto) { // should we force dimensions of the scroll container?
+            scrollerHeight = this.computeScrollerHeight(viewHeight);
+            this.scroller.setHeight(scrollerHeight);
+            scrollbarWidths = this.scroller.getScrollbarWidths();
+            if (scrollbarWidths.left || scrollbarWidths.right) { // using scrollbars?
+                // make the all-day and header rows lines up
+                noScrollRowEls.forEach(function (rowEl) {
+                    Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["compensateScroll"])(rowEl, scrollbarWidths);
+                });
+                // the scrollbar compensation might have changed text flow, which might affect height, so recalculate
+                // and reapply the desired height to the scroller.
+                scrollerHeight = this.computeScrollerHeight(viewHeight);
+                this.scroller.setHeight(scrollerHeight);
+            }
+            // guarantees the same scrollbar widths
+            this.scroller.lockOverflow(scrollbarWidths);
+            // if there's any space below the slats, show the horizontal rule.
+            // this won't cause any new overflow, because lockOverflow already called.
+            if (this.timeGrid.getTotalSlatHeight() < scrollerHeight) {
+                this.timeGrid.bottomRuleEl.style.display = '';
+            }
+        }
+    };
+    // given a desired total height of the view, returns what the height of the scroller should be
+    TimeGridView.prototype.computeScrollerHeight = function (viewHeight) {
+        return viewHeight -
+            Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["subtractInnerElHeight"])(this.el, this.scroller.el); // everything that's NOT the scroller
+    };
+    /* Scroll
+    ------------------------------------------------------------------------------------------------------------------*/
+    // Computes the initial pre-configured scroll state prior to allowing the user to change it
+    TimeGridView.prototype.computeDateScroll = function (duration) {
+        var top = this.timeGrid.computeTimeTop(duration);
+        // zoom can give weird floating-point values. rather scroll a little bit further
+        top = Math.ceil(top);
+        if (top) {
+            top++; // to overcome top border that slots beyond the first have. looks better
+        }
+        return { top: top };
+    };
+    TimeGridView.prototype.queryDateScroll = function () {
+        return { top: this.scroller.getScrollTop() };
+    };
+    TimeGridView.prototype.applyDateScroll = function (scroll) {
+        if (scroll.top !== undefined) {
+            this.scroller.setScrollTop(scroll.top);
+        }
+    };
+    // Generates an HTML attribute string for setting the width of the axis, if it is known
+    TimeGridView.prototype.axisStyleAttr = function () {
+        if (this.axisWidth != null) {
+            return 'style="width:' + this.axisWidth + 'px"';
+        }
+        return '';
+    };
+    return TimeGridView;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["View"]));
+TimeGridView.prototype.usesMinMaxTime = true; // indicates that minTime/maxTime affects rendering
+
+var SimpleTimeGrid = /** @class */ (function (_super) {
+    __extends(SimpleTimeGrid, _super);
+    function SimpleTimeGrid(context, timeGrid) {
+        var _this = _super.call(this, context, timeGrid.el) || this;
+        _this.buildDayRanges = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoize"])(buildDayRanges);
+        _this.slicer = new TimeGridSlicer();
+        _this.timeGrid = timeGrid;
+        context.calendar.registerInteractiveComponent(_this, {
+            el: _this.timeGrid.el
+        });
+        return _this;
+    }
+    SimpleTimeGrid.prototype.destroy = function () {
+        _super.prototype.destroy.call(this);
+        this.calendar.unregisterInteractiveComponent(this);
+    };
+    SimpleTimeGrid.prototype.render = function (props) {
+        var dateProfile = props.dateProfile, dayTable = props.dayTable;
+        var dayRanges = this.dayRanges = this.buildDayRanges(dayTable, dateProfile, this.dateEnv);
+        this.timeGrid.receiveProps(__assign({}, this.slicer.sliceProps(props, dateProfile, null, this.timeGrid, dayRanges), { dateProfile: dateProfile, cells: dayTable.cells[0] }));
+    };
+    SimpleTimeGrid.prototype.renderNowIndicator = function (date) {
+        this.timeGrid.renderNowIndicator(this.slicer.sliceNowDate(date, this.timeGrid, this.dayRanges), date);
+    };
+    SimpleTimeGrid.prototype.buildPositionCaches = function () {
+        this.timeGrid.buildPositionCaches();
+    };
+    SimpleTimeGrid.prototype.queryHit = function (positionLeft, positionTop) {
+        var rawHit = this.timeGrid.positionToHit(positionLeft, positionTop);
+        if (rawHit) {
+            return {
+                component: this.timeGrid,
+                dateSpan: rawHit.dateSpan,
+                dayEl: rawHit.dayEl,
+                rect: {
+                    left: rawHit.relativeRect.left,
+                    right: rawHit.relativeRect.right,
+                    top: rawHit.relativeRect.top,
+                    bottom: rawHit.relativeRect.bottom
+                },
+                layer: 0
+            };
+        }
+    };
+    return SimpleTimeGrid;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["DateComponent"]));
+function buildDayRanges(dayTable, dateProfile, dateEnv) {
+    var ranges = [];
+    for (var _i = 0, _a = dayTable.headerDates; _i < _a.length; _i++) {
+        var date = _a[_i];
+        ranges.push({
+            start: dateEnv.add(date, dateProfile.minTime),
+            end: dateEnv.add(date, dateProfile.maxTime)
+        });
+    }
+    return ranges;
+}
+var TimeGridSlicer = /** @class */ (function (_super) {
+    __extends(TimeGridSlicer, _super);
+    function TimeGridSlicer() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    TimeGridSlicer.prototype.sliceRange = function (range, dayRanges) {
+        var segs = [];
+        for (var col = 0; col < dayRanges.length; col++) {
+            var segRange = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["intersectRanges"])(range, dayRanges[col]);
+            if (segRange) {
+                segs.push({
+                    start: segRange.start,
+                    end: segRange.end,
+                    isStart: segRange.start.valueOf() === range.start.valueOf(),
+                    isEnd: segRange.end.valueOf() === range.end.valueOf(),
+                    col: col
+                });
+            }
+        }
+        return segs;
+    };
+    return TimeGridSlicer;
+}(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["Slicer"]));
+
+var TimeGridView$1 = /** @class */ (function (_super) {
+    __extends(TimeGridView, _super);
+    function TimeGridView(_context, viewSpec, dateProfileGenerator, parentEl) {
+        var _this = _super.call(this, _context, viewSpec, dateProfileGenerator, parentEl) || this;
+        _this.buildDayTable = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["memoize"])(buildDayTable);
+        if (_this.opt('columnHeader')) {
+            _this.header = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["DayHeader"](_this.context, _this.el.querySelector('.fc-head-container'));
+        }
+        _this.simpleTimeGrid = new SimpleTimeGrid(_this.context, _this.timeGrid);
+        if (_this.dayGrid) {
+            _this.simpleDayGrid = new _fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_1__["SimpleDayGrid"](_this.context, _this.dayGrid);
+        }
+        return _this;
+    }
+    TimeGridView.prototype.destroy = function () {
+        _super.prototype.destroy.call(this);
+        if (this.header) {
+            this.header.destroy();
+        }
+        this.simpleTimeGrid.destroy();
+        if (this.simpleDayGrid) {
+            this.simpleDayGrid.destroy();
+        }
+    };
+    TimeGridView.prototype.render = function (props) {
+        _super.prototype.render.call(this, props); // for flags for updateSize
+        var dateProfile = this.props.dateProfile;
+        var dayTable = this.buildDayTable(dateProfile, this.dateProfileGenerator);
+        var splitProps = this.splitter.splitProps(props);
+        if (this.header) {
+            this.header.receiveProps({
+                dateProfile: dateProfile,
+                dates: dayTable.headerDates,
+                datesRepDistinctDays: true,
+                renderIntroHtml: this.renderHeadIntroHtml
+            });
+        }
+        this.simpleTimeGrid.receiveProps(__assign({}, splitProps['timed'], { dateProfile: dateProfile,
+            dayTable: dayTable }));
+        if (this.simpleDayGrid) {
+            this.simpleDayGrid.receiveProps(__assign({}, splitProps['allDay'], { dateProfile: dateProfile,
+                dayTable: dayTable, nextDayThreshold: this.nextDayThreshold, isRigid: false }));
+        }
+    };
+    TimeGridView.prototype.renderNowIndicator = function (date) {
+        this.simpleTimeGrid.renderNowIndicator(date);
+    };
+    return TimeGridView;
+}(TimeGridView));
+function buildDayTable(dateProfile, dateProfileGenerator) {
+    var daySeries = new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["DaySeries"](dateProfile.renderRange, dateProfileGenerator);
+    return new _fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["DayTable"](daySeries, false);
+}
+
+var main = Object(_fullcalendar_core__WEBPACK_IMPORTED_MODULE_0__["createPlugin"])({
+    defaultView: 'timeGridWeek',
+    views: {
+        timeGrid: {
+            class: TimeGridView$1,
+            allDaySlot: true,
+            slotDuration: '00:30:00',
+            slotEventOverlap: true // a bad name. confused with overlap/constraint system
+        },
+        timeGridDay: {
+            type: 'timeGrid',
+            duration: { days: 1 }
+        },
+        timeGridWeek: {
+            type: 'timeGrid',
+            duration: { weeks: 1 }
+        }
+    }
+});
+
+/* harmony default export */ __webpack_exports__["default"] = (main);
+
+
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender/managecalender.component.html":
+/*!*************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender/managecalender.component.html ***!
+  \*************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <form [formGroup]='form' (ngSubmit)=\"submit()\">\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Sunday\">\n                <div class=\"col-sm-2 middle day\">Sunday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Sunday','Sun')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Sunday','Sun')\"></p-calendar>\n                    <p class=\"color error\" *ngIf=\"(isSunOpnReq)\">{{'SUNREQ'| translate}}</p>\n                    <p class=\"color error\" *ngIf=\"(isSunValid)\">{{'SUNNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Sunday','Sun')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSunClosReq)\">{{'SUNCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Sun')\"><img\n                            [src]=\"isSunBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"Add\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isSunBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\"(onClose)=\"validatetime('Sunday','Sun')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSunOpnBrkReq)\">{{'SUNBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isSunBrkValid)\">{{'SUNBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isSunBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Sunday','Sun')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSunClosBrkReq)\">{{'SUNBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Monday\">\n                <div class=\"col-sm-2 middle day\">Monday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Monday','Mon')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Monday','Mon')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isMonOpnReq)\">{{'MONREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isMonValid)\">{{'MONNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Monday','Mon')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isMonClosReq)\">{{'MONCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Mon')\"><img\n                            [src]=\"isMonBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"Add\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isMonBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Monday','Mon')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isMonOpnBrkReq)\">{{'MONBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isMonBrkValid)\">{{'MONBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isMonBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Monday','Mon')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isMonClosBrkReq)\">{{'MONBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Tuesday\">\n                <div class=\"col-sm-2 middle day\">Tuesday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Tuesday','Tues')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Tuesday','Tues')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isTuesOpnReq)\">{{'TUESREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isTuesValid)\">{{'TUESNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Tuesday','Tues')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isTuesClosReq)\">{{'TUESCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Tues')\"><img\n                            [src]=\"isTuesBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"Add\"> Add Break\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isTuesBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Tuesday','Tues')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isTuesOpnBrkReq)\">{{'TUESBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isTuesBrkValid)\">{{'TUESBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isTuesBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Tuesday','Tues')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isTuesClosBrkReq)\">{{'TUESBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Wednesday\">\n                <div class=\"col-sm-2 middle day\">Wednesday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Wednesday','Wed')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Wednesday','Wed')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isWedOpnReq)\">{{'WEDREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isWedValid)\">{{'WEDNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Wednesday','Wed')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isWedClosReq)\">{{'WEDCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Wed')\"><img\n                            [src]=\"isWedBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"Add\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isWedBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Wednesday','Wed')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isWedOpnBrkReq)\">{{'WEDBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isWedBrkValid)\">{{'WEDBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isWedBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Wednesday','Wed')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isWedClosBrkReq)\">{{'WEDBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Thursday\">\n                <div class=\"col-sm-2 middle day\">Thursday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Thursday','Thurs')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Thursday','Thurs')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isThursOpnReq)\">{{'THURSREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isThursValid)\">{{'THURSNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Thursday','Thurs')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isThursClosReq)\">{{'THURSCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Thurs')\"><img\n                            [src]=\"isThursBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"Add\"> Add Break\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isThursBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Thursday','Thurs')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isThursOpnBrkReq)\">{{'THURSBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isThursBrkValid)\">{{'THURSBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isThursBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Thursday','Thurs')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isThursClosBrkReq)\">{{'THURSBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Friday\">\n                <div class=\"col-sm-2 middle day\">Friday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Friday','Fri')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Friday','Fri')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isFriOpnReq)\">{{'FRIREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isFriValid)\">{{'FRINTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Friday','Fri')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isFriClosReq)\">{{'FRICLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Fri')\"><img\n                            [src]=\"isFriBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"Add\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isFriBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Friday','Fri')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isFriOpnBrkReq)\">{{'FRIBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isFriBrkValid)\">{{'FRIBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isFriBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Friday','Fri')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isFriClosBrkReq)\">{{'FRIBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Saturday\">\n                <div class=\"col-sm-2 middle day\">Saturday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Saturday','Sat')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Saturday','Sat')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSatOpnReq)\">{{'SATREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isSatValid)\">{{'SATNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Saturday','Sat')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSatClosReq)\">{{'SATCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Sat')\"><img\n                            [src]=\"isSatBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"Add\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isSatBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Saturday','Sat')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSatOpnBrkReq)\">{{'SATBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isSatBrkValid)\">{{'SATBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isSatBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Saturday','Sat')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSatOpnBrkReq)\">{{'SATBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"text-center\"><button class=\"btn btn-submit\">Save</button></div>\n    </form>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"main-card\">\n    <h1>Manage Calender</h1>\n    <p>It will set up in further milestone.</p>\n</div> -->\n\n<full-calendar\n      #calendar\n      defaultView=\"dayGridMonth\"\n      [header]=\"{\n        left: 'prev,next today',\n        center: 'title',\n        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'\n      }\"\n      eventLimit=\"true\"\n      [plugins]=\"calendarPlugins\"\n      [weekends]=\"calendarWeekends\"\n      [events]=\"calendarEvents\"\n      (dateClick)=\"handleDateClick($event)\"\n      (eventClick)=\"eventClicked($event)\"\n      ></full-calendar> ");
 
 /***/ }),
 
-/***/ "./src/app/home/profile/businesshours/businesshours-routing.module.ts":
-/*!****************************************************************************!*\
-  !*** ./src/app/home/profile/businesshours/businesshours-routing.module.ts ***!
-  \****************************************************************************/
-/*! exports provided: BusinesshoursRoutingModule */
+/***/ "./src/app/home/manage-calender/managecalender/managecalender-routing.module.ts":
+/*!**************************************************************************************!*\
+  !*** ./src/app/home/manage-calender/managecalender/managecalender-routing.module.ts ***!
+  \**************************************************************************************/
+/*! exports provided: ManagecalenderRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BusinesshoursRoutingModule", function() { return BusinesshoursRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManagecalenderRoutingModule", function() { return ManagecalenderRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _businesshours_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./businesshours.component */ "./src/app/home/profile/businesshours/businesshours.component.ts");
+/* harmony import */ var _managecalender_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./managecalender.component */ "./src/app/home/manage-calender/managecalender/managecalender.component.ts");
 
 
 
 
-const routes = [{
-        path: '', component: _businesshours_component__WEBPACK_IMPORTED_MODULE_3__["BusinesshoursComponent"]
-    }];
-let BusinesshoursRoutingModule = class BusinesshoursRoutingModule {
+const routes = [{ path: '', component: _managecalender_component__WEBPACK_IMPORTED_MODULE_3__["ManagecalenderComponent"] }];
+let ManagecalenderRoutingModule = class ManagecalenderRoutingModule {
 };
-BusinesshoursRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+ManagecalenderRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], BusinesshoursRoutingModule);
+], ManagecalenderRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/profile/businesshours/businesshours.component.scss":
-/*!*************************************************************************!*\
-  !*** ./src/app/home/profile/businesshours/businesshours.component.scss ***!
-  \*************************************************************************/
+/***/ "./src/app/home/manage-calender/managecalender/managecalender.component.scss":
+/*!***********************************************************************************!*\
+  !*** ./src/app/home/manage-calender/managecalender/managecalender.component.scss ***!
+  \***********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcHJvZmlsZS9idXNpbmVzc2hvdXJzL2J1c2luZXNzaG91cnMuY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvbWFuYWdlLWNhbGVuZGVyL21hbmFnZWNhbGVuZGVyL21hbmFnZWNhbGVuZGVyLmNvbXBvbmVudC5zY3NzIn0= */");
 
 /***/ }),
 
-/***/ "./src/app/home/profile/businesshours/businesshours.component.ts":
-/*!***********************************************************************!*\
-  !*** ./src/app/home/profile/businesshours/businesshours.component.ts ***!
-  \***********************************************************************/
-/*! exports provided: BusinesshoursComponent */
+/***/ "./src/app/home/manage-calender/managecalender/managecalender.component.ts":
+/*!*********************************************************************************!*\
+  !*** ./src/app/home/manage-calender/managecalender/managecalender.component.ts ***!
+  \*********************************************************************************/
+/*! exports provided: ManagecalenderComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BusinesshoursComponent", function() { return BusinesshoursComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManagecalenderComponent", function() { return ManagecalenderComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/service/helper.service */ "./src/app/shared/service/helper.service.ts");
-/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
-/* harmony import */ var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/service/error.service */ "./src/app/shared/service/error.service.ts");
-/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fullcalendar/daygrid */ "./node_modules/@fullcalendar/daygrid/main.esm.js");
+/* harmony import */ var _fullcalendar_timegrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fullcalendar/timegrid */ "./node_modules/@fullcalendar/timegrid/main.esm.js");
+/* harmony import */ var _fullcalendar_interaction__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fullcalendar/interaction */ "./node_modules/@fullcalendar/interaction/main.esm.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/service/helper.service */ "./src/app/shared/service/helper.service.ts");
 
 
 
@@ -2599,535 +5248,88 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-let BusinesshoursComponent = class BusinesshoursComponent {
-    constructor(httpService, router, helper, messageService, errorserv, fb, trns) {
-        this.httpService = httpService;
-        this.router = router;
+function getTimezoneOffsetString(date) {
+    const timezoneOffset = date.getTimezoneOffset();
+    const hoursOffset = String(Math.floor(Math.abs(timezoneOffset / 60))).padStart(2, '0');
+    const minutesOffset = String(Math.abs(timezoneOffset % 60)).padEnd(2, '0');
+    const direction = timezoneOffset > 0 ? '-' : '+';
+    return `T00:00:00${direction}${hoursOffset}:${minutesOffset}`;
+}
+let ManagecalenderComponent = class ManagecalenderComponent {
+    constructor(http, route, helper) {
+        this.http = http;
+        this.route = route;
         this.helper = helper;
-        this.messageService = messageService;
-        this.errorserv = errorserv;
-        this.fb = fb;
-        this.trns = trns;
-        this.submitted = false;
-        this.isSunBreak = false;
-        this.isMonBreak = false;
-        this.isTuesBreak = false;
-        this.isWedBreak = false;
-        this.isThursBreak = false;
-        this.isFriBreak = false;
-        this.isSatBreak = false;
-        this.error = [];
-        this.isError = false;
-        this.isSunClosReq = false;
-        this.isSunValid = false;
-        this.isSunOpnReq = false;
-        this.isSunOpnBrkReq = false;
-        this.isSunClosBrkReq = false;
-        this.isSunBrkValid = false;
-        this.isMonClosReq = false;
-        this.isMonValid = false;
-        this.isMonOpnReq = false;
-        this.isMonOpnBrkReq = false;
-        this.isMonClosBrkReq = false;
-        this.isMonBrkValid = false;
-        this.isTuesClosReq = false;
-        this.isTuesValid = false;
-        this.isTuesOpnReq = false;
-        this.isTuesOpnBrkReq = false;
-        this.isTuesClosBrkReq = false;
-        this.isTuesBrkValid = false;
-        this.isWedClosReq = false;
-        this.isWedValid = false;
-        this.isWedOpnReq = false;
-        this.isWedOpnBrkReq = false;
-        this.isWedClosBrkReq = false;
-        this.isWedBrkValid = false;
-        this.isThursClosReq = false;
-        this.isThursValid = false;
-        this.isThursOpnReq = false;
-        this.isThursOpnBrkReq = false;
-        this.isThursClosBrkReq = false;
-        this.isThursBrkValid = false;
-        this.isFriClosReq = false;
-        this.isFriValid = false;
-        this.isFriOpnReq = false;
-        this.isFriOpnBrkReq = false;
-        this.isFriClosBrkReq = false;
-        this.isFriBrkValid = false;
-        this.isSatClosReq = false;
-        this.isSatValid = false;
-        this.isSatOpnReq = false;
-        this.isSatOpnBrkReq = false;
-        this.isSatClosBrkReq = false;
-        this.isSatBrkValid = false;
+        this.calendarPlugins = [_fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_3__["default"], _fullcalendar_timegrid__WEBPACK_IMPORTED_MODULE_4__["default"], _fullcalendar_interaction__WEBPACK_IMPORTED_MODULE_5__["default"]]; // important!
+        this.calendarEvents = [
+            { title: 'Event Now Event Now Event Now', start: new Date('Mon Feb 03 2020 00:00:00 GMT+0530 (India Standard Time)') },
+            { title: 'Event Now', start: new Date('Mon Feb 03 2020 00:00:00 GMT+0530 (India Standard Time)') }, { title: 'Event Now', start: new Date('Mon Feb 15 2020 00:00:00 GMT+0530 (India Standard Time)') }, { title: 'Event Now', start: new Date() },
+            { title: 'Event Now', start: new Date('Mon Feb 06 2020 00:00:00 GMT+0530 (India Standard Time)') }, { title: 'Event Now', start: new Date() }, { title: 'Event Now', start: new Date() },
+            { title: 'Event Now', start: new Date('Mon Feb 11 2020 00:00:00 GMT+0530 (India Standard Time)') }, { title: 'Event Now', start: new Date() }, { title: 'Event Now', start: new Date() },
+        ];
     }
     ngOnInit() {
-        this.form = this.fb.group({
-            Sunday: this.fb.group({
-                open: [null],
-                close: [null],
-                breakStart: [null],
-                breakEnd: [null],
-                isOpen: [true]
-            }),
-            Monday: this.fb.group({
-                open: [null],
-                close: [null],
-                breakStart: [null],
-                breakEnd: [null],
-                isOpen: [true]
-            }),
-            Tuesday: this.fb.group({
-                open: [null],
-                close: [null],
-                breakStart: [null],
-                breakEnd: [null],
-                isOpen: [true]
-            }),
-            Wednesday: this.fb.group({
-                open: [null],
-                close: [null],
-                breakStart: [null],
-                breakEnd: [null],
-                isOpen: [true]
-            }),
-            Thursday: this.fb.group({
-                open: [null],
-                close: [null],
-                breakStart: [null],
-                breakEnd: [null],
-                isOpen: [true]
-            }),
-            Friday: this.fb.group({
-                open: [null],
-                close: [null],
-                breakStart: [null],
-                breakEnd: [null],
-                isOpen: [true]
-            }),
-            Saturday: this.fb.group({
-                open: [null],
-                close: [null],
-                breakStart: [null],
-                breakEnd: [null],
-                isOpen: [true]
-            })
-        });
-        let date = new Date();
-        // this.form.controls['Sunday'].patchValue({ open: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), 9, 4) })
-        this.getBusinessHours();
     }
-    get getControl() { return this.form.controls; }
-    submit() {
-        // this.submitted = true;
-        // // this.validatetime('Sun');
-        // if (this.isSunOpnReq || this.isSunClosReq || this.isSunValid) {
-        //   return
-        // }
-        // console.log('VALID BUT TESTING');
-        // return
-        console.log(this.validatetime('Sunday', 'Sun'));
-        if (!this.validatetime('Sunday', 'Sun')) {
-            console.log('VALID BUT TESTING Sunday');
-            return;
-        }
-        else if (!this.validatetime('Monday', 'Mon')) {
-            console.log('VALID BUT TESTING Monday');
-            return;
-        }
-        else if (!this.validatetime('Tuesday', 'Tues')) {
-            console.log('VALID BUT TESTING Tuesday');
-            return;
-        }
-        else if (!this.validatetime('Wednesday', 'Wed')) {
-            console.log('VALID BUT TESTING Wednesday');
-            return;
-        }
-        else if (!this.validatetime('Thursday', 'Thurs')) {
-            console.log('VALID BUT TESTING Thursday');
-            return;
-        }
-        else if (!this.validatetime('Friday', 'Fri')) {
-            console.log('VALID BUT TESTING Friday');
-            return;
-        }
-        else if (!this.validatetime('Saturday', 'Sat')) {
-            console.log('VALID BUT TESTING Satday');
-            return;
-        }
-        console.log('VALID BUT TESTING');
-        let workingHrs = [];
-        this.form.value['Sunday'].isOpen ? workingHrs.push(this.createData('Sunday', 0, 'Sun')) : '';
-        this.form.value['Monday'].isOpen ? workingHrs.push(this.createData('Monday', 1, 'Mon')) : '';
-        this.form.value['Tuesday'].isOpen ? workingHrs.push(this.createData('Tuesday', 2, 'Tues')) : '';
-        this.form.value['Wednesday'].isOpen ? workingHrs.push(this.createData('Wednesday', 3, 'Wed')) : '';
-        this.form.value['Thursday'].isOpen ? workingHrs.push(this.createData('Thursday', 4, 'Thurs')) : '';
-        this.form.value['Friday'].isOpen ? workingHrs.push(this.createData('Friday', 5, 'Fri')) : '';
-        this.form.value['Saturday'].isOpen ? workingHrs.push(this.createData('Saturday', 6, 'Sat')) : '';
-        console.log(workingHrs);
-        // return
-        if (this.form.valid) {
-            this.httpService.getRequest('PUT', 'WRKNGHRS', { 'w_hr': workingHrs }, '')
-                .subscribe((response) => {
-                if (response.status === 1) {
-                    this.submitted = true;
-                    this.router.navigateByUrl('/profile')
-                        .then(() => {
-                        this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('SALONSUCCESS'));
-                    });
-                }
-                else {
-                    if (response.err) {
-                        this.errorserv.handleError(response.err.errCode);
-                    }
-                }
-            }, (error) => {
-                this.errorserv.handleError(0);
-            });
-        }
-        else {
-            this.submitted = false;
-            this.httpService.errTostr(this.trns.transform('ERROR'), this.trns.transform('HOURSREQ'));
-            console.log(this.form);
-        }
+    handleDateClick(calDate) {
+        console.log(calDate, this.helper.parseDate(calDate.date));
+        this.route.navigateByUrl('manage-calender/list/' + this.helper.parseDate(calDate.date));
     }
-    getBusinessHours() {
-        this.httpService.getRequest('GET', 'WRKNGHRS', '')
-            .subscribe((response) => {
-            if (response.status === 1) {
-                let detail = response.res.wrk_hrs;
-                let date = new Date();
-                for (let index = 0; index < 7; index++) {
-                    let day = index == 0 ? 'Sunday' : (index == 1 ? 'Monday' : (index == 2 ? 'Tuesday' : (index == 3 ? 'Wednesday' : (index == 4 ? 'Thursday' : (index == 5 ? 'Friday' : 'Saturday')))));
-                    console.log(detail[index]);
-                    let obj = detail.find(o => o.day === index) || { open_time: { hh: null, mm: null }, close_time: { hh: null, mm: null }, is_open: false, strt_break_time: { hh: null, mm: null }, end_break_time: { hh: null, mm: null }, is_break: false };
-                    // if(detail[index]['day'] == index)
-                    this.form.controls[day].patchValue({
-                        open: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.open_time.hh, obj.open_time.mm),
-                        close: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.close_time.hh, obj.close_time.mm),
-                        isOpen: obj.hasOwnProperty('is_open') ? obj.is_open : false,
-                        breakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.strt_break_time.hh, obj.strt_break_time.mm),
-                        breakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.end_break_time.hh, obj.end_break_time.mm),
-                    });
-                    let dayName = index == 0 ? 'Sun' : (index == 1 ? 'Mon' : (index == 2 ? 'Tues' : (index == 3 ? 'Wed' : (index == 4 ? 'Thurs' : (index == 5 ? 'Fri' : 'Sat')))));
-                    this.toggle(day, dayName);
-                    this['is' + dayName + 'Break'] = obj.is_break;
-                }
-                // for (let index = 0; index < detail.length; index++) {
-                //   let day = detail[index]['day'] == 0 ? 'Sunday' : (detail[index]['day'] == 1 ? 'Monday' : (detail[index]['day'] == 2 ? 'Tuesday' : (detail[index]['day'] == 3 ? 'Wednesday' : (detail[index]['day'] == 4 ? 'Thursday' : (detail[index]['day'] == 5 ? 'Friday' : 'Saturday')))))
-                //   console.log(detail[index]);
-                //   // if(detail[index]['day'] == index)
-                //   this.form.controls[day].patchValue({
-                //     open: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail[index].open_time.hh, detail[index].open_time.mm),
-                //     close: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail[index].close_time.hh, detail[index].close_time.mm),
-                //     isOpen: detail[index].hasOwnProperty('is_open')?detail[index].is_open:false,
-                //     breakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail[index].strt_break_time.hh, detail[index].strt_break_time.mm),
-                //     breakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail[index].end_break_time.hh, detail[index].end_break_time.mm),
-                //   });
-                //   let dayName = detail[index]['day'] == 0 ? 'Sun' : (detail[index]['day'] == 1 ? 'Mon' : (detail[index]['day'] == 2 ? 'Tues' : (detail[index]['day'] == 3 ? 'Wed' : (detail[index]['day'] == 4 ? 'Thurs' : (detail[index]['day'] == 5 ? 'Fri' : 'Sat')))))
-                //   this.toggle(day,dayName)
-                //   this['is' + dayName + 'Break'] = detail[index].is_break;
-                // }
-                // this.form.patchValue({
-                // sunOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[0].open_time.hh, detail.wrk_hrs[0].open_time.mm),
-                // sunClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[0].close_time.hh, detail.wrk_hrs[0].close_time.mm),
-                // isSunOpen: detail.wrk_hrs[0].is_open,
-                // sunBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[0].strt_break_time.hh, detail.wrk_hrs[0].strt_break_time.mm),
-                // sunBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[0].end_break_time.hh, detail.wrk_hrs[0].end_break_time.mm),
-                // monOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[1].open_time.hh, detail.wrk_hrs[1].open_time.mm),
-                // monClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[1].close_time.hh, detail.wrk_hrs[1].close_time.mm),
-                // monBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[1].strt_break_time.hh, detail.wrk_hrs[1].strt_break_time.mm),
-                // monBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[1].end_break_time.hh, detail.wrk_hrs[1].end_break_time.mm),
-                // isMonOpen: detail.wrk_hrs[1].is_open,
-                // tuesOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[2].open_time.hh, detail.wrk_hrs[2].open_time.mm),
-                // tuesClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[2].close_time.hh, detail.wrk_hrs[2].close_time.mm),
-                // tuesBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[2].strt_break_time.hh, detail.wrk_hrs[2].strt_break_time.mm),
-                // tuesBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[2].end_break_time.hh, detail.wrk_hrs[2].end_break_time.mm),
-                // isTuesOpen: detail.wrk_hrs[2].is_open,
-                // wedOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[3].open_time.hh, detail.wrk_hrs[3].open_time.mm),
-                // wedClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[3].close_time.hh, detail.wrk_hrs[3].close_time.mm),
-                // wedBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[3].strt_break_time.hh, detail.wrk_hrs[3].strt_break_time.mm),
-                // wedBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[3].end_break_time.hh, detail.wrk_hrs[3].end_break_time.mm),
-                // isWedOpen: detail.wrk_hrs[3].is_open,
-                // thursOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[4].open_time.hh, detail.wrk_hrs[4].open_time.mm),
-                // thursClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[4].close_time.hh, detail.wrk_hrs[4].close_time.mm),
-                // thursBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[4].strt_break_time.hh, detail.wrk_hrs[4].strt_break_time.mm),
-                // thursBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[4].end_break_time.hh, detail.wrk_hrs[4].end_break_time.mm),
-                // isThursOpen: detail.wrk_hrs[4].is_open,
-                // friOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[5].open_time.hh, detail.wrk_hrs[5].open_time.mm),
-                // friClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[5].close_time.hh, detail.wrk_hrs[5].close_time.mm),
-                // friBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[5].strt_break_time.hh, detail.wrk_hrs[5].strt_break_time.mm),
-                // friBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[5].end_break_time.hh, detail.wrk_hrs[5].end_break_time.mm),
-                // isFriOpen: detail.wrk_hrs[5].is_open,
-                // satOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[6].open_time.hh, detail.wrk_hrs[6].open_time.mm),
-                // satClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[6].close_time.hh, detail.wrk_hrs[6].close_time.mm),
-                // satBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[6].strt_break_time.hh, detail.wrk_hrs[6].strt_break_time.mm),
-                // satBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[6].end_break_time.hh, detail.wrk_hrs[6].end_break_time.mm),
-                // isSatOpen: detail.wrk_hrs[6].is_open,
-                // });
-                // this.isSunBreak = detail.wrk_hrs[0].is_break;
-                // this.isMonBreak = detail.wrk_hrs[1].is_break;
-                // this.isTuesBreak = detail.wrk_hrs[2].is_break;
-                // this.isWedBreak = detail.wrk_hrs[3].is_break;
-                // this.isThursBreak = detail.wrk_hrs[4].is_break;
-                // this.isFriBreak = detail.wrk_hrs[5].is_break;
-                // this.isSatBreak = detail.wrk_hrs[6].is_break;
-            }
-            else {
-                if (response.err) {
-                    this.errorserv.handleError(response.err.errCode);
-                }
-            }
-        }, (error) => {
-            // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
-        });
-    }
-    createData(dayName, dayNo, daybrk) {
-        return {
-            "open_time": {
-                "hh": this.helper.parsehhmm(this.form.value[dayName].open).hh,
-                "mm": this.helper.parsehhmm(this.form.value[dayName].open).mm
-            },
-            "close_time": {
-                "hh": this.helper.parsehhmm(this.form.value[dayName].close).hh,
-                "mm": this.helper.parsehhmm(this.form.value[dayName].close).mm
-            },
-            "strt_break_time": {
-                "hh": this.helper.parsehhmm(this.form.value[dayName].breakStart).hh,
-                "mm": this.helper.parsehhmm(this.form.value[dayName].breakStart).mm
-            },
-            "end_break_time": {
-                "hh": this.helper.parsehhmm(this.form.value[dayName].breakEnd).hh,
-                "mm": this.helper.parsehhmm(this.form.value[dayName].breakEnd).mm
-            },
-            "is_open": this.form.value[dayName].isOpen,
-            "is_break": this['is' + daybrk + 'Break'],
-            "day": dayNo
-        };
-    }
-    validatetime(dayName, daybrk) {
-        if (this.form.value[dayName].isOpen) {
-            console.log('----------', this.form.value[dayName].open, this.form.value[dayName].close);
-            if ((this.form.value[dayName].open == null) && (this.form.value[dayName].close == null)) {
-                console.log('9090-090----');
-                this['is' + daybrk + 'OpnReq'] = true;
-                this['is' + daybrk + 'ClosReq'] = true;
-                return false;
-            }
-            if ((this.form.value[dayName].open == null)) {
-                this['is' + daybrk + 'ClosReq'] = false;
-                this['is' + daybrk + 'OpnReq'] = true;
-                return false;
-            }
-            if ((this.form.value[dayName].close == null)) {
-                console.log('9090-090----jhbnjhghjhgbnjhgf');
-                this['is' + daybrk + 'OpnReq'] = false;
-                this['is' + daybrk + 'ClosReq'] = true;
-                return false;
-            }
-            else if (new Date(this.form.value[dayName].open) > new Date(this.form.value[dayName].close)) {
-                console.log('----------', new Date(this.form.value[dayName].open) > new Date(this.form.value[dayName].close));
-                this['is' + daybrk + 'ClosReq'] = false;
-                this['is' + daybrk + 'OpnReq'] = false;
-                this['is' + daybrk + 'Valid'] = true;
-                return false;
-            }
-            else if (!this['is' + daybrk + 'Break']) {
-                if (new Date(this.form.value[dayName].open) < new Date(this.form.value[dayName].close)) {
-                    console.log('----------+++++++', new Date(this.form.value[dayName].open) > new Date(this.form.value[dayName].close));
-                    this['is' + daybrk + 'ClosReq'] = false;
-                    this['is' + daybrk + 'OpnReq'] = false;
-                    this['is' + daybrk + 'Valid'] = false;
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    this['is' + daybrk + 'OpnBrkReq'] = false;
-                    this['is' + daybrk + 'BrkValid'] = false;
-                    return true;
-                }
-                return false;
-            }
-            else if ((new Date(this.form.value[dayName].open) < new Date(this.form.value[dayName].close)) && this['is' + daybrk + 'Break']) {
-                console.log('---_________');
-                this['is' + daybrk + 'ClosReq'] = false;
-                this['is' + daybrk + 'OpnReq'] = false;
-                this['is' + daybrk + 'Valid'] = false;
-                //sun break validation
-                if ((this.form.value[dayName].breakStart == null) && (this.form.value[dayName].breakEnd == null)) {
-                    this['is' + daybrk + 'OpnBrkReq'] = true;
-                    this['is' + daybrk + 'ClosBrkReq'] = true;
-                    return false;
-                }
-                if ((this.form.value[dayName].breakStart == null)) {
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    this['is' + daybrk + 'OpnBrkReq'] = true;
-                    if (this.form.value[dayName].breakEnd !== null) {
-                        if ((new Date(this.form.value[dayName].breakEnd) < new Date(this.form.value[dayName].open))) {
-                            this['is' + daybrk + 'BrkValid'] = true;
-                        }
-                        else if (new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close)) {
-                            console.log(new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
-                            this['is' + daybrk + 'BrkValid'] = true;
-                        }
-                    }
-                    return false;
-                }
-                else if ((this.form.value[dayName].breakEnd == null)) {
-                    this['is' + daybrk + 'OpnBrkReq'] = false;
-                    this['is' + daybrk + 'ClosBrkReq'] = true;
-                    if (this.form.value[dayName].breakStart !== null) {
-                        if ((new Date(this.form.value[dayName].breakStart) < new Date(this.form.value[dayName].open))) {
-                            this['is' + daybrk + 'BrkValid'] = true;
-                        }
-                        else if (new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close)) {
-                            console.log(new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
-                            this['is' + daybrk + 'BrkValid'] = true;
-                        }
-                    }
-                    return false;
-                }
-                else if ((new Date(this.form.value[dayName].breakStart) < new Date(this.form.value[dayName].open))) {
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    console.log('------------------------');
-                    this['is' + daybrk + 'OpnBrkReq'] = false;
-                    this['is' + daybrk + 'BrkValid'] = true;
-                    return false;
-                }
-                else if (new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close)) {
-                    console.log(new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    this['is' + daybrk + 'OpnBrkReq'] = false;
-                    this['is' + daybrk + 'BrkValid'] = true;
-                    return false;
-                }
-                else if ((new Date(this.form.value[dayName].breakEnd) < new Date(this.form.value[dayName].open))) {
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    this['is' + daybrk + 'BrkValid'] = true;
-                    return false;
-                }
-                else if (new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close)) {
-                    console.log(new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    this['is' + daybrk + 'BrkValid'] = true;
-                    return false;
-                }
-                else if (new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].breakEnd)) {
-                    console.log(new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    this['is' + daybrk + 'BrkValid'] = true;
-                    return false;
-                }
-                else {
-                    this['is' + daybrk + 'ClosBrkReq'] = false;
-                    this['is' + daybrk + 'OpnBrkReq'] = false;
-                    this['is' + daybrk + 'BrkValid'] = false;
-                    return true;
-                }
-            }
-            else {
-                this['is' + daybrk + 'ClosBrkReq'] = false;
-                this['is' + daybrk + 'OpnBrkReq'] = false;
-                this['is' + daybrk + 'BrkValid'] = false;
-                return true;
-            }
-        }
-        else {
-            this['is' + daybrk + 'OpnReq'] = false;
-            this['is' + daybrk + 'ClosReq'] = false;
-            this['is' + daybrk + 'ClosBrkReq'] = false;
-            this['is' + daybrk + 'OpnBrkReq'] = false;
-            this['is' + daybrk + 'BrkValid'] = false;
-            return true;
-        }
-    }
-    toggle(dayName, day) {
-        this['is' + day + 'OpnReq'] = false;
-        this['is' + day + 'ClosReq'] = false;
-        this['is' + day + 'ClosBrkReq'] = false;
-        this['is' + day + 'OpnBrkReq'] = false;
-        this['is' + day + 'BrkValid'] = false;
-        if (!this.form.value[dayName].isOpen) {
-            this.form.controls[dayName].disable();
-            this.form.controls[dayName]['controls']['isOpen'].enable();
-        }
-        else {
-            this.form.controls[dayName].enable();
-        }
-    }
-    isBreak(day) {
-        this['is' + day + 'Break'] = !this['is' + day + 'Break'];
-        this['is' + day + 'ClosBrkReq'] = false;
-        this['is' + day + 'OpnBrkReq'] = false;
-        this['is' + day + 'BrkValid'] = false;
+    eventClicked(calDate) {
+        console.log(calDate);
     }
 };
-BusinesshoursComponent.ctorParameters = () => [
-    { type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_5__["Helper"] },
-    { type: primeng_api__WEBPACK_IMPORTED_MODULE_6__["MessageService"] },
-    { type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_7__["ErrorService"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
-    { type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__["TranslatePipe"] }
+ManagecalenderComponent.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"] },
+    { type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_7__["Helper"] }
 ];
-BusinesshoursComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+ManagecalenderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-businesshours',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./businesshours.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/businesshours/businesshours.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./businesshours.component.scss */ "./src/app/home/profile/businesshours/businesshours.component.scss")).default]
+        selector: 'app-managecalender',
+        changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./managecalender.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender/managecalender.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./managecalender.component.scss */ "./src/app/home/manage-calender/managecalender/managecalender.component.scss")).default]
     })
-], BusinesshoursComponent);
+], ManagecalenderComponent);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/profile/businesshours/businesshours.module.ts":
-/*!********************************************************************!*\
-  !*** ./src/app/home/profile/businesshours/businesshours.module.ts ***!
-  \********************************************************************/
-/*! exports provided: BusinesshoursModule */
+/***/ "./src/app/home/manage-calender/managecalender/managecalender.module.ts":
+/*!******************************************************************************!*\
+  !*** ./src/app/home/manage-calender/managecalender/managecalender.module.ts ***!
+  \******************************************************************************/
+/*! exports provided: ManagecalenderModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BusinesshoursModule", function() { return BusinesshoursModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ManagecalenderModule", function() { return ManagecalenderModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _businesshours_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./businesshours-routing.module */ "./src/app/home/profile/businesshours/businesshours-routing.module.ts");
-/* harmony import */ var _businesshours_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./businesshours.component */ "./src/app/home/profile/businesshours/businesshours.component.ts");
-/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/calendar */ "./node_modules/primeng/fesm2015/primeng-calendar.js");
-/* harmony import */ var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
-/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
+/* harmony import */ var _managecalender_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./managecalender-routing.module */ "./src/app/home/manage-calender/managecalender/managecalender-routing.module.ts");
+/* harmony import */ var _managecalender_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./managecalender.component */ "./src/app/home/manage-calender/managecalender/managecalender.component.ts");
+/* harmony import */ var _fullcalendar_angular__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fullcalendar/angular */ "./node_modules/@fullcalendar/angular/fesm2015/fullcalendar-angular.js");
 
 
 
 
 
 
-
-
-
-
-let BusinesshoursModule = class BusinesshoursModule {
+let ManagecalenderModule = class ManagecalenderModule {
 };
-BusinesshoursModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+ManagecalenderModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_businesshours_component__WEBPACK_IMPORTED_MODULE_4__["BusinesshoursComponent"]],
+        declarations: [_managecalender_component__WEBPACK_IMPORTED_MODULE_4__["ManagecalenderComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
-            _businesshours_routing_module__WEBPACK_IMPORTED_MODULE_3__["BusinesshoursRoutingModule"],
-            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
-            primeng_calendar__WEBPACK_IMPORTED_MODULE_7__["CalendarModule"],
-            src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"]
-        ],
-        providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"]]
+            _managecalender_routing_module__WEBPACK_IMPORTED_MODULE_3__["ManagecalenderRoutingModule"],
+            _fullcalendar_angular__WEBPACK_IMPORTED_MODULE_5__["FullCalendarModule"]
+        ]
     })
-], BusinesshoursModule);
+], ManagecalenderModule);
 
 
 

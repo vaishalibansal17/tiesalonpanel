@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <full-calendar\n<div class=\"row dashboard_row\">\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\">\n            No. of Members <span>150</span>\n        </div>\n    </div>\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\">\n            No. of Bookings <span>80</span>\n        </div>\n    </div>\n</div>\n\n<p class=\"warning\">*Your commission percentage is 2%.</p>\n\n<full-calendar\n      #calendar\n      defaultView=\"dayGridMonth\"\n      [header]=\"{\n        left: 'prev,next today',\n        center: 'title',\n        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'\n      }\"\n      eventLimit=\"true\"\n      [plugins]=\"calendarPlugins\"\n      [weekends]=\"calendarWeekends\"\n      [events]=\"calendarEvents\"\n      (dateClick)=\"handleDateClick($event)\"\n      (eventClick)=\"eventClicked($event)\"\n      ></full-calendar>  -->\n      <p>Dummy Data</p>\n<div class=\"row dashboard_row\">\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\">\n            {{'NUMOFMEM' |  translate}}<span>150</span>\n        </div>\n    </div>\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\">\n            {{'NUMOFBOOKING' |  translate}} <span>80</span>\n        </div>\n    </div>\n</div>\n";
+    __webpack_exports__["default"] = "<!-- <full-calendar\n<div class=\"row dashboard_row\">\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\">\n            No. of Members <span>150</span>\n        </div>\n    </div>\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\">\n            No. of Bookings <span>80</span>\n        </div>\n    </div>\n</div>\n\n<p class=\"warning\">*Your commission percentage is 2%.</p>\n\n<full-calendar\n      #calendar\n      defaultView=\"dayGridMonth\"\n      [header]=\"{\n        left: 'prev,next today',\n        center: 'title',\n        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'\n      }\"\n      eventLimit=\"true\"\n      [plugins]=\"calendarPlugins\"\n      [weekends]=\"calendarWeekends\"\n      [events]=\"calendarEvents\"\n      (dateClick)=\"handleDateClick($event)\"\n      (eventClick)=\"eventClicked($event)\"\n      ></full-calendar>  -->\n      <!-- <p>Dummy Data</p> -->\n<div class=\"row dashboard_row\">\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\" >\n            {{'NUMOFMEM' |  translate}}<span>{{(dashboard && dashboard.staffs)? dashboard.staffs :'NA'}}</span>\n        </div>\n    </div>\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\">\n            {{'NUMOFBOOKING' |  translate}} <span>{{(dashboard && dashboard.bookings)? dashboard.bookings :'NA'}}</span>\n        </div>\n    </div>\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\">\n            {{'NUMOFWLKBOOKING' |  translate}} <span>{{(dashboard && dashboard.walkingBooking)? dashboard.walkingBooking :'NA'}}</span>\n        </div>\n    </div>\n</div>\n";
     /***/
   },
 
@@ -139,27 +139,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/common/http */
-    "./node_modules/@angular/common/fesm2015/http.js");
-    /* harmony import */
+    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/shared/service/http-request.service */
+    "./src/app/shared/service/http-request.service.ts"); // import { colors } from '../demo-utils/colors';
 
-
-    var _fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! @fullcalendar/daygrid */
-    "./node_modules/@fullcalendar/daygrid/main.esm.js");
-    /* harmony import */
-
-
-    var _fullcalendar_timegrid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! @fullcalendar/timegrid */
-    "./node_modules/@fullcalendar/timegrid/main.esm.js");
-    /* harmony import */
-
-
-    var _fullcalendar_interaction__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! @fullcalendar/interaction */
-    "./node_modules/@fullcalendar/interaction/main.esm.js");
 
     function getTimezoneOffsetString(date) {
       var timezoneOffset = date.getTimezoneOffset();
@@ -172,57 +155,32 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var DashboardComponent =
     /*#__PURE__*/
     function () {
-      function DashboardComponent(http) {
+      function DashboardComponent(httprequest) {
         _classCallCheck(this, DashboardComponent);
 
-        this.http = http;
-        this.calendarPlugins = [_fullcalendar_daygrid__WEBPACK_IMPORTED_MODULE_3__["default"], _fullcalendar_timegrid__WEBPACK_IMPORTED_MODULE_4__["default"], _fullcalendar_interaction__WEBPACK_IMPORTED_MODULE_5__["default"]]; // important!
-
-        this.calendarEvents = [{
-          title: 'Event Now',
-          start: new Date()
-        }, {
-          title: 'Event Now',
-          start: new Date()
-        }, {
-          title: 'Event Now',
-          start: new Date()
-        }, {
-          title: 'Event Now',
-          start: new Date()
-        }, {
-          title: 'Event Now',
-          start: new Date()
-        }, {
-          title: 'Event Now',
-          start: new Date()
-        }, {
-          title: 'Event Now',
-          start: new Date()
-        }, {
-          title: 'Event Now',
-          start: new Date()
-        }, {
-          title: 'Event Now',
-          start: new Date()
-        }, {
-          title: 'Event Now',
-          start: new Date()
-        }];
+        this.httprequest = httprequest;
+        this.dashboard = {
+          staffs: 0
+        };
+        this.isloaded = false;
       }
 
       _createClass(DashboardComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
-      }, {
-        key: "handleDateClick",
-        value: function handleDateClick(calDate) {
-          console.log(calDate);
-        }
-      }, {
-        key: "eventClicked",
-        value: function eventClicked(calDate) {
-          console.log(calDate);
+        value: function ngOnInit() {
+          var _this = this;
+
+          this.httprequest.getRequest('GET', 'DASHBOARD', '').subscribe(function (res) {
+            _this.isloaded = true;
+
+            if (res.status) {
+              _this.dashboard = res.res;
+              console.log(_this.dashboard);
+            } else {
+              new Error();
+            }
+          }, function (error) {// this.httprequest.showError('Failed to get');
+          });
         }
       }]);
 
@@ -231,13 +189,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     DashboardComponent.ctorParameters = function () {
       return [{
-        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]
+        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"]
       }];
     };
 
     DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'mwl-demo-component',
-      changeDetection: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ChangeDetectionStrategy"].OnPush,
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./dashboard.component.html */
       "./node_modules/raw-loader/dist/cjs.js!./src/app/home/dashboard/dashboard.component.html")).default,
