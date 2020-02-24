@@ -36,7 +36,7 @@
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/edit-staff.png" alt="envelope"></span>
                 <mat-label>{{'STAFF'| translate}}</mat-label>
-                <mat-select formControlName="staf_id" class="multiselect">
+                <mat-select formControlName="staf_id">
                     <mat-option *ngFor="let staff of staff" [value]="staff">
                         {{staff.name | titlecase}}
                     </mat-option>
