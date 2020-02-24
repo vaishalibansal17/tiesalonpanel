@@ -12,7 +12,6 @@ export class ViewprofileComponent implements OnInit {
   detail: any;
   url: any = 'assets/images/change.png';
   salonImageUrlArray=[];
-  slide = [];
   chips= [];
 
   constructor(private httpService: HttpRequestService, private error : ErrorService, private messageService: MessageService,) { }
@@ -27,19 +26,15 @@ export class ViewprofileComponent implements OnInit {
           this.detail = response.res;
           this.chips.push(...this.detail.services);
           this.url = this.detail.logo ? this.detail.logo : this.url;
-          // localStorage.setItem('salon', JSON.stringify({ name: this.detail.name, logo: response.res.logo }));
-          let salon = localStorage.getItem('salon');
-          console.log(salon);
+          let salon = JSON.parse(localStorage.getItem('salon'));
           salon['logo'] = this.detail.logo;
           salon['name'] = this.detail.name;
-          
           localStorage.setItem('salon', JSON.stringify(salon));
             this.messageService.sendMessage('profile changed');
           if (this.detail && this.detail.imgs) {
             this.detail.imgs.map(item => {
               item = this.detail.bp + item;
               this.salonImageUrlArray.push(item);
-              this.slide = [...this.slide, {'url':item,  clickAction: () => alert('custom click function') }]
             })
           }
         } else {
@@ -49,7 +44,6 @@ export class ViewprofileComponent implements OnInit {
         }
       }, (error) => {
         this.error.handleError(0);
-        // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
       });
   }
 }

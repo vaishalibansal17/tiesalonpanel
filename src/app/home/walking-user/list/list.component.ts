@@ -113,6 +113,11 @@ export class ListComponent implements OnInit {
     this.loadStaffList();
     this.isApplied = true;
   }
+
+  paginate(){
+    this.paginator.pageSize = this.paginator.pageSize + 1;
+    this.getSalonStaff();
+  }
   // ********************** Account Manager List Api Integration with search End******************
 
   exportCSV(data: any) {

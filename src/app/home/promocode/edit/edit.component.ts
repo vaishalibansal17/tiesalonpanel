@@ -145,21 +145,29 @@ export class EditComponent implements OnInit {
     const matSelect: MatSelect = state.source;
     matSelect.writeValue(null);
     state = state.value;
-    console.log(state);
-    
-    if (!this.httpService.arraySearch(this.sendServ, state)) {
-      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)) });
-      this.sendServ.push(state._id);
+    if (!this.arraySearch(this.sendServ, state)) {
+      this.chips.push({ _id: state._id, cat_id:state.cat_id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)) });
+      this.sendServ.push(state.cat_id);
       return
     } else {
     }
   }
 
-
-  remove(service: string, data?: any): void {
-    console.log(data);
-    
-    this.chips = this.chips.filter(v => v.id !== data.id);
-    this.sendServ = this.sendServ.filter(v => v !== data.id);
+  remove(data?: any): void {
+    this.chips = this.chips.filter(v => v._id !== data._id);
+    this.sendServ = this.sendServ.filter(v => v !== data.cat_id);
   }
+
+  arraySearch(arr, value) {
+		let isFound = false;
+		if (arr.length) {
+			for (let k = 0; k < arr.length; k++) {
+				if (arr[k] === value.cat_id) {
+					isFound = true; break;
+				}
+			}
+			return isFound;
+		}
+		return false
+	}
 }

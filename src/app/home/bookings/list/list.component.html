@@ -120,7 +120,7 @@
         <div class="right_status">
           <ul>
             <li>{{element?.bookDateTime | date : 'dd, MMM yyyy '}}</li>
-            <li>10:00AM</li>
+            <li>{{element?.bookDateTime | date : 'h:mm a'}}</li>
           </ul>
         </div>
       </div>
@@ -139,4 +139,5 @@
       </div>
     </div>
   </div>
+  <div class="text-center"><button type="button" class="btn btn-submit" (click)="paginate()">Load More</button></div>
 </div>

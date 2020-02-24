@@ -89,7 +89,6 @@ export class AddComponent implements OnInit {
   add() {
     this.submitted = true;
     // return false
-    console.log(this.promo)
     var startDateUtc = this.promo.value.frm && this.helper.parseDate(this.promo.value.frm, new Date(new Date().setHours(0, 0, 0, 0)));
     var endDateUtc = this.promo.value.to && this.helper.parseDate(this.promo.value.to, new Date(new Date().setHours(23, 59, 59)));
     if (!(startDateUtc < endDateUtc)) {
@@ -100,7 +99,6 @@ export class AddComponent implements OnInit {
 
 
     if (this.promo.valid) {
-      console.log(this.promo);
 
       if (!this.validDte)
         return false
@@ -130,42 +128,15 @@ export class AddComponent implements OnInit {
   get getControl() { return this.promo.controls; }
 
   /** ---------------------Compare Promocodes dates----------------------- */
-  // validateDates(startDate?: Date, endDate?: Date) {
-  //   startDate = this.promo.value.frm;
-  //   endDate = this.promo.value.to;
-  //   if (new Date(endDate).getTime() >= new Date(startDate).getTime()) {
-  //     this.isStartTimeEnable = false;
-  //     return true;
-  //   }
-  //   else {
-  //     this.httpService.showError(MESSAGE.DATE.END_DATE, '', MESSAGE.MSGTIME);
-  //     return false;
-  //   }
-  // } 
 
-  // slctsrv(state: any) {
-  //   this.chips.push({ id: state.cat_id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
-  //   this.sendServ.push(state.cat_id)
-  // }
-
-
-  // remove(service: string): void {
-  //   const index = this.chips.indexOf(service);
-  //   this.chips.splice(index, 1);
-  //   this.sendServ.splice(index, 1);
-  // }
-
-
-  slctsrv(state: any) {
-    console.log(state);
-    
+  slctsrv(state: any) {    
     const matSelect: MatSelect = state.source;
     matSelect.writeValue(null);
     // let isFound = this.httpService.arraySearch(this.sendServ, state)
     state=state.value
     if (!this.httpService.arraySearch(this.sendServ, state)) {
       this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)), price: state.price });
-      this.sendServ.push(state._id);
+      this.sendServ.push(state.cat_id);
       return
     } else {
     }
