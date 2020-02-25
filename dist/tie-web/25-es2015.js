@@ -1,86 +1,86 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[25],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/changepassword/changepassword.component.html":
-/*!*****************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/changepassword/changepassword.component.html ***!
-  \*****************************************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/businesshours/businesshours.component.html":
+/*!***************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/businesshours/businesshours.component.html ***!
+  \***************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form [formGroup]='change' (ngSubmit)='changePassword()'>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLCPASS'| translate}}\" [type]=\"ohide ? 'password' : 'text'\" maxlength=\"20\" class=\"form-control pass-space\" formControlName='oldPassword'>\n                <button mat-icon-button matSuffix (click)=\"ohide = !ohide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{ohide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted) && getControl.oldPassword.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.oldPassword.errors.required\">{{'CURRENTPASS'| translate}} </p>\n              </div>\n              <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLNPASS'| translate}}\" [type]=\"nhide ? 'password' : 'text'\" maxlength=\"20\" formControlName='newPassword' class=\"form-control pass-space\">\n                <button mat-icon-button matSuffix (click)=\"nhide = !nhide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{nhide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted ) && getControl.newPassword.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.required\">{{'RESETPASSREQ'| translate}}</p>\n                <!-- <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.minlength\">{{'PASSPATTERN'| translate}}</p> -->\n                <span *ngIf=\"!getControl.newPassword.errors.required\">\n                  <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.invalidPassword\">{{'PASSPATTERN'| translate}}</p>\n                </span>\n              </div>\n              <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLCONFIRMPASS'| translate}}\" [type]=\"chide ? 'password' : 'text'\" maxlength=\"20\"  formControlName='confirmPassword' class=\"form-control pass-space\">\n                <button mat-icon-button matSuffix (click)=\"chide = !chide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{chide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted) && getControl.confirmPassword.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.confirmPassword.errors.required\">{{'RESETPASSCNFREQ'| translate}}</p>\n                <span *ngIf=\"!getControl.confirmPassword.errors.required\">\n                  <p class=\"color error\" *ngIf=\"(getControl.confirmPassword.invalid)\">{{'RESETPASSNOTMATCH'| translate}}</p>\n                </span>\n              </div>\n              <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Save</button>\n              </div>\n            </form>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <form [formGroup]='form' (ngSubmit)=\"submit()\">\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Sunday\">\n                <div class=\"col-sm-2 middle day\">Sunday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Sunday','Sun')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Sunday','Sun')\"></p-calendar>\n                    <p class=\"color error\" *ngIf=\"(isSunOpnReq)\">{{'SUNREQ'| translate}}</p>\n                    <p class=\"color error\" *ngIf=\"(isSunValid)\">{{'SUNNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Sunday','Sun')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSunClosReq)\">{{'SUNCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Sun')\"><img\n                            [src]=\"isSunBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"Add\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isSunBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\"(onClose)=\"validatetime('Sunday','Sun')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSunOpnBrkReq)\">{{'SUNBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isSunBrkValid)\">{{'SUNBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isSunBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Sunday','Sun')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSunClosBrkReq)\">{{'SUNBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Monday\">\n                <div class=\"col-sm-2 middle day\">Monday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Monday','Mon')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Monday','Mon')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isMonOpnReq)\">{{'MONREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isMonValid)\">{{'MONNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Monday','Mon')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isMonClosReq)\">{{'MONCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Mon')\"><img\n                            [src]=\"isMonBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"Add\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isMonBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Monday','Mon')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isMonOpnBrkReq)\">{{'MONBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isMonBrkValid)\">{{'MONBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isMonBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Monday','Mon')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isMonClosBrkReq)\">{{'MONBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Tuesday\">\n                <div class=\"col-sm-2 middle day\">Tuesday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Tuesday','Tues')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Tuesday','Tues')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isTuesOpnReq)\">{{'TUESREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isTuesValid)\">{{'TUESNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Tuesday','Tues')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isTuesClosReq)\">{{'TUESCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Tues')\"><img\n                            [src]=\"isTuesBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"Add\"> Add Break\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isTuesBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Tuesday','Tues')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isTuesOpnBrkReq)\">{{'TUESBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isTuesBrkValid)\">{{'TUESBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isTuesBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Tuesday','Tues')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isTuesClosBrkReq)\">{{'TUESBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Wednesday\">\n                <div class=\"col-sm-2 middle day\">Wednesday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Wednesday','Wed')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Wednesday','Wed')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isWedOpnReq)\">{{'WEDREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isWedValid)\">{{'WEDNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Wednesday','Wed')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isWedClosReq)\">{{'WEDCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Wed')\"><img\n                            [src]=\"isWedBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"Add\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isWedBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Wednesday','Wed')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isWedOpnBrkReq)\">{{'WEDBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isWedBrkValid)\">{{'WEDBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isWedBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Wednesday','Wed')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isWedClosBrkReq)\">{{'WEDBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Thursday\">\n                <div class=\"col-sm-2 middle day\">Thursday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Thursday','Thurs')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Thursday','Thurs')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isThursOpnReq)\">{{'THURSREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isThursValid)\">{{'THURSNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Thursday','Thurs')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isThursClosReq)\">{{'THURSCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Thurs')\"><img\n                            [src]=\"isThursBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"Add\"> Add Break\n                    </div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isThursBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Thursday','Thurs')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isThursOpnBrkReq)\">{{'THURSBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isThursBrkValid)\">{{'THURSBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isThursBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Thursday','Thurs')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isThursClosBrkReq)\">{{'THURSBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Friday\">\n                <div class=\"col-sm-2 middle day\">Friday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Friday','Fri')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Friday','Fri')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isFriOpnReq)\">{{'FRIREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isFriValid)\">{{'FRINTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Friday','Fri')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isFriClosReq)\">{{'FRICLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Fri')\"><img\n                            [src]=\"isFriBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"Add\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isFriBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Friday','Fri')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isFriOpnBrkReq)\">{{'FRIBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isFriBrkValid)\">{{'FRIBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isFriBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Friday','Fri')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isFriClosBrkReq)\">{{'FRIBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"hour-section\">\n\n            <div class=\"row\" formGroupName=\"Saturday\">\n                <div class=\"col-sm-2 middle day\">Saturday</div>\n                <div class=\"col-sm-2 middle\">\n                    <mat-slide-toggle formControlName=\"isOpen\" (change)=\"toggle('Saturday','Sat')\"></mat-slide-toggle>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"open\" placeholder=\"Opening Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Saturday','Sat')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSatOpnReq)\">{{'SATREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isSatValid)\">{{'SATNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"close\" placeholder=\"Closing Hours\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Saturday','Sat')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSatClosReq)\">{{'SATCLSREQ'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\">\n                    <div class=\"add\" (click)=\"isBreak('Sat')\"><img\n                            [src]=\"isSatBreak?'assets/images/minus.png':'assets/images/add.png'\" alt=\"Add\"> Add Break</div>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isSatBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakStart\" placeholder=\"Start Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Saturday','Sat')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSatOpnBrkReq)\">{{'SATBRKREQ'| translate}}</p>\n                        <p class=\"color error\" *ngIf=\"(isSatBrkValid)\">{{'SATBRKNTVALID'| translate}}</p>\n                </div>\n                <div class=\"col-sm-4\" [hidden]=\"!isSatBreak\">\n                    <p-calendar [timeOnly]=\"true\" formControlName=\"breakEnd\" placeholder=\"End Break\"\n                        inputStyleClass=\"form-control\" [readonlyInput]=\"true\" (onClose)=\"validatetime('Saturday','Sat')\"></p-calendar>\n                        <p class=\"color error\" *ngIf=\"(isSatOpnBrkReq)\">{{'SATBRKCLSREQ'| translate}}</p>\n                </div>\n            </div>\n\n        </div>\n        <div class=\"text-center\"><button class=\"btn btn-submit\">Save</button></div>\n    </form>\n</div>");
 
 /***/ }),
 
-/***/ "./src/app/home/profile/changepassword/changepassword-routing.module.ts":
-/*!******************************************************************************!*\
-  !*** ./src/app/home/profile/changepassword/changepassword-routing.module.ts ***!
-  \******************************************************************************/
-/*! exports provided: ChangepasswordRoutingModule */
+/***/ "./src/app/home/profile/businesshours/businesshours-routing.module.ts":
+/*!****************************************************************************!*\
+  !*** ./src/app/home/profile/businesshours/businesshours-routing.module.ts ***!
+  \****************************************************************************/
+/*! exports provided: BusinesshoursRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangepasswordRoutingModule", function() { return ChangepasswordRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BusinesshoursRoutingModule", function() { return BusinesshoursRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _changepassword_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./changepassword.component */ "./src/app/home/profile/changepassword/changepassword.component.ts");
+/* harmony import */ var _businesshours_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./businesshours.component */ "./src/app/home/profile/businesshours/businesshours.component.ts");
 
 
 
 
 const routes = [{
-        path: '', component: _changepassword_component__WEBPACK_IMPORTED_MODULE_3__["ChangepasswordComponent"]
+        path: '', component: _businesshours_component__WEBPACK_IMPORTED_MODULE_3__["BusinesshoursComponent"]
     }];
-let ChangepasswordRoutingModule = class ChangepasswordRoutingModule {
+let BusinesshoursRoutingModule = class BusinesshoursRoutingModule {
 };
-ChangepasswordRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+BusinesshoursRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], ChangepasswordRoutingModule);
+], BusinesshoursRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/profile/changepassword/changepassword.component.scss":
-/*!***************************************************************************!*\
-  !*** ./src/app/home/profile/changepassword/changepassword.component.scss ***!
-  \***************************************************************************/
+/***/ "./src/app/home/profile/businesshours/businesshours.component.scss":
+/*!*************************************************************************!*\
+  !*** ./src/app/home/profile/businesshours/businesshours.component.scss ***!
+  \*************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcHJvZmlsZS9jaGFuZ2VwYXNzd29yZC9jaGFuZ2VwYXNzd29yZC5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = (":host ::ng-deep .ui-inputtext {\n  width: 307px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9wcm9maWxlL2J1c2luZXNzaG91cnMvYnVzaW5lc3Nob3Vycy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9wcm9maWxlL2J1c2luZXNzaG91cnMvYnVzaW5lc3Nob3Vycy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLHVCQUFBO0FDQ0oiLCJmaWxlIjoic3JjL2FwcC9ob21lL3Byb2ZpbGUvYnVzaW5lc3Nob3Vycy9idXNpbmVzc2hvdXJzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiOmhvc3QgOjpuZy1kZWVwIC51aS1pbnB1dHRleHQge1xuICAgIHdpZHRoOiAzMDdweCAhaW1wb3J0YW50O1xuICB9IiwiOmhvc3QgOjpuZy1kZWVwIC51aS1pbnB1dHRleHQge1xuICB3aWR0aDogMzA3cHggIWltcG9ydGFudDtcbn0iXX0= */");
 
 /***/ }),
 
-/***/ "./src/app/home/profile/changepassword/changepassword.component.ts":
-/*!*************************************************************************!*\
-  !*** ./src/app/home/profile/changepassword/changepassword.component.ts ***!
-  \*************************************************************************/
-/*! exports provided: ChangepasswordComponent */
+/***/ "./src/app/home/profile/businesshours/businesshours.component.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/home/profile/businesshours/businesshours.component.ts ***!
+  \***********************************************************************/
+/*! exports provided: BusinesshoursComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangepasswordComponent", function() { return ChangepasswordComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BusinesshoursComponent", function() { return BusinesshoursComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 /* harmony import */ var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/service/helper.service */ "./src/app/shared/service/helper.service.ts");
-/* harmony import */ var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/service/validation-service */ "./src/app/shared/service/validation-service.ts");
-/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
-/* harmony import */ var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/service/error.service */ "./src/app/shared/service/error.service.ts");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
+/* harmony import */ var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/service/error.service */ "./src/app/shared/service/error.service.ts");
+/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! moment-timezone */ "./node_modules/moment-timezone/index.js");
+/* harmony import */ var moment_timezone__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(moment_timezone__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -91,103 +91,448 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-let ChangepasswordComponent = class ChangepasswordComponent {
-    constructor(httpService, router, fb, helper, trns, error) {
+let BusinesshoursComponent = class BusinesshoursComponent {
+    constructor(httpService, router, helper, messageService, errorserv, fb, trns) {
         this.httpService = httpService;
         this.router = router;
-        this.fb = fb;
         this.helper = helper;
+        this.messageService = messageService;
+        this.errorserv = errorserv;
+        this.fb = fb;
         this.trns = trns;
-        this.error = error;
-        this.ohide = true;
-        this.chide = true;
-        this.nhide = true;
-        this.profileImage = '../../../assets/images/profile.png';
-        this.passShow = true;
-        this.cPassShow = true;
-        this.nPassShow = true;
-        this.isEqualNewPass = false;
-        this.unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_9__["Subject"];
+        this.submitted = false;
+        this.isSunBreak = false;
+        this.isMonBreak = false;
+        this.isTuesBreak = false;
+        this.isWedBreak = false;
+        this.isThursBreak = false;
+        this.isFriBreak = false;
+        this.isSatBreak = false;
+        this.error = [];
+        this.isError = false;
+        this.isSunClosReq = false;
+        this.isSunValid = false;
+        this.isSunOpnReq = false;
+        this.isSunOpnBrkReq = false;
+        this.isSunClosBrkReq = false;
+        this.isSunBrkValid = false;
+        this.isMonClosReq = false;
+        this.isMonValid = false;
+        this.isMonOpnReq = false;
+        this.isMonOpnBrkReq = false;
+        this.isMonClosBrkReq = false;
+        this.isMonBrkValid = false;
+        this.isTuesClosReq = false;
+        this.isTuesValid = false;
+        this.isTuesOpnReq = false;
+        this.isTuesOpnBrkReq = false;
+        this.isTuesClosBrkReq = false;
+        this.isTuesBrkValid = false;
+        this.isWedClosReq = false;
+        this.isWedValid = false;
+        this.isWedOpnReq = false;
+        this.isWedOpnBrkReq = false;
+        this.isWedClosBrkReq = false;
+        this.isWedBrkValid = false;
+        this.isThursClosReq = false;
+        this.isThursValid = false;
+        this.isThursOpnReq = false;
+        this.isThursOpnBrkReq = false;
+        this.isThursClosBrkReq = false;
+        this.isThursBrkValid = false;
+        this.isFriClosReq = false;
+        this.isFriValid = false;
+        this.isFriOpnReq = false;
+        this.isFriOpnBrkReq = false;
+        this.isFriClosBrkReq = false;
+        this.isFriBrkValid = false;
+        this.isSatClosReq = false;
+        this.isSatValid = false;
+        this.isSatOpnReq = false;
+        this.isSatOpnBrkReq = false;
+        this.isSatClosBrkReq = false;
+        this.isSatBrkValid = false;
     }
     ngOnInit() {
-        this.userDetails = this.helper.parseObject(localStorage.getItem('userDetails'));
-        this.change = this.fb.group({
-            oldPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
-            newPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__["ValidationService"].passwordValidator]),
-            confirmPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__["passValidator"]]),
+        this.form = this.fb.group({
+            Sunday: this.fb.group({
+                open: [null],
+                close: [null],
+                breakStart: [null],
+                breakEnd: [null],
+                isOpen: [true]
+            }),
+            Monday: this.fb.group({
+                open: [null],
+                close: [null],
+                breakStart: [null],
+                breakEnd: [null],
+                isOpen: [true]
+            }),
+            Tuesday: this.fb.group({
+                open: [null],
+                close: [null],
+                breakStart: [null],
+                breakEnd: [null],
+                isOpen: [true]
+            }),
+            Wednesday: this.fb.group({
+                open: [null],
+                close: [null],
+                breakStart: [null],
+                breakEnd: [null],
+                isOpen: [true]
+            }),
+            Thursday: this.fb.group({
+                open: [null],
+                close: [null],
+                breakStart: [null],
+                breakEnd: [null],
+                isOpen: [true]
+            }),
+            Friday: this.fb.group({
+                open: [null],
+                close: [null],
+                breakStart: [null],
+                breakEnd: [null],
+                isOpen: [true]
+            }),
+            Saturday: this.fb.group({
+                open: [null],
+                close: [null],
+                breakStart: [null],
+                breakEnd: [null],
+                isOpen: [true]
+            })
         });
-        this.change.get('newPassword').valueChanges
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["takeUntil"])(this.unsubscribeAll))
-            .subscribe(() => {
-            this.change.get('confirmPassword').updateValueAndValidity();
-        });
+        let date = new Date();
+        // this.form.controls['Sunday'].patchValue({ open: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), 9, 4) })
+        this.getBusinessHours();
     }
-    get getControl() { return this.change.controls; }
-    changePassword() {
-        this.submitted = true;
-        if (this.change.invalid) {
+    get getControl() { return this.form.controls; }
+    submit() {
+        // this.submitted = true;
+        // // this.validatetime('Sun');
+        // if (this.isSunOpnReq || this.isSunClosReq || this.isSunValid) {
+        //   return
+        // }
+        // console.log('VALID BUT TESTING');
+        // return
+        console.log(this.validatetime('Sunday', 'Sun'));
+        if (!this.validatetime('Sunday', 'Sun')) {
+            console.log('VALID BUT TESTING Sunday');
             return;
         }
-        else {
-            this.change.value['new_pass'] = this.change.value.newPassword;
-            this.change.value['old_pass'] = this.change.value.oldPassword;
-            this.httpService.getRequest('PUT', 'CHANGEPASS', this.change.value, '').subscribe((response) => {
+        else if (!this.validatetime('Monday', 'Mon')) {
+            console.log('VALID BUT TESTING Monday');
+            return;
+        }
+        else if (!this.validatetime('Tuesday', 'Tues')) {
+            console.log('VALID BUT TESTING Tuesday');
+            return;
+        }
+        else if (!this.validatetime('Wednesday', 'Wed')) {
+            console.log('VALID BUT TESTING Wednesday');
+            return;
+        }
+        else if (!this.validatetime('Thursday', 'Thurs')) {
+            console.log('VALID BUT TESTING Thursday');
+            return;
+        }
+        else if (!this.validatetime('Friday', 'Fri')) {
+            console.log('VALID BUT TESTING Friday');
+            return;
+        }
+        else if (!this.validatetime('Saturday', 'Sat')) {
+            console.log('VALID BUT TESTING Satday');
+            return;
+        }
+        console.log('VALID BUT TESTING');
+        let workingHrs = [];
+        this.form.value['Sunday'].isOpen ? workingHrs.push(this.createData('Sunday', 0, 'Sun')) : '';
+        this.form.value['Monday'].isOpen ? workingHrs.push(this.createData('Monday', 1, 'Mon')) : '';
+        this.form.value['Tuesday'].isOpen ? workingHrs.push(this.createData('Tuesday', 2, 'Tues')) : '';
+        this.form.value['Wednesday'].isOpen ? workingHrs.push(this.createData('Wednesday', 3, 'Wed')) : '';
+        this.form.value['Thursday'].isOpen ? workingHrs.push(this.createData('Thursday', 4, 'Thurs')) : '';
+        this.form.value['Friday'].isOpen ? workingHrs.push(this.createData('Friday', 5, 'Fri')) : '';
+        this.form.value['Saturday'].isOpen ? workingHrs.push(this.createData('Saturday', 6, 'Sat')) : '';
+        console.log(workingHrs);
+        // return
+        if (this.form.valid) {
+            this.httpService.getRequest('PUT', 'WRKNGHRS', { 'w_hr': workingHrs }, '')
+                .subscribe((response) => {
                 if (response.status === 1) {
                     this.submitted = true;
-                    this.router.navigateByUrl('/')
+                    this.router.navigateByUrl('/profile')
                         .then(() => {
-                        this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('RESETPASSSUCC'));
+                        this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('SALONSUCCESS'));
                     });
                 }
                 else {
-                    this.error.handleError(response.err.errCode);
+                    if (response.err) {
+                        this.errorserv.handleError(response.err.errCode);
+                    }
                 }
             }, (error) => {
-                this.error.handleError(0);
+                this.errorserv.handleError(0);
             });
         }
+        else {
+            this.submitted = false;
+            this.httpService.errTostr(this.trns.transform('ERROR'), this.trns.transform('HOURSREQ'));
+            console.log(this.form);
+        }
+    }
+    getBusinessHours() {
+        this.httpService.getRequest('GET', 'WRKNGHRS', '')
+            .subscribe((response) => {
+            if (response.status === 1) {
+                let detail = response.res.wrk_hrs;
+                let date = new Date();
+                for (let index = 0; index < 7; index++) {
+                    let day = index == 0 ? 'Sunday' : (index == 1 ? 'Monday' : (index == 2 ? 'Tuesday' : (index == 3 ? 'Wednesday' : (index == 4 ? 'Thursday' : (index == 5 ? 'Friday' : 'Saturday')))));
+                    console.log(detail[index]);
+                    let obj = detail.find(o => o.day === index) || { open_time: { hh: null, mm: null }, close_time: { hh: null, mm: null }, is_open: false, strt_break_time: { hh: null, mm: null }, end_break_time: { hh: null, mm: null }, is_break: false };
+                    // if(detail[index]['day'] == index)
+                    this.form.controls[day].patchValue({
+                        open: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.open_time.hh, obj.open_time.mm),
+                        close: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.close_time.hh, obj.close_time.mm),
+                        isOpen: obj.hasOwnProperty('is_open') ? obj.is_open : false,
+                        breakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.strt_break_time.hh, obj.strt_break_time.mm),
+                        breakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.end_break_time.hh, obj.end_break_time.mm),
+                    });
+                    let dayName = index == 0 ? 'Sun' : (index == 1 ? 'Mon' : (index == 2 ? 'Tues' : (index == 3 ? 'Wed' : (index == 4 ? 'Thurs' : (index == 5 ? 'Fri' : 'Sat')))));
+                    this.toggle(day, dayName);
+                    this['is' + dayName + 'Break'] = obj.is_break;
+                }
+            }
+            else {
+                if (response.err) {
+                    this.errorserv.handleError(response.err.errCode);
+                }
+            }
+        }, (error) => {
+            // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
+        });
+    }
+    createData(dayName, dayNo, daybrk) {
+        return {
+            "open_time": {
+                "hh": this.helper.parsehhmm(this.form.value[dayName].open).hh,
+                "mm": this.helper.parsehhmm(this.form.value[dayName].open).mm
+            },
+            "close_time": {
+                "hh": this.helper.parsehhmm(this.form.value[dayName].close).hh,
+                "mm": this.helper.parsehhmm(this.form.value[dayName].close).mm
+            },
+            "strt_break_time": {
+                "hh": this.helper.parsehhmm(this.form.value[dayName].breakStart).hh,
+                "mm": this.helper.parsehhmm(this.form.value[dayName].breakStart).mm
+            },
+            "end_break_time": {
+                "hh": this.helper.parsehhmm(this.form.value[dayName].breakEnd).hh,
+                "mm": this.helper.parsehhmm(this.form.value[dayName].breakEnd).mm
+            },
+            "is_open": this.form.value[dayName].isOpen,
+            "is_break": this['is' + daybrk + 'Break'],
+            "day": dayNo
+        };
+    }
+    validatetime(dayName, daybrk) {
+        if (this.form.value[dayName].isOpen) {
+            console.log('----------', new Date(this.form.value[dayName].open).getHours(), this.form.value[dayName].close, moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()(this.form.value[dayName].open, "hh:mm:ss").diff(moment_timezone__WEBPACK_IMPORTED_MODULE_9___default()(), 'seconds'));
+            if ((this.form.value[dayName].open == null || (new Date(this.form.value[dayName].open).getHours() == 0 && new Date(this.form.value[dayName].open).getMinutes() == 0)) && (this.form.value[dayName].close == null || (new Date(this.form.value[dayName].close).getHours() == 0 && new Date(this.form.value[dayName].close).getMinutes() == 0))) {
+                console.log('9090-090----');
+                this['is' + daybrk + 'OpnReq'] = true;
+                this['is' + daybrk + 'ClosReq'] = true;
+                return false;
+            }
+            if ((this.form.value[dayName].open == null)) {
+                this['is' + daybrk + 'ClosReq'] = false;
+                this['is' + daybrk + 'OpnReq'] = true;
+                return false;
+            }
+            if ((this.form.value[dayName].close == null)) {
+                console.log('9090-090----jhbnjhghjhgbnjhgf');
+                this['is' + daybrk + 'OpnReq'] = false;
+                this['is' + daybrk + 'ClosReq'] = true;
+                return false;
+            }
+            else if (new Date(this.form.value[dayName].open) > new Date(this.form.value[dayName].close)) {
+                console.log('----------', new Date(this.form.value[dayName].open) > new Date(this.form.value[dayName].close));
+                this['is' + daybrk + 'ClosReq'] = false;
+                this['is' + daybrk + 'OpnReq'] = false;
+                this['is' + daybrk + 'Valid'] = true;
+                return false;
+            }
+            else if (!this['is' + daybrk + 'Break']) {
+                if (new Date(this.form.value[dayName].open) < new Date(this.form.value[dayName].close)) {
+                    console.log('----------+++++++', new Date(this.form.value[dayName].open) > new Date(this.form.value[dayName].close));
+                    this['is' + daybrk + 'ClosReq'] = false;
+                    this['is' + daybrk + 'OpnReq'] = false;
+                    this['is' + daybrk + 'Valid'] = false;
+                    this['is' + daybrk + 'ClosBrkReq'] = false;
+                    this['is' + daybrk + 'OpnBrkReq'] = false;
+                    this['is' + daybrk + 'BrkValid'] = false;
+                    return true;
+                }
+                return false;
+            }
+            else if ((new Date(this.form.value[dayName].open) < new Date(this.form.value[dayName].close)) && this['is' + daybrk + 'Break']) {
+                console.log('---_________');
+                this['is' + daybrk + 'ClosReq'] = false;
+                this['is' + daybrk + 'OpnReq'] = false;
+                this['is' + daybrk + 'Valid'] = false;
+                //sun break validation
+                if ((this.form.value[dayName].breakStart == null) && (this.form.value[dayName].breakEnd == null)) {
+                    this['is' + daybrk + 'OpnBrkReq'] = true;
+                    this['is' + daybrk + 'ClosBrkReq'] = true;
+                    return false;
+                }
+                if ((this.form.value[dayName].breakStart == null)) {
+                    this['is' + daybrk + 'ClosBrkReq'] = false;
+                    this['is' + daybrk + 'OpnBrkReq'] = true;
+                    if (this.form.value[dayName].breakEnd !== null) {
+                        if ((new Date(this.form.value[dayName].breakEnd) < new Date(this.form.value[dayName].open))) {
+                            this['is' + daybrk + 'BrkValid'] = true;
+                        }
+                        else if (new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close)) {
+                            console.log(new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
+                            this['is' + daybrk + 'BrkValid'] = true;
+                        }
+                    }
+                    return false;
+                }
+                else if ((this.form.value[dayName].breakEnd == null)) {
+                    this['is' + daybrk + 'OpnBrkReq'] = false;
+                    this['is' + daybrk + 'ClosBrkReq'] = true;
+                    if (this.form.value[dayName].breakStart !== null) {
+                        if ((new Date(this.form.value[dayName].breakStart) < new Date(this.form.value[dayName].open))) {
+                            this['is' + daybrk + 'BrkValid'] = true;
+                        }
+                        else if (new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close)) {
+                            console.log(new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
+                            this['is' + daybrk + 'BrkValid'] = true;
+                        }
+                    }
+                    return false;
+                }
+                else if ((new Date(this.form.value[dayName].breakStart) < new Date(this.form.value[dayName].open))) {
+                    this['is' + daybrk + 'ClosBrkReq'] = false;
+                    console.log('------------------------');
+                    this['is' + daybrk + 'OpnBrkReq'] = false;
+                    this['is' + daybrk + 'BrkValid'] = true;
+                    return false;
+                }
+                else if (new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close)) {
+                    console.log(new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
+                    this['is' + daybrk + 'ClosBrkReq'] = false;
+                    this['is' + daybrk + 'OpnBrkReq'] = false;
+                    this['is' + daybrk + 'BrkValid'] = true;
+                    return false;
+                }
+                else if ((new Date(this.form.value[dayName].breakEnd) < new Date(this.form.value[dayName].open))) {
+                    this['is' + daybrk + 'ClosBrkReq'] = false;
+                    this['is' + daybrk + 'BrkValid'] = true;
+                    return false;
+                }
+                else if (new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close)) {
+                    console.log(new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
+                    this['is' + daybrk + 'ClosBrkReq'] = false;
+                    this['is' + daybrk + 'BrkValid'] = true;
+                    return false;
+                }
+                else if (new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].breakEnd)) {
+                    console.log(new Date(this.form.value[dayName].breakEnd) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
+                    this['is' + daybrk + 'ClosBrkReq'] = false;
+                    this['is' + daybrk + 'BrkValid'] = true;
+                    return false;
+                }
+                else {
+                    this['is' + daybrk + 'ClosBrkReq'] = false;
+                    this['is' + daybrk + 'OpnBrkReq'] = false;
+                    this['is' + daybrk + 'BrkValid'] = false;
+                    return true;
+                }
+            }
+            else {
+                this['is' + daybrk + 'ClosBrkReq'] = false;
+                this['is' + daybrk + 'OpnBrkReq'] = false;
+                this['is' + daybrk + 'BrkValid'] = false;
+                return true;
+            }
+        }
+        else {
+            this['is' + daybrk + 'OpnReq'] = false;
+            this['is' + daybrk + 'ClosReq'] = false;
+            this['is' + daybrk + 'ClosBrkReq'] = false;
+            this['is' + daybrk + 'OpnBrkReq'] = false;
+            this['is' + daybrk + 'BrkValid'] = false;
+            return true;
+        }
+    }
+    toggle(dayName, day) {
+        this['is' + day + 'OpnReq'] = false;
+        this['is' + day + 'ClosReq'] = false;
+        this['is' + day + 'ClosBrkReq'] = false;
+        this['is' + day + 'OpnBrkReq'] = false;
+        this['is' + day + 'BrkValid'] = false;
+        if (!this.form.value[dayName].isOpen) {
+            this.form.controls[dayName].disable();
+            this.form.controls[dayName]['controls']['isOpen'].enable();
+        }
+        else {
+            this.form.controls[dayName].enable();
+        }
+    }
+    isBreak(day) {
+        this['is' + day + 'Break'] = !this['is' + day + 'Break'];
+        this['is' + day + 'ClosBrkReq'] = false;
+        this['is' + day + 'OpnBrkReq'] = false;
+        this['is' + day + 'BrkValid'] = false;
     }
 };
-ChangepasswordComponent.ctorParameters = () => [
+BusinesshoursComponent.ctorParameters = () => [
     { type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
     { type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_5__["Helper"] },
-    { type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"] },
-    { type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__["ErrorService"] }
+    { type: primeng_api__WEBPACK_IMPORTED_MODULE_6__["MessageService"] },
+    { type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_7__["ErrorService"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+    { type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__["TranslatePipe"] }
 ];
-ChangepasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+BusinesshoursComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-changepassword',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./changepassword.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/changepassword/changepassword.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./changepassword.component.scss */ "./src/app/home/profile/changepassword/changepassword.component.scss")).default]
+        selector: 'app-businesshours',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./businesshours.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/businesshours/businesshours.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./businesshours.component.scss */ "./src/app/home/profile/businesshours/businesshours.component.scss")).default]
     })
-], ChangepasswordComponent);
+], BusinesshoursComponent);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/profile/changepassword/changepassword.module.ts":
-/*!**********************************************************************!*\
-  !*** ./src/app/home/profile/changepassword/changepassword.module.ts ***!
-  \**********************************************************************/
-/*! exports provided: ChangepasswordModule */
+/***/ "./src/app/home/profile/businesshours/businesshours.module.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/home/profile/businesshours/businesshours.module.ts ***!
+  \********************************************************************/
+/*! exports provided: BusinesshoursModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangepasswordModule", function() { return ChangepasswordModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BusinesshoursModule", function() { return BusinesshoursModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _changepassword_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./changepassword-routing.module */ "./src/app/home/profile/changepassword/changepassword-routing.module.ts");
-/* harmony import */ var _changepassword_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./changepassword.component */ "./src/app/home/profile/changepassword/changepassword.component.ts");
+/* harmony import */ var _businesshours_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./businesshours-routing.module */ "./src/app/home/profile/businesshours/businesshours-routing.module.ts");
+/* harmony import */ var _businesshours_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./businesshours.component */ "./src/app/home/profile/businesshours/businesshours.component.ts");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
-/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
+/* harmony import */ var primeng_calendar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primeng/calendar */ "./node_modules/primeng/fesm2015/primeng-calendar.js");
+/* harmony import */ var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
+/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
 
 
 
@@ -197,22 +542,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let ChangepasswordModule = class ChangepasswordModule {
+
+let BusinesshoursModule = class BusinesshoursModule {
 };
-ChangepasswordModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+BusinesshoursModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_changepassword_component__WEBPACK_IMPORTED_MODULE_4__["ChangepasswordComponent"]],
+        declarations: [_businesshours_component__WEBPACK_IMPORTED_MODULE_4__["BusinesshoursComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
-            _changepassword_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChangepasswordRoutingModule"],
+            _businesshours_routing_module__WEBPACK_IMPORTED_MODULE_3__["BusinesshoursRoutingModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
-            src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_7__["ApplicationpipeModule"]
+            primeng_calendar__WEBPACK_IMPORTED_MODULE_7__["CalendarModule"],
+            src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"]
         ],
-        providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__["TranslatePipe"]]
+        providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"]]
     })
-], ChangepasswordModule);
+], BusinesshoursModule);
 
 
 

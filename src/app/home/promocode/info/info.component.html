@@ -7,23 +7,23 @@
                 <div class="col-md-9 description">{{detail && detail.name?(detail.name | titlecase):'' }}</div>
                 <div class="col-md-3 label">Coupon Code:</div>
                 <div class="col-md-9 description">{{detail && detail.code ?(detail.code | uppercase):''}}</div>
-                <div class="col-md-3 label">Discount:</div>
+                <div class="col-md-3 label">{{"DISCOUNT" | translate}}:</div>
                 <div class="col-md-9 description">{{detail && detail.discount ?detail.discount:'NA'}}%</div>
-                <div class="col-md-3 label">Min. Discount Amount:</div>
+                <div class="col-md-3 label">{{"MIN_PRICE" | translate}}:</div>
                 <div class="col-md-9 description">{{detail && detail.min_price ? detail.min_price:'NA'}}</div>
-                <div class="col-md-3 label">Max. Discount Amount:</div>
+                <div class="col-md-3 label">{{"MAXDISCOUNT" | translate}}:</div>
                 <div class="col-md-9 description">{{detail && detail.upto ? detail.upto:'NA'}}</div>
-                <div class="col-md-3 label">Service:</div>
+                <div class="col-md-3 label">{{"SERVICE" | translate}}:</div>
                 <div class="col-md-9 description">Hair Spa</div>
-                <div class="col-md-3 label">Added By:</div>
+                <div class="col-md-3 label">{{"ADBY" | translate}}:</div>
                 <div class="col-md-9 description">Salon</div>
-                <div class="col-md-3 label">Total Uses:</div>
+                <div class="col-md-3 label">{{"TTL_USES" | translate}}:</div>
                 <div class="col-md-9 description">{{detail && detail.uses ? detail.uses:'NA'}}</div>
-                <div class="col-md-3 label">From Date:</div>
+                <div class="col-md-3 label">{{"PROMOSTRT" | translate}}:</div>
                 <div class="col-md-9 description">{{detail && detail.frm ? (detail.frm | date : 'dd MMM yyyy'):'' }}</div>
-                <div class="col-md-3 label">To Date:</div>
+                <div class="col-md-3 label">{{"PROMOEND" | translate}}:</div>
                 <div class="col-md-9 description">{{detail && detail.to ?( detail.to | date : 'dd MMM yyyy'):''}}</div>
-                <div class="col-md-3 label">Description:</div>
+                <div class="col-md-3 label">{{"DESCRIPTION" | translate}}:</div>
                 <div class="col-md-9 description">{{detail && detail.desc ? detail.desc:''}}</div>
             </div>
         </div>

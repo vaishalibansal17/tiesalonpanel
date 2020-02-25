@@ -112,7 +112,9 @@ export class AddComponent implements OnInit {
         .subscribe((response: any) => {
           if (response.status === 1) {
             this.submitted = true;
-            this.router.navigateByUrl('/promocode')
+            this.router.navigateByUrl('/promocode').then(()=>{
+              this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('PROMOCODESUCC'))
+            })
           } else {
             if (response.err) {
               this.errorserv.handleError(response.err.errCode);

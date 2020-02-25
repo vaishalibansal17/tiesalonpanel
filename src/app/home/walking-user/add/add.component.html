@@ -24,10 +24,10 @@
                 <span class="email-img pass"><img src="assets/images/edit-user.png" alt="envelope"></span>
                 <input matInput placeholder="Full name" class="form-control" formControlName="name" maxlength="100">
             </mat-form-field>
-            <div *ngIf="(submitted || getControl.name.dirty|| getControl.name.touched) && getControl.name.errors">
-                <p class="color" *ngIf="getControl.name.errors.required">{{'INCRTSTAFFNAME'| translate}}</p>
-                <!-- <p class="color" *ngIf="!getControl.name.errors.required && getControl.name.errors.invalidName">
-                    {{'INCRTSALONNAME'| translate}}</p> -->
+            <div *ngIf="(submitted) && getControl.name.errors">
+                <p class="color" *ngIf="getControl.name.errors.required">{{'ENTRFULLNAME'| translate}}</p>
+                <p class="color" *ngIf="!getControl.name.errors.required && getControl.name.errors.invalidName">
+                    {{'INCRTPROMONNAME'| translate}}</p>
             </div>
             <mat-form-field>
                 <span class="email-img phone"><img src="assets/images/mobile.png" alt="envelope"></span>
@@ -35,7 +35,7 @@
                     onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control"
                     formControlName="phone" maxlength="12">
             </mat-form-field>
-            <div *ngIf="(submitted || getControl.phone.dirty|| getControl.phone.touched) && getControl.phone.errors">
+            <div *ngIf="(submitted) && getControl.phone.errors">
                 <p class="color" *ngIf="getControl.phone.errors.required">{{'PHNREQ'|translate}}</p>
                 <p class="color" *ngIf="!getControl.phone.errors.required && getControl.phone.errors.Invalidphone ">
                     {{'PHNLNGTH'|translate}}</p>

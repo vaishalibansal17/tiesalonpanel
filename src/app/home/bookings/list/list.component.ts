@@ -157,6 +157,7 @@ export class ListComponent implements OnInit {
       this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('EXPORTD'));
     })
   }
+  
   chckDay(day){
     switch (day) {
       case 0:

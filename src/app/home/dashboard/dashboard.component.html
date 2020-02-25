@@ -31,17 +31,17 @@
       ></full-calendar>  -->
       <!-- <p>Dummy Data</p> -->
 <div class="row dashboard_row">
-    <div class="col-md-4 dashboard_col">
+    <div class="col-md-4 dashboard_col" (click)="route('staff')">
         <div class="card" >
             {{'NUMOFMEM' |  translate}}<span>{{(dashboard && dashboard.staffs)? dashboard.staffs :'NA'}}</span>
         </div>
     </div>
-    <div class="col-md-4 dashboard_col">
+    <div class="col-md-4 dashboard_col" (click)="route('booking')">
         <div class="card">
             {{'NUMOFBOOKING' |  translate}} <span>{{(dashboard && dashboard.bookings)? dashboard.bookings :'NA'}}</span>
         </div>
     </div>
-    <div class="col-md-4 dashboard_col">
+    <div class="col-md-4 dashboard_col" (click)="route('walk-in-customer')">
         <div class="card">
             {{'NUMOFWLKBOOKING' |  translate}} <span>{{(dashboard && dashboard.walkingBooking)? dashboard.walkingBooking :'NA'}}</span>
         </div>

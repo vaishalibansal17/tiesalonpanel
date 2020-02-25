@@ -94,7 +94,9 @@ export class EditComponent implements OnInit {
         .subscribe((response: any) => {
           if (response.status === 1) {
             this.submitted = true;
-            this.router.navigateByUrl('/promocode')
+            this.router.navigateByUrl('/promocode').then(() => {
+              this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('PROMOCODEUPSUCC'))
+            })
           } else {
             if (response.err) {
               this.errorserv.handleError(response.err.errCode);
@@ -146,7 +148,7 @@ export class EditComponent implements OnInit {
     matSelect.writeValue(null);
     state = state.value;
     if (!this.arraySearch(this.sendServ, state)) {
-      this.chips.push({ _id: state._id, cat_id:state.cat_id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)) });
+      this.chips.push({ _id: state._id, cat_id: state.cat_id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)) });
       this.sendServ.push(state.cat_id);
       return
     } else {
@@ -159,15 +161,15 @@ export class EditComponent implements OnInit {
   }
 
   arraySearch(arr, value) {
-		let isFound = false;
-		if (arr.length) {
-			for (let k = 0; k < arr.length; k++) {
-				if (arr[k] === value.cat_id) {
-					isFound = true; break;
-				}
-			}
-			return isFound;
-		}
-		return false
-	}
+    let isFound = false;
+    if (arr.length) {
+      for (let k = 0; k < arr.length; k++) {
+        if (arr[k] === value.cat_id) {
+          isFound = true; break;
+        }
+      }
+      return isFound;
+    }
+    return false
+  }
 }

@@ -52,8 +52,17 @@ export class ErrorService {
       case 39:
         this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
         break;
-        case 51:
+      case 41:
+        this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DEACTIVE']);
+        break;
+      case 42:
+        this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DELSALONACC']);
+        break;
+      case 51:
         this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['NOBOOK']);
+        break;
+      case 56:
+        this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SLNEXIST']);
         break;
       default:
         break;

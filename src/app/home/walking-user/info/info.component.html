@@ -13,8 +13,10 @@
                     <div class="col-md-9 description">{{detail?.booking_id || 'NA'}}</div>
                     <div class="col-md-3 label">Staff Name:</div>
                     <div class="col-md-9 description">{{detail?.staf || 'NA' | titlecase}}</div>
-                    <div class="col-md-3 label">Address:</div>
-                    <div class="col-md-9 description">246 Chris Avenue, New York</div>
+                    <!-- <div class="col-md-3 label">Address:</div>
+                    <div class="col-md-9 description">246 Chris Avenue, New York</div> -->
+                    <div class="col-md-3 label">Service At:</div>
+                    <div class="col-md-9 description">Salon</div>
                     <div class="col-md-12 label">Booking Location:</div>
                     <div class="col-md-12 description">
                         <div class="map full_width">
@@ -24,15 +26,20 @@
                             </agm-map>
                         </div>
                     </div>
-                    <div class="col-md-3 label">Service At:</div>
-                    <div class="col-md-9 description">Salon</div>
+                   
                     <div class="col-md-12 label">Services:</div>
                     <div class="col-sm-12">
                         <div class="row" *ngFor="let element of detail?.service; let i =index">
-                            <div class="col-md-3 label">{{element?.title | titlecase}}<span>{{detail?.staf || 'Anybody' | titlecase}}</span></div>
-                            <div class="col-md-9 description alignright">${{element?.cost}}</div>
+                            <div class="col-md-3 label">{{element?.title | titlecase}}<span></span></div>
+                            <div class="col-md-9 description alignright">SR{{element?.cost}}</div>
+                        </div>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-md-3 label">Total amount:<span><i>(5% Vat Inclusive)</i></span></div>
+                            <div class="col-md-9 description alignright">SR{{ttlamt}}</div>
                         </div>
                     </div>
+                    <div class="col-md-12 text-center"><a href="javascript:void(0);" class="btn btn-submit">Mark as Complete</a></div>
                 </div>
             </div>
             <div class="col-md-3 mobile_hidden"></div>

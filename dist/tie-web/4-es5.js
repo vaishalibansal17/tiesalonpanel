@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <full-calendar\n<div class=\"row dashboard_row\">\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\">\n            No. of Members <span>150</span>\n        </div>\n    </div>\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\">\n            No. of Bookings <span>80</span>\n        </div>\n    </div>\n</div>\n\n<p class=\"warning\">*Your commission percentage is 2%.</p>\n\n<full-calendar\n      #calendar\n      defaultView=\"dayGridMonth\"\n      [header]=\"{\n        left: 'prev,next today',\n        center: 'title',\n        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'\n      }\"\n      eventLimit=\"true\"\n      [plugins]=\"calendarPlugins\"\n      [weekends]=\"calendarWeekends\"\n      [events]=\"calendarEvents\"\n      (dateClick)=\"handleDateClick($event)\"\n      (eventClick)=\"eventClicked($event)\"\n      ></full-calendar>  -->\n      <!-- <p>Dummy Data</p> -->\n<div class=\"row dashboard_row\">\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\" >\n            {{'NUMOFMEM' |  translate}}<span>{{(dashboard && dashboard.staffs)? dashboard.staffs :'NA'}}</span>\n        </div>\n    </div>\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\">\n            {{'NUMOFBOOKING' |  translate}} <span>{{(dashboard && dashboard.bookings)? dashboard.bookings :'NA'}}</span>\n        </div>\n    </div>\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\">\n            {{'NUMOFWLKBOOKING' |  translate}} <span>{{(dashboard && dashboard.walkingBooking)? dashboard.walkingBooking :'NA'}}</span>\n        </div>\n    </div>\n</div>\n";
+    __webpack_exports__["default"] = "<!-- <full-calendar\n<div class=\"row dashboard_row\">\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\">\n            No. of Members <span>150</span>\n        </div>\n    </div>\n    <div class=\"col-md-4 dashboard_col\">\n        <div class=\"card\">\n            No. of Bookings <span>80</span>\n        </div>\n    </div>\n</div>\n\n<p class=\"warning\">*Your commission percentage is 2%.</p>\n\n<full-calendar\n      #calendar\n      defaultView=\"dayGridMonth\"\n      [header]=\"{\n        left: 'prev,next today',\n        center: 'title',\n        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'\n      }\"\n      eventLimit=\"true\"\n      [plugins]=\"calendarPlugins\"\n      [weekends]=\"calendarWeekends\"\n      [events]=\"calendarEvents\"\n      (dateClick)=\"handleDateClick($event)\"\n      (eventClick)=\"eventClicked($event)\"\n      ></full-calendar>  -->\n      <!-- <p>Dummy Data</p> -->\n<div class=\"row dashboard_row\">\n    <div class=\"col-md-4 dashboard_col\" (click)=\"route('staff')\">\n        <div class=\"card\" >\n            {{'NUMOFMEM' |  translate}}<span>{{(dashboard && dashboard.staffs)? dashboard.staffs :'NA'}}</span>\n        </div>\n    </div>\n    <div class=\"col-md-4 dashboard_col\" (click)=\"route('booking')\">\n        <div class=\"card\">\n            {{'NUMOFBOOKING' |  translate}} <span>{{(dashboard && dashboard.bookings)? dashboard.bookings :'NA'}}</span>\n        </div>\n    </div>\n    <div class=\"col-md-4 dashboard_col\" (click)=\"route('walk-in-customer')\">\n        <div class=\"card\">\n            {{'NUMOFWLKBOOKING' |  translate}} <span>{{(dashboard && dashboard.walkingBooking)? dashboard.walkingBooking :'NA'}}</span>\n        </div>\n    </div>\n</div>\n";
     /***/
   },
 
@@ -101,7 +101,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvZGFzaGJvYXJkL2Rhc2hib2FyZC5jb21wb25lbnQuc2NzcyJ9 */";
+    __webpack_exports__["default"] = ".dashboard_col {\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9kYXNoYm9hcmQvZGFzaGJvYXJkLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9ob21lL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBZSxlQUFBO0FDRWYiLCJmaWxlIjoic3JjL2FwcC9ob21lL2Rhc2hib2FyZC9kYXNoYm9hcmQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuZGFzaGJvYXJkX2NvbHtjdXJzb3I6IHBvaW50ZXI7fSIsIi5kYXNoYm9hcmRfY29sIHtcbiAgY3Vyc29yOiBwb2ludGVyO1xufSJdfQ== */";
     /***/
   },
 
@@ -141,7 +141,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! src/app/shared/service/http-request.service */
-    "./src/app/shared/service/http-request.service.ts"); // import { colors } from '../demo-utils/colors';
+    "./src/app/shared/service/http-request.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js"); // import { colors } from '../demo-utils/colors';
 
 
     function getTimezoneOffsetString(date) {
@@ -155,10 +161,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var DashboardComponent =
     /*#__PURE__*/
     function () {
-      function DashboardComponent(httprequest) {
+      function DashboardComponent(httprequest, router) {
         _classCallCheck(this, DashboardComponent);
 
         this.httprequest = httprequest;
+        this.router = router;
         this.dashboard = {
           staffs: 0
         };
@@ -182,6 +189,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }, function (error) {// this.httprequest.showError('Failed to get');
           });
         }
+      }, {
+        key: "route",
+        value: function route(path) {
+          this.router.navigateByUrl(path);
+        }
       }]);
 
       return DashboardComponent;
@@ -190,6 +202,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     DashboardComponent.ctorParameters = function () {
       return [{
         type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
       }];
     };
 

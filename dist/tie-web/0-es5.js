@@ -114754,8 +114754,20 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
               this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
               break;
 
+            case 41:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DEACTIVE']);
+              break;
+
+            case 42:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DELSALONACC']);
+              break;
+
             case 51:
               this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['NOBOOK']);
+              break;
+
+            case 56:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SLNEXIST']);
               break;
 
             default:

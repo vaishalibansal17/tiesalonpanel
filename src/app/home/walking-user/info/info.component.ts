@@ -11,6 +11,7 @@ import { ErrorService } from 'src/app/shared/service/error.service';
 export class InfoComponent implements OnInit {
   detail: any;
   id: any;
+  ttlamt: any;
 
   constructor(private httpService: HttpRequestService, private routes: ActivatedRoute, private error: ErrorService) { }
 
@@ -23,8 +24,8 @@ export class InfoComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.status === 1) {
           this.detail = response.res;
-          console.log(this.detail);
-          
+          this.ttlamt = this.detail.service.reduce((acc, val) => acc.cost + val.cost );
+          this.ttlamt = this.detail.service.length==1?this.ttlamt.cost:this.ttlamt;
         } else {
           if (response.err) {
             this.error.handleError(response.err.errCode);

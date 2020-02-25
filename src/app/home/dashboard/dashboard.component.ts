@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 // import { colors } from '../demo-utils/colors';
 import { HttpRequestService } from 'src/app/shared/service/http-request.service';
+import { Router } from '@angular/router';
 function getTimezoneOffsetString(date: Date): string {
   const timezoneOffset = date.getTimezoneOffset();
   const hoursOffset = String(
@@ -21,7 +22,7 @@ function getTimezoneOffsetString(date: Date): string {
 export class DashboardComponent implements OnInit {
   dashboard :any ={staffs:0};
   isloaded = false
-  constructor(private httprequest: HttpRequestService) { }
+  constructor(private httprequest: HttpRequestService, private router : Router) { }
 
   ngOnInit() {
     this.httprequest.getRequest('GET', 'DASHBOARD', '')
@@ -39,6 +40,9 @@ export class DashboardComponent implements OnInit {
         (error) => {
           // this.httprequest.showError('Failed to get');
         });
+  }
+  route(path){
+    this.router.navigateByUrl(path);
   }
 
 }

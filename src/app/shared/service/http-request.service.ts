@@ -4,7 +4,6 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { APIURLS } from '../apiurl/apiurl';
 import { MessageService } from 'primeng/api';
-import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
 import { TranslateService } from './translate.service';
 
 @Injectable()

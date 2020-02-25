@@ -987,7 +987,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e(6)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null,
         /*! ./home/home.module */
         "./src/app/home/home.module.ts")).then(function (m) {
           return m.HomeModule;
@@ -999,7 +999,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return __webpack_require__.e(
         /*! import() */
-        52).then(__webpack_require__.bind(null,
+        53).then(__webpack_require__.bind(null,
         /*! ./auth/auth.module */
         "./src/app/auth/auth.module.ts")).then(function (m) {
           return m.AuthModule;
@@ -1011,7 +1011,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(51)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(52)]).then(__webpack_require__.bind(null,
         /*! ./reset-freelancer/reset-freelancer.module */
         "./src/app/reset-freelancer/reset-freelancer.module.ts")).then(function (m) {
           return m.ResetFreelancerModule;

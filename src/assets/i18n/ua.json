@@ -114,6 +114,19 @@
   "INCRTSTAFFNAME": "الرجاء إدخال اسم الموظفين",
   "EXPORTD":"تم تصدير البيانات بنجاح",
 
+  "PROMOCODESUCC": "تمت إضافة الرمز الترويجي بنجاح",
+  "PROMOCODEUPSUCC": "تم تحديث الرمز الترويجي بنجاح",
+
+  "PROMOSTRT" : "تاريخ البدء",
+  "PROMOEND" : "تاريخ الانتهاء",
+  "DISCOUNT":"خصم",
+  "ADBY":"أضيفت بواسطة",
+  "TTL_USES":"إجمالي الاستخدامات",
+  "MAXDISCOUNT":"الحد الأقصى لسعر الخصم",
+  "MIN_PRICE":"سعر الحد الأدنى",
+  "SLNEXIST":"This email is belongs to Salon.",
+  "ENTRFULLNAME": "الرجاء إدخال الاسم الكامل",
+
   "COUPNNAME":"الرجاء إدخال عنوان القسيمة",
   "CODEREQ":"الرجاء إدخال رمز القسيمة",
   "CODEINVLID":"الرجاء إدخال الحروف الهجائية والرقم",
@@ -131,6 +144,10 @@
   "STATUS":"الحالة",
   "BOOKINGID" : "معرف الحجز",
   "DATE&TIME" : "التاريخ و الوقت",
+
+
+  "DEACTIVE":"تم إلغاء تنشيط الصالون ، اتصل بـ Tie admin",
+  "DELSALONACC":"تم حذف الصالون بواسطة Tie admin",
 
   "ACCEPT":"قبول",
   "REJECT":"رفض",

@@ -1,704 +1,2513 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[6],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/header/header.component.html":
-/*!*****************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/header/header.component.html ***!
-  \*****************************************************************************************/
-/*! exports provided: default */
+/***/ "./node_modules/primeng/fesm2015/primeng-button.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/primeng/fesm2015/primeng-button.js ***!
+  \*********************************************************/
+/*! exports provided: Button, ButtonDirective, ButtonModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container-fluid\">\n    <!--right-side-content-->\n    <div class=\"main-header\">\n        <div class=\"right-nav\">\n          <h1>{{route}} </h1>\n          <div class=\"top-right\">\n            <ul>\n              <li>\n                <button mat-button [matMenuTriggerFor]=\"lan_menu\" [disableRipple]=\"true\">{{lang=='en'?\"En\":\"Ar\"}} <img src=\"{{lang=='en'?'assets/images/flag_en.png':'assets/images/flag_ar.png'}}\" alt=\"England\">\n                  <img class=\"drop_img\" src=\"assets/images/dropdown_grey.png\" alt=\"Dropdown\"></button>\n                <mat-menu #lan_menu=\"matMenu\" xPosition=\"before\">\n                  <button class=\"flag_drop\" mat-menu-item (click)=\"setLang('ua')\">Ar <img src=\"assets/images/flag_ar.png\"  alt=\"England\"></button>\n                  <button class=\"flag_drop\" mat-menu-item (click)=\"setLang('en')\">En <img src=\"assets/images/flag_en.png\"  alt=\"England\"></button>\n                </mat-menu></li>\n              <li>              \n                <button mat-button [matMenuTriggerFor]=\"dropdown_notification\" [disableRipple]=\"true\"><img src=\"assets/images/notification.png\" alt=\"Notification\"></button>\n                <mat-menu #dropdown_notification=\"matMenu\" xPosition=\"before\">\n                    <div class=\"notifi_list\">\n                        <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"Notification Profile\"></div>\n                        <div class=\"noti_right\">\n                            Jane Doe wants to book you for haircut.\n                        </div>\n                    </div>\n                    <div class=\"notifi_list\">\n                      <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"Notification Profile\"></div>\n                      <div class=\"noti_right\">\n                          Jane Doe wants to book you for haircut.\n                      </div>\n                  </div>\n                  <div class=\"notifi_list\">\n                    <div class=\"noti_left\"><img src=\"assets/images/noti-pro.png\" alt=\"Notification Profile\"></div>\n                    <div class=\"noti_right\">\n                        Jane Doe wants to book you for haircut.\n                    </div>\n                </div>\n                  <div class=\"text-center\"><a [routerLink]=\"['/notification']\">{{'VIEWALL'| translate}}</a></div>\n                </mat-menu>\n              </li>\n              <li>\n                <button mat-button [matMenuTriggerFor]=\"beforeMenu\" [disableRipple]=\"true\"><img class=\"profile_img\" src=\"{{detail.logo}}\" alt=\"ProfileImage\">\n                 <span class=\"mobile_hidden\"> {{detail.name | titlecase}} Admin</span> <img class=\"drop_img\" src=\"assets/images/dropdown_grey.png\" alt=\"Dropdown\"></button>\n                <mat-menu #beforeMenu=\"matMenu\" xPosition=\"before\">\n                  <button  mat-menu-item><a [routerLink]=\"['/profile']\"><img src=\"assets/images/edit-profile.png\" alt=\"Edit Profile\">{{'MPROFILE'| translate}}</a></button>\n                  <button  mat-menu-item><a [routerLink]=\"['/profile/change-password']\"><img src=\"assets/images/password.png\" alt=\"Password\">{{'CHNAGE_PASS'| translate}}</a></button>\n                  <button  mat-menu-item><a [routerLink]=\"['/settings']\"><img src=\"assets/images/settings.png\" alt=\"Setting\">{{'SETTINGS'| translate}}</a></button>\n                  <button  mat-menu-item (click)='logout()'><img src=\"assets/images/log_out.png\" alt=\"Logout\">{{'LOGOUT' | translate}}</button>\n                </mat-menu>\n              </li>\n            </ul>\n          </div>\n          <div class=\"clearfix\"></div>\n        </div>\n    \n      </div>\n    </div>");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/home.component.html":
-/*!********************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/home.component.html ***!
-  \********************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header></app-header>\n<app-sidebar></app-sidebar>\n<div class=\"container-fluid\">\n<div class=\"main-data\">\n<!-- <ul class=\"breadcrumb\">\n    <li>Dashboard</li>\n</ul> -->\n<app-breadcrumb></app-breadcrumb>\n    <router-outlet></router-outlet>\n</div>\n</div>\n<app-support></app-support>\n");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/sidebar/sidebar.component.html":
-/*!*******************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/sidebar/sidebar.component.html ***!
-  \*******************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!--sidebar-->\n<div class=\"left-nav\">\n    <div class=\"nav-ham\"><img src=\"assets/images/menu.png\"  class=\"navbar-toggle\" data-toggle=\"collapse\" (click)=\"sidebarToggle();\" alt=\"ham\"></div>\n  <div class=\"logo\"><img src=\"assets/images/tie_logo_white.png\" alt=\"Logo\"></div> \n  <nav class=\"navbar navbar-expand-lg navbar-light\">\n      <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n        <ul>\n          <li routerLinkActive=\"active\"><a [routerLink]=\"['/dashboard']\"><img src=\"assets/images/home.png\" alt=\"Home\" class=\"non-hover\"><img src=\"assets/images/home_black.png\" alt=\"Home\" class=\"hover\"><span>{{'DASHBOARD'| translate}}</span></a></li>\n          <li routerLinkActive=\"active\"><a [routerLink]=\"['/staff']\"><img src=\"assets/images/staff.png\" alt=\"Staff\" class=\"non-hover\"><img src=\"assets/images/staff_black.png\" alt=\"Staff\" class=\"hover\"><span>{{'STAFF'| translate}}</span></a></li>\n          <li routerLinkActive=\"active\"><a [routerLink]=\"['/booking']\"><img src=\"assets/images/bookings.png\" alt=\"Bookings\" class=\"non-hover\"><img src=\"assets/images/bookings_black.png\" alt=\"Bookings\" class=\"hover\"><span>{{'BOOKING'| translate}}</span></a></li>\n          <li routerLinkActive=\"active\"><a [routerLink]=\"['/walk-in-customer']\"><img src=\"assets/images/Group 2.png\" alt=\"Users\" class=\"non-hover\"><img src=\"assets/images/Group-2-black.png\" alt=\"Users\" class=\"hover\"><span>{{'WALKUSR'| translate}}</span></a></li>\n          <li routerLinkActive=\"active\"><a [routerLink]=\"['/manage-calender']\"><img src=\"assets/images/calendar.png\" alt=\"Calendar\" class=\"non-hover\"><img src=\"assets/images/calendar_black.png\" alt=\"Calendar\" class=\"hover\"><span>{{'MANAGECALENDER'| translate}}</span></a></li>\n          <li routerLinkActive=\"active\"><a [routerLink]=\"['/promocode']\"><img src=\"assets/images/offer.png\" alt=\"Offers\" class=\"non-hover\"><img src=\"assets/images/offer_black.png\" alt=\"Offers\" class=\"hover\"><span>{{'PROMOCODE'| translate}}</span></a></li>\n          <li routerLinkActive=\"active\"><a [routerLink]=\"['/report/sales']\"><img src=\"assets/images/reports.png\" alt=\"Reports\" class=\"non-hover\"><img src=\"assets/images/reports_black.png\" alt=\"Reports\" class=\"hover\"><span>{{'REPORTS'| translate}}</span></a></li>\n          <li routerLinkActive=\"active\"><a [routerLink]=\"['/chat']\"><img src=\"assets/images/chats.png\" alt=\"CHAT\" class=\"non-hover\"><img src=\"assets/images/chats_black.png\" alt=\"CHAT\" class=\"hover\"><span>{{'CHAT'| translate}}</span></a></li>\n          <li routerLinkActive=\"active\"><a [routerLink]=\"['/cancellation-policy']\"><img src=\"assets/images/cancellation.png\" alt=\"Cancellation\" class=\"non-hover\"><img src=\"assets/images/cancellation_black.png\" alt=\"Cancellation\" class=\"hover\"><span>{{'CANCELLATION'| translate}}</span></a></li>\n          <li routerLinkActive=\"active\"><a [routerLink]=\"['/feedback']\"><img src=\"assets/images/feedback.png\" alt=\"Feedback\" class=\"non-hover\"><img src=\"assets/images/feedback_black.png\" alt=\"Feedback\" class=\"hover\"><span>{{'FEEDBACK'| translate}}</span></a></li>\n          <li routerLinkActive=\"active\"><a [routerLink]=\"['/about-us']\"><img src=\"assets/images/about.png\" alt=\"About\" class=\"non-hover\"><img src=\"assets/images/about_black.png\" alt=\"About\" class=\"hover\"><span>{{'ABOUTUS'| translate}}</span></a></li>\n        </ul>\n      </div>\n    </nav>\n</div> \n\n\n\n<!-- code for hamburgur -->\n\n");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/support/support.component.html":
-/*!*******************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/support/support.component.html ***!
-  \*******************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"fixed-support\">\n    <img src=\"assets/images/flot_btn.png\" alt=\"Support\">\n</div>\n");
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/breadcrumb/breadcrumb.component.html":
-/*!***************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/shared/breadcrumb/breadcrumb.component.html ***!
-  \***************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row\">\n\t<div class=\"col-xl-12\">\n\t\t<ol class=\"breadcrumb\">\n\t\t\t<li class=\"breadcrumb-item\" *ngFor=\"let breadcrumb of breadcrumbs;\">\n\t\t\t\t<a [ngClass]=\"breadcrumb.status === false ? 'not-active' : ''\" [routerLink]=\"breadcrumb.url\">{{breadcrumb.label}}</a>\n\t\t\t</li>\n\t\t</ol>\n\t</div>\n</div>");
-
-/***/ }),
-
-/***/ "./src/app/home/header/header.component.scss":
-/*!***************************************************!*\
-  !*** ./src/app/home/header/header.component.scss ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuc2NzcyJ9 */");
-
-/***/ }),
-
-/***/ "./src/app/home/header/header.component.ts":
-/*!*************************************************!*\
-  !*** ./src/app/home/header/header.component.ts ***!
-  \*************************************************/
-/*! exports provided: HeaderComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeaderComponent", function() { return HeaderComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
-/* harmony import */ var src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/service/message.service */ "./src/app/shared/service/message.service.ts");
-/* harmony import */ var src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/service/translate.service */ "./src/app/shared/service/translate.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-
-
-
-
-
-
-let HeaderComponent = class HeaderComponent {
-    constructor(httpservice, router, message, trns) {
-        this.httpservice = httpservice;
-        this.router = router;
-        this.message = message;
-        this.trns = trns;
-        this.lang = localStorage.getItem('lang') || 'en';
-        this.detail = JSON.parse(localStorage.getItem('salon'));
-        this.message.getMessage().subscribe(message => {
-            if (message.text === 'profile changed') {
-                this.detail = JSON.parse(localStorage.getItem('salon'));
-                this.detail.logo ? this.detail.logo : 'assets/images/profile.png';
-            }
-        });
-        this._unsubs = this.router.events.subscribe((event) => {
-            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_5__["NavigationStart"]) {
-                // Show loading indicator
-                this.route = (event.url == '/dashboard' || event.url == '/') ? `${this.trns.data["WELCOMETOOUR"]}${this.detail ? ' ' + this.detail.name + ' Admin' : ''}` : (event.url.split('/')[1].includes('-') ? this.check(event.url.split('/')[1]) : event.url.split('/')[1]);
-            }
-            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_5__["NavigationEnd"]) {
-                // Hide loading indicator
-                this.route = (event.url == '/dashboard' || event.url == '/') ? `${this.trns.data["WELCOMETOOUR"]}${this.detail ? ' ' + this.detail.name + ' Admin' : ''}` : (event.url.split('/')[1].includes('-') ? this.check(event.url.split('/')[1]) : event.url.split('/')[1]);
-            }
-            if (event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_5__["NavigationError"]) {
-                // Hide loading indicator
-                console.log(event.url);
-                // Present error to user
-                console.log(event.error);
-            }
-        });
-    }
-    ngOnInit() {
-        // this.router.events.pipe(
-        //   filter(event => event instanceof NavigationEnd)  
-        // ).subscribe((event: NavigationEnd) => {
-        //   console.log(event.url);
-        //   this.route = event.url == '/dashboard' || '/' ?`${this.trns.data["WELCOMETOOUR"]}${this.detail?' ' + this.detail.name + ' Admin' : ''}`: event.url.split('/')[1];
-        // });
-        // this.route = window.location.pathname == 'dashboard' || '/' ?`${this.trns.data["WELCOMETOOUR"]}${this.detail?' ' + this.detail.name + ' Admin' : ''}`: window.location.pathname.split('/')[1];
-        // this.message.getRoute().subscribe(route => {
-        //   if (route) {
-        //     if (route.route == 'dashboard' || '')
-        //       this.route = `${this.trns.data["WELCOMETOOUR"]}${this.detail?' ' + this.detail.name + ' Admin' : ''}`;
-        //     else
-        //       this.route = route.route
-        //   }
-        // });
-    }
-    check(str) {
-        if (str.includes('walk')) {
-            let route = str.split('-');
-            route.splice(1, 0, '-');
-            route.splice(3, 0, ' ');
-            return route.join('');
-        }
-        else
-            return str.replace('-', ' ');
-    }
-    setLang(lang) {
-        localStorage.setItem('lang', lang);
-        this.lang = lang;
-        this.trns.use(this.lang);
-    }
-    logout() {
-        this.httpservice.logout();
-    }
-    ngDestroy() {
-        this._unsubs.unsubscribe();
-    }
-};
-HeaderComponent.ctorParameters = () => [
-    { type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] },
-    { type: src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_3__["MessageService"] },
-    { type: src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_4__["TranslateService"] }
-];
-HeaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-header',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./header.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/header/header.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./header.component.scss */ "./src/app/home/header/header.component.scss")).default]
-    })
-], HeaderComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/home/home-routing.module.ts":
-/*!*********************************************!*\
-  !*** ./src/app/home/home-routing.module.ts ***!
-  \*********************************************/
-/*! exports provided: HomeRoutingModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeRoutingModule", function() { return HomeRoutingModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home.component */ "./src/app/home/home.component.ts");
-
-
-
-
-const routes = [{
-        path: '', component: _home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"],
-        children: [
-            { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./dashboard/dashboard.module */ "./src/app/home/dashboard/dashboard.module.ts")).then(mod => mod.DashboardModule), data: { title: "Dashboard", status: false } },
-            { path: 'dashboard', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(4)]).then(__webpack_require__.bind(null, /*! ./dashboard/dashboard.module */ "./src/app/home/dashboard/dashboard.module.ts")).then(mod => mod.DashboardModule), data: { title: "Dashboard", status: false } },
-            { path: 'notification', loadChildren: () => __webpack_require__.e(/*! import() */ 24).then(__webpack_require__.bind(null, /*! ./notification/notification.module */ "./src/app/home/notification/notification.module.ts")).then(mod => mod.NotificationModule), data: { title: "Notification", status: false } },
-            { path: 'profile', loadChildren: () => __webpack_require__.e(/*! import() */ 55).then(__webpack_require__.bind(null, /*! ./profile/profile.module */ "./src/app/home/profile/profile.module.ts")).then(mod => mod.ProfileModule), data: { title: "Profile", status: true } },
-            { path: 'settings', loadChildren: () => __webpack_require__.e(/*! import() */ 42).then(__webpack_require__.bind(null, /*! ./settings/settings.module */ "./src/app/home/settings/settings.module.ts")).then(mod => mod.SettingsModule), data: { title: "Settings", status: true } },
-            { path: 'staff', loadChildren: () => __webpack_require__.e(/*! import() */ 56).then(__webpack_require__.bind(null, /*! ./staff/staff.module */ "./src/app/home/staff/staff.module.ts")).then(mod => mod.StaffModule), data: { title: "Staff", status: true } },
-            { path: 'report', loadChildren: () => __webpack_require__.e(/*! import() */ 35).then(__webpack_require__.bind(null, /*! ./report/report.module */ "./src/app/home/report/report.module.ts")).then(mod => mod.ReportModule), data: { title: "Report", status: true } },
-            { path: 'manage-calender', loadChildren: () => __webpack_require__.e(/*! import() */ 54).then(__webpack_require__.bind(null, /*! ./manage-calender/manage-calender.module */ "./src/app/home/manage-calender/manage-calender.module.ts")).then(mod => mod.ManageCalenderModule), data: { title: "Manage Calender", status: true } },
-            { path: 'booking', loadChildren: () => __webpack_require__.e(/*! import() */ 53).then(__webpack_require__.bind(null, /*! ./bookings/bookings.module */ "./src/app/home/bookings/bookings.module.ts")).then(mod => mod.BookingsModule), data: { title: "Booking", status: true } },
-            { path: 'promocode', loadChildren: () => __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./promocode/promocode.module */ "./src/app/home/promocode/promocode.module.ts")).then(mod => mod.PromocodeModule), data: { title: "Promocode", status: true } },
-            { path: 'walk-in-customer', loadChildren: () => __webpack_require__.e(/*! import() */ 57).then(__webpack_require__.bind(null, /*! ./walking-user/walking-user.module */ "./src/app/home/walking-user/walking-user.module.ts")).then(mod => mod.WalkingUserModule), data: { title: "Walk-In Customer", status: true } },
-            { path: 'chat', loadChildren: () => __webpack_require__.e(/*! import() */ 21).then(__webpack_require__.bind(null, /*! ./chat-management/chat-management.module */ "./src/app/home/chat-management/chat-management.module.ts")).then(mod => mod.ChatManagementModule), data: { title: "Chat Management", status: true } },
-            { path: 'promocode', loadChildren: () => __webpack_require__.e(/*! import() */ 5).then(__webpack_require__.bind(null, /*! ./promocode/promocode.module */ "./src/app/home/promocode/promocode.module.ts")).then(mod => mod.PromocodeModule), data: { title: "Promocode", status: true } },
-            { path: 'cancellation-policy', loadChildren: () => __webpack_require__.e(/*! import() */ 18).then(__webpack_require__.bind(null, /*! ./cancellation-policy/cancellation-policy.module */ "./src/app/home/cancellation-policy/cancellation-policy.module.ts")).then(mod => mod.CancellationPolicyModule), },
-            { path: 'reviews', loadChildren: () => __webpack_require__.e(/*! import() */ 41).then(__webpack_require__.bind(null, /*! ./reviews/reviews.module */ "./src/app/home/reviews/reviews.module.ts")).then(mod => mod.ReviewsModule), },
-            { path: 'feedback', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(22)]).then(__webpack_require__.bind(null, /*! ./feedback/feedback.module */ "./src/app/home/feedback/feedback.module.ts")).then(mod => mod.FeedbackModule), data: { title: "Feedback", status: true } },
-            { path: 'about-us', loadChildren: () => __webpack_require__.e(/*! import() */ 16).then(__webpack_require__.bind(null, /*! ./aboutus/aboutus.module */ "./src/app/home/aboutus/aboutus.module.ts")).then(mod => mod.AboutusModule), data: { title: "About Us", status: true } },
-        ]
-    },];
-let HomeRoutingModule = class HomeRoutingModule {
-};
-HomeRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })
-], HomeRoutingModule);
-
-
-
-/***/ }),
-
-/***/ "./src/app/home/home.component.scss":
-/*!******************************************!*\
-  !*** ./src/app/home/home.component.scss ***!
-  \******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5jb21wb25lbnQuc2NzcyJ9 */");
-
-/***/ }),
-
-/***/ "./src/app/home/home.component.ts":
-/*!****************************************!*\
-  !*** ./src/app/home/home.component.ts ***!
-  \****************************************/
-/*! exports provided: HomeComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let HomeComponent = class HomeComponent {
-    constructor() { }
-    ngOnInit() {
-    }
-};
-HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-home',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./home.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/home.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./home.component.scss */ "./src/app/home/home.component.scss")).default]
-    })
-], HomeComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/home/home.module.ts":
-/*!*************************************!*\
-  !*** ./src/app/home/home.module.ts ***!
-  \*************************************/
-/*! exports provided: HomeModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeModule", function() { return HomeModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Button", function() { return Button; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ButtonDirective", function() { return ButtonDirective; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ButtonModule", function() { return ButtonModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primeng/dom */ "./node_modules/primeng/fesm2015/primeng-dom.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _home_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./home-routing.module */ "./src/app/home/home-routing.module.ts");
-/* harmony import */ var _home_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ng2-slim-loading-bar */ "./node_modules/ng2-slim-loading-bar/index.js");
-/* harmony import */ var _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./sidebar/sidebar.component */ "./src/app/home/sidebar/sidebar.component.ts");
-/* harmony import */ var _header_header_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./header/header.component */ "./src/app/home/header/header.component.ts");
-/* harmony import */ var _shared_material_material_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../shared/material/material.module */ "./src/app/shared/material/material.module.ts");
-/* harmony import */ var _shared_shared_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var _support_support_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./support/support.component */ "./src/app/home/support/support.component.ts");
-/* harmony import */ var _shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
-/* harmony import */ var _shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
-/* harmony import */ var _shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../shared/breadcrumb/breadcrumb.module */ "./src/app/shared/breadcrumb/breadcrumb.module.ts");
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-let HomeModule = class HomeModule {
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-HomeModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_home_component__WEBPACK_IMPORTED_MODULE_4__["HomeComponent"], _sidebar_sidebar_component__WEBPACK_IMPORTED_MODULE_6__["SidebarComponent"], _header_header_component__WEBPACK_IMPORTED_MODULE_7__["HeaderComponent"], _support_support_component__WEBPACK_IMPORTED_MODULE_10__["SupportComponent"]],
-        imports: [
-            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _home_routing_module__WEBPACK_IMPORTED_MODULE_3__["HomeRoutingModule"],
-            ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_5__["SlimLoadingBarModule"],
-            _shared_material_material_module__WEBPACK_IMPORTED_MODULE_8__["MaterialModule"],
-            _shared_shared_module__WEBPACK_IMPORTED_MODULE_9__["SharedModule"],
-            _shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_11__["ApplicationpipeModule"],
-            _shared_breadcrumb_breadcrumb_module__WEBPACK_IMPORTED_MODULE_13__["BreadcrumbModule"]
-        ],
-        providers: [_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_12__["TranslatePipe"]]
-    })
-], HomeModule);
-
-
-
-/***/ }),
-
-/***/ "./src/app/home/sidebar/sidebar.component.scss":
-/*!*****************************************************!*\
-  !*** ./src/app/home/sidebar/sidebar.component.scss ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvc2lkZWJhci9zaWRlYmFyLmNvbXBvbmVudC5zY3NzIn0= */");
-
-/***/ }),
-
-/***/ "./src/app/home/sidebar/sidebar.component.ts":
-/*!***************************************************!*\
-  !*** ./src/app/home/sidebar/sidebar.component.ts ***!
-  \***************************************************/
-/*! exports provided: SidebarComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SidebarComponent", function() { return SidebarComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/service/message.service */ "./src/app/shared/service/message.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-
-
-
-
-let SidebarComponent = class SidebarComponent {
-    constructor(element, messageserv, router) {
-        this.element = element;
-        this.messageserv = messageserv;
-        this.router = router;
-        this.sidebarVisible = true;
+let ButtonDirective = class ButtonDirective {
+    constructor(el) {
+        this.el = el;
+        this.iconPos = 'left';
+        this.cornerStyleClass = 'ui-corner-all';
     }
-    ngOnInit() {
-        this.type = localStorage.getItem('type');
-        const navbar = this.element.nativeElement;
-        this.toggleButton = navbar.getElementsByClassName('navbar-toggle')[0];
-        this.sidebarOpen();
+    ngAfterViewInit() {
+        primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].addMultipleClasses(this.el.nativeElement, this.getStyleClass());
+        if (this.icon) {
+            let iconElement = document.createElement("span");
+            iconElement.setAttribute("aria-hidden", "true");
+            let iconPosClass = (this.iconPos == 'right') ? 'ui-button-icon-right' : 'ui-button-icon-left';
+            iconElement.className = iconPosClass + ' ui-clickable ' + this.icon;
+            this.el.nativeElement.appendChild(iconElement);
+        }
+        let labelElement = document.createElement("span");
+        labelElement.className = 'ui-button-text ui-clickable';
+        labelElement.appendChild(document.createTextNode(this.label || 'ui-btn'));
+        this.el.nativeElement.appendChild(labelElement);
+        this.initialized = true;
     }
-    sidebarOpen() {
-        const toggleButton = this.toggleButton;
-        const body = document.getElementsByTagName('body')[0];
-        setTimeout(function () {
-            toggleButton.classList.add('toggled');
-        }, 500);
-        body.classList.add('nav-open');
-        body.classList.remove('nav-close');
-        this.sidebarVisible = true;
-    }
-    sidebarClose() {
-        const body = document.getElementsByTagName('body')[0];
-        this.toggleButton.classList.remove('toggled');
-        this.sidebarVisible = false;
-        body.classList.remove('nav-open');
-        body.classList.add('nav-close');
-    }
-    sidebarToggle() {
-        const toggleButton = this.toggleButton;
-        const body = document.getElementsByTagName('body')[0];
-        if (this.sidebarVisible === false) {
-            this.sidebarOpen();
+    getStyleClass() {
+        let styleClass = 'ui-button ui-widget ui-state-default ' + this.cornerStyleClass;
+        if (this.icon) {
+            if (this.label != null && this.label != undefined) {
+                if (this.iconPos == 'left')
+                    styleClass = styleClass + ' ui-button-text-icon-left';
+                else
+                    styleClass = styleClass + ' ui-button-text-icon-right';
+            }
+            else {
+                styleClass = styleClass + ' ui-button-icon-only';
+            }
         }
         else {
-            this.sidebarClose();
+            if (this.label) {
+                styleClass = styleClass + ' ui-button-text-only';
+            }
+            else {
+                styleClass = styleClass + ' ui-button-text-empty';
+            }
+        }
+        return styleClass;
+    }
+    get label() {
+        return this._label;
+    }
+    set label(val) {
+        this._label = val;
+        if (this.initialized) {
+            primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].findSingle(this.el.nativeElement, '.ui-button-text').textContent = this._label;
+            if (!this.icon) {
+                if (this._label) {
+                    primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].removeClass(this.el.nativeElement, 'ui-button-text-empty');
+                    primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].addClass(this.el.nativeElement, 'ui-button-text-only');
+                }
+                else {
+                    primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].addClass(this.el.nativeElement, 'ui-button-text-empty');
+                    primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].removeClass(this.el.nativeElement, 'ui-button-text-only');
+                }
+            }
         }
     }
-    route(route) {
-        this.messageserv.sendRoute(route);
-        this.router.navigateByUrl('/' + route).then(() => this.router.isActive(this.router.url, true));
+    get icon() {
+        return this._icon;
+    }
+    set icon(val) {
+        this._icon = val;
+        if (this.initialized) {
+            let iconPosClass = (this.iconPos == 'right') ? 'ui-button-icon-right' : 'ui-button-icon-left';
+            primeng_dom__WEBPACK_IMPORTED_MODULE_1__["DomHandler"].findSingle(this.el.nativeElement, '.ui-clickable').className =
+                iconPosClass + ' ui-clickable ' + this.icon;
+        }
+    }
+    ngOnDestroy() {
+        while (this.el.nativeElement.hasChildNodes()) {
+            this.el.nativeElement.removeChild(this.el.nativeElement.lastChild);
+        }
+        this.initialized = false;
     }
 };
-SidebarComponent.ctorParameters = () => [
-    { type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"] },
-    { type: src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_2__["MessageService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+ButtonDirective.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] }
 ];
-SidebarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-sidebar',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./sidebar.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/sidebar/sidebar.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./sidebar.component.scss */ "./src/app/home/sidebar/sidebar.component.scss")).default]
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], ButtonDirective.prototype, "iconPos", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], ButtonDirective.prototype, "cornerStyleClass", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], ButtonDirective.prototype, "label", null);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], ButtonDirective.prototype, "icon", null);
+ButtonDirective = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Directive"])({
+        selector: '[pButton]'
     })
-], SidebarComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/home/support/support.component.scss":
-/*!*****************************************************!*\
-  !*** ./src/app/home/support/support.component.scss ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvc3VwcG9ydC9zdXBwb3J0LmNvbXBvbmVudC5zY3NzIn0= */");
-
-/***/ }),
-
-/***/ "./src/app/home/support/support.component.ts":
-/*!***************************************************!*\
-  !*** ./src/app/home/support/support.component.ts ***!
-  \***************************************************/
-/*! exports provided: SupportComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SupportComponent", function() { return SupportComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let SupportComponent = class SupportComponent {
-    constructor() { }
-    ngOnInit() {
+], ButtonDirective);
+let Button = class Button {
+    constructor() {
+        this.iconPos = 'left';
+        this.onClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onFocus = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onBlur = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
     }
 };
-SupportComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-support',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./support.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/support/support.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./support.component.scss */ "./src/app/home/support/support.component.scss")).default]
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Button.prototype, "type", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Button.prototype, "iconPos", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Button.prototype, "icon", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Button.prototype, "label", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Button.prototype, "disabled", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Button.prototype, "style", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Button.prototype, "styleClass", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
+], Button.prototype, "onClick", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
+], Button.prototype, "onFocus", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
+], Button.prototype, "onBlur", void 0);
+Button = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'p-button',
+        template: `
+        <button [attr.type]="type" [class]="styleClass" [ngStyle]="style" [disabled]="disabled"
+            [ngClass]="{'ui-button ui-widget ui-state-default ui-corner-all':true,
+                        'ui-button-icon-only': (icon && !label),
+                        'ui-button-text-icon-left': (icon && label && iconPos === 'left'),
+                        'ui-button-text-icon-right': (icon && label && iconPos === 'right'),
+                        'ui-button-text-only': (!icon && label),
+                        'ui-button-text-empty': (!icon && !label),
+                        'ui-state-disabled': disabled}"
+                        (click)="onClick.emit($event)" (focus)="onFocus.emit($event)" (blur)="onBlur.emit($event)">
+            <ng-content></ng-content>
+            <span [ngClass]="{'ui-clickable': true,
+                        'ui-button-icon-left': (iconPos === 'left'), 
+                        'ui-button-icon-right': (iconPos === 'right')}"
+                        [class]="icon" *ngIf="icon"></span>
+            <span class="ui-button-text ui-clickable">{{label||'ui-btn'}}</span>
+        </button>
+    `
     })
-], SupportComponent);
+], Button);
+let ButtonModule = class ButtonModule {
+};
+ButtonModule = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]],
+        exports: [ButtonDirective, Button],
+        declarations: [ButtonDirective, Button]
+    })
+], ButtonModule);
 
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+//# sourceMappingURL=primeng-button.js.map
 
 
 /***/ }),
 
-/***/ "./src/app/shared/breadcrumb/breadcrumb.component.scss":
-/*!*************************************************************!*\
-  !*** ./src/app/shared/breadcrumb/breadcrumb.component.scss ***!
-  \*************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".breadcrumb .not-active {\n  pointer-events: none;\n  cursor: default;\n  color: #868e96;\n}\n\n.breadcrumb {\n  background-color: white;\n  font-size: 19px;\n  padding: 0;\n  font-weight: 600;\n  margin-bottom: 0rem;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvc2hhcmVkL2JyZWFkY3J1bWIvYnJlYWRjcnVtYi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvc2hhcmVkL2JyZWFkY3J1bWIvYnJlYWRjcnVtYi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNDLG9CQUFBO0VBQ0EsZUFBQTtFQUNBLGNBQUE7QUNDRDs7QURDQTtFQUNDLHVCQUFBO0VBQ0EsZUFBQTtFQUNBLFVBQUE7RUFDQSxnQkFBQTtFQUNHLG1CQUFBO0FDRUoiLCJmaWxlIjoic3JjL2FwcC9zaGFyZWQvYnJlYWRjcnVtYi9icmVhZGNydW1iLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmJyZWFkY3J1bWIgLm5vdC1hY3RpdmUge1xuXHRwb2ludGVyLWV2ZW50czogbm9uZTtcblx0Y3Vyc29yOiBkZWZhdWx0O1xuXHRjb2xvcjogIzg2OGU5Njtcbn1cbi5icmVhZGNydW1ie1xuXHRiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcblx0Zm9udC1zaXplOiAxOXB4O1xuXHRwYWRkaW5nOiAwO1xuXHRmb250LXdlaWdodDogNjAwO1xuICAgIG1hcmdpbi1ib3R0b206IDByZW07XG59IiwiLmJyZWFkY3J1bWIgLm5vdC1hY3RpdmUge1xuICBwb2ludGVyLWV2ZW50czogbm9uZTtcbiAgY3Vyc29yOiBkZWZhdWx0O1xuICBjb2xvcjogIzg2OGU5Njtcbn1cblxuLmJyZWFkY3J1bWIge1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcbiAgZm9udC1zaXplOiAxOXB4O1xuICBwYWRkaW5nOiAwO1xuICBmb250LXdlaWdodDogNjAwO1xuICBtYXJnaW4tYm90dG9tOiAwcmVtO1xufSJdfQ== */");
-
-/***/ }),
-
-/***/ "./src/app/shared/breadcrumb/breadcrumb.component.ts":
+/***/ "./node_modules/primeng/fesm2015/primeng-calendar.js":
 /*!***********************************************************!*\
-  !*** ./src/app/shared/breadcrumb/breadcrumb.component.ts ***!
+  !*** ./node_modules/primeng/fesm2015/primeng-calendar.js ***!
   \***********************************************************/
-/*! exports provided: BreadcrumbComponent */
+/*! exports provided: CALENDAR_VALUE_ACCESSOR, Calendar, CalendarModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BreadcrumbComponent", function() { return BreadcrumbComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _service_message_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../service/message.service */ "./src/app/shared/service/message.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CALENDAR_VALUE_ACCESSOR", function() { return CALENDAR_VALUE_ACCESSOR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Calendar", function() { return Calendar; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CalendarModule", function() { return CalendarModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm2015/animations.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
+/* harmony import */ var primeng_button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primeng/button */ "./node_modules/primeng/fesm2015/primeng-button.js");
+/* harmony import */ var primeng_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primeng/dom */ "./node_modules/primeng/fesm2015/primeng-dom.js");
+/* harmony import */ var primeng_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primeng/api */ "./node_modules/primeng/fesm2015/primeng-api.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 
 
 
 
 
 
-let BreadcrumbComponent = class BreadcrumbComponent {
-    /**
-   * @class BreadcrumbComponent
-   * @constructor
-   */
-    constructor(router, route, messageService) {
-        this.router = router;
-        this.route = route;
-        this.messageService = messageService;
-        this.tempState = [];
-        this.isEdit = false;
-        this.isShowEventName = false;
-        this.router.events
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["filter"])(event => event instanceof _angular_router__WEBPACK_IMPORTED_MODULE_2__["NavigationEnd"]))
-            .subscribe(() => {
-            this.breadcrumbs = [];
-            this.tempState = [];
-            let currentRoute = this.route.root, url = "";
-            do {
-                const childrenRoutes = currentRoute.children;
-                currentRoute = null;
-                childrenRoutes.forEach(routes => {
-                    if (routes.outlet === "primary") {
-                        const routeSnapshot = routes.snapshot;
-                        url += "/" + routeSnapshot.url.map(segment => segment.path).join("/");
-                        if (routes.snapshot.data.title !== undefined) {
-                            let status = true;
-                            if (routes.snapshot.data.status !== undefined) {
-                                status = routes.snapshot.data.status;
-                            }
-                            let icon = false;
-                            if (routes.snapshot.data.icon !== undefined) {
-                                icon = routes.snapshot.data.icon;
-                            }
-                            let caption = false;
-                            if (routes.snapshot.data.caption !== undefined) {
-                                caption = routes.snapshot.data.caption;
-                            }
-                            if (!this.tempState.includes(routes.snapshot.data.title)) {
-                                this.tempState.push(routes.snapshot.data.title);
-                                if (routes.snapshot.data.title.includes('/')) {
-                                    let path = routes.snapshot.data.title.split('/');
-                                    let routepath = url.split(lodash__WEBPACK_IMPORTED_MODULE_4___default.a.toLower(lodash__WEBPACK_IMPORTED_MODULE_4___default.a.trim(path[1])));
-                                    routepath.splice(1, 0, lodash__WEBPACK_IMPORTED_MODULE_4___default.a.trim(lodash__WEBPACK_IMPORTED_MODULE_4___default.a.toLower(path[0])));
-                                    for (let index = 0; index < path.length; index++) {
-                                        this.breadcrumbs.push({
-                                            label: lodash__WEBPACK_IMPORTED_MODULE_4___default.a.startCase(lodash__WEBPACK_IMPORTED_MODULE_4___default.a.toLower(path[index])),
-                                            icon: icon,
-                                            caption: caption,
-                                            status: path.length - index == 1 ? status : true,
-                                            url: routepath.join('')
-                                        });
-                                    }
-                                }
-                                else {
-                                    this.breadcrumbs.push({
-                                        label: routes.snapshot.data.title,
-                                        icon: icon,
-                                        caption: caption,
-                                        status: status,
-                                        url: url
-                                    });
-                                }
-                            }
-                        }
-                        currentRoute = routes;
-                    }
-                });
-            } while (currentRoute);
+
+
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+const CALENDAR_VALUE_ACCESSOR = {
+    provide: _angular_forms__WEBPACK_IMPORTED_MODULE_6__["NG_VALUE_ACCESSOR"],
+    useExisting: Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(() => Calendar),
+    multi: true
+};
+let Calendar = class Calendar {
+    constructor(el, renderer, cd, zone) {
+        this.el = el;
+        this.renderer = renderer;
+        this.cd = cd;
+        this.zone = zone;
+        this.dateFormat = 'mm/dd/yy';
+        this.multipleSeparator = ',';
+        this.rangeSeparator = '-';
+        this.inline = false;
+        this.showOtherMonths = true;
+        this.icon = 'pi pi-calendar';
+        this.shortYearCutoff = '+10';
+        this.hourFormat = '24';
+        this.stepHour = 1;
+        this.stepMinute = 1;
+        this.stepSecond = 1;
+        this.showSeconds = false;
+        this.showOnFocus = true;
+        this.showWeek = false;
+        this.dataType = 'date';
+        this.selectionMode = 'single';
+        this.todayButtonStyleClass = 'ui-button-secondary';
+        this.clearButtonStyleClass = 'ui-button-secondary';
+        this.autoZIndex = true;
+        this.baseZIndex = 0;
+        this.keepInvalid = false;
+        this.hideOnDateTimeSelect = false;
+        this.numberOfMonths = 1;
+        this.view = 'date';
+        this.timeSeparator = ":";
+        this.showTransitionOptions = '225ms ease-out';
+        this.hideTransitionOptions = '195ms ease-in';
+        this.onFocus = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onBlur = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onClose = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onSelect = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onInput = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onTodayClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onClearClick = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onMonthChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.onYearChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this._locale = {
+            firstDayOfWeek: 0,
+            dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+            dayNamesMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+            monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            today: 'Today',
+            clear: 'Clear',
+            dateFormat: 'mm/dd/yy',
+            weekHeader: 'Wk'
+        };
+        this.onModelChange = () => { };
+        this.onModelTouched = () => { };
+        this.inputFieldValue = null;
+        this.navigationState = null;
+    }
+    set content(content) {
+        this.contentViewChild = content;
+        if (this.contentViewChild) {
+            if (this.isMonthNavigate) {
+                Promise.resolve(null).then(() => this.updateFocus());
+                this.isMonthNavigate = false;
+            }
+            else {
+                this.initFocusableCell();
+            }
+        }
+    }
+    ;
+    get minDate() {
+        return this._minDate;
+    }
+    set minDate(date) {
+        this._minDate = date;
+        if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
+            this.createMonths(this.currentMonth, this.currentYear);
+        }
+    }
+    get maxDate() {
+        return this._maxDate;
+    }
+    set maxDate(date) {
+        this._maxDate = date;
+        if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
+            this.createMonths(this.currentMonth, this.currentYear);
+        }
+    }
+    get disabledDates() {
+        return this._disabledDates;
+    }
+    set disabledDates(disabledDates) {
+        this._disabledDates = disabledDates;
+        if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
+            this.createMonths(this.currentMonth, this.currentYear);
+        }
+    }
+    get disabledDays() {
+        return this._disabledDays;
+    }
+    set disabledDays(disabledDays) {
+        this._disabledDays = disabledDays;
+        if (this.currentMonth != undefined && this.currentMonth != null && this.currentYear) {
+            this.createMonths(this.currentMonth, this.currentYear);
+        }
+    }
+    get yearRange() {
+        return this._yearRange;
+    }
+    set yearRange(yearRange) {
+        this._yearRange = yearRange;
+        if (yearRange) {
+            const years = yearRange.split(':');
+            const yearStart = parseInt(years[0]);
+            const yearEnd = parseInt(years[1]);
+            this.populateYearOptions(yearStart, yearEnd);
+        }
+    }
+    get showTime() {
+        return this._showTime;
+    }
+    set showTime(showTime) {
+        this._showTime = showTime;
+        if (this.currentHour === undefined) {
+            this.initTime(this.value || new Date());
+        }
+        this.updateInputfield();
+    }
+    get locale() {
+        return this._locale;
+    }
+    set locale(newLocale) {
+        this._locale = newLocale;
+        if (this.view === 'date') {
+            this.createWeekDays();
+            this.createMonths(this.currentMonth, this.currentYear);
+        }
+        else if (this.view === 'month') {
+            this.createMonthPickerValues();
+        }
+    }
+    ngOnInit() {
+        const date = this.defaultDate || new Date();
+        this.currentMonth = date.getMonth();
+        this.currentYear = date.getFullYear();
+        if (this.view === 'date') {
+            this.createWeekDays();
+            this.initTime(date);
+            this.createMonths(this.currentMonth, this.currentYear);
+            this.ticksTo1970 = (((1970 - 1) * 365 + Math.floor(1970 / 4) - Math.floor(1970 / 100) + Math.floor(1970 / 400)) * 24 * 60 * 60 * 10000000);
+        }
+        else if (this.view === 'month') {
+            this.createMonthPickerValues();
+        }
+    }
+    ngAfterContentInit() {
+        this.templates.forEach((item) => {
+            switch (item.getType()) {
+                case 'date':
+                    this.dateTemplate = item.template;
+                    break;
+                default:
+                    this.dateTemplate = item.template;
+                    break;
+            }
         });
     }
-    ngOnInit() { }
+    populateYearOptions(start, end) {
+        this.yearOptions = [];
+        for (let i = start; i <= end; i++) {
+            this.yearOptions.push(i);
+        }
+    }
+    createWeekDays() {
+        this.weekDays = [];
+        let dayIndex = this.locale.firstDayOfWeek;
+        for (let i = 0; i < 7; i++) {
+            this.weekDays.push(this.locale.dayNamesMin[dayIndex]);
+            dayIndex = (dayIndex == 6) ? 0 : ++dayIndex;
+        }
+    }
+    createMonthPickerValues() {
+        this.monthPickerValues = [];
+        for (let i = 0; i <= 11; i++) {
+            this.monthPickerValues.push(this.locale.monthNamesShort[i]);
+        }
+    }
+    createMonths(month, year) {
+        this.months = this.months = [];
+        for (let i = 0; i < this.numberOfMonths; i++) {
+            let m = month + i;
+            let y = year;
+            if (m > 11) {
+                m = m % 11 - 1;
+                y = year + 1;
+            }
+            this.months.push(this.createMonth(m, y));
+        }
+    }
+    getWeekNumber(date) {
+        let checkDate = new Date(date.getTime());
+        checkDate.setDate(checkDate.getDate() + 4 - (checkDate.getDay() || 7));
+        let time = checkDate.getTime();
+        checkDate.setMonth(0);
+        checkDate.setDate(1);
+        return Math.floor(Math.round((time - checkDate.getTime()) / 86400000) / 7) + 1;
+    }
+    createMonth(month, year) {
+        let dates = [];
+        let firstDay = this.getFirstDayOfMonthIndex(month, year);
+        let daysLength = this.getDaysCountInMonth(month, year);
+        let prevMonthDaysLength = this.getDaysCountInPrevMonth(month, year);
+        let dayNo = 1;
+        let today = new Date();
+        let weekNumbers = [];
+        let monthRows = Math.ceil((daysLength + firstDay) / 7);
+        for (let i = 0; i < monthRows; i++) {
+            let week = [];
+            if (i == 0) {
+                for (let j = (prevMonthDaysLength - firstDay + 1); j <= prevMonthDaysLength; j++) {
+                    let prev = this.getPreviousMonthAndYear(month, year);
+                    week.push({ day: j, month: prev.month, year: prev.year, otherMonth: true,
+                        today: this.isToday(today, j, prev.month, prev.year), selectable: this.isSelectable(j, prev.month, prev.year, true) });
+                }
+                let remainingDaysLength = 7 - week.length;
+                for (let j = 0; j < remainingDaysLength; j++) {
+                    week.push({ day: dayNo, month: month, year: year, today: this.isToday(today, dayNo, month, year),
+                        selectable: this.isSelectable(dayNo, month, year, false) });
+                    dayNo++;
+                }
+            }
+            else {
+                for (let j = 0; j < 7; j++) {
+                    if (dayNo > daysLength) {
+                        let next = this.getNextMonthAndYear(month, year);
+                        week.push({ day: dayNo - daysLength, month: next.month, year: next.year, otherMonth: true,
+                            today: this.isToday(today, dayNo - daysLength, next.month, next.year),
+                            selectable: this.isSelectable((dayNo - daysLength), next.month, next.year, true) });
+                    }
+                    else {
+                        week.push({ day: dayNo, month: month, year: year, today: this.isToday(today, dayNo, month, year),
+                            selectable: this.isSelectable(dayNo, month, year, false) });
+                    }
+                    dayNo++;
+                }
+            }
+            if (this.showWeek) {
+                weekNumbers.push(this.getWeekNumber(new Date(week[0].year, week[0].month, week[0].day)));
+            }
+            dates.push(week);
+        }
+        return {
+            month: month,
+            year: year,
+            dates: dates,
+            weekNumbers: weekNumbers
+        };
+    }
+    initTime(date) {
+        this.pm = date.getHours() > 11;
+        if (this.showTime) {
+            this.currentMinute = date.getMinutes();
+            this.currentSecond = date.getSeconds();
+            if (this.hourFormat == '12')
+                this.currentHour = date.getHours() == 0 ? 12 : date.getHours() % 12;
+            else
+                this.currentHour = date.getHours();
+        }
+        else if (this.timeOnly) {
+            this.currentMinute = 0;
+            this.currentHour = 0;
+            this.currentSecond = 0;
+        }
+    }
+    navBackward(event) {
+        event.stopPropagation();
+        if (this.disabled) {
+            event.preventDefault();
+            return;
+        }
+        this.isMonthNavigate = true;
+        if (this.view === 'month') {
+            this.decrementYear();
+        }
+        else {
+            if (this.currentMonth === 0) {
+                this.currentMonth = 11;
+                this.decrementYear();
+            }
+            else {
+                this.currentMonth--;
+            }
+            this.onMonthChange.emit({ month: this.currentMonth + 1, year: this.currentYear });
+            this.createMonths(this.currentMonth, this.currentYear);
+        }
+    }
+    navForward(event) {
+        event.stopPropagation();
+        if (this.disabled) {
+            event.preventDefault();
+            return;
+        }
+        this.isMonthNavigate = true;
+        if (this.view === 'month') {
+            this.incrementYear();
+        }
+        else {
+            if (this.currentMonth === 11) {
+                this.currentMonth = 0;
+                this.incrementYear();
+            }
+            else {
+                this.currentMonth++;
+            }
+            this.onMonthChange.emit({ month: this.currentMonth + 1, year: this.currentYear });
+            this.createMonths(this.currentMonth, this.currentYear);
+        }
+    }
+    decrementYear() {
+        this.currentYear--;
+        if (this.yearNavigator && this.currentYear < this.yearOptions[0]) {
+            let difference = this.yearOptions[this.yearOptions.length - 1] - this.yearOptions[0];
+            this.populateYearOptions(this.yearOptions[0] - difference, this.yearOptions[this.yearOptions.length - 1] - difference);
+        }
+    }
+    incrementYear() {
+        this.currentYear++;
+        if (this.yearNavigator && this.currentYear > this.yearOptions[this.yearOptions.length - 1]) {
+            let difference = this.yearOptions[this.yearOptions.length - 1] - this.yearOptions[0];
+            this.populateYearOptions(this.yearOptions[0] + difference, this.yearOptions[this.yearOptions.length - 1] + difference);
+        }
+    }
+    onDateSelect(event, dateMeta) {
+        if (this.disabled || !dateMeta.selectable) {
+            event.preventDefault();
+            return;
+        }
+        if (this.isMultipleSelection() && this.isSelected(dateMeta)) {
+            this.value = this.value.filter((date, i) => {
+                return !this.isDateEquals(date, dateMeta);
+            });
+            this.updateModel(this.value);
+        }
+        else {
+            if (this.shouldSelectDate(dateMeta)) {
+                if (dateMeta.otherMonth) {
+                    this.currentMonth = dateMeta.month;
+                    this.currentYear = dateMeta.year;
+                    this.createMonths(this.currentMonth, this.currentYear);
+                    this.selectDate(dateMeta);
+                }
+                else {
+                    this.selectDate(dateMeta);
+                }
+            }
+        }
+        if (this.isSingleSelection() && (!this.showTime || this.hideOnDateTimeSelect)) {
+            setTimeout(() => {
+                event.preventDefault();
+                this.hideOverlay();
+                if (this.mask) {
+                    this.disableModality();
+                }
+                this.cd.markForCheck();
+            }, 150);
+        }
+        this.updateInputfield();
+        event.preventDefault();
+    }
+    shouldSelectDate(dateMeta) {
+        if (this.isMultipleSelection())
+            return this.maxDateCount != null ? this.maxDateCount > (this.value ? this.value.length : 0) : true;
+        else
+            return true;
+    }
+    onMonthSelect(event, index) {
+        this.onDateSelect(event, { year: this.currentYear, month: index, day: 1, selectable: true });
+    }
+    updateInputfield() {
+        let formattedValue = '';
+        if (this.value) {
+            if (this.isSingleSelection()) {
+                formattedValue = this.formatDateTime(this.value);
+            }
+            else if (this.isMultipleSelection()) {
+                for (let i = 0; i < this.value.length; i++) {
+                    let dateAsString = this.formatDateTime(this.value[i]);
+                    formattedValue += dateAsString;
+                    if (i !== (this.value.length - 1)) {
+                        formattedValue += this.multipleSeparator + ' ';
+                    }
+                }
+            }
+            else if (this.isRangeSelection()) {
+                if (this.value && this.value.length) {
+                    let startDate = this.value[0];
+                    let endDate = this.value[1];
+                    formattedValue = this.formatDateTime(startDate);
+                    if (endDate) {
+                        formattedValue += ' ' + this.rangeSeparator + ' ' + this.formatDateTime(endDate);
+                    }
+                }
+            }
+        }
+        this.inputFieldValue = formattedValue;
+        this.updateFilledState();
+        if (this.inputfieldViewChild && this.inputfieldViewChild.nativeElement) {
+            this.inputfieldViewChild.nativeElement.value = this.inputFieldValue;
+        }
+    }
+    formatDateTime(date) {
+        let formattedValue = null;
+        if (date) {
+            if (this.timeOnly) {
+                formattedValue = this.formatTime(date);
+            }
+            else {
+                formattedValue = this.formatDate(date, this.getDateFormat());
+                if (this.showTime) {
+                    formattedValue += ' ' + this.formatTime(date);
+                }
+            }
+        }
+        return formattedValue;
+    }
+    selectDate(dateMeta) {
+        let date = new Date(dateMeta.year, dateMeta.month, dateMeta.day);
+        if (this.showTime) {
+            if (this.hourFormat == '12') {
+                if (this.currentHour === 12)
+                    date.setHours(this.pm ? 12 : 0);
+                else
+                    date.setHours(this.pm ? this.currentHour + 12 : this.currentHour);
+            }
+            else {
+                date.setHours(this.currentHour);
+            }
+            date.setMinutes(this.currentMinute);
+            date.setSeconds(this.currentSecond);
+        }
+        if (this.minDate && this.minDate > date) {
+            date = this.minDate;
+            this.currentHour = date.getHours();
+            this.currentMinute = date.getMinutes();
+            this.currentSecond = date.getSeconds();
+        }
+        if (this.maxDate && this.maxDate < date) {
+            date = this.maxDate;
+            this.currentHour = date.getHours();
+            this.currentMinute = date.getMinutes();
+            this.currentSecond = date.getSeconds();
+        }
+        if (this.isSingleSelection()) {
+            this.updateModel(date);
+        }
+        else if (this.isMultipleSelection()) {
+            this.updateModel(this.value ? [...this.value, date] : [date]);
+        }
+        else if (this.isRangeSelection()) {
+            if (this.value && this.value.length) {
+                let startDate = this.value[0];
+                let endDate = this.value[1];
+                if (!endDate && date.getTime() >= startDate.getTime()) {
+                    endDate = date;
+                }
+                else {
+                    startDate = date;
+                    endDate = null;
+                }
+                this.updateModel([startDate, endDate]);
+            }
+            else {
+                this.updateModel([date, null]);
+            }
+        }
+        this.onSelect.emit(date);
+    }
+    updateModel(value) {
+        this.value = value;
+        if (this.dataType == 'date') {
+            this.onModelChange(this.value);
+        }
+        else if (this.dataType == 'string') {
+            if (this.isSingleSelection()) {
+                this.onModelChange(this.formatDateTime(this.value));
+            }
+            else {
+                let stringArrValue = null;
+                if (this.value) {
+                    stringArrValue = this.value.map(date => this.formatDateTime(date));
+                }
+                this.onModelChange(stringArrValue);
+            }
+        }
+    }
+    getFirstDayOfMonthIndex(month, year) {
+        let day = new Date();
+        day.setDate(1);
+        day.setMonth(month);
+        day.setFullYear(year);
+        let dayIndex = day.getDay() + this.getSundayIndex();
+        return dayIndex >= 7 ? dayIndex - 7 : dayIndex;
+    }
+    getDaysCountInMonth(month, year) {
+        return 32 - this.daylightSavingAdjust(new Date(year, month, 32)).getDate();
+    }
+    getDaysCountInPrevMonth(month, year) {
+        let prev = this.getPreviousMonthAndYear(month, year);
+        return this.getDaysCountInMonth(prev.month, prev.year);
+    }
+    getPreviousMonthAndYear(month, year) {
+        let m, y;
+        if (month === 0) {
+            m = 11;
+            y = year - 1;
+        }
+        else {
+            m = month - 1;
+            y = year;
+        }
+        return { 'month': m, 'year': y };
+    }
+    getNextMonthAndYear(month, year) {
+        let m, y;
+        if (month === 11) {
+            m = 0;
+            y = year + 1;
+        }
+        else {
+            m = month + 1;
+            y = year;
+        }
+        return { 'month': m, 'year': y };
+    }
+    getSundayIndex() {
+        return this.locale.firstDayOfWeek > 0 ? 7 - this.locale.firstDayOfWeek : 0;
+    }
+    isSelected(dateMeta) {
+        if (this.value) {
+            if (this.isSingleSelection()) {
+                return this.isDateEquals(this.value, dateMeta);
+            }
+            else if (this.isMultipleSelection()) {
+                let selected = false;
+                for (let date of this.value) {
+                    selected = this.isDateEquals(date, dateMeta);
+                    if (selected) {
+                        break;
+                    }
+                }
+                return selected;
+            }
+            else if (this.isRangeSelection()) {
+                if (this.value[1])
+                    return this.isDateEquals(this.value[0], dateMeta) || this.isDateEquals(this.value[1], dateMeta) || this.isDateBetween(this.value[0], this.value[1], dateMeta);
+                else
+                    return this.isDateEquals(this.value[0], dateMeta);
+            }
+        }
+        else {
+            return false;
+        }
+    }
+    isMonthSelected(month) {
+        let day = this.value ? (Array.isArray(this.value) ? this.value[0].getDate() : this.value.getDate()) : 1;
+        return this.isSelected({ year: this.currentYear, month: month, day: day, selectable: true });
+    }
+    isDateEquals(value, dateMeta) {
+        if (value)
+            return value.getDate() === dateMeta.day && value.getMonth() === dateMeta.month && value.getFullYear() === dateMeta.year;
+        else
+            return false;
+    }
+    isDateBetween(start, end, dateMeta) {
+        let between = false;
+        if (start && end) {
+            let date = new Date(dateMeta.year, dateMeta.month, dateMeta.day);
+            return start.getTime() <= date.getTime() && end.getTime() >= date.getTime();
+        }
+        return between;
+    }
+    isSingleSelection() {
+        return this.selectionMode === 'single';
+    }
+    isRangeSelection() {
+        return this.selectionMode === 'range';
+    }
+    isMultipleSelection() {
+        return this.selectionMode === 'multiple';
+    }
+    isToday(today, day, month, year) {
+        return today.getDate() === day && today.getMonth() === month && today.getFullYear() === year;
+    }
+    isSelectable(day, month, year, otherMonth) {
+        let validMin = true;
+        let validMax = true;
+        let validDate = true;
+        let validDay = true;
+        if (otherMonth && !this.selectOtherMonths) {
+            return false;
+        }
+        if (this.minDate) {
+            if (this.minDate.getFullYear() > year) {
+                validMin = false;
+            }
+            else if (this.minDate.getFullYear() === year) {
+                if (this.minDate.getMonth() > month) {
+                    validMin = false;
+                }
+                else if (this.minDate.getMonth() === month) {
+                    if (this.minDate.getDate() > day) {
+                        validMin = false;
+                    }
+                }
+            }
+        }
+        if (this.maxDate) {
+            if (this.maxDate.getFullYear() < year) {
+                validMax = false;
+            }
+            else if (this.maxDate.getFullYear() === year) {
+                if (this.maxDate.getMonth() < month) {
+                    validMax = false;
+                }
+                else if (this.maxDate.getMonth() === month) {
+                    if (this.maxDate.getDate() < day) {
+                        validMax = false;
+                    }
+                }
+            }
+        }
+        if (this.disabledDates) {
+            validDate = !this.isDateDisabled(day, month, year);
+        }
+        if (this.disabledDays) {
+            validDay = !this.isDayDisabled(day, month, year);
+        }
+        return validMin && validMax && validDate && validDay;
+    }
+    isDateDisabled(day, month, year) {
+        if (this.disabledDates) {
+            for (let disabledDate of this.disabledDates) {
+                if (disabledDate.getFullYear() === year && disabledDate.getMonth() === month && disabledDate.getDate() === day) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    isDayDisabled(day, month, year) {
+        if (this.disabledDays) {
+            let weekday = new Date(year, month, day);
+            let weekdayNumber = weekday.getDay();
+            return this.disabledDays.indexOf(weekdayNumber) !== -1;
+        }
+        return false;
+    }
+    onInputFocus(event) {
+        this.focus = true;
+        if (this.showOnFocus) {
+            this.showOverlay();
+        }
+        this.onFocus.emit(event);
+    }
+    onInputClick(event) {
+        if (this.overlay && this.autoZIndex) {
+            this.overlay.style.zIndex = String(this.baseZIndex + (++primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].zindex));
+        }
+        if (this.showOnFocus && !this.overlayVisible) {
+            this.showOverlay();
+        }
+    }
+    onInputBlur(event) {
+        this.focus = false;
+        this.onBlur.emit(event);
+        if (!this.keepInvalid) {
+            this.updateInputfield();
+        }
+        this.onModelTouched();
+    }
+    onButtonClick(event, inputfield) {
+        if (!this.overlayVisible) {
+            inputfield.focus();
+            this.showOverlay();
+        }
+        else {
+            this.hideOverlay();
+        }
+    }
+    onPrevButtonClick(event) {
+        this.navigationState = { backward: true, button: true };
+        this.navBackward(event);
+    }
+    onNextButtonClick(event) {
+        this.navigationState = { backward: false, button: true };
+        this.navForward(event);
+    }
+    onContainerButtonKeydown(event) {
+        switch (event.which) {
+            //tab
+            case 9:
+                if (!this.inline) {
+                    this.trapFocus(event);
+                }
+                break;
+            //escape
+            case 27:
+                this.overlayVisible = false;
+                event.preventDefault();
+                break;
+            default:
+                //Noop
+                break;
+        }
+    }
+    onInputKeydown(event) {
+        this.isKeydown = true;
+        if (event.keyCode === 9 && this.contentViewChild) {
+            this.trapFocus(event);
+        }
+        else if (event.keyCode === 27) {
+            if (this.overlayVisible) {
+                this.overlayVisible = false;
+                event.preventDefault();
+            }
+        }
+    }
+    onDateCellKeydown(event, date, groupIndex) {
+        const cellContent = event.currentTarget;
+        const cell = cellContent.parentElement;
+        switch (event.which) {
+            //down arrow
+            case 40: {
+                cellContent.tabIndex = '-1';
+                let cellIndex = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].index(cell);
+                let nextRow = cell.parentElement.nextElementSibling;
+                if (nextRow) {
+                    let focusCell = nextRow.children[cellIndex].children[0];
+                    if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell, 'ui-state-disabled')) {
+                        this.navigationState = { backward: false };
+                        this.navForward(event);
+                    }
+                    else {
+                        nextRow.children[cellIndex].children[0].tabIndex = '0';
+                        nextRow.children[cellIndex].children[0].focus();
+                    }
+                }
+                else {
+                    this.navigationState = { backward: false };
+                    this.navForward(event);
+                }
+                event.preventDefault();
+                break;
+            }
+            //up arrow
+            case 38: {
+                cellContent.tabIndex = '-1';
+                let cellIndex = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].index(cell);
+                let prevRow = cell.parentElement.previousElementSibling;
+                if (prevRow) {
+                    let focusCell = prevRow.children[cellIndex].children[0];
+                    if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell, 'ui-state-disabled')) {
+                        this.navigationState = { backward: true };
+                        this.navBackward(event);
+                    }
+                    else {
+                        focusCell.tabIndex = '0';
+                        focusCell.focus();
+                    }
+                }
+                else {
+                    this.navigationState = { backward: true };
+                    this.navBackward(event);
+                }
+                event.preventDefault();
+                break;
+            }
+            //left arrow
+            case 37: {
+                cellContent.tabIndex = '-1';
+                let prevCell = cell.previousElementSibling;
+                if (prevCell) {
+                    let focusCell = prevCell.children[0];
+                    if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell, 'ui-state-disabled') || primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell.parentElement, 'ui-datepicker-weeknumber')) {
+                        this.navigateToMonth(true, groupIndex);
+                    }
+                    else {
+                        focusCell.tabIndex = '0';
+                        focusCell.focus();
+                    }
+                }
+                else {
+                    this.navigateToMonth(true, groupIndex);
+                }
+                event.preventDefault();
+                break;
+            }
+            //right arrow
+            case 39: {
+                cellContent.tabIndex = '-1';
+                let nextCell = cell.nextElementSibling;
+                if (nextCell) {
+                    let focusCell = nextCell.children[0];
+                    if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(focusCell, 'ui-state-disabled')) {
+                        this.navigateToMonth(false, groupIndex);
+                    }
+                    else {
+                        focusCell.tabIndex = '0';
+                        focusCell.focus();
+                    }
+                }
+                else {
+                    this.navigateToMonth(false, groupIndex);
+                }
+                event.preventDefault();
+                break;
+            }
+            //enter
+            case 13: {
+                this.onDateSelect(event, date);
+                event.preventDefault();
+                break;
+            }
+            //escape
+            case 27: {
+                this.overlayVisible = false;
+                event.preventDefault();
+                break;
+            }
+            //tab
+            case 9: {
+                if (!this.inline) {
+                    this.trapFocus(event);
+                }
+                break;
+            }
+            default:
+                //no op
+                break;
+        }
+    }
+    onMonthCellKeydown(event, index) {
+        const cell = event.currentTarget;
+        switch (event.which) {
+            //arrows
+            case 38:
+            case 40: {
+                cell.tabIndex = '-1';
+                var cells = cell.parentElement.children;
+                var cellIndex = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].index(cell);
+                let nextCell = cells[event.which === 40 ? cellIndex + 3 : cellIndex - 3];
+                if (nextCell) {
+                    nextCell.tabIndex = '0';
+                    nextCell.focus();
+                }
+                event.preventDefault();
+                break;
+            }
+            //left arrow
+            case 37: {
+                cell.tabIndex = '-1';
+                let prevCell = cell.previousElementSibling;
+                if (prevCell) {
+                    prevCell.tabIndex = '0';
+                    prevCell.focus();
+                }
+                event.preventDefault();
+                break;
+            }
+            //right arrow
+            case 39: {
+                cell.tabIndex = '-1';
+                let nextCell = cell.nextElementSibling;
+                if (nextCell) {
+                    nextCell.tabIndex = '0';
+                    nextCell.focus();
+                }
+                event.preventDefault();
+                break;
+            }
+            //enter
+            case 13: {
+                this.onMonthSelect(event, index);
+                event.preventDefault();
+                break;
+            }
+            //escape
+            case 27: {
+                this.overlayVisible = false;
+                event.preventDefault();
+                break;
+            }
+            //tab
+            case 9: {
+                if (!this.inline) {
+                    this.trapFocus(event);
+                }
+                break;
+            }
+            default:
+                //no op
+                break;
+        }
+    }
+    navigateToMonth(prev, groupIndex) {
+        if (prev) {
+            if (this.numberOfMonths === 1 || (groupIndex === 0)) {
+                this.navigationState = { backward: true };
+                this.navBackward(event);
+            }
+            else {
+                let prevMonthContainer = this.contentViewChild.nativeElement.children[groupIndex - 1];
+                let cells = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].find(prevMonthContainer, '.ui-datepicker-calendar td a');
+                let focusCell = cells[cells.length - 1];
+                focusCell.tabIndex = '0';
+                focusCell.focus();
+            }
+        }
+        else {
+            if (this.numberOfMonths === 1 || (groupIndex === this.numberOfMonths - 1)) {
+                this.navigationState = { backward: false };
+                this.navForward(event);
+            }
+            else {
+                let nextMonthContainer = this.contentViewChild.nativeElement.children[groupIndex + 1];
+                let focusCell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(nextMonthContainer, '.ui-datepicker-calendar td a');
+                focusCell.tabIndex = '0';
+                focusCell.focus();
+            }
+        }
+    }
+    updateFocus() {
+        let cell;
+        if (this.navigationState) {
+            if (this.navigationState.button) {
+                this.initFocusableCell();
+                if (this.navigationState.backward)
+                    primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-datepicker-prev').focus();
+                else
+                    primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-datepicker-next').focus();
+            }
+            else {
+                if (this.navigationState.backward) {
+                    let cells = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].find(this.contentViewChild.nativeElement, '.ui-datepicker-calendar td a');
+                    cell = cells[cells.length - 1];
+                }
+                else {
+                    cell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-datepicker-calendar td a');
+                }
+                if (cell) {
+                    cell.tabIndex = '0';
+                    cell.focus();
+                }
+            }
+            this.navigationState = null;
+        }
+        else {
+            this.initFocusableCell();
+        }
+    }
+    initFocusableCell() {
+        let cell;
+        if (this.view === 'month') {
+            let cells = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].find(this.contentViewChild.nativeElement, '.ui-monthpicker .ui-monthpicker-month');
+            let selectedCell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-monthpicker .ui-monthpicker-month.ui-state-highlight');
+            cells.forEach(cell => cell.tabIndex = -1);
+            cell = selectedCell || cells[0];
+        }
+        else {
+            cell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, 'a.ui-state-active');
+            if (!cell) {
+                let todayCell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, 'td.ui-datepicker-today a:not(.ui-state-disabled)');
+                if (todayCell)
+                    cell = todayCell;
+                else
+                    cell = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].findSingle(this.contentViewChild.nativeElement, '.ui-datepicker-calendar td a');
+            }
+        }
+        if (cell) {
+            cell.tabIndex = '0';
+        }
+    }
+    trapFocus(event) {
+        event.preventDefault();
+        let focusableElements = primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].getFocusableElements(this.contentViewChild.nativeElement);
+        if (focusableElements && focusableElements.length > 0) {
+            if (!document.activeElement) {
+                focusableElements[0].focus();
+            }
+            else {
+                let focusedIndex = focusableElements.indexOf(document.activeElement);
+                if (event.shiftKey) {
+                    if (focusedIndex == -1 || focusedIndex === 0)
+                        focusableElements[focusableElements.length - 1].focus();
+                    else
+                        focusableElements[focusedIndex - 1].focus();
+                }
+                else {
+                    if (focusedIndex == -1 || focusedIndex === (focusableElements.length - 1))
+                        focusableElements[0].focus();
+                    else
+                        focusableElements[focusedIndex + 1].focus();
+                }
+            }
+        }
+    }
+    onMonthDropdownChange(m) {
+        this.currentMonth = parseInt(m);
+        this.onMonthChange.emit({ month: this.currentMonth + 1, year: this.currentYear });
+        this.createMonths(this.currentMonth, this.currentYear);
+    }
+    onYearDropdownChange(y) {
+        this.currentYear = parseInt(y);
+        this.onYearChange.emit({ month: this.currentMonth + 1, year: this.currentYear });
+        this.createMonths(this.currentMonth, this.currentYear);
+    }
+    incrementHour(event) {
+        const prevHour = this.currentHour;
+        const newHour = this.currentHour + this.stepHour;
+        if (this.validateHour(newHour)) {
+            if (this.hourFormat == '24')
+                this.currentHour = (newHour >= 24) ? (newHour - 24) : newHour;
+            else if (this.hourFormat == '12') {
+                // Before the AM/PM break, now after
+                if (prevHour < 12 && newHour > 11) {
+                    this.pm = !this.pm;
+                }
+                this.currentHour = (newHour >= 13) ? (newHour - 12) : newHour;
+            }
+        }
+        event.preventDefault();
+    }
+    onTimePickerElementMouseDown(event, type, direction) {
+        if (!this.disabled) {
+            this.repeat(event, null, type, direction);
+            event.preventDefault();
+        }
+    }
+    onTimePickerElementMouseUp(event) {
+        if (!this.disabled) {
+            this.clearTimePickerTimer();
+            this.updateTime();
+        }
+    }
+    onTimePickerElementMouseOut(event) {
+        if (!this.disabled) {
+            this.clearTimePickerTimer();
+            this.updateTime();
+        }
+    }
+    repeat(event, interval, type, direction) {
+        let i = interval || 500;
+        this.clearTimePickerTimer();
+        this.timePickerTimer = setTimeout(() => {
+            this.repeat(event, 100, type, direction);
+        }, i);
+        switch (type) {
+            case 0:
+                if (direction === 1)
+                    this.incrementHour(event);
+                else
+                    this.decrementHour(event);
+                break;
+            case 1:
+                if (direction === 1)
+                    this.incrementMinute(event);
+                else
+                    this.decrementMinute(event);
+                break;
+            case 2:
+                if (direction === 1)
+                    this.incrementSecond(event);
+                else
+                    this.decrementSecond(event);
+                break;
+        }
+        this.updateInputfield();
+    }
+    clearTimePickerTimer() {
+        if (this.timePickerTimer) {
+            clearInterval(this.timePickerTimer);
+        }
+    }
+    decrementHour(event) {
+        const newHour = this.currentHour - this.stepHour;
+        if (this.validateHour(newHour)) {
+            if (this.hourFormat == '24')
+                this.currentHour = (newHour < 0) ? (24 + newHour) : newHour;
+            else if (this.hourFormat == '12') {
+                // If we were at noon/midnight, then switch
+                if (this.currentHour === 12) {
+                    this.pm = !this.pm;
+                }
+                this.currentHour = (newHour <= 0) ? (12 + newHour) : newHour;
+            }
+        }
+        event.preventDefault();
+    }
+    validateHour(hour) {
+        let valid = true;
+        let value = this.value;
+        if (this.isRangeSelection()) {
+            value = this.value[1] || this.value[0];
+        }
+        if (this.isMultipleSelection()) {
+            value = this.value[this.value.length - 1];
+        }
+        let valueDateString = value ? value.toDateString() : null;
+        if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
+            if (this.minDate.getHours() > hour) {
+                valid = false;
+            }
+        }
+        if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
+            if (this.maxDate.getHours() < hour) {
+                valid = false;
+            }
+        }
+        return valid;
+    }
+    incrementMinute(event) {
+        let newMinute = this.currentMinute + this.stepMinute;
+        if (this.validateMinute(newMinute)) {
+            this.currentMinute = (newMinute > 59) ? newMinute - 60 : newMinute;
+        }
+        event.preventDefault();
+    }
+    decrementMinute(event) {
+        let newMinute = this.currentMinute - this.stepMinute;
+        newMinute = (newMinute < 0) ? 60 + newMinute : newMinute;
+        if (this.validateMinute(newMinute)) {
+            this.currentMinute = newMinute;
+        }
+        event.preventDefault();
+    }
+    validateMinute(minute) {
+        let valid = true;
+        let value = this.value;
+        if (this.isRangeSelection()) {
+            value = this.value[1] || this.value[0];
+        }
+        if (this.isMultipleSelection()) {
+            value = this.value[this.value.length - 1];
+        }
+        let valueDateString = value ? value.toDateString() : null;
+        if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
+            if (value.getHours() == this.minDate.getHours()) {
+                if (this.minDate.getMinutes() > minute) {
+                    valid = false;
+                }
+            }
+        }
+        if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
+            if (value.getHours() == this.maxDate.getHours()) {
+                if (this.maxDate.getMinutes() < minute) {
+                    valid = false;
+                }
+            }
+        }
+        return valid;
+    }
+    incrementSecond(event) {
+        let newSecond = this.currentSecond + this.stepSecond;
+        if (this.validateSecond(newSecond)) {
+            this.currentSecond = (newSecond > 59) ? newSecond - 60 : newSecond;
+        }
+        event.preventDefault();
+    }
+    decrementSecond(event) {
+        let newSecond = this.currentSecond - this.stepSecond;
+        newSecond = (newSecond < 0) ? 60 + newSecond : newSecond;
+        if (this.validateSecond(newSecond)) {
+            this.currentSecond = newSecond;
+        }
+        event.preventDefault();
+    }
+    validateSecond(second) {
+        let valid = true;
+        let value = this.value;
+        if (this.isRangeSelection()) {
+            value = this.value[1] || this.value[0];
+        }
+        if (this.isMultipleSelection()) {
+            value = this.value[this.value.length - 1];
+        }
+        let valueDateString = value ? value.toDateString() : null;
+        if (this.minDate && valueDateString && this.minDate.toDateString() === valueDateString) {
+            if (this.minDate.getSeconds() > second) {
+                valid = false;
+            }
+        }
+        if (this.maxDate && valueDateString && this.maxDate.toDateString() === valueDateString) {
+            if (this.maxDate.getSeconds() < second) {
+                valid = false;
+            }
+        }
+        return valid;
+    }
+    updateTime() {
+        let value = this.value;
+        if (this.isRangeSelection()) {
+            value = this.value[1] || this.value[0];
+        }
+        if (this.isMultipleSelection()) {
+            value = this.value[this.value.length - 1];
+        }
+        value = value ? new Date(value.getTime()) : new Date();
+        if (this.hourFormat == '12') {
+            if (this.currentHour === 12)
+                value.setHours(this.pm ? 12 : 0);
+            else
+                value.setHours(this.pm ? this.currentHour + 12 : this.currentHour);
+        }
+        else {
+            value.setHours(this.currentHour);
+        }
+        value.setMinutes(this.currentMinute);
+        value.setSeconds(this.currentSecond);
+        if (this.isRangeSelection()) {
+            if (this.value[1])
+                value = [this.value[0], value];
+            else
+                value = [value, null];
+        }
+        if (this.isMultipleSelection()) {
+            value = [...this.value.slice(0, -1), value];
+        }
+        this.updateModel(value);
+        this.onSelect.emit(value);
+        this.updateInputfield();
+    }
+    toggleAMPM(event) {
+        this.pm = !this.pm;
+        this.updateTime();
+        event.preventDefault();
+    }
+    onUserInput(event) {
+        // IE 11 Workaround for input placeholder : https://github.com/primefaces/primeng/issues/2026
+        if (!this.isKeydown) {
+            return;
+        }
+        this.isKeydown = false;
+        let val = event.target.value;
+        try {
+            let value = this.parseValueFromString(val);
+            if (this.isValidSelection(value)) {
+                this.updateModel(value);
+                this.updateUI();
+            }
+        }
+        catch (err) {
+            //invalid date
+            this.updateModel(null);
+        }
+        this.filled = val != null && val.length;
+        this.onInput.emit(event);
+    }
+    isValidSelection(value) {
+        let isValid = true;
+        if (this.isSingleSelection()) {
+            if (!this.isSelectable(value.getDate(), value.getMonth(), value.getFullYear(), false)) {
+                isValid = false;
+            }
+        }
+        else if (value.every(v => this.isSelectable(v.getDate(), v.getMonth(), v.getFullYear(), false))) {
+            if (this.isRangeSelection()) {
+                isValid = value.length > 1 && value[1] > value[0] ? true : false;
+            }
+        }
+        return isValid;
+    }
+    parseValueFromString(text) {
+        if (!text || text.trim().length === 0) {
+            return null;
+        }
+        let value;
+        if (this.isSingleSelection()) {
+            value = this.parseDateTime(text);
+        }
+        else if (this.isMultipleSelection()) {
+            let tokens = text.split(this.multipleSeparator);
+            value = [];
+            for (let token of tokens) {
+                value.push(this.parseDateTime(token.trim()));
+            }
+        }
+        else if (this.isRangeSelection()) {
+            let tokens = text.split(' ' + this.rangeSeparator + ' ');
+            value = [];
+            for (let i = 0; i < tokens.length; i++) {
+                value[i] = this.parseDateTime(tokens[i].trim());
+            }
+        }
+        return value;
+    }
+    parseDateTime(text) {
+        let date;
+        let parts = text.split(' ');
+        if (this.timeOnly) {
+            date = new Date();
+            this.populateTime(date, parts[0], parts[1]);
+        }
+        else {
+            const dateFormat = this.getDateFormat();
+            if (this.showTime) {
+                let ampm = this.hourFormat == '12' ? parts.pop() : null;
+                let timeString = parts.pop();
+                date = this.parseDate(parts.join(' '), dateFormat);
+                this.populateTime(date, timeString, ampm);
+            }
+            else {
+                date = this.parseDate(text, dateFormat);
+            }
+        }
+        return date;
+    }
+    populateTime(value, timeString, ampm) {
+        if (this.hourFormat == '12' && !ampm) {
+            throw 'Invalid Time';
+        }
+        this.pm = (ampm === 'PM' || ampm === 'pm');
+        let time = this.parseTime(timeString);
+        value.setHours(time.hour);
+        value.setMinutes(time.minute);
+        value.setSeconds(time.second);
+    }
+    updateUI() {
+        let val = this.value || this.defaultDate || new Date();
+        if (Array.isArray(val)) {
+            val = val[0];
+        }
+        this.currentMonth = val.getMonth();
+        this.currentYear = val.getFullYear();
+        this.createMonths(this.currentMonth, this.currentYear);
+        if (this.showTime || this.timeOnly) {
+            let hours = val.getHours();
+            if (this.hourFormat == '12') {
+                this.pm = hours > 11;
+                if (hours >= 12) {
+                    this.currentHour = (hours == 12) ? 12 : hours - 12;
+                }
+                else {
+                    this.currentHour = (hours == 0) ? 12 : hours;
+                }
+            }
+            else {
+                this.currentHour = val.getHours();
+            }
+            this.currentMinute = val.getMinutes();
+            this.currentSecond = val.getSeconds();
+        }
+    }
+    showOverlay() {
+        if (!this.overlayVisible) {
+            this.updateUI();
+            this.overlayVisible = true;
+        }
+    }
+    hideOverlay() {
+        this.overlayVisible = false;
+        this.clearTimePickerTimer();
+        if (this.touchUI) {
+            this.disableModality();
+        }
+    }
+    toggle() {
+        if (!this.inline) {
+            if (!this.overlayVisible) {
+                this.showOverlay();
+                this.inputfieldViewChild.nativeElement.focus();
+            }
+            else {
+                this.hideOverlay();
+            }
+        }
+    }
+    onOverlayAnimationStart(event) {
+        switch (event.toState) {
+            case 'visible':
+            case 'visibleTouchUI':
+                if (!this.inline) {
+                    this.overlay = event.element;
+                    this.appendOverlay();
+                    if (this.autoZIndex) {
+                        this.overlay.style.zIndex = String(this.baseZIndex + (++primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].zindex));
+                    }
+                    this.alignOverlay();
+                }
+                break;
+            case 'void':
+                this.onOverlayHide();
+                this.onClose.emit(event);
+                break;
+        }
+    }
+    onOverlayAnimationDone(event) {
+        switch (event.toState) {
+            case 'visible':
+            case 'visibleTouchUI':
+                if (!this.inline) {
+                    this.bindDocumentClickListener();
+                    this.bindDocumentResizeListener();
+                }
+                break;
+        }
+    }
+    appendOverlay() {
+        if (this.appendTo) {
+            if (this.appendTo === 'body')
+                document.body.appendChild(this.overlay);
+            else
+                primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].appendChild(this.overlay, this.appendTo);
+        }
+    }
+    restoreOverlayAppend() {
+        if (this.overlay && this.appendTo) {
+            this.el.nativeElement.appendChild(this.overlay);
+        }
+    }
+    alignOverlay() {
+        if (this.touchUI) {
+            this.enableModality(this.overlay);
+        }
+        else {
+            if (this.appendTo)
+                primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].absolutePosition(this.overlay, this.inputfieldViewChild.nativeElement);
+            else
+                primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].relativePosition(this.overlay, this.inputfieldViewChild.nativeElement);
+        }
+    }
+    enableModality(element) {
+        if (!this.mask) {
+            this.mask = document.createElement('div');
+            this.mask.style.zIndex = String(parseInt(element.style.zIndex) - 1);
+            let maskStyleClass = 'ui-widget-overlay ui-datepicker-mask ui-datepicker-mask-scrollblocker';
+            primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].addMultipleClasses(this.mask, maskStyleClass);
+            this.maskClickListener = this.renderer.listen(this.mask, 'click', (event) => {
+                this.disableModality();
+            });
+            document.body.appendChild(this.mask);
+            primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].addClass(document.body, 'ui-overflow-hidden');
+        }
+    }
+    disableModality() {
+        if (this.mask) {
+            document.body.removeChild(this.mask);
+            let bodyChildren = document.body.children;
+            let hasBlockerMasks;
+            for (let i = 0; i < bodyChildren.length; i++) {
+                let bodyChild = bodyChildren[i];
+                if (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(bodyChild, 'ui-datepicker-mask-scrollblocker')) {
+                    hasBlockerMasks = true;
+                    break;
+                }
+            }
+            if (!hasBlockerMasks) {
+                primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].removeClass(document.body, 'ui-overflow-hidden');
+            }
+            this.unbindMaskClickListener();
+            this.mask = null;
+        }
+    }
+    unbindMaskClickListener() {
+        if (this.maskClickListener) {
+            this.maskClickListener();
+            this.maskClickListener = null;
+        }
+    }
+    writeValue(value) {
+        this.value = value;
+        if (this.value && typeof this.value === 'string') {
+            this.value = this.parseValueFromString(this.value);
+        }
+        this.updateInputfield();
+        this.updateUI();
+    }
+    registerOnChange(fn) {
+        this.onModelChange = fn;
+    }
+    registerOnTouched(fn) {
+        this.onModelTouched = fn;
+    }
+    setDisabledState(val) {
+        this.disabled = val;
+    }
+    getDateFormat() {
+        return this.dateFormat || this.locale.dateFormat;
+    }
+    // Ported from jquery-ui datepicker formatDate
+    formatDate(date, format) {
+        if (!date) {
+            return '';
+        }
+        let iFormat;
+        const lookAhead = (match) => {
+            const matches = (iFormat + 1 < format.length && format.charAt(iFormat + 1) === match);
+            if (matches) {
+                iFormat++;
+            }
+            return matches;
+        }, formatNumber = (match, value, len) => {
+            let num = '' + value;
+            if (lookAhead(match)) {
+                while (num.length < len) {
+                    num = '0' + num;
+                }
+            }
+            return num;
+        }, formatName = (match, value, shortNames, longNames) => {
+            return (lookAhead(match) ? longNames[value] : shortNames[value]);
+        };
+        let output = '';
+        let literal = false;
+        if (date) {
+            for (iFormat = 0; iFormat < format.length; iFormat++) {
+                if (literal) {
+                    if (format.charAt(iFormat) === '\'' && !lookAhead('\'')) {
+                        literal = false;
+                    }
+                    else {
+                        output += format.charAt(iFormat);
+                    }
+                }
+                else {
+                    switch (format.charAt(iFormat)) {
+                        case 'd':
+                            output += formatNumber('d', date.getDate(), 2);
+                            break;
+                        case 'D':
+                            output += formatName('D', date.getDay(), this.locale.dayNamesShort, this.locale.dayNames);
+                            break;
+                        case 'o':
+                            output += formatNumber('o', Math.round((new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime() -
+                                new Date(date.getFullYear(), 0, 0).getTime()) / 86400000), 3);
+                            break;
+                        case 'm':
+                            output += formatNumber('m', date.getMonth() + 1, 2);
+                            break;
+                        case 'M':
+                            output += formatName('M', date.getMonth(), this.locale.monthNamesShort, this.locale.monthNames);
+                            break;
+                        case 'y':
+                            output += lookAhead('y') ? date.getFullYear() : (date.getFullYear() % 100 < 10 ? '0' : '') + (date.getFullYear() % 100);
+                            break;
+                        case '@':
+                            output += date.getTime();
+                            break;
+                        case '!':
+                            output += date.getTime() * 10000 + this.ticksTo1970;
+                            break;
+                        case '\'':
+                            if (lookAhead('\'')) {
+                                output += '\'';
+                            }
+                            else {
+                                literal = true;
+                            }
+                            break;
+                        default:
+                            output += format.charAt(iFormat);
+                    }
+                }
+            }
+        }
+        return output;
+    }
+    formatTime(date) {
+        if (!date) {
+            return '';
+        }
+        let output = '';
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let seconds = date.getSeconds();
+        if (this.hourFormat == '12' && hours > 11 && hours != 12) {
+            hours -= 12;
+        }
+        if (this.hourFormat == '12') {
+            output += hours === 0 ? 12 : (hours < 10) ? '0' + hours : hours;
+        }
+        else {
+            output += (hours < 10) ? '0' + hours : hours;
+        }
+        output += ':';
+        output += (minutes < 10) ? '0' + minutes : minutes;
+        if (this.showSeconds) {
+            output += ':';
+            output += (seconds < 10) ? '0' + seconds : seconds;
+        }
+        if (this.hourFormat == '12') {
+            output += date.getHours() > 11 ? ' PM' : ' AM';
+        }
+        return output;
+    }
+    parseTime(value) {
+        let tokens = value.split(':');
+        let validTokenLength = this.showSeconds ? 3 : 2;
+        if (tokens.length !== validTokenLength) {
+            throw "Invalid time";
+        }
+        let h = parseInt(tokens[0]);
+        let m = parseInt(tokens[1]);
+        let s = this.showSeconds ? parseInt(tokens[2]) : null;
+        if (isNaN(h) || isNaN(m) || h > 23 || m > 59 || (this.hourFormat == '12' && h > 12) || (this.showSeconds && (isNaN(s) || s > 59))) {
+            throw "Invalid time";
+        }
+        else {
+            if (this.hourFormat == '12') {
+                if (h !== 12 && this.pm) {
+                    h += 12;
+                }
+                else if (!this.pm && h === 12) {
+                    h -= 12;
+                }
+            }
+            return { hour: h, minute: m, second: s };
+        }
+    }
+    // Ported from jquery-ui datepicker parseDate
+    parseDate(value, format) {
+        if (format == null || value == null) {
+            throw "Invalid arguments";
+        }
+        value = (typeof value === "object" ? value.toString() : value + "");
+        if (value === "") {
+            return null;
+        }
+        let iFormat, dim, extra, iValue = 0, shortYearCutoff = (typeof this.shortYearCutoff !== "string" ? this.shortYearCutoff : new Date().getFullYear() % 100 + parseInt(this.shortYearCutoff, 10)), year = -1, month = -1, day = -1, doy = -1, literal = false, date, lookAhead = (match) => {
+            let matches = (iFormat + 1 < format.length && format.charAt(iFormat + 1) === match);
+            if (matches) {
+                iFormat++;
+            }
+            return matches;
+        }, getNumber = (match) => {
+            let isDoubled = lookAhead(match), size = (match === "@" ? 14 : (match === "!" ? 20 :
+                (match === "y" && isDoubled ? 4 : (match === "o" ? 3 : 2)))), minSize = (match === "y" ? size : 1), digits = new RegExp("^\\d{" + minSize + "," + size + "}"), num = value.substring(iValue).match(digits);
+            if (!num) {
+                throw "Missing number at position " + iValue;
+            }
+            iValue += num[0].length;
+            return parseInt(num[0], 10);
+        }, getName = (match, shortNames, longNames) => {
+            let index = -1;
+            let arr = lookAhead(match) ? longNames : shortNames;
+            let names = [];
+            for (let i = 0; i < arr.length; i++) {
+                names.push([i, arr[i]]);
+            }
+            names.sort((a, b) => {
+                return -(a[1].length - b[1].length);
+            });
+            for (let i = 0; i < names.length; i++) {
+                let name = names[i][1];
+                if (value.substr(iValue, name.length).toLowerCase() === name.toLowerCase()) {
+                    index = names[i][0];
+                    iValue += name.length;
+                    break;
+                }
+            }
+            if (index !== -1) {
+                return index + 1;
+            }
+            else {
+                throw "Unknown name at position " + iValue;
+            }
+        }, checkLiteral = () => {
+            if (value.charAt(iValue) !== format.charAt(iFormat)) {
+                throw "Unexpected literal at position " + iValue;
+            }
+            iValue++;
+        };
+        if (this.view === 'month') {
+            day = 1;
+        }
+        for (iFormat = 0; iFormat < format.length; iFormat++) {
+            if (literal) {
+                if (format.charAt(iFormat) === "'" && !lookAhead("'")) {
+                    literal = false;
+                }
+                else {
+                    checkLiteral();
+                }
+            }
+            else {
+                switch (format.charAt(iFormat)) {
+                    case "d":
+                        day = getNumber("d");
+                        break;
+                    case "D":
+                        getName("D", this.locale.dayNamesShort, this.locale.dayNames);
+                        break;
+                    case "o":
+                        doy = getNumber("o");
+                        break;
+                    case "m":
+                        month = getNumber("m");
+                        break;
+                    case "M":
+                        month = getName("M", this.locale.monthNamesShort, this.locale.monthNames);
+                        break;
+                    case "y":
+                        year = getNumber("y");
+                        break;
+                    case "@":
+                        date = new Date(getNumber("@"));
+                        year = date.getFullYear();
+                        month = date.getMonth() + 1;
+                        day = date.getDate();
+                        break;
+                    case "!":
+                        date = new Date((getNumber("!") - this.ticksTo1970) / 10000);
+                        year = date.getFullYear();
+                        month = date.getMonth() + 1;
+                        day = date.getDate();
+                        break;
+                    case "'":
+                        if (lookAhead("'")) {
+                            checkLiteral();
+                        }
+                        else {
+                            literal = true;
+                        }
+                        break;
+                    default:
+                        checkLiteral();
+                }
+            }
+        }
+        if (iValue < value.length) {
+            extra = value.substr(iValue);
+            if (!/^\s+/.test(extra)) {
+                throw "Extra/unparsed characters found in date: " + extra;
+            }
+        }
+        if (year === -1) {
+            year = new Date().getFullYear();
+        }
+        else if (year < 100) {
+            year += new Date().getFullYear() - new Date().getFullYear() % 100 +
+                (year <= shortYearCutoff ? 0 : -100);
+        }
+        if (doy > -1) {
+            month = 1;
+            day = doy;
+            do {
+                dim = this.getDaysCountInMonth(year, month - 1);
+                if (day <= dim) {
+                    break;
+                }
+                month++;
+                day -= dim;
+            } while (true);
+        }
+        date = this.daylightSavingAdjust(new Date(year, month - 1, day));
+        if (date.getFullYear() !== year || date.getMonth() + 1 !== month || date.getDate() !== day) {
+            throw "Invalid date"; // E.g. 31/02/00
+        }
+        return date;
+    }
+    daylightSavingAdjust(date) {
+        if (!date) {
+            return null;
+        }
+        date.setHours(date.getHours() > 12 ? date.getHours() + 2 : 0);
+        return date;
+    }
+    updateFilledState() {
+        this.filled = this.inputFieldValue && this.inputFieldValue != '';
+    }
+    onTodayButtonClick(event) {
+        let date = new Date();
+        let dateMeta = { day: date.getDate(), month: date.getMonth(), year: date.getFullYear(), otherMonth: date.getMonth() !== this.currentMonth || date.getFullYear() !== this.currentYear, today: true, selectable: true };
+        this.onDateSelect(event, dateMeta);
+        this.onTodayClick.emit(event);
+    }
+    onClearButtonClick(event) {
+        this.updateModel(null);
+        this.updateInputfield();
+        this.hideOverlay();
+        this.onClearClick.emit(event);
+    }
+    bindDocumentClickListener() {
+        if (!this.documentClickListener) {
+            this.zone.runOutsideAngular(() => {
+                this.documentClickListener = this.renderer.listen('document', 'click', (event) => {
+                    if (this.isOutsideClicked(event) && this.overlayVisible) {
+                        this.zone.run(() => {
+                            this.hideOverlay();
+                            this.cd.markForCheck();
+                        });
+                    }
+                });
+            });
+        }
+    }
+    unbindDocumentClickListener() {
+        if (this.documentClickListener) {
+            this.documentClickListener();
+            this.documentClickListener = null;
+        }
+    }
+    bindDocumentResizeListener() {
+        if (!this.documentResizeListener && !this.touchUI) {
+            this.documentResizeListener = this.onWindowResize.bind(this);
+            window.addEventListener('resize', this.documentResizeListener);
+        }
+    }
+    unbindDocumentResizeListener() {
+        if (this.documentResizeListener) {
+            window.removeEventListener('resize', this.documentResizeListener);
+            this.documentResizeListener = null;
+        }
+    }
+    isOutsideClicked(event) {
+        return !(this.el.nativeElement.isSameNode(event.target) || this.isNavIconClicked(event) ||
+            this.el.nativeElement.contains(event.target) || (this.overlay && this.overlay.contains(event.target)));
+    }
+    isNavIconClicked(event) {
+        return (primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(event.target, 'ui-datepicker-prev') || primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(event.target, 'ui-datepicker-prev-icon')
+            || primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(event.target, 'ui-datepicker-next') || primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].hasClass(event.target, 'ui-datepicker-next-icon'));
+    }
+    onWindowResize() {
+        if (this.overlayVisible && !primeng_dom__WEBPACK_IMPORTED_MODULE_4__["DomHandler"].isAndroid()) {
+            this.hideOverlay();
+        }
+    }
+    onOverlayHide() {
+        this.unbindDocumentClickListener();
+        this.unbindMaskClickListener();
+        this.unbindDocumentResizeListener();
+        this.overlay = null;
+        this.disableModality();
+    }
     ngOnDestroy() {
-        if (!!this.subscription)
-            this.subscription.unsubscribe();
+        this.clearTimePickerTimer();
+        this.restoreOverlayAppend();
+        this.onOverlayHide();
     }
 };
-BreadcrumbComponent.ctorParameters = () => [
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"] },
-    { type: _service_message_service__WEBPACK_IMPORTED_MODULE_5__["MessageService"] }
+Calendar.ctorParameters = () => [
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Renderer2"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ChangeDetectorRef"] },
+    { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgZone"] }
 ];
-tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
-], BreadcrumbComponent.prototype, "event", void 0);
-BreadcrumbComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: "app-breadcrumb",
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./breadcrumb.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/shared/breadcrumb/breadcrumb.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./breadcrumb.component.scss */ "./src/app/shared/breadcrumb/breadcrumb.component.scss")).default]
-    })
-], BreadcrumbComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/shared/breadcrumb/breadcrumb.module.ts":
-/*!********************************************************!*\
-  !*** ./src/app/shared/breadcrumb/breadcrumb.module.ts ***!
-  \********************************************************/
-/*! exports provided: BreadcrumbModule */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BreadcrumbModule", function() { return BreadcrumbModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _breadcrumb_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./breadcrumb.component */ "./src/app/shared/breadcrumb/breadcrumb.component.ts");
-
-
-
-
-// components
-
-let BreadcrumbModule = class BreadcrumbModule {
-};
-BreadcrumbModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [
-            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterModule"]
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "defaultDate", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "style", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "styleClass", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "inputStyle", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "inputId", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "name", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "inputStyleClass", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "placeholder", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "ariaLabelledBy", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "disabled", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "dateFormat", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "multipleSeparator", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "rangeSeparator", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "inline", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "showOtherMonths", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "selectOtherMonths", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "showIcon", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "icon", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "appendTo", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "readonlyInput", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "shortYearCutoff", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "monthNavigator", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "yearNavigator", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "hourFormat", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "timeOnly", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "stepHour", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "stepMinute", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "stepSecond", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "showSeconds", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "required", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "showOnFocus", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "showWeek", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "dataType", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "selectionMode", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "maxDateCount", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "showButtonBar", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "todayButtonStyleClass", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "clearButtonStyleClass", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "autoZIndex", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "baseZIndex", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "panelStyleClass", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "panelStyle", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "keepInvalid", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "hideOnDateTimeSelect", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "numberOfMonths", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "view", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "touchUI", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "timeSeparator", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "showTransitionOptions", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "hideTransitionOptions", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
+], Calendar.prototype, "onFocus", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
+], Calendar.prototype, "onBlur", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
+], Calendar.prototype, "onClose", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
+], Calendar.prototype, "onSelect", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
+], Calendar.prototype, "onInput", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
+], Calendar.prototype, "onTodayClick", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
+], Calendar.prototype, "onClearClick", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
+], Calendar.prototype, "onMonthChange", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])()
+], Calendar.prototype, "onYearChange", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChildren"])(primeng_api__WEBPACK_IMPORTED_MODULE_5__["PrimeTemplate"])
+], Calendar.prototype, "templates", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "tabindex", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('inputfield', { static: false })
+], Calendar.prototype, "inputfieldViewChild", void 0);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"])('contentWrapper', { static: false })
+], Calendar.prototype, "content", null);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "minDate", null);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "maxDate", null);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "disabledDates", null);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "disabledDays", null);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "yearRange", null);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "showTime", null);
+__decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])()
+], Calendar.prototype, "locale", null);
+Calendar = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+        selector: 'p-calendar',
+        template: `
+        <span [ngClass]="{'ui-calendar':true, 'ui-calendar-w-btn': showIcon, 'ui-calendar-timeonly': timeOnly}" [ngStyle]="style" [class]="styleClass">
+            <ng-template [ngIf]="!inline">
+                <input #inputfield type="text" [attr.id]="inputId" [attr.name]="name" [attr.required]="required" [attr.aria-required]="required" [value]="inputFieldValue" (focus)="onInputFocus($event)" (keydown)="onInputKeydown($event)" (click)="onInputClick($event)" (blur)="onInputBlur($event)"
+                    [readonly]="readonlyInput" (input)="onUserInput($event)" [ngStyle]="inputStyle" [class]="inputStyleClass" [placeholder]="placeholder||''" [disabled]="disabled" [attr.tabindex]="tabindex"
+                    [ngClass]="'ui-inputtext ui-widget ui-state-default ui-corner-all'" autocomplete="off" [attr.aria-labelledby]="ariaLabelledBy"
+                    ><button type="button" [icon]="icon" pButton *ngIf="showIcon" (click)="onButtonClick($event,inputfield)" class="ui-datepicker-trigger ui-calendar-button"
+                    [ngClass]="{'ui-state-disabled':disabled}" [disabled]="disabled" tabindex="0"></button>
+            </ng-template>
+            <div #contentWrapper [class]="panelStyleClass" [ngStyle]="panelStyle" [ngClass]="{'ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all': true, 'ui-datepicker-inline':inline,'ui-shadow':!inline,
+                'ui-state-disabled':disabled,'ui-datepicker-timeonly':timeOnly,'ui-datepicker-multiple-month': this.numberOfMonths > 1, 'ui-datepicker-monthpicker': (view === 'month'), 'ui-datepicker-touch-ui': touchUI}"
+                [@overlayAnimation]="touchUI ? {value: 'visibleTouchUI', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}: 
+                                            {value: 'visible', params: {showTransitionParams: showTransitionOptions, hideTransitionParams: hideTransitionOptions}}" 
+                                            [@.disabled]="inline === true" (@overlayAnimation.start)="onOverlayAnimationStart($event)" (@overlayAnimation.done)="onOverlayAnimationDone($event)" *ngIf="inline || overlayVisible">
+                <ng-content select="p-header"></ng-content>
+                <ng-container *ngIf="!timeOnly">
+                    <div class="ui-datepicker-group ui-widget-content" *ngFor="let month of months; let i = index;">
+                        <div class="ui-datepicker-header ui-widget-header ui-helper-clearfix ui-corner-all">
+                            <a class="ui-datepicker-prev ui-corner-all" (click)="onPrevButtonClick($event)" (keydown.enter)="onPrevButtonClick($event)" *ngIf="i === 0" tabindex="0" (keydown)="onInputKeydown($event)">
+                                <span class="ui-datepicker-prev-icon pi pi-chevron-left"></span>
+                            </a>
+                            <div class="ui-datepicker-title">
+                                <span class="ui-datepicker-month" *ngIf="!monthNavigator && (view !== 'month')">{{locale.monthNames[month.month]}}</span>
+                                <select tabindex="0" class="ui-datepicker-month" *ngIf="monthNavigator && (view !== 'month') && numberOfMonths === 1" (change)="onMonthDropdownChange($event.target.value)">
+                                    <option [value]="i" *ngFor="let monthName of locale.monthNames;let i = index" [selected]="i === month.month">{{monthName}}</option>
+                                </select>
+                                <select tabindex="0" class="ui-datepicker-year" *ngIf="yearNavigator && numberOfMonths === 1" (change)="onYearDropdownChange($event.target.value)">
+                                    <option [value]="year" *ngFor="let year of yearOptions" [selected]="year === currentYear">{{year}}</option>
+                                </select>
+                                <span class="ui-datepicker-year" *ngIf="!yearNavigator">{{view === 'month' ? currentYear : month.year}}</span>
+                            </div>
+                            <a class="ui-datepicker-next ui-corner-all" (click)="onNextButtonClick($event)" (keydown.enter)="onNextButtonClick($event)" *ngIf="numberOfMonths === 1 ? true : (i === numberOfMonths -1)" tabindex="0" (keydown)="onInputKeydown($event)">
+                                <span class="ui-datepicker-next-icon pi pi-chevron-right"></span>
+                            </a>
+                        </div>
+                        <div class="ui-datepicker-calendar-container" *ngIf="view ==='date'">
+                            <table class="ui-datepicker-calendar">
+                                <thead>
+                                    <tr>
+                                        <th *ngIf="showWeek" class="ui-datepicker-weekheader">
+                                            <span>{{locale['weekHeader']}}</span>
+                                        </th>
+                                        <th scope="col" *ngFor="let weekDay of weekDays;let begin = first; let end = last">
+                                            <span>{{weekDay}}</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let week of month.dates; let j = index;">
+                                        <td *ngIf="showWeek" class="ui-datepicker-weeknumber ui-state-disabled">
+                                            <span>
+                                                {{month.weekNumbers[j]}}
+                                            </span>
+                                        </td>
+                                        <td *ngFor="let date of week" [ngClass]="{'ui-datepicker-other-month': date.otherMonth,
+                                            'ui-datepicker-current-day':isSelected(date),'ui-datepicker-today':date.today}">
+                                            <ng-container *ngIf="date.otherMonth ? showOtherMonths : true">
+                                                <a class="ui-state-default" *ngIf="date.selectable" [ngClass]="{'ui-state-active':isSelected(date), 'ui-state-highlight':date.today}"
+                                                    (click)="onDateSelect($event,date)" draggable="false" (keydown)="onDateCellKeydown($event,date,i)">
+                                                    <ng-container *ngIf="!dateTemplate">{{date.day}}</ng-container>
+                                                    <ng-container *ngTemplateOutlet="dateTemplate; context: {$implicit: date}"></ng-container>
+                                                </a>
+                                                <span class="ui-state-default ui-state-disabled" [ngClass]="{'ui-state-active':isSelected(date), 'ui-state-highlight':date.today}" *ngIf="!date.selectable">
+                                                    {{date.day}}
+                                                </span>
+                                            </ng-container>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="ui-monthpicker" *ngIf="view === 'month'">
+                        <a  *ngFor="let m of monthPickerValues; let i = index" (click)="onMonthSelect($event, i)" (keydown)="onMonthCellKeydown($event,i)" class="ui-monthpicker-month" [ngClass]="{'ui-state-active': isMonthSelected(i)}">
+                            {{m}}
+                        </a>
+                    </div>
+                </ng-container>
+                <div class="ui-timepicker ui-widget-header ui-corner-all" *ngIf="showTime||timeOnly">
+                    <div class="ui-hour-picker">
+                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="incrementHour($event)" (mousedown)="onTimePickerElementMouseDown($event, 0, 1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
+                            <span class="pi pi-chevron-up"></span>
+                        </a>
+                        <span [ngStyle]="{'display': currentHour < 10 ? 'inline': 'none'}">0</span><span>{{currentHour}}</span>
+                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="decrementHour($event)" (mousedown)="onTimePickerElementMouseDown($event, 0, -1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
+                            <span class="pi pi-chevron-down"></span>
+                        </a>
+                    </div>
+                    <div class="ui-separator">
+                        <a>
+                            <span class="pi pi-chevron-up"></span>
+                        </a>
+                        <span>{{timeSeparator}}</span>
+                        <a>
+                            <span class="pi pi-chevron-down"></span>
+                        </a>
+                    </div>
+                    <div class="ui-minute-picker">
+                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="incrementMinute($event)" (mousedown)="onTimePickerElementMouseDown($event, 1, 1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
+                            <span class="pi pi-chevron-up"></span>
+                        </a>
+                        <span [ngStyle]="{'display': currentMinute < 10 ? 'inline': 'none'}">0</span><span>{{currentMinute}}</span>
+                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="decrementMinute($event)" (mousedown)="onTimePickerElementMouseDown($event, 1, -1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
+                            <span class="pi pi-chevron-down"></span>
+                        </a>
+                    </div>
+                    <div class="ui-separator" *ngIf="showSeconds">
+                        <a>
+                            <span class="pi pi-chevron-up"></span>
+                        </a>
+                        <span>{{timeSeparator}}</span>
+                        <a>
+                            <span class="pi pi-chevron-down"></span>
+                        </a>
+                    </div>
+                    <div class="ui-second-picker" *ngIf="showSeconds">
+                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="incrementSecond($event)" (mousedown)="onTimePickerElementMouseDown($event, 2, 1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
+                            <span class="pi pi-chevron-up"></span>
+                        </a>
+                        <span [ngStyle]="{'display': currentSecond < 10 ? 'inline': 'none'}">0</span><span>{{currentSecond}}</span>
+                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (keydown.enter)="decrementSecond($event)" (mousedown)="onTimePickerElementMouseDown($event, 2, -1)" (mouseup)="onTimePickerElementMouseUp($event)" (mouseout)="onTimePickerElementMouseOut($event)">
+                            <span class="pi pi-chevron-down"></span>
+                        </a>
+                    </div>
+                    <div class="ui-ampm-picker" *ngIf="hourFormat=='12'">
+                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (click)="toggleAMPM($event)" (keydown.enter)="toggleAMPM($event)">
+                            <span class="pi pi-chevron-up"></span>
+                        </a>
+                        <span>{{pm ? 'PM' : 'AM'}}</span>
+                        <a tabindex="0" (keydown)="onContainerButtonKeydown($event)" (click)="toggleAMPM($event)" (keydown.enter)="toggleAMPM($event)">
+                            <span class="pi pi-chevron-down"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="ui-datepicker-buttonbar ui-widget-header" *ngIf="showButtonBar">
+                    <div class="ui-g">
+                        <div class="ui-g-6">
+                            <button type="button" tabindex="0" [label]="_locale.today" (keydown)="onContainerButtonKeydown($event)" (click)="onTodayButtonClick($event)" pButton [ngClass]="[todayButtonStyleClass]"></button>
+                        </div>
+                        <div class="ui-g-6">
+                            <button type="button" tabindex="0" [label]="_locale.clear" (keydown)="onContainerButtonKeydown($event)" (click)="onClearButtonClick($event)" pButton [ngClass]="[clearButtonStyleClass]"></button>
+                        </div>
+                    </div>
+                </div>
+                <ng-content select="p-footer"></ng-content>
+            </div>
+        </span>
+    `,
+        animations: [
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["trigger"])('overlayAnimation', [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('visible', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+                    transform: 'translateY(0)',
+                    opacity: 1
+                })),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('visibleTouchUI', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+                    transform: 'translate(-50%,-50%)',
+                    opacity: 1
+                })),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('void => visible', [
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateY(5%)', opacity: 0 }),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('{{showTransitionParams}}')
+                ]),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('visible => void', [
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])(('{{hideTransitionParams}}'), Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+                        opacity: 0,
+                        transform: 'translateY(5%)'
+                    }))
+                ]),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('void => visibleTouchUI', [
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ opacity: 0, transform: 'translate3d(-50%, -40%, 0) scale(0.9)' }),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('{{showTransitionParams}}')
+                ]),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('visibleTouchUI => void', [
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])(('{{hideTransitionParams}}'), Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+                        opacity: 0,
+                        transform: 'translate3d(-50%, -40%, 0) scale(0.9)'
+                    }))
+                ])
+            ])
         ],
-        declarations: [_breadcrumb_component__WEBPACK_IMPORTED_MODULE_4__["BreadcrumbComponent"]],
-        exports: [_breadcrumb_component__WEBPACK_IMPORTED_MODULE_4__["BreadcrumbComponent"]]
+        host: {
+            '[class.ui-inputwrapper-filled]': 'filled',
+            '[class.ui-inputwrapper-focus]': 'focus'
+        },
+        providers: [CALENDAR_VALUE_ACCESSOR]
     })
-], BreadcrumbModule);
-
-
-
-/***/ }),
-
-/***/ "./src/app/shared/service/message.service.ts":
-/*!***************************************************!*\
-  !*** ./src/app/shared/service/message.service.ts ***!
-  \***************************************************/
-/*! exports provided: MessageService */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MessageService", function() { return MessageService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
-
-
-
-let MessageService = class MessageService {
-    constructor() {
-        this.subject = new rxjs__WEBPACK_IMPORTED_MODULE_2__["Subject"]();
-    }
-    sendMessage(message) {
-        this.subject.next({ text: message });
-    }
-    clearMessage() {
-        this.subject.next();
-    }
-    getMessage() {
-        return this.subject.asObservable();
-    }
-    setBooking(data) {
-        this.booking = data;
-    }
-    getBooking() {
-        return this.booking;
-    }
-    sendRoute(route) {
-        this.subject.next({ route: route });
-    }
-    getRoute() {
-        return this.subject.asObservable();
-    }
+], Calendar);
+let CalendarModule = class CalendarModule {
 };
-MessageService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({ providedIn: 'root' })
-], MessageService);
+CalendarModule = __decorate([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], primeng_button__WEBPACK_IMPORTED_MODULE_3__["ButtonModule"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]],
+        exports: [Calendar, primeng_button__WEBPACK_IMPORTED_MODULE_3__["ButtonModule"], primeng_api__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]],
+        declarations: [Calendar]
+    })
+], CalendarModule);
 
+/**
+ * Generated bundle index. Do not edit.
+ */
+
+
+//# sourceMappingURL=primeng-calendar.js.map
 
 
 /***/ })

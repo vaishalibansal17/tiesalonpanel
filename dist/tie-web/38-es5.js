@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[38], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/transaction.component.html":
-  /*!**********************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/transaction.component.html ***!
-    \**********************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/detail/detail.component.html":
+  /*!************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/detail/detail.component.html ***!
+    \************************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeReportTransactionTransactionComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeReportTransactionDetailDetailComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<router-outlet></router-outlet>";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-12 alignright\"><a href=\"#\" class=\"btn btn-export\">PDF</a></div>\n        <div class=\"col-md-3 label\">Customer Name:</div>\n        <div class=\"col-md-9 description\">Jane Doe</div>\n        <div class=\"col-md-3 label\">Discount:</div>\n        <div class=\"col-md-9 description\">10%</div>\n        <div class=\"col-md-3 label\">Service:</div>\n        <div class=\"col-md-9 description\">Haircut, Hair Spa</div>\n        <div class=\"col-md-3 label\">Service At:</div>\n        <div class=\"col-md-9 description\">Home</div>\n        <div class=\"col-md-3 label\">Date:</div>\n        <div class=\"col-md-9 description\">22 Oct, 2019</div>\n        <div class=\"col-md-3 label\">Status:</div>\n        <div class=\"col-md-9 description\">Completed</div>\n        <div class=\"col-md-3 label\">Coupon Code:</div>\n        <div class=\"col-md-9 description\">New Coupon</div>\n        <div class=\"col-md-3 label\">Amount:</div>\n        <div class=\"col-md-9 description\">$280</div>\n        <div class=\"col-md-3 label\">Total Amount:</div>\n        <div class=\"col-md-9 description\">$200</div>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/report/transaction/transaction-routing.module.ts":
-  /*!***********************************************************************!*\
-    !*** ./src/app/home/report/transaction/transaction-routing.module.ts ***!
-    \***********************************************************************/
+  "./src/app/home/report/transaction/detail/detail-routing.module.ts":
+  /*!*************************************************************************!*\
+    !*** ./src/app/home/report/transaction/detail/detail-routing.module.ts ***!
+    \*************************************************************************/
 
-  /*! exports provided: TransactionRoutingModule */
+  /*! exports provided: DetailRoutingModule */
 
   /***/
-  function srcAppHomeReportTransactionTransactionRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportTransactionDetailDetailRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "TransactionRoutingModule", function () {
-      return TransactionRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "DetailRoutingModule", function () {
+      return DetailRoutingModule;
     });
     /* harmony import */
 
@@ -65,106 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _transaction_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./transaction.component */
-    "./src/app/home/report/transaction/transaction.component.ts");
+    var _detail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./detail.component */
+    "./src/app/home/report/transaction/detail/detail.component.ts");
 
     var routes = [{
       path: '',
-      component: _transaction_component__WEBPACK_IMPORTED_MODULE_3__["TransactionComponent"],
-      children: [{
-        path: '',
-        loadChildren: function loadChildren() {
-          return __webpack_require__.e(
-          /*! import() */
-          39).then(__webpack_require__.bind(null,
-          /*! ./transactionlist/transactionlist.module */
-          "./src/app/home/report/transaction/transactionlist/transactionlist.module.ts")).then(function (mod) {
-            return mod.TransactionlistModule;
-          });
-        },
-        data: {
-          title: "Transaction",
-          status: false
-        }
-      }, {
-        path: 'weekly',
-        loadChildren: function loadChildren() {
-          return __webpack_require__.e(
-          /*! import() */
-          40).then(__webpack_require__.bind(null,
-          /*! ./weeklylist/weeklylist.module */
-          "./src/app/home/report/transaction/weeklylist/weeklylist.module.ts")).then(function (mod) {
-            return mod.WeeklylistModule;
-          });
-        }
-      }, {
-        path: 'info',
-        loadChildren: function loadChildren() {
-          return __webpack_require__.e(
-          /*! import() */
-          37).then(__webpack_require__.bind(null,
-          /*! ./detail/detail.module */
-          "./src/app/home/report/transaction/detail/detail.module.ts")).then(function (mod) {
-            return mod.DetailModule;
-          });
-        },
-        data: {
-          title: "Transaction Detail",
-          status: false
-        }
-      }]
+      component: _detail_component__WEBPACK_IMPORTED_MODULE_3__["DetailComponent"]
     }];
 
-    var TransactionRoutingModule = function TransactionRoutingModule() {
-      _classCallCheck(this, TransactionRoutingModule);
+    var DetailRoutingModule = function DetailRoutingModule() {
+      _classCallCheck(this, DetailRoutingModule);
     };
 
-    TransactionRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    DetailRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], TransactionRoutingModule);
+    })], DetailRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/report/transaction/transaction.component.scss":
-  /*!********************************************************************!*\
-    !*** ./src/app/home/report/transaction/transaction.component.scss ***!
-    \********************************************************************/
+  "./src/app/home/report/transaction/detail/detail.component.scss":
+  /*!**********************************************************************!*\
+    !*** ./src/app/home/report/transaction/detail/detail.component.scss ***!
+    \**********************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeReportTransactionTransactionComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportTransactionDetailDetailComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcmVwb3J0L3RyYW5zYWN0aW9uL3RyYW5zYWN0aW9uLmNvbXBvbmVudC5zY3NzIn0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcmVwb3J0L3RyYW5zYWN0aW9uL2RldGFpbC9kZXRhaWwuY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
   /***/
-  "./src/app/home/report/transaction/transaction.component.ts":
-  /*!******************************************************************!*\
-    !*** ./src/app/home/report/transaction/transaction.component.ts ***!
-    \******************************************************************/
+  "./src/app/home/report/transaction/detail/detail.component.ts":
+  /*!********************************************************************!*\
+    !*** ./src/app/home/report/transaction/detail/detail.component.ts ***!
+    \********************************************************************/
 
-  /*! exports provided: TransactionComponent */
+  /*! exports provided: DetailComponent */
 
   /***/
-  function srcAppHomeReportTransactionTransactionComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportTransactionDetailDetailComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "TransactionComponent", function () {
-      return TransactionComponent;
+    __webpack_require__.d(__webpack_exports__, "DetailComponent", function () {
+      return DetailComponent;
     });
     /* harmony import */
 
@@ -179,51 +137,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var TransactionComponent =
+    var DetailComponent =
     /*#__PURE__*/
     function () {
-      function TransactionComponent() {
-        _classCallCheck(this, TransactionComponent);
+      function DetailComponent() {
+        _classCallCheck(this, DetailComponent);
       }
 
-      _createClass(TransactionComponent, [{
+      _createClass(DetailComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return TransactionComponent;
+      return DetailComponent;
     }();
 
-    TransactionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-transaction',
+    DetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-detail',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./transaction.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/transaction.component.html")).default,
+      /*! raw-loader!./detail.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/detail/detail.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./transaction.component.scss */
-      "./src/app/home/report/transaction/transaction.component.scss")).default]
-    })], TransactionComponent);
+      /*! ./detail.component.scss */
+      "./src/app/home/report/transaction/detail/detail.component.scss")).default]
+    })], DetailComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/report/transaction/transaction.module.ts":
-  /*!***************************************************************!*\
-    !*** ./src/app/home/report/transaction/transaction.module.ts ***!
-    \***************************************************************/
+  "./src/app/home/report/transaction/detail/detail.module.ts":
+  /*!*****************************************************************!*\
+    !*** ./src/app/home/report/transaction/detail/detail.module.ts ***!
+    \*****************************************************************/
 
-  /*! exports provided: TransactionModule */
+  /*! exports provided: DetailModule */
 
   /***/
-  function srcAppHomeReportTransactionTransactionModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportTransactionDetailDetailModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "TransactionModule", function () {
-      return TransactionModule;
+    __webpack_require__.d(__webpack_exports__, "DetailModule", function () {
+      return DetailModule;
     });
     /* harmony import */
 
@@ -246,30 +204,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _transaction_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./transaction-routing.module */
-    "./src/app/home/report/transaction/transaction-routing.module.ts");
+    var _detail_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./detail-routing.module */
+    "./src/app/home/report/transaction/detail/detail-routing.module.ts");
     /* harmony import */
 
 
-    var _transaction_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./transaction.component */
-    "./src/app/home/report/transaction/transaction.component.ts");
-    /* harmony import */
+    var _detail_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./detail.component */
+    "./src/app/home/report/transaction/detail/detail.component.ts");
 
-
-    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/shared/shared.module */
-    "./src/app/shared/shared.module.ts");
-
-    var TransactionModule = function TransactionModule() {
-      _classCallCheck(this, TransactionModule);
+    var DetailModule = function DetailModule() {
+      _classCallCheck(this, DetailModule);
     };
 
-    TransactionModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_transaction_component__WEBPACK_IMPORTED_MODULE_4__["TransactionComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _transaction_routing_module__WEBPACK_IMPORTED_MODULE_3__["TransactionRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
-    })], TransactionModule);
+    DetailModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_detail_component__WEBPACK_IMPORTED_MODULE_4__["DetailComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _detail_routing_module__WEBPACK_IMPORTED_MODULE_3__["DetailRoutingModule"]]
+    })], DetailModule);
     /***/
   }
 }]);

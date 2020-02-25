@@ -16,6 +16,10 @@
   "VIEWALL" : "View All", 
   "CONTINUE":"Continue",
 
+  "DEACTIVE":"Salon is deactived, contact Tie admin.",
+  
+  "DELSALONACC":"Salon is deleted by Tie admin.",
+
   "LOGINBTN":"Log In",
   "NUMOFMEM":"No. of Staff",
   "NUMOFBOOKING":"No. of Bookings",
@@ -27,8 +31,18 @@
 
   "NOBOOK":"No bookings available for this profile.",
 
+  "PROMOCODESUCC": "Promocode added successfully.",
+  "PROMOCODEUPSUCC": "Promocode updated successfully.",
 
-  "STAFF": "STAFF",
+  "PROMOSTRT" : "Start date",
+  "PROMOEND" : "End date",
+  "DISCOUNT":"Discount",
+  "ADBY":"Added By",
+  "TTL_USES":"Total Uses",
+  "SLNEXIST":"This email is belongs to Salon.",
+
+  "STAFF": "Select Staff",
+  "STAFFSIDBAR": "Staff",
   "BOOKING": "BOOKINGS",
   "WALKUSR": "WALK-IN CUSTOMER",
   "MANAGECALENDER": "MANAGE CALENDER",
@@ -44,6 +58,8 @@
   "RESETPASSNOTMATCH": "New password and confirm password does not match.",
   "RESETPASSREQ": "Please enter a new password.",
   "RESETPASSCNFREQ": "Please enter confirm password.",
+  "ENTRFULLNAME": "Please enter full name.",
+
   "RESETPASSSUCC": "Your password has been changed successfully.",
   "PASSPATTERN": "Password must be 6-20 characters long and contain at least one numeric, one uppercase alphabet, one lowercase alphabet and one special characters.",
   "CURRENTPASS" : "Please enter old password.",
@@ -65,7 +81,7 @@
   "CONFIRMD":"Confirmed",
   "PENDING":"Pending",
   "COMPELETED":"Completed",
-
+  "MIN_PRICE":"Min price",
   
   "PLACEHOLDERLCPASS":"Old Password",
   "PLACEHOLDERLNPASS":"New Password",

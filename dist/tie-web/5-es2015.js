@@ -17,10 +17,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(30)]).then(__webpack_require__.bind(null, /*! ./list/list.module */ "./src/app/home/promocode/list/list.module.ts")).then(mod => mod.ListModule), data: { title: "List", status: false } },
-    { path: 'add', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(27)]).then(__webpack_require__.bind(null, /*! ./add/add.module */ "./src/app/home/promocode/add/add.module.ts")).then(mod => mod.AddModule), data: { title: "Add", status: false } },
-    { path: 'info/:id', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(29)]).then(__webpack_require__.bind(null, /*! ./info/info.module */ "./src/app/home/promocode/info/info.module.ts")).then(mod => mod.InfoModule), data: { title: "Offers", status: false } },
-    { path: 'edit/:id', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(28)]).then(__webpack_require__.bind(null, /*! ./edit/edit.module */ "./src/app/home/promocode/edit/edit.module.ts")).then(mod => mod.EditModule), data: { title: "Edit", status: false } },
+    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(31)]).then(__webpack_require__.bind(null, /*! ./list/list.module */ "./src/app/home/promocode/list/list.module.ts")).then(mod => mod.ListModule), data: { title: "List", status: false } },
+    { path: 'add', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(28)]).then(__webpack_require__.bind(null, /*! ./add/add.module */ "./src/app/home/promocode/add/add.module.ts")).then(mod => mod.AddModule), data: { title: "Add", status: false } },
+    { path: 'info/:id', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(30)]).then(__webpack_require__.bind(null, /*! ./info/info.module */ "./src/app/home/promocode/info/info.module.ts")).then(mod => mod.InfoModule), data: { title: "Offers", status: false } },
+    { path: 'edit/:id', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(29)]).then(__webpack_require__.bind(null, /*! ./edit/edit.module */ "./src/app/home/promocode/edit/edit.module.ts")).then(mod => mod.EditModule), data: { title: "Edit", status: false } },
 ];
 let PromocodeRoutingModule = class PromocodeRoutingModule {
 };

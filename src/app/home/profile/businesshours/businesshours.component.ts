@@ -6,6 +6,7 @@ import { Helper } from 'src/app/shared/service/helper.service';
 import { MessageService } from 'primeng/api';
 import { ErrorService } from 'src/app/shared/service/error.service';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
+import moment from 'moment-timezone';
 
 @Component({
   selector: 'app-businesshours',
@@ -236,77 +237,6 @@ export class BusinesshoursComponent implements OnInit {
               this.toggle(day,dayName)
               this['is' + dayName + 'Break'] = obj.is_break;
           }
-
-
-
-          // for (let index = 0; index < detail.length; index++) {
-          //   let day = detail[index]['day'] == 0 ? 'Sunday' : (detail[index]['day'] == 1 ? 'Monday' : (detail[index]['day'] == 2 ? 'Tuesday' : (detail[index]['day'] == 3 ? 'Wednesday' : (detail[index]['day'] == 4 ? 'Thursday' : (detail[index]['day'] == 5 ? 'Friday' : 'Saturday')))))
-          //   console.log(detail[index]);
-          //   // if(detail[index]['day'] == index)
-          //   this.form.controls[day].patchValue({
-          //     open: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail[index].open_time.hh, detail[index].open_time.mm),
-          //     close: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail[index].close_time.hh, detail[index].close_time.mm),
-          //     isOpen: detail[index].hasOwnProperty('is_open')?detail[index].is_open:false,
-          //     breakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail[index].strt_break_time.hh, detail[index].strt_break_time.mm),
-          //     breakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail[index].end_break_time.hh, detail[index].end_break_time.mm),
-          //   });
-          //   let dayName = detail[index]['day'] == 0 ? 'Sun' : (detail[index]['day'] == 1 ? 'Mon' : (detail[index]['day'] == 2 ? 'Tues' : (detail[index]['day'] == 3 ? 'Wed' : (detail[index]['day'] == 4 ? 'Thurs' : (detail[index]['day'] == 5 ? 'Fri' : 'Sat')))))
-          //   this.toggle(day,dayName)
-          //   this['is' + dayName + 'Break'] = detail[index].is_break;
-          // }
-          // this.form.patchValue({
-
-          // sunOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[0].open_time.hh, detail.wrk_hrs[0].open_time.mm),
-          // sunClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[0].close_time.hh, detail.wrk_hrs[0].close_time.mm),
-          // isSunOpen: detail.wrk_hrs[0].is_open,
-          // sunBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[0].strt_break_time.hh, detail.wrk_hrs[0].strt_break_time.mm),
-          // sunBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[0].end_break_time.hh, detail.wrk_hrs[0].end_break_time.mm),
-
-          // monOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[1].open_time.hh, detail.wrk_hrs[1].open_time.mm),
-          // monClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[1].close_time.hh, detail.wrk_hrs[1].close_time.mm),
-          // monBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[1].strt_break_time.hh, detail.wrk_hrs[1].strt_break_time.mm),
-          // monBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[1].end_break_time.hh, detail.wrk_hrs[1].end_break_time.mm),
-          // isMonOpen: detail.wrk_hrs[1].is_open,
-
-          // tuesOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[2].open_time.hh, detail.wrk_hrs[2].open_time.mm),
-          // tuesClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[2].close_time.hh, detail.wrk_hrs[2].close_time.mm),
-          // tuesBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[2].strt_break_time.hh, detail.wrk_hrs[2].strt_break_time.mm),
-          // tuesBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[2].end_break_time.hh, detail.wrk_hrs[2].end_break_time.mm),
-          // isTuesOpen: detail.wrk_hrs[2].is_open,
-
-          // wedOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[3].open_time.hh, detail.wrk_hrs[3].open_time.mm),
-          // wedClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[3].close_time.hh, detail.wrk_hrs[3].close_time.mm),
-          // wedBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[3].strt_break_time.hh, detail.wrk_hrs[3].strt_break_time.mm),
-          // wedBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[3].end_break_time.hh, detail.wrk_hrs[3].end_break_time.mm),
-          // isWedOpen: detail.wrk_hrs[3].is_open,
-
-          // thursOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[4].open_time.hh, detail.wrk_hrs[4].open_time.mm),
-          // thursClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[4].close_time.hh, detail.wrk_hrs[4].close_time.mm),
-          // thursBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[4].strt_break_time.hh, detail.wrk_hrs[4].strt_break_time.mm),
-          // thursBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[4].end_break_time.hh, detail.wrk_hrs[4].end_break_time.mm),
-          // isThursOpen: detail.wrk_hrs[4].is_open,
-
-          // friOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[5].open_time.hh, detail.wrk_hrs[5].open_time.mm),
-          // friClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[5].close_time.hh, detail.wrk_hrs[5].close_time.mm),
-          // friBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[5].strt_break_time.hh, detail.wrk_hrs[5].strt_break_time.mm),
-          // friBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[5].end_break_time.hh, detail.wrk_hrs[5].end_break_time.mm),
-          // isFriOpen: detail.wrk_hrs[5].is_open,
-
-          // satOpen: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[6].open_time.hh, detail.wrk_hrs[6].open_time.mm),
-          // satClose: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[6].close_time.hh, detail.wrk_hrs[6].close_time.mm),
-          // satBreakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[6].strt_break_time.hh, detail.wrk_hrs[6].strt_break_time.mm),
-          // satBreakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), detail.wrk_hrs[6].end_break_time.hh, detail.wrk_hrs[6].end_break_time.mm),
-          // isSatOpen: detail.wrk_hrs[6].is_open,
-          // });
-
-          // this.isSunBreak = detail.wrk_hrs[0].is_break;
-          // this.isMonBreak = detail.wrk_hrs[1].is_break;
-          // this.isTuesBreak = detail.wrk_hrs[2].is_break;
-          // this.isWedBreak = detail.wrk_hrs[3].is_break;
-          // this.isThursBreak = detail.wrk_hrs[4].is_break;
-          // this.isFriBreak = detail.wrk_hrs[5].is_break;
-          // this.isSatBreak = detail.wrk_hrs[6].is_break;
-
         } else {
           if (response.err) {
             this.errorserv.handleError(response.err.errCode)
@@ -344,10 +274,9 @@ export class BusinesshoursComponent implements OnInit {
 
   validatetime(dayName, daybrk) {
     if (this.form.value[dayName].isOpen) {
-      console.log('----------', this.form.value[dayName].open, this.form.value[dayName].close);
-      if ((this.form.value[dayName].open == null) && (this.form.value[dayName].close == null)) {
+      console.log('----------', new Date(this.form.value[dayName].open).getHours(), this.form.value[dayName].close, moment(this.form.value[dayName].open, "hh:mm:ss").diff(moment(), 'seconds'));
+      if ((this.form.value[dayName].open == null || (new Date(this.form.value[dayName].open).getHours() == 0 && new Date(this.form.value[dayName].open).getMinutes() == 0)) && (this.form.value[dayName].close == null || (new Date(this.form.value[dayName].close).getHours() == 0 && new Date(this.form.value[dayName].close).getMinutes() == 0))) {
         console.log('9090-090----');
-
         this['is' + daybrk + 'OpnReq'] = true;
         this['is' + daybrk + 'ClosReq'] = true;
         return false;

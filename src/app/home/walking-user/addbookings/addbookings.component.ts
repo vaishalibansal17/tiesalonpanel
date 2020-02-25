@@ -35,6 +35,7 @@ export class AddbookingsComponent implements OnInit {
   staff: any;
   price = 0;
   submitted: boolean = false;
+  todaydt = new Date();
   constructor(private httpService: HttpRequestService, private router: Router,
     private messageService: MessageService, private helper: Helper,
     private errorserv: ErrorService,
@@ -43,9 +44,9 @@ export class AddbookingsComponent implements OnInit {
   ngOnInit() {
     this.responseData = this.messageService.getBooking();
     if (!this.responseData) {
-      this.router.navigateByUrl('walkin-customer/add-user').then(() => {
-        this.errorserv.handleError(0);
-      })
+      // this.router.navigateByUrl('walkin-customer/add-user').then(() => {
+      //   this.errorserv.handleError(0);
+      // })
     } else
       this.getServices();
 
@@ -55,6 +56,9 @@ export class AddbookingsComponent implements OnInit {
       ]),
       price: new FormControl(null, [
         Validators.required, ValidationService.numberValidator
+      ]),
+      bookDateTime: new FormControl(null, [
+        Validators.required
       ]),
       desc: new FormControl(null),
     })
@@ -127,7 +131,9 @@ export class AddbookingsComponent implements OnInit {
       this.profile.controls['price'].setValue(0);
     }
     else {
-      this.price = this.price - rmvsrv.price;
+      console.log(rmvsrv);
+      
+      this.price = this.price - rmvsrv.cost;
       this.profile.controls['price'].setValue(this.price)
     }
 

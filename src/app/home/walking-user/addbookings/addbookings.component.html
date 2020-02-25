@@ -15,8 +15,8 @@
                         {{'PHNLNGTH'|translate}}</p> -->
                 </div>
                 <mat-chip-list aria-label="Fish selection">
-                    <mat-chip *ngFor="let chip of chips; let i =index" [disableRipple]="true" [selectable]="selectable" [removable]="removable"
-                        (removed)="remove(i, chip)">{{chip.cat_name | titlecase}}
+                    <mat-chip *ngFor="let chip of chips; let i =index" [disableRipple]="true" [selectable]="selectable"
+                        [removable]="removable" (removed)="remove(i, chip)">{{chip.cat_name | titlecase}}
                         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
                     </mat-chip>
                     <!-- <mat-chip>Two fish</mat-chip>
@@ -25,7 +25,7 @@
                 </mat-chip-list>
             </mat-form-field>
             <mat-form-field>
-                <span class="email-img pass"><img src="assets/images/price_form.png" alt="envelope"></span>
+                <span class="email-img pass"><img src="assets/images/icon_sr.png" alt="envelope"></span>
                 <input matInput placeholder="Price" formControlName="price" readonly='true' class="form-control">
             </mat-form-field>
             <div *ngIf="(submitted && getControl.price.errors)">
@@ -42,13 +42,18 @@
                     </mat-option>
                 </mat-select>
             </mat-form-field>
+            <div>
+                <span ><img class="cal-img" src="assets/images/calendar_black.png" alt="envelope"></span>
+                <p-calendar [showTime]="true" formControlName="bookDateTime" icon="pi pi-calendar"  dateFormat="dd M yy"
+                    placeholder="Select appointment date and time" inputStyleClass="form-control" [minDate] = "todaydt"
+                    [readonlyInput]="true"></p-calendar>
+            </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/description.png" alt="envelope"></span>
                 <textarea matInput placeholder="{{'DESCRIPTION'| translate}}" class="form-control"
                     formControlName="desc" maxlength="150"></textarea>
             </mat-form-field>
-            <div
-                *ngIf="(submitted || getControl.desc.dirty|| getControl.desc.touched) && getControl.desc.errors">
+            <div *ngIf="(submitted || getControl.desc.dirty|| getControl.desc.touched) && getControl.desc.errors">
                 <p class="color" *ngIf="getControl.desc.errors.required">{{'DESCREQ' | translate}}</p>
                 <p class="color" *ngIf="getControl.desc.errors.minlength ">{{'DESCLNGTH'| translate}}</p>
             </div>

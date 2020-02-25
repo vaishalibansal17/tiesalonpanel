@@ -2,23 +2,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[56], {
   /***/
-  "./src/app/home/staff/staff-routing.module.ts":
-  /*!****************************************************!*\
-    !*** ./src/app/home/staff/staff-routing.module.ts ***!
-    \****************************************************/
+  "./src/app/home/profile/profile-routing.module.ts":
+  /*!********************************************************!*\
+    !*** ./src/app/home/profile/profile-routing.module.ts ***!
+    \********************************************************/
 
-  /*! exports provided: StaffRoutingModule */
+  /*! exports provided: ProfileRoutingModule */
 
   /***/
-  function srcAppHomeStaffStaffRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeProfileProfileRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffRoutingModule", function () {
-      return StaffRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "ProfileRoutingModule", function () {
+      return ProfileRoutingModule;
     });
     /* harmony import */
 
@@ -37,47 +37,29 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    "./node_modules/@angular/router/fesm2015/router.js"); // import { ProfileComponent } from './profile.component';
+
 
     var routes = [{
       path: '',
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(2), __webpack_require__.e("common"), __webpack_require__.e(45)]).then(__webpack_require__.bind(null,
-        /*! ./list/list.module */
-        "./src/app/home/staff/list/list.module.ts")).then(function (mod) {
-          return mod.ListModule;
+        [__webpack_require__.e(1), __webpack_require__.e(2), __webpack_require__.e(27)]).then(__webpack_require__.bind(null,
+        /*! ./viewprofile/viewprofile.module */
+        "./src/app/home/profile/viewprofile/viewprofile.module.ts")).then(function (mod) {
+          return mod.ViewprofileModule;
         });
-      },
-      data: {
-        title: "List",
-        status: false
       }
     }, {
-      path: 'add',
+      path: 'edit',
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e("common"), __webpack_require__.e(43)]).then(__webpack_require__.bind(null,
-        /*! ./addstaff/addstaff.module */
-        "./src/app/home/staff/addstaff/addstaff.module.ts")).then(function (mod) {
-          return mod.AddstaffModule;
-        });
-      },
-      data: {
-        title: "Add",
-        status: false
-      }
-    }, {
-      path: 'edit/:id',
-      loadChildren: function loadChildren() {
-        return Promise.all(
-        /*! import() */
-        [__webpack_require__.e("common"), __webpack_require__.e(44)]).then(__webpack_require__.bind(null,
-        /*! ./editstaff/editstaff.module */
-        "./src/app/home/staff/editstaff/editstaff.module.ts")).then(function (mod) {
-          return mod.EditstaffModule;
+        [__webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(8)]).then(__webpack_require__.bind(null,
+        /*! ./editprofile/editprofile.module */
+        "./src/app/home/profile/editprofile/editprofile.module.ts")).then(function (mod) {
+          return mod.EditprofileModule;
         });
       },
       data: {
@@ -85,66 +67,66 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         status: false
       }
     }, {
-      path: 'info/:id',
+      path: 'change-password',
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(2), __webpack_require__.e("common"), __webpack_require__.e(46)]).then(__webpack_require__.bind(null,
-        /*! ./staffdetail/staffdetail.module */
-        "./src/app/home/staff/staffdetail/staffdetail.module.ts")).then(function (mod) {
-          return mod.StaffdetailModule;
+        [__webpack_require__.e("common"), __webpack_require__.e(26)]).then(__webpack_require__.bind(null,
+        /*! ./changepassword/changepassword.module */
+        "./src/app/home/profile/changepassword/changepassword.module.ts")).then(function (mod) {
+          return mod.ChangepasswordModule;
         });
       },
       data: {
-        title: "Info",
+        title: "Change Password",
         status: false
       }
     }, {
-      path: 'review/:id',
+      path: 'business-hours',
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(2), __webpack_require__.e("common"), __webpack_require__.e(12)]).then(__webpack_require__.bind(null,
-        /*! ./staffreview/staffreview.module */
-        "./src/app/home/staff/staffreview/staffreview.module.ts")).then(function (mod) {
-          return mod.StaffreviewModule;
+        [__webpack_require__.e(6), __webpack_require__.e(25)]).then(__webpack_require__.bind(null,
+        /*! ./businesshours/businesshours.module */
+        "./src/app/home/profile/businesshours/businesshours.module.ts")).then(function (mod) {
+          return mod.BusinesshoursModule;
         });
       },
       data: {
-        title: "Info / Review",
+        title: "Business Hours",
         status: false
       }
     }];
 
-    var StaffRoutingModule = function StaffRoutingModule() {
-      _classCallCheck(this, StaffRoutingModule);
+    var ProfileRoutingModule = function ProfileRoutingModule() {
+      _classCallCheck(this, ProfileRoutingModule);
     };
 
-    StaffRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    ProfileRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], StaffRoutingModule);
+    })], ProfileRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staff.module.ts":
-  /*!********************************************!*\
-    !*** ./src/app/home/staff/staff.module.ts ***!
-    \********************************************/
+  "./src/app/home/profile/profile.module.ts":
+  /*!************************************************!*\
+    !*** ./src/app/home/profile/profile.module.ts ***!
+    \************************************************/
 
-  /*! exports provided: StaffModule */
+  /*! exports provided: ProfileModule */
 
   /***/
-  function srcAppHomeStaffStaffModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeProfileProfileModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffModule", function () {
-      return StaffModule;
+    __webpack_require__.d(__webpack_exports__, "ProfileModule", function () {
+      return ProfileModule;
     });
     /* harmony import */
 
@@ -167,25 +149,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _staff_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./staff-routing.module */
-    "./src/app/home/staff/staff-routing.module.ts");
-    /* harmony import */
+    var _profile_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./profile-routing.module */
+    "./src/app/home/profile/profile-routing.module.ts"); // import { ProfileComponent } from './profile.component';
 
 
-    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/shared/shared.module */
-    "./src/app/shared/shared.module.ts");
-
-    var StaffModule = function StaffModule() {
-      _classCallCheck(this, StaffModule);
+    var ProfileModule = function ProfileModule() {
+      _classCallCheck(this, ProfileModule);
     };
 
-    StaffModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    ProfileModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _staff_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"]],
-      entryComponents: []
-    })], StaffModule);
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _profile_routing_module__WEBPACK_IMPORTED_MODULE_3__["ProfileRoutingModule"]]
+    })], ProfileModule);
     /***/
   }
 }]);
