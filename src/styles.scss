@@ -1508,6 +1508,70 @@ span.star.star-empty, .star-full {height: 17px !important;width: 17px !important
 }
 
 
+  
+  
+  .fc-day-number {
+    font-size: 13px;
+    margin-right: 4px;
+    margin-top: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 3px;
+    line-height: 24px;
+    text-align: center;
+    // color: #777;
+  }
+  
+  .fc-today {
+    background-color: #E6FAF3 !important; 
+  }
+  
+  .fc-today .fc-day-number {
+    background-color: #00c983; 
+    font-weight: 700;
+    color: #fff;
+  }
+  
+  .fc-content {
+    padding: 1px 4px;
+  }
+  
+  .fc-popover.fc-more-popover,
+  .fc-popover.fc-more-popover .fc-widget-header,
+  .fc-popover.fc-more-popover .fc-widget-content {
+    background-color: #fff !important; 
+  }
+  
+  .fc-axis.fc-widget-content {
+    font-size: 12px;
+    font-weight: 700;
+  }
+  
+  #calendar .dot-event {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-left: 10px;
+      vertical-align: text-bottom;
+  }
+  
+  /* New CSS */
+  
+  .fc-month-view .fc-row .fc-day {
+    /* Aligns the event dots at the bottom of the cell. */
+    vertical-align: bottom;
+  }
+  
+  .fc-month-view .fc-day .fc-event-dot {
+    cursor: default;
+    /* Gives some spacing between the dots in a cell. */
+    margin-right: 2px;
+  }
+  
+  .fc-month-view .hidden {
+    display: none;
+  }
 
 
 .fc-content {
@@ -1556,4 +1620,5 @@ span.star.star-empty, .star-full {height: 17px !important;width: 17px !important
     opacity: 1;
     -webkit-transition: all 0.75s ease;
     transition: all 0.75s ease;
-  }  
+  } 
+  .fc-day-grid-event .fc-content{white-space: normal;}

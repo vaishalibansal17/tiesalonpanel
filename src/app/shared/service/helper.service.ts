@@ -47,6 +47,20 @@ export class Helper {
         return bac.valueOf();
     }
 
+    utcDate(data?: any, time?: any, isUTC = true) {
+        var date = new Date(data),
+            mnth = ("0" + (date.getMonth())).slice(-2),
+            day = ("0" + date.getDate()).slice(-2);
+        var dateTime = new Date(time)
+
+        var timeStamp = new Date(Number(date.getFullYear()), Number(mnth), Number(day), 5,30,0);
+        let bac = moment.utc(timeStamp)
+          if (isUTC)
+            return bac.valueOf();
+        else
+            return timeStamp.getTime();
+    }
+
     parsehhmm(data) {
         if(data!==null){
             var date = new Date(data)

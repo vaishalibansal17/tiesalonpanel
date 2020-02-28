@@ -31,7 +31,8 @@ export const APIURLS = {
     SLOT : BASE_URL + 'salon/slot/duration',
     DASHBOARD : BASE_URL + 'salon/dashboard',
 
-    BOOKING_ACPT : BASE_URL + 'booking/accept/reject'
+    BOOKING_ACPT : BASE_URL + 'booking/accept/reject',
+    BOOKING_SLOT : BASE_URL + 'booking/slot'
 
 
 };

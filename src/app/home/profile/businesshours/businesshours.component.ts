@@ -230,8 +230,8 @@ export class BusinesshoursComponent implements OnInit {
                 open: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.open_time.hh, obj.open_time.mm),
                 close: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.close_time.hh, obj.close_time.mm),
                 isOpen: obj.hasOwnProperty('is_open')?obj.is_open:false,
-                breakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.strt_break_time.hh, obj.strt_break_time.mm),
-                breakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.end_break_time.hh, obj.end_break_time.mm),
+                breakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.strt_break_time?obj.strt_break_time.hh:0, obj.strt_break_time?obj.strt_break_time.mm:0),
+                breakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.end_break_time?obj.end_break_time.hh:0, obj.end_break_time?obj.end_break_time.mm:0),
               });
               let dayName = index == 0 ? 'Sun' : (index == 1 ? 'Mon' : (index == 2 ? 'Tues' : (index == 3 ? 'Wed' : (index == 4 ? 'Thurs' : (index == 5 ? 'Fri' : 'Sat')))))
               this.toggle(day,dayName)

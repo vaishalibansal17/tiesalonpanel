@@ -36,7 +36,7 @@
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/edit-staff.png" alt="envelope"></span>
                 <mat-label>{{'STAFF'| translate}}</mat-label>
-                <mat-select formControlName="staf_id">
+                <mat-select formControlName="staf_id" (selectionChange)="slctstf()" >
                     <mat-option *ngFor="let staff of staff" [value]="staff">
                         {{staff.name | titlecase}}
                     </mat-option>
@@ -44,9 +44,14 @@
             </mat-form-field>
             <div>
                 <span ><img class="cal-img" src="assets/images/calendar_black.png" alt="envelope"></span>
-                <p-calendar [showTime]="true" formControlName="bookDateTime" icon="pi pi-calendar"  dateFormat="dd M yy"
+                <p-calendar [showTime]="true" formControlName="bookDateTime" icon="pi pi-calendar"  dateFormat="dd M yy"  (onClose)="slctstf()"
                     placeholder="Select appointment date and time" inputStyleClass="form-control" [minDate] = "todaydt" [maxDate] = "max"
                     [readonlyInput]="true"></p-calendar>
+            </div>
+            <div>
+                <span *ngFor="let slots of slots;">
+                    <p>{{slots?.time | date : 'h:mm a'}}</p>
+                </span>
             </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/description.png" alt="envelope"></span>

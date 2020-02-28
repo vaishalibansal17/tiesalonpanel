@@ -37,18 +37,21 @@ export class AddbookingsComponent implements OnInit {
   submitted: boolean = false;
   todaydt = new Date();
   max: Date;
+  salonid: string;
+  slots: any;
   constructor(private httpService: HttpRequestService, private router: Router,
     private messageService: MessageService, private helper: Helper,
     private errorserv: ErrorService,
     private trns: TranslatePipe) { }
 
   ngOnInit() {
+    this.salonid = localStorage.getItem('salonid');
     this.max = new Date(Number(this.todaydt.getFullYear()), Number(this.todaydt.getMonth() + 3), Number(this.todaydt.getDate()), (23), (59), (59), (59));
     this.responseData = this.messageService.getBooking();
     if (!this.responseData) {
-      this.router.navigateByUrl('walk-in-customer/add-user').then(() => {
-        this.errorserv.handleError(0);
-      })
+      // this.router.navigateByUrl('walk-in-customer/add-user').then(() => {
+      //   this.errorserv.handleError(0);
+      // })
     } else
       this.getServices();
 
@@ -134,11 +137,31 @@ export class AddbookingsComponent implements OnInit {
     }
     else {
       console.log(rmvsrv);
-      
+
       this.price = this.price - rmvsrv.cost;
       this.profile.controls['price'].setValue(this.price)
     }
+  }
+  slctstf() {
+    if (this.profile.value.bookDateTime && this.profile.value.staf_id) {
+      // let date = new Date(this.profile.value.bookDateTime);
+      let date = this.helper.utcDate(this.profile.value.bookDateTime);
+      console.log(this.helper.utcDate(this.profile.value.bookDateTime));
 
+      this.httpService.getRequest('GET_PARMS', 'BOOKING_SLOT',  this.salonid, `bk_dt=${date}&staf_id=${this.profile.value.staf_id._id}`)
+        .subscribe((response: any) => {
+          if (response.status === 1) {
+              this.slots = response.res
+          } else {
+            if (response.err) {
+              // this.error.handleError(response.err.errCode);
+            }
+          }
+        }, (error) => {
+          // this.error.handleError(0);
+          // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
+        });
+    }
   }
 
 }

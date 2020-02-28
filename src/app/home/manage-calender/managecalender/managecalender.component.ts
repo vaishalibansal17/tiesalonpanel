@@ -41,7 +41,8 @@ export class ManagecalenderComponent implements OnInit {
         let bkngs = rs.res.bkngs;
         bkngs.forEach(element => {
           this.calendarEvents.push({
-            title: element.service, start: new Date(element.bookDateTime)
+            title: element.service, start: new Date(element.bookDateTime), id:element._id
+            //  url: `booking/info/${element._id}`
           })
         });
       } else {
@@ -50,29 +51,25 @@ export class ManagecalenderComponent implements OnInit {
     }, (err) => {
 
     })
-    console.log(this.calendarEvents);
-
   }
 
   handleDateClick(calDate) {
-    console.log(calDate, this.helper.parseDate(calDate.date));
     this.route.navigateByUrl('manage-calender/list/' + this.helper.parseDate(calDate.date));
   }
 
   eventClicked(calDate) {
-    console.log(calDate);
+    let path = calDate.event.id;
+    this.route.navigate(['/booking/info', path]);
   }
 
   handleDatesRender($event) {
     this.currentDate = this.calendarComponent.getApi().getDate();
-    this.calendarEvents=[];
+    this.calendarEvents = [];
     this.getList(new Date(this.currentDate).getMonth(), new Date(this.currentDate).getFullYear());
   }
-  eventRender(e){ 
-    let {view, event,el} = e;
-    console.log(el, event.title, e);
-    
+  eventRender(e) {
+    let { view, event, el } = e;
     el.querySelectorAll(".fc-content")[0].setAttribute("data-tooltip", event.title);
-
   }
 }
+
