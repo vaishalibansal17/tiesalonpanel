@@ -48,7 +48,7 @@
                     placeholder="Select appointment date and time" inputStyleClass="form-control" [minDate] = "todaydt" [maxDate] = "max"
                     [readonlyInput]="true"></p-calendar>
             </div>
-            <div>
+            <div class="time_tabs">
                 <span *ngFor="let slots of slots;">
                     <p>{{slots?.time | date : 'h:mm a'}}</p>
                 </span>
