@@ -10,10 +10,18 @@ p.color.error{    top: 0px !important;}
 :host ::ng-deep .ui-inputtext {
     width: 100% !important;
   }
+  .date_time{position: relative;}
   img.cal-img {
     position: absolute;
     z-index: 999;
-    padding-top: 15px;
-    padding-left: 14px;
+    top:15px;
+    left: 15px;
     color: #232121;
+}
+
+
+@media(max-width:992px){
+  :host ::ng-deep .ui-inputtext{padding-left: 45px !important;}
+  img.cal-img {
+    top:18px;}
 }
