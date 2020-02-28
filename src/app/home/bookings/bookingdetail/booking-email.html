@@ -3,11 +3,11 @@
     <form>
         <mat-form-field>
             <!-- <span class="email-img pass"><img src="assets/images/changepassword.png" alt="envelope"></span> -->
-            <input matInput placeholder="Enter your email address" class="form-control popup">
+            <input matInput placeholder="Enter your email address" [(ngModel)] = "email"  [ngModelOptions]="{standalone: true}" class="form-control popup">
         </mat-form-field>
-    <div class="text-center"><button type="submit" class="btn btn-submit">Send</button></div>
+    <div class="text-center"><button type="button" (click)="close({close:true, email: email})" class="btn btn-submit">Send</button></div>
 </form>
 
   </mat-dialog-content>
-    <button mat-button mat-dialog-close><img src="assets/images/close.png" alt="Close"></button>
+    <button mat-button mat-dialog-close type="button" (click)="close(false)" ><img src="assets/images/close.png" alt="Close"></button>
   

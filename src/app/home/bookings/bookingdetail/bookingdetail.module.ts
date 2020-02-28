@@ -5,6 +5,7 @@ import { BookingdetailRoutingModule } from './bookingdetail-routing.module';
 import { BookingdetailComponent, BookingEmailDialogPopup } from './bookingdetail.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AgmCoreModule } from '@agm/core';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { AgmCoreModule } from '@agm/core';
     CommonModule,
     BookingdetailRoutingModule,
     SharedModule,
+    FormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAHEv0pFxjFfAOWbrLVw1szHKb2aakZ3YU',
       libraries: ["places"]

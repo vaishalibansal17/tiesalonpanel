@@ -2,19 +2,27 @@
     <h1>Manage Calender</h1>
     <p>It will set up in further milestone.</p>
 </div> -->
+<div id="calendar">
 
-<full-calendar
-      #calendar
-      defaultView="dayGridMonth"
+<full-calendar #calendar defaultView="dayGridMonth" 
       [header]="{
         left: 'prev,next today',
         center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-      }"
+        right: 'dayGridMonth,timeGridWeek,listweek,timeGridDay'
+      }" 
+      [buttonText]="{
+          today: 'Today',
+          month: 'Month',
+          week: 'Week',
+          list:'List',
+          day: 'Day'
+      }" 
       eventLimit="true"
-      [plugins]="calendarPlugins"
-      [weekends]="calendarWeekends"
+      [plugins]="calendarPlugins" 
       [events]="calendarEvents"
-      (dateClick)="handleDateClick($event)"
-      (eventClick)="eventClicked($event)"
-      ></full-calendar> 
+      (dateClick)="handleDateClick($event)" 
+      (eventClick)="eventClicked($event)" 
+      (datesRender)="handleDatesRender($event)"
+      (eventRender)="eventRender($event)"
+      deepChangeDetection="true"></full-calendar>
+    </div>

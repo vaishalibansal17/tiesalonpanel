@@ -23,15 +23,17 @@ export interface Booking {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'service', 'serviceat', 'staff', 'number', 'status', 'bookingid', 'date', 'action' ];
+  displayedColumns: string[] = ['position', 'name', 'service', 'serviceat', 'staff', 'number', 'status', 'bookingid', 'date', 'action'];
   bookings: Booking[] = [
-    { value: '1', viewValue: 'All Bookings' },
+    { value: '6', viewValue: 'All Bookings' },
     { value: '2', viewValue: 'New Bookings' },
-    { value: '3', viewValue: 'Accepted Bookings' },
-    { value: '4', viewValue: 'In-Process Bookings' },
-    { value: '5', viewValue: 'Completed Bookings' },
+    { value: '1', viewValue: 'Accepted Bookings' },
+    // { value: '4', viewValue: 'In-Process Bookings' },
+    { value: '0', viewValue: 'Pending Bookings' },
+    { value: '2', viewValue: 'Cancelled Bookings' },
+    { value: '3', viewValue: 'Completed Bookings' },
   ];
-  
+
   limitPage = LIMIT;
   dataSource: ListDataSource;
   search: string;
@@ -42,6 +44,8 @@ export class ListComponent implements OnInit {
   loading: boolean;
   imgurl: string;
   totalLength: number;
+  type: number;
+
   @ViewChild(MatPaginator, { static: true }) set matPaginator(mp: MatPaginator) {
     this.paginator = mp;
   };
@@ -54,14 +58,16 @@ export class ListComponent implements OnInit {
   constructor(public dialog: MatDialog, private list: ListService, private errsrv: ErrorService, private httpservice: HttpRequestService, private trns: TranslatePipe, ) { }
 
   openDialog(id, type) {
-    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: `${'Are you sure you want to '}${type=="accept"? 'accept':'decline'+' the Booking?'}`, btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
+    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: `${'Are you sure you want to '}${type == 1 ? 'accept' : 'decline' + ' the Booking?'}`, btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
     dialogRef.beforeClosed().subscribe(
       (val) => {
         if (val) {
-          this.httpservice.getRequest('DELETE', 'BOOKING', id)
+          console.log(id);
+
+          this.httpservice.getRequest('PUT', 'BOOKING_ACPT', { bk_status: type }, id)
             .subscribe((response: any) => {
               if (response.status === 1) {
-                this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('DELETE_STAFF'));
+                this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), type == 1 ? this.trns.transform('BK_ACPT') : this.trns.transform('BK_DEC'));
                 this.getBookings();
               } else {
                 if (response.err)
@@ -104,31 +110,56 @@ export class ListComponent implements OnInit {
 
   loadBookingList() {
     if (this.sort.active == 'name') {
-      this.sortData.sortValue = '1'
-    } else if (this.sort.active == 'email') {
-      this.sortData.sortValue = '2'
+      this.sortData.sortValue = 'user_name'
+    } else if (this.sort.active == 'date') {
+      this.sortData.sortValue = 'bookDateTime'
     } else {
       this.sortData.sortValue = '3'
     }
     this.sortData.direction = this.sort.direction || null;
     let listObj = {
-      page: ((this.paginator.pageIndex - 1) + 1),
+      page: ((this.paginator.pageIndex - 1) + 2),
       limit: this.paginator.pageSize || this.limitPage[0],
       sort_val: this.sortData.sortValue,
       dir: this.sortData.direction == 'asc' ? '1' : '-1'
     }
     if (this.search)
       listObj['srch'] = this.search;
+    if (this.type)
+      listObj['type'] = this.type;
     this.dataSource.load(listObj, { api: 'BOOKING' });
   }
+  
   applyFilters(): void {
+    // if (this.search.length > 3)
     this.loadBookingList();
     this.isApplied = true;
+  }
+  slctype(event) {
+    if (event.value < 6) {
+      this.type = event.value;
+      this.loadBookingList();
+    } else {
+      this.type = null;
+      this.loadBookingList();
+    }
   }
 
   paginate() {
     this.paginator.pageSize = this.paginator.pageSize + 1;
     this.getBookings();
+  }
+
+  bookingaction(action) {
+    this.httpservice.getRequest('PUT', 'BOOKING_ACPT', action._id).subscribe(rs => {
+      if (rs.status) {
+
+      } else {
+
+      }
+    }, (error) => {
+      // this.httprequest.showError('Failed to get');
+    })
   }
   // ********************** Account Manager List Api Integration with search End******************
 
@@ -146,9 +177,9 @@ export class ListComponent implements OnInit {
           "Contact Number": element.user_contact,
           "Staff": element.staf_name ? element.staf_name : "NA",
           "Booking id": element.booking_id,
-          "Status": element.status== 0?'Pending':(element.status== 1?'Confirmed':(element.status== 2?'Rejected':element.status== 3?'Completed':(element.status== 4?'Rescheduled':'Unserved'))),
-          "date":datePipe.transform(element.bookDateTime, "dd/MM/yyyy"),
-          "time":datePipe.transform(element.bookDateTime, "h:mm a"),
+          "Status": element.status == 0 ? 'Pending' : (element.status == 1 ? 'Confirmed' : (element.status == 2 ? 'Rejected' : element.status == 3 ? 'Completed' : (element.status == 4 ? 'Rescheduled' : 'Unserved'))),
+          "date": datePipe.transform(element.bookDateTime, "dd/MM/yyyy"),
+          "time": datePipe.transform(element.bookDateTime, "h:mm a"),
         };
         finalData.push(obj);
       });
@@ -157,11 +188,11 @@ export class ListComponent implements OnInit {
       this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('EXPORTD'));
     })
   }
-  
-  chckDay(day){
+
+  chckDay(day) {
     switch (day) {
       case 0:
-      return 'Sunday'
+        return 'Sunday'
         break;
       case 1:
         return 'Monday'

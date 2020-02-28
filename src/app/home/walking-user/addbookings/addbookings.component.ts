@@ -36,17 +36,19 @@ export class AddbookingsComponent implements OnInit {
   price = 0;
   submitted: boolean = false;
   todaydt = new Date();
+  max: Date;
   constructor(private httpService: HttpRequestService, private router: Router,
     private messageService: MessageService, private helper: Helper,
     private errorserv: ErrorService,
     private trns: TranslatePipe) { }
 
   ngOnInit() {
+    this.max = new Date(Number(this.todaydt.getFullYear()), Number(this.todaydt.getMonth() + 3), Number(this.todaydt.getDate()), (23), (59), (59), (59));
     this.responseData = this.messageService.getBooking();
     if (!this.responseData) {
-      // this.router.navigateByUrl('walkin-customer/add-user').then(() => {
-      //   this.errorserv.handleError(0);
-      // })
+      this.router.navigateByUrl('walk-in-customer/add-user').then(() => {
+        this.errorserv.handleError(0);
+      })
     } else
       this.getServices();
 

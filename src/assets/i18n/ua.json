@@ -136,6 +136,11 @@
   "FRMREQ":"الرجاء إدخال تاريخ البدء لرمز القسيمة",
   "TOREQ":"الرجاء إدخال تاريخ الانتهاء لرمز القسيمة",
 
+  "BK_ACPT": "Booking accepted.",
+  "BK_DEC": "Booking declined.",
+  "BK_REJ": "Booking rejected.",
+  "BK_COM": "Booking Completed.",
+
   "SALONALRDYEXIST":"صالون مع هذا رقم الهاتف أو البريد الإلكتروني موجود بالفعل",
   "SETSUCCESS":"تم تحديث الإعدادات بنجاح",
   

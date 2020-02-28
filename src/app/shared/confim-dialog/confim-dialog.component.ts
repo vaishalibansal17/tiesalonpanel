@@ -1,7 +1,4 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { HttpRequestService } from '../service/http-request.service';
-import { ErrorService } from '../service/error.service';
-import { TranslatePipe } from '../_pipes/translate.pipe';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
@@ -18,23 +15,16 @@ export class ConfimDialogComponent implements OnInit {
   btn: any;
   cncl: any;
   constructor(
-    private httpservice: HttpRequestService,
-    private errsrv: ErrorService,
-    private trns: TranslatePipe,
     public dialogRef: MatDialogRef<ConfimDialogComponent>,
     @Inject(MAT_DIALOG_DATA) data
-  ) {
-    console.log(data);
-    
+  ) {    
     this.msg = data.msg;
     this.btn = data.btn;
     this.cncl = data.cncl
   }
 
 
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
   close(val) {
     this.dialogRef.close(val);

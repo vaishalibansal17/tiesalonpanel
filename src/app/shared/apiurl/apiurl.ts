@@ -29,6 +29,9 @@ export const APIURLS = {
     HELP_CENTER : BASE_URL + 'compPortfolio',
 
     SLOT : BASE_URL + 'salon/slot/duration',
-    DASHBOARD : BASE_URL + 'salon/dashboard'
+    DASHBOARD : BASE_URL + 'salon/dashboard',
+
+    BOOKING_ACPT : BASE_URL + 'booking/accept/reject'
+
 
 };
