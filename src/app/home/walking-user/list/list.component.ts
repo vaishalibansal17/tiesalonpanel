@@ -46,7 +46,7 @@ export class ListComponent implements OnInit {
     { value: '4', viewValue: 'In-Process Bookings' },
     { value: '5', viewValue: 'Completed Bookings' },
   ];
-  detail: import("/Users/brainmobimac/Abhishek/angular/tie-web/src/app/model/List").List[];
+  // detail: import("/Users/brainmobimac/Abhishek/angular/tie-web/src/app/model/List").List[];
   loading: boolean;
   imgurl: string;
   totalLength: number;
@@ -71,7 +71,7 @@ export class ListComponent implements OnInit {
   getSalonStaff(): void {
     this.dataSource = new ListDataSource(this.list);
     this.loadStaffList();
-    this.dataSource.usersData.subscribe((val) => this.detail = val);
+    // this.dataSource.usersData.subscribe((val) => this.detail = val);
 
     this.dataSource.loadingUsers.subscribe(e => this.loading = !e);
     this.dataSource.extra$.subscribe(e => this.imgurl = e)
