@@ -1,3 +1,5 @@
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -6,43 +8,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[22], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/feedback/feedback.component.html":
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings.component.html":
   /*!*********************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/feedback/feedback.component.html ***!
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings.component.html ***!
     \*********************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeFeedbackFeedbackComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeSettingsSettingsComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form [formGroup]='feedback' (ngSubmit)='feedbackSubmit()'>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/email.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'EMAIL'| translate | titlecase}}\" class=\"form-control\"\n                    formControlName=\"email\" maxlength=\"100\" readonly>\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.email.dirty|| getControl.email.touched) && getControl.email.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.email.errors.required\">{{'LOGINEMAIL'| translate}}</p>\n                <p class=\"color error\"\n                    *ngIf=\"!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress\">\n                    {{'LOGINVALIDEMAIL'| translate}}</p>\n            </div>\n            <!-- <mat-form-field>\n                <span class=\"email-img phone\"><img src=\"assets/images/mobile.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PHONE'| translate | titlecase}}\"\n                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' class=\"form-control\"\n                    formControlName=\"phone\" maxlength=\"12\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.phone.dirty|| getControl.phone.touched) && getControl.phone.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.phone.errors.required\">{{'PHNREQ'|translate}}</p>\n                <p class=\"color error\" *ngIf=\"!getControl.phone.errors.required && getControl.phone.errors.Invalidphone \">{{'PHNLNGTH'|translate}}</p>\n            </div> -->\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/description.png\" alt=\"envelope\"></span>\n                <textarea matInput placeholder=\"{{'DESCRIPTION'| translate}}\" class=\"form-control\"\n                    formControlName=\"description\" maxlength=\"500\"></textarea>\n            </mat-form-field>\n            <div\n                *ngIf=\"(submitted || getControl.description.dirty|| getControl.description.touched) && getControl.description.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.description.errors.required\">{{'DESCREQ' | translate}}</p>\n                <p class=\"color error\" *ngIf=\"getControl.description.errors.minlength \">{{'DESCLNGTH'| translate}}</p>\n            </div>\n            <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Send Feedback</button>\n            </div>\n        </form>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'NOTIFICATION'| translate}}</div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle [(ngModel)]=\"is_notif\" name=\"is_notif\" (change)=\"toggle('is_notif', is_notif)\"></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'LANG'| translate}}</div>\n            <div class=\"col-md-6 alignright\">\n                <ul>\n                    <li class=\"{{lang=='en'?'active':''}}\" (click)=\"setLang('en')\">En <img src=\"assets/images/flag_en.png\" alt=\"English\"></li>\n                    <li class=\"{{lang=='ua'?'active':''}}\" (click)=\"setLang('ua')\">Ar <img src=\"assets/images/flag_ar.png\" alt=\"Arabic\"></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'ONLINBOOKING'| translate}}</div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle [(ngModel)]=\"onl_booking\" name=\"onl_booking\" (change)=\"toggle('onl_booking', onl_booking)\"></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"setting_list\"> \n        <div class=\"row\">\n            <div class=\"col-md-8\">{{'SCHEDULEAPPT'| translate}} <button mat-raised-button matTooltip=\"{{'SCHEDULEAPPT'| translate}}\" [matTooltipPosition]=\"position.value\" aria-label=\"Button that displays a tooltip in various positions\" (click)=\"openDialog()\" ><img src=\"assets/images/info.png\" alt=\"Info\"></button></div>\n            <div class=\"col-md-4 alignright\">  \n                <mat-form-field>\n                    <mat-label>{{'SCHEDULEAPPT'| translate}}</mat-label>\n                    <mat-select [disableRipple]=\"true\" [(ngModel)]=\"sch_apt\" name=\"sch_apt\" (selectionChange)=\"feedbackSubmit()\">\n                      <mat-option *ngFor=\"let appointment of appointments\" [value]=\"appointment.value\">\n                        {{appointment.viewValue}}\n                      </mat-option>\n                    </mat-select>\n                  </mat-form-field>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'ALLOWMULTISETTINGS'| translate}}</div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle name=\"allow_multi\" [(ngModel)]=\"allow_multi\" (change)=\"toggle('allow_multi', allow_multi)\"></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'HOURSPRIORBOOKING'| translate}}</div>\n            <div class=\"col-md-6 alignright\">3</div>\n        </div>\n    </div>\n    <!-- <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\"><button mat-raised-button (click)=\"openDialog2()\" [disableRipple]=\"true\">{{'NUMOFBOOK'| translate}}</button></div>\n            <div class=\"col-md-6 alignright\">8</div>\n        </div>\n    </div> -->\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'DEACACC'| translate}} \n                <button  [disableRipple]=\"true\" mat-raised-button matTooltip=\"{{'DEACTEXT'| translate}}\" [matTooltipPosition]=\"position.value\" aria-label=\"Button that displays a tooltip in various positions\"><img src=\"assets/images/info.png\" alt=\"Info\"></button>\n            </div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle [(ngModel)]=\"is_delete\" name=\"is_delete\" (change)=\"openDialog()\"></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"text-center\"><a href=\"javascript:void(0)\" (click)=\"openDialog()\" class=\"link\">{{'DELACC'| translate}}</a></div>\n</div>\n\n\n";
     /***/
   },
 
   /***/
-  "./src/app/home/feedback/feedback-routing.module.ts":
+  "./src/app/home/settings/settings-routing.module.ts":
   /*!**********************************************************!*\
-    !*** ./src/app/home/feedback/feedback-routing.module.ts ***!
+    !*** ./src/app/home/settings/settings-routing.module.ts ***!
     \**********************************************************/
 
-  /*! exports provided: FeedbackRoutingModule */
+  /*! exports provided: SettingsRoutingModule */
 
   /***/
-  function srcAppHomeFeedbackFeedbackRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeSettingsSettingsRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "FeedbackRoutingModule", function () {
-      return FeedbackRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "SettingsRoutingModule", function () {
+      return SettingsRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +67,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _feedback_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./feedback.component */
-    "./src/app/home/feedback/feedback.component.ts");
+    var _settings_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./settings.component */
+    "./src/app/home/settings/settings.component.ts");
 
     var routes = [{
       path: '',
-      component: _feedback_component__WEBPACK_IMPORTED_MODULE_3__["FeedbackComponent"]
+      component: _settings_component__WEBPACK_IMPORTED_MODULE_3__["SettingsComponent"]
     }];
 
-    var FeedbackRoutingModule = function FeedbackRoutingModule() {
-      _classCallCheck(this, FeedbackRoutingModule);
+    var SettingsRoutingModule = function SettingsRoutingModule() {
+      _classCallCheck(this, SettingsRoutingModule);
     };
 
-    FeedbackRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    SettingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], FeedbackRoutingModule);
+    })], SettingsRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/feedback/feedback.component.scss":
+  "./src/app/home/settings/settings.component.scss":
   /*!*******************************************************!*\
-    !*** ./src/app/home/feedback/feedback.component.scss ***!
+    !*** ./src/app/home/settings/settings.component.scss ***!
     \*******************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeFeedbackFeedbackComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeSettingsSettingsComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvZmVlZGJhY2svZmVlZGJhY2suY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = ".main-card .setting_list ul li {\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9zZXR0aW5ncy9zZXR0aW5ncy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9zZXR0aW5ncy9zZXR0aW5ncy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUErQixlQUFBO0FDRS9CIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9zZXR0aW5ncy9zZXR0aW5ncy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tYWluLWNhcmQgLnNldHRpbmdfbGlzdCB1bCBsaXtjdXJzb3I6IHBvaW50ZXI7fSIsIi5tYWluLWNhcmQgLnNldHRpbmdfbGlzdCB1bCBsaSB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn0iXX0= */";
     /***/
   },
 
   /***/
-  "./src/app/home/feedback/feedback.component.ts":
+  "./src/app/home/settings/settings.component.ts":
   /*!*****************************************************!*\
-    !*** ./src/app/home/feedback/feedback.component.ts ***!
+    !*** ./src/app/home/settings/settings.component.ts ***!
     \*****************************************************/
 
-  /*! exports provided: FeedbackComponent */
+  /*! exports provided: SettingsComponent */
 
   /***/
-  function srcAppHomeFeedbackFeedbackComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeSettingsSettingsComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "FeedbackComponent", function () {
-      return FeedbackComponent;
+    __webpack_require__.d(__webpack_exports__, "SettingsComponent", function () {
+      return SettingsComponent;
     });
     /* harmony import */
 
@@ -139,140 +141,249 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/shared/service/http-request.service */
-    "./src/app/shared/service/http-request.service.ts");
-    /* harmony import */
-
-
-    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/shared/service/error.service */
-    "./src/app/shared/service/error.service.ts");
-    /* harmony import */
-
-
-    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
-    /* harmony import */
-
-
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/fesm2015/forms.js");
     /* harmony import */
 
 
-    var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/app/shared/service/validation-service */
-    "./src/app/shared/service/validation-service.ts");
+    var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/material */
+    "./node_modules/@angular/material/esm2015/material.js");
     /* harmony import */
 
 
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/service/translate.service */
+    "./src/app/shared/service/translate.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/confim-dialog/confim-dialog.component */
+    "./src/app/shared/confim-dialog/confim-dialog.component.ts");
+    /* harmony import */
+
+
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/shared/_pipes/translate.pipe */
     "./src/app/shared/_pipes/translate.pipe.ts");
+    /* harmony import */
 
-    var FeedbackComponent =
+
+    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/shared/service/http-request.service */
+    "./src/app/shared/service/http-request.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/shared/service/error.service */
+    "./src/app/shared/service/error.service.ts");
+    /* harmony import */
+
+
+    var lodash__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! lodash */
+    "./node_modules/lodash/lodash.js");
+    /* harmony import */
+
+
+    var lodash__WEBPACK_IMPORTED_MODULE_9___default =
+    /*#__PURE__*/
+    __webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_9__);
+
+    var SettingsComponent =
     /*#__PURE__*/
     function () {
-      function FeedbackComponent(httpService, errService, trns, router) {
-        _classCallCheck(this, FeedbackComponent);
+      function SettingsComponent(dialog, trns, trnsrv, httpService, errService) {
+        _classCallCheck(this, SettingsComponent);
 
+        this.dialog = dialog;
+        this.trns = trns;
+        this.trnsrv = trnsrv;
         this.httpService = httpService;
         this.errService = errService;
-        this.trns = trns;
-        this.router = router;
-        this.submitted = false;
+        this.positionOptions = ['after', 'before', 'above', 'below', 'left', 'right'];
+        this.position = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](this.positionOptions[0]);
+        this.lang = localStorage.getItem('lang') || 'en';
+        this.allow_multi = false;
+        this.onl_booking = false;
+        this.is_delete = false;
+        this.is_notif = false;
+        this.sch_apt = '15';
+        this.appointments = [{
+          value: '15',
+          viewValue: 'On 15 minute intervals'
+        }, {
+          value: '30',
+          viewValue: 'On 30 minute intervals'
+        }, {
+          value: '60',
+          viewValue: 'On hourly intervals'
+        }, {
+          value: '0',
+          viewValue: 'Based on service duration'
+        }];
       }
 
-      _createClass(FeedbackComponent, [{
+      _createClass(SettingsComponent, [{
+        key: "openDialog",
+        value: function openDialog() {
+          var _this = this;
+
+          var dialogRef = this.dialog.open(src_app_shared_confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_5__["ConfimDialogComponent"], {
+            width: '500px',
+            disableClose: true,
+            data: {
+              msg: "Are you sure you want to delete your account?",
+              btn: this.trns.transform('OK'),
+              cncl: this.trns.transform('CANCEL')
+            }
+          });
+          dialogRef.beforeClosed().subscribe(function (val) {
+            if (val) {
+              _this.httpService.getRequest('PUT', 'CANCELPOLICY', {
+                is_delete: _this.is_delete
+              }, '').subscribe(function (response) {
+                if (response.status === 1) {
+                  // let salon = JSON.parse(localStorage.getItem('salon'));
+                  // salon.slt_dur = this.sch_apt;
+                  // localStorage.setItem('salon', JSON.stringify(salon));
+                  localStorage.clear();
+
+                  _this.httpService.sucsTostr(_this.trns.transform('SUCCESS'), _this.trns.transform('SETSUCCESS'));
+                } else {
+                  console.log(response);
+
+                  _this.errService.handleError(response.err.errCode);
+                }
+              });
+            } else _this.is_delete = false;
+          });
+        }
+      }, {
         key: "ngOnInit",
         value: function ngOnInit() {
           var salon = JSON.parse(localStorage.getItem('salon'));
-          this.feedback = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormGroup"]({
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](salon.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__["ValidationService"].validateEmail]),
-            // phone: new FormControl(null, [
-            //   Validators.required,
-            //   ValidationService.phonevalidator
-            // ]),
-            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(2), _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].maxLength(500)])
-          });
+          this.allow_multi = salon.allow_multi;
+          this.is_notif = salon.is_notif;
+          this.onl_booking = salon.onl_booking;
+          this.sch_apt = salon.slt_dur;
+          this.is_delete = salon.is_delete;
+          console.log(salon, this.sch_apt);
+        }
+      }, {
+        key: "setLang",
+        value: function setLang(lang) {
+          localStorage.setItem('lang', lang);
+          this.lang = lang;
+          this.trnsrv.use(this.lang);
         }
       }, {
         key: "feedbackSubmit",
         value: function feedbackSubmit() {
-          var _this = this;
+          var _this2 = this;
 
-          this.submitted = true;
+          var dialogRef = this.dialog.open(src_app_shared_confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_5__["ConfimDialogComponent"], {
+            width: '500px',
+            disableClose: true,
+            data: {
+              msg: "Are you sure you want to update Slot duration?",
+              btn: this.trns.transform('OK'),
+              cncl: this.trns.transform('CANCEL')
+            }
+          });
+          dialogRef.beforeClosed().subscribe(function (val) {
+            if (val) {
+              _this2.httpService.getRequest('PUT', 'SLOT', {
+                slt_dur: _this2.sch_apt
+              }, '').subscribe(function (response) {
+                if (response.status === 1) {
+                  var salon = JSON.parse(localStorage.getItem('salon'));
+                  salon.slt_dur = _this2.sch_apt;
+                  localStorage.setItem('salon', JSON.stringify(salon));
 
-          if (this.feedback.valid) {
-            this.feedback.value['msg'] = this.feedback.value.description;
-            this.httpService.getRequest('POST', 'FEEDBCK', this.feedback.value).subscribe(function (response) {
-              if (response.status === 1) {
-                _this.router.navigateByUrl('dashboard').then(function () {
-                  _this.httpService.sucsTostr(_this.trns.transform('SUCCESS'), _this.trns.transform('FEEDSUCCESS'));
-                });
-              } else {
-                console.log(response);
+                  _this2.httpService.sucsTostr(_this2.trns.transform('SUCCESS'), _this2.trns.transform('SETSUCCESS'));
+                } else {
+                  console.log(response);
 
-                _this.errService.handleError(response.err.errCode);
-              }
-            });
-          }
+                  _this2.errService.handleError(response.err.errCode);
+                }
+              });
+            }
+          });
         }
       }, {
-        key: "getControl",
-        get: function get() {
-          return this.feedback.controls;
+        key: "toggle",
+        value: function toggle(key, value) {
+          var _this3 = this;
+
+          var obj = _defineProperty({}, key, value);
+
+          this.httpService.getRequest('PUT', 'CANCELPOLICY', obj, '').subscribe(function (response) {
+            if (response.status === 1) {
+              var salon = JSON.parse(localStorage.getItem('salon'));
+              lodash__WEBPACK_IMPORTED_MODULE_9__["extend"](salon, obj);
+              localStorage.setItem('salon', JSON.stringify(salon));
+
+              _this3.httpService.sucsTostr(_this3.trns.transform('SUCCESS'), _this3.trns.transform('SETSUCCESS'));
+            } else {
+              console.log(response);
+
+              _this3.errService.handleError(response.err.errCode);
+            }
+          });
         }
       }]);
 
-      return FeedbackComponent;
+      return SettingsComponent;
     }();
 
-    FeedbackComponent.ctorParameters = function () {
+    SettingsComponent.ctorParameters = function () {
       return [{
-        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"]
+        type: _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
       }, {
-        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_3__["ErrorService"]
+        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__["TranslatePipe"]
       }, {
-        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]
+        type: src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_4__["TranslateService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_7__["HttpRequestService"]
+      }, {
+        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__["ErrorService"]
       }];
     };
 
-    FeedbackComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-feedback',
+    SettingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-settings',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./feedback.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/feedback/feedback.component.html")).default,
+      /*! raw-loader!./settings.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./feedback.component.scss */
-      "./src/app/home/feedback/feedback.component.scss")).default]
-    })], FeedbackComponent);
+      /*! ./settings.component.scss */
+      "./src/app/home/settings/settings.component.scss")).default]
+    })], SettingsComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/feedback/feedback.module.ts":
+  "./src/app/home/settings/settings.module.ts":
   /*!**************************************************!*\
-    !*** ./src/app/home/feedback/feedback.module.ts ***!
+    !*** ./src/app/home/settings/settings.module.ts ***!
     \**************************************************/
 
-  /*! exports provided: FeedbackModule */
+  /*! exports provided: SettingsModule */
 
   /***/
-  function srcAppHomeFeedbackFeedbackModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeSettingsSettingsModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "FeedbackModule", function () {
-      return FeedbackModule;
+    __webpack_require__.d(__webpack_exports__, "SettingsModule", function () {
+      return SettingsModule;
     });
     /* harmony import */
 
@@ -295,15 +406,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _feedback_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./feedback-routing.module */
-    "./src/app/home/feedback/feedback-routing.module.ts");
+    var _settings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./settings-routing.module */
+    "./src/app/home/settings/settings-routing.module.ts");
     /* harmony import */
 
 
-    var _feedback_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./feedback.component */
-    "./src/app/home/feedback/feedback.component.ts");
+    var _settings_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./settings.component */
+    "./src/app/home/settings/settings.component.ts");
     /* harmony import */
 
 
@@ -313,31 +424,184 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
-    /* harmony import */
-
-
-    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/shared/module/applicationpipe/applicationpipe.module */
     "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
     /* harmony import */
 
 
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/shared/_pipes/translate.pipe */
     "./src/app/shared/_pipes/translate.pipe.ts");
+    /* harmony import */
 
-    var FeedbackModule = function FeedbackModule() {
-      _classCallCheck(this, FeedbackModule);
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+
+    var SettingsModule = function SettingsModule() {
+      _classCallCheck(this, SettingsModule);
     };
 
-    FeedbackModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_feedback_component__WEBPACK_IMPORTED_MODULE_4__["FeedbackComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _feedback_routing_module__WEBPACK_IMPORTED_MODULE_3__["FeedbackRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_7__["ApplicationpipeModule"]],
-      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__["TranslatePipe"]]
-    })], FeedbackModule);
+    SettingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_settings_component__WEBPACK_IMPORTED_MODULE_4__["SettingsComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _settings_routing_module__WEBPACK_IMPORTED_MODULE_3__["SettingsRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__["ApplicationpipeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"]],
+      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]],
+      entryComponents: []
+    })], SettingsModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/service/error.service.ts":
+  /*!*************************************************!*\
+    !*** ./src/app/shared/service/error.service.ts ***!
+    \*************************************************/
+
+  /*! exports provided: ErrorService */
+
+  /***/
+  function srcAppSharedServiceErrorServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ErrorService", function () {
+      return ErrorService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./translate.service */
+    "./src/app/shared/service/translate.service.ts");
+    /* harmony import */
+
+
+    var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./http-request.service */
+    "./src/app/shared/service/http-request.service.ts"); // import { TranslatePipe } from '../_pipes/translate.pipe';
+
+
+    var ErrorService =
+    /*#__PURE__*/
+    function () {
+      function ErrorService(helper, trns) {
+        _classCallCheck(this, ErrorService);
+
+        this.helper = helper;
+        this.trns = trns;
+      }
+
+      _createClass(ErrorService, [{
+        key: "handleError",
+        value: function handleError() {
+          var errCode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+          switch (errCode) {
+            case 0:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 1:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 4:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+              break;
+
+            case 5:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
+              break;
+
+            case 6:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
+              break;
+
+            case 7:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
+              break;
+
+            case 8:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
+              break;
+
+            case 9:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
+              break;
+
+            case 31:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+              break;
+
+            case 34:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['PROMOALRDYEXIST']);
+              break;
+
+            case 32:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['STAFFALRDYEXIST']);
+              break;
+
+            case 15:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONALRDYEXIST']);
+              break;
+
+            case 39:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
+              break;
+
+            case 41:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DEACTIVE']);
+              break;
+
+            case 42:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DELSALONACC']);
+              break;
+
+            case 51:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['NOBOOK']);
+              break;
+
+            case 56:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SLNEXIST']);
+              break;
+
+            default:
+              break;
+          }
+        }
+      }]);
+
+      return ErrorService;
+    }();
+
+    ErrorService.ctorParameters = function () {
+      return [{
+        type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
+      }, {
+        type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
+      }];
+    };
+
+    ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], ErrorService);
     /***/
   }
 }]);

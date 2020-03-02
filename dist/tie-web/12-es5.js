@@ -1,819 +1,68 @@
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[12], {
   /***/
-  "./node_modules/ng-starrating/fesm2015/ng-starrating.js":
-  /*!**************************************************************!*\
-    !*** ./node_modules/ng-starrating/fesm2015/ng-starrating.js ***!
-    \**************************************************************/
-
-  /*! exports provided: RatingModule, StarRatingComponent, ɵa */
-
-  /***/
-  function node_modulesNgStarratingFesm2015NgStarratingJs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "RatingModule", function () {
-      return RatingModule;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "StarRatingComponent", function () {
-      return StarRatingComponent;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "ɵa", function () {
-      return RatingComponent;
-    });
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
-    /* harmony import */
-
-
-    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
-    /* harmony import */
-
-
-    var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! rxjs */
-    "./node_modules/rxjs/_esm2015/index.js");
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    //import { StarRatingComponent } from '../components/star-rating/star-rating.component'
-
-
-    var RatingComponent =
-    /*#__PURE__*/
-    function () {
-      function RatingComponent() {
-        _classCallCheck(this, RatingComponent);
-      }
-      /**
-       * @return {?}
-       */
-
-
-      _createClass(RatingComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {}
-      }]);
-
-      return RatingComponent;
-    }();
-
-    RatingComponent.decorators = [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-      args: [{
-        selector: 'lib-rating',
-        template: "\n    <p>\n      rating works!\n    </p>\n  "
-      }]
-    }];
-    /** @nocollapse */
-
-    RatingComponent.ctorParameters = function () {
-      return [];
-    };
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-
-    var StarRatingComponent =
-    /*#__PURE__*/
-    function () {
-      function StarRatingComponent() {
-        var _this = this;
-
-        _classCallCheck(this, StarRatingComponent);
-
-        this.stars = [];
-        this._readOnly = false;
-        this._totalStars = 5;
-        this.rate = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-
-        if (!this.onStarsCountChange) {
-          this.onStarsCountChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-          this.onStarsCountChange.subscribe(
-          /**
-          * @return {?}
-          */
-          function () {
-            _this.setStars();
-
-            _this.generateRating(true);
-
-            _this.applySizeAllStars();
-
-            _this.applyColorStyleAllStars(false);
-
-            _this.addRemoveEvents();
-          });
-        }
-
-        if (!this.onValueChange) {
-          this.onValueChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-          this.onValueChange.subscribe(
-          /**
-          * @return {?}
-          */
-          function () {
-            _this.generateRating();
-
-            _this.applySizeAllStars();
-          });
-        }
-
-        if (!this.onCheckedColorChange) {
-          this.onCheckedColorChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-          this.onCheckedColorChange.subscribe(
-          /**
-          * @return {?}
-          */
-          function () {
-            _this.applyColorStyleAllStars(true);
-          });
-        }
-
-        if (!this.onUnCheckedColorChange) {
-          this.onUnCheckedColorChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-          this.onUnCheckedColorChange.subscribe(
-          /**
-          * @return {?}
-          */
-          function () {
-            _this.applyColorStyleAllStars(false);
-          });
-        }
-
-        if (!this.onSizeChange) {
-          this.onSizeChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-          this.onSizeChange.subscribe(
-          /**
-          * @return {?}
-          */
-          function () {
-            _this.applySizeAllStars();
-          });
-        }
-
-        if (!this.onReadOnlyChange) {
-          this.onReadOnlyChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-          this.onReadOnlyChange.subscribe(
-          /**
-          * @return {?}
-          */
-          function () {
-            _this.addRemoveEvents();
-          });
-        }
-      }
-      /**
-       * @return {?}
-       */
-
-
-      _createClass(StarRatingComponent, [{
-        key: "makeEditable",
-
-        /**
-         * @private
-         * @return {?}
-         */
-        value: function makeEditable() {
-          var _this2 = this;
-
-          this.mainElement.nativeElement.addEventListener('mouseleave', this.offStar.bind(this));
-          this.mainElement.nativeElement.style.cursor = "pointer";
-          this.mainElement.nativeElement.title = this.value;
-          this.stars.forEach(
-          /**
-          * @param {?} star
-          * @return {?}
-          */
-          function (star) {
-            star.addEventListener('click', _this2.onRate.bind(_this2));
-            star.addEventListener('mouseenter', _this2.onStar.bind(_this2));
-            star.style.cursor = "pointer";
-            star.title = star.dataset.index;
-          });
-        }
-        /**
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "makeReadOnly",
-        value: function makeReadOnly() {
-          this.mainElement.nativeElement.__zone_symbol__mouseleavefalse = null;
-          this.mainElement.nativeElement.style.cursor = "default";
-          this.mainElement.nativeElement.title = this.value;
-          this.stars.forEach(
-          /**
-          * @param {?} star
-          * @return {?}
-          */
-          function (star) {
-            star.__zone_symbol__clickfalse = null;
-            star.__zone_symbol__mouseenterfalse = null;
-            star.style.cursor = "default";
-            star.title = "";
-          });
-        }
-        /**
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "addRemoveEvents",
-        value: function addRemoveEvents() {
-          if (this.readonly) {
-            this.makeReadOnly();
-          } else {
-            this.makeEditable();
-            this.onValueChange.next(this.value);
-          }
-        }
-        /**
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "ngAfterViewInit",
-        value: function ngAfterViewInit() {}
-        /**
-         * @private
-         * @param {?} event
-         * @return {?}
-         */
-
-      }, {
-        key: "onRate",
-        value: function onRate(event) {
-          /** @type {?} */
-          var star =
-          /** @type {?} */
-          event.srcElement;
-          /** @type {?} */
-
-          var oldValue = this.value;
-          this.value = parseInt(star.dataset.index);
-
-          if (this.value == 0) {
-            this.value = 1;
-          }
-          /** @type {?} */
-
-
-          var rateValues = {
-            oldValue: oldValue,
-            newValue: this.value,
-            starRating: this
-          };
-          this.rate.emit(rateValues);
-        }
-        /**
-         * @private
-         * @param {?} event
-         * @return {?}
-         */
-
-      }, {
-        key: "onStar",
-        value: function onStar(event) {
-          /** @type {?} */
-          var star =
-          /** @type {?} */
-          event.srcElement;
-          /** @type {?} */
-
-          var currentIndex = parseInt(star.dataset.index);
-
-          for (var index = 0; index < currentIndex; index++) {
-            this.stars[index].className = "";
-            this.addDefaultClass(this.stars[index]);
-            this.addCheckedStarClass(this.stars[index]);
-          }
-
-          for (var _index = currentIndex; _index < this.stars.length; _index++) {
-            this.stars[_index].className = "";
-            this.addDefaultClass(this.stars[_index]);
-          }
-        }
-        /**
-         * @private
-         * @param {?} event
-         * @return {?}
-         */
-
-      }, {
-        key: "offStar",
-        value: function offStar(event) {
-          this.generateRating();
-        }
-        /**
-         * @private
-         * @param {?} star
-         * @return {?}
-         */
-
-      }, {
-        key: "addDefaultClass",
-        value: function addDefaultClass(star) {
-          star.classList.add(StarRatingComponent.CLS_DEFAULT_STAR);
-        }
-        /**
-         * @private
-         * @param {?} star
-         * @return {?}
-         */
-
-      }, {
-        key: "addCheckedStarClass",
-        value: function addCheckedStarClass(star) {
-          star.classList.add(StarRatingComponent.CLS_CHECKED_STAR);
-        }
-        /**
-         * @private
-         * @param {?} star
-         * @return {?}
-         */
-
-      }, {
-        key: "addHalfStarClass",
-        value: function addHalfStarClass(star) {
-          star.classList.add(StarRatingComponent.CLS_HALF_STAR);
-        }
-        /**
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "setStars",
-        value: function setStars() {
-          var _this3 = this;
-
-          /** @type {?} */
-          var starContainer = this.mainElement.nativeElement;
-          /** @type {?} */
-
-          var maxStars = _toConsumableArray(Array(Number(this.totalstars)).keys());
-
-          this.stars.length = 0;
-          starContainer.innerHTML = "";
-          maxStars.forEach(
-          /**
-          * @param {?} starNumber
-          * @return {?}
-          */
-          function (starNumber) {
-            /** @type {?} */
-            var starElement = document.createElement("span");
-            starElement.dataset.index = (starNumber + 1).toString();
-            starElement.title = starElement.dataset.index;
-            starContainer.appendChild(starElement);
-
-            _this3.stars.push(starElement);
-          });
-        }
-        /**
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "applySizeAllStars",
-        value: function applySizeAllStars() {
-          var _this4 = this;
-
-          if (this._size) {
-            this.stars.length == 0 && this.setStars();
-            this.stars.forEach(
-            /**
-            * @param {?} star
-            * @return {?}
-            */
-            function (star) {
-              /** @type {?} */
-              var newSize = _this4.size.match(/\d+/)[0];
-              /** @type {?} */
-
-
-              var halfSize = parseInt(newSize) * 10 / 24;
-              /** @type {?} */
-
-              var halfMargin = 0 - parseInt(newSize) * 20 / 24;
-              star.style.setProperty(StarRatingComponent.VAR_SIZE, _this4.size);
-
-              if (star.classList.contains(StarRatingComponent.CLS_HALF_STAR)) {
-                star.style.setProperty(StarRatingComponent.VAR_HALF_WIDTH, "".concat(halfSize, "px"));
-                star.style.setProperty(StarRatingComponent.VAR_HALF_MARGIN, "".concat(halfMargin, "px"));
-              }
-            });
-          }
-        }
-        /**
-         * @private
-         * @param {?} setChecked
-         * @return {?}
-         */
-
-      }, {
-        key: "applyColorStyleAllStars",
-        value: function applyColorStyleAllStars(setChecked) {
-          var _this5 = this;
-
-          this.stars.length == 0 && this.setStars();
-          this.stars.forEach(
-          /**
-          * @param {?} star
-          * @return {?}
-          */
-          function (star) {
-            if (setChecked) {
-              _this5.applyCheckedColorStyle(star);
-            } else {
-              _this5.applyUnCheckedColorStyle(star);
-            }
-          });
-        }
-        /**
-         * @private
-         * @param {?} starElement
-         * @return {?}
-         */
-
-      }, {
-        key: "applyColorStyle",
-        value: function applyColorStyle(starElement) {
-          this.applyCheckedColorStyle(starElement);
-          this.applyUnCheckedColorStyle(starElement);
-        }
-        /**
-         * @private
-         * @param {?} starElement
-         * @return {?}
-         */
-
-      }, {
-        key: "applyCheckedColorStyle",
-        value: function applyCheckedColorStyle(starElement) {
-          starElement.style.setProperty(StarRatingComponent.VAR_CHECKED_COLOR, this.checkedcolor);
-        }
-        /**
-         * @private
-         * @param {?} starElement
-         * @return {?}
-         */
-
-      }, {
-        key: "applyUnCheckedColorStyle",
-        value: function applyUnCheckedColorStyle(starElement) {
-          starElement.style.setProperty(StarRatingComponent.VAR_UNCHECKED_COLOR, this.uncheckedcolor);
-        }
-        /**
-         * @private
-         * @param {?=} forceGenerate
-         * @return {?}
-         */
-
-      }, {
-        key: "generateRating",
-        value: function generateRating() {
-          var _this6 = this;
-
-          var forceGenerate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-          if (this.readonly && !forceGenerate) {
-            return;
-          }
-
-          this.stars.length == 0 && this.setStars();
-
-          if (this.value >= 0) {
-            this.mainElement.nativeElement.title = this.value;
-            /** @type {?} */
-
-            var hasDecimals = (Number.parseFloat(this.value.toString()) % 1).toString().substring(3, 2) ? true : false;
-            /** @type {?} */
-
-            var i = 1;
-            this.stars.forEach(
-            /**
-            * @param {?} star
-            * @return {?}
-            */
-            function (star) {
-              star.className = "";
-
-              _this6.applyColorStyle(star);
-
-              _this6.addDefaultClass(star);
-
-              if (_this6.value >= i) {
-                // star on
-                _this6.addCheckedStarClass(star);
-              } else {
-                // half star
-                if (hasDecimals) {
-                  _this6.addHalfStarClass(star);
-
-                  hasDecimals = false;
-                }
-              }
-
-              i++;
-            });
-          }
-        }
-      }, {
-        key: "checkedcolor",
-        get: function get() {
-          return this._checkedColor;
-        }
-        /**
-         * @return {?}
-         */
-        ,
-
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-        set: function set(value) {
-          this._checkedColor = value;
-          this._checkedColor && this.onCheckedColorChange.next(this._checkedColor);
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "uncheckedcolor",
-        get: function get() {
-          return this._unCheckedColor;
-        }
-        /**
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          this._unCheckedColor = value;
-          this._unCheckedColor && this.onUnCheckedColorChange.next(this._unCheckedColor);
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "value",
-        get: function get() {
-          return this._value;
-        }
-        /**
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          value = !value || value == null ? 0 : value;
-          value > this.stars.length && (value = this.stars.length);
-          this._value = value;
-          this._value >= 0 && this.onValueChange.next(this._value);
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "size",
-        get: function get() {
-          return this._size.concat(!this._size.includes("px") ? "px" : "");
-        }
-        /**
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          value = !value || value == null || value == "0px" ? "24px" : value;
-          this._size = value;
-          this.onSizeChange.next(this._size);
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "readonly",
-        get: function get() {
-          return String(this._readOnly) === "true";
-        }
-        /**
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          this._readOnly = value;
-          this.onReadOnlyChange.next(value);
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "totalstars",
-        get: function get() {
-          return this._totalStars;
-        },
-        set: function set(value) {
-          this._totalStars = value <= 0 ? 5 : value;
-          this.onStarsCountChange.next(Number(value));
-        }
-      }]);
-
-      return StarRatingComponent;
-    }();
-
-    StarRatingComponent.VAR_CHECKED_COLOR = '--checkedColor';
-    StarRatingComponent.VAR_UNCHECKED_COLOR = '--unCheckedColor';
-    StarRatingComponent.VAR_SIZE = '--size';
-    StarRatingComponent.VAR_HALF_WIDTH = '--halfWidth';
-    StarRatingComponent.VAR_HALF_MARGIN = '--halfMargin';
-    StarRatingComponent.CLS_CHECKED_STAR = 'on';
-    StarRatingComponent.CLS_DEFAULT_STAR = 'star';
-    StarRatingComponent.CLS_HALF_STAR = 'half';
-    StarRatingComponent.INP_CHECKED_COLOR = 'checkedcolor';
-    StarRatingComponent.INP_UNCHECKED_COLOR = 'uncheckedcolor';
-    StarRatingComponent.INP_VALUE = 'value';
-    StarRatingComponent.INP_SIZE = 'size';
-    StarRatingComponent.INP_READONLY = 'readonly';
-    StarRatingComponent.INP_TOTALSTARS = 'totalstars';
-    StarRatingComponent.decorators = [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-      args: [{
-        selector: 'star-rating',
-        template: "<div #starMain>\r\n</div>",
-        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None,
-        styles: [":root{--checkedColor:gold;--unCheckedColor:gray;--size:24px;--halfWidth:10px;--halfMargin:-20px}.star{cursor:pointer;color:var(--unCheckedColor);font-size:var(--size);width:var(--size);display:inline-block}.star:last-child{margin-right:0}.star:before{content:'\\2605'}.star.on{color:var(--checkedColor)}.star.half:after{content:'\\2605';color:var(--checkedColor);position:absolute;margin-left:var(--halfMargin);width:var(--halfWidth);overflow:hidden}"]
-      }]
-    }];
-    /** @nocollapse */
-
-    StarRatingComponent.ctorParameters = function () {
-      return [];
-    };
-
-    StarRatingComponent.propDecorators = {
-      mainElement: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
-        args: ['starMain', {
-          static: true
-        }]
-      }],
-      rate: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-      }],
-      checkedcolor: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-        args: [StarRatingComponent.INP_CHECKED_COLOR]
-      }],
-      uncheckedcolor: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-        args: [StarRatingComponent.INP_UNCHECKED_COLOR]
-      }],
-      value: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-        args: [StarRatingComponent.INP_VALUE]
-      }],
-      size: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-        args: [StarRatingComponent.INP_SIZE]
-      }],
-      readonly: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-        args: [StarRatingComponent.INP_READONLY]
-      }],
-      totalstars: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-        args: [StarRatingComponent.INP_TOTALSTARS]
-      }]
-    };
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    var RatingModule =
-    /*#__PURE__*/
-    function () {
-      function RatingModule() {
-        _classCallCheck(this, RatingModule);
-      }
-
-      _createClass(RatingModule, [{
-        key: "ngDoBootstrap",
-
-        /**
-         * @return {?}
-         */
-        value: function ngDoBootstrap() {}
-      }]);
-
-      return RatingModule;
-    }();
-
-    RatingModule.decorators = [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
-      args: [{
-        imports: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]],
-        declarations: [RatingComponent, StarRatingComponent],
-        exports: [StarRatingComponent],
-        entryComponents: [StarRatingComponent]
-      }]
-    }]; //# sourceMappingURL=ng-starrating.js.map
-
-    /***/
-  },
-
-  /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffreview/staffreview.component.html":
-  /*!*********************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffreview/staffreview.component.html ***!
-    \*********************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/booking-email.html":
+  /*!******************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/booking-email.html ***!
+    \******************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeStaffStaffreviewStaffreviewComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeBookingsBookingdetailBookingEmailHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-6\">\n            <h3>{{'RATING' | translate}}</h3>\n        </div>\n        <div class=\"col-md-6 alignright\">\n            <div class=\"rating\"><span class=\"big\">{{detail && detail.avg_rating?(detail.avg_rating | round):0}}</span><span class=\"small\">(5)</span></div>\n            <div class=\"reviews\"><ngx-stars [readonly]=\"true\" [color]=\"'#f7c133'\" [size]=\"5\" [initialStars]=\"detail?.avg_rating ? (detail?.avg_rating | round):0\"></ngx-stars>\n            </div>\n        </div>\n\n        <div class=\"col-md-3 rating_head\">{{'PROFESS' | translate}}</div>\n        <div class=\"col-md-6 rating_mat\">\n            <mat-progress-bar mode=\"determinate\" value=\"{{detail && detail.avg_pro? (detail.avg_pro | prcnt) :0 }}\" class=\"high\"></mat-progress-bar>\n        </div>\n        <div class=\"col-md-3 rating_mark\">{{detail && detail.avg_pro? (detail.avg_pro | round):0 }}/5</div>\n\n        <div class=\"col-md-3 rating_head\">{{'CUSTMRSRV' | translate}}</div>\n        <div class=\"col-md-6 rating_mat\">\n            <mat-progress-bar mode=\"determinate\" value=\"{{detail && detail.avg_cus? (detail.avg_cus | prcnt):0}}\" class=\"average\"></mat-progress-bar>\n        </div>\n        <div class=\"col-md-3 rating_mark\">{{detail && detail.avg_cus? detail.avg_cus:0 }}/5</div>\n\n        <div class=\"col-md-3 rating_head\">{{'CLEANES' | translate}}</div>\n        <div class=\"col-md-6 rating_mat\">\n            <mat-progress-bar mode=\"determinate\" value=\"{{detail && detail.avg_cln? (detail.avg_cln | prcnt):0}}\" class=\"equalhigh\"></mat-progress-bar>\n        </div>\n        <div class=\"col-md-3 rating_mark\">{{detail && detail.avg_cln? detail.avg_cln:0}}/5</div>\n\n        <div class=\"col-md-3 rating_head\">{{'TIMING' | translate}}</div>\n        <div class=\"col-md-6 rating_mat\">\n            <mat-progress-bar mode=\"determinate\" value=\"{{detail && detail.avg_tmg? (detail.avg_tmg | prcnt):0}}\" class=\"lesshigh\"></mat-progress-bar>\n        </div>\n        <div class=\"col-md-3 rating_mark\">{{detail && detail.avg_tmg? detail.avg_tmg:0}}/5</div>\n        <div class=\"clearfix space\">&nbsp;</div>\n        <div class=\"col-md-12\">\n            <h3>{{'RCNTREVIW' | translate}}:</h3>\n        </div>\n        <div class=\"staffdetail_notifi\" *ngIf=\"detail\">\n            <div class=\"notifi_list\" *ngFor=\"let review of detail.reviews\">\n                <div class=\"noti_left\"><img [src]=\"review.img? (detail.usr_bp + review.img):usrurl\" alt=\"Notification User\"></div>\n                <div class=\"noti_right\">\n                    <div class=\"author-review\">\n                        <div class=\"author\">{{review.name | titlecase}}</div>\n                        <div class=\"reviews\">\n                            <div class=\"staffdetail_staff\"><ngx-stars [readonly]=\"true\" [color]=\"'#f7c133'\" [size]=\"5\" [initialStars]=\"review.rvw_rt\"></ngx-stars></div>\n                        </div>\n                    </div>\n                    {{review.comment}}\n                </div>\n            </div>\n            <div class=\"text-center\"><button type=\"button\" class=\"btn btn-submit\" (click)=\"paginate()\">Load More</button></div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<mat-dialog-content class=\"text-center\">\n    <h3>Please enter your Email</h3>\n    <form>\n        <mat-form-field>\n            <!-- <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span> -->\n            <input matInput placeholder=\"Enter your email address\" [(ngModel)] = \"email\"  [ngModelOptions]=\"{standalone: true}\" class=\"form-control popup\">\n        </mat-form-field>\n    <div class=\"text-center\"><button type=\"button\" (click)=\"close({close:true, email: email})\" class=\"btn btn-submit\">Send</button></div>\n</form>\n\n  </mat-dialog-content>\n    <button mat-button mat-dialog-close type=\"button\" class=\"close\" (click)=\"close(false)\" ><img src=\"assets/images/close.png\" alt=\"Close\"></button>\n  ";
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffreview/staffreview-routing.module.ts":
-  /*!**********************************************************************!*\
-    !*** ./src/app/home/staff/staffreview/staffreview-routing.module.ts ***!
-    \**********************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/bookingdetail.component.html":
+  /*!****************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/bookingdetail.component.html ***!
+    \****************************************************************************************************************/
 
-  /*! exports provided: StaffreviewRoutingModule */
+  /*! exports provided: default */
 
   /***/
-  function srcAppHomeStaffStaffreviewStaffreviewRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeBookingsBookingdetailBookingdetailComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-6 top_view\"><img [src]=\"url\" alt=\"User Add\"><span class=\"user_name\">{{detail?.fullname || 'NA'  | titlecase}}</span></div>\n        <div class=\"col-md-6 alignright\">\n            <ul class=\"inline\">\n                <li><a class=\"btn btn-export\" href=\"javascript:void(0);\">PDF</a></li>\n                <li><button class=\"action_btn red\" (click)=\"openDialog(email)\"><img src=\"assets/images/email_pink.png\" alt=\"Email\"></button></li>\n                <li><button><img src=\"assets/images/print.png\" alt=\"Print\"></button></li>\n            </ul>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-9\">\n                <div class=\"row\">\n                    <div class=\"col-md-3 label\">Date:</div>\n                    <div class=\"col-md-9 description\">{{detail?.bookDateTime | date : 'dd, MMM yyyy '}}</div>\n                    <div class=\"col-md-3 label\">Time:</div>\n                    <div class=\"col-md-9 description\">{{detail?.bookDateTime | date : 'h:mm a '}}</div>\n                    <div class=\"col-md-3 label\">Booking ID:</div>\n                    <div class=\"col-md-9 description\">{{detail?.booking_id || 'NA'}}</div>\n                    <div class=\"col-md-3 label\">Staff Name:</div>\n                    <div class=\"col-md-9 description\">{{detail?.staf || 'NA' | titlecase}}</div>\n                    <div class=\"col-md-3 label\">Address:</div>\n                    <div class=\"col-md-9 description\">{{detail?.usr_address || 'NA' | titlecase}}</div>\n                    <div class=\"col-md-3 label\">Service At:</div>\n                    <div class=\"col-md-9 description\">Salon</div>\n                    <div class=\"col-md-12 label\">Booking Location:</div>\n                    <div class=\"col-md-12 description\">\n                        <div class=\"map full_width\">\n                            <agm-map [latitude]=\"detail?.loc[1]\" [longitude]=\"detail?.loc[0]\"\n                                [zoomControl]=\"true\">\n                                <agm-marker [latitude]=\"detail?.loc[1]\" [longitude]=\"detail?.loc[0]\"></agm-marker>\n                            </agm-map>\n                        </div>\n                    </div>\n                    \n                    <div class=\"col-md-12 label\">Services:</div>\n                     <div class=\"col-sm-12\">\n                        <div class=\"row\" *ngFor=\"let element of detail?.service; let i =index\">\n                            <div class=\"col-md-3 label\">{{element?.title | titlecase}}<span>{{detail?.staf || 'Anybody' | titlecase}}</span></div>\n                            <div class=\"col-md-9 description alignright\">SR{{element?.cost}}<span>{{element?.startDateTime | date : 'h:mm a'}}{{' - '}}{{element?.endDateTime | date : 'h:mm a'}}</span></div>\n                        </div>\n                        <hr/>\n                        <div class=\"row\">\n                            <div class=\"col-md-3 label\">Total amount:<span><i>(5% Vat Inclusive)</i></span></div>\n                            <div class=\"col-md-9 description alignright\">SR{{ttlamt}}</div>\n                        </div>\n                    </div>\n                    <div class=\"col-md-12 text-center\"  *ngIf=\"detail?.bookingStatus==1 \" (click)=\"compltServc()\"><a href=\"javascript:void(0);\" class=\"btn btn-submit\">Mark as Complete</a></div>\n                </div>\n            </div>\n            <div class=\"col-md-3 mobile_hidden\"></div>\n        </div>\n\n        </div>\n    </div>\n";
+    /***/
+  },
+
+  /***/
+  "./src/app/home/bookings/bookingdetail/bookingdetail-routing.module.ts":
+  /*!*****************************************************************************!*\
+    !*** ./src/app/home/bookings/bookingdetail/bookingdetail-routing.module.ts ***!
+    \*****************************************************************************/
+
+  /*! exports provided: BookingdetailRoutingModule */
+
+  /***/
+  function srcAppHomeBookingsBookingdetailBookingdetailRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffreviewRoutingModule", function () {
-      return StaffreviewRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "BookingdetailRoutingModule", function () {
+      return BookingdetailRoutingModule;
     });
     /* harmony import */
 
@@ -836,65 +85,70 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _staffreview_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./staffreview.component */
-    "./src/app/home/staff/staffreview/staffreview.component.ts");
+    var _bookingdetail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./bookingdetail.component */
+    "./src/app/home/bookings/bookingdetail/bookingdetail.component.ts");
 
-    console.log('+++++++++++');
     var routes = [{
       path: '',
-      component: _staffreview_component__WEBPACK_IMPORTED_MODULE_3__["StaffreviewComponent"]
+      component: _bookingdetail_component__WEBPACK_IMPORTED_MODULE_3__["BookingdetailComponent"]
     }];
 
-    var StaffreviewRoutingModule = function StaffreviewRoutingModule() {
-      _classCallCheck(this, StaffreviewRoutingModule);
+    var BookingdetailRoutingModule = function BookingdetailRoutingModule() {
+      _classCallCheck(this, BookingdetailRoutingModule);
     };
 
-    StaffreviewRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    BookingdetailRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], StaffreviewRoutingModule);
+    })], BookingdetailRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffreview/staffreview.component.scss":
-  /*!*******************************************************************!*\
-    !*** ./src/app/home/staff/staffreview/staffreview.component.scss ***!
-    \*******************************************************************/
+  "./src/app/home/bookings/bookingdetail/bookingdetail.component.scss":
+  /*!**************************************************************************!*\
+    !*** ./src/app/home/bookings/bookingdetail/bookingdetail.component.scss ***!
+    \**************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeStaffStaffreviewStaffreviewComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingdetailBookingdetailComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".reviews {\n  text-align: right;\n  float: right;\n}\n\n.staffdetail_notifi {\n  width: 100%;\n}\n\n.btn.btn-submit {\n  margin: 10px auto 0px;\n  font-size: 15px;\n  padding: 10px 50px;\n}\n\n@media (max-width: 992px) {\n  .staffdetail_notifi {\n    padding: 0px 12px;\n  }\n}\n\n@media (max-width: 480px) {\n  .reviews {\n    text-align: left;\n    float: left;\n    display: block;\n    width: 100%;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9zdGFmZi9zdGFmZnJldmlldy9zdGFmZnJldmlldy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9zdGFmZi9zdGFmZnJldmlldy9zdGFmZnJldmlldy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUFTLGlCQUFBO0VBQWtCLFlBQUE7QUNHM0I7O0FERkE7RUFBb0IsV0FBQTtBQ01wQjs7QURMQTtFQUFrQixxQkFBQTtFQUFzQixlQUFBO0VBQWdCLGtCQUFBO0FDV3hEOztBRFRBO0VBQ0k7SUFBb0IsaUJBQUE7RUNhdEI7QUFDRjs7QURYQTtFQUNBO0lBQVUsZ0JBQUE7SUFBaUIsV0FBQTtJQUFhLGNBQUE7SUFBZSxXQUFBO0VDaUJyRDtBQUNGIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9zdGFmZi9zdGFmZnJldmlldy9zdGFmZnJldmlldy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yZXZpZXdze3RleHQtYWxpZ246IHJpZ2h0O2Zsb2F0OiByaWdodDt9XG4uc3RhZmZkZXRhaWxfbm90aWZpe3dpZHRoOiAxMDAlO31cbi5idG4uYnRuLXN1Ym1pdCB7IG1hcmdpbjogMTBweCBhdXRvIDBweDtmb250LXNpemU6IDE1cHg7cGFkZGluZzogMTBweCA1MHB4O31cblxuQG1lZGlhKG1heC13aWR0aDo5OTJweCl7XG4gICAgLnN0YWZmZGV0YWlsX25vdGlmaXtwYWRkaW5nOiAwcHggMTJweDt9XG59XG5cbkBtZWRpYShtYXgtd2lkdGg6NDgwcHgpe1xuLnJldmlld3Mge3RleHQtYWxpZ246IGxlZnQ7ZmxvYXQ6IGxlZnQ7IGRpc3BsYXk6IGJsb2NrO3dpZHRoOiAxMDAlO31cblxufSIsIi5yZXZpZXdzIHtcbiAgdGV4dC1hbGlnbjogcmlnaHQ7XG4gIGZsb2F0OiByaWdodDtcbn1cblxuLnN0YWZmZGV0YWlsX25vdGlmaSB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4uYnRuLmJ0bi1zdWJtaXQge1xuICBtYXJnaW46IDEwcHggYXV0byAwcHg7XG4gIGZvbnQtc2l6ZTogMTVweDtcbiAgcGFkZGluZzogMTBweCA1MHB4O1xufVxuXG5AbWVkaWEgKG1heC13aWR0aDogOTkycHgpIHtcbiAgLnN0YWZmZGV0YWlsX25vdGlmaSB7XG4gICAgcGFkZGluZzogMHB4IDEycHg7XG4gIH1cbn1cbkBtZWRpYSAobWF4LXdpZHRoOiA0ODBweCkge1xuICAucmV2aWV3cyB7XG4gICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgICBmbG9hdDogbGVmdDtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICB3aWR0aDogMTAwJTtcbiAgfVxufSJdfQ== */";
+    __webpack_exports__["default"] = ".main-card ul.inline {\n  padding-top: 20px;\n}\n\n@media (max-width: 992px) {\n  .main-card .label, .main-card .description {\n    padding: 0px 30px;\n  }\n}\n\n@media (max-width: 767px) {\n  .main-card ul.inline {\n    text-align: left;\n  }\n\n  .main-card ul.inline li {\n    display: contents;\n  }\n\n  .main-card ul.inline li button.action_btn.red {\n    padding: 2px 12px 2px 16px;\n  }\n\n  .main-card span.user_name {\n    margin-left: 0;\n    display: block;\n    margin-top: 10px;\n  }\n\n  .main-card ul.inline {\n    padding-top: 0px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9ib29raW5ncy9ib29raW5nZGV0YWlsL2Jvb2tpbmdkZXRhaWwuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvYm9va2luZ3MvYm9va2luZ2RldGFpbC9ib29raW5nZGV0YWlsLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQXFCLGlCQUFBO0FDRXJCOztBREFBO0VBQ0k7SUFBMEMsaUJBQUE7RUNJNUM7QUFDRjs7QURGQTtFQUNBO0lBQXFCLGdCQUFBO0VDS25COztFREpGO0lBQXdCLGlCQUFBO0VDUXRCOztFRFBGO0lBQThDLDBCQUFBO0VDVzVDOztFRFZGO0lBQTJCLGNBQUE7SUFBZSxjQUFBO0lBQWUsZ0JBQUE7RUNnQnZEOztFRGZGO0lBQXFCLGdCQUFBO0VDbUJuQjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9ib29raW5ncy9ib29raW5nZGV0YWlsL2Jvb2tpbmdkZXRhaWwuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbi1jYXJkIHVsLmlubGluZXtwYWRkaW5nLXRvcDogMjBweDt9XG5cbkBtZWRpYShtYXgtd2lkdGg6OTkycHgpe1xuICAgIC5tYWluLWNhcmQgLmxhYmVsLC5tYWluLWNhcmQgLmRlc2NyaXB0aW9ue3BhZGRpbmc6IDBweCAzMHB4O31cbn1cblxuQG1lZGlhKG1heC13aWR0aDo3NjdweCl7XG4ubWFpbi1jYXJkIHVsLmlubGluZXt0ZXh0LWFsaWduOiBsZWZ0O31cbi5tYWluLWNhcmQgdWwuaW5saW5lIGxpe2Rpc3BsYXk6IGNvbnRlbnRzfVxuLm1haW4tY2FyZCB1bC5pbmxpbmUgbGkgYnV0dG9uLmFjdGlvbl9idG4ucmVke3BhZGRpbmc6IDJweCAxMnB4IDJweCAxNnB4O31cbi5tYWluLWNhcmQgc3Bhbi51c2VyX25hbWUge21hcmdpbi1sZWZ0OiAwO2Rpc3BsYXk6IGJsb2NrO21hcmdpbi10b3A6IDEwcHg7fVxuLm1haW4tY2FyZCB1bC5pbmxpbmV7cGFkZGluZy10b3A6IDBweDt9XG59IiwiLm1haW4tY2FyZCB1bC5pbmxpbmUge1xuICBwYWRkaW5nLXRvcDogMjBweDtcbn1cblxuQG1lZGlhIChtYXgtd2lkdGg6IDk5MnB4KSB7XG4gIC5tYWluLWNhcmQgLmxhYmVsLCAubWFpbi1jYXJkIC5kZXNjcmlwdGlvbiB7XG4gICAgcGFkZGluZzogMHB4IDMwcHg7XG4gIH1cbn1cbkBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAubWFpbi1jYXJkIHVsLmlubGluZSB7XG4gICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgfVxuXG4gIC5tYWluLWNhcmQgdWwuaW5saW5lIGxpIHtcbiAgICBkaXNwbGF5OiBjb250ZW50cztcbiAgfVxuXG4gIC5tYWluLWNhcmQgdWwuaW5saW5lIGxpIGJ1dHRvbi5hY3Rpb25fYnRuLnJlZCB7XG4gICAgcGFkZGluZzogMnB4IDEycHggMnB4IDE2cHg7XG4gIH1cblxuICAubWFpbi1jYXJkIHNwYW4udXNlcl9uYW1lIHtcbiAgICBtYXJnaW4tbGVmdDogMDtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBtYXJnaW4tdG9wOiAxMHB4O1xuICB9XG5cbiAgLm1haW4tY2FyZCB1bC5pbmxpbmUge1xuICAgIHBhZGRpbmctdG9wOiAwcHg7XG4gIH1cbn0iXX0= */";
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffreview/staffreview.component.ts":
-  /*!*****************************************************************!*\
-    !*** ./src/app/home/staff/staffreview/staffreview.component.ts ***!
-    \*****************************************************************/
+  "./src/app/home/bookings/bookingdetail/bookingdetail.component.ts":
+  /*!************************************************************************!*\
+    !*** ./src/app/home/bookings/bookingdetail/bookingdetail.component.ts ***!
+    \************************************************************************/
 
-  /*! exports provided: StaffreviewComponent */
+  /*! exports provided: BookingdetailComponent, BookingEmailDialogPopup */
 
   /***/
-  function srcAppHomeStaffStaffreviewStaffreviewComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingdetailBookingdetailComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffreviewComponent", function () {
-      return StaffreviewComponent;
+    __webpack_require__.d(__webpack_exports__, "BookingdetailComponent", function () {
+      return BookingdetailComponent;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "BookingEmailDialogPopup", function () {
+      return BookingEmailDialogPopup;
     });
     /* harmony import */
 
@@ -911,9 +165,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/material */
+    "./node_modules/@angular/material/esm2015/material.js");
     /* harmony import */
 
 
@@ -929,100 +183,231 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/shared/service/error.service */
     "./src/app/shared/service/error.service.ts");
+    /* harmony import */
 
-    var StaffreviewComponent =
+
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+    /* harmony import */
+
+
+    var src_app_shared_confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/shared/confim-dialog/confim-dialog.component */
+    "./src/app/shared/confim-dialog/confim-dialog.component.ts");
+
+    var BookingdetailComponent =
     /*#__PURE__*/
     function () {
-      function StaffreviewComponent(routes, httpService, error) {
-        _classCallCheck(this, StaffreviewComponent);
+      function BookingdetailComponent(dialog, httpService, routes, errsrv, route, trns, error) {
+        _classCallCheck(this, BookingdetailComponent);
 
-        this.routes = routes;
+        this.dialog = dialog;
         this.httpService = httpService;
+        this.routes = routes;
+        this.errsrv = errsrv;
+        this.route = route;
+        this.trns = trns;
         this.error = error;
-        this.limitPage = 5;
         this.url = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_3__["IMG"].PRO;
         this.usrurl = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_3__["IMG"].PRO;
-        this.page = 0;
       }
 
-      _createClass(StaffreviewComponent, [{
+      _createClass(BookingdetailComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
           this.id = this.routes.snapshot.params.id;
-          this.getStaffReview();
+          this.getUserProfile();
         }
       }, {
-        key: "getStaffReview",
-        value: function getStaffReview() {
-          var _this7 = this;
+        key: "openDialog",
+        value: function openDialog(email) {
+          var _this = this;
 
-          this.httpService.getRequest('GET_PARMS', 'STAFF_REVIEW', this.id, "".concat('limit=' + this.limitPage)).subscribe(function (response) {
-            if (response.status === 1) {
-              _this7.detail = response.res;
-            } else {
-              if (response.err) {
-                _this7.error.handleError(response.err.errCode);
-              }
+          var dialogRef = this.dialog.open(BookingEmailDialogPopup, {
+            width: '500px',
+            disableClose: true
+          });
+          dialogRef.beforeClosed().subscribe(function (val) {
+            if (val.close) {
+              _this.httpService.getRequest('GET', 'SND_MAIL', "email=".concat(val.email, "&bk_id=").concat(_this.id, "&name=").concat(_this.detail.fullname)).subscribe(function (response) {
+                if (response.status === 1) {
+                  _this.httpService.sucsTostr(_this.trns.transform('SUCCESS'), _this.trns.transform('MAIL_SND')); // this.route.navigateByUrl("booking/info/"+`${this.id}`).then(()=>{
+                  //   this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('BK_COM'));
+                  // })
+
+                } else {
+                  if (response.err) _this.errsrv.handleError(response.err.errCode);
+                  return false;
+                }
+              }, function (error) {
+                _this.errsrv.handleError();
+              });
             }
-          }, function (error) {
-            _this7.error.handleError(0); // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
-
           });
         }
       }, {
-        key: "paginate",
-        value: function paginate() {
-          this.limitPage = this.limitPage + 5;
-          this.getStaffReview();
+        key: "compltServc",
+        value: function compltServc() {
+          var _this2 = this;
+
+          var dialogRef = this.dialog.open(src_app_shared_confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_8__["ConfimDialogComponent"], {
+            width: '500px',
+            disableClose: true,
+            data: {
+              msg: 'Are you sure you want to complete this Booking?',
+              btn: this.trns.transform('OK'),
+              cncl: this.trns.transform('CANCEL')
+            }
+          });
+          dialogRef.beforeClosed().subscribe(function (val) {
+            if (val) {
+              _this2.httpService.getRequest('PUT', 'BOOKING_ACPT', {
+                bk_status: 3
+              }, _this2.id).subscribe(function (response) {
+                if (response.status === 1) {
+                  _this2.route.navigateByUrl('booking').then(function () {
+                    _this2.httpService.sucsTostr(_this2.trns.transform('SUCCESS'), _this2.trns.transform('BK_COM'));
+                  });
+                } else {
+                  if (response.err) _this2.errsrv.handleError(response.err.errCode);
+                  return false;
+                }
+              }, function (error) {
+                _this2.errsrv.handleError();
+              });
+            }
+          });
+        }
+      }, {
+        key: "getUserProfile",
+        value: function getUserProfile() {
+          var _this3 = this;
+
+          this.httpService.getRequest('GET_PARMS', 'BOOKING_VIEW', this.id, '').subscribe(function (response) {
+            if (response.status === 1) {
+              _this3.detail = response.res;
+              _this3.url = _this3.detail.logo ? _this3.detail.usr_bp + _this3.detail.img : _this3.url;
+              _this3.ttlamt = _this3.detail.service.reduce(function (acc, val) {
+                return acc.cost + val.cost;
+              });
+              _this3.ttlamt = _this3.detail.service.length == 1 ? _this3.ttlamt.cost : _this3.ttlamt;
+            } else {
+              if (response.err) {
+                _this3.error.handleError(response.err.errCode);
+              }
+            }
+          }, function (error) {
+            _this3.error.handleError(0); // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
+
+          });
         }
       }]);
 
-      return StaffreviewComponent;
+      return BookingdetailComponent;
     }();
 
-    StaffreviewComponent.ctorParameters = function () {
+    BookingdetailComponent.ctorParameters = function () {
       return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
         type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_4__["HttpRequestService"]
       }, {
-        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__["ErrorService"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]
+      }, {
+        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_6__["ErrorService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
+      }, {
+        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]
+      }, {
+        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_6__["ErrorService"]
       }];
     };
 
-    StaffreviewComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-staffreview',
+    BookingdetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-bookingdetail',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./staffreview.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffreview/staffreview.component.html")).default,
+      /*! raw-loader!./bookingdetail.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/bookingdetail.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./staffreview.component.scss */
-      "./src/app/home/staff/staffreview/staffreview.component.scss")).default]
-    })], StaffreviewComponent);
+      /*! ./bookingdetail.component.scss */
+      "./src/app/home/bookings/bookingdetail/bookingdetail.component.scss")).default]
+    })], BookingdetailComponent);
+
+    var BookingEmailDialogPopup =
+    /*#__PURE__*/
+    function () {
+      function BookingEmailDialogPopup(dialogRef) {
+        _classCallCheck(this, BookingEmailDialogPopup);
+
+        this.dialogRef = dialogRef;
+      }
+
+      _createClass(BookingEmailDialogPopup, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {}
+      }, {
+        key: "submit",
+        value: function submit() {
+          console.log(this.email);
+        }
+      }, {
+        key: "close",
+        value: function close(val) {
+          console.log(val);
+          this.dialogRef.close(val);
+        }
+      }]);
+
+      return BookingEmailDialogPopup;
+    }();
+
+    BookingEmailDialogPopup.ctorParameters = function () {
+      return [{
+        type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"]
+      }];
+    };
+
+    BookingEmailDialogPopup = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'booking-email',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./booking-email.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/bookings/bookingdetail/booking-email.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./bookingdetail.component.scss */
+      "./src/app/home/bookings/bookingdetail/bookingdetail.component.scss")).default]
+    })], BookingEmailDialogPopup);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffreview/staffreview.module.ts":
-  /*!**************************************************************!*\
-    !*** ./src/app/home/staff/staffreview/staffreview.module.ts ***!
-    \**************************************************************/
+  "./src/app/home/bookings/bookingdetail/bookingdetail.module.ts":
+  /*!*********************************************************************!*\
+    !*** ./src/app/home/bookings/bookingdetail/bookingdetail.module.ts ***!
+    \*********************************************************************/
 
-  /*! exports provided: StaffreviewModule */
+  /*! exports provided: BookingdetailModule */
 
   /***/
-  function srcAppHomeStaffStaffreviewStaffreviewModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingdetailBookingdetailModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffreviewModule", function () {
-      return StaffreviewModule;
+    __webpack_require__.d(__webpack_exports__, "BookingdetailModule", function () {
+      return BookingdetailModule;
     });
     /* harmony import */
 
@@ -1045,15 +430,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _staffreview_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./staffreview-routing.module */
-    "./src/app/home/staff/staffreview/staffreview-routing.module.ts");
+    var _bookingdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./bookingdetail-routing.module */
+    "./src/app/home/bookings/bookingdetail/bookingdetail-routing.module.ts");
     /* harmony import */
 
 
-    var _staffreview_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./staffreview.component */
-    "./src/app/home/staff/staffreview/staffreview.component.ts");
+    var _bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./bookingdetail.component */
+    "./src/app/home/bookings/bookingdetail/bookingdetail.component.ts");
     /* harmony import */
 
 
@@ -1063,37 +448,186 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var ng_starrating__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ng-starrating */
-    "./node_modules/ng-starrating/fesm2015/ng-starrating.js");
+    var _agm_core__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! @agm/core */
+    "./node_modules/@agm/core/fesm2015/agm-core.js");
     /* harmony import */
 
 
-    var ngx_stars__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ngx-stars */
-    "./node_modules/ngx-stars/fesm2015/ngx-stars.js");
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
     /* harmony import */
 
 
-    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! src/app/shared/module/applicationpipe/applicationpipe.module */
-    "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
-    /* harmony import */
+    var src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/shared/constants/constant */
+    "./src/app/shared/constants/constant.ts");
 
-
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! src/app/shared/_pipes/translate.pipe */
-    "./src/app/shared/_pipes/translate.pipe.ts");
-
-    var StaffreviewModule = function StaffreviewModule() {
-      _classCallCheck(this, StaffreviewModule);
+    var BookingdetailModule = function BookingdetailModule() {
+      _classCallCheck(this, BookingdetailModule);
     };
 
-    StaffreviewModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_staffreview_component__WEBPACK_IMPORTED_MODULE_4__["StaffreviewComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _staffreview_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffreviewRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], ng_starrating__WEBPACK_IMPORTED_MODULE_6__["RatingModule"], ngx_stars__WEBPACK_IMPORTED_MODULE_7__["NgxStarsModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"]],
-      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"]]
-    })], StaffreviewModule);
+    BookingdetailModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__["BookingdetailComponent"], _bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__["BookingEmailDialogPopup"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _bookingdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__["BookingdetailRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _agm_core__WEBPACK_IMPORTED_MODULE_6__["AgmCoreModule"].forRoot({
+        apiKey: src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_8__["MAP"].KEY,
+        libraries: [src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_8__["MAP"].type]
+      })],
+      entryComponents: [_bookingdetail_component__WEBPACK_IMPORTED_MODULE_4__["BookingEmailDialogPopup"]]
+    })], BookingdetailModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/service/error.service.ts":
+  /*!*************************************************!*\
+    !*** ./src/app/shared/service/error.service.ts ***!
+    \*************************************************/
+
+  /*! exports provided: ErrorService */
+
+  /***/
+  function srcAppSharedServiceErrorServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ErrorService", function () {
+      return ErrorService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./translate.service */
+    "./src/app/shared/service/translate.service.ts");
+    /* harmony import */
+
+
+    var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./http-request.service */
+    "./src/app/shared/service/http-request.service.ts"); // import { TranslatePipe } from '../_pipes/translate.pipe';
+
+
+    var ErrorService =
+    /*#__PURE__*/
+    function () {
+      function ErrorService(helper, trns) {
+        _classCallCheck(this, ErrorService);
+
+        this.helper = helper;
+        this.trns = trns;
+      }
+
+      _createClass(ErrorService, [{
+        key: "handleError",
+        value: function handleError() {
+          var errCode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+          switch (errCode) {
+            case 0:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 1:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 4:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+              break;
+
+            case 5:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
+              break;
+
+            case 6:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
+              break;
+
+            case 7:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
+              break;
+
+            case 8:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
+              break;
+
+            case 9:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
+              break;
+
+            case 31:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+              break;
+
+            case 34:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['PROMOALRDYEXIST']);
+              break;
+
+            case 32:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['STAFFALRDYEXIST']);
+              break;
+
+            case 15:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONALRDYEXIST']);
+              break;
+
+            case 39:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
+              break;
+
+            case 41:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DEACTIVE']);
+              break;
+
+            case 42:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DELSALONACC']);
+              break;
+
+            case 51:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['NOBOOK']);
+              break;
+
+            case 56:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SLNEXIST']);
+              break;
+
+            default:
+              break;
+          }
+        }
+      }]);
+
+      return ErrorService;
+    }();
+
+    ErrorService.ctorParameters = function () {
+      return [{
+        type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
+      }, {
+        type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
+      }];
+    };
+
+    ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], ErrorService);
     /***/
   }
 }]);

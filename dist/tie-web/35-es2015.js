@@ -1,147 +1,218 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[35],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.html":
-/*!****************************************************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.html ***!
-  \****************************************************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/changepassword/changepassword.component.html":
+/*!*****************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/changepassword/changepassword.component.html ***!
+  \*****************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <div class=\"row report_forms\">\n        <div class=\"col-md-2\">\n            <mat-form-field>\n                <mat-label>All</mat-label>\n                <mat-select>\n                  <mat-option *ngFor=\"let time of times\" [value]=\"time.value\">\n                    {{time.viewValue}}\n                  </mat-option>\n                </mat-select>\n              </mat-form-field>\n        </div>\n\n        <div class=\"col-md-2\">\n            <mat-form-field>\n                <input matInput [matDatepicker]=\"pickerfrom\" placeholder=\"From\" class=\"form-control\">\n                <mat-datepicker-toggle matSuffix [for]=\"pickerfrom\"></mat-datepicker-toggle>\n                <mat-datepicker #pickerfrom></mat-datepicker>\n              </mat-form-field>\n        </div>\n        <div class=\"col-md-2\">\n            <mat-form-field>\n                <input matInput [matDatepicker]=\"pickerto\" placeholder=\"To\" class=\"form-control\">\n                <mat-datepicker-toggle matSuffix [for]=\"pickerto\"></mat-datepicker-toggle>\n                <mat-datepicker #pickerto></mat-datepicker>\n              </mat-form-field>\n        </div>\n\n        <div class=\"col-md-6 alignright\"><a href=\"#\" class=\"btn btn-export\">Export</a></div>\n    </div>\n\n\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <div class=\"row\">\n                <div class=\"col-md-3 label\">Total Sales(YTD):</div>\n                <div class=\"col-md-9 description\">$1,061</div>\n                <div class=\"col-md-3 label\">Month of January:</div>\n                <div class=\"col-md-9 description\">$290</div>\n                <div class=\"col-md-3 label\">Current Week:</div>\n                <div class=\"col-md-9 description\">$100</div>\n            </div>\n        </div>\n    </div>\n    <div class=\"sales_description\">\n        <div class=\"row\">\n            <div class=\"col-md-12\">06 January, 2020</div>\n            <div class=\"col-md-6\">\n                <div class=\"row\">\n                    <div class=\"col-md-6 label\">Projected Sales:</div>\n                    <div class=\"col-md-6 description\">$1,061</div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <div class=\"row\">\n                    <div class=\"col-md-6 label\">Appts Booked:</div>\n                    <div class=\"col-md-6 description\">08</div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"table_wrap mobile_hidden\">\n        <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8 table_scroll\">\n            <ng-container matColumnDef=\"position\">\n              <th mat-header-cell *matHeaderCellDef>No.</th>\n              <td mat-cell *matCellDef=\"let element\">{{element.position}}</td>\n            </ng-container>\n          \n            <ng-container matColumnDef=\"month\">\n                <th mat-header-cell *matHeaderCellDef>Month</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.month}}</td>\n            </ng-container>  \n\n            <ng-container matColumnDef=\"day\">\n                <th mat-header-cell *matHeaderCellDef>Day</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.day}}</td>\n            </ng-container>  \n\n            <ng-container matColumnDef=\"order\">\n                <th mat-header-cell *matHeaderCellDef>Orders(Total Count)</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.order}}</td>\n            </ng-container>  \n\n            <ng-container matColumnDef=\"avgorder\">\n              <th mat-header-cell *matHeaderCellDef>Average Order</th>\n              <td mat-cell *matCellDef=\"let element\">{{element.avgorder}}</td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"amount\">\n                <th mat-header-cell *matHeaderCellDef>Discounted Amount</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.amount}}</td>\n            </ng-container>\n            \n            <ng-container matColumnDef=\"tamount\">\n                <th mat-header-cell *matHeaderCellDef>Total Amount</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.tamount}}</td>\n            </ng-container>\n         \n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n          </table>\n        </div>\n\n        <div class=\"card_view mobile_visible\">\n            <div class=\"cards\">\n\n                <div class=\"description\">\n                <p class=\"service\"><img src=\"assets/images/calendar-pink.png\" alt=\"Order\">January, 2019</p>\n                <p class=\"service\"><img src=\"assets/images/bookings-pink.png\" alt=\"Average Order\">4(Average Order)</p>\n                <p class=\"service\"><img src=\"assets/images/commissions.png\" alt=\"Commissions\">$280</p>\n                <p class=\"service\"><img src=\"assets/images/commissions.png\" alt=\"Commissions\">$200</p>\n                </div>\n            </div>\n          </div>\n\n        <ul class=\"pagination\">\n            <li><a href=\"#\"><i class=\"fa fa-angle-left\"></i></a></li>\n            <li class=\"active\"><a href=\"#\">1</a></li>\n            <li><a href=\"#\">2</a></li>\n            <li><a href=\"#\">3</a></li>\n            <li><a href=\"#\">4</a></li>\n            <li><a href=\"#\">5</a></li>\n            <li><a href=\"#\"><i class=\"fa fa-angle-right\"></i></a></li>\n          </ul>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form [formGroup]='change' (ngSubmit)='changePassword()'>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLCPASS'| translate}}\" [type]=\"ohide ? 'password' : 'text'\" maxlength=\"20\" class=\"form-control pass-space\" formControlName='oldPassword'>\n                <button mat-icon-button matSuffix (click)=\"ohide = !ohide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{ohide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted) && getControl.oldPassword.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.oldPassword.errors.required\">{{'CURRENTPASS'| translate}} </p>\n              </div>\n              <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLNPASS'| translate}}\" [type]=\"nhide ? 'password' : 'text'\" maxlength=\"20\" formControlName='newPassword' class=\"form-control pass-space\">\n                <button mat-icon-button matSuffix (click)=\"nhide = !nhide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{nhide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted ) && getControl.newPassword.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.required\">{{'RESETPASSREQ'| translate}}</p>\n                <!-- <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.minlength\">{{'PASSPATTERN'| translate}}</p> -->\n                <span *ngIf=\"!getControl.newPassword.errors.required\">\n                  <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.invalidPassword\">{{'PASSPATTERN'| translate}}</p>\n                </span>\n              </div>\n              <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/changepassword.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PLACEHOLDERLCONFIRMPASS'| translate}}\" [type]=\"chide ? 'password' : 'text'\" maxlength=\"20\"  formControlName='confirmPassword' class=\"form-control pass-space\">\n                <button mat-icon-button matSuffix (click)=\"chide = !chide\" type=\"button\" [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                <mat-icon>{{chide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                </button>\n              </mat-form-field>\n              <div *ngIf=\"(submitted) && getControl.confirmPassword.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.confirmPassword.errors.required\">{{'RESETPASSCNFREQ'| translate}}</p>\n                <span *ngIf=\"!getControl.confirmPassword.errors.required\">\n                  <p class=\"color error\" *ngIf=\"(getControl.confirmPassword.invalid)\">{{'RESETPASSNOTMATCH'| translate}}</p>\n                </span>\n              </div>\n              <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Save</button>\n              </div>\n            </form>\n    </div>\n</div>");
 
 /***/ }),
 
-/***/ "./src/app/home/report/earning/earningmonthlist/earningmonthlist-routing.module.ts":
-/*!*****************************************************************************************!*\
-  !*** ./src/app/home/report/earning/earningmonthlist/earningmonthlist-routing.module.ts ***!
-  \*****************************************************************************************/
-/*! exports provided: EarningmonthlistRoutingModule */
+/***/ "./src/app/home/profile/changepassword/changepassword-routing.module.ts":
+/*!******************************************************************************!*\
+  !*** ./src/app/home/profile/changepassword/changepassword-routing.module.ts ***!
+  \******************************************************************************/
+/*! exports provided: ChangepasswordRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EarningmonthlistRoutingModule", function() { return EarningmonthlistRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangepasswordRoutingModule", function() { return ChangepasswordRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _earningmonthlist_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./earningmonthlist.component */ "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.ts");
+/* harmony import */ var _changepassword_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./changepassword.component */ "./src/app/home/profile/changepassword/changepassword.component.ts");
 
 
 
 
-const routes = [{ path: '', component: _earningmonthlist_component__WEBPACK_IMPORTED_MODULE_3__["EarningmonthlistComponent"] }];
-let EarningmonthlistRoutingModule = class EarningmonthlistRoutingModule {
+const routes = [{
+        path: '', component: _changepassword_component__WEBPACK_IMPORTED_MODULE_3__["ChangepasswordComponent"]
+    }];
+let ChangepasswordRoutingModule = class ChangepasswordRoutingModule {
 };
-EarningmonthlistRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+ChangepasswordRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], EarningmonthlistRoutingModule);
+], ChangepasswordRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.scss":
-/*!**************************************************************************************!*\
-  !*** ./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.scss ***!
-  \**************************************************************************************/
+/***/ "./src/app/home/profile/changepassword/changepassword.component.scss":
+/*!***************************************************************************!*\
+  !*** ./src/app/home/profile/changepassword/changepassword.component.scss ***!
+  \***************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".mobile_visible .cards .description {\n  padding-top: 0px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9yZXBvcnQvZWFybmluZy9lYXJuaW5nbW9udGhsaXN0L2Vhcm5pbmdtb250aGxpc3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvcmVwb3J0L2Vhcm5pbmcvZWFybmluZ21vbnRobGlzdC9lYXJuaW5nbW9udGhsaXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQW9DLGdCQUFBO0FDRXBDIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9yZXBvcnQvZWFybmluZy9lYXJuaW5nbW9udGhsaXN0L2Vhcm5pbmdtb250aGxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubW9iaWxlX3Zpc2libGUgLmNhcmRzIC5kZXNjcmlwdGlvbntwYWRkaW5nLXRvcDogMHB4O30iLCIubW9iaWxlX3Zpc2libGUgLmNhcmRzIC5kZXNjcmlwdGlvbiB7XG4gIHBhZGRpbmctdG9wOiAwcHg7XG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcHJvZmlsZS9jaGFuZ2VwYXNzd29yZC9jaGFuZ2VwYXNzd29yZC5jb21wb25lbnQuc2NzcyJ9 */");
 
 /***/ }),
 
-/***/ "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.ts":
-/*!************************************************************************************!*\
-  !*** ./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.ts ***!
-  \************************************************************************************/
-/*! exports provided: EarningmonthlistComponent */
+/***/ "./src/app/home/profile/changepassword/changepassword.component.ts":
+/*!*************************************************************************!*\
+  !*** ./src/app/home/profile/changepassword/changepassword.component.ts ***!
+  \*************************************************************************/
+/*! exports provided: ChangepasswordComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EarningmonthlistComponent", function() { return EarningmonthlistComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangepasswordComponent", function() { return ChangepasswordComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/service/helper.service */ "./src/app/shared/service/helper.service.ts");
+/* harmony import */ var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/service/validation-service */ "./src/app/shared/service/validation-service.ts");
+/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
+/* harmony import */ var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/service/error.service */ "./src/app/shared/service/error.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 
 
-let EarningmonthlistComponent = class EarningmonthlistComponent {
-    constructor() {
-        this.times = [
-            { value: 'all', viewValue: 'All' },
-            { value: 'day', viewValue: 'Day' },
-            { value: 'week', viewValue: 'Weekly' },
-            { value: 'month', viewValue: 'Monthly' },
-        ];
-        this.displayedColumns = ['position', 'month', 'day', 'order', 'avgorder', 'amount', 'tamount'];
-        this.dataSource = ELEMENT_DATA;
+
+
+
+
+
+
+
+
+
+let ChangepasswordComponent = class ChangepasswordComponent {
+    constructor(httpService, router, fb, helper, trns, error) {
+        this.httpService = httpService;
+        this.router = router;
+        this.fb = fb;
+        this.helper = helper;
+        this.trns = trns;
+        this.error = error;
+        this.ohide = true;
+        this.chide = true;
+        this.nhide = true;
+        this.profileImage = '../../../assets/images/profile.png';
+        this.passShow = true;
+        this.cPassShow = true;
+        this.nPassShow = true;
+        this.isEqualNewPass = false;
+        this.unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_9__["Subject"];
     }
     ngOnInit() {
+        this.userDetails = this.helper.parseObject(localStorage.getItem('userDetails'));
+        this.change = this.fb.group({
+            oldPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]),
+            newPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__["ValidationService"].passwordValidator]),
+            confirmPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__["passValidator"]]),
+        });
+        this.change.get('newPassword').valueChanges
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_10__["takeUntil"])(this.unsubscribeAll))
+            .subscribe(() => {
+            this.change.get('confirmPassword').updateValueAndValidity();
+        });
+    }
+    get getControl() { return this.change.controls; }
+    changePassword() {
+        this.submitted = true;
+        if (this.change.invalid) {
+            return;
+        }
+        else {
+            this.change.value['new_pass'] = this.change.value.newPassword;
+            this.change.value['old_pass'] = this.change.value.oldPassword;
+            this.httpService.getRequest('PUT', 'CHANGEPASS', this.change.value, '').subscribe((response) => {
+                if (response.status === 1) {
+                    this.submitted = true;
+                    this.router.navigateByUrl('/')
+                        .then(() => {
+                        this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('RESETPASSSUCC'));
+                    });
+                }
+                else {
+                    this.error.handleError(response.err.errCode);
+                }
+            }, (error) => {
+                this.error.handleError(0);
+            });
+        }
     }
 };
-EarningmonthlistComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-earningmonthlist',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./earningmonthlist.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./earningmonthlist.component.scss */ "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.scss")).default]
-    })
-], EarningmonthlistComponent);
-
-const ELEMENT_DATA = [
-    { position: 1, month: 'January, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
-    { position: 2, month: 'February, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
-    { position: 3, month: 'March, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
-    { position: 4, month: 'April, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
-    { position: 5, month: 'May, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
-    { position: 6, month: 'June, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
-    { position: 7, month: 'July, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
-    { position: 8, month: 'August, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
+ChangepasswordComponent.ctorParameters = () => [
+    { type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+    { type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_5__["Helper"] },
+    { type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"] },
+    { type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__["ErrorService"] }
 ];
+ChangepasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-changepassword',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./changepassword.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/profile/changepassword/changepassword.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./changepassword.component.scss */ "./src/app/home/profile/changepassword/changepassword.component.scss")).default]
+    })
+], ChangepasswordComponent);
+
 
 
 /***/ }),
 
-/***/ "./src/app/home/report/earning/earningmonthlist/earningmonthlist.module.ts":
-/*!*********************************************************************************!*\
-  !*** ./src/app/home/report/earning/earningmonthlist/earningmonthlist.module.ts ***!
-  \*********************************************************************************/
-/*! exports provided: EarningmonthlistModule */
+/***/ "./src/app/home/profile/changepassword/changepassword.module.ts":
+/*!**********************************************************************!*\
+  !*** ./src/app/home/profile/changepassword/changepassword.module.ts ***!
+  \**********************************************************************/
+/*! exports provided: ChangepasswordModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EarningmonthlistModule", function() { return EarningmonthlistModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangepasswordModule", function() { return ChangepasswordModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _earningmonthlist_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./earningmonthlist-routing.module */ "./src/app/home/report/earning/earningmonthlist/earningmonthlist-routing.module.ts");
-/* harmony import */ var _earningmonthlist_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./earningmonthlist.component */ "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.ts");
+/* harmony import */ var _changepassword_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./changepassword-routing.module */ "./src/app/home/profile/changepassword/changepassword-routing.module.ts");
+/* harmony import */ var _changepassword_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./changepassword.component */ "./src/app/home/profile/changepassword/changepassword.component.ts");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
+/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
 
 
 
 
 
 
-let EarningmonthlistModule = class EarningmonthlistModule {
+
+
+
+let ChangepasswordModule = class ChangepasswordModule {
 };
-EarningmonthlistModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+ChangepasswordModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_earningmonthlist_component__WEBPACK_IMPORTED_MODULE_4__["EarningmonthlistComponent"]],
+        declarations: [_changepassword_component__WEBPACK_IMPORTED_MODULE_4__["ChangepasswordComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _earningmonthlist_routing_module__WEBPACK_IMPORTED_MODULE_3__["EarningmonthlistRoutingModule"],
-            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]
-        ]
+            _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"],
+            _changepassword_routing_module__WEBPACK_IMPORTED_MODULE_3__["ChangepasswordRoutingModule"],
+            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
+            src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_7__["ApplicationpipeModule"]
+        ],
+        providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__["TranslatePipe"]]
     })
-], EarningmonthlistModule);
+], ChangepasswordModule);
 
 
 

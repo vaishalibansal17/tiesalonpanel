@@ -47,7 +47,7 @@
   "WALKUSR": "WALK-IN CUSTOMER",
   "MANAGECALENDER": "MANAGE CALENDER",
   "PROMOCODE": "PROMO CODES/OFFERS",
-  "REPORTS": "REPORTS",
+  "REPORTS": "FINANCE REPORTS",
   "CHAT": "CHAT MANAGEMENT",
   "DASHBOARD": "DASHBOARD",
   "CANCELLATION": "CANCELLATION POLICY",
@@ -70,6 +70,12 @@
   "STFREQ":"Staff is required.",
   "SRVREQ":"Service is required.",
   "WALKNGSUCCESS": "User added Successfully.",
+  "BK_ACPT": "Booking accepted.",
+  "BK_DEC": "Booking declined.",
+  "BK_REJ": "Booking rejected.",
+  "BK_COM": "Booking Completed.",
+  "MAIL_SND": "Mail has been send with attached invoice.",
+
 
   "HOURSREQ":"Business hours is required.",
   "CONTCT":"Contact",

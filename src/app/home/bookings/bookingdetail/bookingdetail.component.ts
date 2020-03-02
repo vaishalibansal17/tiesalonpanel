@@ -26,17 +26,18 @@ export class BookingdetailComponent implements OnInit {
     this.id = this.routes.snapshot.params.id;
     this.getUserProfile();
   }
-  openDialog(id, type) {
+  openDialog(email) {    
     const dialogRef = this.dialog.open(BookingEmailDialogPopup, { width: '500px', disableClose: true });
     dialogRef.beforeClosed().subscribe(
       (val) => {
         if (val.close) {
-          this.httpService.getRequest('PUT', 'BOOKING_ACPT', id, {bk_status:3})
+          this.httpService.getRequest('GET', 'SND_MAIL', `email=${val.email}&bk_id=${this.id}&name=${this.detail.fullname}`)
             .subscribe((response: any) => {
               if (response.status === 1) {
-                this.route.navigateByUrl('booking').then(()=>{
-                  this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('BK_COM'));
-                })
+                this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('MAIL_SND'));
+                // this.route.navigateByUrl("booking/info/"+`${this.id}`).then(()=>{
+                //   this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('BK_COM'));
+                // })
               } else {
                 if (response.err)
                   this.errsrv.handleError(response.err.errCode)
@@ -121,6 +122,6 @@ export class BookingEmailDialogPopup {
   close(val) {
     console.log(val);
     
-    // this.dialogRef.close(val);
+    this.dialogRef.close(val);
   }
 }

@@ -588,9 +588,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const routes = [
     // { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomeModule), canActivate: [_shared_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
-    { path: 'auth', loadChildren: () => __webpack_require__.e(/*! import() */ 53).then(__webpack_require__.bind(null, /*! ./auth/auth.module */ "./src/app/auth/auth.module.ts")).then(m => m.AuthModule), canActivate: [_shared_guard_login_guard__WEBPACK_IMPORTED_MODULE_4__["LoginGuard"]] },
-    { path: 'reset-freelancer/:token', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(52)]).then(__webpack_require__.bind(null, /*! ./reset-freelancer/reset-freelancer.module */ "./src/app/reset-freelancer/reset-freelancer.module.ts")).then(m => m.ResetFreelancerModule) },
+    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(1), __webpack_require__.e(8)]).then(__webpack_require__.bind(null, /*! ./home/home.module */ "./src/app/home/home.module.ts")).then(m => m.HomeModule), canActivate: [_shared_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]] },
+    { path: 'auth', loadChildren: () => __webpack_require__.e(/*! import() */ 54).then(__webpack_require__.bind(null, /*! ./auth/auth.module */ "./src/app/auth/auth.module.ts")).then(m => m.AuthModule), canActivate: [_shared_guard_login_guard__WEBPACK_IMPORTED_MODULE_4__["LoginGuard"]] },
+    { path: 'reset-freelancer/:token', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(53)]).then(__webpack_require__.bind(null, /*! ./reset-freelancer/reset-freelancer.module */ "./src/app/reset-freelancer/reset-freelancer.module.ts")).then(m => m.ResetFreelancerModule) },
     { path: '**', component: _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__["PageNotFoundComponent"] }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -874,7 +874,10 @@ const APIURLS = {
     CANCELPOLICY: BASE_URL + 'salon/policy',
     HELP_CENTER: BASE_URL + 'compPortfolio',
     SLOT: BASE_URL + 'salon/slot/duration',
-    DASHBOARD: BASE_URL + 'salon/dashboard'
+    DASHBOARD: BASE_URL + 'salon/dashboard',
+    BOOKING_ACPT: BASE_URL + 'booking/accept/reject',
+    BOOKING_SLOT: BASE_URL + 'booking/slot',
+    SND_MAIL: BASE_URL + 'booking/send/invoice'
 };
 
 
@@ -1253,10 +1256,23 @@ let Helper = class Helper {
         console.log(bac, '---------');
         return bac.valueOf();
     }
+    utcDate(data, time, isUTC = true) {
+        var date = new Date(data), mnth = ("0" + (date.getMonth())).slice(-2), day = ("0" + date.getDate()).slice(-2);
+        var dateTime = new Date(time);
+        var timeStamp = new Date(Number(date.getFullYear()), Number(mnth), Number(day), 5, 30, 0);
+        let bac = moment_timezone__WEBPACK_IMPORTED_MODULE_2___default.a.utc(timeStamp);
+        if (isUTC)
+            return bac.valueOf();
+        else
+            return timeStamp.getTime();
+    }
     parsehhmm(data) {
         if (data !== null) {
             var date = new Date(data);
-            return { hh: date.getHours(), mm: date.getMinutes() };
+            let bac = moment_timezone__WEBPACK_IMPORTED_MODULE_2___default.a.utc(date);
+            console.log(bac.toDate(), '-----', bac.format(), '-----');
+            bac = bac.toDate();
+            return { hh: bac.getUTCHours(), mm: bac.getUTCMinutes() };
         }
         else {
             return { hh: null, mm: null };

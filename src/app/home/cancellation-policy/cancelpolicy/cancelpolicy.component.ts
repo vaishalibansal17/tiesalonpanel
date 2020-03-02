@@ -31,9 +31,9 @@ export class CancelpolicyComponent implements OnInit {
           this.httpservice.getRequest('PUT', 'CANCELPOLICY', { is_charge: isCharge }, '').subscribe((response: any) => {
             if (response.status === 1) {
               let salon = JSON.parse(localStorage.getItem('salon'));
-              salon.is_charge = isCharge;
+              salon.is_charge = String(isCharge);
               localStorage.setItem('salon', JSON.stringify(salon));
-              this.charge = isCharge;
+              this.charge = String(isCharge);
               this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('FEEDSUCCESS'));
             } else {
               console.log(response);

@@ -74,6 +74,7 @@
   "BK_DEC": "Booking declined.",
   "BK_REJ": "Booking rejected.",
   "BK_COM": "Booking Completed.",
+  "MAIL_SND": "Mail has been send with attached invoice.",
 
 
   "HOURSREQ":"Business hours is required.",

@@ -987,7 +987,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(1), __webpack_require__.e(8)]).then(__webpack_require__.bind(null,
         /*! ./home/home.module */
         "./src/app/home/home.module.ts")).then(function (m) {
           return m.HomeModule;
@@ -999,7 +999,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return __webpack_require__.e(
         /*! import() */
-        53).then(__webpack_require__.bind(null,
+        54).then(__webpack_require__.bind(null,
         /*! ./auth/auth.module */
         "./src/app/auth/auth.module.ts")).then(function (m) {
           return m.AuthModule;
@@ -1011,7 +1011,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(52)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(53)]).then(__webpack_require__.bind(null,
         /*! ./reset-freelancer/reset-freelancer.module */
         "./src/app/reset-freelancer/reset-freelancer.module.ts")).then(function (m) {
           return m.ResetFreelancerModule;
@@ -1524,7 +1524,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       CANCELPOLICY: BASE_URL + 'salon/policy',
       HELP_CENTER: BASE_URL + 'compPortfolio',
       SLOT: BASE_URL + 'salon/slot/duration',
-      DASHBOARD: BASE_URL + 'salon/dashboard'
+      DASHBOARD: BASE_URL + 'salon/dashboard',
+      BOOKING_ACPT: BASE_URL + 'booking/accept/reject',
+      BOOKING_SLOT: BASE_URL + 'booking/slot',
+      SND_MAIL: BASE_URL + 'booking/send/invoice'
     };
     /***/
   },
@@ -2199,13 +2202,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return bac.valueOf();
         }
       }, {
+        key: "utcDate",
+        value: function utcDate(data, time) {
+          var isUTC = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+          var date = new Date(data),
+              mnth = ("0" + date.getMonth()).slice(-2),
+              day = ("0" + date.getDate()).slice(-2);
+          var dateTime = new Date(time);
+          var timeStamp = new Date(Number(date.getFullYear()), Number(mnth), Number(day), 5, 30, 0);
+          var bac = moment_timezone__WEBPACK_IMPORTED_MODULE_2___default.a.utc(timeStamp);
+          if (isUTC) return bac.valueOf();else return timeStamp.getTime();
+        }
+      }, {
         key: "parsehhmm",
         value: function parsehhmm(data) {
           if (data !== null) {
             var date = new Date(data);
+            var bac = moment_timezone__WEBPACK_IMPORTED_MODULE_2___default.a.utc(date);
+            console.log(bac.toDate(), '-----', bac.format(), '-----');
+            bac = bac.toDate();
             return {
-              hh: date.getHours(),
-              mm: date.getMinutes()
+              hh: bac.getUTCHours(),
+              mm: bac.getUTCMinutes()
             };
           } else {
             return {

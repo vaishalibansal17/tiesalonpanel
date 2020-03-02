@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[15], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/reset-password/reset-password.component.html":
-  /*!*********************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/auth/reset-password/reset-password.component.html ***!
-    \*********************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/promocode/list/list.component.html":
+  /*!***********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/promocode/list/list.component.html ***!
+    \***********************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppAuthResetPasswordResetPasswordComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomePromocodeListListComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main_bg\">\n    <div class=\"fixed-nav\">\n        <ul>\n            <li></li>\n            <li></li>\n            <li class=\"active\"></li>\n        </ul>\n    </div>\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-md-6 main-left\">\n                <div class=\"full-vertical\">\n                    <img class=\"on_board\" src=\"assets/images/img_onboard_3.png\" alt=\"Login\">\n                    <div class=\"head\">boost your reputation with <span>reviews</span></div>\n                </div>\n            </div>\n            <div class=\"col-md-6 main-right\">\n                <div class=\"fixed-back\"><a [routerLink]=\"['/auth']\"><mat-icon>keyboard_arrow_left</mat-icon></a></div>\n                <app-auth-header></app-auth-header>\n                <div class=\"full-vertical custom-width\">\n                    <div class=\"logo\"><img src=\"assets/images/tie_logo_black.png\" alt=\"Logo\"></div>\n                    <h1 class=\"head\">{{'RSTPASS'| translate}}</h1>\n                    <p class=\"text-center\">{{'ENTRNWPASS'| translate}}</p>\n                    <div class=\"login-form\">\n                        <form name=\"reset\" (ngSubmit)=\"resetPassword()\" [formGroup]=\"reset\">\n                            <mat-form-field>\n                                <span class=\"email-img pass\"><img src=\"assets/images/lock.png\" alt=\"envelope\"></span>\n                                <input matInput placeholder=\"{{'PLACEHOLDERLNPASS' | translate}}\" [type]=\"nhide ? 'password' : 'text'\"\n                                    maxlength=\"20\" (keydown.space)=\"$event.preventDefault()\"\n                                    formControlName='newPassword' class=\"form-control\">\n                                <button type=\"button\" mat-icon-button matSuffix (click)=\"nhide = !nhide\"\n                                    [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                                    <mat-icon>{{nhide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                                </button>\n                            </mat-form-field>\n                            <div\n                                *ngIf=\"(submitted) && getControl.newPassword.errors\">\n                                <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.required\">{{'RESETPASSREQ'| translate}}\n                                </p>\n                                <!-- <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.minlength \">{{'PASSPATTERN'| translate}}</p> -->\n                                <span *ngIf=\"!getControl.newPassword.errors.required\">\n                                    <p class=\"color error\" *ngIf=\"getControl.newPassword.errors.invalidPassword\">{{'PASSPATTERN'| translate}}</p>\n                                </span>\n                            </div>\n                            <mat-form-field>\n                                <span class=\"email-img pass\"><img src=\"assets/images/lock.png\" alt=\"envelope\"></span>\n                                <input matInput placeholder=\"{{'RESTPLACEHOLDERLCONFIRMPASS' | translate}}\" [type]=\"chide ? 'password' : 'text'\"\n                                    maxlength=\"20\" (keydown.space)=\"$event.preventDefault()\"\n                                    formControlName='confirmPassword' class=\"form-control\">\n                                <button type=\"button\" mat-icon-button matSuffix (click)=\"chide = !chide\"\n                                    [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                                    <mat-icon>{{chide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                                </button>\n                            </mat-form-field>\n                            <div\n                                *ngIf=\"(submitted) && getControl.confirmPassword.errors\">\n                                <p class=\"color error\" *ngIf=\"getControl.confirmPassword.errors.required\">{{'RESETPASSCNFREQ'| translate}}</p>\n                                <span *ngIf=\"!getControl.confirmPassword.errors.required\">\n                                    <p class=\"color error\" *ngIf=\"getControl.confirmPassword.invalid\">{{'RESETPASSNOTMATCH'| translate}}</p>\n                                </span>\n                            </div>\n                            <button type=\"submit\" class=\"btn btn-submit\">{{'RESET' | translate}}</button>\n                        </form>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n  <div class=\"row\">\n    <div class=\"col-md-6 add\"><a [routerLink]=\"['/promocode/add']\"><img src=\"assets/images/add.png\" alt=\"Add\">Add Promo\n        code</a></div>\n    <div class=\"col-md-6 alignright\"><a href=\"javascript:void(0)\" (click)=\"exportCSV()\"\n        class=\"btn btn-export\">Export</a></div>\n  </div>\n  <div class=\"table_wrap mobile_hidden\" [hidden]=\"(dataSource.loading$ | async)\">\n    <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8 table_scroll\" matSort>\n      <ng-container matColumnDef=\"position\">\n        <th mat-header-cell *matHeaderCellDef>No.</th>\n        <td mat-cell *matCellDef=\"let post; let i =index;\"> {{(paginator.pageIndex * paginator.pageSize)+i + 1}} </td>\n      </ng-container>\n      <ng-container matColumnDef=\"name\">\n        <th mat-header-cell *matHeaderCellDef>Name</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.name | uppercase}}</td>\n      </ng-container>\n      <ng-container matColumnDef=\"coupon\">\n        <th mat-header-cell *matHeaderCellDef>Coupon Code</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.code | uppercase}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"discount\">\n        <th mat-header-cell *matHeaderCellDef>Discount(%)</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.discount}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"service\">\n        <th mat-header-cell *matHeaderCellDef>Service</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.service?(element.service | titlecase):'NA'}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"added\">\n        <th mat-header-cell *matHeaderCellDef>Added By</th>\n        <td mat-cell *matCellDef=\"let element\">{{'Salon'}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"uses\">\n        <th mat-header-cell *matHeaderCellDef>Total Uses</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.uses}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"from\">\n        <th mat-header-cell *matHeaderCellDef>From</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.frm | date : 'dd MMM yyyy'}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"to\">\n        <th mat-header-cell *matHeaderCellDef>To</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.to | date :'dd MMM yyyy'}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"action\">\n        <th mat-header-cell *matHeaderCellDef>Actions</th>\n        <td mat-cell *matCellDef=\"let element\">\n          <button class=\"action_btn pink\"><a [routerLink]=\"['/promocode/info', element._id]\"><img\n                src=\"assets/images/view.png\" alt=\"View\"></a></button>\n          <button class=\"action_btn black\"><a [routerLink]=\"['/promocode/edit', element._id]\"><img\n                src=\"assets/images/edit.png\" alt=\"Edit\"></a></button>\n          <button class=\"action_btn red\" (click)=\"openDialog(element._id)\"><img src=\"assets/images/delete.png\"\n              alt=\"Delete\"></button>\n        </td>\n      </ng-container>\n\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n    </table>\n    <mat-paginator [length]=\"dataSource.totalCount$ | async\" [pageSize]=\"limitPage[0]\" [pageSizeOptions]=\"limitPage\">\n    </mat-paginator>\n    <div class=\"margin_center\"\n            *ngIf=\" !(dataSource.loading$ | async) && ((dataSource.totalCount$ | async)<=0) \">\n             {{'NO_RCD' | translate}}\n          </div>\n  </div>\n\n\n  <div class=\"card_view mobile_visible\"  *ngIf=\"loading\">\n    <div class=\"cards\" *ngFor=\"let element of detail; let i =index\" >\n      <div class=\"description\">\n        <p class=\"coupon\"><img src=\"assets/images/code-pink.png\" alt=\"Code\">{{element?.code | uppercase}}</p>\n        <p class=\"discount\"><img src=\"assets/images/discount-pink.png\" alt=\"Discount\">{{element?.discount}}</p>\n        <p class=\"number\"><img src=\"assets/images/service-pink.png\" alt=\"Service\">{{element?.service | titlecase}}</p>\n        <p class=\"review\"><img src=\"assets/images/location-pink.png\" alt=\"Location\">Salon</p>\n        <p class=\"uses\"><img src=\"assets/images/uses-pink.png\" alt=\"User\">{{element?.uses}}</p>\n        <p class=\"from\"><img src=\"assets/images/time-pink.png\" alt=\"Time\">{{element?.frm | date : 'dd MMM yyyy'}}</p>\n        <p class=\"to\"><img src=\"assets/images/time-pink.png\" alt=\"Time\">{{element?.to | date : 'dd MMM yyyy'}}</p>\n        <div class=\"buttons\">\n          <button class=\"action_btn pink\"><a [routerLink]=\"['/promocode/info', element._id]\">View</a></button>\n          <button class=\"action_btn black\"><a [routerLink]=\"['/promocode/edit', element._id]\">Edit</a></button>\n          <button class=\"action_btn red\" (click)=\"openDialog(element._id)\">Delete</button>\n        </div>\n      </div>\n    </div>\n    <div class=\"text-center\"><button type=\"button\" class=\"btn btn-submit\" (click)=\"paginate()\">Load More</button></div>\n  </div>\n\n  <!-- <ul class=\"pagination\">\n        <li><a href=\"#\"><i class=\"fa fa-angle-left\"></i></a></li>\n        <li class=\"active\"><a href=\"#\">1</a></li>\n        <li><a href=\"#\">2</a></li>\n        <li><a href=\"#\">3</a></li>\n        <li><a href=\"#\">4</a></li>\n        <li><a href=\"#\">5</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-angle-right\"></i></a></li>\n      </ul> -->\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/auth/reset-password/reset-password-routing.module.ts":
-  /*!**********************************************************************!*\
-    !*** ./src/app/auth/reset-password/reset-password-routing.module.ts ***!
-    \**********************************************************************/
+  "./src/app/home/promocode/list/list-routing.module.ts":
+  /*!************************************************************!*\
+    !*** ./src/app/home/promocode/list/list-routing.module.ts ***!
+    \************************************************************/
 
-  /*! exports provided: ResetPasswordRoutingModule */
+  /*! exports provided: ListRoutingModule */
 
   /***/
-  function srcAppAuthResetPasswordResetPasswordRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomePromocodeListListRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ResetPasswordRoutingModule", function () {
-      return ResetPasswordRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "ListRoutingModule", function () {
+      return ListRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _reset_password_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./reset-password.component */
-    "./src/app/auth/reset-password/reset-password.component.ts");
+    var _list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./list.component */
+    "./src/app/home/promocode/list/list.component.ts");
 
     var routes = [{
       path: '',
-      component: _reset_password_component__WEBPACK_IMPORTED_MODULE_3__["ResetPasswordComponent"]
+      component: _list_component__WEBPACK_IMPORTED_MODULE_3__["ListComponent"]
     }];
 
-    var ResetPasswordRoutingModule = function ResetPasswordRoutingModule() {
-      _classCallCheck(this, ResetPasswordRoutingModule);
+    var ListRoutingModule = function ListRoutingModule() {
+      _classCallCheck(this, ListRoutingModule);
     };
 
-    ResetPasswordRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    ListRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], ResetPasswordRoutingModule);
+    })], ListRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/auth/reset-password/reset-password.component.scss":
-  /*!*******************************************************************!*\
-    !*** ./src/app/auth/reset-password/reset-password.component.scss ***!
-    \*******************************************************************/
+  "./src/app/home/promocode/list/list.component.scss":
+  /*!*********************************************************!*\
+    !*** ./src/app/home/promocode/list/list.component.scss ***!
+    \*********************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppAuthResetPasswordResetPasswordComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomePromocodeListListComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "p.color.error {\n  top: 0px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvYXV0aC9yZXNldC1wYXNzd29yZC9yZXNldC1wYXNzd29yZC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXV0aC9yZXNldC1wYXNzd29yZC9yZXNldC1wYXNzd29yZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUFjLFFBQUE7QUNFZCIsImZpbGUiOiJzcmMvYXBwL2F1dGgvcmVzZXQtcGFzc3dvcmQvcmVzZXQtcGFzc3dvcmQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJwLmNvbG9yLmVycm9ye3RvcDowcHh9IiwicC5jb2xvci5lcnJvciB7XG4gIHRvcDogMHB4O1xufSJdfQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcHJvbW9jb2RlL2xpc3QvbGlzdC5jb21wb25lbnQuc2NzcyJ9 */";
     /***/
   },
 
   /***/
-  "./src/app/auth/reset-password/reset-password.component.ts":
-  /*!*****************************************************************!*\
-    !*** ./src/app/auth/reset-password/reset-password.component.ts ***!
-    \*****************************************************************/
+  "./src/app/home/promocode/list/list.component.ts":
+  /*!*******************************************************!*\
+    !*** ./src/app/home/promocode/list/list.component.ts ***!
+    \*******************************************************/
 
-  /*! exports provided: ResetPasswordComponent */
+  /*! exports provided: ListComponent */
 
   /***/
-  function srcAppAuthResetPasswordResetPasswordComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomePromocodeListListComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ResetPasswordComponent", function () {
-      return ResetPasswordComponent;
+    __webpack_require__.d(__webpack_exports__, "ListComponent", function () {
+      return ListComponent;
     });
     /* harmony import */
 
@@ -139,179 +139,303 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/material */
+    "./node_modules/@angular/material/esm2015/material.js");
     /* harmony import */
 
 
-    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var src_app_shared_service_list_list_dataSource__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/shared/service/list/list.dataSource */
+    "./src/app/shared/service/list/list.dataSource.ts");
+    /* harmony import */
+
+
+    var src_app_shared_service_list_list_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/service/list/list.service */
+    "./src/app/shared/service/list/list.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/shared/service/http-request.service */
     "./src/app/shared/service/http-request.service.ts");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
     /* harmony import */
 
 
-    var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! rxjs/operators */
-    "./node_modules/rxjs/_esm2015/operators/index.js");
-    /* harmony import */
-
-
-    var rxjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! rxjs */
     "./node_modules/rxjs/_esm2015/index.js");
     /* harmony import */
 
 
-    var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! src/app/shared/service/validation-service */
-    "./src/app/shared/service/validation-service.ts");
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
     /* harmony import */
 
 
-    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! angular5-csv/dist/Angular5-csv */
+    "./node_modules/angular5-csv/dist/Angular5-csv.js");
+    /* harmony import */
+
+
+    var angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_9___default =
+    /*#__PURE__*/
+    __webpack_require__.n(angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_9__);
+    /* harmony import */
+
+
+    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! src/app/shared/service/error.service */
     "./src/app/shared/service/error.service.ts");
     /* harmony import */
 
 
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! src/app/shared/_pipes/translate.pipe */
-    "./src/app/shared/_pipes/translate.pipe.ts");
+    var _angular_common__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/fesm2015/common.js");
+    /* harmony import */
 
-    var ResetPasswordComponent =
+
+    var src_app_shared_confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! src/app/shared/confim-dialog/confim-dialog.component */
+    "./src/app/shared/confim-dialog/confim-dialog.component.ts");
+    /* harmony import */
+
+
+    var src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! src/app/shared/constants/constant */
+    "./src/app/shared/constants/constant.ts");
+
+    var ListComponent =
     /*#__PURE__*/
     function () {
-      function ResetPasswordComponent(httpService, router, fb, routes, error, trns) {
-        _classCallCheck(this, ResetPasswordComponent);
+      function ListComponent(dialog, list, errsrv, httpservice, trns) {
+        _classCallCheck(this, ListComponent);
 
-        this.httpService = httpService;
-        this.router = router;
-        this.fb = fb;
-        this.routes = routes;
-        this.error = error;
+        this.dialog = dialog;
+        this.list = list;
+        this.errsrv = errsrv;
+        this.httpservice = httpservice;
         this.trns = trns;
-        this.chide = true;
-        this.nhide = true;
-        this.isLoading = false;
-        this.formData = new FormData();
-        this.unsubscribeAll = new rxjs__WEBPACK_IMPORTED_MODULE_6__["Subject"]();
+        this.displayedColumns = ['position', 'name', 'coupon', 'discount', 'service', 'added', 'uses', 'from', 'to', 'action'];
+        this.limitPage = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_13__["LIMIT"];
+        this.sortData = {};
+        this.url = 'assets/images/change.png';
+        this.detail = [];
+        this.isApplied = false;
       }
 
-      _createClass(ResetPasswordComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {
+      _createClass(ListComponent, [{
+        key: "openDialog",
+        value: function openDialog(id) {
           var _this = this;
 
-          this.token = this.routes.snapshot.params.token;
-          if (this.token) this.token = this.token.replace(/\s/g, "+");
-          localStorage.clear();
-          this.reset = this.fb.group({
-            newPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6), src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].passwordValidator]),
-            confirmPassword: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["passValidator"]])
+          var dialogRef = this.dialog.open(src_app_shared_confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_12__["ConfimDialogComponent"], {
+            width: '500px',
+            disableClose: true,
+            data: {
+              msg: "Are you sure you want to delete this Promo Code/Offer??",
+              btn: this.trns.transform('DELETE'),
+              cncl: this.trns.transform('CANCEL')
+            }
           });
-          this.reset.get('newPassword').valueChanges.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["takeUntil"])(this.unsubscribeAll)).subscribe(function () {
-            _this.reset.get('confirmPassword').updateValueAndValidity();
+          dialogRef.beforeClosed().subscribe(function (val) {
+            if (val) {
+              _this.httpservice.getRequest('DELETE', 'PROMO', id).subscribe(function (response) {
+                if (response.status === 1) {
+                  _this.httpservice.sucsTostr(_this.trns.transform('SUCCESS'), _this.trns.transform('DELETE_STAFF'));
+
+                  _this.getSalonStaff();
+                } else {
+                  if (response.err) _this.errsrv.handleError(response.err.errCode);
+                  return false;
+                }
+              }, function (error) {
+                _this.errsrv.handleError(0);
+              });
+            }
           });
         }
       }, {
-        key: "resetPassword",
-        value: function resetPassword() {
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.getSalonStaff();
+        } // ********************** Account Manager List Api Integration with search ******************
+
+      }, {
+        key: "getSalonStaff",
+        value: function getSalonStaff() {
           var _this2 = this;
 
-          this.submitted = true;
+          this.dataSource = new src_app_shared_service_list_list_dataSource__WEBPACK_IMPORTED_MODULE_3__["ListDataSource"](this.list);
+          this.loadStaffList();
+          this.dataSource.usersData.subscribe(function (val) {
+            _this2.detail = val;
+            console.log(val);
+          });
+          this.dataSource.loadingUsers.subscribe(function (e) {
+            return _this2.loading = !e;
+          });
+        }
+      }, {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          var _this3 = this;
 
-          if (!this.reset.valid) {
-            return;
+          this.sort.sortChange.subscribe(function () {
+            return _this3.paginator.pageIndex = 0;
+          });
+          Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["merge"])(this.sort.sortChange, this.paginator.page).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
+            return _this3.loadStaffList();
+          })).subscribe();
+        }
+      }, {
+        key: "loadStaffList",
+        value: function loadStaffList() {
+          if (this.sort.active == 'name') {
+            this.sortData.sortValue = '1';
+          } else if (this.sort.active == 'email') {
+            this.sortData.sortValue = '2';
           } else {
-            this.httpService.getRequest('POST', 'RESET', {
-              pass: this.reset.value.newPassword,
-              tkn: this.token
-            }).subscribe(function (response) {
-              if (response.status === 1) {
-                _this2.router.navigateByUrl('/auth').then(function () {
-                  _this2.httpService.sucsTostr(_this2.trns.transform('SUCCESS'), _this2.trns.transform('RESETPASSSUCC'));
-                });
-              } else {
-                if (response.err) {
-                  _this2.error.handleError(response.err.errCode);
-                } else {
-                  _this2.error.handleError(0);
-                }
-              }
-            }, function (err) {
-              _this2.error.handleError(0);
-            });
+            this.sortData.sortValue = '3';
           }
+
+          this.sortData.direction = this.sort.direction || null;
+          var listObj = {
+            page: this.paginator.pageIndex - 1 + 1,
+            limit: this.paginator.pageSize || this.limitPage[0],
+            sort_val: this.sortData.sortValue,
+            dir: this.sortData.direction == 'asc' ? '1' : '-1'
+          };
+          if (this.search) listObj['srch'] = this.search;
+          this.dataSource.load(listObj, {
+            api: 'PROMO'
+          });
         }
       }, {
-        key: "ngDestroy",
-        value: function ngDestroy() {
-          this.unsubscribeAll.next();
-          this.unsubscribeAll.complete();
+        key: "applyFilters",
+        value: function applyFilters() {
+          this.loadStaffList();
+          this.isApplied = true;
         }
       }, {
-        key: "getControl",
-        get: function get() {
-          return this.reset.controls;
+        key: "paginate",
+        value: function paginate() {
+          this.paginator.pageSize = this.paginator.pageSize + 1;
+          this.getSalonStaff();
+        } // ********************** Account Manager List Api Integration with search End******************
+
+      }, {
+        key: "exportCSV",
+        value: function exportCSV() {
+          var _this4 = this;
+
+          this.httpservice.exportCSV('PROMO');
+          var finalData = [];
+          var obj;
+          var i = 0; // let listObj = {
+          //  all:true
+          // }
+          // this.dataSource.load(listObj, {api: 'PROMO'});
+
+          this.httpservice.getRequest('GET', 'PROMO', "?all=true").subscribe(function (rs) {
+            var datePipe = new _angular_common__WEBPACK_IMPORTED_MODULE_11__["DatePipe"]('en-US');
+            rs.res.promo.forEach(function (element) {
+              obj = {
+                "Serial": ++i,
+                "Name": element.name,
+                "Code": element.code,
+                "Discount": element.discount,
+                "Min. Price Discount": element.min_price ? element.min_price : "NA",
+                "Max. Price Discount": element.upto ? element.upto : 'NA',
+                "Total Uses": element.uses ? element.uses : "NA",
+                "Starting Date": datePipe.transform(element.frm, "dd/MM/yyyy"),
+                "Starting End": datePipe.transform(element.to, "dd/MM/yyyy"),
+                "Services": element.service ? element.service : "NA"
+              };
+              finalData.push(obj);
+            });
+            var options = {
+              noDownload: false,
+              headers: ["Serial", "Name", "Code", "Discount", "Min. Price Discount", "Max. Price Discount", "Total Uses", "Starting Date", "Starting End", "Services"]
+            };
+            new angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_9__["Angular5Csv"](finalData, 'Offer_list', options);
+
+            _this4.httpservice.sucsTostr(_this4.trns.transform('SUCCESS'), _this4.trns.transform('EXPORTD'));
+          });
+        }
+      }, {
+        key: "matPaginator",
+        set: function set(mp) {
+          this.paginator = mp;
         }
       }]);
 
-      return ResetPasswordComponent;
+      return ListComponent;
     }();
 
-    ResetPasswordComponent.ctorParameters = function () {
+    ListComponent.ctorParameters = function () {
       return [{
-        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
+        type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
+        type: src_app_shared_service_list_list_service__WEBPACK_IMPORTED_MODULE_4__["ListService"]
       }, {
-        type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]
+        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_10__["ErrorService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
+        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_5__["HttpRequestService"]
       }, {
-        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__["ErrorService"]
-      }, {
-        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"]
+        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__["TranslatePipe"]
       }];
     };
 
-    ResetPasswordComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-reset-password',
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"], {
+      static: true
+    })], ListComponent.prototype, "matPaginator", null);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"], {
+      static: true
+    })], ListComponent.prototype, "sort", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('input', {
+      static: true
+    })], ListComponent.prototype, "input", void 0);
+    ListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-list',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./reset-password.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/reset-password/reset-password.component.html")).default,
+      /*! raw-loader!./list.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/promocode/list/list.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./reset-password.component.scss */
-      "./src/app/auth/reset-password/reset-password.component.scss")).default]
-    })], ResetPasswordComponent);
+      /*! ./list.component.scss */
+      "./src/app/home/promocode/list/list.component.scss")).default]
+    })], ListComponent);
     /***/
   },
 
   /***/
-  "./src/app/auth/reset-password/reset-password.module.ts":
-  /*!**************************************************************!*\
-    !*** ./src/app/auth/reset-password/reset-password.module.ts ***!
-    \**************************************************************/
+  "./src/app/home/promocode/list/list.module.ts":
+  /*!****************************************************!*\
+    !*** ./src/app/home/promocode/list/list.module.ts ***!
+    \****************************************************/
 
-  /*! exports provided: ResetPasswordModule */
+  /*! exports provided: ListModule */
 
   /***/
-  function srcAppAuthResetPasswordResetPasswordModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomePromocodeListListModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ResetPasswordModule", function () {
-      return ResetPasswordModule;
+    __webpack_require__.d(__webpack_exports__, "ListModule", function () {
+      return ListModule;
     });
     /* harmony import */
 
@@ -334,62 +458,278 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _reset_password_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./reset-password-routing.module */
-    "./src/app/auth/reset-password/reset-password-routing.module.ts");
+    var _list_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./list-routing.module */
+    "./src/app/home/promocode/list/list-routing.module.ts");
     /* harmony import */
 
 
-    var _reset_password_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./reset-password.component */
-    "./src/app/auth/reset-password/reset-password.component.ts");
+    var _list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./list.component */
+    "./src/app/home/promocode/list/list.component.ts");
     /* harmony import */
 
 
-    var src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/shared/material/material.module */
-    "./src/app/shared/material/material.module.ts");
-    /* harmony import */
-
-
-    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/shared/shared.module */
     "./src/app/shared/shared.module.ts");
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
-    /* harmony import */
-
-
-    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/shared/module/applicationpipe/applicationpipe.module */
     "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
     /* harmony import */
 
 
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/shared/_pipes/translate.pipe */
     "./src/app/shared/_pipes/translate.pipe.ts");
+
+    var ListModule = function ListModule() {
+      _classCallCheck(this, ListModule);
+    };
+
+    ListModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_list_component__WEBPACK_IMPORTED_MODULE_4__["ListComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _list_routing_module__WEBPACK_IMPORTED_MODULE_3__["ListRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__["ApplicationpipeModule"]],
+      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]],
+      entryComponents: []
+    })], ListModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/constants/constant.ts":
+  /*!**********************************************!*\
+    !*** ./src/app/shared/constants/constant.ts ***!
+    \**********************************************/
+
+  /*! exports provided: ERROR_MSG, LIMIT, IMG, MESSAGE, DELETE, MAP */
+
+  /***/
+  function srcAppSharedConstantsConstantTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ERROR_MSG", function () {
+      return ERROR_MSG;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "LIMIT", function () {
+      return LIMIT;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "IMG", function () {
+      return IMG;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MESSAGE", function () {
+      return MESSAGE;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "DELETE", function () {
+      return DELETE;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MAP", function () {
+      return MAP;
+    });
     /* harmony import */
 
 
-    var _auth_header_auth_header_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-    /*! ../auth-header/auth-header.module */
-    "./src/app/auth/auth-header/auth-header.module.ts");
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
 
-    var ResetPasswordModule = function ResetPasswordModule() {
-      _classCallCheck(this, ResetPasswordModule);
+    var ERROR_MSG = {
+      HTTP_SUBSCRIBER_ERROR: 'Network Error.',
+      UNAUTHURIZED_ERROR: 'You are not an authorized user.'
+    };
+    var LIMIT = [10, 20, 30];
+    var IMG = {
+      PRO: 'assets/images/user-add.png',
+      USR: 'assets/images/noti-pro.png'
+    };
+    var MESSAGE = {
+      SUCCESS: 'SUCCESS',
+      FORGOT_SUC: 'Forgot Password Link has been sent successfully.',
+      FORGOT_FAIL: 'Admin not found'
+    };
+    var DELETE = {
+      DELETE_TITLE: '',
+      DELETE_MSG: 'You wont be able to revert this!',
+      DELETE_CONFIRM_TEXT: 'Yes, delete it!'
+    };
+    var MAP = {
+      KEY: "AIzaSyDiESz5lmd8ZNxAGBg3ILiQ8w9SFuYwAB8",
+      type: "places"
+    };
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/service/error.service.ts":
+  /*!*************************************************!*\
+    !*** ./src/app/shared/service/error.service.ts ***!
+    \*************************************************/
+
+  /*! exports provided: ErrorService */
+
+  /***/
+  function srcAppSharedServiceErrorServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ErrorService", function () {
+      return ErrorService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./translate.service */
+    "./src/app/shared/service/translate.service.ts");
+    /* harmony import */
+
+
+    var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./http-request.service */
+    "./src/app/shared/service/http-request.service.ts"); // import { TranslatePipe } from '../_pipes/translate.pipe';
+
+
+    var ErrorService =
+    /*#__PURE__*/
+    function () {
+      function ErrorService(helper, trns) {
+        _classCallCheck(this, ErrorService);
+
+        this.helper = helper;
+        this.trns = trns;
+      }
+
+      _createClass(ErrorService, [{
+        key: "handleError",
+        value: function handleError() {
+          var errCode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+          switch (errCode) {
+            case 0:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 1:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 4:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+              break;
+
+            case 5:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
+              break;
+
+            case 6:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
+              break;
+
+            case 7:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
+              break;
+
+            case 8:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
+              break;
+
+            case 9:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
+              break;
+
+            case 31:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+              break;
+
+            case 34:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['PROMOALRDYEXIST']);
+              break;
+
+            case 32:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['STAFFALRDYEXIST']);
+              break;
+
+            case 15:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONALRDYEXIST']);
+              break;
+
+            case 39:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
+              break;
+
+            case 41:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DEACTIVE']);
+              break;
+
+            case 42:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DELSALONACC']);
+              break;
+
+            case 51:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['NOBOOK']);
+              break;
+
+            case 56:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SLNEXIST']);
+              break;
+
+            default:
+              break;
+          }
+        }
+      }]);
+
+      return ErrorService;
+    }();
+
+    ErrorService.ctorParameters = function () {
+      return [{
+        type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
+      }, {
+        type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
+      }];
     };
 
-    ResetPasswordModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_reset_password_component__WEBPACK_IMPORTED_MODULE_4__["ResetPasswordComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"], _reset_password_routing_module__WEBPACK_IMPORTED_MODULE_3__["ResetPasswordRoutingModule"], src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__["MaterialModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"], _auth_header_auth_header_module__WEBPACK_IMPORTED_MODULE_10__["AuthHeaderModule"]],
-      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"]],
-      schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]]
-    })], ResetPasswordModule);
+    ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], ErrorService);
     /***/
   }
 }]);

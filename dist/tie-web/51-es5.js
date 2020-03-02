@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[51], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/list/list.component.html":
-  /*!**************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/list/list.component.html ***!
-    \**************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html":
+  /*!****************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html ***!
+    \****************************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserListListComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserAddbookingsAddbookingsComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<!-- <hr>\n<h1>Under Development.</h1>\n<hr>\n<h2>Thank you</h2> -->\n\n<div class=\"main-card\">\n  <div class=\"row\">\n    <div class=\"col-md-6 add\"><a [routerLink]=\"['/walk-in-customer/add-user']\"><img src=\"assets/images/add.png\"\n          alt=\"Add\">\n        Add Customer</a></div>\n    <div class=\"col-md-6 alignright\"><a href=\"javascript:void(0)\" (click)=\"exportCSV()\"\n        class=\"btn btn-export\">Export</a>\n      <form action=\"\" class=\"search_field\">\n        <mat-form-field>\n          <span class=\"email-img search\"><img src=\"assets/images/search.png\" alt=\"envelope\"></span>\n          <input matInput placeholder=\"Search\" [(ngModel)]=\"search\" [ngModelOptions]=\"{standalone: true}\"\n            (keyup)=\"applyFilters()\" #input autocomplete=\"off\" class=\"form-control\">\n        </mat-form-field>\n      </form>\n    </div>\n    <div class=\"col-md-6 add\">\n      <!-- <form action=\"\" class=\"list_booking\">\n        <mat-form-field>\n          <mat-label>All Bookings</mat-label>\n          <mat-select>\n            <mat-option *ngFor=\"let walkinglist of walkinglists\" [value]=\"walkinglist.value\">\n              {{walkinglist.viewValue}}\n            </mat-option>\n          </mat-select>\n        </mat-form-field>\n      </form> -->\n    </div>\n\n  </div>\n  <div class=\"table_wrap mobile_hidden\" [hidden]=\"(dataSource.loading$ | async)\">\n    <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8 table_scroll\" matSort>\n      <ng-container matColumnDef=\"position\">\n        <th mat-header-cell *matHeaderCellDef> No. </th>\n        <td mat-cell *matCellDef=\"let post; let i =index;\"> {{(paginator.pageIndex * paginator.pageSize)+i + 1}} </td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"name\">\n        <th mat-header-cell *matHeaderCellDef> User Name </th>\n        <td mat-cell *matCellDef=\"let element\"> <a>{{element.name | titlecase}}</a> </td>\n      </ng-container>\n      <ng-container matColumnDef=\"email\">\n        <th mat-header-cell *matHeaderCellDef>Email</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.email}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"service\">\n        <th mat-header-cell *matHeaderCellDef>Service</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.service  | titlecase}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"staff\">\n        <th mat-header-cell *matHeaderCellDef>Staff Name</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.staff  | titlecase}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"number\">\n        <th mat-header-cell *matHeaderCellDef>Mobile Number</th>\n        <td mat-cell *matCellDef=\"let element\"> {{element.phone}} </td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"bookingid\">\n        <th mat-header-cell *matHeaderCellDef>Booking ID</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.bookingid  | uppercase }}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"date\">\n        <th mat-header-cell *matHeaderCellDef>Date</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.bookDateTime | date: \"dd MMM yyy\"}}</td>\n      </ng-container>\n      <ng-container matColumnDef=\"Action\">\n        <th mat-header-cell *matHeaderCellDef> Actions </th>\n        <td mat-cell *matCellDef=\"let element\">\n          <button class=\"action_btn pink\"><a [routerLink]=\"['/walk-in-customer/info', element.bk_id]\"><img\n                src=\"assets/images/view.png\" alt=\"View\"></a></button>\n        </td>\n      </ng-container>\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n    </table>\n    <mat-paginator [length]=\"dataSource.totalCount$ | async\" [pageSize]=\"limitPage[0]\" [pageSizeOptions]=\"limitPage\">\n    </mat-paginator>\n    <!-- </div> -->\n    <div class=\"margin_center\" *ngIf=\" !(dataSource.loading$ | async) && ((dataSource.totalCount$ | async)<=0) \">\n      {{'NO_RCD' | translate}}\n    </div>\n  </div>\n\n  <div class=\"card_view mobile_visible\" *ngIf=\"loading\">\n\n    <div class=\"cards\" *ngFor=\"let element of detail; let i =index\">\n      <div class=\"top_info\">\n        <!--add class for background color confirmed, pending, rejected, completed-->\n        <div class=\"left_status confirmed\">confirmed</div>\n        <div class=\"right_status\">\n          <ul>\n            <li>{{element?.bookDateTime | date : 'dd, MMM yyyy '}}</li>\n          </ul>\n        </div>\n      </div>\n      <div class=\"description\">\n        <p class=\"user\"><img src=\"assets/images/user-pink.png\" alt=\"User\">{{element?.name || 'NA'  | titlecase}}</p>\n        <p class=\"service\"><img src=\"assets/images/service-pink.png\"\n            alt=\"Service\">{{element?.service || 'NA' | titlecase }}</p>\n        <p class=\"location\"><img src=\"assets/images/location-pink.png\" alt=\"Location\">Salon</p>\n        <p class=\"number\"><img src=\"assets/images/mobile-pink.png\" alt=\"Mobile\">{{element?.phone || 'NA'}}</p>\n        <p class=\"id\"><img src=\"assets/images/id.png\" alt=\"Id\">{{element?.booking_id || 'NA'}}</p>\n        <p class=\"id\"><img src=\"assets/images/staff.png\" alt=\"Id\">{{element?.staff || 'NA' | titlecase}}</p>\n        <div class=\"buttons\">\n          <button class=\"action_btn pink\"><a [routerLink]=\"['/walk-in-customer/info', element.bk_id]\">View</a></button>\n        </div>\n      </div>\n    </div>\n    <div class=\"text-center\"><button type=\"button\" class=\"btn btn-submit\" (click)=\"paginate()\">Load More</button></div>\n  </div>\n  <!-- <ul class=\"pagination\">\n      <ul class=\"pagination\">\n        <li><a href=\"#\"><i class=\"fa fa-angle-left\"></i></a></li>\n        <li class=\"active\"><a href=\"#\">1</a></li>\n        <li><a href=\"#\">2</a></li>\n        <li><a href=\"#\">3</a></li>\n        <li><a href=\"#\">4</a></li>\n        <li><a href=\"#\">5</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-angle-right\"></i></a></li>\n      </ul> -->\n</div>";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form action=\"\" [formGroup]='profile' (ngSubmit)=\"submit()\">\n            <mat-form-field class=\"multi_field\">\n                <span class=\"email-img pass\"><img src=\"assets/images/service.png\" alt=\"envelope\"></span>\n                <mat-label>{{'SERVICE'| translate}}</mat-label>\n                <mat-select (selectionChange)=\"slctsrv($event)\" class=\"multiselect\">\n                    <mat-option *ngFor=\"let service of services\" [value]=\"service\">\n                        {{service.cat_name | titlecase}}\n                    </mat-option>\n                </mat-select>\n                <div *ngIf=\"(submitted && !chips.length)\">\n                    <p class=\"color error\" *ngIf=\"!chips.length\">{{'SRVREQ'|translate}}</p>\n                    <!-- <p class=\"color error\" *ngIf=\"!getControl.price.errors.required && getControl.price.errors.Invalidphone \">\n                        {{'PHNLNGTH'|translate}}</p> -->\n                </div>\n                <mat-chip-list aria-label=\"Fish selection\">\n                    <mat-chip *ngFor=\"let chip of chips; let i =index\" [disableRipple]=\"true\" [selectable]=\"selectable\"\n                        [removable]=\"removable\" (removed)=\"remove(i, chip)\">{{chip.cat_name | titlecase}}\n                        <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\n                    </mat-chip>\n                    <!-- <mat-chip>Two fish</mat-chip>\n                    <mat-chip color=\"primary\" selected>Primary fish</mat-chip>\n                    <mat-chip color=\"accent\" selected>Accent fish</mat-chip> -->\n                </mat-chip-list>\n            </mat-form-field>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/icon_sr.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Price\" formControlName=\"price\" readonly='true' class=\"form-control\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted && getControl.price.errors)\">\n                <p class=\"color error\" *ngIf=\"getControl.price.errors.required\">{{'PRICREQ'|translate}}</p>\n                <!-- <p class=\"color error\" *ngIf=\"!getControl.price.errors.required && getControl.price.errors.Invalidphone \">\n                    {{'PHNLNGTH'|translate}}</p> -->\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/edit-staff.png\" alt=\"envelope\"></span>\n                <mat-label>{{'STAFF'| translate}}</mat-label>\n                <mat-select formControlName=\"staf_id\" (selectionChange)=\"slctstf()\" >\n                    <mat-option *ngFor=\"let staff of staff\" [value]=\"staff\">\n                        {{staff.name | titlecase}}\n                    </mat-option>\n                </mat-select>\n            </mat-form-field>\n            <div class=\"date_time\">\n                <span ><img class=\"cal-img\" src=\"assets/images/calendar_form.png\" alt=\"envelope\"></span>\n                <p-calendar formControlName=\"dttime\" icon=\"pi pi-calendar\"  dateFormat=\"dd M yy\"  (onClose)=\"slctstf()\"\n                    placeholder=\"Select appointment date and time\" inputStyleClass=\"form-control\" [minDate] = \"todaydt\" [maxDate] = \"max\"\n                    [readonlyInput]=\"true\"></p-calendar>\n            </div>\n            <div class=\"time_tabs\">\n                <span *ngFor=\"let slots of slots;\" (click)=\"slcdt(slots?.time);\">\n                    <p [class]=\"slots?.is_avlbl?'is_active':'nt_active'\">{{(slots?.time | timeFilter) | date : 'h:mm a'}}</p>\n                </span>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/description.png\" alt=\"envelope\"></span>\n                <textarea matInput placeholder=\"{{'DESCRIPTION'| translate}}\" class=\"form-control\"\n                    formControlName=\"desc\" maxlength=\"150\"></textarea>\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.desc.dirty|| getControl.desc.touched) && getControl.desc.errors\">\n                <p class=\"color\" *ngIf=\"getControl.desc.errors.required\">{{'DESCREQ' | translate}}</p>\n                <p class=\"color\" *ngIf=\"getControl.desc.errors.minlength \">{{'DESCLNGTH'| translate}}</p>\n            </div>\n            <div *ngIf=\"(submitted && getControl.staf_id.errors)\">\n                <p class=\"color error\" *ngIf=\"getControl.staf_id.errors.required\">{{'STFREQ'|translate}}</p>\n            </div>\n            <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Save</button>\n            </div>\n        </form>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/list/list-routing.module.ts":
-  /*!***************************************************************!*\
-    !*** ./src/app/home/walking-user/list/list-routing.module.ts ***!
-    \***************************************************************/
+  "./src/app/home/walking-user/addbookings/addbookings-routing.module.ts":
+  /*!*****************************************************************************!*\
+    !*** ./src/app/home/walking-user/addbookings/addbookings-routing.module.ts ***!
+    \*****************************************************************************/
 
-  /*! exports provided: WalkinglistRoutingModule */
+  /*! exports provided: AddbookingsRoutingModule */
 
   /***/
-  function srcAppHomeWalkingUserListListRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddbookingsAddbookingsRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "WalkinglistRoutingModule", function () {
-      return WalkinglistRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "AddbookingsRoutingModule", function () {
+      return AddbookingsRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./list.component */
-    "./src/app/home/walking-user/list/list.component.ts");
+    var _addbookings_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./addbookings.component */
+    "./src/app/home/walking-user/addbookings/addbookings.component.ts");
 
     var routes = [{
       path: '',
-      component: _list_component__WEBPACK_IMPORTED_MODULE_3__["ListComponent"]
+      component: _addbookings_component__WEBPACK_IMPORTED_MODULE_3__["AddbookingsComponent"]
     }];
 
-    var WalkinglistRoutingModule = function WalkinglistRoutingModule() {
-      _classCallCheck(this, WalkinglistRoutingModule);
+    var AddbookingsRoutingModule = function AddbookingsRoutingModule() {
+      _classCallCheck(this, AddbookingsRoutingModule);
     };
 
-    WalkinglistRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    AddbookingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], WalkinglistRoutingModule);
+    })], AddbookingsRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/list/list.component.scss":
-  /*!************************************************************!*\
-    !*** ./src/app/home/walking-user/list/list.component.scss ***!
-    \************************************************************/
+  "./src/app/home/walking-user/addbookings/addbookings.component.scss":
+  /*!**************************************************************************!*\
+    !*** ./src/app/home/walking-user/addbookings/addbookings.component.scss ***!
+    \**************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeWalkingUserListListComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddbookingsAddbookingsComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".main-card ul.inline li.add {\n  margin: 0 25px 0px 10px;\n}\n\n@media (max-width: 768px) {\n  form {\n    float: left;\n  }\n}\n\n@media (max-width: 480px) {\n  form {\n    float: none;\n    text-align: center;\n  }\n}\n\nform {\n  display: initial;\n  margin-left: 15px;\n}\n\n@media (max-width: 380px) {\n  form {\n    margin-left: 0px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvbGlzdC9saXN0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9ob21lL3dhbGtpbmctdXNlci9saXN0L2xpc3QuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBNEIsdUJBQUE7QUNFNUI7O0FERUE7RUFDSTtJQUFLLFdBQUE7RUNFUDtBQUNGOztBREFBO0VBQ0k7SUFBSyxXQUFBO0lBQVksa0JBQUE7RUNJbkI7QUFDRjs7QURGQTtFQUFLLGdCQUFBO0VBQWlCLGlCQUFBO0FDTXRCOztBREpBO0VBQ0k7SUFBSyxnQkFBQTtFQ1FQO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9ob21lL3dhbGtpbmctdXNlci9saXN0L2xpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbi1jYXJkIHVsLmlubGluZSBsaS5hZGR7bWFyZ2luOiAwIDI1cHggMHB4IDEwcHg7fVxuXG4vLyBmb3Jte21hcmdpbi10b3A6IDEwcHg7fVxuXG5AbWVkaWEobWF4LXdpZHRoOjc2OHB4KXtcbiAgICBmb3Jte2Zsb2F0OiBsZWZ0O31cbn1cblxuQG1lZGlhKG1heC13aWR0aDo0ODBweCl7XG4gICAgZm9ybXtmbG9hdDogbm9uZTt0ZXh0LWFsaWduOiBjZW50ZXI7fVxufVxuXG5mb3Jte2Rpc3BsYXk6IGluaXRpYWw7bWFyZ2luLWxlZnQ6IDE1cHg7fVxuXG5AbWVkaWEobWF4LXdpZHRoOjM4MHB4KXtcbiAgICBmb3Jte21hcmdpbi1sZWZ0OiAwcHg7fVxufVxuIiwiLm1haW4tY2FyZCB1bC5pbmxpbmUgbGkuYWRkIHtcbiAgbWFyZ2luOiAwIDI1cHggMHB4IDEwcHg7XG59XG5cbkBtZWRpYSAobWF4LXdpZHRoOiA3NjhweCkge1xuICBmb3JtIHtcbiAgICBmbG9hdDogbGVmdDtcbiAgfVxufVxuQG1lZGlhIChtYXgtd2lkdGg6IDQ4MHB4KSB7XG4gIGZvcm0ge1xuICAgIGZsb2F0OiBub25lO1xuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgfVxufVxuZm9ybSB7XG4gIGRpc3BsYXk6IGluaXRpYWw7XG4gIG1hcmdpbi1sZWZ0OiAxNXB4O1xufVxuXG5AbWVkaWEgKG1heC13aWR0aDogMzgwcHgpIHtcbiAgZm9ybSB7XG4gICAgbWFyZ2luLWxlZnQ6IDBweDtcbiAgfVxufSJdfQ== */";
+    __webpack_exports__["default"] = ".custom_form span.email-img.pass {\n  top: 15px !important;\n}\n\n.mat-form-field.multi_field {\n  display: inline-table !important;\n}\n\n.mat-select.multiselect {\n  border: 1px solid #dad9d9 !important;\n  border-radius: 4px;\n  margin-bottom: 10px;\n}\n\n.custom_form mat-form-field.mat-form-field.multi_field {\n  border: none;\n}\n\np.color.error {\n  top: 0px !important;\n}\n\n:host ::ng-deep .ui-calendar {\n  display: block;\n}\n\n:host ::ng-deep .ui-inputtext {\n  width: 100% !important;\n}\n\n.date_time {\n  position: relative;\n}\n\nimg.cal-img {\n  position: absolute;\n  z-index: 999;\n  top: 15px;\n  left: 15px;\n  color: #232121;\n}\n\n.time_tabs p {\n  margin-bottom: 0;\n  border: 1px solid #ccc;\n  color: #ccc;\n  padding: 2px 8px;\n  border-radius: 5px;\n  margin-right: 3px;\n  margin-bottom: 15px;\n  min-width: 85px;\n  text-align: center;\n  display: inline-block;\n}\n\n.time_tabs p.nt_active {\n  background: #e9ecef;\n  color: #c7c7c7 !important;\n}\n\n@media (max-width: 992px) {\n  :host ::ng-deep .ui-inputtext {\n    padding-left: 45px !important;\n  }\n\n  img.cal-img {\n    top: 18px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvYWRkYm9va2luZ3MvYWRkYm9va2luZ3MuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL2FkZGJvb2tpbmdzL2FkZGJvb2tpbmdzLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQWtDLG9CQUFBO0FDRWxDOztBREFBO0VBQTRCLGdDQUFBO0FDSTVCOztBREhBO0VBQXdCLG9DQUFBO0VBQXFDLGtCQUFBO0VBQW1CLG1CQUFBO0FDU2hGOztBRFBBO0VBQXVELFlBQUE7QUNXdkQ7O0FEVkE7RUFBa0IsbUJBQUE7QUNjbEI7O0FEWkE7RUFBNkIsY0FBQTtBQ2dCN0I7O0FEZkE7RUFDSSxzQkFBQTtBQ2tCSjs7QURoQkU7RUFBVyxrQkFBQTtBQ29CYjs7QURuQkU7RUFDRSxrQkFBQTtFQUNBLFlBQUE7RUFDQSxTQUFBO0VBQ0EsVUFBQTtFQUNBLGNBQUE7QUNzQko7O0FEbkJBO0VBQ0UsZ0JBQUE7RUFDQSxzQkFBQTtFQUNBLFdBQUE7RUFDQSxnQkFBQTtFQUNBLGtCQUFBO0VBQ0EsaUJBQUE7RUFDQSxtQkFBQTtFQUNBLGVBQUE7RUFDQSxrQkFBQTtFQUNBLHFCQUFBO0FDc0JGOztBRG5CQTtFQUF3QixtQkFBQTtFQUFvQix5QkFBQTtBQ3dCNUM7O0FEckJBO0VBQ0U7SUFBOEIsNkJBQUE7RUN5QjlCOztFRHhCQTtJQUNFLFNBQUE7RUMyQkY7QUFDRiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvd2Fsa2luZy11c2VyL2FkZGJvb2tpbmdzL2FkZGJvb2tpbmdzLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmN1c3RvbV9mb3JtIHNwYW4uZW1haWwtaW1nLnBhc3Mge3RvcDogMTVweCAhaW1wb3J0YW50O31cblxuLm1hdC1mb3JtLWZpZWxkLm11bHRpX2ZpZWxke2Rpc3BsYXk6IGlubGluZS10YWJsZSAhaW1wb3J0YW50fVxuLm1hdC1zZWxlY3QubXVsdGlzZWxlY3R7Ym9yZGVyOiAxcHggc29saWQgI2RhZDlkOSAhaW1wb3J0YW50O2JvcmRlci1yYWRpdXM6IDRweDttYXJnaW4tYm90dG9tOiAxMHB4O31cblxuLmN1c3RvbV9mb3JtIG1hdC1mb3JtLWZpZWxkLm1hdC1mb3JtLWZpZWxkLm11bHRpX2ZpZWxke2JvcmRlcjpub25lfVxucC5jb2xvci5lcnJvcnsgICAgdG9wOiAwcHggIWltcG9ydGFudDt9XG5cbjpob3N0IDo6bmctZGVlcCAudWktY2FsZW5kYXJ7ZGlzcGxheTogYmxvY2t9XG46aG9zdCA6Om5nLWRlZXAgLnVpLWlucHV0dGV4dCB7XG4gICAgd2lkdGg6IDEwMCUgIWltcG9ydGFudDtcbiAgfVxuICAuZGF0ZV90aW1le3Bvc2l0aW9uOiByZWxhdGl2ZTt9XG4gIGltZy5jYWwtaW1nIHtcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XG4gICAgei1pbmRleDogOTk5O1xuICAgIHRvcDoxNXB4O1xuICAgIGxlZnQ6IDE1cHg7XG4gICAgY29sb3I6ICMyMzIxMjE7XG59XG4udGltZV90YWJze1xucHtcbiAgbWFyZ2luLWJvdHRvbTogMDtcbiAgYm9yZGVyOiAxcHggc29saWQgI2NjYztcbiAgY29sb3I6ICNjY2M7XG4gIHBhZGRpbmc6IDJweCA4cHg7XG4gIGJvcmRlci1yYWRpdXM6IDVweDtcbiAgbWFyZ2luLXJpZ2h0OiAzcHg7XG4gIG1hcmdpbi1ib3R0b206IDE1cHg7XG4gIG1pbi13aWR0aDogODVweDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xuICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7XG59XG59XG4udGltZV90YWJzIHAubnRfYWN0aXZlIHtiYWNrZ3JvdW5kOiAjZTllY2VmO2NvbG9yOiAjYzdjN2M3ICFpbXBvcnRhbnQ7fVxuXG5cbkBtZWRpYShtYXgtd2lkdGg6OTkycHgpe1xuICA6aG9zdCA6Om5nLWRlZXAgLnVpLWlucHV0dGV4dHtwYWRkaW5nLWxlZnQ6IDQ1cHggIWltcG9ydGFudDt9XG4gIGltZy5jYWwtaW1nIHtcbiAgICB0b3A6MThweDt9XG59IiwiLmN1c3RvbV9mb3JtIHNwYW4uZW1haWwtaW1nLnBhc3Mge1xuICB0b3A6IDE1cHggIWltcG9ydGFudDtcbn1cblxuLm1hdC1mb3JtLWZpZWxkLm11bHRpX2ZpZWxkIHtcbiAgZGlzcGxheTogaW5saW5lLXRhYmxlICFpbXBvcnRhbnQ7XG59XG5cbi5tYXQtc2VsZWN0Lm11bHRpc2VsZWN0IHtcbiAgYm9yZGVyOiAxcHggc29saWQgI2RhZDlkOSAhaW1wb3J0YW50O1xuICBib3JkZXItcmFkaXVzOiA0cHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG59XG5cbi5jdXN0b21fZm9ybSBtYXQtZm9ybS1maWVsZC5tYXQtZm9ybS1maWVsZC5tdWx0aV9maWVsZCB7XG4gIGJvcmRlcjogbm9uZTtcbn1cblxucC5jb2xvci5lcnJvciB7XG4gIHRvcDogMHB4ICFpbXBvcnRhbnQ7XG59XG5cbjpob3N0IDo6bmctZGVlcCAudWktY2FsZW5kYXIge1xuICBkaXNwbGF5OiBibG9jaztcbn1cblxuOmhvc3QgOjpuZy1kZWVwIC51aS1pbnB1dHRleHQge1xuICB3aWR0aDogMTAwJSAhaW1wb3J0YW50O1xufVxuXG4uZGF0ZV90aW1lIHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xufVxuXG5pbWcuY2FsLWltZyB7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgei1pbmRleDogOTk5O1xuICB0b3A6IDE1cHg7XG4gIGxlZnQ6IDE1cHg7XG4gIGNvbG9yOiAjMjMyMTIxO1xufVxuXG4udGltZV90YWJzIHAge1xuICBtYXJnaW4tYm90dG9tOiAwO1xuICBib3JkZXI6IDFweCBzb2xpZCAjY2NjO1xuICBjb2xvcjogI2NjYztcbiAgcGFkZGluZzogMnB4IDhweDtcbiAgYm9yZGVyLXJhZGl1czogNXB4O1xuICBtYXJnaW4tcmlnaHQ6IDNweDtcbiAgbWFyZ2luLWJvdHRvbTogMTVweDtcbiAgbWluLXdpZHRoOiA4NXB4O1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gIGRpc3BsYXk6IGlubGluZS1ibG9jaztcbn1cblxuLnRpbWVfdGFicyBwLm50X2FjdGl2ZSB7XG4gIGJhY2tncm91bmQ6ICNlOWVjZWY7XG4gIGNvbG9yOiAjYzdjN2M3ICFpbXBvcnRhbnQ7XG59XG5cbkBtZWRpYSAobWF4LXdpZHRoOiA5OTJweCkge1xuICA6aG9zdCA6Om5nLWRlZXAgLnVpLWlucHV0dGV4dCB7XG4gICAgcGFkZGluZy1sZWZ0OiA0NXB4ICFpbXBvcnRhbnQ7XG4gIH1cblxuICBpbWcuY2FsLWltZyB7XG4gICAgdG9wOiAxOHB4O1xuICB9XG59Il19 */";
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/list/list.component.ts":
-  /*!**********************************************************!*\
-    !*** ./src/app/home/walking-user/list/list.component.ts ***!
-    \**********************************************************/
+  "./src/app/home/walking-user/addbookings/addbookings.component.ts":
+  /*!************************************************************************!*\
+    !*** ./src/app/home/walking-user/addbookings/addbookings.component.ts ***!
+    \************************************************************************/
 
-  /*! exports provided: ListComponent */
+  /*! exports provided: AddbookingsComponent */
 
   /***/
-  function srcAppHomeWalkingUserListListComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddbookingsAddbookingsComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ListComponent", function () {
-      return ListComponent;
+    __webpack_require__.d(__webpack_exports__, "AddbookingsComponent", function () {
+      return AddbookingsComponent;
     });
     /* harmony import */
 
@@ -139,21 +139,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_shared_service_list_list_dataSource__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/shared/service/list/list.dataSource */
-    "./src/app/shared/service/list/list.dataSource.ts");
+    var src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/shared/service/message.service */
+    "./src/app/shared/service/message.service.ts");
     /* harmony import */
 
 
-    var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! @angular/material */
-    "./node_modules/@angular/material/esm2015/material.js");
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
     /* harmony import */
 
 
-    var src_app_shared_service_list_list_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/shared/service/list/list.service */
-    "./src/app/shared/service/list/list.service.ts");
+    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/service/error.service */
+    "./src/app/shared/service/error.service.ts");
     /* harmony import */
 
 
@@ -163,237 +163,274 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/service/helper.service */
+    "./src/app/shared/service/helper.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/shared/_pipes/translate.pipe */
     "./src/app/shared/_pipes/translate.pipe.ts");
     /* harmony import */
 
 
-    var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/shared/service/validation-service */
+    "./src/app/shared/service/validation-service.ts");
+    /* harmony import */
+
+
+    var lodash__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! lodash */
+    "./node_modules/lodash/lodash.js");
+    /* harmony import */
+
+
+    var lodash__WEBPACK_IMPORTED_MODULE_10___default =
+    /*#__PURE__*/
+    __webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_10__);
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! rxjs */
     "./node_modules/rxjs/_esm2015/index.js");
-    /* harmony import */
 
-
-    var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! rxjs/operators */
-    "./node_modules/rxjs/_esm2015/operators/index.js");
-    /* harmony import */
-
-
-    var angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! angular5-csv/dist/Angular5-csv */
-    "./node_modules/angular5-csv/dist/Angular5-csv.js");
-    /* harmony import */
-
-
-    var angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_9___default =
-    /*#__PURE__*/
-    __webpack_require__.n(angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_9__);
-    /* harmony import */
-
-
-    var _angular_common__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-    /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
-
-    var ListComponent =
+    var AddbookingsComponent =
     /*#__PURE__*/
     function () {
-      function ListComponent(list, httpservice, trns) {
-        _classCallCheck(this, ListComponent);
+      function AddbookingsComponent(httpService, router, messageService, helper, errorserv, trns) {
+        _classCallCheck(this, AddbookingsComponent);
 
-        this.list = list;
-        this.httpservice = httpservice;
+        this.httpService = httpService;
+        this.router = router;
+        this.messageService = messageService;
+        this.helper = helper;
+        this.errorserv = errorserv;
         this.trns = trns;
-        this.displayedColumns = ['position', 'name', 'email', 'service', 'staff', 'number', 'bookingid', 'date', 'Action'];
-        this.limitPage = [10, 20, 30];
-        this.sortData = {};
-        this.url = 'assets/images/change.png';
-        this.walkinglists = [{
+        this.servicea = [{
           value: '1',
-          viewValue: 'All Bookings'
+          viewValue: 'Hair Spa'
         }, {
           value: '2',
-          viewValue: 'New Bookings'
-        }, {
-          value: '3',
-          viewValue: 'Accepted Bookings'
-        }, {
-          value: '4',
-          viewValue: 'In-Process Bookings'
-        }, {
-          value: '5',
-          viewValue: 'Completed Bookings'
+          viewValue: 'Spa'
         }];
-        this.isApplied = false;
+        this.chips = [];
+        this.sendServ = [];
+        this.selectable = true;
+        this.removable = true;
+        this.price = 0;
+        this.submitted = false;
+        this.todaydt = new Date();
       }
 
-      _createClass(ListComponent, [{
+      _createClass(AddbookingsComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          this.getSalonStaff();
-        } // ********************** Account Manager List Api Integration with search ******************
+          this.salonid = localStorage.getItem('salonid');
+          this.max = new Date(Number(this.todaydt.getFullYear()), Number(this.todaydt.getMonth() + 3), Number(this.todaydt.getDate()), 23, 59, 59, 59);
+          this.responseData = this.messageService.getBooking();
 
+          if (!this.responseData) {// this.router.navigateByUrl('walk-in-customer/add-user').then(() => {
+            //   this.errorserv.handleError(0);
+            // })
+          } else this.getServices();
+
+          this.profile = new _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormGroup"]({
+            staf_id: new _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required]),
+            price: new _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_9__["ValidationService"].numberValidator]),
+            dttime: new _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_8__["Validators"].required]),
+            desc: new _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormControl"](null)
+          });
+        }
       }, {
-        key: "getSalonStaff",
-        value: function getSalonStaff() {
+        key: "submit",
+        value: function submit() {
           var _this = this;
 
-          this.dataSource = new src_app_shared_service_list_list_dataSource__WEBPACK_IMPORTED_MODULE_2__["ListDataSource"](this.list);
-          this.loadStaffList();
-          this.dataSource.usersData.subscribe(function (val) {
-            return _this.detail = val;
-          });
-          this.dataSource.loadingUsers.subscribe(function (e) {
-            return _this.loading = !e;
-          });
-          this.dataSource.extra$.subscribe(function (e) {
-            return _this.imgurl = e;
-          });
-          this.dataSource.totalCount$.subscribe(function (e) {
-            return _this.totalLength = e;
-          });
+          this.submitted = true;
+
+          if (this.profile.valid) {
+            // this.profile.controls['price'].enable();
+            console.log(this.profile, this.date);
+            this.profile.value['service'] = JSON.stringify(this.chips);
+            this.profile.value['user_id'] = this.responseData.user_id;
+            this.profile.value['staf_name'] = this.profile.value.staf_id.name;
+            this.profile.value['staf_id'] = this.profile.value.staf_id._id;
+            this.profile.value['bookDateTime'] = this.date;
+            this.profile.value['duration'] = this.duration; // return
+
+            this.httpService.getRequest('POST', 'WALKING_BOOK', this.profile.value).subscribe(function (response) {
+              if (response.status === 1) {
+                _this.submitted = true;
+
+                _this.router.navigateByUrl('/walk-in-customer').then(function () {
+                  _this.httpService.sucsTostr(_this.trns.transform('SUCCESS'), _this.trns.transform('WALKNGSUCCESS'));
+                });
+              } else {
+                if (response.err) {
+                  _this.errorserv.handleError(response.err.errCode);
+                }
+              }
+            }, function (error) {
+              _this.errorserv.handleError(0);
+            });
+          } else {
+            console.log(this.profile);
+          }
         }
       }, {
-        key: "ngAfterViewInit",
-        value: function ngAfterViewInit() {
+        key: "getServices",
+        value: function getServices() {
           var _this2 = this;
 
-          this.sort.sortChange.subscribe(function () {
-            return _this2.paginator.pageIndex = 0;
+          var service = this.httpService.getRequest('GET', 'SERVICES', '');
+          var staff = this.httpService.getRequest('GET', 'STAFF', '?all=true');
+          Object(rxjs__WEBPACK_IMPORTED_MODULE_11__["forkJoin"])([service, staff]).subscribe(function (result) {
+            _this2.services = result[0].res.services;
+            _this2.staff = result[1].res.staffs;
+          }, function (error) {
+            console.log(error);
           });
-          Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["merge"])(this.sort.sortChange, this.paginator.page).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
-            return _this2.loadStaffList();
-          })).subscribe();
         }
       }, {
-        key: "loadStaffList",
-        value: function loadStaffList() {
-          if (this.sort.active == 'name') {
-            this.sortData.sortValue = '1';
-          } else if (this.sort.active == 'email') {
-            this.sortData.sortValue = '2';
+        key: "slctsrv",
+        value: function slctsrv(state) {
+          var matSelect = state.source;
+          matSelect.writeValue(null);
+          state = state.value;
+
+          if (!this.httpService.arraySearch(this.sendServ, state)) {
+            this.chips.push({
+              id: state._id,
+              cat_name: lodash__WEBPACK_IMPORTED_MODULE_10__["startCase"](lodash__WEBPACK_IMPORTED_MODULE_10__["camelCase"](state.cat_name)),
+              title: lodash__WEBPACK_IMPORTED_MODULE_10__["startCase"](lodash__WEBPACK_IMPORTED_MODULE_10__["camelCase"](state.cat_name)),
+              cost: state.price,
+              duration: state.duration
+            });
+            this.sendServ.push(state._id);
+            this.price = this.price + state.price;
+            this.duration = this.duration + state.duration;
+            this.profile.controls['price'].setValue(this.price);
+            return;
+          } else {}
+        }
+      }, {
+        key: "remove",
+        value: function remove(service, data) {
+          var rmvsrv = this.chips.find(function (v) {
+            return v.id == data.id;
+          });
+          this.chips = this.chips.filter(function (v) {
+            return v.id !== data.id;
+          });
+          this.sendServ = this.sendServ.filter(function (v) {
+            return v !== data.id;
+          });
+
+          if (this.chips.length == 0) {
+            this.price = 0;
+            this.duration = 0;
+            this.profile.controls['price'].setValue(0);
           } else {
-            this.sortData.sortValue = '3';
+            console.log(rmvsrv);
+            this.duration = this.duration - rmvsrv.duration;
+            this.price = this.price - rmvsrv.cost;
+            this.profile.controls['price'].setValue(this.price);
           }
-
-          this.sortData.direction = this.sort.direction || null;
-          var listObj = {
-            page: this.paginator.pageIndex - 1 + 1,
-            limit: this.paginator.pageSize || this.limitPage[0],
-            sort_val: this.sortData.sortValue,
-            dir: this.sortData.direction == 'asc' ? '1' : '-1'
-          };
-          if (this.search) listObj['srch'] = this.search;
-          this.dataSource.load(listObj, {
-            api: 'WALKING'
-          });
         }
       }, {
-        key: "applyFilters",
-        value: function applyFilters() {
-          this.loadStaffList();
-          this.isApplied = true;
-        }
-      }, {
-        key: "paginate",
-        value: function paginate() {
-          this.paginator.pageSize = this.paginator.pageSize + 1;
-          this.getSalonStaff();
-        } // ********************** Account Manager List Api Integration with search End******************
-
-      }, {
-        key: "exportCSV",
-        value: function exportCSV(data) {
+        key: "slctstf",
+        value: function slctstf() {
           var _this3 = this;
 
-          var finalData = [];
-          var obj;
-          var i = 0;
-          this.httpservice.getRequest('GET', 'WALKING', "?all=true").subscribe(function (rs) {
-            var datePipe = new _angular_common__WEBPACK_IMPORTED_MODULE_10__["DatePipe"]('en-US');
-            rs.res.wlkUsr.forEach(function (element) {
-              obj = {
-                "Serial": ++i,
-                "Name": element.fullname ? element.fullname : 'NA',
-                "Email": element.email ? element.email : 'NA',
-                "Services": element.service ? element.service : "NA",
-                "Staff": element.staff ? element.staff : 'NA',
-                "Contact Number": element.pno ? element.pno : 'NA',
-                "Booking-Id": element.bookingid ? element.bookingid : "NA",
-                "Date": datePipe.transform(element.bookDateTime, "dd/MM/yyyy")
-              };
-              finalData.push(obj);
+          if (this.profile.value.dttime && this.profile.value.staf_id) {
+            // let date = new Date(this.profile.value.dttime);
+            var date = this.helper.utcDate(this.profile.value.dttime);
+            console.log(this.helper.utcDate(this.profile.value.dttime));
+            this.httpService.getRequest('GET_PARMS', 'BOOKING_SLOT', this.salonid, "bk_dt=".concat(date, "&staf_id=").concat(this.profile.value.staf_id._id)).subscribe(function (response) {
+              if (response.status === 1) {
+                _this3.slots = response.res;
+              } else {
+                if (response.err) {// this.error.handleError(response.err.errCode);
+                }
+              }
+            }, function (error) {// this.error.handleError(0);
+              // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
             });
-            var options = {
-              noDownload: false,
-              headers: ["Serial", "Name", "Email", 'Services', 'Staff', 'Contact Number', 'Booking-Id', 'Date']
-            };
-            new angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_9__["Angular5Csv"](finalData, 'walkin_list', options);
-
-            _this3.httpservice.sucsTostr(_this3.trns.transform('SUCCESS'), _this3.trns.transform('EXPORTD'));
-          });
+          }
         }
       }, {
-        key: "matPaginator",
-        set: function set(mp) {
-          this.paginator = mp;
+        key: "slcdt",
+        value: function slcdt(tmstmp) {
+          var time = new Date(tmstmp);
+          this.date = new Date(this.profile.value.dttime);
+          this.date.setHours(time.getHours(), time.getMinutes(), time.getSeconds(), 0);
+          this.date = this.helper.parseDate(this.date);
+        }
+      }, {
+        key: "getControl",
+        get: function get() {
+          return this.profile.controls;
         }
       }]);
 
-      return ListComponent;
+      return AddbookingsComponent;
     }();
 
-    ListComponent.ctorParameters = function () {
+    AddbookingsComponent.ctorParameters = function () {
       return [{
-        type: src_app_shared_service_list_list_service__WEBPACK_IMPORTED_MODULE_4__["ListService"]
-      }, {
         type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_5__["HttpRequestService"]
       }, {
-        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__["TranslatePipe"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+      }, {
+        type: src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_2__["MessageService"]
+      }, {
+        type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_6__["Helper"]
+      }, {
+        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_4__["ErrorService"]
+      }, {
+        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]
       }];
     };
 
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatPaginator"], {
-      static: true
-    })], ListComponent.prototype, "matPaginator", null);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_3__["MatSort"], {
-      static: true
-    })], ListComponent.prototype, "sort", void 0);
-    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('input', {
-      static: true
-    })], ListComponent.prototype, "input", void 0);
-    ListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-list',
+    AddbookingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-addbookings',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./list.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/list/list.component.html")).default,
+      /*! raw-loader!./addbookings.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/addbookings/addbookings.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./list.component.scss */
-      "./src/app/home/walking-user/list/list.component.scss")).default]
-    })], ListComponent);
+      /*! ./addbookings.component.scss */
+      "./src/app/home/walking-user/addbookings/addbookings.component.scss")).default]
+    })], AddbookingsComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/walking-user/list/list.module.ts":
-  /*!*******************************************************!*\
-    !*** ./src/app/home/walking-user/list/list.module.ts ***!
-    \*******************************************************/
+  "./src/app/home/walking-user/addbookings/addbookings.module.ts":
+  /*!*********************************************************************!*\
+    !*** ./src/app/home/walking-user/addbookings/addbookings.module.ts ***!
+    \*********************************************************************/
 
-  /*! exports provided: ListModule */
+  /*! exports provided: AddbookingsModule */
 
   /***/
-  function srcAppHomeWalkingUserListListModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddbookingsAddbookingsModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ListModule", function () {
-      return ListModule;
+    __webpack_require__.d(__webpack_exports__, "AddbookingsModule", function () {
+      return AddbookingsModule;
     });
     /* harmony import */
 
@@ -416,15 +453,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _list_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./list-routing.module */
-    "./src/app/home/walking-user/list/list-routing.module.ts");
+    var _addbookings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./addbookings-routing.module */
+    "./src/app/home/walking-user/addbookings/addbookings-routing.module.ts");
     /* harmony import */
 
 
-    var _list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./list.component */
-    "./src/app/home/walking-user/list/list.component.ts");
+    var _addbookings_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./addbookings.component */
+    "./src/app/home/walking-user/addbookings/addbookings.component.ts");
     /* harmony import */
 
 
@@ -434,31 +471,37 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
-    /* harmony import */
-
-
-    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/shared/module/applicationpipe/applicationpipe.module */
     "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
     /* harmony import */
 
 
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/shared/_pipes/translate.pipe */
     "./src/app/shared/_pipes/translate.pipe.ts");
+    /* harmony import */
 
-    var ListModule = function ListModule() {
-      _classCallCheck(this, ListModule);
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var primeng_calendar__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! primeng/calendar */
+    "./node_modules/primeng/fesm2015/primeng-calendar.js");
+
+    var AddbookingsModule = function AddbookingsModule() {
+      _classCallCheck(this, AddbookingsModule);
     };
 
-    ListModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_list_component__WEBPACK_IMPORTED_MODULE_4__["ListComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _list_routing_module__WEBPACK_IMPORTED_MODULE_3__["WalkinglistRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_7__["ApplicationpipeModule"]],
-      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__["TranslatePipe"]]
-    })], ListModule);
+    AddbookingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_addbookings_component__WEBPACK_IMPORTED_MODULE_4__["AddbookingsComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _addbookings_routing_module__WEBPACK_IMPORTED_MODULE_3__["AddbookingsRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], primeng_calendar__WEBPACK_IMPORTED_MODULE_9__["CalendarModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__["ApplicationpipeModule"]],
+      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]]
+    })], AddbookingsModule);
     /***/
   }
 }]);
