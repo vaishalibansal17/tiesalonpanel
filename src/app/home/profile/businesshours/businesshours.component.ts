@@ -223,19 +223,24 @@ export class BusinesshoursComponent implements OnInit {
           for (let index = 0; index < 7; index++) {
             let day = index == 0 ? 'Sunday' : (index == 1 ? 'Monday' : (index == 2 ? 'Tuesday' : (index == 3 ? 'Wednesday' : (index == 4 ? 'Thursday' : (index == 5 ? 'Friday' : 'Saturday')))))
             console.log(detail[index]);
-            let obj = detail.find(o => o.day === index) || {open_time:{hh:null, mm:null},close_time:{hh:null, mm:null}, is_open:false, strt_break_time:{hh:null, mm:null}, end_break_time:{hh:null, mm:null} , is_break:false};
-
-              // if(detail[index]['day'] == index)
-              this.form.controls[day].patchValue({
-                open: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.open_time.hh, obj.open_time.mm),
-                close: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.close_time.hh, obj.close_time.mm),
-                isOpen: obj.hasOwnProperty('is_open')?obj.is_open:false,
-                breakStart: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.strt_break_time?obj.strt_break_time.hh:0, obj.strt_break_time?obj.strt_break_time.mm:0),
-                breakEnd: new Date(date.getFullYear(), date.getMonth() + 1, date.getDate(), obj.end_break_time?obj.end_break_time.hh:0, obj.end_break_time?obj.end_break_time.mm:0),
-              });
-              let dayName = index == 0 ? 'Sun' : (index == 1 ? 'Mon' : (index == 2 ? 'Tues' : (index == 3 ? 'Wed' : (index == 4 ? 'Thurs' : (index == 5 ? 'Fri' : 'Sat')))))
-              this.toggle(day,dayName)
-              this['is' + dayName + 'Break'] = obj.is_break;
+            let obj = detail.find(o => o.day === index) || { open_time: { hh: null, mm: null }, close_time: { hh: null, mm: null }, is_open: false, strt_break_time: { hh: null, mm: null }, end_break_time: { hh: null, mm: null }, is_break: false };
+            
+            let open_time = new Date(), close_time = new Date(), op_br_tm = new Date(), cl_br_tm = new Date();
+            open_time.setUTCHours(obj.open_time.hh, obj.open_time.mm);            
+            close_time.setUTCHours(obj.close_time.hh, obj.close_time.mm);
+            op_br_tm.setUTCHours(obj.strt_break_time ? obj.strt_break_time.hh : 0, obj.strt_break_time ? obj.strt_break_time.mm : 0);
+            cl_br_tm.setUTCHours(obj.end_break_time ? obj.end_break_time.hh : 0, obj.end_break_time ? obj.end_break_time.mm : 0);
+            // if(detail[index]['day'] == index)
+            this.form.controls[day].patchValue({
+              open: open_time,
+              close: close_time,
+              isOpen: obj.hasOwnProperty('is_open') ? obj.is_open : false,
+              breakStart: op_br_tm,
+              breakEnd: cl_br_tm,
+            });
+            let dayName = index == 0 ? 'Sun' : (index == 1 ? 'Mon' : (index == 2 ? 'Tues' : (index == 3 ? 'Wed' : (index == 4 ? 'Thurs' : (index == 5 ? 'Fri' : 'Sat')))))
+            this.toggle(day, dayName)
+            this['is' + dayName + 'Break'] = obj.is_break;
           }
         } else {
           if (response.err) {
@@ -359,7 +364,7 @@ export class BusinesshoursComponent implements OnInit {
           return false;
         }
         else if (new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close)) {
-          console.log(new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close), '-=-=-=-=-=-=');
+          console.log(new Date(this.form.value[dayName].breakStart) > new Date(this.form.value[dayName].close), '-=-=-=7878787878787-=-=-=');
 
           this['is' + daybrk + 'ClosBrkReq'] = false;
           this['is' + daybrk + 'OpnBrkReq'] = false;

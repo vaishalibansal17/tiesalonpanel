@@ -44,13 +44,13 @@
             </mat-form-field>
             <div class="date_time">
                 <span ><img class="cal-img" src="assets/images/calendar_form.png" alt="envelope"></span>
-                <p-calendar [showTime]="true" formControlName="bookDateTime" icon="pi pi-calendar"  dateFormat="dd M yy"  (onClose)="slctstf()"
+                <p-calendar formControlName="dttime" icon="pi pi-calendar"  dateFormat="dd M yy"  (onClose)="slctstf()"
                     placeholder="Select appointment date and time" inputStyleClass="form-control" [minDate] = "todaydt" [maxDate] = "max"
                     [readonlyInput]="true"></p-calendar>
             </div>
             <div class="time_tabs">
-                <span *ngFor="let slots of slots;">
-                    <p>{{slots?.time | date : 'h:mm a'}}</p>
+                <span *ngFor="let slots of slots;" (click)="slcdt(slots?.time);">
+                    <p [class]="slots?.is_avlbl?'is_active':'nt_active'">{{(slots?.time | timeFilter) | date : 'h:mm a'}}</p>
                 </span>
             </div>
             <mat-form-field>

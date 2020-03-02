@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ManagecalenderInfoRoutingModule } from './managecalender-info-routing.module';
 import { ManagecalenderInfoComponent } from './managecalender-info.component';
 import { AgmCoreModule } from '@agm/core';
+import { MAP } from 'src/app/shared/constants/constant';
 
 
 @NgModule({
@@ -12,8 +13,8 @@ import { AgmCoreModule } from '@agm/core';
     CommonModule,
     ManagecalenderInfoRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAHEv0pFxjFfAOWbrLVw1szHKb2aakZ3YU',
-      libraries: ["places"]
+      apiKey: MAP.KEY,
+      libraries: [MAP.type]
     }),
   ]
 })

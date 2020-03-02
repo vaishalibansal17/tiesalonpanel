@@ -1,0 +1,13 @@
+.main-card ul.inline{padding-top: 20px;}
+
+@media(max-width:992px){
+    .main-card .label,.main-card .description{padding: 0px 30px;}
+}
+
+@media(max-width:767px){
+.main-card ul.inline{text-align: left;}
+.main-card ul.inline li{display: contents}
+.main-card ul.inline li button.action_btn.red{padding: 2px 12px 2px 16px;}
+.main-card span.user_name {margin-left: 0;display: block;margin-top: 10px;}
+.main-card ul.inline{padding-top: 0px;}
+}

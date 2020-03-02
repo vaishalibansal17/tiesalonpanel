@@ -39,6 +39,8 @@ export class AddbookingsComponent implements OnInit {
   max: Date;
   salonid: string;
   slots: any;
+  date: Date;
+  duration: any;
   constructor(private httpService: HttpRequestService, private router: Router,
     private messageService: MessageService, private helper: Helper,
     private errorserv: ErrorService,
@@ -62,7 +64,7 @@ export class AddbookingsComponent implements OnInit {
       price: new FormControl(null, [
         Validators.required, ValidationService.numberValidator
       ]),
-      bookDateTime: new FormControl(null, [
+      dttime: new FormControl(null, [
         Validators.required
       ]),
       desc: new FormControl(null),
@@ -75,11 +77,13 @@ export class AddbookingsComponent implements OnInit {
 
     if (this.profile.valid) {
       // this.profile.controls['price'].enable();
-      console.log(this.profile);
+      console.log(this.profile, this.date);
       this.profile.value['service'] = JSON.stringify(this.chips);
       this.profile.value['user_id'] = this.responseData.user_id;
       this.profile.value['staf_name'] = this.profile.value.staf_id.name;
       this.profile.value['staf_id'] = this.profile.value.staf_id._id;
+      this.profile.value['bookDateTime'] = this.date;
+      this.profile.value['duration'] = this.duration;
       // return
       this.httpService.getRequest('POST', 'WALKING_BOOK', this.profile.value).subscribe((response: any) => {
         if (response.status === 1) {
@@ -117,9 +121,10 @@ export class AddbookingsComponent implements OnInit {
     matSelect.writeValue(null);
     state = state.value
     if (!this.httpService.arraySearch(this.sendServ, state)) {
-      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)), cost: state.price });
+      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)), cost: state.price, duration:state.duration });
       this.sendServ.push(state._id);
       this.price = this.price + state.price;
+      this.duration = this.duration + state.duration;
       this.profile.controls['price'].setValue(this.price);
       return
     } else {
@@ -133,20 +138,21 @@ export class AddbookingsComponent implements OnInit {
     this.sendServ = this.sendServ.filter(v => v !== data.id);
     if (this.chips.length == 0) {
       this.price = 0;
+      this.duration = 0;
       this.profile.controls['price'].setValue(0);
     }
     else {
       console.log(rmvsrv);
-
+      this.duration = this.duration - rmvsrv.duration;
       this.price = this.price - rmvsrv.cost;
       this.profile.controls['price'].setValue(this.price)
     }
   }
   slctstf() {
-    if (this.profile.value.bookDateTime && this.profile.value.staf_id) {
-      // let date = new Date(this.profile.value.bookDateTime);
-      let date = this.helper.utcDate(this.profile.value.bookDateTime);
-      console.log(this.helper.utcDate(this.profile.value.bookDateTime));
+    if (this.profile.value.dttime && this.profile.value.staf_id) {
+      // let date = new Date(this.profile.value.dttime);
+      let date = this.helper.utcDate(this.profile.value.dttime);
+      console.log(this.helper.utcDate(this.profile.value.dttime));
 
       this.httpService.getRequest('GET_PARMS', 'BOOKING_SLOT',  this.salonid, `bk_dt=${date}&staf_id=${this.profile.value.staf_id._id}`)
         .subscribe((response: any) => {
@@ -162,6 +168,13 @@ export class AddbookingsComponent implements OnInit {
           // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
         });
     }
+  }
+
+  slcdt(tmstmp){
+    let time = new Date(tmstmp);
+    this.date = new Date(this.profile.value.dttime);
+    this.date.setHours(time.getHours(), time.getMinutes(),time.getSeconds(), 0);    
+    this.date = this.helper.parseDate(this.date);
   }
 
 }

@@ -1,7 +1,30 @@
+<!-- <div class="main-card">
+  <h1>Booking</h1>
+  <p>It will set up in further milestone.</p>
+</div> -->
 <div class="main-card">
   <div class="row">
-    <div class="col-md-6 top-text">Booking Date: {{time | date : 'dd, MMM yyyy'}}</div>
-    <div class="col-md-6 alignright">      <a href="javascript:void(0)" (click)="exportCSV()" class="btn btn-export">{{'EXPORT_EXL' | translate}}</a>
+    <div class="col-md-6 add">
+      <form action="" class="list_booking">
+        <mat-form-field>
+          <mat-label>{{'ALLBOOKING' | translate}}</mat-label>
+          <mat-select (selectionChange)="slctype($event)">
+            <mat-option *ngFor="let booking of bookings" [value]="booking.value">
+              {{booking.viewValue}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="col-md-6 alignright">
+      <a href="javascript:void(0)" (click)="exportCSV()" class="btn btn-export">{{'EXPORT_EXL' | translate}}</a>
+      <form action="" class="search_field">
+        <mat-form-field>
+          <span class="email-img search"><img src="assets/images/search.png" alt="envelope"></span>
+          <input matInput placeholder="Search" [(ngModel)]="search" [ngModelOptions]="{standalone: true}"
+            (keyup)="applyFilters()" #input autocomplete="off" class="form-control">
+        </mat-form-field>
+      </form>
     </div>
   </div>
   <div class="table_wrap mobile_hidden" [hidden]="(dataSource.loading$ | async)">
@@ -12,7 +35,7 @@
       </ng-container>
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>{{'USRNAME' | translate}}</th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'USRNAME' | translate}}</th>
         <td mat-cell *matCellDef="let element"><a
             [routerLink]="['/manage-calender/info', element._id]">{{element.user_name | titlecase}}</a></td>
       </ng-container>
@@ -24,7 +47,7 @@
 
       <ng-container matColumnDef="serviceat">
         <th mat-header-cell *matHeaderCellDef>{{'SERVICEAT' | translate}}</th>
-        <td mat-cell *matCellDef="let element">{{element.serviceat}}</td>
+        <td mat-cell *matCellDef="let element">{{element.service_at==1?'Home':(element.service_at==2?'Salon':'NA')}}</td>
       </ng-container>
 
       <ng-container matColumnDef="staff">
@@ -51,17 +74,17 @@
       </ng-container>
 
       <!-- <ng-container matColumnDef="time">
-              <th mat-header-cell *matHeaderCellDef>Time</th>
-              <td mat-cell *matCellDef="let element">{{element.bookDateTime | date : 'h:mm a'}}</td>
-            </ng-container> -->
+          <th mat-header-cell *matHeaderCellDef>Time</th>
+          <td mat-cell *matCellDef="let element">{{element.bookDateTime | date : 'h:mm a'}}</td>
+        </ng-container> -->
 
       <ng-container matColumnDef="bookingid">
         <th mat-header-cell *matHeaderCellDef>{{'BOOKINGID' | translate}}</th>
         <td mat-cell *matCellDef="let element">{{element.booking_id | uppercase}}</td>
       </ng-container>
 
-      <ng-container matColumnDef="date">
-        <th mat-header-cell *matHeaderCellDef>{{'DATE&TIME' | translate}}</th>
+      <ng-container matColumnDef="date" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>{{'DATE&TIME' | translate}}</th>
         <td mat-cell *matCellDef="let element">{{element.bookDateTime | date : 'dd, MMM yyyy, h:mm a'}}</td>
       </ng-container>
 
@@ -69,8 +92,11 @@
         <th mat-header-cell *matHeaderCellDef>{{'ACTION' | translate}}</th>
         <!--use same class for accepted as accept and decline for declined-->
         <td mat-cell *matCellDef="let user">
-          <button class="booking_btn accept" (click)="openDialog()">{{'ACCEPT' | translate}}</button>
-          <button class="booking_btn decline" (click)="openDialog()">{{'REJECT' | translate}}</button>
+          <button class="booking_btn accept"  *ngIf="user.bookingStatus==0"(click)="openDialog(user._id, 1)">{{'ACCEPT' | translate}}</button>
+          <button class="booking_btn decline" *ngIf="user.bookingStatus==0" (click)="openDialog(user._id,2)">{{'REJECT' | translate}}</button>
+          <button class="booking_btn decline" *ngIf="user.bookingStatus==1" (click)="openDialog(user._id, 2)">{{'DECLINE' | translate}}</button>
+          <button class="booking_btn completed" *ngIf="user.bookingStatus==3" readonly>{{'COMPELETED' | translate}}</button>
+          <button class="booking_btn rejected" *ngIf="user.bookingStatus==2" readonly>{{'REJECT' | translate}}</button>
         </td>
       </ng-container>
 
@@ -79,32 +105,42 @@
     </table>
     <mat-paginator [length]="dataSource.totalCount$ | async" [pageSize]="limitPage[0]" [pageSizeOptions]="limitPage">
     </mat-paginator>
+    <div class="margin_center" *ngIf=" !(dataSource.loading$ | async) && ((dataSource.totalCount$ | async)<=0) ">
+      {{'NO_RCD' | translate}}
+    </div>
   </div>
+  <div class="card_view mobile_visible" *ngIf="loading">
 
-
-  <div class="card_view mobile_visible">
-
-    <div class="cards">
+    <div class="cards" *ngFor="let element of detail; let i =index">
       <div class="top_info">
         <!--add class for background color confirmed, pending, rejected, completed-->
         <div class="left_status confirmed">confirmed</div>
+        <div class="left_status completed" *ngIf="element.bookingStatus==3">{{'COMPELETED' | translate}}</div>
+        <div class="left_status pending" *ngIf="element.bookingStatus==0">{{'PENDING' | translate}}</div>
+        <div class="left_status rejected" *ngIf="element.bookingStatus==2">{{'REJECT' | translate}}</div>
+        <div class="left_status pending" *ngIf="element.bookingStatus==4">{{'RESCHEDULED' | translate}}</div>
+
         <div class="right_status">
           <ul>
-            <li>22 Oct, 2019</li>
-            <li>10:00AM</li>
+            <li>{{element?.bookDateTime | date : 'dd, MMM yyyy '}}</li>
+            <li>{{element?.bookDateTime | date : 'h:mm a'}}</li>
           </ul>
         </div>
       </div>
       <div class="description">
-        <p class="user"><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
-        <p class="service"><img src="assets/images/service-pink.png" alt="Service">Haircut, Hair Spa</p>
-        <p class="location"><img src="assets/images/location-pink.png" alt="Location">At Home</p>
-        <p class="number"><img src="assets/images/mobile-pink.png" alt="Mobile">+919999999999</p>
-        <p class="id"><img src="assets/images/id.png" alt="Id">#Q1234</p>
+        <p class="user"><img src="assets/images/user-pink.png" alt="User">{{element?.user_name || 'NA'  | titlecase}}</p>
+        <p class="service"><img src="assets/images/service-pink.png"
+            alt="Service">{{element?.service || 'NA' | titlecase }}</p>
+        <p class="location"><img src="assets/images/location-pink.png" alt="Location">Salon</p>
+        <p class="number"><img src="assets/images/mobile-pink.png" alt="Mobile">{{element?.user_contact || 'NA'}}</p>
+        <p class="id"><img src="assets/images/id.png" alt="Id">{{element?.booking_id || 'NA'}}</p>
+        <p class="user"><img src="assets/images/staff.png" alt="Id">{{element?.staff || 'NA' | titlecase}}</p>
         <div class="buttons">
-          <button class="booking_btn cancel">Cancel</button>
+          <button class="action_btn pink"><a [routerLink]="['/booking/info', element._id]">View</a></button>
+          <button class="booking_btn decline" (click)="openDialog(element._id, 'decline')">Decline</button>
         </div>
       </div>
     </div>
+    <div class="text-center"><button type="button" class="btn btn-submit" (click)="paginate()">Load More</button></div>
   </div>
 </div>

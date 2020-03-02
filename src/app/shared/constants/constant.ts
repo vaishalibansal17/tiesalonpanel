@@ -3,7 +3,7 @@ export const ERROR_MSG = {
   UNAUTHURIZED_ERROR: 'You are not an authorized user.',
 };
 
-export const LIMIT = [5,10,20];
+export const LIMIT = [10,20,30];
 
 export const IMG ={
   PRO: 'assets/images/user-add.png',
@@ -20,5 +20,10 @@ export const DELETE = {
   DELETE_TITLE: '',
   DELETE_MSG: 'You wont be able to revert this!',
   DELETE_CONFIRM_TEXT: 'Yes, delete it!'
+}
+
+export const MAP ={
+  KEY:"AIzaSyDiESz5lmd8ZNxAGBg3ILiQ8w9SFuYwAB8",
+  type:"places"
 }
 

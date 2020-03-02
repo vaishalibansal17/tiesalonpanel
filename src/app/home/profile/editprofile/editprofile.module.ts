@@ -13,6 +13,7 @@ import { BreadcrumbModule } from 'src/app/shared/breadcrumb/breadcrumb.module';
 import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/applicationpipe.module';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { MessageService } from 'primeng/api';
+import { MAP } from 'src/app/shared/constants/constant';
 
 @NgModule({
   declarations: [EditprofileComponent],
@@ -23,8 +24,8 @@ import { MessageService } from 'primeng/api';
     EditprofileRoutingModule,
     SharedModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDiESz5lmd8ZNxAGBg3ILiQ8w9SFuYwAB8',
-      libraries: ["places"]
+      apiKey: MAP.KEY,
+      libraries: [MAP.type]
     }),
     SlideshowModule,
     ModalModule.forRoot(),

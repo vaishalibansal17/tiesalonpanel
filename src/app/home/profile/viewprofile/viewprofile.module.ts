@@ -8,6 +8,7 @@ import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/app
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxStarsModule } from 'ngx-stars';
+import { MAP } from 'src/app/shared/constants/constant';
 
 @NgModule({
   declarations: [ViewprofileComponent],
@@ -15,8 +16,8 @@ import { NgxStarsModule } from 'ngx-stars';
     CommonModule,
     ViewprofileRoutingModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAHEv0pFxjFfAOWbrLVw1szHKb2aakZ3YU',
-      libraries: ["places"]
+      apiKey: MAP.KEY,
+      libraries: [MAP.type]
     }),
     ApplicationpipeModule,
     SharedModule,

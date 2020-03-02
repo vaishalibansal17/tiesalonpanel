@@ -11,6 +11,7 @@ import { ListService } from 'src/app/shared/service/list/list.service';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { merge } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { ConfimDialogComponent } from 'src/app/shared/confim-dialog/confim-dialog.component';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -56,11 +57,30 @@ export class ManagecalenderListComponent implements OnInit {
 
   constructor(public dialog: MatDialog,private httpService: HttpRequestService, private list: ListService,private trns: TranslatePipe, private routes: ActivatedRoute, private error: ErrorService) {}
 
-  openDialog() {
-    console.log('-----');
-    
-    const dialogRef = this.dialog.open(CalenderActionDialogBox, { width: '500px', disableClose: true });
+ 
+  openDialog(id, type) {
+    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: `${'Are you sure you want to '}${type == 1 ? 'accept' : 'decline' + ' the Booking?'}`, btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
+    dialogRef.beforeClosed().subscribe(
+      (val) => {
+        if (val) {
+          console.log(id);
 
+          this.httpService.getRequest('PUT', 'BOOKING_ACPT', { bk_status: type }, id)
+            .subscribe((response: any) => {
+              if (response.status === 1) {
+                this.httpService.sucsTostr(this.trns.transform('SUCCESS'), type == 1 ? this.trns.transform('BK_ACPT') : this.trns.transform('BK_DEC'));
+                this.getBookings();
+              } else {
+                if (response.err)
+                  this.error.handleError(response.err.errCode)
+                return false;
+              }
+            }, error => {
+              this.error.handleError()
+            });
+        }
+      }
+    );
   }
 
   ngOnInit() {

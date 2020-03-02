@@ -43,7 +43,6 @@ export class Helper {
             day = ("0" + date.getDate()).slice(-2);
         let bac = moment.utc(date);
         console.log(bac,'---------');
-        
         return bac.valueOf();
     }
 
@@ -64,7 +63,10 @@ export class Helper {
     parsehhmm(data) {
         if(data!==null){
             var date = new Date(data)
-            return {hh:date.getHours(), mm:date.getMinutes()}
+            let bac = moment.utc(date)
+            console.log(bac.toDate(),'-----',bac.format(),'-----');
+            bac = bac.toDate();
+            return {hh:bac.getUTCHours(), mm:bac.getUTCMinutes()}
         } else{
             return {hh:null, mm:null};
         }

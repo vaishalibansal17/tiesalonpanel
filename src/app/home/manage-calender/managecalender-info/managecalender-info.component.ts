@@ -15,6 +15,7 @@ export class ManagecalenderInfoComponent implements OnInit {
   url: any = IMG.PRO;
   usrurl: any = IMG.PRO
   id: any;
+  ttlamt: any;
 
   constructor(private httpService: HttpRequestService, private routes: ActivatedRoute, private error: ErrorService) { }
 
@@ -28,6 +29,8 @@ export class ManagecalenderInfoComponent implements OnInit {
         if (response.status === 1) {
           this.detail = response.res;
           this.url = this.detail.logo ? this.detail.usr_bp + this.detail.img : this.url;
+          this.ttlamt = this.detail.service.reduce((acc, val) => acc.cost + val.cost );
+          this.ttlamt = this.detail.service.length==1?this.ttlamt.cost:this.ttlamt;
         } else {
           if (response.err) {
             this.error.handleError(response.err.errCode);

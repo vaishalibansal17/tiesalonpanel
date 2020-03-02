@@ -6,6 +6,7 @@ import { BookingdetailComponent, BookingEmailDialogPopup } from './bookingdetail
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AgmCoreModule } from '@agm/core';
 import { FormsModule } from '@angular/forms';
+import { MAP } from 'src/app/shared/constants/constant';
 
 
 @NgModule({
@@ -16,8 +17,8 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAHEv0pFxjFfAOWbrLVw1szHKb2aakZ3YU',
-      libraries: ["places"]
+      apiKey: MAP.KEY,
+      libraries: [MAP.type]
     }),
   ],
   entryComponents : [ BookingEmailDialogPopup ]
