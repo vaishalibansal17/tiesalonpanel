@@ -49,7 +49,7 @@
                     [readonlyInput]="true"></p-calendar>
             </div>
             <div class="time_tabs">
-                <span *ngFor="let slots of slots;" (click)="slcdt(slots?.time);">
+                <span *ngFor="let slots of slots;" (click)="slcdt(slots);">
                     <p [class]="slots?.is_avlbl?'is_active':'nt_active'">{{(slots?.time | timeFilter) | date : 'h:mm a'}}</p>
                 </span>
             </div>
