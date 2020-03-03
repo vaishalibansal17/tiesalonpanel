@@ -19,6 +19,7 @@ import { ApplicationpipeModule } from './shared/module/applicationpipe/applicati
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { InvoiceComponent } from './invoice/invoice.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -31,7 +32,7 @@ export function setupTranslateFactory(
 }
 @NgModule({
   declarations: [
-    AppComponent,PageNotFoundComponent
+    AppComponent,PageNotFoundComponent, InvoiceComponent
   ],
   imports: [
     BrowserModule,

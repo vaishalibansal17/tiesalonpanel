@@ -15,7 +15,9 @@ img.file_upload2{height: 100px !important;width: 100px !important;  margin: 5px 
 
 .detail_content a.margin_top{position:relative;color: #fff !important; margin: 0;font-size: 17px;margin-right: 15px;margin-bottom: 15px;}
 .detail_content a.margin_top span{cursor: pointer;position: absolute;right: 0px;background: #FF2626;height: 22px;width: 22px;border-radius: 50%; font-size: 14px;font-weight: 600;text-align: center;padding: 1px 0px;line-height: 18px;}
-
+.custom_form textarea.form-control {
+    padding-top: 17px;
+}
 .upload-image input[type="file"] {
     cursor: pointer;
     position: absolute;
@@ -61,3 +63,5 @@ label.block{display: block}
 .mat-select.multiselect{border: 1px solid #dad9d9 !important;border-radius: 4px;margin-bottom: 10px;}
 
 .custom_form mat-form-field.mat-form-field.multi_field{border:none}
+.custom_form span.email-img.descrip{top: 16px;}
+.main-card .setting_list{border-bottom: none;margin-bottom: 20px;padding-bottom: 0;}

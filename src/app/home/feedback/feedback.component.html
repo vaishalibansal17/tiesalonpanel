@@ -22,7 +22,7 @@
                 <p class="color error" *ngIf="getControl.phone.errors.required">{{'PHNREQ'|translate}}</p>
                 <p class="color error" *ngIf="!getControl.phone.errors.required && getControl.phone.errors.Invalidphone ">{{'PHNLNGTH'|translate}}</p>
             </div> -->
-            <mat-form-field>
+            <mat-form-field class="desc_label">
                 <span class="email-img pass"><img src="assets/images/description.png" alt="envelope"></span>
                 <textarea matInput placeholder="{{'DESCRIPTION'| translate}}" class="form-control"
                     formControlName="description" maxlength="500"></textarea>

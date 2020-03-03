@@ -121,7 +121,7 @@ export class AddbookingsComponent implements OnInit {
     matSelect.writeValue(null);
     state = state.value
     if (!this.httpService.arraySearch(this.sendServ, state)) {
-      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)), cost: state.price, duration:state.duration });
+      this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)), cost: state.price, duration: state.duration });
       this.sendServ.push(state._id);
       this.price = this.price + state.price;
       this.duration = this.duration + state.duration;
@@ -154,10 +154,13 @@ export class AddbookingsComponent implements OnInit {
       let date = this.helper.utcDate(this.profile.value.dttime);
       console.log(this.helper.utcDate(this.profile.value.dttime));
 
-      this.httpService.getRequest('GET_PARMS', 'BOOKING_SLOT',  this.salonid, `bk_dt=${date}&staf_id=${this.profile.value.staf_id._id}`)
+      this.httpService.getRequest('GET_PARMS', 'BOOKING_SLOT', this.salonid, `bk_dt=${date}&staf_id=${this.profile.value.staf_id._id}`)
         .subscribe((response: any) => {
           if (response.status === 1) {
-              this.slots = response.res
+            this.slots = response.res;
+            this.slots.forEach((element, i) => {
+              this.slots[i]['select'] = false;
+            });
           } else {
             if (response.err) {
               // this.error.handleError(response.err.errCode);
@@ -170,11 +173,22 @@ export class AddbookingsComponent implements OnInit {
     }
   }
 
-  slcdt(tmstmp){
-    let time = new Date(tmstmp);
-    this.date = new Date(this.profile.value.dttime);
-    this.date.setHours(time.getHours(), time.getMinutes(),time.getSeconds(), 0);    
-    this.date = this.helper.parseDate(this.date);
+  slcdt(slot) {
+    if (slot.is_avlbl) {
+      this.slots.forEach((obj, i) => {
+        if (obj.time == slot.time) {
+          this.slots[i]['select'] = true;
+        } else {
+          this.slots[i]['select'] = false;
+        }
+      })
+      let tmstmp = slot.time;
+      let time = new Date(tmstmp);
+      this.date = new Date(this.profile.value.dttime);
+      this.date.setHours(time.getHours(), time.getMinutes(), time.getSeconds(), 0);
+      this.date = this.helper.parseDate(this.date);
+    } else
+      return false;
   }
 
 }
