@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[28], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/login/login.component.html":
-  /*!***************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/auth/login/login.component.html ***!
-    \***************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/feedback/feedback.component.html":
+  /*!*********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/feedback/feedback.component.html ***!
+    \*********************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppAuthLoginLoginComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeFeedbackFeedbackComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main_bg\">\n    <div class=\"fixed-nav\">\n        <ul>\n            <li class=\"active\"></li>\n            <li></li>\n            <li></li>\n        </ul>\n    </div>\n    <div class=\"container-fluid\">\n        <div class=\"row\">\n            <div class=\"col-md-6 main-left\">\n                <div class=\"full-vertical\">\n                    <img class=\"on_board\" src=\"assets/images/img_onboard_1.png\" alt=\"Login\">\n                    <div class=\"head\">Your Service Menu is <span>Online</span></div>\n                </div>\n            </div>\n            <div class=\"col-md-6 main-right\">\n                <app-auth-header></app-auth-header>\n                <div class=\"full-vertical custom-width\">\n                    <div class=\"logo\"><img src=\"assets/images/tie_logo_black.png\" alt=\"Logo\"></div>\n                    <h1 class=\"head\">{{'LOGIN'| translate}}</h1>\n                    <div class=\"login-form\">\n                        <form (ngSubmit)=\"onSubmit()\" [formGroup]=\"loginfrm\">\n                            <mat-form-field>\n                                <span class=\"email-img\"><img src=\"assets/images/envelope.png\" alt=\"envelope\"></span>\n                                <input matInput placeholder=\"{{'PLACEHOLDERLEMAIL'| translate}}\" class=\"form-control\" formControlName=\"email\"\n                                    maxlength=\"50\">\n                            </mat-form-field>\n                            <div\n                                *ngIf=\"(submitted) && getControl.email.errors\">\n                                <p class=\"color error\" *ngIf=\"getControl.email.errors.required\">{{'LOGINEMAIL'| translate}}</p>\n                                <p class=\"color error\" *ngIf=\"!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress\">{{'LOGINVALIDEMAIL'| translate}}</p>\n                            </div>\n                            <mat-form-field>\n                                <span class=\"email-img pass\"><img src=\"assets/images/lock.png\" alt=\"envelope\"></span>\n                                <input matInput placeholder=\"{{'PLACEHOLDERLPASS'| translate}}\" formControlName=\"pass\" maxlength=\"20\"\n                                    [type]=\"hide ? 'password' : 'text'\" class=\"form-control pass-space\">\n                                <button mat-icon-button matSuffix type=\"button\" (click)=\"hide = !hide\"\n                                    [attr.aria-label]=\"'Hide password'\" [attr.aria-pressed]=\"hide\">\n                                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>\n                                </button>\n                            </mat-form-field>\n                            <div\n                                *ngIf=\"(submitted) && getControl.pass.errors\">\n                                <p class=\"color error\" *ngIf=\"getControl.pass.errors.required\">{{'LOGINPASS'| translate}}</p>\n                                <!-- <p class=\"color error\" *ngIf=\"getControl.pass.errors.minlength \">Incorrect password or\n                                    email.</p> -->\n                            </div>\n                            <p class=\"right\"><a [routerLink]=\"['/auth/forgot']\">{{'FRGTPASS' |  translate}}?</a></p>\n                            <button type=\"submit\" class=\"btn btn-submit\">{{'LOGINBTN' |  translate}}</button>\n                        </form>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form [formGroup]='feedback' (ngSubmit)='feedbackSubmit()'>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/email.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'EMAIL'| translate | titlecase}}\" class=\"form-control\"\n                    formControlName=\"email\" maxlength=\"100\" readonly>\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.email.dirty|| getControl.email.touched) && getControl.email.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.email.errors.required\">{{'LOGINEMAIL'| translate}}</p>\n                <p class=\"color error\"\n                    *ngIf=\"!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress\">\n                    {{'LOGINVALIDEMAIL'| translate}}</p>\n            </div>\n            <!-- <mat-form-field>\n                <span class=\"email-img phone\"><img src=\"assets/images/mobile.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PHONE'| translate | titlecase}}\"\n                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' class=\"form-control\"\n                    formControlName=\"phone\" maxlength=\"12\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.phone.dirty|| getControl.phone.touched) && getControl.phone.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.phone.errors.required\">{{'PHNREQ'|translate}}</p>\n                <p class=\"color error\" *ngIf=\"!getControl.phone.errors.required && getControl.phone.errors.Invalidphone \">{{'PHNLNGTH'|translate}}</p>\n            </div> -->\n            <mat-form-field class=\"desc_label\">\n                <span class=\"email-img pass\"><img src=\"assets/images/description.png\" alt=\"envelope\"></span>\n                <textarea matInput placeholder=\"{{'DESCRIPTION'| translate}}\" class=\"form-control\"\n                    formControlName=\"description\" maxlength=\"500\"></textarea>\n            </mat-form-field>\n            <div\n                *ngIf=\"(submitted || getControl.description.dirty|| getControl.description.touched) && getControl.description.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.description.errors.required\">{{'DESCREQ' | translate}}</p>\n                <p class=\"color error\" *ngIf=\"getControl.description.errors.minlength \">{{'DESCLNGTH'| translate}}</p>\n            </div>\n            <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Send Feedback</button>\n            </div>\n        </form>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/auth/login/login-routing.module.ts":
-  /*!****************************************************!*\
-    !*** ./src/app/auth/login/login-routing.module.ts ***!
-    \****************************************************/
+  "./src/app/home/feedback/feedback-routing.module.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/feedback/feedback-routing.module.ts ***!
+    \**********************************************************/
 
-  /*! exports provided: LoginRoutingModule */
+  /*! exports provided: FeedbackRoutingModule */
 
   /***/
-  function srcAppAuthLoginLoginRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeFeedbackFeedbackRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "LoginRoutingModule", function () {
-      return LoginRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "FeedbackRoutingModule", function () {
+      return FeedbackRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./login.component */
-    "./src/app/auth/login/login.component.ts");
+    var _feedback_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./feedback.component */
+    "./src/app/home/feedback/feedback.component.ts");
 
     var routes = [{
       path: '',
-      component: _login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"]
+      component: _feedback_component__WEBPACK_IMPORTED_MODULE_3__["FeedbackComponent"]
     }];
 
-    var LoginRoutingModule = function LoginRoutingModule() {
-      _classCallCheck(this, LoginRoutingModule);
+    var FeedbackRoutingModule = function FeedbackRoutingModule() {
+      _classCallCheck(this, FeedbackRoutingModule);
     };
 
-    LoginRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    FeedbackRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], LoginRoutingModule);
+    })], FeedbackRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/auth/login/login.component.scss":
-  /*!*************************************************!*\
-    !*** ./src/app/auth/login/login.component.scss ***!
-    \*************************************************/
+  "./src/app/home/feedback/feedback.component.scss":
+  /*!*******************************************************!*\
+    !*** ./src/app/home/feedback/feedback.component.scss ***!
+    \*******************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppAuthLoginLoginComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeFeedbackFeedbackComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".main-right .btn-submit {\n  margin: 0px 0px 10px;\n}\n\np.color.error {\n  top: 0px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvYXV0aC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvYXV0aC9sb2dpbi9sb2dpbi5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUF3QixvQkFBQTtBQ0V4Qjs7QUREQTtFQUFjLFFBQUE7QUNLZCIsImZpbGUiOiJzcmMvYXBwL2F1dGgvbG9naW4vbG9naW4uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbi1yaWdodCAuYnRuLXN1Ym1pdHttYXJnaW46IDBweCAwcHggMTBweDt9XG5wLmNvbG9yLmVycm9ye3RvcDowcHh9IiwiLm1haW4tcmlnaHQgLmJ0bi1zdWJtaXQge1xuICBtYXJnaW46IDBweCAwcHggMTBweDtcbn1cblxucC5jb2xvci5lcnJvciB7XG4gIHRvcDogMHB4O1xufSJdfQ== */";
+    __webpack_exports__["default"] = ".custom_form textarea.form-control {\n  padding-top: 17px;\n}\n\n.custom_form .mat-form-field.desc_label .mat-form-field-appearance-legacy .mat-form-field-label {\n  top: 28px !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9mZWVkYmFjay9mZWVkYmFjay5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9mZWVkYmFjay9mZWVkYmFjay5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGlCQUFBO0FDQ0o7O0FEQ0E7RUFBaUcsb0JBQUE7QUNHakciLCJmaWxlIjoic3JjL2FwcC9ob21lL2ZlZWRiYWNrL2ZlZWRiYWNrLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmN1c3RvbV9mb3JtIHRleHRhcmVhLmZvcm0tY29udHJvbCB7XG4gICAgcGFkZGluZy10b3A6IDE3cHg7XG59XG4uY3VzdG9tX2Zvcm0gLm1hdC1mb3JtLWZpZWxkLmRlc2NfbGFiZWwgLm1hdC1mb3JtLWZpZWxkLWFwcGVhcmFuY2UtbGVnYWN5IC5tYXQtZm9ybS1maWVsZC1sYWJlbCB7dG9wOiAyOHB4ICFpbXBvcnRhbnQ7fSIsIi5jdXN0b21fZm9ybSB0ZXh0YXJlYS5mb3JtLWNvbnRyb2wge1xuICBwYWRkaW5nLXRvcDogMTdweDtcbn1cblxuLmN1c3RvbV9mb3JtIC5tYXQtZm9ybS1maWVsZC5kZXNjX2xhYmVsIC5tYXQtZm9ybS1maWVsZC1hcHBlYXJhbmNlLWxlZ2FjeSAubWF0LWZvcm0tZmllbGQtbGFiZWwge1xuICB0b3A6IDI4cHggIWltcG9ydGFudDtcbn0iXX0= */";
     /***/
   },
 
   /***/
-  "./src/app/auth/login/login.component.ts":
-  /*!***********************************************!*\
-    !*** ./src/app/auth/login/login.component.ts ***!
-    \***********************************************/
+  "./src/app/home/feedback/feedback.component.ts":
+  /*!*****************************************************!*\
+    !*** ./src/app/home/feedback/feedback.component.ts ***!
+    \*****************************************************/
 
-  /*! exports provided: LoginComponent */
+  /*! exports provided: FeedbackComponent */
 
   /***/
-  function srcAppAuthLoginLoginComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeFeedbackFeedbackComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "LoginComponent", function () {
-      return LoginComponent;
+    __webpack_require__.d(__webpack_exports__, "FeedbackComponent", function () {
+      return FeedbackComponent;
     });
     /* harmony import */
 
@@ -139,15 +139,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/shared/service/http-request.service */
+    "./src/app/shared/service/http-request.service.ts");
     /* harmony import */
 
 
-    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/shared/service/http-request.service */
-    "./src/app/shared/service/http-request.service.ts");
+    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/shared/service/error.service */
+    "./src/app/shared/service/error.service.ts");
     /* harmony import */
 
 
@@ -157,164 +157,122 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/shared/service/error.service */
-    "./src/app/shared/service/error.service.ts");
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
     /* harmony import */
 
 
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/app/shared/_pipes/translate.pipe */
-    "./src/app/shared/_pipes/translate.pipe.ts");
-    /* harmony import */
-
-
-    var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/shared/service/validation-service */
     "./src/app/shared/service/validation-service.ts");
     /* harmony import */
 
 
-    var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
-    /*! src/app/shared/service/helper.service */
-    "./src/app/shared/service/helper.service.ts");
-    /* harmony import */
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
 
-
-    var src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
-    /*! src/app/shared/service/translate.service */
-    "./src/app/shared/service/translate.service.ts");
-
-    var LoginComponent =
+    var FeedbackComponent =
     /*#__PURE__*/
     function () {
-      function LoginComponent(httpService, router, error, trns, trnsalte, helper) {
-        _classCallCheck(this, LoginComponent);
+      function FeedbackComponent(httpService, errService, trns, router) {
+        _classCallCheck(this, FeedbackComponent);
 
         this.httpService = httpService;
-        this.router = router;
-        this.error = error;
+        this.errService = errService;
         this.trns = trns;
-        this.trnsalte = trnsalte;
-        this.helper = helper;
-        this.hide = true;
+        this.router = router;
         this.submitted = false;
-        this.formSubmit = false;
-        this.loading = false;
-        this.email = '';
-        this.pass = '';
-        this.isLoading = false;
-        this.passShow = true;
       }
 
-      _createClass(LoginComponent, [{
+      _createClass(FeedbackComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          // console.log(this.trnsalte.currentLang);
-          this.loginfrm = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
-            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_7__["ValidationService"].validateEmail]),
-            pass: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(6), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])
+          var salon = JSON.parse(localStorage.getItem('salon'));
+          this.feedback = new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormGroup"]({
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](salon.email, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_6__["ValidationService"].validateEmail]),
+            // phone: new FormControl(null, [
+            //   Validators.required,
+            //   ValidationService.phonevalidator
+            // ]),
+            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].minLength(2), _angular_forms__WEBPACK_IMPORTED_MODULE_5__["Validators"].maxLength(500)])
           });
         }
       }, {
-        key: "onSubmit",
-        value: function onSubmit() {
+        key: "feedbackSubmit",
+        value: function feedbackSubmit() {
           var _this = this;
 
           this.submitted = true;
 
-          if (this.loginfrm.valid) {
-            this.httpService.getRequest('POST', 'LOGIN', this.loginfrm.value).subscribe(function (data) {
-              if (data.status) {
-                var _data$res = data.res,
-                    acsTkn = _data$res.acsTkn,
-                    _id = _data$res._id,
-                    logo = _data$res.logo,
-                    email = _data$res.email,
-                    name = _data$res.name,
-                    c_policy = _data$res.c_policy,
-                    is_charge = _data$res.is_charge;
-                localStorage.setItem('acsTkn', acsTkn);
-                localStorage.setItem('salonid', _id);
-                localStorage.setItem('salon', JSON.stringify({
-                  'name': name,
-                  'logo': logo,
-                  'email': email,
-                  'c_policy': c_policy,
-                  'is_charge': is_charge
-                }));
-                _this.isLoading = !_this.isLoading;
-
-                _this.router.navigate(['/']).then(function () {
-                  return _this.httpService.sucsTostr(_this.trns.transform('SUCCESS'), _this.trns.transform('LOGINSUCCESS'));
+          if (this.feedback.valid) {
+            this.feedback.value['msg'] = this.feedback.value.description;
+            this.httpService.getRequest('POST', 'FEEDBCK', this.feedback.value).subscribe(function (response) {
+              if (response.status === 1) {
+                _this.router.navigateByUrl('dashboard').then(function () {
+                  _this.httpService.sucsTostr(_this.trns.transform('SUCCESS'), _this.trns.transform('FEEDSUCCESS'));
                 });
               } else {
-                console.log(data.err);
+                console.log(response);
 
-                _this.error.handleError(data.err.errCode);
+                _this.errService.handleError(response.err.errCode);
               }
-            }, function (error) {
-              _this.error.handleError(0);
             });
-          } else {// this.spinner.hide();
           }
         }
       }, {
         key: "getControl",
         get: function get() {
-          return this.loginfrm.controls;
+          return this.feedback.controls;
         }
       }]);
 
-      return LoginComponent;
+      return FeedbackComponent;
     }();
 
-    LoginComponent.ctorParameters = function () {
+    FeedbackComponent.ctorParameters = function () {
       return [{
-        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
+        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"]
+      }, {
+        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_3__["ErrorService"]
+      }, {
+        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]
       }, {
         type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
-      }, {
-        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__["ErrorService"]
-      }, {
-        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__["TranslatePipe"]
-      }, {
-        type: src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]
-      }, {
-        type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_8__["Helper"]
       }];
     };
 
-    LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-login',
+    FeedbackComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-feedback',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./login.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/auth/login/login.component.html")).default,
+      /*! raw-loader!./feedback.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/feedback/feedback.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./login.component.scss */
-      "./src/app/auth/login/login.component.scss")).default]
-    })], LoginComponent);
+      /*! ./feedback.component.scss */
+      "./src/app/home/feedback/feedback.component.scss")).default]
+    })], FeedbackComponent);
     /***/
   },
 
   /***/
-  "./src/app/auth/login/login.module.ts":
-  /*!********************************************!*\
-    !*** ./src/app/auth/login/login.module.ts ***!
-    \********************************************/
+  "./src/app/home/feedback/feedback.module.ts":
+  /*!**************************************************!*\
+    !*** ./src/app/home/feedback/feedback.module.ts ***!
+    \**************************************************/
 
-  /*! exports provided: LoginModule */
+  /*! exports provided: FeedbackModule */
 
   /***/
-  function srcAppAuthLoginLoginModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeFeedbackFeedbackModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "LoginModule", function () {
-      return LoginModule;
+    __webpack_require__.d(__webpack_exports__, "FeedbackModule", function () {
+      return FeedbackModule;
     });
     /* harmony import */
 
@@ -337,62 +295,49 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _login_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./login-routing.module */
-    "./src/app/auth/login/login-routing.module.ts");
+    var _feedback_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./feedback-routing.module */
+    "./src/app/home/feedback/feedback-routing.module.ts");
     /* harmony import */
 
 
-    var _login_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./login.component */
-    "./src/app/auth/login/login.component.ts");
+    var _feedback_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./feedback.component */
+    "./src/app/home/feedback/feedback.component.ts");
     /* harmony import */
 
 
-    var src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/shared/material/material.module */
-    "./src/app/shared/material/material.module.ts");
-    /* harmony import */
-
-
-    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/shared/shared.module */
     "./src/app/shared/shared.module.ts");
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! @angular/forms */
     "./node_modules/@angular/forms/fesm2015/forms.js");
     /* harmony import */
 
 
-    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/shared/module/applicationpipe/applicationpipe.module */
     "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
     /* harmony import */
 
 
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! src/app/shared/_pipes/translate.pipe */
     "./src/app/shared/_pipes/translate.pipe.ts");
-    /* harmony import */
 
-
-    var _auth_header_auth_header_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
-    /*! ../auth-header/auth-header.module */
-    "./src/app/auth/auth-header/auth-header.module.ts");
-
-    var LoginModule = function LoginModule() {
-      _classCallCheck(this, LoginModule);
+    var FeedbackModule = function FeedbackModule() {
+      _classCallCheck(this, FeedbackModule);
     };
 
-    LoginModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_login_component__WEBPACK_IMPORTED_MODULE_4__["LoginComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"], _login_routing_module__WEBPACK_IMPORTED_MODULE_3__["LoginRoutingModule"], src_app_shared_material_material_module__WEBPACK_IMPORTED_MODULE_5__["MaterialModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_6__["SharedModule"], _auth_header_auth_header_module__WEBPACK_IMPORTED_MODULE_10__["AuthHeaderModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"]],
-      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"]],
-      schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]]
-    })], LoginModule);
+    FeedbackModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_feedback_component__WEBPACK_IMPORTED_MODULE_4__["FeedbackComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _feedback_routing_module__WEBPACK_IMPORTED_MODULE_3__["FeedbackRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_7__["ApplicationpipeModule"]],
+      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__["TranslatePipe"]]
+    })], FeedbackModule);
     /***/
   }
 }]);

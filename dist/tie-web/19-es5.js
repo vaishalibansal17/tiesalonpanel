@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[19], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.html":
-  /*!*************************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.html ***!
-    \*************************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffdetail/staffdetail.component.html":
+  /*!*********************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffdetail/staffdetail.component.html ***!
+    \*********************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeCancellationPolicyCancelupdateCancelupdateComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeStaffStaffdetailStaffdetailComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"policy_list\">\n        <div class=\"left\">\n            <p>Set your No-Show/Late-Cancellation Policy for Clients.</p>\n            <p>Clients will be required to enter a credit card when they book with you in order to enforce your policy.</p>\n        </div>\n    </div>\n    <div class=\"policy_list\">\n        <div class=\"left\">\n            <p>How strict would you like your policy to be?</p>\n\n            <mat-radio-group aria-label=\"Select an option\" [(ngModel)]=\"c_policy\">\n                <mat-radio-button value=\"1\" [disableRipple]=\"true\">Flexible <span>0% Late Cancellation Fee<br>50% No-Show Fee</span></mat-radio-button>\n                <mat-radio-button value=\"2\" [disableRipple]=\"true\">Moderate <span>25% Late Cancellation Fee<br>50% No-Show Fee</span></mat-radio-button>\n                <mat-radio-button value=\"3\" [disableRipple]=\"true\">Strict <span>50% Late Cancellation Fee<br>100% No-Show Fee</span></mat-radio-button>\n              </mat-radio-group>\n        </div>\n    </div>\n    <div class=\"warning_link\">\n        <a href=\"#\" class=\"warning\">How does it work?</a>\n    </div>\n    <div class=\"text-center\">\n        <button type=\"button\" (click)=\"feedbackSubmit()\" class=\"btn btn-submit\">Save</button>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-12 top_view\"><img [src]=\"url\" alt=\"User\"><span class=\"user_name\">{{detail?.name | titlecase }}</span></div>\n        <div class=\"col-md-3 label\">{{'EMAIL'| translate | titlecase}}:</div>\n        <div class=\"col-md-9 description\">{{detail && detail.email ? detail.email:'NA'}}</div>\n        <div class=\"col-md-3 label\">{{'MOBILENUMBER'| translate}}:</div>\n        <div class=\"col-md-9 description\">{{detail && detail.phone}}</div>\n        <div class=\"col-md-3 label\">{{'REVIEWS'| translate}}:</div>\n        <div class=\"col-md-9 description\"><div class=\"staffdetail_staff\"><ngx-stars [readonly]=\"true\" [color]=\"'#f7c133'\" [size]=\"5\" [initialStars]=\"detail?.rvw_rt\"></ngx-stars></div></div>\n        <div class=\"col-md-3 label\">{{'DESCRIPTION'| translate}}:</div>\n        <div class=\"col-md-9 description\">{{detail && detail.desc?detail.desc:'NA'}}</div>\n        <div class=\"col-md-3 label\">{{'DESIGNATION'| translate}}:</div>\n        <div class=\"col-md-9 description\">{{detail && detail.designation ?detail.designation:'NA'}}</div>\n        <div class=\"col-md-3 label\">{{'AVAILBILITY'| translate | titlecase}}:</div>\n        <div class=\"col-md-9 description\">{{detail && detail.avlblity ? 'Available':'Not Available'}}</div>\n        <div class=\"col-md-3 label\">{{'WEEKOFF'| translate | titlecase}}:</div>\n        <div class=\"col-md-9 description\">{{detail && detail.doff ? detail.doff:'NA'}}</div>\n        <div class=\"col-md-12 alignright\"><a [routerLink]=\"['/staff/review', id]\" class=\"btn btn-link\">View All</a></div>\n        <div class=\"col-md-3\">\n            <h3>{{'REVIEWS'| translate}}:</h3>\n        </div>\n        <div class=\"col-md-9\" *ngIf=\"(detail?.reviews.length>0?0:1)\">\n            <span> *NO REVIEWS.</span>\n        </div>\n        <div class=\"staffdetail_notifi\">\n           \n            <div class=\"staffdetail_notifi\" *ngIf=\"detail\">\n                <div class=\"notifi_list\" *ngFor=\"let review of detail.reviews\">\n                    <div class=\"noti_left\"><img [src]=\"review.img? (detail.usr_bp + review.img):usrurl\" alt=\"Notification User\"></div>\n                    <div class=\"noti_right\">\n                        <div class=\"author-review\">\n                            <div class=\"author\">{{review.name | titlecase}}</div>\n                            <div class=\"reviews\">\n                                <div class=\"staffdetail_staff\"><ngx-stars [readonly]=\"true\" [color]=\"'#f7c133'\" [size]=\"5\" [initialStars]=\"review.rvw_rt\"></ngx-stars></div>\n                            </div>\n                        </div>\n                        {{review.comment}}\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/cancellation-policy/cancelupdate/cancelupdate-routing.module.ts":
-  /*!**************************************************************************************!*\
-    !*** ./src/app/home/cancellation-policy/cancelupdate/cancelupdate-routing.module.ts ***!
-    \**************************************************************************************/
+  "./src/app/home/staff/staffdetail/staffdetail-routing.module.ts":
+  /*!**********************************************************************!*\
+    !*** ./src/app/home/staff/staffdetail/staffdetail-routing.module.ts ***!
+    \**********************************************************************/
 
-  /*! exports provided: CancelupdateRoutingModule */
+  /*! exports provided: StaffdetailRoutingModule */
 
   /***/
-  function srcAppHomeCancellationPolicyCancelupdateCancelupdateRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeStaffStaffdetailStaffdetailRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CancelupdateRoutingModule", function () {
-      return CancelupdateRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "StaffdetailRoutingModule", function () {
+      return StaffdetailRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _cancelupdate_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./cancelupdate.component */
-    "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.ts");
+    var _staffdetail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./staffdetail.component */
+    "./src/app/home/staff/staffdetail/staffdetail.component.ts");
 
     var routes = [{
       path: '',
-      component: _cancelupdate_component__WEBPACK_IMPORTED_MODULE_3__["CancelupdateComponent"]
+      component: _staffdetail_component__WEBPACK_IMPORTED_MODULE_3__["StaffdetailComponent"]
     }];
 
-    var CancelupdateRoutingModule = function CancelupdateRoutingModule() {
-      _classCallCheck(this, CancelupdateRoutingModule);
+    var StaffdetailRoutingModule = function StaffdetailRoutingModule() {
+      _classCallCheck(this, StaffdetailRoutingModule);
     };
 
-    CancelupdateRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    StaffdetailRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], CancelupdateRoutingModule);
+    })], StaffdetailRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.scss":
-  /*!***********************************************************************************!*\
-    !*** ./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.scss ***!
-    \***********************************************************************************/
+  "./src/app/home/staff/staffdetail/staffdetail.component.scss":
+  /*!*******************************************************************!*\
+    !*** ./src/app/home/staff/staffdetail/staffdetail.component.scss ***!
+    \*******************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeCancellationPolicyCancelupdateCancelupdateComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeStaffStaffdetailStaffdetailComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".policy_list {\n  padding-bottom: 10px;\n}\n\n@media (min-width: 767px) {\n  .btn.btn-submit {\n    width: 32%;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9jYW5jZWxsYXRpb24tcG9saWN5L2NhbmNlbHVwZGF0ZS9jYW5jZWx1cGRhdGUuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvY2FuY2VsbGF0aW9uLXBvbGljeS9jYW5jZWx1cGRhdGUvY2FuY2VsdXBkYXRlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQWEsb0JBQUE7QUNFYjs7QUREQTtFQUNBO0lBQWdCLFVBQUE7RUNLZDtBQUNGIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9jYW5jZWxsYXRpb24tcG9saWN5L2NhbmNlbHVwZGF0ZS9jYW5jZWx1cGRhdGUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIucG9saWN5X2xpc3R7cGFkZGluZy1ib3R0b206IDEwcHg7fVxuQG1lZGlhKG1pbi13aWR0aDo3NjdweCl7XG4uYnRuLmJ0bi1zdWJtaXR7d2lkdGg6IDMyJTt9XG59IiwiLnBvbGljeV9saXN0IHtcbiAgcGFkZGluZy1ib3R0b206IDEwcHg7XG59XG5cbkBtZWRpYSAobWluLXdpZHRoOiA3NjdweCkge1xuICAuYnRuLmJ0bi1zdWJtaXQge1xuICAgIHdpZHRoOiAzMiU7XG4gIH1cbn0iXX0= */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvc3RhZmYvc3RhZmZkZXRhaWwvc3RhZmZkZXRhaWwuY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
   /***/
-  "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.ts":
-  /*!*********************************************************************************!*\
-    !*** ./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.ts ***!
-    \*********************************************************************************/
+  "./src/app/home/staff/staffdetail/staffdetail.component.ts":
+  /*!*****************************************************************!*\
+    !*** ./src/app/home/staff/staffdetail/staffdetail.component.ts ***!
+    \*****************************************************************/
 
-  /*! exports provided: CancelupdateComponent */
+  /*! exports provided: StaffdetailComponent */
 
   /***/
-  function srcAppHomeCancellationPolicyCancelupdateCancelupdateComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeStaffStaffdetailStaffdetailComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CancelupdateComponent", function () {
-      return CancelupdateComponent;
+    __webpack_require__.d(__webpack_exports__, "StaffdetailComponent", function () {
+      return StaffdetailComponent;
     });
     /* harmony import */
 
@@ -151,112 +151,138 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! src/app/shared/_pipes/translate.pipe */
-    "./src/app/shared/_pipes/translate.pipe.ts");
+    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    var src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/constants/constant */
+    "./src/app/shared/constants/constant.ts");
 
-    var CancelupdateComponent =
+    var StaffdetailComponent =
     /*#__PURE__*/
     function () {
-      function CancelupdateComponent(httpService, errService, trns, router) {
-        _classCallCheck(this, CancelupdateComponent);
+      function StaffdetailComponent(httpService, routes, error) {
+        _classCallCheck(this, StaffdetailComponent);
 
         this.httpService = httpService;
-        this.errService = errService;
-        this.trns = trns;
-        this.router = router;
-        this.submitted = false;
-        this.c_policy = '1';
+        this.routes = routes;
+        this.error = error;
+        this.url = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_5__["IMG"].PRO;
+        this.usrurl = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_5__["IMG"].PRO;
       }
 
-      _createClass(CancelupdateComponent, [{
+      _createClass(StaffdetailComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          this.c_policy = JSON.parse(localStorage.getItem('salon')).c_policy.toString();
-          console.log(this.c_policy);
+          this.id = this.routes.snapshot.params.id;
+          this.getUserProfile();
         }
       }, {
-        key: "feedbackSubmit",
-        value: function feedbackSubmit() {
+        key: "getUserProfile",
+        value: function getUserProfile() {
           var _this = this;
 
-          console.log(this.c_policy); // return
-
-          this.submitted = true;
-
-          if (this.c_policy) {
-            this.httpService.getRequest('PUT', 'CANCELPOLICY', {
-              c_policy: this.c_policy
-            }, '').subscribe(function (response) {
-              if (response.status === 1) {
-                var salon = JSON.parse(localStorage.getItem('salon'));
-                salon.c_policy = _this.c_policy;
-                localStorage.setItem('salon', JSON.stringify(salon));
-
-                _this.router.navigateByUrl('cancellation-policy').then(function () {
-                  _this.httpService.sucsTostr(_this.trns.transform('SUCCESS'), _this.trns.transform('FEEDSUCCESS'));
-                });
-              } else {
-                console.log(response);
-
-                _this.errService.handleError(response.err.errCode);
+          this.httpService.getRequest('GET_PARMS', 'STAFF_DETAIL', this.id, "".concat('limit=' + 5 + '&page=' + 0)).subscribe(function (response) {
+            if (response.status === 1) {
+              _this.detail = response.res;
+              _this.url = _this.detail.img ? _this.detail.img : _this.url;
+              _this.detail.doff = _this.chckDay(_this.detail.day_off);
+            } else {
+              if (response.err) {
+                _this.error.handleError(response.err.errCode);
               }
-            });
+            }
+          }, function (error) {
+            _this.error.handleError(0); // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
+
+          });
+        }
+      }, {
+        key: "chckDay",
+        value: function chckDay(day) {
+          console.log(day);
+
+          switch (day) {
+            case 0:
+              return 'Sunday';
+              break;
+
+            case 1:
+              return 'Monday';
+              break;
+
+            case 2:
+              return 'Tuesday';
+              break;
+
+            case 3:
+              return 'Wednesday';
+              break;
+
+            case 4:
+              return 'Thursday';
+              break;
+
+            case 5:
+              return 'Friday';
+              break;
+
+            case 6:
+              return 'Saturday';
+              break;
+
+            default:
+              break;
           }
         }
       }]);
 
-      return CancelupdateComponent;
+      return StaffdetailComponent;
     }();
 
-    CancelupdateComponent.ctorParameters = function () {
+    StaffdetailComponent.ctorParameters = function () {
       return [{
         type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"]
       }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
+      }, {
         type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_3__["ErrorService"]
-      }, {
-        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_4__["TranslatePipe"]
-      }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
       }];
     };
 
-    CancelupdateComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-cancelupdate',
+    StaffdetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-staffdetail',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./cancelupdate.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.html")).default,
+      /*! raw-loader!./staffdetail.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffdetail/staffdetail.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./cancelupdate.component.scss */
-      "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.scss")).default]
-    })], CancelupdateComponent);
+      /*! ./staffdetail.component.scss */
+      "./src/app/home/staff/staffdetail/staffdetail.component.scss")).default]
+    })], StaffdetailComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.module.ts":
-  /*!******************************************************************************!*\
-    !*** ./src/app/home/cancellation-policy/cancelupdate/cancelupdate.module.ts ***!
-    \******************************************************************************/
+  "./src/app/home/staff/staffdetail/staffdetail.module.ts":
+  /*!**************************************************************!*\
+    !*** ./src/app/home/staff/staffdetail/staffdetail.module.ts ***!
+    \**************************************************************/
 
-  /*! exports provided: CancelupdateModule */
+  /*! exports provided: StaffdetailModule */
 
   /***/
-  function srcAppHomeCancellationPolicyCancelupdateCancelupdateModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeStaffStaffdetailStaffdetailModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "CancelupdateModule", function () {
-      return CancelupdateModule;
+    __webpack_require__.d(__webpack_exports__, "StaffdetailModule", function () {
+      return StaffdetailModule;
     });
     /* harmony import */
 
@@ -279,57 +305,96 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _cancelupdate_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./cancelupdate-routing.module */
-    "./src/app/home/cancellation-policy/cancelupdate/cancelupdate-routing.module.ts");
+    var _staffdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./staffdetail-routing.module */
+    "./src/app/home/staff/staffdetail/staffdetail-routing.module.ts");
     /* harmony import */
 
 
-    var _cancelupdate_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./cancelupdate.component */
-    "./src/app/home/cancellation-policy/cancelupdate/cancelupdate.component.ts");
+    var _staffdetail_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./staffdetail.component */
+    "./src/app/home/staff/staffdetail/staffdetail.component.ts");
     /* harmony import */
 
 
-    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/shared/shared.module */
-    "./src/app/shared/shared.module.ts");
+    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/module/applicationpipe/applicationpipe.module */
+    "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
     /* harmony import */
 
 
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+    /* harmony import */
 
-    var CancelupdateModule = function CancelupdateModule() {
-      _classCallCheck(this, CancelupdateModule);
+
+    var ngx_stars__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ngx-stars */
+    "./node_modules/ngx-stars/fesm2015/ngx-stars.js");
+
+    console.log('---=-=-=-=-=-=-=--');
+
+    var StaffdetailModule = function StaffdetailModule() {
+      _classCallCheck(this, StaffdetailModule);
     };
 
-    CancelupdateModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_cancelupdate_component__WEBPACK_IMPORTED_MODULE_4__["CancelupdateComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _cancelupdate_routing_module__WEBPACK_IMPORTED_MODULE_3__["CancelupdateRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_6__["ReactiveFormsModule"]]
-    })], CancelupdateModule);
+    StaffdetailModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_staffdetail_component__WEBPACK_IMPORTED_MODULE_4__["StaffdetailComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _staffdetail_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffdetailRoutingModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_5__["ApplicationpipeModule"], ngx_stars__WEBPACK_IMPORTED_MODULE_7__["NgxStarsModule"]],
+      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__["TranslatePipe"]]
+    })], StaffdetailModule);
     /***/
   },
 
   /***/
-  "./src/app/shared/service/error.service.ts":
-  /*!*************************************************!*\
-    !*** ./src/app/shared/service/error.service.ts ***!
-    \*************************************************/
+  "./src/app/shared/constants/constant.ts":
+  /*!**********************************************!*\
+    !*** ./src/app/shared/constants/constant.ts ***!
+    \**********************************************/
 
-  /*! exports provided: ErrorService */
+  /*! exports provided: ERROR_MSG, LIMIT, IMG, MESSAGE, DELETE, MAP */
 
   /***/
-  function srcAppSharedServiceErrorServiceTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppSharedConstantsConstantTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ErrorService", function () {
-      return ErrorService;
+    __webpack_require__.d(__webpack_exports__, "ERROR_MSG", function () {
+      return ERROR_MSG;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "LIMIT", function () {
+      return LIMIT;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "IMG", function () {
+      return IMG;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MESSAGE", function () {
+      return MESSAGE;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "DELETE", function () {
+      return DELETE;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MAP", function () {
+      return MAP;
     });
     /* harmony import */
 
@@ -337,130 +402,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! tslib */
     "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
 
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./translate.service */
-    "./src/app/shared/service/translate.service.ts");
-    /* harmony import */
-
-
-    var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./http-request.service */
-    "./src/app/shared/service/http-request.service.ts"); // import { TranslatePipe } from '../_pipes/translate.pipe';
-
-
-    var ErrorService =
-    /*#__PURE__*/
-    function () {
-      function ErrorService(helper, trns) {
-        _classCallCheck(this, ErrorService);
-
-        this.helper = helper;
-        this.trns = trns;
-      }
-
-      _createClass(ErrorService, [{
-        key: "handleError",
-        value: function handleError() {
-          var errCode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-
-          switch (errCode) {
-            case 0:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
-              break;
-
-            case 1:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
-              break;
-
-            case 4:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
-              break;
-
-            case 5:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
-              break;
-
-            case 6:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
-              break;
-
-            case 7:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
-              break;
-
-            case 8:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
-              break;
-
-            case 9:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
-              break;
-
-            case 31:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
-              break;
-
-            case 34:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['PROMOALRDYEXIST']);
-              break;
-
-            case 32:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['STAFFALRDYEXIST']);
-              break;
-
-            case 15:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONALRDYEXIST']);
-              break;
-
-            case 39:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
-              break;
-
-            case 41:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DEACTIVE']);
-              break;
-
-            case 42:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DELSALONACC']);
-              break;
-
-            case 51:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['NOBOOK']);
-              break;
-
-            case 56:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SLNEXIST']);
-              break;
-
-            default:
-              break;
-          }
-        }
-      }]);
-
-      return ErrorService;
-    }();
-
-    ErrorService.ctorParameters = function () {
-      return [{
-        type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
-      }, {
-        type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
-      }];
+    var ERROR_MSG = {
+      HTTP_SUBSCRIBER_ERROR: 'Network Error.',
+      UNAUTHURIZED_ERROR: 'You are not an authorized user.'
     };
-
-    ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-      providedIn: 'root'
-    })], ErrorService);
+    var LIMIT = [10, 20, 30];
+    var IMG = {
+      PRO: 'assets/images/user-add.png',
+      USR: 'assets/images/noti-pro.png'
+    };
+    var MESSAGE = {
+      SUCCESS: 'SUCCESS',
+      FORGOT_SUC: 'Forgot Password Link has been sent successfully.',
+      FORGOT_FAIL: 'Admin not found'
+    };
+    var DELETE = {
+      DELETE_TITLE: '',
+      DELETE_MSG: 'You wont be able to revert this!',
+      DELETE_CONFIRM_TEXT: 'Yes, delete it!'
+    };
+    var MAP = {
+      KEY: "AIzaSyDiESz5lmd8ZNxAGBg3ILiQ8w9SFuYwAB8",
+      type: "places"
+    };
     /***/
   }
 }]);

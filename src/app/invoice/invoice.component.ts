@@ -5,7 +5,6 @@ import { ErrorService } from '../shared/service/error.service';
 import * as jspdf from 'jspdf';
 import html2canvas from "html2canvas";
 import { DatePipe } from '@angular/common';
-import { PrintService } from '../shared/service/print.service';
 (window as any).html2canvas = html2canvas;
 import { Title } from '@angular/platform-browser';
 
@@ -22,7 +21,7 @@ export class InvoiceComponent implements OnInit {
   error: any;
   @ViewChild('content', { static: true }) content: ElementRef;
 
-  constructor(private httpService: HttpRequestService, public printService: PrintService,
+  constructor(private httpService: HttpRequestService,
     private titleService: Title,
     private routes: ActivatedRoute, private errsrv: ErrorService, ) { }
 
@@ -102,9 +101,6 @@ export class InvoiceComponent implements OnInit {
     this.titleService.setTitle( newTitle );
     window.print();
     this.titleService.setTitle( "TieWeb" );
-    // const invoiceIds = ['101', '102'];
-    // this.printService
-    //   .printDocument('invoice', invoiceIds);
   }
 
 

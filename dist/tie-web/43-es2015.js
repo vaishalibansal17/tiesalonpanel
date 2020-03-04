@@ -1,116 +1,116 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[43],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/report.component.html":
-/*!*****************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/report.component.html ***!
-  \*****************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/transaction.component.html":
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/transaction.component.html ***!
+  \**********************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<!-- <div class=\"main-card\">\n    <h1>Report is Under Development</h1>\n    <p>It will set up in further milestone.</p>\n</div> -->\n\n<div class=\"top_report\">\n    <div class=\"left_report_head\">\n        <div class=\"secondary-navbar-outer\">\n            <ul class=\"secondary-navbar\">\n                <li routerLinkActive=\"active\"><a [routerLink]=\"['./sales']\">Gross Sales</a></li>\n                <li routerLinkActive=\"active\"><a [routerLink]=\"['./transaction']\">Transactions</a></li>\n                <li routerLinkActive=\"active\"><a [routerLink]=\"['./earning']\">Earnings</a></li>\n            </ul>\n        </div>\n    </div>\n    <div class=\"right_report_head\">\n        <mat-slide-toggle>Walking Users</mat-slide-toggle>\n    </div>\n</div>\n<div class=\"clearfix\"></div>\n\n\n        <div class=\"basic-content\">\n            <router-outlet></router-outlet>\n        </div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<router-outlet></router-outlet>");
 
 /***/ }),
 
-/***/ "./src/app/home/report/report-routing.module.ts":
-/*!******************************************************!*\
-  !*** ./src/app/home/report/report-routing.module.ts ***!
-  \******************************************************/
-/*! exports provided: ReportRoutingModule */
+/***/ "./src/app/home/report/transaction/transaction-routing.module.ts":
+/*!***********************************************************************!*\
+  !*** ./src/app/home/report/transaction/transaction-routing.module.ts ***!
+  \***********************************************************************/
+/*! exports provided: TransactionRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReportRoutingModule", function() { return ReportRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TransactionRoutingModule", function() { return TransactionRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _report_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./report.component */ "./src/app/home/report/report.component.ts");
+/* harmony import */ var _transaction_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./transaction.component */ "./src/app/home/report/transaction/transaction.component.ts");
 
 
 
 
 const routes = [{
-        path: '', component: _report_component__WEBPACK_IMPORTED_MODULE_3__["ReportComponent"],
+        path: '', component: _transaction_component__WEBPACK_IMPORTED_MODULE_3__["TransactionComponent"],
         children: [
-            { path: 'sales', loadChildren: () => __webpack_require__.e(/*! import() */ 44).then(__webpack_require__.bind(null, /*! ./sales/sales.module */ "./src/app/home/report/sales/sales.module.ts")).then(mod => mod.SalesModule), data: { title: "Gross Sales", status: false } },
-            { path: 'transaction', loadChildren: () => __webpack_require__.e(/*! import() */ 46).then(__webpack_require__.bind(null, /*! ./transaction/transaction.module */ "./src/app/home/report/transaction/transaction.module.ts")).then(mod => mod.TransactionModule), data: { title: "Transaction", status: false } },
-            { path: 'earning', loadChildren: () => __webpack_require__.e(/*! import() */ 39).then(__webpack_require__.bind(null, /*! ./earning/earning.module */ "./src/app/home/report/earning/earning.module.ts")).then(mod => mod.EarningModule), },
+            { path: '', loadChildren: () => __webpack_require__.e(/*! import() */ 44).then(__webpack_require__.bind(null, /*! ./transactionlist/transactionlist.module */ "./src/app/home/report/transaction/transactionlist/transactionlist.module.ts")).then(mod => mod.TransactionlistModule), data: { title: "Transaction", status: false } },
+            { path: 'weekly', loadChildren: () => __webpack_require__.e(/*! import() */ 45).then(__webpack_require__.bind(null, /*! ./weeklylist/weeklylist.module */ "./src/app/home/report/transaction/weeklylist/weeklylist.module.ts")).then(mod => mod.WeeklylistModule), },
+            { path: 'info', loadChildren: () => __webpack_require__.e(/*! import() */ 42).then(__webpack_require__.bind(null, /*! ./detail/detail.module */ "./src/app/home/report/transaction/detail/detail.module.ts")).then(mod => mod.DetailModule), data: { title: "Transaction Detail", status: false } }
         ]
     },];
-let ReportRoutingModule = class ReportRoutingModule {
+let TransactionRoutingModule = class TransactionRoutingModule {
 };
-ReportRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+TransactionRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], ReportRoutingModule);
+], TransactionRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/report/report.component.scss":
-/*!***************************************************!*\
-  !*** ./src/app/home/report/report.component.scss ***!
-  \***************************************************/
+/***/ "./src/app/home/report/transaction/transaction.component.scss":
+/*!********************************************************************!*\
+  !*** ./src/app/home/report/transaction/transaction.component.scss ***!
+  \********************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcmVwb3J0L3JlcG9ydC5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcmVwb3J0L3RyYW5zYWN0aW9uL3RyYW5zYWN0aW9uLmNvbXBvbmVudC5zY3NzIn0= */");
 
 /***/ }),
 
-/***/ "./src/app/home/report/report.component.ts":
-/*!*************************************************!*\
-  !*** ./src/app/home/report/report.component.ts ***!
-  \*************************************************/
-/*! exports provided: ReportComponent */
+/***/ "./src/app/home/report/transaction/transaction.component.ts":
+/*!******************************************************************!*\
+  !*** ./src/app/home/report/transaction/transaction.component.ts ***!
+  \******************************************************************/
+/*! exports provided: TransactionComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReportComponent", function() { return ReportComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TransactionComponent", function() { return TransactionComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 
 
-let ReportComponent = class ReportComponent {
+let TransactionComponent = class TransactionComponent {
     constructor() { }
     ngOnInit() {
     }
 };
-ReportComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+TransactionComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-report',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./report.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/report.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./report.component.scss */ "./src/app/home/report/report.component.scss")).default]
+        selector: 'app-transaction',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./transaction.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/transaction.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./transaction.component.scss */ "./src/app/home/report/transaction/transaction.component.scss")).default]
     })
-], ReportComponent);
+], TransactionComponent);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/report/report.module.ts":
-/*!**********************************************!*\
-  !*** ./src/app/home/report/report.module.ts ***!
-  \**********************************************/
-/*! exports provided: ReportModule */
+/***/ "./src/app/home/report/transaction/transaction.module.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/home/report/transaction/transaction.module.ts ***!
+  \***************************************************************/
+/*! exports provided: TransactionModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ReportModule", function() { return ReportModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TransactionModule", function() { return TransactionModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _report_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./report-routing.module */ "./src/app/home/report/report-routing.module.ts");
-/* harmony import */ var _report_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./report.component */ "./src/app/home/report/report.component.ts");
+/* harmony import */ var _transaction_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./transaction-routing.module */ "./src/app/home/report/transaction/transaction-routing.module.ts");
+/* harmony import */ var _transaction_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./transaction.component */ "./src/app/home/report/transaction/transaction.component.ts");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
 
 
@@ -118,18 +118,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-let ReportModule = class ReportModule {
+let TransactionModule = class TransactionModule {
 };
-ReportModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+TransactionModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_report_component__WEBPACK_IMPORTED_MODULE_4__["ReportComponent"]],
+        declarations: [_transaction_component__WEBPACK_IMPORTED_MODULE_4__["TransactionComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _report_routing_module__WEBPACK_IMPORTED_MODULE_3__["ReportRoutingModule"],
+            _transaction_routing_module__WEBPACK_IMPORTED_MODULE_3__["TransactionRoutingModule"],
             src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]
         ]
     })
-], ReportModule);
+], TransactionModule);
 
 
 

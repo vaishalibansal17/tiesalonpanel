@@ -74,15 +74,17 @@
                 <div class="right_more">
                 <button mat-button [matMenuTriggerFor]="more_menu" [disableRipple]="true"><img src="assets/images/more.png" alt="More"></button>
                   <mat-menu #more_menu="matMenu" xPosition="before">
-                    <button mat-menu-item>Delete</button>
+                    <button mat-menu-item><img src="assets/images/delete_grey.png" alt="Delete"> Delete</button>
                   </mat-menu>
                 </div>
             </div>
             <div class="content">
-                Content
+                <div class="message_chat received">Hello <span class="right_time">10:21 AM</span></div>
+                <div class="message_chat sent">Hi, how can I help you? <span class="right_time">10:21 AM</span></div>
             </div>
             <div class="type_msg">
-                typing
+               <input type="text" placeholder="Type message"> 
+               <span class="right"><img src="assets/images/send.png" alt="Send"></span>
             </div>
         </div>
 

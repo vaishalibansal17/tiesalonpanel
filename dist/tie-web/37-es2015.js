@@ -1,284 +1,148 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[37],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/promocode/add/add.component.html":
-/*!*********************************************************************************************!*\
-  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/promocode/add/add.component.html ***!
-  \*********************************************************************************************/
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earningdaylist/earningdaylist.component.html":
+/*!************************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earningdaylist/earningdaylist.component.html ***!
+  \************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form [formGroup]='promo' (ngSubmit)='add()'>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/category_form.png\" alt=\"Code\"></span>\n                <input matInput placeholder=\"Coupon Name\" class=\"form-control\" formControlName=\"name\" maxlength=\"100\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.name.dirty|| getControl.name.touched) && getControl.name.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.name.errors.required\">{{'COUPNNAME'| translate}}</p>\n                <p class=\"color error\" *ngIf=\"!getControl.name.errors.required && getControl.name.errors.invalidName\">\n                    {{'INCRTPROMONNAME'| translate}}</p>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/category_form.png\" alt=\"Code\"></span>\n                <input matInput placeholder=\"Coupon Code\" class=\"form-control\" formControlName=\"code\" maxlength=\"100\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.code.dirty|| getControl.code.touched) && getControl.code.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.code.errors.required\">{{'CODEREQ'| translate}}</p>\n                <p class=\"color error\" *ngIf=\"!getControl.code.errors.required && getControl.code.errors.invalid\">\n                    {{'CODEINVLID'| translate}}</p>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/price_form.png\" alt=\"Discount\"></span>\n                <input matInput placeholder=\"Discount\" class=\"form-control\" formControlName=\"discount\" maxlength=\"10\">\n            </mat-form-field>\n            <div\n                *ngIf=\"(submitted || getControl.discount.dirty|| getControl.discount.touched) && getControl.discount.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.discount.errors.required\">{{'DISEREQ'| translate}}</p>\n                <p class=\"color error\"\n                    *ngIf=\"!getControl.discount.errors.required && getControl.discount.errors.invalid\">\n                    {{'ONLYNUM'| translate}}</p>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/icon_sr.png\" alt=\"Discount\"></span>\n                <input matInput placeholder=\"Min. Amount\" class=\"form-control\" formControlName=\"min_price\"\n                    maxlength=\"10\">\n            </mat-form-field>\n            <div\n                *ngIf=\"(submitted || getControl.min_price.dirty|| getControl.min_price.touched) && getControl.min_price.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.min_price.errors.required\">{{'MINPRCREQ'| translate}}</p>\n                <p class=\"color error\"\n                    *ngIf=\"!getControl.min_price.errors.required && getControl.min_price.errors.invalid\">\n                    {{'ONLYNUM'| translate}}</p>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/icon_sr.png\" alt=\"Discount\"></span>\n                <input matInput placeholder=\"Max. Discount Amount\" class=\"form-control\" formControlName=\"upto\"\n                    maxlength=\"10\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.upto.dirty|| getControl.upto.touched) && getControl.upto.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.upto.errors.required\">{{'MAXPRCREQ'| translate}}</p>\n                <p class=\"color error\" *ngIf=\"!getControl.upto.errors.required && getControl.upto.errors.invalid\">\n                    {{'ONLYNUM'| translate}}</p>\n            </div>\n            <mat-form-field class=\"multi_field\">\n                <span class=\"email-img pass\"><img src=\"assets/images/service.png\" alt=\"envelope\"></span>\n                <mat-label>Service</mat-label>\n                <mat-select (selectionChange)=\"slctsrv($event)\" class=\"multiselect\">\n                    <mat-option *ngFor=\"let service of services\" [value]=\"service\">\n                        {{service.cat_name | titlecase}}\n                    </mat-option>\n                </mat-select>\n                <div class=\"mat-chips\">\n                    <mat-chip-list aria-label=\"Fish selection\">\n                        <mat-chip [disableRipple]=\"true\" *ngFor=\"let chip of chips; let i =index\"\n                            [selectable]=\"selectable\" [removable]=\"removable\" (removed)=\"remove(i, chip)\">\n                            {{chip.cat_name | titlecase}}\n                            <mat-icon matChipRemove *ngIf=\"removable\">cancel</mat-icon>\n                        </mat-chip>\n                    </mat-chip-list>\n                </div>\n            </mat-form-field>\n            <!-- <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/edit-user.png\" alt=\"Added\"></span>\n                <input matInput placeholder=\"Added By\" class=\"form-control\" formControlName=\"desc\">\n            </mat-form-field> -->\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/edit-staff.png\" alt=\"Uses\"></span>\n                <input matInput placeholder=\"Total Uses\" class=\"form-control\" formControlName=\"uses\" maxlength=\"10\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.uses.dirty|| getControl.uses.touched) && getControl.uses.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.uses.errors.required\">{{'USEREQ'| translate}}</p>\n                <p class=\"color error\" *ngIf=\"!getControl.uses.errors.required && getControl.uses.errors.invalid\">\n                    {{'ONLYNUM'| translate}}</p>\n            </div>\n            <div class=\"row\">\n                <div class=\"col-md-6 left\">\n                    <mat-form-field>\n                        <span class=\"email-img pass\"><img src=\"assets/images/calendar_form.png\" alt=\"From\"></span>\n                        <input matInput placeholder=\"From\" class=\"form-control\" [min]=\"todaydate\" [matDatepicker]=\"fromDatepicker\"\n                            formControlName=\"frm\">\n                        <mat-datepicker-toggle matSuffix [for]=\"fromDatepicker\">\n                            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>\n                        </mat-datepicker-toggle>\n                        <mat-datepicker #fromDatepicker></mat-datepicker>\n                    </mat-form-field>\n                    <div *ngIf=\"(submitted || getControl.frm.dirty|| getControl.frm.touched) && getControl.frm.errors\">\n                        <p class=\"color error\" *ngIf=\"getControl.frm.errors.required\">{{'FRMREQ'| translate}}</p>\n                        <!-- <p class=\"color error\" *ngIf=\"!getControl.name.errors.required && getControl.name.errors.invalidName\">\n                            {{'INCRTSALONNAME'| translate}}</p> -->\n                    </div>\n                    <p class=\"color error\" *ngIf=\"!validDte\">{{'INVALIDDATE'| translate}}</p>\n                </div>\n                <div class=\"col-md-6 right\">\n                    <mat-form-field>\n                        <span class=\"email-img pass\"><img src=\"assets/images/calendar_form.png\" alt=\"From\"></span>\n                        <input matInput placeholder=\"To\" class=\"form-control\" [min]=\"todaydate\" [matDatepicker]=\"toDatepicker\"\n                            formControlName=\"to\">\n                        <mat-datepicker-toggle matSuffix [for]=\"toDatepicker\">\n                            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>\n                        </mat-datepicker-toggle>\n                        <mat-datepicker #toDatepicker></mat-datepicker>\n                    </mat-form-field>\n                    <div *ngIf=\"(submitted || getControl.to.dirty|| getControl.to.touched) && getControl.to.errors\">\n                        <p class=\"color error\" *ngIf=\"getControl.to.errors.required\">{{'TOREQ'| translate}}</p>\n                        <!-- <p class=\"color error\" *ngIf=\"!getControl.name.errors.required && getControl.name.errors.invalidName\">\n                            {{'INCRTSALONNAME'| translate}}</p> -->\n                    </div>\n                </div>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/description.png\" alt=\"envelope\"></span>\n                <textarea matInput placeholder=\"{{'DESCRIPTION'| translate}}\" class=\"form-control\"\n                    formControlName=\"desc\" maxlength=\"500\"></textarea>\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.desc.dirty|| getControl.desc.touched) && getControl.desc.errors\">\n                <p class=\"color error\" *ngIf=\"getControl.desc.errors.required\">{{'DESCREQ' | translate}}</p>\n                <p class=\"color error\" *ngIf=\"getControl.desc.errors.minlength \">{{'DESCLNGTH'| translate}}</p>\n            </div>\n            <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Save</button>\n            </div>\n        </form>\n    </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"main-card\">\n    <div class=\"row report_forms\">\n        <div class=\"col-md-2\">\n            <mat-form-field>\n                <mat-label>All</mat-label>\n                <mat-select>\n                  <mat-option *ngFor=\"let time of times\" [value]=\"time.value\">\n                    {{time.viewValue}}\n                  </mat-option>\n                </mat-select>\n              </mat-form-field>\n        </div>\n\n        <div class=\"col-md-2\">\n            <mat-form-field>\n                <input matInput [matDatepicker]=\"pickerfrom\" placeholder=\"From\" class=\"form-control\">\n                <mat-datepicker-toggle matSuffix [for]=\"pickerfrom\"></mat-datepicker-toggle>\n                <mat-datepicker #pickerfrom></mat-datepicker>\n              </mat-form-field>\n        </div>\n        <div class=\"col-md-2\">\n            <mat-form-field>\n                <input matInput [matDatepicker]=\"pickerto\" placeholder=\"To\" class=\"form-control\">\n                <mat-datepicker-toggle matSuffix [for]=\"pickerto\"></mat-datepicker-toggle>\n                <mat-datepicker #pickerto></mat-datepicker>\n              </mat-form-field>\n        </div>\n\n        <div class=\"col-md-6 alignright\"><a href=\"#\" class=\"btn btn-export\">Export</a></div>\n    </div>\n\n\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <div class=\"row\">\n                <div class=\"col-md-3 label\">Total Sales(YTD):</div>\n                <div class=\"col-md-9 description\">$1,061</div>\n                <div class=\"col-md-3 label\">Month of January:</div>\n                <div class=\"col-md-9 description\">$290</div>\n                <div class=\"col-md-3 label\">Current Week:</div>\n                <div class=\"col-md-9 description\">$100</div>\n            </div>\n        </div>\n    </div>\n    <div class=\"sales_description\">\n        <div class=\"row\">\n            <div class=\"col-md-12\">06 January, 2020</div>\n            <div class=\"col-md-6\">\n                <div class=\"row\">\n                    <div class=\"col-md-6 label\">Projected Sales:</div>\n                    <div class=\"col-md-6 description\">$1,061</div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <div class=\"row\">\n                    <div class=\"col-md-6 label\">Appts Booked:</div>\n                    <div class=\"col-md-6 description\">08</div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"table_wrap mobile_hidden\">\n        <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8 table_scroll\">\n            <ng-container matColumnDef=\"position\">\n              <th mat-header-cell *matHeaderCellDef>No.</th>\n              <td mat-cell *matCellDef=\"let element\">{{element.position}}</td>\n            </ng-container>\n          \n            <ng-container matColumnDef=\"date\">\n                <th mat-header-cell *matHeaderCellDef>Date</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.date}}</td>\n            </ng-container>  \n\n            <ng-container matColumnDef=\"day\">\n                <th mat-header-cell *matHeaderCellDef>Day</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.day}}</td>\n            </ng-container>  \n\n            <ng-container matColumnDef=\"order\">\n                <th mat-header-cell *matHeaderCellDef>Orders(Total Count)</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.order}}</td>\n            </ng-container>  \n\n            <ng-container matColumnDef=\"avgorder\">\n              <th mat-header-cell *matHeaderCellDef>Average Order</th>\n              <td mat-cell *matCellDef=\"let element\">{{element.avgorder}}</td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"amount\">\n                <th mat-header-cell *matHeaderCellDef>Discounted Amount</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.amount}}</td>\n            </ng-container>\n            \n            <ng-container matColumnDef=\"tamount\">\n                <th mat-header-cell *matHeaderCellDef>Total Amount</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.tamount}}</td>\n            </ng-container>\n         \n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n          </table>\n        </div>\n\n        <div class=\"card_view mobile_visible\">\n\n            <div class=\"cards\">\n                <div class=\"top_info\">\n                  <!-- add class for background color Completed, rejected -->\n                  <div class=\"right_status\">\n                    <ul>\n                      <li>22 Oct, 2019</li>\n                      <li>Tuesday</li>\n                    </ul>\n                  </div>\n                </div>\n                <div class=\"description\">\n                <p class=\"service\"><img src=\"assets/images/bookings-pink.png\" alt=\"Order\">20(Order)</p>\n                <p class=\"service\"><img src=\"assets/images/bookings-pink.png\" alt=\"Average Order\">4(Average Order)</p>\n                <p class=\"service\"><img src=\"assets/images/commissions.png\" alt=\"Commissions\">$280</p>\n                <p class=\"service\"><img src=\"assets/images/commissions.png\" alt=\"Commissions\">$200</p>\n                </div>\n            </div>\n          </div>\n\n        <ul class=\"pagination\">\n            <li><a href=\"#\"><i class=\"fa fa-angle-left\"></i></a></li>\n            <li class=\"active\"><a href=\"#\">1</a></li>\n            <li><a href=\"#\">2</a></li>\n            <li><a href=\"#\">3</a></li>\n            <li><a href=\"#\">4</a></li>\n            <li><a href=\"#\">5</a></li>\n            <li><a href=\"#\"><i class=\"fa fa-angle-right\"></i></a></li>\n          </ul>\n</div>");
 
 /***/ }),
 
-/***/ "./src/app/home/promocode/add/add-routing.module.ts":
-/*!**********************************************************!*\
-  !*** ./src/app/home/promocode/add/add-routing.module.ts ***!
-  \**********************************************************/
-/*! exports provided: AddRoutingModule */
+/***/ "./src/app/home/report/earning/earningdaylist/earningdaylist-routing.module.ts":
+/*!*************************************************************************************!*\
+  !*** ./src/app/home/report/earning/earningdaylist/earningdaylist-routing.module.ts ***!
+  \*************************************************************************************/
+/*! exports provided: EarningdaylistRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddRoutingModule", function() { return AddRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EarningdaylistRoutingModule", function() { return EarningdaylistRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var _add_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./add.component */ "./src/app/home/promocode/add/add.component.ts");
+/* harmony import */ var _earningdaylist_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./earningdaylist.component */ "./src/app/home/report/earning/earningdaylist/earningdaylist.component.ts");
 
 
 
 
-const routes = [{ path: '', component: _add_component__WEBPACK_IMPORTED_MODULE_3__["AddComponent"] }];
-let AddRoutingModule = class AddRoutingModule {
+const routes = [{ path: '', component: _earningdaylist_component__WEBPACK_IMPORTED_MODULE_3__["EarningdaylistComponent"] }];
+let EarningdaylistRoutingModule = class EarningdaylistRoutingModule {
 };
-AddRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+EarningdaylistRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], AddRoutingModule);
+], EarningdaylistRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/promocode/add/add.component.scss":
-/*!*******************************************************!*\
-  !*** ./src/app/home/promocode/add/add.component.scss ***!
-  \*******************************************************/
+/***/ "./src/app/home/report/earning/earningdaylist/earningdaylist.component.scss":
+/*!**********************************************************************************!*\
+  !*** ./src/app/home/report/earning/earningdaylist/earningdaylist.component.scss ***!
+  \**********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".custom_form span.email-img.pass {\n  top: 16px;\n}\n\n@media (min-width: 767px) {\n  .custom_form .col-md-6.left {\n    padding-right: 6px;\n  }\n\n  .custom_form .col-md-6.right {\n    padding-left: 6px;\n  }\n}\n\n.mat-form-field.multi_field {\n  display: inline-table !important;\n}\n\n.mat-select.multiselect {\n  border: 1px solid #dad9d9 !important;\n  border-radius: 4px;\n  margin-bottom: 10px;\n}\n\n.custom_form mat-form-field.mat-form-field.multi_field {\n  border: none;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9wcm9tb2NvZGUvYWRkL2FkZC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9wcm9tb2NvZGUvYWRkL2FkZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFNBQUE7QUNDSjs7QURFQTtFQUNBO0lBQTRCLGtCQUFBO0VDRTFCOztFRERGO0lBQTZCLGlCQUFBO0VDSzNCO0FBQ0Y7O0FERkE7RUFBNEIsZ0NBQUE7QUNLNUI7O0FESkE7RUFBd0Isb0NBQUE7RUFBcUMsa0JBQUE7RUFBbUIsbUJBQUE7QUNVaEY7O0FEUkE7RUFBdUQsWUFBQTtBQ1l2RCIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcHJvbW9jb2RlL2FkZC9hZGQuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY3VzdG9tX2Zvcm0gc3Bhbi5lbWFpbC1pbWcucGFzcyB7XG4gICAgdG9wOiAxNnB4O1xufVxuXG5AbWVkaWEobWluLXdpZHRoOjc2N3B4KXtcbi5jdXN0b21fZm9ybSAuY29sLW1kLTYubGVmdHtwYWRkaW5nLXJpZ2h0OiA2cHg7fVxuLmN1c3RvbV9mb3JtIC5jb2wtbWQtNi5yaWdodHtwYWRkaW5nLWxlZnQ6IDZweDt9XG59XG5cblxuLm1hdC1mb3JtLWZpZWxkLm11bHRpX2ZpZWxke2Rpc3BsYXk6IGlubGluZS10YWJsZSAhaW1wb3J0YW50fVxuLm1hdC1zZWxlY3QubXVsdGlzZWxlY3R7Ym9yZGVyOiAxcHggc29saWQgI2RhZDlkOSAhaW1wb3J0YW50O2JvcmRlci1yYWRpdXM6IDRweDttYXJnaW4tYm90dG9tOiAxMHB4O31cblxuLmN1c3RvbV9mb3JtIG1hdC1mb3JtLWZpZWxkLm1hdC1mb3JtLWZpZWxkLm11bHRpX2ZpZWxke2JvcmRlcjpub25lfSIsIi5jdXN0b21fZm9ybSBzcGFuLmVtYWlsLWltZy5wYXNzIHtcbiAgdG9wOiAxNnB4O1xufVxuXG5AbWVkaWEgKG1pbi13aWR0aDogNzY3cHgpIHtcbiAgLmN1c3RvbV9mb3JtIC5jb2wtbWQtNi5sZWZ0IHtcbiAgICBwYWRkaW5nLXJpZ2h0OiA2cHg7XG4gIH1cblxuICAuY3VzdG9tX2Zvcm0gLmNvbC1tZC02LnJpZ2h0IHtcbiAgICBwYWRkaW5nLWxlZnQ6IDZweDtcbiAgfVxufVxuLm1hdC1mb3JtLWZpZWxkLm11bHRpX2ZpZWxkIHtcbiAgZGlzcGxheTogaW5saW5lLXRhYmxlICFpbXBvcnRhbnQ7XG59XG5cbi5tYXQtc2VsZWN0Lm11bHRpc2VsZWN0IHtcbiAgYm9yZGVyOiAxcHggc29saWQgI2RhZDlkOSAhaW1wb3J0YW50O1xuICBib3JkZXItcmFkaXVzOiA0cHg7XG4gIG1hcmdpbi1ib3R0b206IDEwcHg7XG59XG5cbi5jdXN0b21fZm9ybSBtYXQtZm9ybS1maWVsZC5tYXQtZm9ybS1maWVsZC5tdWx0aV9maWVsZCB7XG4gIGJvcmRlcjogbm9uZTtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcmVwb3J0L2Vhcm5pbmcvZWFybmluZ2RheWxpc3QvZWFybmluZ2RheWxpc3QuY29tcG9uZW50LnNjc3MifQ== */");
 
 /***/ }),
 
-/***/ "./src/app/home/promocode/add/add.component.ts":
-/*!*****************************************************!*\
-  !*** ./src/app/home/promocode/add/add.component.ts ***!
-  \*****************************************************/
-/*! exports provided: AddComponent */
+/***/ "./src/app/home/report/earning/earningdaylist/earningdaylist.component.ts":
+/*!********************************************************************************!*\
+  !*** ./src/app/home/report/earning/earningdaylist/earningdaylist.component.ts ***!
+  \********************************************************************************/
+/*! exports provided: EarningdaylistComponent */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddComponent", function() { return AddComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EarningdaylistComponent", function() { return EarningdaylistComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/shared/service/http-request.service */ "./src/app/shared/service/http-request.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-/* harmony import */ var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/service/helper.service */ "./src/app/shared/service/helper.service.ts");
-/* harmony import */ var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/service/error.service */ "./src/app/shared/service/error.service.ts");
-/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! src/app/shared/service/validation-service */ "./src/app/shared/service/validation-service.ts");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
-/* harmony import */ var lodash__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_9__);
 
 
-
-
-
-
-
-
-
-
-let AddComponent = class AddComponent {
-    constructor(httpService, router, fb, routes, helper, errorserv, trns) {
-        this.httpService = httpService;
-        this.router = router;
-        this.fb = fb;
-        this.routes = routes;
-        this.helper = helper;
-        this.errorserv = errorserv;
-        this.trns = trns;
-        this.chips = [];
-        this.todaydate = new Date();
-        this.submitted = false;
-        this.dataSource = [];
-        this.selectable = true;
-        this.removable = true;
-        this.sendServ = [];
-        this.validDte = true;
+let EarningdaylistComponent = class EarningdaylistComponent {
+    constructor() {
+        this.times = [
+            { value: 'all', viewValue: 'All' },
+            { value: 'day', viewValue: 'Day' },
+            { value: 'week', viewValue: 'Weekly' },
+            { value: 'month', viewValue: 'Monthly' },
+        ];
+        this.displayedColumns = ['position', 'date', 'day', 'order', 'avgorder', 'amount', 'tamount'];
+        this.dataSource = ELEMENT_DATA;
     }
     ngOnInit() {
-        this.getServices();
-        this.promo = this.fb.group({
-            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_8__["ValidationService"].namevalidator
-            ]),
-            code: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_8__["ValidationService"].codeValidator
-            ]),
-            discount: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_8__["ValidationService"].numberValidator
-            ]),
-            upto: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, [src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_8__["ValidationService"].numberValidator]),
-            min_price: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, [src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_8__["ValidationService"].numberValidator]),
-            frm: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required
-            ]),
-            to: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"]({ value: '', disabled: false }, [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required,
-            ]),
-            uses: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, [src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_8__["ValidationService"].numberValidator]),
-            desc: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, [
-                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required,
-                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].minLength(2),
-                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].maxLength(500)
-            ]),
-            cat_ids: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null)
-        });
-    }
-    getServices() {
-        this.httpService.getRequest('GET', 'SERVICES', '')
-            .subscribe((response) => {
-            if (response.status === 1) {
-                console.log(response.res);
-                this.services = response.res.services;
-            }
-            else {
-                if (response.err) {
-                    this.errorserv.handleError(response.err.errCode);
-                }
-            }
-        }, (error) => {
-            console.log(error);
-        });
-    }
-    add() {
-        this.submitted = true;
-        // return false
-        var startDateUtc = this.promo.value.frm && this.helper.parseDate(this.promo.value.frm, new Date(new Date().setHours(0, 0, 0, 0)));
-        var endDateUtc = this.promo.value.to && this.helper.parseDate(this.promo.value.to, new Date(new Date().setHours(23, 59, 59)));
-        if (!(startDateUtc < endDateUtc)) {
-            this.validDte = false;
-            return false;
-        }
-        else
-            this.validDte = true;
-        if (this.promo.valid) {
-            if (!this.validDte)
-                return false;
-            /** if selected date is from today then promocode time is from current date and time. */
-            var currentdate = new Date();
-            let data = new Date(this.promo.value.frm);
-            if (data.getDate() == currentdate.getDate() && data.getMonth() == currentdate.getMonth())
-                this.promo.value.frm = new Date();
-            this.promo.value.cat_ids = JSON.stringify(this.sendServ);
-            this.httpService.getRequest('POST', 'PROMO', this.promo.value)
-                .subscribe((response) => {
-                if (response.status === 1) {
-                    this.submitted = true;
-                    this.router.navigateByUrl('/promocode').then(() => {
-                        this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('PROMOCODESUCC'));
-                    });
-                }
-                else {
-                    if (response.err) {
-                        this.errorserv.handleError(response.err.errCode);
-                    }
-                }
-            }, (error) => {
-                this.errorserv.handleError(0);
-            });
-        }
-        else {
-            console.log(this.promo);
-        }
-    }
-    get getControl() { return this.promo.controls; }
-    /** ---------------------Compare Promocodes dates----------------------- */
-    slctsrv(state) {
-        const matSelect = state.source;
-        matSelect.writeValue(null);
-        // let isFound = this.httpService.arraySearch(this.sendServ, state)
-        state = state.value;
-        if (!this.httpService.arraySearch(this.sendServ, state)) {
-            this.chips.push({ id: state._id, cat_name: lodash__WEBPACK_IMPORTED_MODULE_9__["startCase"](lodash__WEBPACK_IMPORTED_MODULE_9__["camelCase"](state.cat_name)), title: lodash__WEBPACK_IMPORTED_MODULE_9__["startCase"](lodash__WEBPACK_IMPORTED_MODULE_9__["camelCase"](state.cat_name)), price: state.price });
-            this.sendServ.push(state.cat_id);
-            return;
-        }
-        else {
-        }
-    }
-    remove(service, data) {
-        let rmvsrv = this.chips.find(v => v.id == data.id);
-        this.chips = this.chips.filter(v => v.id !== data.id);
-        this.sendServ = this.sendServ.filter(v => v !== data.id);
     }
 };
-AddComponent.ctorParameters = () => [
-    { type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] },
-    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormBuilder"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"] },
-    { type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_4__["Helper"] },
-    { type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__["ErrorService"] },
-    { type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__["TranslatePipe"] }
-];
-AddComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+EarningdaylistComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-add',
-        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./add.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/promocode/add/add.component.html")).default,
-        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./add.component.scss */ "./src/app/home/promocode/add/add.component.scss")).default]
+        selector: 'app-earningdaylist',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./earningdaylist.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earningdaylist/earningdaylist.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./earningdaylist.component.scss */ "./src/app/home/report/earning/earningdaylist/earningdaylist.component.scss")).default]
     })
-], AddComponent);
+], EarningdaylistComponent);
 
+const ELEMENT_DATA = [
+    { position: 1, date: '22 Oct, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
+    { position: 2, date: '22 Oct, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
+    { position: 3, date: '22 Oct, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
+    { position: 4, date: '22 Oct, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
+    { position: 5, date: '22 Oct, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
+    { position: 6, date: '22 Oct, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
+    { position: 7, date: '22 Oct, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
+    { position: 8, date: '22 Oct, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
+    { position: 9, date: '22 Oct, 2019', day: 'Tuesday', order: 20, avgorder: 12, amount: '$280', tamount: '$200' },
+];
 
 
 /***/ }),
 
-/***/ "./src/app/home/promocode/add/add.module.ts":
-/*!**************************************************!*\
-  !*** ./src/app/home/promocode/add/add.module.ts ***!
-  \**************************************************/
-/*! exports provided: AddModule */
+/***/ "./src/app/home/report/earning/earningdaylist/earningdaylist.module.ts":
+/*!*****************************************************************************!*\
+  !*** ./src/app/home/report/earning/earningdaylist/earningdaylist.module.ts ***!
+  \*****************************************************************************/
+/*! exports provided: EarningdaylistModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AddModule", function() { return AddModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EarningdaylistModule", function() { return EarningdaylistModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _add_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./add-routing.module */ "./src/app/home/promocode/add/add-routing.module.ts");
-/* harmony import */ var _add_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./add.component */ "./src/app/home/promocode/add/add.component.ts");
+/* harmony import */ var _earningdaylist_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./earningdaylist-routing.module */ "./src/app/home/report/earning/earningdaylist/earningdaylist-routing.module.ts");
+/* harmony import */ var _earningdaylist_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./earningdaylist.component */ "./src/app/home/report/earning/earningdaylist/earningdaylist.component.ts");
 /* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
-/* harmony import */ var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/shared/module/applicationpipe/applicationpipe.module */ "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
-/* harmony import */ var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! src/app/shared/_pipes/translate.pipe */ "./src/app/shared/_pipes/translate.pipe.ts");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
 
 
 
 
 
 
-
-
-
-let AddModule = class AddModule {
+let EarningdaylistModule = class EarningdaylistModule {
 };
-AddModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+EarningdaylistModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        declarations: [_add_component__WEBPACK_IMPORTED_MODULE_4__["AddComponent"]],
+        declarations: [_earningdaylist_component__WEBPACK_IMPORTED_MODULE_4__["EarningdaylistComponent"]],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"],
-            _add_routing_module__WEBPACK_IMPORTED_MODULE_3__["AddRoutingModule"],
-            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"],
-            src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__["ApplicationpipeModule"]
-        ],
-        providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]]
+            _earningdaylist_routing_module__WEBPACK_IMPORTED_MODULE_3__["EarningdaylistRoutingModule"],
+            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]
+        ]
     })
-], AddModule);
+], EarningdaylistModule);
 
 
 

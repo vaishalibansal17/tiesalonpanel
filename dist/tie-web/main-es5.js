@@ -348,6 +348,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/invoice/invoice.component.html":
+  /*!**************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/invoice/invoice.component.html ***!
+    \**************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppInvoiceInvoiceComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<style media=\"print\">\n    @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');\n    @page { size: auto;  margin: 25mm 25mm 25mm 25mm; }\n    body {\n        margin: 0px !important;\n        color: #000;\n        font-size: 14px !important;\n        background: #efefef !important;\n    }\n\n    table tr th {\n        text-align: left;\n    }\n\n    .text-center button {\n        background: #000;\n        border: none;\n        padding: 6px 20px;\n        margin: 10px 5px;\n        color: #fff;\n        border-radius: 5px;\n        font-size: 13px;\n    }\n</style>\n<div class=\"text-center\">\n    <button (click)=\"htmlToPDF()\">Download PDF</button>\n    <button (click)=\"onPrintInvoice()\">Print PDF</button>\n</div>\n\n<table cellpadding=\"0\" cellspacing=\"0\" border=\"0\"\n    style=\"margin:0 auto; min-width:320px; max-width:700px; border:2px solid #f2f2f2;background:#fff;padding:25px;font-size: 14px;\"\n    width=\"100%\" #content>\n    <tr>\n        <td style=\"font-size: 26px;font-weight: 600;padding: 20px 15px 0px;\">\n            <p style=\"margin-bottom: 0px;\">Tie Salon : Summary and Invoice <span class=\"right\" style=\"float: right;position: relative;top: -10px;\"><img\n                        src=\"../../assets/tie_invoice/tie_logo.png\" alt=\"Logo\"></span> </p>\n        </td>\n    </tr>\n    <tr>\n        <td style=\"background: #fff;font-size: 14px;padding: 5px 15px 5px;\">\n            <table style=\"width: 100%;\">\n                <tr>\n                    <td style=\"width: 185px;line-height: 26px;\">Booking Id:</td>\n                    <td style=\"color: #909090;line-height: 26px;\">{{detail?.booking_id || 'NA'}}</td>\n                </tr>\n                <tr>\n                    <td style=\"width: 185px;line-height: 26px;\">Service Date:</td>\n                    <td style=\"color: #909090;line-height: 26px;\">\n                        {{detail?.bookDateTime | date : 'dd, MMM yyyy h:mm a'}}</td>\n                </tr>\n                <tr>\n                    <td style=\"width: 185px;line-height: 26px;\">Customer Name:</td>\n                    <td style=\"color: #909090;line-height: 26px;\">{{detail?.fullname || 'NA' | titlecase}}</td>\n                </tr>\n                <tr>\n                    <td style=\"width: 185px;line-height: 26px;\">Customer Contact:</td>\n                    <td style=\"color: #909090;line-height: 26px;\">{{detail?.pno || 'NA' }}</td>\n                </tr>\n                <tr>\n                    <td style=\"width: 185px;line-height: 26px;\">Service location:</td>\n                    <td style=\"color: #909090;line-height: 26px;\">{{detail?.service_at || 'NA' }}</td>\n                </tr>\n                <tr>\n                    <td style=\"width: 185px;line-height: 26px;\">Salon Name:</td>\n                    <td style=\"color: #909090;line-height: 26px;\">{{detail?.slnme || 'NA' | titlecase}}</td>\n                </tr>\n                <tr>\n                    <td style=\"width: 185px;line-height: 26px;\">Staff Name:</td>\n                    <td style=\"color: #909090;line-height: 26px;\">{{detail?.staf || 'NA' | titlecase}}</td>\n                </tr>\n            </table>\n\n        </td>\n    </tr>\n    <tr>\n        <td style=\"padding: 10px 15px 0px;\">\n            <table\n                style=\"width: 100%;font-size: 14px;margin-top: 15px;border-bottom: 1px solid #e8e8e8;border-collapse: collapse;\">\n                <tr>\n                    <th style=\"padding: 8px 5px;background: #ccc;color: #fff;\">Service Detail</th>\n                    <th style=\"padding: 8px 5px;background: #ccc;color: #fff;\">Total</th>\n                </tr>\n                <tr *ngFor=\"let element of detail?.service; let i =index\">\n                    <td style=\"padding: 8px 5px\">{{element.title}}</td>\n                    <td style=\"padding: 8px 5px\">{{element.cost}}</td>\n                </tr>\n            </table>\n        </td>\n    </tr>\n    <tr>\n        <td style=\"padding: 10px 15px 0px;\">\n            <table\n                style=\"padding-top: 10px;font-size: 14px; width: 100%;text-align: right;border-collapse: collapse;margin-bottom:5px;\">\n                <tr>\n                    <td style=\"width: 370px;line-height: 26px;\">Total:</td>\n                    <td style=\"width: 110px;line-height: 26px;\">{{ttlamt}}</td>\n                </tr>\n                <tr>\n                    <td style=\"width: 370px;line-height: 26px;\">VAT:</td>\n                    <td style=\"width: 110px;line-height: 26px;\">5% Vat Inclusive</td>\n                </tr>\n                <tr>\n                    <td style=\"width: 370px;line-height: 26px;background: #ccc;color:#fff;\">Total:</td>\n                    <td style=\"width: 110px;line-height: 26px;background: #ccc;color:#fff;\">{{ttlmt}}</td>\n                </tr>\n            </table>\n\n        </td>\n    </tr>\n    <tr>\n        <td style=\"padding: 10px 15px;\">\n            <p style=\"line-height: 25px;\"><strong>Terms & Conditions:</strong><br>\n                The total amount reflected on this invoice shall be paid within six days from the date of purchase</p>\n        </td>\n    </tr>\n\n</table>";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/page-not-found/page-not-found.component.html":
   /*!****************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/page-not-found/page-not-found.component.html ***!
@@ -980,6 +1000,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ./page-not-found/page-not-found.component */
     "./src/app/page-not-found/page-not-found.component.ts");
+    /* harmony import */
+
+
+    var _invoice_invoice_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./invoice/invoice.component */
+    "./src/app/invoice/invoice.component.ts");
 
     var routes = [// { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     {
@@ -987,7 +1013,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(1), __webpack_require__.e(8)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(0), __webpack_require__.e(7)]).then(__webpack_require__.bind(null,
         /*! ./home/home.module */
         "./src/app/home/home.module.ts")).then(function (m) {
           return m.HomeModule;
@@ -999,7 +1025,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return __webpack_require__.e(
         /*! import() */
-        54).then(__webpack_require__.bind(null,
+        53).then(__webpack_require__.bind(null,
         /*! ./auth/auth.module */
         "./src/app/auth/auth.module.ts")).then(function (m) {
           return m.AuthModule;
@@ -1011,12 +1037,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(53)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e(0), __webpack_require__.e("common"), __webpack_require__.e(52)]).then(__webpack_require__.bind(null,
         /*! ./reset-freelancer/reset-freelancer.module */
         "./src/app/reset-freelancer/reset-freelancer.module.ts")).then(function (m) {
           return m.ResetFreelancerModule;
         });
       }
+    }, {
+      path: 'invoice/:id',
+      component: _invoice_invoice_component__WEBPACK_IMPORTED_MODULE_6__["InvoiceComponent"],
+      canActivate: [_shared_guard_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AuthGuard"]]
     }, {
       path: '**',
       component: _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_5__["PageNotFoundComponent"]
@@ -1253,7 +1283,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
     /*! ./page-not-found/page-not-found.component */
-    "./src/app/page-not-found/page-not-found.component.ts"); // import { ToastrModule } from 'ngx-toastr';
+    "./src/app/page-not-found/page-not-found.component.ts");
+    /* harmony import */
+
+
+    var _invoice_invoice_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(
+    /*! ./invoice/invoice.component */
+    "./src/app/invoice/invoice.component.ts"); // import { ToastrModule } from 'ngx-toastr';
     // import { ToastrModule } from 'ngx-toastr';
 
 
@@ -1272,7 +1308,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_19__["PageNotFoundComponent"]],
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"], _page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_19__["PageNotFoundComponent"], _invoice_invoice_component__WEBPACK_IMPORTED_MODULE_20__["InvoiceComponent"]],
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_7__["HttpClientModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_5__["BrowserAnimationsModule"], ng2_slim_loading_bar__WEBPACK_IMPORTED_MODULE_11__["SlimLoadingBarModule"].forRoot(), // ToastrModule.forRoot({
       //   timeOut: 10000,
       //   positionClass: 'toast-bottom-right',
@@ -1307,6 +1343,248 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
     })], AppModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/invoice/invoice.component.scss":
+  /*!************************************************!*\
+    !*** ./src/app/invoice/invoice.component.scss ***!
+    \************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppInvoiceInvoiceComponentScss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "@media print {\n  button {\n    display: none;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaW52b2ljZS9pbnZvaWNlLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9pbnZvaWNlL2ludm9pY2UuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSTtJQUNJLGFBQUE7RUNDTjtBQUNGIiwiZmlsZSI6InNyYy9hcHAvaW52b2ljZS9pbnZvaWNlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQG1lZGlhIHByaW50IHtcbiAgICBidXR0b24ge1xuICAgICAgICBkaXNwbGF5IDogIG5vbmU7XG4gICAgfVxufVxuIiwiQG1lZGlhIHByaW50IHtcbiAgYnV0dG9uIHtcbiAgICBkaXNwbGF5OiBub25lO1xuICB9XG59Il19 */";
+    /***/
+  },
+
+  /***/
+  "./src/app/invoice/invoice.component.ts":
+  /*!**********************************************!*\
+    !*** ./src/app/invoice/invoice.component.ts ***!
+    \**********************************************/
+
+  /*! exports provided: InvoiceComponent */
+
+  /***/
+  function srcAppInvoiceInvoiceComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "InvoiceComponent", function () {
+      return InvoiceComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../shared/service/http-request.service */
+    "./src/app/shared/service/http-request.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
+    /* harmony import */
+
+
+    var _shared_service_error_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../shared/service/error.service */
+    "./src/app/shared/service/error.service.ts");
+    /* harmony import */
+
+
+    var jspdf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! jspdf */
+    "./node_modules/jspdf/dist/jspdf.min.js");
+    /* harmony import */
+
+
+    var jspdf__WEBPACK_IMPORTED_MODULE_5___default =
+    /*#__PURE__*/
+    __webpack_require__.n(jspdf__WEBPACK_IMPORTED_MODULE_5__);
+    /* harmony import */
+
+
+    var html2canvas__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! html2canvas */
+    "./node_modules/html2canvas/dist/html2canvas.js");
+    /* harmony import */
+
+
+    var html2canvas__WEBPACK_IMPORTED_MODULE_6___default =
+    /*#__PURE__*/
+    __webpack_require__.n(html2canvas__WEBPACK_IMPORTED_MODULE_6__);
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/fesm2015/common.js");
+    /* harmony import */
+
+
+    var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @angular/platform-browser */
+    "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
+
+    window.html2canvas = html2canvas__WEBPACK_IMPORTED_MODULE_6___default.a;
+
+    var InvoiceComponent =
+    /*#__PURE__*/
+    function () {
+      function InvoiceComponent(httpService, titleService, routes, errsrv) {
+        _classCallCheck(this, InvoiceComponent);
+
+        this.httpService = httpService;
+        this.titleService = titleService;
+        this.routes = routes;
+        this.errsrv = errsrv;
+      }
+
+      _createClass(InvoiceComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.id = this.routes.snapshot.params.id;
+          this.getUserProfile();
+        }
+      }, {
+        key: "getUserProfile",
+        value: function getUserProfile() {
+          var _this = this;
+
+          this.httpService.getRequest('GET_PARMS', 'BOOKING_VIEW', this.id, '').subscribe(function (response) {
+            if (response.status === 1) {
+              _this.detail = response.res;
+              _this.detail['slnme'] = JSON.parse(localStorage.getItem('salon')).name;
+              _this.ttlamt = _this.detail.service.reduce(function (acc, val) {
+                return acc.cost + val.cost;
+              });
+              _this.ttlamt = _this.detail.service.length == 1 ? _this.ttlamt.cost : _this.ttlamt;
+            } else {
+              if (response.err) {
+                _this.errsrv.handleError(response.err.errCode);
+              }
+            }
+          }, function (error) {
+            _this.errsrv.handleError(0); // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
+
+          });
+        }
+      }, {
+        key: "loadImage",
+        value: function loadImage(url) {
+          return new Promise(function (resolve) {
+            var img = new Image();
+
+            img.onload = function () {
+              return resolve(img);
+            };
+
+            img.src = url;
+          });
+        }
+      }, {
+        key: "htmlToPDF",
+        value: function htmlToPDF() {
+          // let doc = new jspdf();
+          // console.log('------------');
+          // doc.addHTML(this.content.nativeElement, function() {
+          //   console.log('------------ppppppp');
+          //    doc.save("obrz.pdf");
+          // });
+          var element = this.content.nativeElement;
+          var HTML_Width = element.scrollWidth;
+          var HTML_Height = element.scrollHeight + 100;
+          var top_left_margin = 15;
+          var PDF_Width = HTML_Width + top_left_margin * 2;
+          var PDF_Height = PDF_Width * 1.5 + top_left_margin * 2;
+          var canvas_image_width = HTML_Width;
+          var canvas_image_height = HTML_Height;
+          var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+          return html2canvas__WEBPACK_IMPORTED_MODULE_6___default()(element, {
+            scale: 2
+          }).then(function (canvas) {
+            canvas.getContext('2d');
+            var imgData = canvas.toDataURL("image/jpeg", 1.0);
+            var pdf = new jspdf__WEBPACK_IMPORTED_MODULE_5__('p', 'pt', [PDF_Width, PDF_Height]); //  pdf.addImage(logo, 'JPEG',  400, 3, 400, 60);
+
+            pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin + 40, canvas_image_width, canvas_image_height);
+
+            for (var i = 1; i <= totalPDFPages; i++) {
+              pdf.addPage(PDF_Width, PDF_Height);
+              pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + top_left_margin * 4, canvas_image_width, canvas_image_height);
+            }
+
+            var datePipe = new _angular_common__WEBPACK_IMPORTED_MODULE_7__["DatePipe"]("en-US");
+            pdf.save(name + ' ' + datePipe.transform(new Date(), 'MMM-dd-yyyy') + '.pdf'); // Generated PDF
+            // this.toastr.info("Please be patient we're processing the pdf", "PDF Processing!");
+
+            return true;
+          });
+        }
+      }, {
+        key: "onPrintInvoice",
+        value: function onPrintInvoice() {
+          var date = new Date();
+          var newTitle = 'Invoice' + date.getDate() + '_' + date.getMonth() + '_' + date.getFullYear();
+          this.titleService.setTitle(newTitle);
+          window.print();
+          this.titleService.setTitle("TieWeb");
+        }
+      }]);
+
+      return InvoiceComponent;
+    }();
+
+    InvoiceComponent.ctorParameters = function () {
+      return [{
+        type: _shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_2__["HttpRequestService"]
+      }, {
+        type: _angular_platform_browser__WEBPACK_IMPORTED_MODULE_8__["Title"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"]
+      }, {
+        type: _shared_service_error_service__WEBPACK_IMPORTED_MODULE_4__["ErrorService"]
+      }];
+    };
+
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('content', {
+      static: true
+    })], InvoiceComponent.prototype, "content", void 0);
+    InvoiceComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-invoice',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./invoice.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/invoice/invoice.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./invoice.component.scss */
+      "./src/app/invoice/invoice.component.scss")).default]
+    })], InvoiceComponent);
     /***/
   },
 
@@ -1923,7 +2201,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(LoaderInterceptor, [{
         key: "intercept",
         value: function intercept(req, next) {
-          var _this = this;
+          var _this2 = this;
 
           // start our loader here
           this._loadingBar.start();
@@ -1932,11 +2210,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             // if the event is for http response
             if (event instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpResponse"]) {
               // stop our loader here
-              _this._loadingBar.complete();
+              _this2._loadingBar.complete();
             }
           }, function (err) {
             // if any error (not for just HttpResponse) we stop our loader bar
-            _this._loadingBar.complete();
+            _this2._loadingBar.complete();
           });
         }
       }]);
@@ -2094,6 +2372,158 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       declarations: [_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_2__["TranslatePipe"]],
       exports: [_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_2__["TranslatePipe"]]
     })], ApplicationpipeModule);
+    /***/
+  },
+
+  /***/
+  "./src/app/shared/service/error.service.ts":
+  /*!*************************************************!*\
+    !*** ./src/app/shared/service/error.service.ts ***!
+    \*************************************************/
+
+  /*! exports provided: ErrorService */
+
+  /***/
+  function srcAppSharedServiceErrorServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ErrorService", function () {
+      return ErrorService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./translate.service */
+    "./src/app/shared/service/translate.service.ts");
+    /* harmony import */
+
+
+    var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./http-request.service */
+    "./src/app/shared/service/http-request.service.ts"); // import { TranslatePipe } from '../_pipes/translate.pipe';
+
+
+    var ErrorService =
+    /*#__PURE__*/
+    function () {
+      function ErrorService(helper, trns) {
+        _classCallCheck(this, ErrorService);
+
+        this.helper = helper;
+        this.trns = trns;
+      }
+
+      _createClass(ErrorService, [{
+        key: "handleError",
+        value: function handleError() {
+          var errCode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+          switch (errCode) {
+            case 0:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 1:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
+              break;
+
+            case 4:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+              break;
+
+            case 5:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
+              break;
+
+            case 6:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
+              break;
+
+            case 7:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
+              break;
+
+            case 8:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
+              break;
+
+            case 9:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
+              break;
+
+            case 31:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
+              break;
+
+            case 34:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['PROMOALRDYEXIST']);
+              break;
+
+            case 32:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['STAFFALRDYEXIST']);
+              break;
+
+            case 15:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONALRDYEXIST']);
+              break;
+
+            case 39:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
+              break;
+
+            case 41:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DEACTIVE']);
+              break;
+
+            case 42:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DELSALONACC']);
+              break;
+
+            case 51:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['NOBOOK']);
+              break;
+
+            case 56:
+              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SLNEXIST']);
+              break;
+
+            default:
+              break;
+          }
+        }
+      }]);
+
+      return ErrorService;
+    }();
+
+    ErrorService.ctorParameters = function () {
+      return [{
+        type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
+      }, {
+        type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
+      }];
+    };
+
+    ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], ErrorService);
     /***/
   },
 
@@ -2497,7 +2927,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "exportCSV",
         value: function exportCSV(api) {
-          var _this2 = this;
+          var _this3 = this;
 
           var finalData = [];
           var obj;
@@ -2514,7 +2944,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             //   var options = { noDownload: false, headers: ["Serial", "Name", "Email"] };
             //   new Angular5Csv(finalData, 'staff_list', options);
 
-            _this2.sucsTostr(_this2.trns.data['SUCCESS'], _this2.trns.data['EXPORTD']);
+            _this3.sucsTostr(_this3.trns.data['SUCCESS'], _this3.trns.data['EXPORTD']);
           });
         }
       }]);
@@ -2589,19 +3019,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(TranslateService, [{
         key: "use",
         value: function use(lang) {
-          var _this3 = this;
+          var _this4 = this;
 
           // console.log(localStorage.getItem('lang'), lang,'-----------');
           return new Promise(function (resolve, reject) {
             // lang = localStorage.getItem('lang');
             var langPath = "assets/i18n/".concat(lang || 'en', ".json");
 
-            _this3.http.get(langPath).subscribe(function (translation) {
-              _this3.data = Object.assign({}, translation || {});
-              resolve(_this3.data);
+            _this4.http.get(langPath).subscribe(function (translation) {
+              _this4.data = Object.assign({}, translation || {});
+              resolve(_this4.data);
             }, function (error) {
-              _this3.data = {};
-              resolve(_this3.data);
+              _this4.data = {};
+              resolve(_this4.data);
             });
           });
         }
