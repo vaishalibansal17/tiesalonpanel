@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
   }
   
   /* Track */
@@ -18,15 +18,15 @@
     background: #ff9bce; 
   }
 
+
 .main-card {
     padding: 0 !important;
     .row{
         margin: 0;
     }
     .left_listing{
-        border-right: 1px solid rgba(191, 191, 191, .3);
         padding: 20px 0px 0px;
-        min-height: 600px;
+        min-height: 100px;
         max-height: 600px;
         overflow-y: auto;
     .chat_mgmt{

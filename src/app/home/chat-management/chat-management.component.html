@@ -1,94 +1,13 @@
 <!-- <app-breadcrumb></app-breadcrumb> -->
 <div class="main-card">
-    <div class="row">
+    <!-- <div class="row"> -->
 
-        <div class="col-md-3 left_listing">
-            <div class="col-md-12 space_bot">
-                <form action="" class="search_field">
-                  <mat-form-field>
-                    <span class="email-img search"><img src="assets/images/search.png" alt="envelope"></span>
-                    <input matInput placeholder="Search" class="form-control">
-                  </mat-form-field>
-                </form>
-              </div>
-              <div class="chat_mgmt">
-                <div class="notifi_list">
-                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-                    <div class="noti_right">
-                        <div class="sub_rightsection">
-                            <div class="author-review">Jane Doe <span class="alignright">Feb 18, 2020</span></div>
-                            <div class="message">Hello</div> <div class="count">1</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="notifi_list unread_active">
-                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-                    <div class="noti_right">
-                        <div class="sub_rightsection">
-                            <div class="author-review">Christine<span class="alignright">Feb 18, 2020</span></div>
-                            <div class="message">Hello</div> <div class="count">1</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="notifi_list">
-                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-                    <div class="noti_right">
-                        <div class="sub_rightsection">
-                            <div class="author-review">Jane Doe <span class="alignright">Feb 10, 2020</span></div>
-                            <div class="message">Hello</div> <div class="count">1</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="notifi_list">
-                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-                    <div class="noti_right">
-                        <div class="sub_rightsection">
-                            <div class="author-review">Jane Doe <span class="alignright">Jan 18, 2020</span></div>
-                            <div class="message">Hello</div> 
-                        </div>
-                    </div>
-                </div>
-                <div class="notifi_list">
-                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-                    <div class="noti_right">
-                        <div class="sub_rightsection">
-                            <div class="author-review">Jane Doe <span class="alignright">Jan 12, 2020</span></div>
-                            <div class="message">Hello</div> 
-                        </div>
-                    </div>
-                </div>
-                <div class="notifi_list">
-                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-                    <div class="noti_right">
-                        <div class="sub_rightsection">
-                            <div class="author-review">Christine<span class="alignright">Jan 10, 2020</span></div>
-                            <div class="message">Hello</div> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9 right_chat_detail">
-            <div class="top_chat">
-                <div class="left_name"><img src="assets/images/noti-pro.png" alt="Notification Profile">John Doe <span class="status">8 mins ago</span></div>
-                <div class="right_more">
-                <button mat-button [matMenuTriggerFor]="more_menu" [disableRipple]="true"><img src="assets/images/more.png" alt="More"></button>
-                  <mat-menu #more_menu="matMenu" xPosition="before">
-                    <button mat-menu-item><img src="assets/images/delete_grey.png" alt="Delete"> Delete</button>
-                  </mat-menu>
-                </div>
-            </div>
-            <div class="content">
-                <div class="message_chat received">Hello <span class="right_time">10:21 AM</span></div>
-                <div class="message_chat sent">Hi, how can I help you? <span class="right_time">10:21 AM</span></div>
-            </div>
-            <div class="type_msg">
-               <input type="text" placeholder="Type message"> 
-               <span class="right"><img src="assets/images/send.png" alt="Send"></span>
-            </div>
-        </div>
+        <!-- <div class="col-md-3 left_listing"> -->
+            <router-outlet></router-outlet>
+        <!-- </div> -->
 
-      </div>
+
+      <!-- </div> -->
 
 
 
