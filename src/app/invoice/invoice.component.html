@@ -1,104 +1,117 @@
-<style>
+<style media="print">
+    @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
+    @page { size: auto;  margin: 25mm 25mm 25mm 25mm; }
     body {
-        margin: 0px;
+        margin: 0px !important;
         color: #000;
-        font-size: 16px;
-        font-family: arial;
-    }
-
-    p {
-        margin: 0;
+        font-size: 14px !important;
+        background: #efefef !important;
     }
 
     table tr th {
         text-align: left;
     }
+
+    .text-center button {
+        background: #000;
+        border: none;
+        padding: 6px 20px;
+        margin: 10px 5px;
+        color: #fff;
+        border-radius: 5px;
+        font-size: 13px;
+    }
 </style>
-    
-    <button (click)="htmlToPDF()">make pdf</button>
-    <table cellpadding="0" cellspacing="0" border="0"
-        style="margin:0 auto; min-width:320px; max-width:700px; border:2px solid #f2f2f2;background:#F96BB3;padding:25px"
-        width="100%" #content>
-        <tr>
-            <td style="background: #fff;font-size: 26px;padding: 15px 10px 0px;font-weight: 600;">
-                <p>Tie Salon : Summary and Invoice <span class="right" style="float: right;"><img src="../../assets/tie_invoice/tie_logo.png"
-                            alt="Logo"></span> </p>
-    
-            </td>
-        </tr>
-        <tr>
-            <td style="background: #fff;font-size: 26px;padding: 15px 10px 5px;font-weight: 600;">
-                <table style="width: 100%;">
-                    <tr>
-                        <td style="width: 110px;font-weight: 600;line-height: 24px;">Booking Id:</td>
-                        <td style="line-height: 24px;">{{detail?.booking_id || 'NA'}}</td>
-                    </tr>
-                    <tr>
-                        <td style="width: 110px;font-weight: 600;line-height: 24px;">Service Date:</td>
-                        <td style="line-height: 24px;">{{detail?.bookDateTime | date : 'dd, MMM yyyy h:mm a'}}</td>
-                    </tr>
-                    <tr>
-                        <td style="width: 110px;font-weight: 600;line-height: 24px;">Customer Name.:</td>
-                        <td style="line-height: 24px;">{{detail?.fullname || 'NA' | titlecase}}</td>
-                    </tr>
-                    <tr>
-                        <td style="width: 110px;font-weight: 600;line-height: 24px;">Customer Contact.:</td>
-                        <td style="line-height: 24px;">{{detail?.pno || 'NA' }}</td>
-                    </tr>
-                    <tr>
-                        <td style="width: 110px;font-weight: 600;line-height: 24px;">Service location:</td>
-                        <td style="line-height: 24px;">{{detail?.service_at || 'NA' }}</td>
-                    </tr>
-                    <tr>
-                        <td style="width: 110px;font-weight: 600;line-height: 24px;">Salon Name:</td>
-                        <td style="line-height: 24px;">{{detail?.slnme || 'NA' | titlecase}}</td>
-                    </tr>
-                    <tr>
-                        <td style="width: 110px;font-weight: 600;line-height: 24px;">Staff Name:</td>
-                        <td style="line-height: 24px;">{{detail?.staf || 'NA' | titlecase}}</td>
-                    </tr>
-                </table>
-    
-            </td>
-        </tr>
-        <tr>
-            <td style="background: #fff;padding: 15px 10px 5px;">
-                <table style="width: 100%;">
-                    <tr>
-                        <th style="padding: 15px">Service Detail</th>
-                        <th style="padding: 5px">Total</th>
-                    </tr>
-                    <tr *ngFor="let element of detail?.service; let i =index">
-                        <td style="padding: 15px">{{element.title}}</td>
-                        <td style="padding: 5px">{{element.cost}}</td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        <tr>
-            <td style="background: #fff;font-size: 26px;padding: 15px 10px 5px;font-weight: 600;">
-                <table align="right" style="border-top: 1px solid #e8e8e8;padding-top: 10px;">
-                    <tr>
-                        <td style="width: 150px;font-weight: 600;line-height: 24px;">Total:</td>
-                        <td style="width: 110px;line-height: 24px;">{{ttlamt}}</td>
-                    </tr>
-                    <tr>
-                        <td style="width: 150px;font-weight: 600;line-height: 24px;">VAT:</td>
-                        <td style="width: 110px;line-height: 24px;"><i>5% Vat Inclusive</i></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 150px;font-weight: 600;line-height: 24px;">PRICE TO PAY:</td>
-                        <td style="width: 110px;line-height: 24px;">{{ttlmt}}</td>
-                    </tr>
-                </table>
-    
-            </td>
-        </tr>
-        <tr>
-            <td style="background: #fff;padding: 15px 10px;">
-                <p style="line-height: 25px;"><strong>Terms & Conditions:</strong><br>
-                    The total amount reflected on this invoice shall be paid within six days from the date of purchase</p>
-            </td>
-        </tr>
-    
-    </table>
+<div class="text-center">
+    <button (click)="htmlToPDF()">Download PDF</button>
+    <button (click)="onPrintInvoice()">Print PDF</button>
+</div>
+
+<table cellpadding="0" cellspacing="0" border="0"
+    style="margin:0 auto; min-width:320px; max-width:700px; border:2px solid #f2f2f2;background:#fff;padding:25px;font-size: 14px;"
+    width="100%" #content>
+    <tr>
+        <td style="font-size: 26px;font-weight: 600;padding: 20px 15px 0px;">
+            <p style="margin-bottom: 0px;">Tie Salon : Summary and Invoice <span class="right" style="float: right;position: relative;top: -10px;"><img
+                        src="../../assets/tie_invoice/tie_logo.png" alt="Logo"></span> </p>
+        </td>
+    </tr>
+    <tr>
+        <td style="background: #fff;font-size: 14px;padding: 5px 15px 5px;">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 185px;line-height: 26px;">Booking Id:</td>
+                    <td style="color: #909090;line-height: 26px;">{{detail?.booking_id || 'NA'}}</td>
+                </tr>
+                <tr>
+                    <td style="width: 185px;line-height: 26px;">Service Date:</td>
+                    <td style="color: #909090;line-height: 26px;">
+                        {{detail?.bookDateTime | date : 'dd, MMM yyyy h:mm a'}}</td>
+                </tr>
+                <tr>
+                    <td style="width: 185px;line-height: 26px;">Customer Name:</td>
+                    <td style="color: #909090;line-height: 26px;">{{detail?.fullname || 'NA' | titlecase}}</td>
+                </tr>
+                <tr>
+                    <td style="width: 185px;line-height: 26px;">Customer Contact:</td>
+                    <td style="color: #909090;line-height: 26px;">{{detail?.pno || 'NA' }}</td>
+                </tr>
+                <tr>
+                    <td style="width: 185px;line-height: 26px;">Service location:</td>
+                    <td style="color: #909090;line-height: 26px;">{{detail?.service_at || 'NA' }}</td>
+                </tr>
+                <tr>
+                    <td style="width: 185px;line-height: 26px;">Salon Name:</td>
+                    <td style="color: #909090;line-height: 26px;">{{detail?.slnme || 'NA' | titlecase}}</td>
+                </tr>
+                <tr>
+                    <td style="width: 185px;line-height: 26px;">Staff Name:</td>
+                    <td style="color: #909090;line-height: 26px;">{{detail?.staf || 'NA' | titlecase}}</td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 10px 15px 0px;">
+            <table
+                style="width: 100%;font-size: 14px;margin-top: 15px;border-bottom: 1px solid #e8e8e8;border-collapse: collapse;">
+                <tr>
+                    <th style="padding: 8px 5px;background: #ccc;color: #fff;">Service Detail</th>
+                    <th style="padding: 8px 5px;background: #ccc;color: #fff;">Total</th>
+                </tr>
+                <tr *ngFor="let element of detail?.service; let i =index">
+                    <td style="padding: 8px 5px">{{element.title}}</td>
+                    <td style="padding: 8px 5px">{{element.cost}}</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 10px 15px 0px;">
+            <table
+                style="padding-top: 10px;font-size: 14px; width: 100%;text-align: right;border-collapse: collapse;margin-bottom:5px;">
+                <tr>
+                    <td style="width: 300px;line-height: 26px;">Total:</td>
+                    <td style="width: 110px;line-height: 26px;">{{ttlamt}}</td>
+                </tr>
+                <tr>
+                    <td style="width: 300px;line-height: 26px;">VAT:</td>
+                    <td style="width: 110px;line-height: 26px;">5% Vat Inclusive</td>
+                </tr>
+                <tr>
+                    <td style="width: 300px;line-height: 26px;background: #ccc;color:#fff;">Total:</td>
+                    <td style="width: 110px;line-height: 26px;background: #ccc;color:#fff;">{{ttlmt}}</td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 10px 15px;">
+            <p style="line-height: 25px;"><strong>Terms & Conditions:</strong><br>
+                The total amount reflected on this invoice shall be paid within six days from the date of purchase</p>
+        </td>
+    </tr>
+
+</table>

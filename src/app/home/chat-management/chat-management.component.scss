@@ -1,36 +1,79 @@
 .main-card {
-    padding: 30px 30px 30px 15px !important;
+    padding: 0 !important;
+    .row{
+        margin: 0;
+    }
+    .left_listing{
+        border-right: 1px solid rgba(191, 191, 191, .3);
+        padding: 20px 0px 0px;
     .chat_mgmt{
         .notifi_list{
             margin-bottom: 5px;
+            padding: 0px 25px 0px 10px;
             .noti_left{
+                width: 54px;
+                img{
+                    width: 50px !important;
+                    height: 50px !important;
+                }
 
             }
             .noti_right{
                 padding-top: 0px;
                 color: #999999;
                 font-size: 13px;
+                width: calc(100% - 65px);
+                .message{
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    float: left;
+                    width: calc(100% - 25px);
+                }
+                .count{
+                    width: 19px;
+                    background: #f96bb3;
+                    color: #fff;
+                    height: 19px;
+                    border-radius: 50%;
+                    padding: 0px 7px;
+                    text-align: center;
+                    float: right;
+                    font-size: 12px;
+                    line-height: 19px;
+                    margin-top: 2px;
+                }
                 .author-review{
-                    font-size: 15px;
+                    font-size: 14px;
                     color: #000;
                     .alignright{
                         text-align: right;
                         float: right;
                         color: #999;
-                        font-size: 13px;
+                        font-size: 11px;
                     }
                 }
                 .right_btn{}
             }
         }
+        }
     }
-    ul.pagination{
-        margin-top: 15px;
-    }
+
+
 }
+.main-card .left_listing .chat_mgmt .notifi_list:last-child .noti_right{border-bottom: none;}
+.main-card .left_listing .chat_mgmt .notifi_list.unread_active{background: #F96BB3;padding-top: 12px;margin-top: -12px;}
+.main-card .left_listing .chat_mgmt .notifi_list.unread_active .noti_right{border-bottom: none;}
+.main-card .left_listing .chat_mgmt .notifi_list.unread_active .noti_right .author-review{color: #fff;}
+.main-card .left_listing .chat_mgmt .notifi_list.unread_active .noti_right .count{background: #000;}
+.main-card .left_listing .chat_mgmt .notifi_list.unread_active .noti_right .author-review .alignright{color: #fff;}
+.main-card .left_listing .chat_mgmt .notifi_list.unread_active .noti_right .message{color: #fff;}
+.mat-form-field{display: block}
+
+
 
 form{display: initial;}
-.space_bot{margin-bottom: 20px;}
+.space_bot{margin-bottom: 25px;padding: 0px 15px;}
 
 @media(max-width:380px){
     form{margin-left: 0px;}

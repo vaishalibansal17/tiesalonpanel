@@ -1,79 +1,93 @@
 <!-- <app-breadcrumb></app-breadcrumb> -->
 <div class="main-card">
     <div class="row">
-        <div class="col-md-12 space_bot">
-          <form action="" class="search_field">
-            <mat-form-field>
-              <span class="email-img search"><img src="assets/images/search.png" alt="envelope"></span>
-              <input matInput placeholder="Search" class="form-control">
-            </mat-form-field>
-          </form>
+
+        <div class="col-md-3 left_listing">
+            <div class="col-md-12 space_bot">
+                <form action="" class="search_field">
+                  <mat-form-field>
+                    <span class="email-img search"><img src="assets/images/search.png" alt="envelope"></span>
+                    <input matInput placeholder="Search" class="form-control">
+                  </mat-form-field>
+                </form>
+              </div>
+              <div class="chat_mgmt">
+                <div class="notifi_list">
+                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
+                    <div class="noti_right">
+                        <div class="sub_rightsection">
+                            <div class="author-review">Jane Doe <span class="alignright">Feb 18, 2020</span></div>
+                            <div class="message">Hello</div> <div class="count">1</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="notifi_list unread_active">
+                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
+                    <div class="noti_right">
+                        <div class="sub_rightsection">
+                            <div class="author-review">Christine<span class="alignright">Feb 18, 2020</span></div>
+                            <div class="message">Hello</div> <div class="count">1</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="notifi_list">
+                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
+                    <div class="noti_right">
+                        <div class="sub_rightsection">
+                            <div class="author-review">Jane Doe <span class="alignright">Feb 10, 2020</span></div>
+                            <div class="message">Hello</div> <div class="count">1</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="notifi_list">
+                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
+                    <div class="noti_right">
+                        <div class="sub_rightsection">
+                            <div class="author-review">Jane Doe <span class="alignright">Jan 18, 2020</span></div>
+                            <div class="message">Hello</div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="notifi_list">
+                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
+                    <div class="noti_right">
+                        <div class="sub_rightsection">
+                            <div class="author-review">Jane Doe <span class="alignright">Jan 12, 2020</span></div>
+                            <div class="message">Hello</div> 
+                        </div>
+                    </div>
+                </div>
+                <div class="notifi_list">
+                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
+                    <div class="noti_right">
+                        <div class="sub_rightsection">
+                            <div class="author-review">Christine<span class="alignright">Jan 10, 2020</span></div>
+                            <div class="message">Hello</div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="col-md-9 right_chat_detail">
+            <div class="top_chat">
+                <div class="left_name"><img src="assets/images/noti-pro.png" alt="Notification Profile">John Doe <span class="status">8 mins ago</span></div>
+                <div class="right_more">
+                <button mat-button [matMenuTriggerFor]="more_menu" [disableRipple]="true"><img src="assets/images/more.png" alt="More"></button>
+                  <mat-menu #more_menu="matMenu" xPosition="before">
+                    <button mat-menu-item>Delete</button>
+                  </mat-menu>
+                </div>
+            </div>
+            <div class="content">
+                Content
+            </div>
+            <div class="type_msg">
+                typing
+            </div>
+        </div>
+
       </div>
 
-    <div class="chat_mgmt">
-    <div class="notifi_list">
-        <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-        <div class="noti_right">
-            <div class="sub_rightsection">
-                <div class="author-review">Jane Doe <span class="alignright">12:43 PM</span></div>
-                Hello...
-            </div>
-        </div>
-    </div>
-    <div class="notifi_list">
-        <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-        <div class="noti_right">
-            <div class="sub_rightsection">
-                <div class="author-review">Jane Doe <span class="alignright">12:43 PM</span></div>
-                Hello...
-            </div>
-        </div>
-    </div>
-    <div class="notifi_list">
-        <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-        <div class="noti_right">
-            <div class="sub_rightsection">
-                <div class="author-review">Jane Doe <span class="alignright">12:43 PM</span></div>
-                Hello...
-            </div>
-        </div>
-    </div>
-    <div class="notifi_list">
-        <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-        <div class="noti_right">
-            <div class="sub_rightsection">
-                <div class="author-review">Jane Doe <span class="alignright">12:43 PM</span></div>
-                Hello...
-            </div>
-        </div>
-    </div>
-    <div class="notifi_list">
-        <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-        <div class="noti_right">
-            <div class="sub_rightsection">
-                <div class="author-review">Jane Doe <span class="alignright">12:43 PM</span></div>
-                Hello...
-            </div>
-        </div>
-    </div>
-    <div class="notifi_list">
-        <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-        <div class="noti_right">
-            <div class="sub_rightsection">
-                <div class="author-review">Jane Doe <span class="alignright">12:43 PM</span></div>
-                Hello...
-            </div>
-        </div>
-    </div>
-</div>
-<ul class="pagination">
-    <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-    <li class="active"><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-  </ul>
+
+
 </div>

@@ -30,11 +30,22 @@ p{
   min-width: 85px;
   text-align: center;
   display: inline-block;
-  cursor: pointer;
+  &:hover{
+    background: #f96bb3;
+    color: #fff;
+    border: 1px solid #f96bb3;
+    cursor: pointer;
+  }
 }
 }
 .time_tabs p.nt_active {background: #e9ecef;color: #c7c7c7 !important;}
 
+.slct{
+    background: #f96bb3;
+    color: #fff;
+    border: 1px solid #f96bb3;
+    cursor: pointer;
+}
 
 @media(max-width:992px){
   :host ::ng-deep .ui-inputtext{padding-left: 45px !important;}

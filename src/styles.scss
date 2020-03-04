@@ -656,7 +656,7 @@ body.nav-close{
     .mat-form-field-appearance-legacy .mat-form-field-label {top: 30px;color: #999;left: 45px;width: calc(100% - 60px);font-size: 14px;}
     .mat-button-wrapper .mat-icon{color: #999;}
     input.form-control,textarea.form-control {height: 50px;border: 1px solid #dad9d9;padding-left: 45px;border-radius: 7px;margin-bottom: 20px;font-size:14px}
-    textarea.form-control{height: 120px;padding-top: 22px;}
+    textarea.form-control{height: 120px;padding-top: 17px;}
     input.form-control.password-img,textarea.form-control.password-img{padding-right: 50px;}
     .form-control:focus {border: 1px solid #dad9d9 !important;}
     span.email-img.pass {top: 14px;}
@@ -1326,7 +1326,31 @@ img.full_width{width:100%;margin-bottom: 20px;}
 .mat-expansion-panel-header-title {display: initial !important;}
 .mat-expansion-panel-header-title span.right{float: right;}
 
-
+/*---------------right-chat------------*/
+.col-md-9.right_chat_detail{
+    padding:0;background: url(assets/images/chat_bg.png) no-repeat center;
+    .top_chat{
+        background: #fff;
+        padding: 20px 15px;
+        display: inline-block;
+        width: 100%;  
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.06);
+        border-radius: 0px 12px 0px 0px;  
+        .left_name{
+            float: left;
+            min-width: 170px;
+            line-height: 22px;
+            img{float: left;margin-right: 10px;}
+            span.status{display: block;color: #999;}
+        }
+        .right_more{
+            float: right;
+        }
+    }
+    .content{
+        clear: both;
+    }
+}
 
 /*------------------MEDIA CSS------------*/
 
