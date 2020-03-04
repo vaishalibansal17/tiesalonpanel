@@ -37,7 +37,7 @@ export class SettingsComponent implements OnInit {
   ];
 
   openDialog() {
-    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: "Are you sure you want to delete your account?", btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
+    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: "Are you sure you want to deactivate your account?", btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
     dialogRef.beforeClosed().subscribe(
       (val) => {
         if (val) {
@@ -57,6 +57,10 @@ export class SettingsComponent implements OnInit {
           this.is_delete = false;
       }
     );
+  }
+
+  openBox(){
+    this.dialog.open(SettingsDialog, { width: '500px', disableClose: true });
   }
 
   openDialog2() {
@@ -131,6 +135,39 @@ export class SettingsComponent implements OnInit {
         this.errService.handleError(response.err.errCode)
       }
     });
+  }
+}
+
+
+@Component({
+  selector: 'settings-dialog',
+  templateUrl: 'settings-dialog.component.html',
+  styleUrls: ['./settings.component.scss']
+})
+export class SettingsDialog {
+  id: any;
+  func: any;
+  msg: any;
+  btn: any;
+  cncl: any;
+  email: string
+  place: any;
+  constructor(public dialogRef: MatDialogRef<SettingsDialog>, ) { }
+
+
+  ngOnInit(): void {
+
+  }
+
+  submit() {
+    console.log(this.email);
+
+  }
+
+  close(val) {
+    console.log(val);
+
+    this.dialogRef.close(val);
   }
 }
 

@@ -15,24 +15,13 @@
               <li>              
                 <button mat-button [matMenuTriggerFor]="dropdown_notification" [disableRipple]="true"><img src="assets/images/notification.png" alt="Notification"></button>
                 <mat-menu #dropdown_notification="matMenu" xPosition="before">
-                    <div class="notifi_list">
-                        <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
+                    <div class="notifi_list" *ngFor="let list of list;" (click)="slct()">
+                        <div class="noti_left"><img [src]="list?.img?((imgurl)+list.img):url" alt="Notification Profile"></div>
                         <div class="noti_right">
-                            Jane Doe wants to book you for haircut.
+                          {{list?.msg}}
                         </div>
                     </div>
-                    <div class="notifi_list">
-                      <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-                      <div class="noti_right">
-                          Jane Doe wants to book you for haircut.
-                      </div>
-                  </div>
-                  <div class="notifi_list">
-                    <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-                    <div class="noti_right">
-                        Jane Doe wants to book you for haircut.
-                    </div>
-                </div>
+                    
                   <div class="text-center"><a [routerLink]="['/notification']">{{'VIEWALL'| translate}}</a></div>
                 </mat-menu>
               </li>

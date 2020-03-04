@@ -12,11 +12,17 @@ export class NotificationComponent implements OnInit {
   list: any;
   imgurl: any;
   url = IMG.PRO
+  limit: number = 10;
   // NOTI_LIST
-  constructor(private httprequest: HttpRequestService, private router : Router) { }
+  constructor(private httprequest: HttpRequestService, private router: Router) { }
 
   ngOnInit() {
-    this.httprequest.getRequest('GET', 'NOTI_LIST', '')
+    this.listNoti(0);
+  }
+
+  listNoti(limit) {
+    this.limit = this.limit + limit;
+    this.httprequest.getRequest('GET', 'NOTI_LIST', `${'limit=' + this.limit}`)
       .subscribe((res) => {
         if (res.status) {
           this.imgurl = res.res.uP;
@@ -32,9 +38,12 @@ export class NotificationComponent implements OnInit {
         });
   }
 
-  slct(){
+  loadMore() {
+    this.listNoti(5)
+  }
+  slct() {
     console.log('-----');
-    
+
   }
 
 }

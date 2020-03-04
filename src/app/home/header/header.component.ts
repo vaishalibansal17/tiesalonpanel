@@ -5,6 +5,7 @@ import { TranslateService } from 'src/app/shared/service/translate.service';
 import { ActivatedRoute, Router, Event, NavigationStart, NavigationEnd, NavigationError } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
+import { IMG } from 'src/app/shared/constants/constant';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,10 @@ export class HeaderComponent implements OnInit {
   lang: string = localStorage.getItem('lang') || 'en';
   route: any;
   _unsubs: Subscription;
+  imgurl: any;
+  list: any;
+  url = IMG.PRO
+  detailList: any;
 
   constructor(private httpservice: HttpRequestService, private router: Router, private message: MessageService, private trns: TranslateService, ) {
 
@@ -52,24 +57,21 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.router.events.pipe(
-    //   filter(event => event instanceof NavigationEnd)  
-    // ).subscribe((event: NavigationEnd) => {
-    //   console.log(event.url);
-    //   this.route = event.url == '/dashboard' || '/' ?`${this.trns.data["WELCOMETOOUR"]}${this.detail?' ' + this.detail.name + ' Admin' : ''}`: event.url.split('/')[1];
-    // });
-    // this.route = window.location.pathname == 'dashboard' || '/' ?`${this.trns.data["WELCOMETOOUR"]}${this.detail?' ' + this.detail.name + ' Admin' : ''}`: window.location.pathname.split('/')[1];
-    // this.message.getRoute().subscribe(route => {
-    //   if (route) {
-    //     if (route.route == 'dashboard' || '')
-    //       this.route = `${this.trns.data["WELCOMETOOUR"]}${this.detail?' ' + this.detail.name + ' Admin' : ''}`;
-    //     else
-    //       this.route = route.route
+    this.httpservice.getRequest('GET', 'NOTI_LIST', 'limit=3')
+    .subscribe((res) => {
+      if (res.status) {
+        this.imgurl = res.res.uP;
+        this.list = res.res.notf;
+        this.detailList = res.res
+        console.log(this.list);
+      } else {
+        new Error();
+      }
 
-    //   }
-    // });
-
-
+    },
+      (error) => {
+        // this.httprequest.showError('Failed to get');
+      });
 
   }
 

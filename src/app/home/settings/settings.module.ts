@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { SettingsRoutingModule } from './settings-routing.module';
-import { SettingsComponent,  } from './settings.component';
+import { SettingsComponent, SettingsDialog,  } from './settings.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/applicationpipe.module';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [SettingsComponent, ],
+  declarations: [SettingsComponent, SettingsDialog],
   imports: [
     CommonModule,
     SettingsRoutingModule,
@@ -20,6 +20,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers:[TranslatePipe],
-  entryComponents : []
+  entryComponents : [SettingsDialog]
 })
 export class SettingsModule { }

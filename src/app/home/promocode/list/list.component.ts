@@ -76,7 +76,7 @@ export class ListComponent implements OnInit {
     this.getSalonStaff();
   }
 
-  // ********************** Account Manager List Api Integration with search ******************
+  // ********************** Account List Api Integration with search ******************
   getSalonStaff(): void {
     this.dataSource = new ListDataSource(this.list);
     this.loadStaffList();
