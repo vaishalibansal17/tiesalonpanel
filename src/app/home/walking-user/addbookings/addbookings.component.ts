@@ -163,11 +163,12 @@ export class AddbookingsComponent implements OnInit {
             });
           } else {
             if (response.err) {
-              // this.error.handleError(response.err.errCode);
+              this.slots=[];
+              this.errorserv.handleError(response.err.errCode);
             }
           }
         }, (error) => {
-          // this.error.handleError(0);
+          this.errorserv.handleError(0);
           // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
         });
     }

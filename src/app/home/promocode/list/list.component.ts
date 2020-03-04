@@ -136,7 +136,7 @@ export class ListComponent implements OnInit {
     //  all:true
     // }
     // this.dataSource.load(listObj, {api: 'PROMO'});
-    this.httpservice.getRequest('GET', 'PROMO', `?all=true`).subscribe(rs => {
+    this.httpservice.getRequest('GET', 'PROMO', `all=true`).subscribe(rs => {
       let datePipe = new DatePipe('en-US');
       rs.res.promo.forEach(element => {
         obj = {

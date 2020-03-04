@@ -125,7 +125,7 @@ export class ListComponent implements OnInit {
     var finalData = [];
     var obj: any;
     var i = 0;
-    this.httpservice.getRequest('GET', 'STAFF', `?all=true`).subscribe(rs => {
+    this.httpservice.getRequest('GET', 'STAFF', `all=true`).subscribe(rs => {
       let datePipe = new DatePipe('en-US');
       rs.res.staffs.forEach(element => {
         obj = {

@@ -128,7 +128,13 @@ export class EditComponent implements OnInit {
             frm: this.detail.hasOwnProperty('frm') ? this.detail.frm : '',
             to: this.detail.hasOwnProperty('to') ? this.detail.to : '',
           });
-          this.todaydate = new Date(this.promo.value.frm);
+          let frmdt = new Date(this.promo.value.frm)
+          if (frmdt < new Date()) {
+            this.todaydate = new Date(this.promo.value.frm);
+          } else {
+            this.todaydate = new Date();
+          }
+          
           this.chips.push(...this.detail.service);
           for (let index = 0; index < this.detail.service.length; index++) {
             this.sendServ.push(this.detail.service[index]['cat_id']);

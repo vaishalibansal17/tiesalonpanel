@@ -33,7 +33,10 @@ export const APIURLS = {
 
     BOOKING_ACPT: BASE_URL + 'booking/accept/reject',
     BOOKING_SLOT: BASE_URL + 'booking/slot',
-    SND_MAIL: BASE_URL + 'booking/send/invoice'
+    SND_MAIL: BASE_URL + 'booking/send/invoice',
+
+    NOTI_LIST: BASE_URL + 'notification/salon/list'
+
 
 
 

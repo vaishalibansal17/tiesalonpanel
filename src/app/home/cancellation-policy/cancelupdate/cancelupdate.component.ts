@@ -37,7 +37,7 @@ export class CancelupdateComponent implements OnInit {
           localStorage.setItem('salon', JSON.stringify(salon));
           this.router.navigateByUrl('cancellation-policy')
             .then(() => {
-              this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('FEEDSUCCESS'));
+              this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('POLICYSUCCESS'));
             });
         } else {
           console.log(response);

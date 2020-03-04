@@ -5,19 +5,20 @@
         <div class="col-md-3 left_listing">
             <div class="col-md-12 space_bot">
                 <form action="" class="search_field">
-                  <mat-form-field>
-                    <span class="email-img search"><img src="assets/images/search.png" alt="envelope"></span>
-                    <input matInput placeholder="Search" class="form-control">
-                  </mat-form-field>
+                    <mat-form-field>
+                        <span class="email-img search"><img src="assets/images/search.png" alt="envelope"></span>
+                        <input matInput placeholder="Search" class="form-control">
+                    </mat-form-field>
                 </form>
-              </div>
-              <div class="chat_mgmt">
+            </div>
+            <div class="chat_mgmt">
                 <div class="notifi_list">
                     <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
                     <div class="noti_right">
                         <div class="sub_rightsection">
                             <div class="author-review">Jane Doe <span class="alignright">Feb 18, 2020</span></div>
-                            <div class="message">Hello</div> <div class="count">1</div>
+                            <div class="message">Hello</div>
+                            <div class="count">1</div>
                         </div>
                     </div>
                 </div>
@@ -26,7 +27,8 @@
                     <div class="noti_right">
                         <div class="sub_rightsection">
                             <div class="author-review">Christine<span class="alignright">Feb 18, 2020</span></div>
-                            <div class="message">Hello</div> <div class="count">1</div>
+                            <div class="message">Hello</div>
+                            <div class="count">1</div>
                         </div>
                     </div>
                 </div>
@@ -35,7 +37,8 @@
                     <div class="noti_right">
                         <div class="sub_rightsection">
                             <div class="author-review">Jane Doe <span class="alignright">Feb 10, 2020</span></div>
-                            <div class="message">Hello</div> <div class="count">1</div>
+                            <div class="message">Hello</div>
+                            <div class="count">1</div>
                         </div>
                     </div>
                 </div>
@@ -44,7 +47,7 @@
                     <div class="noti_right">
                         <div class="sub_rightsection">
                             <div class="author-review">Jane Doe <span class="alignright">Jan 18, 2020</span></div>
-                            <div class="message">Hello</div> 
+                            <div class="message">Hello</div>
                         </div>
                     </div>
                 </div>
@@ -53,7 +56,7 @@
                     <div class="noti_right">
                         <div class="sub_rightsection">
                             <div class="author-review">Jane Doe <span class="alignright">Jan 12, 2020</span></div>
-                            <div class="message">Hello</div> 
+                            <div class="message">Hello</div>
                         </div>
                     </div>
                 </div>
@@ -62,14 +65,14 @@
                     <div class="noti_right">
                         <div class="sub_rightsection">
                             <div class="author-review">Christine<span class="alignright">Jan 10, 2020</span></div>
-                            <div class="message">Hello</div> 
+                            <div class="message">Hello</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-md-9 right_chat_detail">
-            <div class="top_chat">
+            <!-- <div class="top_chat">
                 <div class="left_name"><img src="assets/images/noti-pro.png" alt="Notification Profile">John Doe <span class="status">8 mins ago</span></div>
                 <div class="right_more">
                 <button mat-button [matMenuTriggerFor]="more_menu" [disableRipple]="true"><img src="assets/images/more.png" alt="More"></button>
@@ -85,10 +88,54 @@
             <div class="type_msg">
                <input type="text" placeholder="Type message"> 
                <span class="right"><img src="assets/images/send.png" alt="Send"></span>
+            </div> -->
+
+            <div id="frame">
+                <div class="content">
+                    <div class="contact-profile">
+                        <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                        <h5>{{ name }}</h5>
+                        <p>online</p>
+                        <!-- <div class="social-media">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+                </div> -->
+                    </div>
+                    <div class="messages">
+                        <ul *ngFor="let item of messageArray">
+                            <li class="sent">
+                                <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
+                                <p>What are you talking about? You do what they say or they shoot you.</p>
+                            </li>
+                            <li class="replies">
+                                <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
+                                <p>{{ item.msg }}</p>
+                            </li>
+                        </ul>
+                        <ul *ngIf="isTyping">
+                            <li class="sent">
+                                <p>typing...</p>
+                            </li>
+
+                        </ul>
+                    </div>
+
+
+                    <div class="message-input">
+                        <div class="wrap">
+                            <input (keypress)="typing($event)" [(ngModel)]="message" name="message" type="text"
+                                placeholder="type a message" />
+                            <button class="submit" id="send" (click)="sendMessage()"><img src="assets/images/send.svg"
+                                    alt=""></button>
+                        </div>
+                    </div>
+                </div>
             </div>
+            <!-- chatui -->
         </div>
 
-      </div>
+    </div>
 
 
 
