@@ -17,14 +17,15 @@ export class CancelpolicyComponent implements OnInit {
   constructor(public dialog: MatDialog, private errsrv: ErrorService, private httpservice: HttpRequestService, private trns: TranslatePipe, ) { }
 
   ngOnInit() {
-    this.charge = JSON.parse(localStorage.getItem('salon')).is_charge;
+    this.charge = String(JSON.parse(localStorage.getItem('salon')).is_charge);
     this.policy = JSON.parse(localStorage.getItem('salon')).c_policy;
     console.log(this.charge);
     
   }
 
   openDialog(isCharge) {
-    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: "Are you sure you want to do this?", btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
+    let msg = isCharge?"Are you sure,you want to charge ?":"Are you sure,you don't want to charge ?";
+    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: msg, btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
     dialogRef.beforeClosed().subscribe(
       (val) => {
         if (val) {
@@ -34,7 +35,7 @@ export class CancelpolicyComponent implements OnInit {
               salon.is_charge = String(isCharge);
               localStorage.setItem('salon', JSON.stringify(salon));
               this.charge = String(isCharge);
-              this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('FEEDSUCCESS'));
+              this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('POLICYSUCCESS'));
             } else {
               console.log(response);
               this.errsrv.handleError(response.err.errCode)

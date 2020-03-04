@@ -64,6 +64,9 @@ export class ErrorService {
       case 56:
         this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SLNEXIST']);
         break;
+        case 57:
+          this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SLNOFF']);
+          break;  
       default:
         break;
     }

@@ -1,6 +1,10 @@
 <style media="print">
     @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
-    @page { size: auto;  margin: 25mm 25mm 25mm 25mm; }
+    @page 
+        {
+            size: auto;   /* auto is the current printer page size */
+            margin: 0mm;  /* this affects the margin in the printer settings */
+        }
     body {
         margin: 0px !important;
         color: #000;

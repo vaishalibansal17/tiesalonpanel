@@ -60,6 +60,10 @@ export class HttpRequestService {
 		this.messageService.clear();
 		this.messageService.add({ severity: 'success', summary: title, detail: msg });
 	}
+	infoTostr(title, msg) {
+		this.messageService.clear();
+		this.messageService.add({ severity: 'info', summary: title, detail: msg });
+	}
 
 	toggleRoute(route) {
 		this.myRoute.navigate(['/main/event/' + route + '/' + localStorage.getItem('editEventId')]);

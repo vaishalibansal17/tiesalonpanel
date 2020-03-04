@@ -28,6 +28,11 @@
   
   "FEEDSUCCESS":"Feedback send successfully.",
   "SETSUCCESS":"Settings updated successfully.",
+  "POLICYSUCCESS":"Cancellation-policy updated successfully.",
+  
+  "SLNOFF":"Your salon is not working on this day.",
+
+
 
   "NOBOOK":"No bookings available for this profile.",
 

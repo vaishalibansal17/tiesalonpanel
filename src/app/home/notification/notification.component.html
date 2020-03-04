@@ -1,31 +1,18 @@
 <!-- <app-breadcrumb></app-breadcrumb> -->
 <div class="main-card">
-    <div class="notifi_list">
-        <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
+   
+    <div class="notifi_list" *ngFor="let list of list;" (click)="slct()">
+        <div class="noti_left"><img [src]="list?.img?((imgurl)+list.img):url" alt="Notification Profile"></div>
         <div class="noti_right">
-            Jane Doe wants to book you for haircut.
+            <div class="cursor left_text">{{list?.msg}}</div>
             <span class="right_btn">
-                <a href="#" class="btn btn-accept">Accept</a>
-                <a href="#" class="btn btn-decline">Decline</a>
+                <!-- <a href="javascript:void(0)" [routerLink]="['/booking/info', list?.bk_id]" class="btn btn-accept">View</a> -->
+                <!-- <span> -->
+                    <a href="javascript:void(0)" class="btn btn-accept">Accept</a>
+                    <a href="javascript:void(0)" class="btn btn-decline">Decline</a>
+                <!-- </span> -->
             </span>
         </div>
     </div>
-    <div class="notifi_list">
-        <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-        <div class="noti_right">
-            Jane Doe wants to book you for haircut.
-        </div>
-    </div>
-    <div class="notifi_list">
-        <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-        <div class="noti_right">
-            Jane Doe wants to book you for haircut.
-        </div>
-    </div>
-    <div class="notifi_list">
-        <div class="noti_left"><img src="assets/images/noti-pro.png" alt="Notification Profile"></div>
-        <div class="noti_right">
-            Jane Doe wants to book you for haircut.
-        </div>
-    </div>
+    
 </div>

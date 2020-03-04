@@ -18,6 +18,8 @@
   "WEEKOFF" : "إسبوع إجازة",
   "ALLBOOKING":"جميع الحجوزات",
 
+  "SLNOFF":"Your salon is not working on this day.",
+  "POLICYSUCCESS":"Cancellation-policy updated successfully.",
 
   "DESREQ":"الرجاء إدخال التعيين",
   "ONLYLETR":"الرجاء إدخال الحروف الهجائية فقط",

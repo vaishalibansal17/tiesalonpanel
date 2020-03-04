@@ -76,6 +76,7 @@ export class InvoiceComponent implements OnInit {
     var canvas_image_width = HTML_Width;
     var canvas_image_height = HTML_Height;
     var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+    // this.httpService.infoTostr("Please be patient we're processing the pdf", "PDF Processing!");
     return html2canvas(element, { scale: 2 }).then(canvas => {
       canvas.getContext('2d');
       var imgData = canvas.toDataURL("image/jpeg", 1.0);
@@ -89,18 +90,18 @@ export class InvoiceComponent implements OnInit {
       }
       let datePipe = new DatePipe("en-US");
       pdf.save(name + ' ' + datePipe.transform(new Date(), 'MMM-dd-yyyy') + '.pdf'); // Generated PDF
-      // this.toastr.info("Please be patient we're processing the pdf", "PDF Processing!");
+      this.httpService.sucsTostr("Successfull", "Download Complete.");
       return true;
     })
 
   }
 
   onPrintInvoice() {
-  let  date = new Date()
-    let newTitle = 'Invoice' + date.getDate()+'_'+date.getMonth()+'_'+date.getFullYear();
-    this.titleService.setTitle( newTitle );
+  // let  date = new Date()
+    // let newTitle = 'Invoice' + date.getDate()+'_'+date.getMonth()+'_'+date.getFullYear();
+    // this.titleService.setTitle( newTitle );
     window.print();
-    this.titleService.setTitle( "TieWeb" );
+    // this.titleService.setTitle( "TieWeb" );
   }
 
 

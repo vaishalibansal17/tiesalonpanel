@@ -59,6 +59,28 @@ export class SettingsComponent implements OnInit {
     );
   }
 
+  openDialog2() {
+    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: "Are you sure you want to delete your account?", btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
+    dialogRef.beforeClosed().subscribe(
+      (val) => {
+        if (val) {
+          this.httpService.getRequest('PUT', 'CANCELPOLICY', { is_delete: this.is_delete }, '').subscribe((response: any) => {
+            if (response.status === 1) {
+              // let salon = JSON.parse(localStorage.getItem('salon'));
+              // salon.slt_dur = this.sch_apt;
+              // localStorage.setItem('salon', JSON.stringify(salon));
+              localStorage.clear();
+              this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('SETSUCCESS'));
+            } else {
+              console.log(response);
+              this.errService.handleError(response.err.errCode)
+            }
+          });
+        } else
+          this.is_delete = false;
+      }
+    );
+  }
 
   ngOnInit() {
     let salon = JSON.parse(localStorage.getItem('salon'));
@@ -97,7 +119,7 @@ export class SettingsComponent implements OnInit {
     );
   }
   toggle(key, value) {
-    let obj = { [key]: value }
+    let obj = { [key]: String(value) }
     this.httpService.getRequest('PUT', 'CANCELPOLICY', obj, '').subscribe((response: any) => {
       if (response.status === 1) {
         let salon = JSON.parse(localStorage.getItem('salon'));

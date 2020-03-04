@@ -3,9 +3,9 @@
         <div class="left">You have the option of charging a No-Show/Late-Cancellation fee.</div>
         <div class="right">
             <a href="javascript:void(0)" (click)="openDialog(true)"
-                [class]="charge?'btn btn-charge':'btn btn-notcharge'">Charge</a>
+                [class]="charge=='true'?'btn btn-charge':'btn btn-notcharge'">Charge</a>
             <a href="javascript:void(0)" (click)="openDialog(false)"
-                [class]="!charge?'btn btn-charge':'btn btn-notcharge'">Don't Charge</a>
+                [class]="charge=='false'?'btn btn-charge':'btn btn-notcharge'">Don't Charge</a>
         </div>
     </div>
     <div class="policy_list">
