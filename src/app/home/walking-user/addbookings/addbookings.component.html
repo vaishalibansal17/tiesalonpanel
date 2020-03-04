@@ -50,7 +50,7 @@
             </div>
             <div class="time_tabs">
                 <span *ngFor="let slots of slots;" (click)="slcdt(slots);">
-                    <p [class]="slots?.is_avlbl?'is_active':'nt_active'">{{(slots?.time | timeFilter) | date : 'h:mm a'}}</p>
+                    <p [class]="slots?.select?'slct':''">{{(slots?.time | timeFilter) | date : 'h:mm a'}}</p>
                 </span>
             </div>
             <mat-form-field>

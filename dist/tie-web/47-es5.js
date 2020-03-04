@@ -1,3 +1,5 @@
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
@@ -6,43 +8,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[47], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/transactionlist/transactionlist.component.html":
-  /*!******************************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/transactionlist/transactionlist.component.html ***!
-    \******************************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings.component.html":
+  /*!*********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings.component.html ***!
+    \*********************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeReportTransactionTransactionlistTransactionlistComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeSettingsSettingsComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"row report_forms\">\n        <div class=\"col-md-2\">\n            <mat-form-field>\n                <mat-label>All</mat-label>\n                <mat-select>\n                  <mat-option *ngFor=\"let time of times\" [value]=\"time.value\">\n                    {{time.viewValue}}\n                  </mat-option>\n                </mat-select>\n              </mat-form-field>\n        </div>\n        <div class=\"col-md-2\">\n            <mat-form-field>\n                <mat-label>Service Type</mat-label>\n                <mat-select>\n                  <mat-option *ngFor=\"let service of services\" [value]=\"service.value\">\n                    {{service.viewValue}}\n                  </mat-option>\n                </mat-select>\n              </mat-form-field>\n        </div>\n        <div class=\"col-md-2\">\n            <mat-form-field>\n                <mat-label>Service At</mat-label>\n                <mat-select>\n                  <mat-option *ngFor=\"let serviceat of serviceats\" [value]=\"serviceat.value\">\n                    {{serviceat.viewValue}}\n                  </mat-option>\n                </mat-select>\n              </mat-form-field>\n        </div>\n        <div class=\"col-md-2\">\n            <mat-form-field>\n                <input matInput [matDatepicker]=\"pickerfrom\" placeholder=\"From\" class=\"form-control\">\n                <mat-datepicker-toggle matSuffix [for]=\"pickerfrom\"></mat-datepicker-toggle>\n                <mat-datepicker #pickerfrom></mat-datepicker>\n              </mat-form-field>\n        </div>\n        <div class=\"col-md-2\">\n            <mat-form-field>\n                <input matInput [matDatepicker]=\"pickerto\" placeholder=\"To\" class=\"form-control\">\n                <mat-datepicker-toggle matSuffix [for]=\"pickerto\"></mat-datepicker-toggle>\n                <mat-datepicker #pickerto></mat-datepicker>\n              </mat-form-field>\n        </div>\n\n        <div class=\"col-md-2 alignright\"><a href=\"#\" class=\"btn btn-export\">Export</a></div>\n    </div>\n\n    <div class=\"table_wrap mobile_hidden\">\n        <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8 table_scroll\">\n            <ng-container matColumnDef=\"position\">\n              <th mat-header-cell *matHeaderCellDef>No.</th>\n              <td mat-cell *matCellDef=\"let element\">{{element.position}}</td>\n            </ng-container>\n          \n            <ng-container matColumnDef=\"name\">\n              <th mat-header-cell *matHeaderCellDef>Customer Name</th>\n              <td mat-cell *matCellDef=\"let element\"><a [routerLink]=\"['/report/transaction/info']\">{{element.name}}</a></td>\n            </ng-container>\n          \n            <ng-container matColumnDef=\"discount\">\n              <th mat-header-cell *matHeaderCellDef>Discount</th>\n              <td mat-cell *matCellDef=\"let element\">{{element.discount}}</td>\n            </ng-container>\n          \n            <ng-container matColumnDef=\"service\">\n              <th mat-header-cell *matHeaderCellDef>Service</th>\n              <td mat-cell *matCellDef=\"let element\">{{element.service}}</td>\n            </ng-container>\n          \n            <ng-container matColumnDef=\"serviceat\">\n              <th mat-header-cell *matHeaderCellDef>Service At</th>\n              <td mat-cell *matCellDef=\"let element\">{{element.serviceat}}</td>\n            </ng-container>\n          \n            <ng-container matColumnDef=\"date\">\n                <th mat-header-cell *matHeaderCellDef>Date</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.date}}</td>\n            </ng-container>  \n\n            <ng-container matColumnDef=\"status\">\n                <th mat-header-cell *matHeaderCellDef>Status</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.status}}</td>\n            </ng-container>  \n\n            <ng-container matColumnDef=\"code\">\n                <th mat-header-cell *matHeaderCellDef>Coupon Code</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.code}}</td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"amount\">\n                <th mat-header-cell *matHeaderCellDef>Amount</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.amount}}</td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"tamount\">\n                <th mat-header-cell *matHeaderCellDef>Total Amount</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.tamount}}</td>\n            </ng-container>\n          \n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n          </table>\n        </div>\n\n        <div class=\"card_view mobile_visible\">\n\n          <div class=\"cards\">\n              <div class=\"top_info\">\n                <!-- add class for background color Completed, rejected -->\n                <div class=\"left_status completed\">Completed</div>\n                <div class=\"right_status\">\n                  <ul>\n                    <li>22 Oct, 2019</li>\n                    <!-- <li>10:00AM</li>-->\n                  </ul>\n                </div>\n              </div>\n              <div class=\"description\">\n              <p class=\"user\"><img src=\"assets/images/user-pink.png\" alt=\"User\">Jane Doe</p>\n              <p class=\"service\"><img src=\"assets/images/discount-pink.png\" alt=\"Discount\">10%</p>\n              <p class=\"service\"><img src=\"assets/images/service-pink.png\" alt=\"Service\">Haircut, Hair Spa</p>\n              <p class=\"location\"><img src=\"assets/images/location-pink.png\" alt=\"location\">At Home</p>\n              <p class=\"number\"><img src=\"assets/images/code-pink.png\" alt=\"Coupon\">New Coupon code</p>\n              <p class=\"service\"><img src=\"assets/images/commissions.png\" alt=\"Commissions\">$280</p>\n              <p class=\"service\"><img src=\"assets/images/commissions.png\" alt=\"Commissions\">$200</p>\n\n          </div>\n          </div>\n        </div>\n\n        <ul class=\"pagination\">\n            <li><a href=\"#\"><i class=\"fa fa-angle-left\"></i></a></li>\n            <li class=\"active\"><a href=\"#\">1</a></li>\n            <li><a href=\"#\">2</a></li>\n            <li><a href=\"#\">3</a></li>\n            <li><a href=\"#\">4</a></li>\n            <li><a href=\"#\">5</a></li>\n            <li><a href=\"#\"><i class=\"fa fa-angle-right\"></i></a></li>\n          </ul>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'NOTIFICATION'| translate}}</div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle [(ngModel)]=\"is_notif\" name=\"is_notif\" (change)=\"toggle('is_notif', is_notif)\"></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'LANG'| translate}}</div>\n            <div class=\"col-md-6 alignright\">\n                <ul>\n                    <li class=\"{{lang=='en'?'active':''}}\" (click)=\"setLang('en')\">En <img src=\"assets/images/flag_en.png\" alt=\"English\"></li>\n                    <li class=\"{{lang=='ua'?'active':''}}\" (click)=\"setLang('ua')\">Ar <img src=\"assets/images/flag_ar.png\" alt=\"Arabic\"></li>\n                </ul>\n            </div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'ONLINBOOKING'| translate}}</div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle [(ngModel)]=\"onl_booking\" name=\"onl_booking\" (change)=\"toggle('onl_booking', onl_booking)\"></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"setting_list\"> \n        <div class=\"row\">\n            <div class=\"col-md-8\">{{'SCHEDULEAPPT'| translate}} <button mat-raised-button matTooltip=\"{{'SCHEDULEAPPT'| translate}}\" [matTooltipPosition]=\"position.value\" aria-label=\"Button that displays a tooltip in various positions\" (click)=\"openDialog()\" ><img src=\"assets/images/info.png\" alt=\"Info\"></button></div>\n            <div class=\"col-md-4 alignright\">  \n                <mat-form-field>\n                    <mat-label>{{'SCHEDULEAPPT'| translate}}</mat-label>\n                    <mat-select [disableRipple]=\"true\" [(ngModel)]=\"sch_apt\" name=\"sch_apt\" (selectionChange)=\"feedbackSubmit()\">\n                      <mat-option *ngFor=\"let appointment of appointments\" [value]=\"appointment.value\">\n                        {{appointment.viewValue}}\n                      </mat-option>\n                    </mat-select>\n                  </mat-form-field>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'ALLOWMULTISETTINGS'| translate}}</div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle name=\"allow_multi\" [(ngModel)]=\"allow_multi\" (change)=\"toggle('allow_multi', allow_multi)\"></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'HOURSPRIORBOOKING'| translate}}</div>\n            <div class=\"col-md-6 alignright\">3</div>\n        </div>\n    </div>\n    <!-- <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\"><button mat-raised-button (click)=\"openDialog2()\" [disableRipple]=\"true\">{{'NUMOFBOOK'| translate}}</button></div>\n            <div class=\"col-md-6 alignright\">8</div>\n        </div>\n    </div> -->\n    <div class=\"setting_list\">\n        <div class=\"row\">\n            <div class=\"col-md-6\">{{'DEACACC'| translate}} \n                <button  [disableRipple]=\"true\" mat-raised-button matTooltip=\"{{'DEACTEXT'| translate}}\" [matTooltipPosition]=\"position.value\" aria-label=\"Button that displays a tooltip in various positions\"><img src=\"assets/images/info.png\" alt=\"Info\"></button>\n            </div>\n            <div class=\"col-md-6 alignright\"><mat-slide-toggle [(ngModel)]=\"is_delete\" name=\"is_delete\" (change)=\"openDialog()\"></mat-slide-toggle></div>\n        </div>\n    </div>\n    <div class=\"text-center\"><a href=\"javascript:void(0)\" (click)=\"openDialog()\" class=\"link\">{{'DELACC'| translate}}</a></div>\n</div>\n\n\n";
     /***/
   },
 
   /***/
-  "./src/app/home/report/transaction/transactionlist/transactionlist-routing.module.ts":
-  /*!*******************************************************************************************!*\
-    !*** ./src/app/home/report/transaction/transactionlist/transactionlist-routing.module.ts ***!
-    \*******************************************************************************************/
+  "./src/app/home/settings/settings-routing.module.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/settings/settings-routing.module.ts ***!
+    \**********************************************************/
 
-  /*! exports provided: TransactionlistRoutingModule */
+  /*! exports provided: SettingsRoutingModule */
 
   /***/
-  function srcAppHomeReportTransactionTransactionlistTransactionlistRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeSettingsSettingsRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "TransactionlistRoutingModule", function () {
-      return TransactionlistRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "SettingsRoutingModule", function () {
+      return SettingsRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +67,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _transactionlist_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./transactionlist.component */
-    "./src/app/home/report/transaction/transactionlist/transactionlist.component.ts");
+    var _settings_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./settings.component */
+    "./src/app/home/settings/settings.component.ts");
 
     var routes = [{
       path: '',
-      component: _transactionlist_component__WEBPACK_IMPORTED_MODULE_3__["TransactionlistComponent"]
+      component: _settings_component__WEBPACK_IMPORTED_MODULE_3__["SettingsComponent"]
     }];
 
-    var TransactionlistRoutingModule = function TransactionlistRoutingModule() {
-      _classCallCheck(this, TransactionlistRoutingModule);
+    var SettingsRoutingModule = function SettingsRoutingModule() {
+      _classCallCheck(this, SettingsRoutingModule);
     };
 
-    TransactionlistRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    SettingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], TransactionlistRoutingModule);
+    })], SettingsRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/report/transaction/transactionlist/transactionlist.component.scss":
-  /*!****************************************************************************************!*\
-    !*** ./src/app/home/report/transaction/transactionlist/transactionlist.component.scss ***!
-    \****************************************************************************************/
+  "./src/app/home/settings/settings.component.scss":
+  /*!*******************************************************!*\
+    !*** ./src/app/home/settings/settings.component.scss ***!
+    \*******************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeReportTransactionTransactionlistTransactionlistComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeSettingsSettingsComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcmVwb3J0L3RyYW5zYWN0aW9uL3RyYW5zYWN0aW9ubGlzdC90cmFuc2FjdGlvbmxpc3QuY29tcG9uZW50LnNjc3MifQ== */";
+    __webpack_exports__["default"] = ".main-card .setting_list ul li {\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9zZXR0aW5ncy9zZXR0aW5ncy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9zZXR0aW5ncy9zZXR0aW5ncy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUErQixlQUFBO0FDRS9CIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9zZXR0aW5ncy9zZXR0aW5ncy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5tYWluLWNhcmQgLnNldHRpbmdfbGlzdCB1bCBsaXtjdXJzb3I6IHBvaW50ZXI7fSIsIi5tYWluLWNhcmQgLnNldHRpbmdfbGlzdCB1bCBsaSB7XG4gIGN1cnNvcjogcG9pbnRlcjtcbn0iXX0= */";
     /***/
   },
 
   /***/
-  "./src/app/home/report/transaction/transactionlist/transactionlist.component.ts":
-  /*!**************************************************************************************!*\
-    !*** ./src/app/home/report/transaction/transactionlist/transactionlist.component.ts ***!
-    \**************************************************************************************/
+  "./src/app/home/settings/settings.component.ts":
+  /*!*****************************************************!*\
+    !*** ./src/app/home/settings/settings.component.ts ***!
+    \*****************************************************/
 
-  /*! exports provided: TransactionlistComponent */
+  /*! exports provided: SettingsComponent */
 
   /***/
-  function srcAppHomeReportTransactionTransactionlistTransactionlistComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeSettingsSettingsComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "TransactionlistComponent", function () {
-      return TransactionlistComponent;
+    __webpack_require__.d(__webpack_exports__, "SettingsComponent", function () {
+      return SettingsComponent;
     });
     /* harmony import */
 
@@ -136,182 +138,252 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
 
-    var TransactionlistComponent =
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+    /* harmony import */
+
+
+    var _angular_material__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/material */
+    "./node_modules/@angular/material/esm2015/material.js");
+    /* harmony import */
+
+
+    var src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/service/translate.service */
+    "./src/app/shared/service/translate.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/confim-dialog/confim-dialog.component */
+    "./src/app/shared/confim-dialog/confim-dialog.component.ts");
+    /* harmony import */
+
+
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+    /* harmony import */
+
+
+    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/shared/service/http-request.service */
+    "./src/app/shared/service/http-request.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/shared/service/error.service */
+    "./src/app/shared/service/error.service.ts");
+    /* harmony import */
+
+
+    var lodash__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! lodash */
+    "./node_modules/lodash/lodash.js");
+    /* harmony import */
+
+
+    var lodash__WEBPACK_IMPORTED_MODULE_9___default =
+    /*#__PURE__*/
+    __webpack_require__.n(lodash__WEBPACK_IMPORTED_MODULE_9__);
+
+    var SettingsComponent =
     /*#__PURE__*/
     function () {
-      function TransactionlistComponent() {
-        _classCallCheck(this, TransactionlistComponent);
+      function SettingsComponent(dialog, trns, trnsrv, httpService, errService) {
+        _classCallCheck(this, SettingsComponent);
 
-        this.times = [{
-          value: 'all',
-          viewValue: 'All'
+        this.dialog = dialog;
+        this.trns = trns;
+        this.trnsrv = trnsrv;
+        this.httpService = httpService;
+        this.errService = errService;
+        this.positionOptions = ['after', 'before', 'above', 'below', 'left', 'right'];
+        this.position = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](this.positionOptions[0]);
+        this.lang = localStorage.getItem('lang') || 'en';
+        this.allow_multi = false;
+        this.onl_booking = false;
+        this.is_delete = false;
+        this.is_notif = false;
+        this.sch_apt = '15';
+        this.appointments = [{
+          value: '15',
+          viewValue: 'On 15 minute intervals'
         }, {
-          value: 'day',
-          viewValue: 'Day'
+          value: '30',
+          viewValue: 'On 30 minute intervals'
         }, {
-          value: 'week',
-          viewValue: 'Weekly'
+          value: '60',
+          viewValue: 'On hourly intervals'
         }, {
-          value: 'month',
-          viewValue: 'Monthly'
+          value: '0',
+          viewValue: 'Based on service duration'
         }];
-        this.services = [{
-          value: 'hair-spa',
-          viewValue: 'Hair Spa'
-        }, {
-          value: 'hair-cut',
-          viewValue: 'Hair Cut'
-        }];
-        this.serviceats = [{
-          value: 'home',
-          viewValue: 'Home'
-        }, {
-          value: 'clinic',
-          viewValue: 'Clinic'
-        }];
-        this.displayedColumns = ['position', 'name', 'discount', 'service', 'serviceat', 'date', 'status', 'code', 'amount', 'tamount'];
-        this.dataSource = ELEMENT_DATA;
       }
 
-      _createClass(TransactionlistComponent, [{
+      _createClass(SettingsComponent, [{
+        key: "openDialog",
+        value: function openDialog() {
+          var _this = this;
+
+          var dialogRef = this.dialog.open(src_app_shared_confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_5__["ConfimDialogComponent"], {
+            width: '500px',
+            disableClose: true,
+            data: {
+              msg: "Are you sure you want to delete your account?",
+              btn: this.trns.transform('OK'),
+              cncl: this.trns.transform('CANCEL')
+            }
+          });
+          dialogRef.beforeClosed().subscribe(function (val) {
+            if (val) {
+              _this.httpService.getRequest('PUT', 'CANCELPOLICY', {
+                is_delete: _this.is_delete
+              }, '').subscribe(function (response) {
+                if (response.status === 1) {
+                  // let salon = JSON.parse(localStorage.getItem('salon'));
+                  // salon.slt_dur = this.sch_apt;
+                  // localStorage.setItem('salon', JSON.stringify(salon));
+                  localStorage.clear();
+
+                  _this.httpService.sucsTostr(_this.trns.transform('SUCCESS'), _this.trns.transform('SETSUCCESS'));
+                } else {
+                  console.log(response);
+
+                  _this.errService.handleError(response.err.errCode);
+                }
+              });
+            } else _this.is_delete = false;
+          });
+        }
+      }, {
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var salon = JSON.parse(localStorage.getItem('salon'));
+          this.allow_multi = salon.allow_multi;
+          this.is_notif = salon.is_notif;
+          this.onl_booking = salon.onl_booking;
+          this.sch_apt = salon.slt_dur;
+          this.is_delete = salon.is_delete;
+          console.log(salon, this.sch_apt);
+        }
+      }, {
+        key: "setLang",
+        value: function setLang(lang) {
+          localStorage.setItem('lang', lang);
+          this.lang = lang;
+          this.trnsrv.use(this.lang);
+        }
+      }, {
+        key: "feedbackSubmit",
+        value: function feedbackSubmit() {
+          var _this2 = this;
+
+          var dialogRef = this.dialog.open(src_app_shared_confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_5__["ConfimDialogComponent"], {
+            width: '500px',
+            disableClose: true,
+            data: {
+              msg: "Are you sure you want to update Slot duration?",
+              btn: this.trns.transform('OK'),
+              cncl: this.trns.transform('CANCEL')
+            }
+          });
+          dialogRef.beforeClosed().subscribe(function (val) {
+            if (val) {
+              _this2.httpService.getRequest('PUT', 'SLOT', {
+                slt_dur: _this2.sch_apt
+              }, '').subscribe(function (response) {
+                if (response.status === 1) {
+                  var salon = JSON.parse(localStorage.getItem('salon'));
+                  salon.slt_dur = _this2.sch_apt;
+                  localStorage.setItem('salon', JSON.stringify(salon));
+
+                  _this2.httpService.sucsTostr(_this2.trns.transform('SUCCESS'), _this2.trns.transform('SETSUCCESS'));
+                } else {
+                  console.log(response);
+
+                  _this2.errService.handleError(response.err.errCode);
+                }
+              });
+            }
+          });
+        }
+      }, {
+        key: "toggle",
+        value: function toggle(key, value) {
+          var _this3 = this;
+
+          var obj = _defineProperty({}, key, value);
+
+          this.httpService.getRequest('PUT', 'CANCELPOLICY', obj, '').subscribe(function (response) {
+            if (response.status === 1) {
+              var salon = JSON.parse(localStorage.getItem('salon'));
+              lodash__WEBPACK_IMPORTED_MODULE_9__["extend"](salon, obj);
+              localStorage.setItem('salon', JSON.stringify(salon));
+
+              _this3.httpService.sucsTostr(_this3.trns.transform('SUCCESS'), _this3.trns.transform('SETSUCCESS'));
+            } else {
+              console.log(response);
+
+              _this3.errService.handleError(response.err.errCode);
+            }
+          });
+        }
       }]);
 
-      return TransactionlistComponent;
+      return SettingsComponent;
     }();
 
-    TransactionlistComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-transactionlist',
+    SettingsComponent.ctorParameters = function () {
+      return [{
+        type: _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatDialog"]
+      }, {
+        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__["TranslatePipe"]
+      }, {
+        type: src_app_shared_service_translate_service__WEBPACK_IMPORTED_MODULE_4__["TranslateService"]
+      }, {
+        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_7__["HttpRequestService"]
+      }, {
+        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_8__["ErrorService"]
+      }];
+    };
+
+    SettingsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-settings',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./transactionlist.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/transactionlist/transactionlist.component.html")).default,
+      /*! raw-loader!./settings.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/settings/settings.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./transactionlist.component.scss */
-      "./src/app/home/report/transaction/transactionlist/transactionlist.component.scss")).default]
-    })], TransactionlistComponent);
-    var ELEMENT_DATA = [{
-      position: 1,
-      name: 'Jane Doe',
-      discount: '10%',
-      service: 'Haircut, Hair Spa',
-      serviceat: 'Home',
-      date: '22 Oct, 2019',
-      status: 'completed',
-      code: 'New coupon code',
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 2,
-      name: 'James',
-      discount: '10%',
-      service: 'Haircut, Hair Spa',
-      serviceat: 'Home',
-      date: '22 Oct, 2019',
-      status: 'completed',
-      code: 'New coupon code',
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 3,
-      name: 'Jane Doe',
-      discount: '10%',
-      service: 'Haircut',
-      serviceat: 'Home',
-      date: '22 Oct, 2019',
-      status: 'completed',
-      code: 'New coupon code',
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 4,
-      name: 'James',
-      discount: '10%',
-      service: 'Haircut, Hair Spa',
-      serviceat: 'Home',
-      date: '22 Oct, 2019',
-      status: 'completed',
-      code: 'New coupon code',
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 5,
-      name: 'Jane Doe',
-      discount: '10%',
-      service: 'Haircut, Hair Spa',
-      serviceat: 'Home',
-      date: '22 Oct, 2019',
-      status: 'completed',
-      code: 'New coupon code',
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 6,
-      name: 'Jane Doe',
-      discount: '10%',
-      service: ' Hair Spa',
-      serviceat: 'Home',
-      date: '22 Oct, 2019',
-      status: 'completed',
-      code: 'New coupon code',
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 7,
-      name: 'James',
-      discount: '10%',
-      service: 'Haircut, Hair Spa',
-      serviceat: 'Home',
-      date: '22 Oct, 2019',
-      status: 'completed',
-      code: 'New coupon code',
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 8,
-      name: 'Jane Doe',
-      discount: '10%',
-      service: 'Haircut, Hair Spa',
-      serviceat: 'Home',
-      date: '22 Oct, 2019',
-      status: 'completed',
-      code: 'New coupon code',
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 9,
-      name: 'Jane Doe',
-      discount: '10%',
-      service: 'Haircut',
-      serviceat: 'Home',
-      date: '22 Oct, 2019',
-      status: 'completed',
-      code: 'New coupon code',
-      amount: '$280',
-      tamount: '$200'
-    }];
+      /*! ./settings.component.scss */
+      "./src/app/home/settings/settings.component.scss")).default]
+    })], SettingsComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/report/transaction/transactionlist/transactionlist.module.ts":
-  /*!***********************************************************************************!*\
-    !*** ./src/app/home/report/transaction/transactionlist/transactionlist.module.ts ***!
-    \***********************************************************************************/
+  "./src/app/home/settings/settings.module.ts":
+  /*!**************************************************!*\
+    !*** ./src/app/home/settings/settings.module.ts ***!
+    \**************************************************/
 
-  /*! exports provided: TransactionlistModule */
+  /*! exports provided: SettingsModule */
 
   /***/
-  function srcAppHomeReportTransactionTransactionlistTransactionlistModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeSettingsSettingsModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "TransactionlistModule", function () {
-      return TransactionlistModule;
+    __webpack_require__.d(__webpack_exports__, "SettingsModule", function () {
+      return SettingsModule;
     });
     /* harmony import */
 
@@ -334,30 +406,50 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _transactionlist_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./transactionlist-routing.module */
-    "./src/app/home/report/transaction/transactionlist/transactionlist-routing.module.ts");
+    var _settings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./settings-routing.module */
+    "./src/app/home/settings/settings-routing.module.ts");
     /* harmony import */
 
 
-    var _transactionlist_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./transactionlist.component */
-    "./src/app/home/report/transaction/transactionlist/transactionlist.component.ts");
+    var _settings_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./settings.component */
+    "./src/app/home/settings/settings.component.ts");
     /* harmony import */
 
 
     var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/shared/shared.module */
     "./src/app/shared/shared.module.ts");
+    /* harmony import */
 
-    var TransactionlistModule = function TransactionlistModule() {
-      _classCallCheck(this, TransactionlistModule);
+
+    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/module/applicationpipe/applicationpipe.module */
+    "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
+    /* harmony import */
+
+
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+
+    var SettingsModule = function SettingsModule() {
+      _classCallCheck(this, SettingsModule);
     };
 
-    TransactionlistModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_transactionlist_component__WEBPACK_IMPORTED_MODULE_4__["TransactionlistComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _transactionlist_routing_module__WEBPACK_IMPORTED_MODULE_3__["TransactionlistRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
-    })], TransactionlistModule);
+    SettingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_settings_component__WEBPACK_IMPORTED_MODULE_4__["SettingsComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _settings_routing_module__WEBPACK_IMPORTED_MODULE_3__["SettingsRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__["ApplicationpipeModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"]],
+      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]],
+      entryComponents: []
+    })], SettingsModule);
     /***/
   }
 }]);

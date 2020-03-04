@@ -1,819 +1,48 @@
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[16], {
   /***/
-  "./node_modules/ng-starrating/fesm2015/ng-starrating.js":
-  /*!**************************************************************!*\
-    !*** ./node_modules/ng-starrating/fesm2015/ng-starrating.js ***!
-    \**************************************************************/
-
-  /*! exports provided: RatingModule, StarRatingComponent, ɵa */
-
-  /***/
-  function node_modulesNgStarratingFesm2015NgStarratingJs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "RatingModule", function () {
-      return RatingModule;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "StarRatingComponent", function () {
-      return StarRatingComponent;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "ɵa", function () {
-      return RatingComponent;
-    });
-    /* harmony import */
-
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _angular_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/forms */
-    "./node_modules/@angular/forms/fesm2015/forms.js");
-    /* harmony import */
-
-
-    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/common */
-    "./node_modules/@angular/common/fesm2015/common.js");
-    /* harmony import */
-
-
-    var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! rxjs */
-    "./node_modules/rxjs/_esm2015/index.js");
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-    //import { StarRatingComponent } from '../components/star-rating/star-rating.component'
-
-
-    var RatingComponent =
-    /*#__PURE__*/
-    function () {
-      function RatingComponent() {
-        _classCallCheck(this, RatingComponent);
-      }
-      /**
-       * @return {?}
-       */
-
-
-      _createClass(RatingComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {}
-      }]);
-
-      return RatingComponent;
-    }();
-
-    RatingComponent.decorators = [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-      args: [{
-        selector: 'lib-rating',
-        template: "\n    <p>\n      rating works!\n    </p>\n  "
-      }]
-    }];
-    /** @nocollapse */
-
-    RatingComponent.ctorParameters = function () {
-      return [];
-    };
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-
-    var StarRatingComponent =
-    /*#__PURE__*/
-    function () {
-      function StarRatingComponent() {
-        var _this = this;
-
-        _classCallCheck(this, StarRatingComponent);
-
-        this.stars = [];
-        this._readOnly = false;
-        this._totalStars = 5;
-        this.rate = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
-
-        if (!this.onStarsCountChange) {
-          this.onStarsCountChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-          this.onStarsCountChange.subscribe(
-          /**
-          * @return {?}
-          */
-          function () {
-            _this.setStars();
-
-            _this.generateRating(true);
-
-            _this.applySizeAllStars();
-
-            _this.applyColorStyleAllStars(false);
-
-            _this.addRemoveEvents();
-          });
-        }
-
-        if (!this.onValueChange) {
-          this.onValueChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-          this.onValueChange.subscribe(
-          /**
-          * @return {?}
-          */
-          function () {
-            _this.generateRating();
-
-            _this.applySizeAllStars();
-          });
-        }
-
-        if (!this.onCheckedColorChange) {
-          this.onCheckedColorChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-          this.onCheckedColorChange.subscribe(
-          /**
-          * @return {?}
-          */
-          function () {
-            _this.applyColorStyleAllStars(true);
-          });
-        }
-
-        if (!this.onUnCheckedColorChange) {
-          this.onUnCheckedColorChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-          this.onUnCheckedColorChange.subscribe(
-          /**
-          * @return {?}
-          */
-          function () {
-            _this.applyColorStyleAllStars(false);
-          });
-        }
-
-        if (!this.onSizeChange) {
-          this.onSizeChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-          this.onSizeChange.subscribe(
-          /**
-          * @return {?}
-          */
-          function () {
-            _this.applySizeAllStars();
-          });
-        }
-
-        if (!this.onReadOnlyChange) {
-          this.onReadOnlyChange = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
-          this.onReadOnlyChange.subscribe(
-          /**
-          * @return {?}
-          */
-          function () {
-            _this.addRemoveEvents();
-          });
-        }
-      }
-      /**
-       * @return {?}
-       */
-
-
-      _createClass(StarRatingComponent, [{
-        key: "makeEditable",
-
-        /**
-         * @private
-         * @return {?}
-         */
-        value: function makeEditable() {
-          var _this2 = this;
-
-          this.mainElement.nativeElement.addEventListener('mouseleave', this.offStar.bind(this));
-          this.mainElement.nativeElement.style.cursor = "pointer";
-          this.mainElement.nativeElement.title = this.value;
-          this.stars.forEach(
-          /**
-          * @param {?} star
-          * @return {?}
-          */
-          function (star) {
-            star.addEventListener('click', _this2.onRate.bind(_this2));
-            star.addEventListener('mouseenter', _this2.onStar.bind(_this2));
-            star.style.cursor = "pointer";
-            star.title = star.dataset.index;
-          });
-        }
-        /**
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "makeReadOnly",
-        value: function makeReadOnly() {
-          this.mainElement.nativeElement.__zone_symbol__mouseleavefalse = null;
-          this.mainElement.nativeElement.style.cursor = "default";
-          this.mainElement.nativeElement.title = this.value;
-          this.stars.forEach(
-          /**
-          * @param {?} star
-          * @return {?}
-          */
-          function (star) {
-            star.__zone_symbol__clickfalse = null;
-            star.__zone_symbol__mouseenterfalse = null;
-            star.style.cursor = "default";
-            star.title = "";
-          });
-        }
-        /**
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "addRemoveEvents",
-        value: function addRemoveEvents() {
-          if (this.readonly) {
-            this.makeReadOnly();
-          } else {
-            this.makeEditable();
-            this.onValueChange.next(this.value);
-          }
-        }
-        /**
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "ngAfterViewInit",
-        value: function ngAfterViewInit() {}
-        /**
-         * @private
-         * @param {?} event
-         * @return {?}
-         */
-
-      }, {
-        key: "onRate",
-        value: function onRate(event) {
-          /** @type {?} */
-          var star =
-          /** @type {?} */
-          event.srcElement;
-          /** @type {?} */
-
-          var oldValue = this.value;
-          this.value = parseInt(star.dataset.index);
-
-          if (this.value == 0) {
-            this.value = 1;
-          }
-          /** @type {?} */
-
-
-          var rateValues = {
-            oldValue: oldValue,
-            newValue: this.value,
-            starRating: this
-          };
-          this.rate.emit(rateValues);
-        }
-        /**
-         * @private
-         * @param {?} event
-         * @return {?}
-         */
-
-      }, {
-        key: "onStar",
-        value: function onStar(event) {
-          /** @type {?} */
-          var star =
-          /** @type {?} */
-          event.srcElement;
-          /** @type {?} */
-
-          var currentIndex = parseInt(star.dataset.index);
-
-          for (var index = 0; index < currentIndex; index++) {
-            this.stars[index].className = "";
-            this.addDefaultClass(this.stars[index]);
-            this.addCheckedStarClass(this.stars[index]);
-          }
-
-          for (var _index = currentIndex; _index < this.stars.length; _index++) {
-            this.stars[_index].className = "";
-            this.addDefaultClass(this.stars[_index]);
-          }
-        }
-        /**
-         * @private
-         * @param {?} event
-         * @return {?}
-         */
-
-      }, {
-        key: "offStar",
-        value: function offStar(event) {
-          this.generateRating();
-        }
-        /**
-         * @private
-         * @param {?} star
-         * @return {?}
-         */
-
-      }, {
-        key: "addDefaultClass",
-        value: function addDefaultClass(star) {
-          star.classList.add(StarRatingComponent.CLS_DEFAULT_STAR);
-        }
-        /**
-         * @private
-         * @param {?} star
-         * @return {?}
-         */
-
-      }, {
-        key: "addCheckedStarClass",
-        value: function addCheckedStarClass(star) {
-          star.classList.add(StarRatingComponent.CLS_CHECKED_STAR);
-        }
-        /**
-         * @private
-         * @param {?} star
-         * @return {?}
-         */
-
-      }, {
-        key: "addHalfStarClass",
-        value: function addHalfStarClass(star) {
-          star.classList.add(StarRatingComponent.CLS_HALF_STAR);
-        }
-        /**
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "setStars",
-        value: function setStars() {
-          var _this3 = this;
-
-          /** @type {?} */
-          var starContainer = this.mainElement.nativeElement;
-          /** @type {?} */
-
-          var maxStars = _toConsumableArray(Array(Number(this.totalstars)).keys());
-
-          this.stars.length = 0;
-          starContainer.innerHTML = "";
-          maxStars.forEach(
-          /**
-          * @param {?} starNumber
-          * @return {?}
-          */
-          function (starNumber) {
-            /** @type {?} */
-            var starElement = document.createElement("span");
-            starElement.dataset.index = (starNumber + 1).toString();
-            starElement.title = starElement.dataset.index;
-            starContainer.appendChild(starElement);
-
-            _this3.stars.push(starElement);
-          });
-        }
-        /**
-         * @private
-         * @return {?}
-         */
-
-      }, {
-        key: "applySizeAllStars",
-        value: function applySizeAllStars() {
-          var _this4 = this;
-
-          if (this._size) {
-            this.stars.length == 0 && this.setStars();
-            this.stars.forEach(
-            /**
-            * @param {?} star
-            * @return {?}
-            */
-            function (star) {
-              /** @type {?} */
-              var newSize = _this4.size.match(/\d+/)[0];
-              /** @type {?} */
-
-
-              var halfSize = parseInt(newSize) * 10 / 24;
-              /** @type {?} */
-
-              var halfMargin = 0 - parseInt(newSize) * 20 / 24;
-              star.style.setProperty(StarRatingComponent.VAR_SIZE, _this4.size);
-
-              if (star.classList.contains(StarRatingComponent.CLS_HALF_STAR)) {
-                star.style.setProperty(StarRatingComponent.VAR_HALF_WIDTH, "".concat(halfSize, "px"));
-                star.style.setProperty(StarRatingComponent.VAR_HALF_MARGIN, "".concat(halfMargin, "px"));
-              }
-            });
-          }
-        }
-        /**
-         * @private
-         * @param {?} setChecked
-         * @return {?}
-         */
-
-      }, {
-        key: "applyColorStyleAllStars",
-        value: function applyColorStyleAllStars(setChecked) {
-          var _this5 = this;
-
-          this.stars.length == 0 && this.setStars();
-          this.stars.forEach(
-          /**
-          * @param {?} star
-          * @return {?}
-          */
-          function (star) {
-            if (setChecked) {
-              _this5.applyCheckedColorStyle(star);
-            } else {
-              _this5.applyUnCheckedColorStyle(star);
-            }
-          });
-        }
-        /**
-         * @private
-         * @param {?} starElement
-         * @return {?}
-         */
-
-      }, {
-        key: "applyColorStyle",
-        value: function applyColorStyle(starElement) {
-          this.applyCheckedColorStyle(starElement);
-          this.applyUnCheckedColorStyle(starElement);
-        }
-        /**
-         * @private
-         * @param {?} starElement
-         * @return {?}
-         */
-
-      }, {
-        key: "applyCheckedColorStyle",
-        value: function applyCheckedColorStyle(starElement) {
-          starElement.style.setProperty(StarRatingComponent.VAR_CHECKED_COLOR, this.checkedcolor);
-        }
-        /**
-         * @private
-         * @param {?} starElement
-         * @return {?}
-         */
-
-      }, {
-        key: "applyUnCheckedColorStyle",
-        value: function applyUnCheckedColorStyle(starElement) {
-          starElement.style.setProperty(StarRatingComponent.VAR_UNCHECKED_COLOR, this.uncheckedcolor);
-        }
-        /**
-         * @private
-         * @param {?=} forceGenerate
-         * @return {?}
-         */
-
-      }, {
-        key: "generateRating",
-        value: function generateRating() {
-          var _this6 = this;
-
-          var forceGenerate = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-          if (this.readonly && !forceGenerate) {
-            return;
-          }
-
-          this.stars.length == 0 && this.setStars();
-
-          if (this.value >= 0) {
-            this.mainElement.nativeElement.title = this.value;
-            /** @type {?} */
-
-            var hasDecimals = (Number.parseFloat(this.value.toString()) % 1).toString().substring(3, 2) ? true : false;
-            /** @type {?} */
-
-            var i = 1;
-            this.stars.forEach(
-            /**
-            * @param {?} star
-            * @return {?}
-            */
-            function (star) {
-              star.className = "";
-
-              _this6.applyColorStyle(star);
-
-              _this6.addDefaultClass(star);
-
-              if (_this6.value >= i) {
-                // star on
-                _this6.addCheckedStarClass(star);
-              } else {
-                // half star
-                if (hasDecimals) {
-                  _this6.addHalfStarClass(star);
-
-                  hasDecimals = false;
-                }
-              }
-
-              i++;
-            });
-          }
-        }
-      }, {
-        key: "checkedcolor",
-        get: function get() {
-          return this._checkedColor;
-        }
-        /**
-         * @return {?}
-         */
-        ,
-
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-        set: function set(value) {
-          this._checkedColor = value;
-          this._checkedColor && this.onCheckedColorChange.next(this._checkedColor);
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "uncheckedcolor",
-        get: function get() {
-          return this._unCheckedColor;
-        }
-        /**
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          this._unCheckedColor = value;
-          this._unCheckedColor && this.onUnCheckedColorChange.next(this._unCheckedColor);
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "value",
-        get: function get() {
-          return this._value;
-        }
-        /**
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          value = !value || value == null ? 0 : value;
-          value > this.stars.length && (value = this.stars.length);
-          this._value = value;
-          this._value >= 0 && this.onValueChange.next(this._value);
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "size",
-        get: function get() {
-          return this._size.concat(!this._size.includes("px") ? "px" : "");
-        }
-        /**
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          value = !value || value == null || value == "0px" ? "24px" : value;
-          this._size = value;
-          this.onSizeChange.next(this._size);
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "readonly",
-        get: function get() {
-          return String(this._readOnly) === "true";
-        }
-        /**
-         * @return {?}
-         */
-        ,
-        set: function set(value) {
-          this._readOnly = value;
-          this.onReadOnlyChange.next(value);
-        }
-        /**
-         * @param {?} value
-         * @return {?}
-         */
-
-      }, {
-        key: "totalstars",
-        get: function get() {
-          return this._totalStars;
-        },
-        set: function set(value) {
-          this._totalStars = value <= 0 ? 5 : value;
-          this.onStarsCountChange.next(Number(value));
-        }
-      }]);
-
-      return StarRatingComponent;
-    }();
-
-    StarRatingComponent.VAR_CHECKED_COLOR = '--checkedColor';
-    StarRatingComponent.VAR_UNCHECKED_COLOR = '--unCheckedColor';
-    StarRatingComponent.VAR_SIZE = '--size';
-    StarRatingComponent.VAR_HALF_WIDTH = '--halfWidth';
-    StarRatingComponent.VAR_HALF_MARGIN = '--halfMargin';
-    StarRatingComponent.CLS_CHECKED_STAR = 'on';
-    StarRatingComponent.CLS_DEFAULT_STAR = 'star';
-    StarRatingComponent.CLS_HALF_STAR = 'half';
-    StarRatingComponent.INP_CHECKED_COLOR = 'checkedcolor';
-    StarRatingComponent.INP_UNCHECKED_COLOR = 'uncheckedcolor';
-    StarRatingComponent.INP_VALUE = 'value';
-    StarRatingComponent.INP_SIZE = 'size';
-    StarRatingComponent.INP_READONLY = 'readonly';
-    StarRatingComponent.INP_TOTALSTARS = 'totalstars';
-    StarRatingComponent.decorators = [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
-      args: [{
-        selector: 'star-rating',
-        template: "<div #starMain>\r\n</div>",
-        encapsulation: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewEncapsulation"].None,
-        styles: [":root{--checkedColor:gold;--unCheckedColor:gray;--size:24px;--halfWidth:10px;--halfMargin:-20px}.star{cursor:pointer;color:var(--unCheckedColor);font-size:var(--size);width:var(--size);display:inline-block}.star:last-child{margin-right:0}.star:before{content:'\\2605'}.star.on{color:var(--checkedColor)}.star.half:after{content:'\\2605';color:var(--checkedColor);position:absolute;margin-left:var(--halfMargin);width:var(--halfWidth);overflow:hidden}"]
-      }]
-    }];
-    /** @nocollapse */
-
-    StarRatingComponent.ctorParameters = function () {
-      return [];
-    };
-
-    StarRatingComponent.propDecorators = {
-      mainElement: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["ViewChild"],
-        args: ['starMain', {
-          static: true
-        }]
-      }],
-      rate: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
-      }],
-      checkedcolor: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-        args: [StarRatingComponent.INP_CHECKED_COLOR]
-      }],
-      uncheckedcolor: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-        args: [StarRatingComponent.INP_UNCHECKED_COLOR]
-      }],
-      value: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-        args: [StarRatingComponent.INP_VALUE]
-      }],
-      size: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-        args: [StarRatingComponent.INP_SIZE]
-      }],
-      readonly: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-        args: [StarRatingComponent.INP_READONLY]
-      }],
-      totalstars: [{
-        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"],
-        args: [StarRatingComponent.INP_TOTALSTARS]
-      }]
-    };
-    /**
-     * @fileoverview added by tsickle
-     * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
-     */
-
-    var RatingModule =
-    /*#__PURE__*/
-    function () {
-      function RatingModule() {
-        _classCallCheck(this, RatingModule);
-      }
-
-      _createClass(RatingModule, [{
-        key: "ngDoBootstrap",
-
-        /**
-         * @return {?}
-         */
-        value: function ngDoBootstrap() {}
-      }]);
-
-      return RatingModule;
-    }();
-
-    RatingModule.decorators = [{
-      type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
-      args: [{
-        imports: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormsModule"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"]],
-        declarations: [RatingComponent, StarRatingComponent],
-        exports: [StarRatingComponent],
-        entryComponents: [StarRatingComponent]
-      }]
-    }]; //# sourceMappingURL=ng-starrating.js.map
-
-    /***/
-  },
-
-  /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffreview/staffreview.component.html":
-  /*!*********************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffreview/staffreview.component.html ***!
-    \*********************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/promocode/list/list.component.html":
+  /*!***********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/promocode/list/list.component.html ***!
+    \***********************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeStaffStaffreviewStaffreviewComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomePromocodeListListComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-6\">\n            <h3>{{'RATING' | translate}}</h3>\n        </div>\n        <div class=\"col-md-6 alignright\">\n            <div class=\"rating\"><span class=\"big\">{{detail && detail.avg_rating?(detail.avg_rating | round):0}}</span><span class=\"small\">(5)</span></div>\n            <div class=\"reviews\"><ngx-stars [readonly]=\"true\" [color]=\"'#f7c133'\" [size]=\"5\" [initialStars]=\"detail?.avg_rating ? (detail?.avg_rating | round):0\"></ngx-stars>\n            </div>\n        </div>\n\n        <div class=\"col-md-3 rating_head\">{{'PROFESS' | translate}}</div>\n        <div class=\"col-md-6 rating_mat\">\n            <mat-progress-bar mode=\"determinate\" value=\"{{detail && detail.avg_pro? (detail.avg_pro | prcnt) :0 }}\" class=\"high\"></mat-progress-bar>\n        </div>\n        <div class=\"col-md-3 rating_mark\">{{detail && detail.avg_pro? (detail.avg_pro | round):0 }}/5</div>\n\n        <div class=\"col-md-3 rating_head\">{{'CUSTMRSRV' | translate}}</div>\n        <div class=\"col-md-6 rating_mat\">\n            <mat-progress-bar mode=\"determinate\" value=\"{{detail && detail.avg_cus? (detail.avg_cus | prcnt):0}}\" class=\"average\"></mat-progress-bar>\n        </div>\n        <div class=\"col-md-3 rating_mark\">{{detail && detail.avg_cus? detail.avg_cus:0 }}/5</div>\n\n        <div class=\"col-md-3 rating_head\">{{'CLEANES' | translate}}</div>\n        <div class=\"col-md-6 rating_mat\">\n            <mat-progress-bar mode=\"determinate\" value=\"{{detail && detail.avg_cln? (detail.avg_cln | prcnt):0}}\" class=\"equalhigh\"></mat-progress-bar>\n        </div>\n        <div class=\"col-md-3 rating_mark\">{{detail && detail.avg_cln? detail.avg_cln:0}}/5</div>\n\n        <div class=\"col-md-3 rating_head\">{{'TIMING' | translate}}</div>\n        <div class=\"col-md-6 rating_mat\">\n            <mat-progress-bar mode=\"determinate\" value=\"{{detail && detail.avg_tmg? (detail.avg_tmg | prcnt):0}}\" class=\"lesshigh\"></mat-progress-bar>\n        </div>\n        <div class=\"col-md-3 rating_mark\">{{detail && detail.avg_tmg? detail.avg_tmg:0}}/5</div>\n        <div class=\"clearfix space\">&nbsp;</div>\n        <div class=\"col-md-12\">\n            <h3>{{'RCNTREVIW' | translate}}:</h3>\n        </div>\n        <div class=\"staffdetail_notifi\" *ngIf=\"detail\">\n            <div class=\"notifi_list\" *ngFor=\"let review of detail.reviews\">\n                <div class=\"noti_left\"><img [src]=\"review.img? (detail.usr_bp + review.img):usrurl\" alt=\"Notification User\"></div>\n                <div class=\"noti_right\">\n                    <div class=\"author-review\">\n                        <div class=\"author\">{{review.name | titlecase}}</div>\n                        <div class=\"reviews\">\n                            <div class=\"staffdetail_staff\"><ngx-stars [readonly]=\"true\" [color]=\"'#f7c133'\" [size]=\"5\" [initialStars]=\"review.rvw_rt\"></ngx-stars></div>\n                        </div>\n                    </div>\n                    {{review.comment}}\n                </div>\n            </div>\n            <div class=\"text-center\"><button type=\"button\" class=\"btn btn-submit\" (click)=\"paginate()\">Load More</button></div>\n        </div>\n    </div>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n  <div class=\"row\">\n    <div class=\"col-md-6 add\"><a [routerLink]=\"['/promocode/add']\"><img src=\"assets/images/add.png\" alt=\"Add\">Add Promo\n        code</a></div>\n    <div class=\"col-md-6 alignright\"><a href=\"javascript:void(0)\" (click)=\"exportCSV()\"\n        class=\"btn btn-export\">Export</a></div>\n  </div>\n  <div class=\"table_wrap mobile_hidden\" [hidden]=\"(dataSource.loading$ | async)\">\n    <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8 table_scroll\" matSort>\n      <ng-container matColumnDef=\"position\">\n        <th mat-header-cell *matHeaderCellDef>No.</th>\n        <td mat-cell *matCellDef=\"let post; let i =index;\"> {{(paginator.pageIndex * paginator.pageSize)+i + 1}} </td>\n      </ng-container>\n      <ng-container matColumnDef=\"name\">\n        <th mat-header-cell *matHeaderCellDef>Name</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.name | uppercase}}</td>\n      </ng-container>\n      <ng-container matColumnDef=\"coupon\">\n        <th mat-header-cell *matHeaderCellDef>Coupon Code</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.code | uppercase}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"discount\">\n        <th mat-header-cell *matHeaderCellDef>Discount(%)</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.discount}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"service\">\n        <th mat-header-cell *matHeaderCellDef>Service</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.service?(element.service | titlecase):'NA'}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"added\">\n        <th mat-header-cell *matHeaderCellDef>Added By</th>\n        <td mat-cell *matCellDef=\"let element\">{{'Salon'}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"uses\">\n        <th mat-header-cell *matHeaderCellDef>Total Uses</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.uses}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"from\">\n        <th mat-header-cell *matHeaderCellDef>From</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.frm | date : 'dd MMM yyyy'}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"to\">\n        <th mat-header-cell *matHeaderCellDef>To</th>\n        <td mat-cell *matCellDef=\"let element\">{{element.to | date :'dd MMM yyyy'}}</td>\n      </ng-container>\n\n      <ng-container matColumnDef=\"action\">\n        <th mat-header-cell *matHeaderCellDef>Actions</th>\n        <td mat-cell *matCellDef=\"let element\">\n          <button class=\"action_btn pink\"><a [routerLink]=\"['/promocode/info', element._id]\"><img\n                src=\"assets/images/view.png\" alt=\"View\"></a></button>\n          <button class=\"action_btn black\"><a [routerLink]=\"['/promocode/edit', element._id]\"><img\n                src=\"assets/images/edit.png\" alt=\"Edit\"></a></button>\n          <button class=\"action_btn red\" (click)=\"openDialog(element._id)\"><img src=\"assets/images/delete.png\"\n              alt=\"Delete\"></button>\n        </td>\n      </ng-container>\n\n      <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n      <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n    </table>\n    <mat-paginator [length]=\"dataSource.totalCount$ | async\" [pageSize]=\"limitPage[0]\" [pageSizeOptions]=\"limitPage\">\n    </mat-paginator>\n    <div class=\"margin_center\"\n            *ngIf=\" !(dataSource.loading$ | async) && ((dataSource.totalCount$ | async)<=0) \">\n             {{'NO_RCD' | translate}}\n          </div>\n  </div>\n\n\n  <div class=\"card_view mobile_visible\"  *ngIf=\"loading\">\n    <div class=\"cards\" *ngFor=\"let element of detail; let i =index\" >\n      <div class=\"description\">\n        <p class=\"coupon\"><img src=\"assets/images/code-pink.png\" alt=\"Code\">{{element?.code | uppercase}}</p>\n        <p class=\"discount\"><img src=\"assets/images/discount-pink.png\" alt=\"Discount\">{{element?.discount}}</p>\n        <p class=\"number\"><img src=\"assets/images/service-pink.png\" alt=\"Service\">{{element?.service | titlecase}}</p>\n        <p class=\"review\"><img src=\"assets/images/location-pink.png\" alt=\"Location\">Salon</p>\n        <p class=\"uses\"><img src=\"assets/images/uses-pink.png\" alt=\"User\">{{element?.uses}}</p>\n        <p class=\"from\"><img src=\"assets/images/time-pink.png\" alt=\"Time\">{{element?.frm | date : 'dd MMM yyyy'}}</p>\n        <p class=\"to\"><img src=\"assets/images/time-pink.png\" alt=\"Time\">{{element?.to | date : 'dd MMM yyyy'}}</p>\n        <div class=\"buttons\">\n          <button class=\"action_btn pink\"><a [routerLink]=\"['/promocode/info', element._id]\">View</a></button>\n          <button class=\"action_btn black\"><a [routerLink]=\"['/promocode/edit', element._id]\">Edit</a></button>\n          <button class=\"action_btn red\" (click)=\"openDialog(element._id)\">Delete</button>\n        </div>\n      </div>\n    </div>\n    <div class=\"text-center\"><button type=\"button\" class=\"btn btn-submit\" (click)=\"paginate()\">Load More</button></div>\n  </div>\n\n  <!-- <ul class=\"pagination\">\n        <li><a href=\"#\"><i class=\"fa fa-angle-left\"></i></a></li>\n        <li class=\"active\"><a href=\"#\">1</a></li>\n        <li><a href=\"#\">2</a></li>\n        <li><a href=\"#\">3</a></li>\n        <li><a href=\"#\">4</a></li>\n        <li><a href=\"#\">5</a></li>\n        <li><a href=\"#\"><i class=\"fa fa-angle-right\"></i></a></li>\n      </ul> -->\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffreview/staffreview-routing.module.ts":
-  /*!**********************************************************************!*\
-    !*** ./src/app/home/staff/staffreview/staffreview-routing.module.ts ***!
-    \**********************************************************************/
+  "./src/app/home/promocode/list/list-routing.module.ts":
+  /*!************************************************************!*\
+    !*** ./src/app/home/promocode/list/list-routing.module.ts ***!
+    \************************************************************/
 
-  /*! exports provided: StaffreviewRoutingModule */
+  /*! exports provided: ListRoutingModule */
 
   /***/
-  function srcAppHomeStaffStaffreviewStaffreviewRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomePromocodeListListRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffreviewRoutingModule", function () {
-      return StaffreviewRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "ListRoutingModule", function () {
+      return ListRoutingModule;
     });
     /* harmony import */
 
@@ -836,65 +65,64 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _staffreview_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./staffreview.component */
-    "./src/app/home/staff/staffreview/staffreview.component.ts");
+    var _list_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./list.component */
+    "./src/app/home/promocode/list/list.component.ts");
 
-    console.log('+++++++++++');
     var routes = [{
       path: '',
-      component: _staffreview_component__WEBPACK_IMPORTED_MODULE_3__["StaffreviewComponent"]
+      component: _list_component__WEBPACK_IMPORTED_MODULE_3__["ListComponent"]
     }];
 
-    var StaffreviewRoutingModule = function StaffreviewRoutingModule() {
-      _classCallCheck(this, StaffreviewRoutingModule);
+    var ListRoutingModule = function ListRoutingModule() {
+      _classCallCheck(this, ListRoutingModule);
     };
 
-    StaffreviewRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    ListRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], StaffreviewRoutingModule);
+    })], ListRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffreview/staffreview.component.scss":
-  /*!*******************************************************************!*\
-    !*** ./src/app/home/staff/staffreview/staffreview.component.scss ***!
-    \*******************************************************************/
+  "./src/app/home/promocode/list/list.component.scss":
+  /*!*********************************************************!*\
+    !*** ./src/app/home/promocode/list/list.component.scss ***!
+    \*********************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeStaffStaffreviewStaffreviewComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomePromocodeListListComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".reviews {\n  text-align: right;\n  float: right;\n}\n\n.staffdetail_notifi {\n  width: 100%;\n}\n\n.btn.btn-submit {\n  margin: 10px auto 0px;\n  font-size: 15px;\n  padding: 10px 50px;\n}\n\n@media (max-width: 992px) {\n  .staffdetail_notifi {\n    padding: 0px 12px;\n  }\n}\n\n@media (max-width: 480px) {\n  .reviews {\n    text-align: left;\n    float: left;\n    display: block;\n    width: 100%;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9zdGFmZi9zdGFmZnJldmlldy9zdGFmZnJldmlldy5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS9zdGFmZi9zdGFmZnJldmlldy9zdGFmZnJldmlldy5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUFTLGlCQUFBO0VBQWtCLFlBQUE7QUNHM0I7O0FERkE7RUFBb0IsV0FBQTtBQ01wQjs7QURMQTtFQUFrQixxQkFBQTtFQUFzQixlQUFBO0VBQWdCLGtCQUFBO0FDV3hEOztBRFRBO0VBQ0k7SUFBb0IsaUJBQUE7RUNhdEI7QUFDRjs7QURYQTtFQUNBO0lBQVUsZ0JBQUE7SUFBaUIsV0FBQTtJQUFhLGNBQUE7SUFBZSxXQUFBO0VDaUJyRDtBQUNGIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9zdGFmZi9zdGFmZnJldmlldy9zdGFmZnJldmlldy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yZXZpZXdze3RleHQtYWxpZ246IHJpZ2h0O2Zsb2F0OiByaWdodDt9XG4uc3RhZmZkZXRhaWxfbm90aWZpe3dpZHRoOiAxMDAlO31cbi5idG4uYnRuLXN1Ym1pdCB7IG1hcmdpbjogMTBweCBhdXRvIDBweDtmb250LXNpemU6IDE1cHg7cGFkZGluZzogMTBweCA1MHB4O31cblxuQG1lZGlhKG1heC13aWR0aDo5OTJweCl7XG4gICAgLnN0YWZmZGV0YWlsX25vdGlmaXtwYWRkaW5nOiAwcHggMTJweDt9XG59XG5cbkBtZWRpYShtYXgtd2lkdGg6NDgwcHgpe1xuLnJldmlld3Mge3RleHQtYWxpZ246IGxlZnQ7ZmxvYXQ6IGxlZnQ7IGRpc3BsYXk6IGJsb2NrO3dpZHRoOiAxMDAlO31cblxufSIsIi5yZXZpZXdzIHtcbiAgdGV4dC1hbGlnbjogcmlnaHQ7XG4gIGZsb2F0OiByaWdodDtcbn1cblxuLnN0YWZmZGV0YWlsX25vdGlmaSB7XG4gIHdpZHRoOiAxMDAlO1xufVxuXG4uYnRuLmJ0bi1zdWJtaXQge1xuICBtYXJnaW46IDEwcHggYXV0byAwcHg7XG4gIGZvbnQtc2l6ZTogMTVweDtcbiAgcGFkZGluZzogMTBweCA1MHB4O1xufVxuXG5AbWVkaWEgKG1heC13aWR0aDogOTkycHgpIHtcbiAgLnN0YWZmZGV0YWlsX25vdGlmaSB7XG4gICAgcGFkZGluZzogMHB4IDEycHg7XG4gIH1cbn1cbkBtZWRpYSAobWF4LXdpZHRoOiA0ODBweCkge1xuICAucmV2aWV3cyB7XG4gICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgICBmbG9hdDogbGVmdDtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICB3aWR0aDogMTAwJTtcbiAgfVxufSJdfQ== */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcHJvbW9jb2RlL2xpc3QvbGlzdC5jb21wb25lbnQuc2NzcyJ9 */";
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffreview/staffreview.component.ts":
-  /*!*****************************************************************!*\
-    !*** ./src/app/home/staff/staffreview/staffreview.component.ts ***!
-    \*****************************************************************/
+  "./src/app/home/promocode/list/list.component.ts":
+  /*!*******************************************************!*\
+    !*** ./src/app/home/promocode/list/list.component.ts ***!
+    \*******************************************************/
 
-  /*! exports provided: StaffreviewComponent */
+  /*! exports provided: ListComponent */
 
   /***/
-  function srcAppHomeStaffStaffreviewStaffreviewComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomePromocodeListListComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffreviewComponent", function () {
-      return StaffreviewComponent;
+    __webpack_require__.d(__webpack_exports__, "ListComponent", function () {
+      return ListComponent;
     });
     /* harmony import */
 
@@ -911,118 +139,303 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! @angular/router */
-    "./node_modules/@angular/router/fesm2015/router.js");
+    var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/material */
+    "./node_modules/@angular/material/esm2015/material.js");
     /* harmony import */
 
 
-    var src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! src/app/shared/constants/constant */
-    "./src/app/shared/constants/constant.ts");
+    var src_app_shared_service_list_list_dataSource__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/shared/service/list/list.dataSource */
+    "./src/app/shared/service/list/list.dataSource.ts");
     /* harmony import */
 
 
-    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var src_app_shared_service_list_list_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/service/list/list.service */
+    "./src/app/shared/service/list/list.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! src/app/shared/service/http-request.service */
     "./src/app/shared/service/http-request.service.ts");
     /* harmony import */
 
 
-    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
+    /* harmony import */
+
+
+    var angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! angular5-csv/dist/Angular5-csv */
+    "./node_modules/angular5-csv/dist/Angular5-csv.js");
+    /* harmony import */
+
+
+    var angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_9___default =
+    /*#__PURE__*/
+    __webpack_require__.n(angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_9__);
+    /* harmony import */
+
+
+    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! src/app/shared/service/error.service */
     "./src/app/shared/service/error.service.ts");
+    /* harmony import */
 
-    var StaffreviewComponent =
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! @angular/common */
+    "./node_modules/@angular/common/fesm2015/common.js");
+    /* harmony import */
+
+
+    var src_app_shared_confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    /*! src/app/shared/confim-dialog/confim-dialog.component */
+    "./src/app/shared/confim-dialog/confim-dialog.component.ts");
+    /* harmony import */
+
+
+    var src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    /*! src/app/shared/constants/constant */
+    "./src/app/shared/constants/constant.ts");
+
+    var ListComponent =
     /*#__PURE__*/
     function () {
-      function StaffreviewComponent(routes, httpService, error) {
-        _classCallCheck(this, StaffreviewComponent);
+      function ListComponent(dialog, list, errsrv, httpservice, trns) {
+        _classCallCheck(this, ListComponent);
 
-        this.routes = routes;
-        this.httpService = httpService;
-        this.error = error;
-        this.limitPage = 5;
-        this.url = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_3__["IMG"].PRO;
-        this.usrurl = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_3__["IMG"].PRO;
-        this.page = 0;
+        this.dialog = dialog;
+        this.list = list;
+        this.errsrv = errsrv;
+        this.httpservice = httpservice;
+        this.trns = trns;
+        this.displayedColumns = ['position', 'name', 'coupon', 'discount', 'service', 'added', 'uses', 'from', 'to', 'action'];
+        this.limitPage = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_13__["LIMIT"];
+        this.sortData = {};
+        this.url = 'assets/images/change.png';
+        this.detail = [];
+        this.isApplied = false;
       }
 
-      _createClass(StaffreviewComponent, [{
-        key: "ngOnInit",
-        value: function ngOnInit() {
-          this.id = this.routes.snapshot.params.id;
-          this.getStaffReview();
+      _createClass(ListComponent, [{
+        key: "openDialog",
+        value: function openDialog(id) {
+          var _this = this;
+
+          var dialogRef = this.dialog.open(src_app_shared_confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_12__["ConfimDialogComponent"], {
+            width: '500px',
+            disableClose: true,
+            data: {
+              msg: "Are you sure you want to delete this Promo Code/Offer??",
+              btn: this.trns.transform('DELETE'),
+              cncl: this.trns.transform('CANCEL')
+            }
+          });
+          dialogRef.beforeClosed().subscribe(function (val) {
+            if (val) {
+              _this.httpservice.getRequest('DELETE', 'PROMO', id).subscribe(function (response) {
+                if (response.status === 1) {
+                  _this.httpservice.sucsTostr(_this.trns.transform('SUCCESS'), _this.trns.transform('DELETE_STAFF'));
+
+                  _this.getSalonStaff();
+                } else {
+                  if (response.err) _this.errsrv.handleError(response.err.errCode);
+                  return false;
+                }
+              }, function (error) {
+                _this.errsrv.handleError(0);
+              });
+            }
+          });
         }
       }, {
-        key: "getStaffReview",
-        value: function getStaffReview() {
-          var _this7 = this;
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          this.getSalonStaff();
+        } // ********************** Account Manager List Api Integration with search ******************
 
-          this.httpService.getRequest('GET_PARMS', 'STAFF_REVIEW', this.id, "".concat('limit=' + this.limitPage)).subscribe(function (response) {
-            if (response.status === 1) {
-              _this7.detail = response.res;
-            } else {
-              if (response.err) {
-                _this7.error.handleError(response.err.errCode);
-              }
-            }
-          }, function (error) {
-            _this7.error.handleError(0); // this.httpService.showError(MESSAGE.CONNECTION_MSG, MESSAGE.CONNECTION_ERROR, MESSAGE.MSGTIME);
+      }, {
+        key: "getSalonStaff",
+        value: function getSalonStaff() {
+          var _this2 = this;
 
+          this.dataSource = new src_app_shared_service_list_list_dataSource__WEBPACK_IMPORTED_MODULE_3__["ListDataSource"](this.list);
+          this.loadStaffList();
+          this.dataSource.usersData.subscribe(function (val) {
+            _this2.detail = val;
+            console.log(val);
           });
+          this.dataSource.loadingUsers.subscribe(function (e) {
+            return _this2.loading = !e;
+          });
+        }
+      }, {
+        key: "ngAfterViewInit",
+        value: function ngAfterViewInit() {
+          var _this3 = this;
+
+          this.sort.sortChange.subscribe(function () {
+            return _this3.paginator.pageIndex = 0;
+          });
+          Object(rxjs__WEBPACK_IMPORTED_MODULE_7__["merge"])(this.sort.sortChange, this.paginator.page).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["tap"])(function () {
+            return _this3.loadStaffList();
+          })).subscribe();
+        }
+      }, {
+        key: "loadStaffList",
+        value: function loadStaffList() {
+          if (this.sort.active == 'name') {
+            this.sortData.sortValue = '1';
+          } else if (this.sort.active == 'email') {
+            this.sortData.sortValue = '2';
+          } else {
+            this.sortData.sortValue = '3';
+          }
+
+          this.sortData.direction = this.sort.direction || null;
+          var listObj = {
+            page: this.paginator.pageIndex - 1 + 1,
+            limit: this.paginator.pageSize || this.limitPage[0],
+            sort_val: this.sortData.sortValue,
+            dir: this.sortData.direction == 'asc' ? '1' : '-1'
+          };
+          if (this.search) listObj['srch'] = this.search;
+          this.dataSource.load(listObj, {
+            api: 'PROMO'
+          });
+        }
+      }, {
+        key: "applyFilters",
+        value: function applyFilters() {
+          this.loadStaffList();
+          this.isApplied = true;
         }
       }, {
         key: "paginate",
         value: function paginate() {
-          this.limitPage = this.limitPage + 5;
-          this.getStaffReview();
+          this.paginator.pageSize = this.paginator.pageSize + 1;
+          this.getSalonStaff();
+        } // ********************** Account Manager List Api Integration with search End******************
+
+      }, {
+        key: "exportCSV",
+        value: function exportCSV() {
+          var _this4 = this;
+
+          this.httpservice.exportCSV('PROMO');
+          var finalData = [];
+          var obj;
+          var i = 0; // let listObj = {
+          //  all:true
+          // }
+          // this.dataSource.load(listObj, {api: 'PROMO'});
+
+          this.httpservice.getRequest('GET', 'PROMO', "?all=true").subscribe(function (rs) {
+            var datePipe = new _angular_common__WEBPACK_IMPORTED_MODULE_11__["DatePipe"]('en-US');
+            rs.res.promo.forEach(function (element) {
+              obj = {
+                "Serial": ++i,
+                "Name": element.name,
+                "Code": element.code,
+                "Discount": element.discount,
+                "Min. Price Discount": element.min_price ? element.min_price : "NA",
+                "Max. Price Discount": element.upto ? element.upto : 'NA',
+                "Total Uses": element.uses ? element.uses : "NA",
+                "Starting Date": datePipe.transform(element.frm, "dd/MM/yyyy"),
+                "Starting End": datePipe.transform(element.to, "dd/MM/yyyy"),
+                "Services": element.service ? element.service : "NA"
+              };
+              finalData.push(obj);
+            });
+            var options = {
+              noDownload: false,
+              headers: ["Serial", "Name", "Code", "Discount", "Min. Price Discount", "Max. Price Discount", "Total Uses", "Starting Date", "Starting End", "Services"]
+            };
+            new angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_9__["Angular5Csv"](finalData, 'Offer_list', options);
+
+            _this4.httpservice.sucsTostr(_this4.trns.transform('SUCCESS'), _this4.trns.transform('EXPORTD'));
+          });
+        }
+      }, {
+        key: "matPaginator",
+        set: function set(mp) {
+          this.paginator = mp;
         }
       }]);
 
-      return StaffreviewComponent;
+      return ListComponent;
     }();
 
-    StaffreviewComponent.ctorParameters = function () {
+    ListComponent.ctorParameters = function () {
       return [{
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
+        type: _angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"]
       }, {
-        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_4__["HttpRequestService"]
+        type: src_app_shared_service_list_list_service__WEBPACK_IMPORTED_MODULE_4__["ListService"]
       }, {
-        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__["ErrorService"]
+        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_10__["ErrorService"]
+      }, {
+        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_5__["HttpRequestService"]
+      }, {
+        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_6__["TranslatePipe"]
       }];
     };
 
-    StaffreviewComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-staffreview',
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatPaginator"], {
+      static: true
+    })], ListComponent.prototype, "matPaginator", null);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatSort"], {
+      static: true
+    })], ListComponent.prototype, "sort", void 0);
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('input', {
+      static: true
+    })], ListComponent.prototype, "input", void 0);
+    ListComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-list',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./staffreview.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/staff/staffreview/staffreview.component.html")).default,
+      /*! raw-loader!./list.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/promocode/list/list.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./staffreview.component.scss */
-      "./src/app/home/staff/staffreview/staffreview.component.scss")).default]
-    })], StaffreviewComponent);
+      /*! ./list.component.scss */
+      "./src/app/home/promocode/list/list.component.scss")).default]
+    })], ListComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staffreview/staffreview.module.ts":
-  /*!**************************************************************!*\
-    !*** ./src/app/home/staff/staffreview/staffreview.module.ts ***!
-    \**************************************************************/
+  "./src/app/home/promocode/list/list.module.ts":
+  /*!****************************************************!*\
+    !*** ./src/app/home/promocode/list/list.module.ts ***!
+    \****************************************************/
 
-  /*! exports provided: StaffreviewModule */
+  /*! exports provided: ListModule */
 
   /***/
-  function srcAppHomeStaffStaffreviewStaffreviewModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomePromocodeListListModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffreviewModule", function () {
-      return StaffreviewModule;
+    __webpack_require__.d(__webpack_exports__, "ListModule", function () {
+      return ListModule;
     });
     /* harmony import */
 
@@ -1045,15 +458,15 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var _staffreview_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./staffreview-routing.module */
-    "./src/app/home/staff/staffreview/staffreview-routing.module.ts");
+    var _list_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./list-routing.module */
+    "./src/app/home/promocode/list/list-routing.module.ts");
     /* harmony import */
 
 
-    var _staffreview_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./staffreview.component */
-    "./src/app/home/staff/staffreview/staffreview.component.ts");
+    var _list_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./list.component */
+    "./src/app/home/promocode/list/list.component.ts");
     /* harmony import */
 
 
@@ -1063,37 +476,26 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
     /* harmony import */
 
 
-    var ng_starrating__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! ng-starrating */
-    "./node_modules/ng-starrating/fesm2015/ng-starrating.js");
-    /* harmony import */
-
-
-    var ngx_stars__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
-    /*! ngx-stars */
-    "./node_modules/ngx-stars/fesm2015/ngx-stars.js");
-    /* harmony import */
-
-
-    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! src/app/shared/module/applicationpipe/applicationpipe.module */
     "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
     /* harmony import */
 
 
-    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/shared/_pipes/translate.pipe */
     "./src/app/shared/_pipes/translate.pipe.ts");
 
-    var StaffreviewModule = function StaffreviewModule() {
-      _classCallCheck(this, StaffreviewModule);
+    var ListModule = function ListModule() {
+      _classCallCheck(this, ListModule);
     };
 
-    StaffreviewModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_staffreview_component__WEBPACK_IMPORTED_MODULE_4__["StaffreviewComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _staffreview_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffreviewRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], ng_starrating__WEBPACK_IMPORTED_MODULE_6__["RatingModule"], ngx_stars__WEBPACK_IMPORTED_MODULE_7__["NgxStarsModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_8__["ApplicationpipeModule"]],
-      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_9__["TranslatePipe"]]
-    })], StaffreviewModule);
+    ListModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_list_component__WEBPACK_IMPORTED_MODULE_4__["ListComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _list_routing_module__WEBPACK_IMPORTED_MODULE_3__["ListRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__["ApplicationpipeModule"]],
+      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]],
+      entryComponents: []
+    })], ListModule);
     /***/
   },
 

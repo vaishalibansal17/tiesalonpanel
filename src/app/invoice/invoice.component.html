@@ -1,6 +1,6 @@
-<style>
+<style media="print">
     @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
-
+    @page { size: auto;  margin: 25mm 25mm 25mm 25mm; }
     body {
         margin: 0px !important;
         color: #000;
@@ -24,7 +24,7 @@
 </style>
 <div class="text-center">
     <button (click)="htmlToPDF()">Download PDF</button>
-    <button (click)="htmlToPDF()">Print PDF</button>
+    <button (click)="onPrintInvoice()">Print PDF</button>
 </div>
 
 <table cellpadding="0" cellspacing="0" border="0"
@@ -49,11 +49,11 @@
                         {{detail?.bookDateTime | date : 'dd, MMM yyyy h:mm a'}}</td>
                 </tr>
                 <tr>
-                    <td style="width: 185px;line-height: 26px;">Customer Name.:</td>
+                    <td style="width: 185px;line-height: 26px;">Customer Name:</td>
                     <td style="color: #909090;line-height: 26px;">{{detail?.fullname || 'NA' | titlecase}}</td>
                 </tr>
                 <tr>
-                    <td style="width: 185px;line-height: 26px;">Customer Contact.:</td>
+                    <td style="width: 185px;line-height: 26px;">Customer Contact:</td>
                     <td style="color: #909090;line-height: 26px;">{{detail?.pno || 'NA' }}</td>
                 </tr>
                 <tr>

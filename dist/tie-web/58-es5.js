@@ -2,23 +2,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[58], {
   /***/
-  "./src/app/home/staff/staff-routing.module.ts":
-  /*!****************************************************!*\
-    !*** ./src/app/home/staff/staff-routing.module.ts ***!
-    \****************************************************/
+  "./src/app/home/walking-user/walking-user-routing.module.ts":
+  /*!******************************************************************!*\
+    !*** ./src/app/home/walking-user/walking-user-routing.module.ts ***!
+    \******************************************************************/
 
-  /*! exports provided: StaffRoutingModule */
+  /*! exports provided: WalkingUserRoutingModule */
 
   /***/
-  function srcAppHomeStaffStaffRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserWalkingUserRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffRoutingModule", function () {
-      return StaffRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "WalkingUserRoutingModule", function () {
+      return WalkingUserRoutingModule;
     });
     /* harmony import */
 
@@ -44,9 +44,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(3), __webpack_require__.e("common"), __webpack_require__.e(24)]).then(__webpack_require__.bind(null,
+        [__webpack_require__.e("common"), __webpack_require__.e(51)]).then(__webpack_require__.bind(null,
         /*! ./list/list.module */
-        "./src/app/home/staff/list/list.module.ts")).then(function (mod) {
+        "./src/app/home/walking-user/list/list.module.ts")).then(function (mod) {
           return mod.ListModule;
         });
       },
@@ -55,33 +55,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         status: false
       }
     }, {
-      path: 'add',
+      path: 'add-user',
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e(50)]).then(__webpack_require__.bind(null,
-        /*! ./addstaff/addstaff.module */
-        "./src/app/home/staff/addstaff/addstaff.module.ts")).then(function (mod) {
-          return mod.AddstaffModule;
+        [__webpack_require__.e("common"), __webpack_require__.e(20)]).then(__webpack_require__.bind(null,
+        /*! ./add/add.module */
+        "./src/app/home/walking-user/add/add.module.ts")).then(function (mod) {
+          return mod.AddModule;
         });
       },
       data: {
-        title: "Add",
+        title: "Add customer",
         status: false
       }
     }, {
-      path: 'edit/:id',
+      path: 'add-booking',
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e(23)]).then(__webpack_require__.bind(null,
-        /*! ./editstaff/editstaff.module */
-        "./src/app/home/staff/editstaff/editstaff.module.ts")).then(function (mod) {
-          return mod.EditstaffModule;
+        [__webpack_require__.e(6), __webpack_require__.e("common"), __webpack_require__.e(49)]).then(__webpack_require__.bind(null,
+        /*! ./addbookings/addbookings.module */
+        "./src/app/home/walking-user/addbookings/addbookings.module.ts")).then(function (mod) {
+          return mod.AddbookingsModule;
         });
       },
       data: {
-        title: "Edit",
+        title: "Add Booking",
         status: false
       }
     }, {
@@ -89,62 +89,47 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(3), __webpack_require__.e(25)]).then(__webpack_require__.bind(null,
-        /*! ./staffdetail/staffdetail.module */
-        "./src/app/home/staff/staffdetail/staffdetail.module.ts")).then(function (mod) {
-          return mod.StaffdetailModule;
+        [__webpack_require__.e(1), __webpack_require__.e(50)]).then(__webpack_require__.bind(null,
+        /*! ./info/info.module */
+        "./src/app/home/walking-user/info/info.module.ts")).then(function (mod) {
+          return mod.InfoModule;
         });
       },
       data: {
         title: "Info",
         status: false
       }
-    }, {
-      path: 'review/:id',
-      loadChildren: function loadChildren() {
-        return Promise.all(
-        /*! import() */
-        [__webpack_require__.e(3), __webpack_require__.e(16)]).then(__webpack_require__.bind(null,
-        /*! ./staffreview/staffreview.module */
-        "./src/app/home/staff/staffreview/staffreview.module.ts")).then(function (mod) {
-          return mod.StaffreviewModule;
-        });
-      },
-      data: {
-        title: "Info / Review",
-        status: false
-      }
     }];
 
-    var StaffRoutingModule = function StaffRoutingModule() {
-      _classCallCheck(this, StaffRoutingModule);
+    var WalkingUserRoutingModule = function WalkingUserRoutingModule() {
+      _classCallCheck(this, WalkingUserRoutingModule);
     };
 
-    StaffRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    WalkingUserRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], StaffRoutingModule);
+    })], WalkingUserRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/staff/staff.module.ts":
-  /*!********************************************!*\
-    !*** ./src/app/home/staff/staff.module.ts ***!
-    \********************************************/
+  "./src/app/home/walking-user/walking-user.module.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/walking-user/walking-user.module.ts ***!
+    \**********************************************************/
 
-  /*! exports provided: StaffModule */
+  /*! exports provided: WalkingUserModule */
 
   /***/
-  function srcAppHomeStaffStaffModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserWalkingUserModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "StaffModule", function () {
-      return StaffModule;
+    __webpack_require__.d(__webpack_exports__, "WalkingUserModule", function () {
+      return WalkingUserModule;
     });
     /* harmony import */
 
@@ -167,9 +152,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _staff_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./staff-routing.module */
-    "./src/app/home/staff/staff-routing.module.ts");
+    var _walking_user_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./walking-user-routing.module */
+    "./src/app/home/walking-user/walking-user-routing.module.ts");
     /* harmony import */
 
 
@@ -177,15 +162,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! src/app/shared/shared.module */
     "./src/app/shared/shared.module.ts");
 
-    var StaffModule = function StaffModule() {
-      _classCallCheck(this, StaffModule);
+    var WalkingUserModule = function WalkingUserModule() {
+      _classCallCheck(this, WalkingUserModule);
     };
 
-    StaffModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    WalkingUserModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _staff_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"]],
-      entryComponents: []
-    })], StaffModule);
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _walking_user_routing_module__WEBPACK_IMPORTED_MODULE_3__["WalkingUserRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"]]
+    })], WalkingUserModule);
     /***/
   }
 }]);

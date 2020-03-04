@@ -13,7 +13,7 @@ import { TranslatePipe } from '../shared/_pipes/translate.pipe';
 import { BreadcrumbModule } from '../shared/breadcrumb/breadcrumb.module';
 
 
-@NgModule({
+@NgModule({ 
   declarations: [HomeComponent, SidebarComponent, HeaderComponent, SupportComponent ],
   imports: [
     CommonModule,

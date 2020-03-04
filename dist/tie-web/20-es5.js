@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[20], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender-info/managecalender-info.component.html":
-  /*!***********************************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender-info/managecalender-info.component.html ***!
-    \***********************************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/add/add.component.html":
+  /*!************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/add/add.component.html ***!
+    \************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeManageCalenderManagecalenderInfoManagecalenderInfoComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeWalkingUserAddAddComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-6 top_view\"><img [src]=\"url\" alt=\"User Add\"><span class=\"user_name\">{{detail?.fullname || 'NA'  | titlecase}}</span></div>\n        <div class=\"col-md-6 alignright\">\n            <ul class=\"inline\">\n                <li><a class=\"btn btn-export\" href=\"javascript:void(0);\">PDF</a></li>\n                <li><button class=\"action_btn red\" (click)=\"openDialog()\"><img src=\"assets/images/email_pink.png\" alt=\"Email\"></button></li>\n                <li><button><img src=\"assets/images/print.png\" alt=\"Print\"></button></li>\n            </ul>\n        </div>\n        <div class=\"row\">\n            <div class=\"col-md-9\">\n                <div class=\"row\">\n                    <div class=\"col-md-3 label\">Date:</div>\n                    <div class=\"col-md-9 description\">{{detail?.bookDateTime | date : 'dd, MMM yyyy '}}</div>\n                    <div class=\"col-md-3 label\">Time:</div>\n                    <div class=\"col-md-9 description\">{{detail?.bookDateTime | date : 'h:mm a '}}</div>\n                    <div class=\"col-md-3 label\">Booking ID:</div>\n                    <div class=\"col-md-9 description\">{{detail?.booking_id || 'NA'}}</div>\n                    <div class=\"col-md-3 label\">Staff Name:</div>\n                    <div class=\"col-md-9 description\">{{detail?.staf || 'NA' | titlecase}}</div>\n                    <div class=\"col-md-3 label\">Address:</div>\n                    <div class=\"col-md-9 description\">{{detail?.usr_address || 'NA' | titlecase}}</div>\n                    <div class=\"col-md-3 label\">Service At:</div>\n                    <div class=\"col-md-9 description\">Salon</div>\n                    <div class=\"col-md-12 label\">Booking Location:</div>\n                    <div class=\"col-md-12 description\">\n                        <div class=\"map full_width\">\n                            <agm-map [latitude]=\"detail?.loc[1]\" [longitude]=\"detail?.loc[0]\"\n                                [zoomControl]=\"true\">\n                                <agm-marker [latitude]=\"detail?.loc[1]\" [longitude]=\"detail?.loc[0]\"></agm-marker>\n                            </agm-map>\n                        </div>\n                    </div>\n                    \n                    <div class=\"col-md-12 label\">Services:</div>\n                     <div class=\"col-sm-12\">\n                        <div class=\"row\" *ngFor=\"let element of detail?.service; let i =index\">\n                            <div class=\"col-md-3 label\">{{element?.title | titlecase}}<span>{{detail?.staf || 'Anybody' | titlecase}}</span></div>\n                            <div class=\"col-md-9 description alignright\">SR{{element?.cost}}<span>{{element?.startDateTime | date : 'h:mm a'}}{{' - '}}{{element?.endDateTime | date : 'h:mm a'}}</span></div>\n                        </div>\n                        <hr/>\n                        <div class=\"row\">\n                            <div class=\"col-md-3 label\">Total amount:<span><i>(5% Vat Inclusive)</i></span></div>\n                            <div class=\"col-md-9 description alignright\">SR{{ttlamt}}</div>\n                        </div>\n                    </div>\n                    <div class=\"col-md-12 text-center\"  *ngIf=\"detail?.bookingStatus==1 \" (click)=\"compltServc()\"><a href=\"javascript:void(0);\" class=\"btn btn-submit\">Mark as Complete</a></div>\n                </div>\n            </div>\n            <div class=\"col-md-3 mobile_hidden\"></div>\n        </div>\n\n        </div>\n    </div>\n";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"custom_form\">\n        <form [formGroup]='profile' (ngSubmit)='add()'>\n            <!-- <div class=\"text-center\">\n                <div class=\"file_input\">\n                    <img [src]=\"url\" alt=\"File\">\n                </div>\n                <label for=\"\" class=\"custom_label upload-image\">\n                    <input type=\"file\" accept=\"image/jpeg,image/png\" (change)=\"readUrl($event)\">\n                    {{'Add Profile Picture'| translate}}</label>\n            </div> -->\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/email.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'EMAIL'| translate | titlecase}}\" class=\"form-control\" (keyup)=\"checkUser($event)\"\n                    formControlName=\"email\" maxlength=\"100\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted || getControl.email.dirty|| getControl.email.touched) && getControl.email.errors\">\n                <p class=\"color\" *ngIf=\"getControl.email.errors.required\">{{'LOGINEMAIL'| translate}}</p>\n                <p class=\"color\"\n                    *ngIf=\"!getControl.email.errors.required && getControl.email.errors.invalidEmailAddress\">\n                    {{'LOGINVALIDEMAIL'| translate}}</p>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img pass\"><img src=\"assets/images/edit-user.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"Full name\" class=\"form-control\" formControlName=\"name\" maxlength=\"100\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted) && getControl.name.errors\">\n                <p class=\"color\" *ngIf=\"getControl.name.errors.required\">{{'ENTRFULLNAME'| translate}}</p>\n                <p class=\"color\" *ngIf=\"!getControl.name.errors.required && getControl.name.errors.invalidName\">\n                    {{'INCRTPROMONNAME'| translate}}</p>\n            </div>\n            <mat-form-field>\n                <span class=\"email-img phone\"><img src=\"assets/images/mobile.png\" alt=\"envelope\"></span>\n                <input matInput placeholder=\"{{'PHONE'| translate | titlecase}}\"\n                    onkeypress='return event.charCode >= 48 && event.charCode <= 57' class=\"form-control\"\n                    formControlName=\"phone\" maxlength=\"12\">\n            </mat-form-field>\n            <div *ngIf=\"(submitted) && getControl.phone.errors\">\n                <p class=\"color\" *ngIf=\"getControl.phone.errors.required\">{{'PHNREQ'|translate}}</p>\n                <p class=\"color\" *ngIf=\"!getControl.phone.errors.required && getControl.phone.errors.Invalidphone \">\n                    {{'PHNLNGTH'|translate}}</p>\n            </div>\n            <div class=\"text-center\">\n                <button type=\"submit\" class=\"btn btn-submit\">Proceed</button>\n            </div>\n        </form>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/manage-calender/managecalender-info/managecalender-info-routing.module.ts":
-  /*!************************************************************************************************!*\
-    !*** ./src/app/home/manage-calender/managecalender-info/managecalender-info-routing.module.ts ***!
-    \************************************************************************************************/
+  "./src/app/home/walking-user/add/add-routing.module.ts":
+  /*!*************************************************************!*\
+    !*** ./src/app/home/walking-user/add/add-routing.module.ts ***!
+    \*************************************************************/
 
-  /*! exports provided: ManagecalenderInfoRoutingModule */
+  /*! exports provided: AddRoutingModule */
 
   /***/
-  function srcAppHomeManageCalenderManagecalenderInfoManagecalenderInfoRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddAddRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ManagecalenderInfoRoutingModule", function () {
-      return ManagecalenderInfoRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "AddRoutingModule", function () {
+      return AddRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _managecalender_info_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./managecalender-info.component */
-    "./src/app/home/manage-calender/managecalender-info/managecalender-info.component.ts");
+    var _add_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./add.component */
+    "./src/app/home/walking-user/add/add.component.ts");
 
     var routes = [{
       path: '',
-      component: _managecalender_info_component__WEBPACK_IMPORTED_MODULE_3__["ManagecalenderInfoComponent"]
+      component: _add_component__WEBPACK_IMPORTED_MODULE_3__["AddComponent"]
     }];
 
-    var ManagecalenderInfoRoutingModule = function ManagecalenderInfoRoutingModule() {
-      _classCallCheck(this, ManagecalenderInfoRoutingModule);
+    var AddRoutingModule = function AddRoutingModule() {
+      _classCallCheck(this, AddRoutingModule);
     };
 
-    ManagecalenderInfoRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    AddRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], ManagecalenderInfoRoutingModule);
+    })], AddRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/manage-calender/managecalender-info/managecalender-info.component.scss":
-  /*!*********************************************************************************************!*\
-    !*** ./src/app/home/manage-calender/managecalender-info/managecalender-info.component.scss ***!
-    \*********************************************************************************************/
+  "./src/app/home/walking-user/add/add.component.scss":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/walking-user/add/add.component.scss ***!
+    \**********************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeManageCalenderManagecalenderInfoManagecalenderInfoComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddAddComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".main-card ul.inline {\n  padding-top: 20px;\n}\n\n@media (max-width: 992px) {\n  .main-card .label, .main-card .description {\n    padding: 0px 30px;\n  }\n}\n\n@media (max-width: 767px) {\n  .main-card ul.inline {\n    text-align: left;\n  }\n\n  .main-card ul.inline li {\n    display: contents;\n  }\n\n  .main-card ul.inline li button.action_btn.red {\n    padding: 2px 12px 2px 16px;\n  }\n\n  .main-card span.user_name {\n    margin-left: 0;\n    display: block;\n    margin-top: 10px;\n  }\n\n  .main-card ul.inline {\n    padding-top: 0px;\n  }\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9tYW5hZ2UtY2FsZW5kZXIvbWFuYWdlY2FsZW5kZXItaW5mby9tYW5hZ2VjYWxlbmRlci1pbmZvLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9ob21lL21hbmFnZS1jYWxlbmRlci9tYW5hZ2VjYWxlbmRlci1pbmZvL21hbmFnZWNhbGVuZGVyLWluZm8uY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFBcUIsaUJBQUE7QUNFckI7O0FEQUE7RUFDSTtJQUEwQyxpQkFBQTtFQ0k1QztBQUNGOztBREZBO0VBQ0E7SUFBcUIsZ0JBQUE7RUNLbkI7O0VESkY7SUFBd0IsaUJBQUE7RUNRdEI7O0VEUEY7SUFBOEMsMEJBQUE7RUNXNUM7O0VEVkY7SUFBMkIsY0FBQTtJQUFlLGNBQUE7SUFBZSxnQkFBQTtFQ2dCdkQ7O0VEZkY7SUFBcUIsZ0JBQUE7RUNtQm5CO0FBQ0YiLCJmaWxlIjoic3JjL2FwcC9ob21lL21hbmFnZS1jYWxlbmRlci9tYW5hZ2VjYWxlbmRlci1pbmZvL21hbmFnZWNhbGVuZGVyLWluZm8uY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubWFpbi1jYXJkIHVsLmlubGluZXtwYWRkaW5nLXRvcDogMjBweDt9XG5cbkBtZWRpYShtYXgtd2lkdGg6OTkycHgpe1xuICAgIC5tYWluLWNhcmQgLmxhYmVsLC5tYWluLWNhcmQgLmRlc2NyaXB0aW9ue3BhZGRpbmc6IDBweCAzMHB4O31cbn1cblxuQG1lZGlhKG1heC13aWR0aDo3NjdweCl7XG4ubWFpbi1jYXJkIHVsLmlubGluZXt0ZXh0LWFsaWduOiBsZWZ0O31cbi5tYWluLWNhcmQgdWwuaW5saW5lIGxpe2Rpc3BsYXk6IGNvbnRlbnRzfVxuLm1haW4tY2FyZCB1bC5pbmxpbmUgbGkgYnV0dG9uLmFjdGlvbl9idG4ucmVke3BhZGRpbmc6IDJweCAxMnB4IDJweCAxNnB4O31cbi5tYWluLWNhcmQgc3Bhbi51c2VyX25hbWUge21hcmdpbi1sZWZ0OiAwO2Rpc3BsYXk6IGJsb2NrO21hcmdpbi10b3A6IDEwcHg7fVxuLm1haW4tY2FyZCB1bC5pbmxpbmV7cGFkZGluZy10b3A6IDBweDt9XG59IiwiLm1haW4tY2FyZCB1bC5pbmxpbmUge1xuICBwYWRkaW5nLXRvcDogMjBweDtcbn1cblxuQG1lZGlhIChtYXgtd2lkdGg6IDk5MnB4KSB7XG4gIC5tYWluLWNhcmQgLmxhYmVsLCAubWFpbi1jYXJkIC5kZXNjcmlwdGlvbiB7XG4gICAgcGFkZGluZzogMHB4IDMwcHg7XG4gIH1cbn1cbkBtZWRpYSAobWF4LXdpZHRoOiA3NjdweCkge1xuICAubWFpbi1jYXJkIHVsLmlubGluZSB7XG4gICAgdGV4dC1hbGlnbjogbGVmdDtcbiAgfVxuXG4gIC5tYWluLWNhcmQgdWwuaW5saW5lIGxpIHtcbiAgICBkaXNwbGF5OiBjb250ZW50cztcbiAgfVxuXG4gIC5tYWluLWNhcmQgdWwuaW5saW5lIGxpIGJ1dHRvbi5hY3Rpb25fYnRuLnJlZCB7XG4gICAgcGFkZGluZzogMnB4IDEycHggMnB4IDE2cHg7XG4gIH1cblxuICAubWFpbi1jYXJkIHNwYW4udXNlcl9uYW1lIHtcbiAgICBtYXJnaW4tbGVmdDogMDtcbiAgICBkaXNwbGF5OiBibG9jaztcbiAgICBtYXJnaW4tdG9wOiAxMHB4O1xuICB9XG5cbiAgLm1haW4tY2FyZCB1bC5pbmxpbmUge1xuICAgIHBhZGRpbmctdG9wOiAwcHg7XG4gIH1cbn0iXX0= */";
+    __webpack_exports__["default"] = ".file_input img {\n  border-radius: 50%;\n  height: 90px;\n  width: 90px;\n  border: 5px solid #e3e3e3;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvYWRkL2FkZC5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvYWRkL2FkZC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGtCQUFBO0VBQ0EsWUFBQTtFQUNBLFdBQUE7RUFDQSx5QkFBQTtBQ0NKIiwiZmlsZSI6InNyYy9hcHAvaG9tZS93YWxraW5nLXVzZXIvYWRkL2FkZC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIi5maWxlX2lucHV0IGltZ3tcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XG4gICAgaGVpZ2h0OiA5MHB4O1xuICAgIHdpZHRoOiA5MHB4O1xuICAgIGJvcmRlcjogNXB4IHNvbGlkICNlM2UzZTM7XG59XG4iLCIuZmlsZV9pbnB1dCBpbWcge1xuICBib3JkZXItcmFkaXVzOiA1MCU7XG4gIGhlaWdodDogOTBweDtcbiAgd2lkdGg6IDkwcHg7XG4gIGJvcmRlcjogNXB4IHNvbGlkICNlM2UzZTM7XG59Il19 */";
     /***/
   },
 
   /***/
-  "./src/app/home/manage-calender/managecalender-info/managecalender-info.component.ts":
-  /*!*******************************************************************************************!*\
-    !*** ./src/app/home/manage-calender/managecalender-info/managecalender-info.component.ts ***!
-    \*******************************************************************************************/
+  "./src/app/home/walking-user/add/add.component.ts":
+  /*!********************************************************!*\
+    !*** ./src/app/home/walking-user/add/add.component.ts ***!
+    \********************************************************/
 
-  /*! exports provided: ManagecalenderInfoComponent */
+  /*! exports provided: AddComponent */
 
   /***/
-  function srcAppHomeManageCalenderManagecalenderInfoManagecalenderInfoComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddAddComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ManagecalenderInfoComponent", function () {
-      return ManagecalenderInfoComponent;
+    __webpack_require__.d(__webpack_exports__, "AddComponent", function () {
+      return AddComponent;
     });
     /* harmony import */
 
@@ -139,114 +139,235 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! src/app/shared/constants/constant */
-    "./src/app/shared/constants/constant.ts");
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
     /* harmony import */
 
 
-    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    var src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! src/app/shared/service/validation-service */
+    "./src/app/shared/service/validation-service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
     /*! src/app/shared/service/http-request.service */
     "./src/app/shared/service/http-request.service.ts");
     /* harmony import */
 
 
-    var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! @angular/router */
     "./node_modules/@angular/router/fesm2015/router.js");
     /* harmony import */
 
 
-    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    var src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/service/helper.service */
+    "./src/app/shared/service/helper.service.ts");
+    /* harmony import */
+
+
+    var src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! src/app/shared/service/error.service */
     "./src/app/shared/service/error.service.ts");
+    /* harmony import */
 
-    var ManagecalenderInfoComponent =
+
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+    /* harmony import */
+
+
+    var src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! src/app/shared/constants/constant */
+    "./src/app/shared/constants/constant.ts");
+    /* harmony import */
+
+
+    var src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! src/app/shared/service/message.service */
+    "./src/app/shared/service/message.service.ts");
+
+    var AddComponent =
     /*#__PURE__*/
     function () {
-      function ManagecalenderInfoComponent(httpService, routes, error) {
-        _classCallCheck(this, ManagecalenderInfoComponent);
+      function AddComponent(httpService, router, messageService, helper, errorserv, trns) {
+        _classCallCheck(this, AddComponent);
 
         this.httpService = httpService;
-        this.routes = routes;
-        this.error = error;
-        this.url = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_2__["IMG"].PRO;
-        this.usrurl = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_2__["IMG"].PRO;
+        this.router = router;
+        this.messageService = messageService;
+        this.helper = helper;
+        this.errorserv = errorserv;
+        this.trns = trns;
+        this.url = src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_9__["IMG"].PRO;
+        this.isExist = false;
       }
 
-      _createClass(ManagecalenderInfoComponent, [{
+      _createClass(AddComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          this.id = this.routes.snapshot.params.id;
-          this.getUserProfile();
+          this.profile = new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormGroup"]({
+            name: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_3__["ValidationService"].namevalidator]),
+            email: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_3__["ValidationService"].validateEmail]),
+            phone: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_3__["ValidationService"].phonevalidator]),
+            description: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null, [// Validators.required,
+            _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(2), _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].maxLength(500)]),
+            multiImage: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null),
+            serviceat: new _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormControl"](null)
+          });
         }
       }, {
-        key: "getUserProfile",
-        value: function getUserProfile() {
+        key: "add",
+        value: function add() {
           var _this = this;
 
-          this.httpService.getRequest('GET_PARMS', 'BOOKING_VIEW', this.id, '').subscribe(function (response) {
-            if (response.status === 1) {
-              _this.detail = response.res;
-              _this.url = _this.detail.logo ? _this.detail.usr_bp + _this.detail.img : _this.url;
-              _this.ttlamt = _this.detail.service.reduce(function (acc, val) {
-                return acc.cost + val.cost;
+          this.submitted = true; // return false
+
+          this.formData = new FormData();
+          console.log(this.profile.value); // return
+
+          this.profile.enable();
+
+          if (this.profile.valid) {
+            if (!this.isExist) {
+              this.httpService.getRequest('POST', 'WALKING_ADD', this.profile.value).subscribe(function (response) {
+                if (response.status === 1) {
+                  _this.submitted = true;
+
+                  _this.messageService.setBooking({
+                    'user_id': response.res._id
+                  });
+
+                  _this.router.navigateByUrl('/walk-in-customer/add-booking');
+                } else {
+                  if (response.err) {
+                    _this.errorserv.handleError(response.err.errCode);
+                  }
+                }
+              }, function (error) {
+                _this.errorserv.handleError(0);
               });
-              _this.ttlamt = _this.detail.service.length == 1 ? _this.ttlamt.cost : _this.ttlamt;
             } else {
-              if (response.err) {
-                _this.error.handleError(response.err.errCode);
-              }
+              this.messageService.setBooking({
+                'user_id': this.detail._id
+              });
+              this.router.navigateByUrl('/walk-in-customer/add-booking');
             }
-          }, function (error) {
-            _this.error.handleError(0);
-          });
+          } else {
+            console.log(this.profile);
+          }
+        }
+      }, {
+        key: "readUrl",
+        value: function readUrl(event) {
+          var _this2 = this;
+
+          if (event.target.files && event.target.files[0]) {
+            if (this.helper.isImage(event.target.files[0].type)) {
+              var reader = new FileReader();
+
+              reader.onload = function (event) {
+                _this2.url = event.target.result;
+              };
+
+              reader.readAsDataURL(event.target.files[0]);
+              this.profileImage = event.target.files[0];
+            } else {// this.httpService.showError(MESSAGE.IMG_MSG, MESSAGE.IMG_ERROR, MESSAGE.MSGTIME);
+            }
+          }
+        }
+      }, {
+        key: "checkUser",
+        value: function checkUser(event) {
+          var _this3 = this;
+
+          if (this.profile.controls.email.status == 'INVALID') return;else {
+            this.httpService.getRequest('POST', 'WALKING_CHK', {
+              email: event.target.value
+            }).subscribe(function (response) {
+              if (response.status === 1) {
+                console.log(response.res);
+                _this3.detail = response.res;
+
+                _this3.profile.patchValue({
+                  name: _this3.detail.hasOwnProperty('name') ? _this3.detail.name : '',
+                  email: _this3.detail.hasOwnProperty('email') ? _this3.detail.email : '',
+                  phone: _this3.detail.hasOwnProperty('phone') ? response.res.phone : ''
+                });
+
+                _this3.isExist = true;
+
+                _this3.profile.disable();
+              } else {
+                if (response.err) {
+                  _this3.errorserv.handleError(response.err.errCode);
+                }
+              }
+            }, function (error) {
+              console.log(error);
+            });
+          }
+        }
+      }, {
+        key: "getControl",
+        get: function get() {
+          return this.profile.controls;
         }
       }]);
 
-      return ManagecalenderInfoComponent;
+      return AddComponent;
     }();
 
-    ManagecalenderInfoComponent.ctorParameters = function () {
+    AddComponent.ctorParameters = function () {
       return [{
-        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
+        type: src_app_shared_service_http_request_service__WEBPACK_IMPORTED_MODULE_4__["HttpRequestService"]
       }, {
-        type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"]
       }, {
-        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_5__["ErrorService"]
+        type: src_app_shared_service_message_service__WEBPACK_IMPORTED_MODULE_10__["MessageService"]
+      }, {
+        type: src_app_shared_service_helper_service__WEBPACK_IMPORTED_MODULE_6__["Helper"]
+      }, {
+        type: src_app_shared_service_error_service__WEBPACK_IMPORTED_MODULE_7__["ErrorService"]
+      }, {
+        type: src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_8__["TranslatePipe"]
       }];
     };
 
-    ManagecalenderInfoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-managecalender-info',
+    AddComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-add',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./managecalender-info.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/manage-calender/managecalender-info/managecalender-info.component.html")).default,
+      /*! raw-loader!./add.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/walking-user/add/add.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./managecalender-info.component.scss */
-      "./src/app/home/manage-calender/managecalender-info/managecalender-info.component.scss")).default]
-    })], ManagecalenderInfoComponent);
+      /*! ./add.component.scss */
+      "./src/app/home/walking-user/add/add.component.scss")).default]
+    })], AddComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/manage-calender/managecalender-info/managecalender-info.module.ts":
-  /*!****************************************************************************************!*\
-    !*** ./src/app/home/manage-calender/managecalender-info/managecalender-info.module.ts ***!
-    \****************************************************************************************/
+  "./src/app/home/walking-user/add/add.module.ts":
+  /*!*****************************************************!*\
+    !*** ./src/app/home/walking-user/add/add.module.ts ***!
+    \*****************************************************/
 
-  /*! exports provided: ManagecalenderInfoModule */
+  /*! exports provided: AddModule */
 
   /***/
-  function srcAppHomeManageCalenderManagecalenderInfoManagecalenderInfoModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeWalkingUserAddAddModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ManagecalenderInfoModule", function () {
-      return ManagecalenderInfoModule;
+    __webpack_require__.d(__webpack_exports__, "AddModule", function () {
+      return AddModule;
     });
     /* harmony import */
 
@@ -269,60 +390,100 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _managecalender_info_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./managecalender-info-routing.module */
-    "./src/app/home/manage-calender/managecalender-info/managecalender-info-routing.module.ts");
+    var _add_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./add-routing.module */
+    "./src/app/home/walking-user/add/add-routing.module.ts");
     /* harmony import */
 
 
-    var _managecalender_info_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./managecalender-info.component */
-    "./src/app/home/manage-calender/managecalender-info/managecalender-info.component.ts");
+    var _add_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./add.component */
+    "./src/app/home/walking-user/add/add.component.ts");
     /* harmony import */
 
 
-    var _agm_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! @agm/core */
-    "./node_modules/@agm/core/fesm2015/agm-core.js");
+    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/shared.module */
+    "./src/app/shared/shared.module.ts");
     /* harmony import */
 
 
-    var src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-    /*! src/app/shared/constants/constant */
-    "./src/app/shared/constants/constant.ts");
+    var src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! src/app/shared/module/applicationpipe/applicationpipe.module */
+    "./src/app/shared/module/applicationpipe/applicationpipe.module.ts");
+    /* harmony import */
 
-    var ManagecalenderInfoModule = function ManagecalenderInfoModule() {
-      _classCallCheck(this, ManagecalenderInfoModule);
+
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+    /* harmony import */
+
+
+    var _angular_forms__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! @angular/forms */
+    "./node_modules/@angular/forms/fesm2015/forms.js");
+
+    var AddModule = function AddModule() {
+      _classCallCheck(this, AddModule);
     };
 
-    ManagecalenderInfoModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_managecalender_info_component__WEBPACK_IMPORTED_MODULE_4__["ManagecalenderInfoComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _managecalender_info_routing_module__WEBPACK_IMPORTED_MODULE_3__["ManagecalenderInfoRoutingModule"], _agm_core__WEBPACK_IMPORTED_MODULE_5__["AgmCoreModule"].forRoot({
-        apiKey: src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_6__["MAP"].KEY,
-        libraries: [src_app_shared_constants_constant__WEBPACK_IMPORTED_MODULE_6__["MAP"].type]
-      })]
-    })], ManagecalenderInfoModule);
+    AddModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_add_component__WEBPACK_IMPORTED_MODULE_4__["AddComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_8__["ReactiveFormsModule"], _add_routing_module__WEBPACK_IMPORTED_MODULE_3__["AddRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"], src_app_shared_module_applicationpipe_applicationpipe_module__WEBPACK_IMPORTED_MODULE_6__["ApplicationpipeModule"]],
+      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_7__["TranslatePipe"]]
+    })], AddModule);
     /***/
   },
 
   /***/
-  "./src/app/shared/service/error.service.ts":
-  /*!*************************************************!*\
-    !*** ./src/app/shared/service/error.service.ts ***!
-    \*************************************************/
+  "./src/app/shared/constants/constant.ts":
+  /*!**********************************************!*\
+    !*** ./src/app/shared/constants/constant.ts ***!
+    \**********************************************/
 
-  /*! exports provided: ErrorService */
+  /*! exports provided: ERROR_MSG, LIMIT, IMG, MESSAGE, DELETE, MAP */
 
   /***/
-  function srcAppSharedServiceErrorServiceTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppSharedConstantsConstantTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ErrorService", function () {
-      return ErrorService;
+    __webpack_require__.d(__webpack_exports__, "ERROR_MSG", function () {
+      return ERROR_MSG;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "LIMIT", function () {
+      return LIMIT;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "IMG", function () {
+      return IMG;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MESSAGE", function () {
+      return MESSAGE;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "DELETE", function () {
+      return DELETE;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "MAP", function () {
+      return MAP;
     });
     /* harmony import */
 
@@ -330,130 +491,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
     /*! tslib */
     "./node_modules/tslib/tslib.es6.js");
-    /* harmony import */
 
-
-    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! @angular/core */
-    "./node_modules/@angular/core/fesm2015/core.js");
-    /* harmony import */
-
-
-    var _translate_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./translate.service */
-    "./src/app/shared/service/translate.service.ts");
-    /* harmony import */
-
-
-    var _http_request_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./http-request.service */
-    "./src/app/shared/service/http-request.service.ts"); // import { TranslatePipe } from '../_pipes/translate.pipe';
-
-
-    var ErrorService =
-    /*#__PURE__*/
-    function () {
-      function ErrorService(helper, trns) {
-        _classCallCheck(this, ErrorService);
-
-        this.helper = helper;
-        this.trns = trns;
-      }
-
-      _createClass(ErrorService, [{
-        key: "handleError",
-        value: function handleError() {
-          var errCode = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
-
-          switch (errCode) {
-            case 0:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
-              break;
-
-            case 1:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INTERNLERR']);
-              break;
-
-            case 4:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
-              break;
-
-            case 5:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['TKNREQ']);
-              break;
-
-            case 6:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDPASS']);
-              break;
-
-            case 7:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDOLDPASS']);
-              break;
-
-            case 8:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['LINKEXP']);
-              break;
-
-            case 9:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['INVALIDLINK']);
-              break;
-
-            case 31:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONOTEXIST']);
-              break;
-
-            case 34:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['PROMOALRDYEXIST']);
-              break;
-
-            case 32:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['STAFFALRDYEXIST']);
-              break;
-
-            case 15:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SALONALRDYEXIST']);
-              break;
-
-            case 39:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['MAXFILE']);
-              break;
-
-            case 41:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DEACTIVE']);
-              break;
-
-            case 42:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['DELSALONACC']);
-              break;
-
-            case 51:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['NOBOOK']);
-              break;
-
-            case 56:
-              this.helper.errTostr(this.trns.data['ERROR'], this.trns.data['SLNEXIST']);
-              break;
-
-            default:
-              break;
-          }
-        }
-      }]);
-
-      return ErrorService;
-    }();
-
-    ErrorService.ctorParameters = function () {
-      return [{
-        type: _http_request_service__WEBPACK_IMPORTED_MODULE_3__["HttpRequestService"]
-      }, {
-        type: _translate_service__WEBPACK_IMPORTED_MODULE_2__["TranslateService"]
-      }];
+    var ERROR_MSG = {
+      HTTP_SUBSCRIBER_ERROR: 'Network Error.',
+      UNAUTHURIZED_ERROR: 'You are not an authorized user.'
     };
-
-    ErrorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-      providedIn: 'root'
-    })], ErrorService);
+    var LIMIT = [10, 20, 30];
+    var IMG = {
+      PRO: 'assets/images/user-add.png',
+      USR: 'assets/images/noti-pro.png'
+    };
+    var MESSAGE = {
+      SUCCESS: 'SUCCESS',
+      FORGOT_SUC: 'Forgot Password Link has been sent successfully.',
+      FORGOT_FAIL: 'Admin not found'
+    };
+    var DELETE = {
+      DELETE_TITLE: '',
+      DELETE_MSG: 'You wont be able to revert this!',
+      DELETE_CONFIRM_TEXT: 'Yes, delete it!'
+    };
+    var MAP = {
+      KEY: "AIzaSyDiESz5lmd8ZNxAGBg3ILiQ8w9SFuYwAB8",
+      type: "places"
+    };
     /***/
   }
 }]);

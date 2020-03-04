@@ -1,71 +1,74 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[57],{
 
-/***/ "./src/app/home/profile/profile-routing.module.ts":
-/*!********************************************************!*\
-  !*** ./src/app/home/profile/profile-routing.module.ts ***!
-  \********************************************************/
-/*! exports provided: ProfileRoutingModule */
+/***/ "./src/app/home/staff/staff-routing.module.ts":
+/*!****************************************************!*\
+  !*** ./src/app/home/staff/staff-routing.module.ts ***!
+  \****************************************************/
+/*! exports provided: StaffRoutingModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileRoutingModule", function() { return ProfileRoutingModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffRoutingModule", function() { return StaffRoutingModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 
 
 
-// import { ProfileComponent } from './profile.component';
 const routes = [
-    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(3), __webpack_require__.e(36)]).then(__webpack_require__.bind(null, /*! ./viewprofile/viewprofile.module */ "./src/app/home/profile/viewprofile/viewprofile.module.ts")).then(mod => mod.ViewprofileModule) },
-    { path: 'edit', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(2), __webpack_require__.e(9)]).then(__webpack_require__.bind(null, /*! ./editprofile/editprofile.module */ "./src/app/home/profile/editprofile/editprofile.module.ts")).then(mod => mod.EditprofileModule), data: { title: "Edit", status: false } },
-    { path: 'change-password', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(0), __webpack_require__.e(35)]).then(__webpack_require__.bind(null, /*! ./changepassword/changepassword.module */ "./src/app/home/profile/changepassword/changepassword.module.ts")).then(mod => mod.ChangepasswordModule), data: { title: "Change Password", status: false } },
-    { path: 'business-hours', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(7), __webpack_require__.e(21)]).then(__webpack_require__.bind(null, /*! ./businesshours/businesshours.module */ "./src/app/home/profile/businesshours/businesshours.module.ts")).then(mod => mod.BusinesshoursModule), data: { title: "Business Hours", status: false } }
+    { path: '', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e("common"), __webpack_require__.e(18)]).then(__webpack_require__.bind(null, /*! ./list/list.module */ "./src/app/home/staff/list/list.module.ts")).then(mod => mod.ListModule), data: { title: "List", status: false } },
+    { path: 'add', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(48)]).then(__webpack_require__.bind(null, /*! ./addstaff/addstaff.module */ "./src/app/home/staff/addstaff/addstaff.module.ts")).then(mod => mod.AddstaffModule), data: { title: "Add", status: false } },
+    { path: 'edit/:id', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e("common"), __webpack_require__.e(17)]).then(__webpack_require__.bind(null, /*! ./editstaff/editstaff.module */ "./src/app/home/staff/editstaff/editstaff.module.ts")).then(mod => mod.EditstaffModule), data: { title: "Edit", status: false } },
+    { path: 'info/:id', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(19)]).then(__webpack_require__.bind(null, /*! ./staffdetail/staffdetail.module */ "./src/app/home/staff/staffdetail/staffdetail.module.ts")).then(mod => mod.StaffdetailModule), data: { title: "Info", status: false } },
+    { path: 'review/:id', loadChildren: () => Promise.all(/*! import() */[__webpack_require__.e(2), __webpack_require__.e(12)]).then(__webpack_require__.bind(null, /*! ./staffreview/staffreview.module */ "./src/app/home/staff/staffreview/staffreview.module.ts")).then(mod => mod.StaffreviewModule), data: { title: "Info / Review", status: false } },
 ];
-let ProfileRoutingModule = class ProfileRoutingModule {
+let StaffRoutingModule = class StaffRoutingModule {
 };
-ProfileRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+StaffRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
         exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
     })
-], ProfileRoutingModule);
+], StaffRoutingModule);
 
 
 
 /***/ }),
 
-/***/ "./src/app/home/profile/profile.module.ts":
-/*!************************************************!*\
-  !*** ./src/app/home/profile/profile.module.ts ***!
-  \************************************************/
-/*! exports provided: ProfileModule */
+/***/ "./src/app/home/staff/staff.module.ts":
+/*!********************************************!*\
+  !*** ./src/app/home/staff/staff.module.ts ***!
+  \********************************************/
+/*! exports provided: StaffModule */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileModule", function() { return ProfileModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffModule", function() { return StaffModule; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
-/* harmony import */ var _profile_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./profile-routing.module */ "./src/app/home/profile/profile-routing.module.ts");
+/* harmony import */ var _staff_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./staff-routing.module */ "./src/app/home/staff/staff-routing.module.ts");
+/* harmony import */ var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/shared/shared.module */ "./src/app/shared/shared.module.ts");
 
 
 
 
-// import { ProfileComponent } from './profile.component';
-let ProfileModule = class ProfileModule {
+
+let StaffModule = class StaffModule {
 };
-ProfileModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+StaffModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
         declarations: [],
         imports: [
             _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _profile_routing_module__WEBPACK_IMPORTED_MODULE_3__["ProfileRoutingModule"],
-        ]
+            _staff_routing_module__WEBPACK_IMPORTED_MODULE_3__["StaffRoutingModule"],
+            src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"],
+        ],
+        entryComponents: []
     })
-], ProfileModule);
+], StaffModule);
 
 
 

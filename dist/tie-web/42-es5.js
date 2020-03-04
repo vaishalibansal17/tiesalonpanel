@@ -6,43 +6,43 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[42], {
   /***/
-  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.html":
-  /*!****************************************************************************************************************************!*\
-    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.html ***!
-    \****************************************************************************************************************************/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/detail/detail.component.html":
+  /*!************************************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/detail/detail.component.html ***!
+    \************************************************************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function node_modulesRawLoaderDistCjsJsSrcAppHomeReportEarningEarningmonthlistEarningmonthlistComponentHtml(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesRawLoaderDistCjsJsSrcAppHomeReportTransactionDetailDetailComponentHtml(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"row report_forms\">\n        <div class=\"col-md-2\">\n            <mat-form-field>\n                <mat-label>All</mat-label>\n                <mat-select>\n                  <mat-option *ngFor=\"let time of times\" [value]=\"time.value\">\n                    {{time.viewValue}}\n                  </mat-option>\n                </mat-select>\n              </mat-form-field>\n        </div>\n\n        <div class=\"col-md-2\">\n            <mat-form-field>\n                <input matInput [matDatepicker]=\"pickerfrom\" placeholder=\"From\" class=\"form-control\">\n                <mat-datepicker-toggle matSuffix [for]=\"pickerfrom\"></mat-datepicker-toggle>\n                <mat-datepicker #pickerfrom></mat-datepicker>\n              </mat-form-field>\n        </div>\n        <div class=\"col-md-2\">\n            <mat-form-field>\n                <input matInput [matDatepicker]=\"pickerto\" placeholder=\"To\" class=\"form-control\">\n                <mat-datepicker-toggle matSuffix [for]=\"pickerto\"></mat-datepicker-toggle>\n                <mat-datepicker #pickerto></mat-datepicker>\n              </mat-form-field>\n        </div>\n\n        <div class=\"col-md-6 alignright\"><a href=\"#\" class=\"btn btn-export\">Export</a></div>\n    </div>\n\n\n    <div class=\"row\">\n        <div class=\"col-md-8\">\n            <div class=\"row\">\n                <div class=\"col-md-3 label\">Total Sales(YTD):</div>\n                <div class=\"col-md-9 description\">$1,061</div>\n                <div class=\"col-md-3 label\">Month of January:</div>\n                <div class=\"col-md-9 description\">$290</div>\n                <div class=\"col-md-3 label\">Current Week:</div>\n                <div class=\"col-md-9 description\">$100</div>\n            </div>\n        </div>\n    </div>\n    <div class=\"sales_description\">\n        <div class=\"row\">\n            <div class=\"col-md-12\">06 January, 2020</div>\n            <div class=\"col-md-6\">\n                <div class=\"row\">\n                    <div class=\"col-md-6 label\">Projected Sales:</div>\n                    <div class=\"col-md-6 description\">$1,061</div>\n                </div>\n            </div>\n            <div class=\"col-md-6\">\n                <div class=\"row\">\n                    <div class=\"col-md-6 label\">Appts Booked:</div>\n                    <div class=\"col-md-6 description\">08</div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"table_wrap mobile_hidden\">\n        <table mat-table [dataSource]=\"dataSource\" class=\"mat-elevation-z8 table_scroll\">\n            <ng-container matColumnDef=\"position\">\n              <th mat-header-cell *matHeaderCellDef>No.</th>\n              <td mat-cell *matCellDef=\"let element\">{{element.position}}</td>\n            </ng-container>\n          \n            <ng-container matColumnDef=\"month\">\n                <th mat-header-cell *matHeaderCellDef>Month</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.month}}</td>\n            </ng-container>  \n\n            <ng-container matColumnDef=\"day\">\n                <th mat-header-cell *matHeaderCellDef>Day</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.day}}</td>\n            </ng-container>  \n\n            <ng-container matColumnDef=\"order\">\n                <th mat-header-cell *matHeaderCellDef>Orders(Total Count)</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.order}}</td>\n            </ng-container>  \n\n            <ng-container matColumnDef=\"avgorder\">\n              <th mat-header-cell *matHeaderCellDef>Average Order</th>\n              <td mat-cell *matCellDef=\"let element\">{{element.avgorder}}</td>\n            </ng-container>\n\n            <ng-container matColumnDef=\"amount\">\n                <th mat-header-cell *matHeaderCellDef>Discounted Amount</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.amount}}</td>\n            </ng-container>\n            \n            <ng-container matColumnDef=\"tamount\">\n                <th mat-header-cell *matHeaderCellDef>Total Amount</th>\n                <td mat-cell *matCellDef=\"let element\">{{element.tamount}}</td>\n            </ng-container>\n         \n            <tr mat-header-row *matHeaderRowDef=\"displayedColumns\"></tr>\n            <tr mat-row *matRowDef=\"let row; columns: displayedColumns;\"></tr>\n          </table>\n        </div>\n\n        <div class=\"card_view mobile_visible\">\n            <div class=\"cards\">\n\n                <div class=\"description\">\n                <p class=\"service\"><img src=\"assets/images/calendar-pink.png\" alt=\"Order\">January, 2019</p>\n                <p class=\"service\"><img src=\"assets/images/bookings-pink.png\" alt=\"Average Order\">4(Average Order)</p>\n                <p class=\"service\"><img src=\"assets/images/commissions.png\" alt=\"Commissions\">$280</p>\n                <p class=\"service\"><img src=\"assets/images/commissions.png\" alt=\"Commissions\">$200</p>\n                </div>\n            </div>\n          </div>\n\n        <ul class=\"pagination\">\n            <li><a href=\"#\"><i class=\"fa fa-angle-left\"></i></a></li>\n            <li class=\"active\"><a href=\"#\">1</a></li>\n            <li><a href=\"#\">2</a></li>\n            <li><a href=\"#\">3</a></li>\n            <li><a href=\"#\">4</a></li>\n            <li><a href=\"#\">5</a></li>\n            <li><a href=\"#\"><i class=\"fa fa-angle-right\"></i></a></li>\n          </ul>\n</div>";
+    __webpack_exports__["default"] = "<div class=\"main-card\">\n    <div class=\"row\">\n        <div class=\"col-md-12 alignright\"><a href=\"#\" class=\"btn btn-export\">PDF</a></div>\n        <div class=\"col-md-3 label\">Customer Name:</div>\n        <div class=\"col-md-9 description\">Jane Doe</div>\n        <div class=\"col-md-3 label\">Discount:</div>\n        <div class=\"col-md-9 description\">10%</div>\n        <div class=\"col-md-3 label\">Service:</div>\n        <div class=\"col-md-9 description\">Haircut, Hair Spa</div>\n        <div class=\"col-md-3 label\">Service At:</div>\n        <div class=\"col-md-9 description\">Home</div>\n        <div class=\"col-md-3 label\">Date:</div>\n        <div class=\"col-md-9 description\">22 Oct, 2019</div>\n        <div class=\"col-md-3 label\">Status:</div>\n        <div class=\"col-md-9 description\">Completed</div>\n        <div class=\"col-md-3 label\">Coupon Code:</div>\n        <div class=\"col-md-9 description\">New Coupon</div>\n        <div class=\"col-md-3 label\">Amount:</div>\n        <div class=\"col-md-9 description\">$280</div>\n        <div class=\"col-md-3 label\">Total Amount:</div>\n        <div class=\"col-md-9 description\">$200</div>\n    </div>\n</div>";
     /***/
   },
 
   /***/
-  "./src/app/home/report/earning/earningmonthlist/earningmonthlist-routing.module.ts":
-  /*!*****************************************************************************************!*\
-    !*** ./src/app/home/report/earning/earningmonthlist/earningmonthlist-routing.module.ts ***!
-    \*****************************************************************************************/
+  "./src/app/home/report/transaction/detail/detail-routing.module.ts":
+  /*!*************************************************************************!*\
+    !*** ./src/app/home/report/transaction/detail/detail-routing.module.ts ***!
+    \*************************************************************************/
 
-  /*! exports provided: EarningmonthlistRoutingModule */
+  /*! exports provided: DetailRoutingModule */
 
   /***/
-  function srcAppHomeReportEarningEarningmonthlistEarningmonthlistRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportTransactionDetailDetailRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "EarningmonthlistRoutingModule", function () {
-      return EarningmonthlistRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "DetailRoutingModule", function () {
+      return DetailRoutingModule;
     });
     /* harmony import */
 
@@ -65,64 +65,64 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _earningmonthlist_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./earningmonthlist.component */
-    "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.ts");
+    var _detail_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./detail.component */
+    "./src/app/home/report/transaction/detail/detail.component.ts");
 
     var routes = [{
       path: '',
-      component: _earningmonthlist_component__WEBPACK_IMPORTED_MODULE_3__["EarningmonthlistComponent"]
+      component: _detail_component__WEBPACK_IMPORTED_MODULE_3__["DetailComponent"]
     }];
 
-    var EarningmonthlistRoutingModule = function EarningmonthlistRoutingModule() {
-      _classCallCheck(this, EarningmonthlistRoutingModule);
+    var DetailRoutingModule = function DetailRoutingModule() {
+      _classCallCheck(this, DetailRoutingModule);
     };
 
-    EarningmonthlistRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    DetailRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], EarningmonthlistRoutingModule);
+    })], DetailRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.scss":
-  /*!**************************************************************************************!*\
-    !*** ./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.scss ***!
-    \**************************************************************************************/
+  "./src/app/home/report/transaction/detail/detail.component.scss":
+  /*!**********************************************************************!*\
+    !*** ./src/app/home/report/transaction/detail/detail.component.scss ***!
+    \**********************************************************************/
 
   /*! exports provided: default */
 
   /***/
-  function srcAppHomeReportEarningEarningmonthlistEarningmonthlistComponentScss(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportTransactionDetailDetailComponentScss(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = ".mobile_visible .cards .description {\n  padding-top: 0px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9icmFpbm1vYmltYWMvQWJoaXNoZWsvYW5ndWxhci90aWUtd2ViL3NyYy9hcHAvaG9tZS9yZXBvcnQvZWFybmluZy9lYXJuaW5nbW9udGhsaXN0L2Vhcm5pbmdtb250aGxpc3QuY29tcG9uZW50LnNjc3MiLCJzcmMvYXBwL2hvbWUvcmVwb3J0L2Vhcm5pbmcvZWFybmluZ21vbnRobGlzdC9lYXJuaW5nbW9udGhsaXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQW9DLGdCQUFBO0FDRXBDIiwiZmlsZSI6InNyYy9hcHAvaG9tZS9yZXBvcnQvZWFybmluZy9lYXJuaW5nbW9udGhsaXN0L2Vhcm5pbmdtb250aGxpc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIubW9iaWxlX3Zpc2libGUgLmNhcmRzIC5kZXNjcmlwdGlvbntwYWRkaW5nLXRvcDogMHB4O30iLCIubW9iaWxlX3Zpc2libGUgLmNhcmRzIC5kZXNjcmlwdGlvbiB7XG4gIHBhZGRpbmctdG9wOiAwcHg7XG59Il19 */";
+    __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvcmVwb3J0L3RyYW5zYWN0aW9uL2RldGFpbC9kZXRhaWwuY29tcG9uZW50LnNjc3MifQ== */";
     /***/
   },
 
   /***/
-  "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.ts":
-  /*!************************************************************************************!*\
-    !*** ./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.ts ***!
-    \************************************************************************************/
+  "./src/app/home/report/transaction/detail/detail.component.ts":
+  /*!********************************************************************!*\
+    !*** ./src/app/home/report/transaction/detail/detail.component.ts ***!
+    \********************************************************************/
 
-  /*! exports provided: EarningmonthlistComponent */
+  /*! exports provided: DetailComponent */
 
   /***/
-  function srcAppHomeReportEarningEarningmonthlistEarningmonthlistComponentTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportTransactionDetailDetailComponentTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "EarningmonthlistComponent", function () {
-      return EarningmonthlistComponent;
+    __webpack_require__.d(__webpack_exports__, "DetailComponent", function () {
+      return DetailComponent;
     });
     /* harmony import */
 
@@ -137,132 +137,51 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
 
-    var EarningmonthlistComponent =
+    var DetailComponent =
     /*#__PURE__*/
     function () {
-      function EarningmonthlistComponent() {
-        _classCallCheck(this, EarningmonthlistComponent);
-
-        this.times = [{
-          value: 'all',
-          viewValue: 'All'
-        }, {
-          value: 'day',
-          viewValue: 'Day'
-        }, {
-          value: 'week',
-          viewValue: 'Weekly'
-        }, {
-          value: 'month',
-          viewValue: 'Monthly'
-        }];
-        this.displayedColumns = ['position', 'month', 'day', 'order', 'avgorder', 'amount', 'tamount'];
-        this.dataSource = ELEMENT_DATA;
+      function DetailComponent() {
+        _classCallCheck(this, DetailComponent);
       }
 
-      _createClass(EarningmonthlistComponent, [{
+      _createClass(DetailComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {}
       }]);
 
-      return EarningmonthlistComponent;
+      return DetailComponent;
     }();
 
-    EarningmonthlistComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-      selector: 'app-earningmonthlist',
+    DetailComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-detail',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! raw-loader!./earningmonthlist.component.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.html")).default,
+      /*! raw-loader!./detail.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/report/transaction/detail/detail.component.html")).default,
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
-      /*! ./earningmonthlist.component.scss */
-      "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.scss")).default]
-    })], EarningmonthlistComponent);
-    var ELEMENT_DATA = [{
-      position: 1,
-      month: 'January, 2019',
-      day: 'Tuesday',
-      order: 20,
-      avgorder: 12,
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 2,
-      month: 'February, 2019',
-      day: 'Tuesday',
-      order: 20,
-      avgorder: 12,
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 3,
-      month: 'March, 2019',
-      day: 'Tuesday',
-      order: 20,
-      avgorder: 12,
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 4,
-      month: 'April, 2019',
-      day: 'Tuesday',
-      order: 20,
-      avgorder: 12,
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 5,
-      month: 'May, 2019',
-      day: 'Tuesday',
-      order: 20,
-      avgorder: 12,
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 6,
-      month: 'June, 2019',
-      day: 'Tuesday',
-      order: 20,
-      avgorder: 12,
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 7,
-      month: 'July, 2019',
-      day: 'Tuesday',
-      order: 20,
-      avgorder: 12,
-      amount: '$280',
-      tamount: '$200'
-    }, {
-      position: 8,
-      month: 'August, 2019',
-      day: 'Tuesday',
-      order: 20,
-      avgorder: 12,
-      amount: '$280',
-      tamount: '$200'
-    }];
+      /*! ./detail.component.scss */
+      "./src/app/home/report/transaction/detail/detail.component.scss")).default]
+    })], DetailComponent);
     /***/
   },
 
   /***/
-  "./src/app/home/report/earning/earningmonthlist/earningmonthlist.module.ts":
-  /*!*********************************************************************************!*\
-    !*** ./src/app/home/report/earning/earningmonthlist/earningmonthlist.module.ts ***!
-    \*********************************************************************************/
+  "./src/app/home/report/transaction/detail/detail.module.ts":
+  /*!*****************************************************************!*\
+    !*** ./src/app/home/report/transaction/detail/detail.module.ts ***!
+    \*****************************************************************/
 
-  /*! exports provided: EarningmonthlistModule */
+  /*! exports provided: DetailModule */
 
   /***/
-  function srcAppHomeReportEarningEarningmonthlistEarningmonthlistModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeReportTransactionDetailDetailModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "EarningmonthlistModule", function () {
-      return EarningmonthlistModule;
+    __webpack_require__.d(__webpack_exports__, "DetailModule", function () {
+      return DetailModule;
     });
     /* harmony import */
 
@@ -285,30 +204,24 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _earningmonthlist_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./earningmonthlist-routing.module */
-    "./src/app/home/report/earning/earningmonthlist/earningmonthlist-routing.module.ts");
+    var _detail_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./detail-routing.module */
+    "./src/app/home/report/transaction/detail/detail-routing.module.ts");
     /* harmony import */
 
 
-    var _earningmonthlist_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./earningmonthlist.component */
-    "./src/app/home/report/earning/earningmonthlist/earningmonthlist.component.ts");
-    /* harmony import */
+    var _detail_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./detail.component */
+    "./src/app/home/report/transaction/detail/detail.component.ts");
 
-
-    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! src/app/shared/shared.module */
-    "./src/app/shared/shared.module.ts");
-
-    var EarningmonthlistModule = function EarningmonthlistModule() {
-      _classCallCheck(this, EarningmonthlistModule);
+    var DetailModule = function DetailModule() {
+      _classCallCheck(this, DetailModule);
     };
 
-    EarningmonthlistModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      declarations: [_earningmonthlist_component__WEBPACK_IMPORTED_MODULE_4__["EarningmonthlistComponent"]],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _earningmonthlist_routing_module__WEBPACK_IMPORTED_MODULE_3__["EarningmonthlistRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_5__["SharedModule"]]
-    })], EarningmonthlistModule);
+    DetailModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+      declarations: [_detail_component__WEBPACK_IMPORTED_MODULE_4__["DetailComponent"]],
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _detail_routing_module__WEBPACK_IMPORTED_MODULE_3__["DetailRoutingModule"]]
+    })], DetailModule);
     /***/
   }
 }]);

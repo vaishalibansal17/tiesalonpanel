@@ -2,23 +2,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[54], {
   /***/
-  "./src/app/auth/auth-routing.module.ts":
-  /*!*********************************************!*\
-    !*** ./src/app/auth/auth-routing.module.ts ***!
-    \*********************************************/
+  "./src/app/home/bookings/bookings-routing.module.ts":
+  /*!**********************************************************!*\
+    !*** ./src/app/home/bookings/bookings-routing.module.ts ***!
+    \**********************************************************/
 
-  /*! exports provided: AuthRoutingModule */
+  /*! exports provided: BookingsRoutingModule */
 
   /***/
-  function srcAppAuthAuthRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingsRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AuthRoutingModule", function () {
-      return AuthRoutingModule;
+    __webpack_require__.d(__webpack_exports__, "BookingsRoutingModule", function () {
+      return BookingsRoutingModule;
     });
     /* harmony import */
 
@@ -41,72 +41,66 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var routes = [{
       path: '',
-      redirectTo: 'login',
-      pathMatch: 'full'
-    }, {
-      path: 'forgot',
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(17)]).then(__webpack_require__.bind(null,
-        /*! ./forgot-password/forgot-password.module */
-        "./src/app/auth/forgot-password/forgot-password.module.ts")).then(function (m) {
-          return m.ForgotPasswordModule;
+        [__webpack_require__.e("common"), __webpack_require__.e(14)]).then(__webpack_require__.bind(null,
+        /*! ./list/list.module */
+        "./src/app/home/bookings/list/list.module.ts")).then(function (mod) {
+          return mod.ListModule;
         });
+      },
+      data: {
+        title: "List",
+        status: false
       }
-    }, {
-      path: 'reset/:token',
+    }, // { path: 'add', loadChildren: () => import('./addstaff/addstaff.module').then(mod => mod.AddstaffModule), data: { title: "Add", status: false } },
+    {
+      path: 'info/:id',
       loadChildren: function loadChildren() {
         return Promise.all(
         /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(29)]).then(__webpack_require__.bind(null,
-        /*! ./reset-password/reset-password.module */
-        "./src/app/auth/reset-password/reset-password.module.ts")).then(function (m) {
-          return m.ResetPasswordModule;
+        [__webpack_require__.e(1), __webpack_require__.e(10)]).then(__webpack_require__.bind(null,
+        /*! ./bookingdetail/bookingdetail.module */
+        "./src/app/home/bookings/bookingdetail/bookingdetail.module.ts")).then(function (mod) {
+          return mod.BookingdetailModule;
         });
-      }
-    }, {
-      path: 'login',
-      loadChildren: function loadChildren() {
-        return Promise.all(
-        /*! import() */
-        [__webpack_require__.e(0), __webpack_require__.e(1), __webpack_require__.e("common"), __webpack_require__.e(28)]).then(__webpack_require__.bind(null,
-        /*! ./login/login.module */
-        "./src/app/auth/login/login.module.ts")).then(function (m) {
-          return m.LoginModule;
-        });
+      },
+      data: {
+        title: "Info",
+        status: false
       }
     }];
 
-    var AuthRoutingModule = function AuthRoutingModule() {
-      _classCallCheck(this, AuthRoutingModule);
+    var BookingsRoutingModule = function BookingsRoutingModule() {
+      _classCallCheck(this, BookingsRoutingModule);
     };
 
-    AuthRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    BookingsRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
       exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-    })], AuthRoutingModule);
+    })], BookingsRoutingModule);
     /***/
   },
 
   /***/
-  "./src/app/auth/auth.module.ts":
-  /*!*************************************!*\
-    !*** ./src/app/auth/auth.module.ts ***!
-    \*************************************/
+  "./src/app/home/bookings/bookings.module.ts":
+  /*!**************************************************!*\
+    !*** ./src/app/home/bookings/bookings.module.ts ***!
+    \**************************************************/
 
-  /*! exports provided: AuthModule */
+  /*! exports provided: BookingsModule */
 
   /***/
-  function srcAppAuthAuthModuleTs(module, __webpack_exports__, __webpack_require__) {
+  function srcAppHomeBookingsBookingsModuleTs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "AuthModule", function () {
-      return AuthModule;
+    __webpack_require__.d(__webpack_exports__, "BookingsModule", function () {
+      return BookingsModule;
     });
     /* harmony import */
 
@@ -129,19 +123,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _auth_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./auth-routing.module */
-    "./src/app/auth/auth-routing.module.ts");
+    var _bookings_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./bookings-routing.module */
+    "./src/app/home/bookings/bookings-routing.module.ts");
+    /* harmony import */
 
-    var AuthModule = function AuthModule() {
-      _classCallCheck(this, AuthModule);
+
+    var src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! src/app/shared/shared.module */
+    "./src/app/shared/shared.module.ts");
+    /* harmony import */
+
+
+    var src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! src/app/shared/_pipes/translate.pipe */
+    "./src/app/shared/_pipes/translate.pipe.ts");
+
+    var BookingsModule = function BookingsModule() {
+      _classCallCheck(this, BookingsModule);
     };
 
-    AuthModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+    BookingsModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
       declarations: [],
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _auth_routing_module__WEBPACK_IMPORTED_MODULE_3__["AuthRoutingModule"]],
-      schemas: [_angular_core__WEBPACK_IMPORTED_MODULE_1__["CUSTOM_ELEMENTS_SCHEMA"]]
-    })], AuthModule);
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _bookings_routing_module__WEBPACK_IMPORTED_MODULE_3__["BookingsRoutingModule"], src_app_shared_shared_module__WEBPACK_IMPORTED_MODULE_4__["SharedModule"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ApplicationModule"]],
+      providers: [src_app_shared_pipes_translate_pipe__WEBPACK_IMPORTED_MODULE_5__["TranslatePipe"]]
+    })], BookingsModule);
     /***/
   }
 }]);
