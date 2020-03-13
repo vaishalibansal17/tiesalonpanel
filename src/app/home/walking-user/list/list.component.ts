@@ -8,6 +8,7 @@ import { merge } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
 import { DatePipe } from '@angular/common';
+import { LIMIT } from 'src/app/shared/constants/constant';
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -32,7 +33,7 @@ export interface Walkinglist {
 })
 export class ListComponent implements OnInit {
   displayedColumns: string[] = ['position', 'name', 'email','service', 'staff', 'number', 'bookingid', 'date', 'Action'];
-  limitPage = [10, 20, 30];
+  limitPage = LIMIT;
   dataSource: ListDataSource;
   search: string;
   sortData: any = {};

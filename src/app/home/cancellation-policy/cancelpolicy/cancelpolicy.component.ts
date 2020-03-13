@@ -24,10 +24,10 @@ export class CancelpolicyComponent implements OnInit {
   }
 
   openDialog(isCharge) {
-    if(this.charge && isCharge){
-      console.log('-------');
-      return;
-    }
+    // if(this.charge && isCharge){
+    //   console.log('-------');
+    //   return;
+    // }
     let msg = isCharge?"Are you sure, you want to charge?":"Are you sure, you don't want to charge?";
     const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: msg, btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
     dialogRef.beforeClosed().subscribe(

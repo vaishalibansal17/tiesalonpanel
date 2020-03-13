@@ -1,103 +1,101 @@
 <div class="main-card">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-3 label">Total Sales(YTD):</div>
+        <div class="col-md-9 description">$1,061</div>
+        <div class="col-md-3 label">Month of January:</div>
+        <div class="col-md-9 description">$290</div>
+        <div class="col-md-3 label">Current Week:</div>
+        <div class="col-md-9 description">$100</div>
+      </div>
+    </div>
+    <div class="col-md-4 alignright"><a href="javascript:void(0)" (click)="exportCSV()"
+      class="btn btn-export">Export</a></div>
+  </div>
+  <div class="sales_description">
     <div class="row">
-        <div class="col-md-8">
-            <div class="row">
-                <div class="col-md-3 label">Total Sales(YTD):</div>
-                <div class="col-md-9 description">$1,061</div>
-                <div class="col-md-3 label">Month of January:</div>
-                <div class="col-md-9 description">$290</div>
-                <div class="col-md-3 label">Current Week:</div>
-                <div class="col-md-9 description">$100</div>
-            </div>
-        </div>
-        <div class="col-md-4 alignright"><a href="#" class="btn btn-export">Export</a></div>
-    </div>
-    <div class="sales_description">
+      <div class="col-md-12">06 January, 2020</div>
+      <div class="col-md-6">
         <div class="row">
-            <div class="col-md-12">06 January, 2020</div>
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-6 label">Projected Sales:</div>
-                    <div class="col-md-6 description">$1,061</div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-6 label">Appts Booked:</div>
-                    <div class="col-md-6 description">08</div>
-                </div>
-            </div>
+          <div class="col-md-6 label">Projected Sales:</div>
+          <div class="col-md-6 description">$1,061</div>
         </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-6 label">Appts Booked:</div>
+          <div class="col-md-6 description">08</div>
+        </div>
+      </div>
     </div>
-    <div class="table_wrap mobile_hidden">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll">
-            <ng-container matColumnDef="position">
-              <th mat-header-cell *matHeaderCellDef>No.</th>
-              <td mat-cell *matCellDef="let element">{{element.position}}</td>
-            </ng-container>
-          
-            <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef>Customer Name</th>
-              <td mat-cell *matCellDef="let element">{{element.name}}</td>
-            </ng-container>
-          
-            <ng-container matColumnDef="invoice">
-              <th mat-header-cell *matHeaderCellDef>Invoice Number</th>
-              <td mat-cell *matCellDef="let element">{{element.invoice}}</td>
-            </ng-container>
-          
-            <ng-container matColumnDef="service">
-              <th mat-header-cell *matHeaderCellDef>Service</th>
-              <td mat-cell *matCellDef="let element">{{element.service}}</td>
-            </ng-container>
-          
-            <ng-container matColumnDef="serviceat">
-              <th mat-header-cell *matHeaderCellDef>Service At</th>
-              <td mat-cell *matCellDef="let element">{{element.serviceat}}</td>
-            </ng-container>
-          
-            <ng-container matColumnDef="date">
-                <th mat-header-cell *matHeaderCellDef>Date</th>
-                <td mat-cell *matCellDef="let element">{{element.date}}</td>
-            </ng-container>  
+  </div>
+  <div class="table_wrap mobile_hidden" [hidden]="(dataSource.loading$ | async)">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table_scroll" matSort>
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let post; let i =index;"> {{(paginator.pageIndex * paginator.pageSize)+i + 1}} </td>
+      </ng-container>
 
-            <ng-container matColumnDef="amount">
-                <th mat-header-cell *matHeaderCellDef>Total Amount</th>
-                <td mat-cell *matCellDef="let element">{{element.amount}}</td>
-            </ng-container>
-          
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-        </div>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Customer Name</th>
+        <td mat-cell *matCellDef="let element">{{element.name|| 'NA'}}</td>
+      </ng-container>
 
-        <div class="card_view mobile_visible">
-          <div class="cards">
-              <div class="top_info">
-                <div class="right_status">
-                  <ul>
-                    <li>22 Oct, 2019</li>
-                    <!--<li>10:00AM</li>-->
-                  </ul>
-                </div>
-              </div>
-              <div class="description">
-              <p class="user"><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
-              <p class="service"><img src="assets/images/commissions.png" alt="Commissions">#TIE1234</p>
-              <p class="service"><img src="assets/images/service-pink.png" alt="Service">Haircut, Hair Spa</p>
-              <p class="service"><img src="assets/images/location-pink.png" alt="Location">Home</p>
-              <p class="service"><img src="assets/images/discount-pink.png" alt="Discount">$100</p>
-          </div>
-          </div>
-        </div>
+      <ng-container matColumnDef="invoice">
+        <th mat-header-cell *matHeaderCellDef>Invoice Number</th>
+        <td mat-cell *matCellDef="let element">{{element?.invoice || 'NA'}}</td>
+      </ng-container>
 
-        <ul class="pagination">
-            <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+      <ng-container matColumnDef="service">
+        <th mat-header-cell *matHeaderCellDef>Service</th>
+        <td mat-cell *matCellDef="let element">{{(element.service | service) | titlecase}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="serviceat">
+        <th mat-header-cell *matHeaderCellDef>Service At</th>
+        <td mat-cell *matCellDef="let element">
+          {{element.service_at == 1?'Home':element?.service_at==2? 'Salon':'Clinic'}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let element">{{element.bookDateTime | date : 'dd MMM yyyy h:mm a'}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>Total Amount</th>
+        <td mat-cell *matCellDef="let element">{{element?.totalAmount || 'NA'}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [length]="dataSource.totalCount$ | async" [pageSize]="limitPage[0]" [pageSizeOptions]="limitPage">
+    </mat-paginator>
+    <!-- </div> -->
+    <div class="margin_center" *ngIf=" !(dataSource.loading$ | async) && ((dataSource.totalCount$ | async)<=0) ">
+      {{'NO_RCD' | translate}}
+    </div>
+  </div>
+
+  <div class="card_view mobile_visible">
+    <div class="cards">
+      <div class="top_info">
+        <div class="right_status">
+          <ul>
+            <li>22 Oct, 2019</li>
+            <!--<li>10:00AM</li>-->
           </ul>
+        </div>
+      </div>
+      <div class="description">
+        <p class="user"><img src="assets/images/user-pink.png" alt="User">Jane Doe</p>
+        <p class="service"><img src="assets/images/commissions.png" alt="Commissions">#TIE1234</p>
+        <p class="service"><img src="assets/images/service-pink.png" alt="Service">Haircut, Hair Spa</p>
+        <p class="service"><img src="assets/images/location-pink.png" alt="Location">Home</p>
+        <p class="service"><img src="assets/images/discount-pink.png" alt="Discount">$100</p>
+      </div>
+    </div>
+  </div>
 </div>

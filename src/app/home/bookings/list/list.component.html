@@ -93,6 +93,7 @@
         <!--use same class for accepted as accept and decline for declined-->
         <td mat-cell *matCellDef="let user">
           <button class="booking_btn accept"  *ngIf="user.bookingStatus==0"(click)="openDialog(user._id, 1)">{{'ACCEPT' | translate}}</button>
+          <button class="booking_btn accept"  *ngIf="user.bookingStatus==4"(click)="openDialog(user._id, 1)">{{'ACCEPT' | translate}}</button>
           <button class="booking_btn decline" *ngIf="user.bookingStatus==0" (click)="openDialog(user._id,2)">{{'REJECT' | translate}}</button>
           <button class="booking_btn decline" *ngIf="user.bookingStatus==1" (click)="openDialog(user._id, 6)">{{'DECLINE' | translate}}</button>
           <button class="booking_btn completed" *ngIf="user.bookingStatus==3" readonly>{{'COMPELETED' | translate}}</button>

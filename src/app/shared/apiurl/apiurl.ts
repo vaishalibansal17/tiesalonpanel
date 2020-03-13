@@ -40,6 +40,7 @@ export const APIURLS = {
 
     WLKBOOKING_ACPT: BASE_URL + 'walking/accept/reject',
 
+    REPORT: BASE_URL + 'salon/report/list',
 
 
 
