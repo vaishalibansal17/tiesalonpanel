@@ -35,7 +35,10 @@ export const APIURLS = {
     BOOKING_SLOT: BASE_URL + 'booking/slot',
     SND_MAIL: BASE_URL + 'booking/send/invoice',
 
-    NOTI_LIST: BASE_URL + 'notification/salon/list'
+    NOTI_LIST: BASE_URL + 'notification/salon/list',
+    NOTI_READ: BASE_URL + 'notification/salon/read',
+
+    WLKBOOKING_ACPT: BASE_URL + 'walking/accept/reject',
 
 
 

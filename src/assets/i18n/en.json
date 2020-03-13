@@ -25,7 +25,8 @@
   "NUMOFBOOKING":"No. of Bookings",
   "NUMOFWLKBOOKING":"No. of Walk-in Bookings",
   "OK": "OK",
-  
+  "STYMREQ":"Appointment time is required.",
+  "SLOTDTREQ":"Appointment Date is required.",
   "FEEDSUCCESS":"Feedback send successfully.",
   "SETSUCCESS":"Settings updated successfully.",
   "POLICYSUCCESS":"Cancellation-policy updated successfully.",
@@ -74,7 +75,7 @@
   "PRICREQ":"Price is required.",
   "STFREQ":"Staff is required.",
   "SRVREQ":"Service is required.",
-  "WALKNGSUCCESS": "User added Successfully.",
+  "WALKNGSUCCESS": "Walk-in appointment added successfully.",
   "BK_ACPT": "Booking accepted.",
   "BK_DEC": "Booking declined.",
   "BK_REJ": "Booking rejected.",

@@ -1,22 +1,20 @@
 ::-webkit-scrollbar {
-    width: 6px;
+    width: 5px;
   }
-  
-  /* Track */
+
   ::-webkit-scrollbar-track {
     border-radius: 10px;
   }
-   
-  /* Handle */
+
   ::-webkit-scrollbar-thumb {
     background: #f96bb3; 
     border-radius: 10px;
   }
-  
-  /* Handle on hover */
+
   ::-webkit-scrollbar-thumb:hover {
     background: #ff9bce; 
   }
+
 
 .main-card {
     padding: 0 !important;
@@ -24,9 +22,8 @@
         margin: 0;
     }
     .left_listing{
-        border-right: 1px solid rgba(191, 191, 191, .3);
         padding: 20px 0px 0px;
-        min-height: 600px;
+        min-height: 100px;
         max-height: 600px;
         overflow-y: auto;
     .chat_mgmt{
@@ -76,7 +73,6 @@
                         font-size: 11px;
                     }
                 }
-                .right_btn{}
             }
         }
         }

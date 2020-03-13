@@ -104,17 +104,14 @@
                     </div>
                     <div class="messages">
                         <ul *ngFor="let item of messageArray">
-                            <li class="sent">
-                                <img src="http://emilcarlsson.se/assets/mikeross.png" alt="" />
-                                <p>What are you talking about? You do what they say or they shoot you.</p>
-                            </li>
-                            <li class="replies">
+                            <li [class]="item.sndr==salonid?'replies':'sent'">
                                 <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
                                 <p>{{ item.msg }}</p>
                             </li>
                         </ul>
                         <ul *ngIf="isTyping">
                             <li class="sent">
+                                <img src="http://emilcarlsson.se/assets/harveyspecter.png" alt="" />
                                 <p>typing...</p>
                             </li>
 
@@ -136,7 +133,3 @@
         </div>
 
     </div>
-
-
-
-</div>

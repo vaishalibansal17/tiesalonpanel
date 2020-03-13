@@ -133,12 +133,12 @@ export class EditComponent implements OnInit {
             this.todaydate = new Date(this.promo.value.frm);
           } else {
             this.todaydate = new Date();
-          }
-          
+          }          
           this.chips.push(...this.detail.service);
           for (let index = 0; index < this.detail.service.length; index++) {
             this.sendServ.push(this.detail.service[index]['cat_id']);
           }
+          
         } else {
           if (response.err) {
             this.errorserv.handleError(response.err.errCode);

@@ -33,17 +33,17 @@
 <div class="row dashboard_row">
     <div class="col-md-4 dashboard_col" (click)="route('staff')">
         <div class="card" >
-            {{'NUMOFMEM' |  translate}}<span>{{(dashboard && dashboard.staffs)? dashboard.staffs :'NA'}}</span>
+            {{'NUMOFMEM' |  translate}}<span>{{(dashboard && dashboard.staffs)? dashboard.staffs :'0'}}</span>
         </div>
     </div>
     <div class="col-md-4 dashboard_col" (click)="route('booking')">
         <div class="card">
-            {{'NUMOFBOOKING' |  translate}} <span>{{(dashboard && dashboard.bookings)? dashboard.bookings :'NA'}}</span>
+            {{'NUMOFBOOKING' |  translate}} <span>{{(dashboard && dashboard.bookings)? dashboard.bookings :'0'}}</span>
         </div>
     </div>
     <div class="col-md-4 dashboard_col" (click)="route('walk-in-customer')">
         <div class="card">
-            {{'NUMOFWLKBOOKING' |  translate}} <span>{{(dashboard && dashboard.walkingBooking)? dashboard.walkingBooking :'NA'}}</span>
+            {{'NUMOFWLKBOOKING' |  translate}} <span>{{(dashboard && dashboard.walkingBooking)? dashboard.walkingBooking :'0'}}</span>
         </div>
     </div>
 </div>

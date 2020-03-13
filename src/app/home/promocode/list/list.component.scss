@@ -1,0 +1,7 @@
+.mobile_visible .cards .description{padding-top: 0px;}
+
+form{display: initial;margin-left: 15px;}
+
+@media(max-width:380px){
+    form{margin-left: 0px;}
+}

@@ -222,14 +222,24 @@ export class BusinesshoursComponent implements OnInit {
           let date = new Date();
           for (let index = 0; index < 7; index++) {
             let day = index == 0 ? 'Sunday' : (index == 1 ? 'Monday' : (index == 2 ? 'Tuesday' : (index == 3 ? 'Wednesday' : (index == 4 ? 'Thursday' : (index == 5 ? 'Friday' : 'Saturday')))))
-            console.log(detail[index]);
             let obj = detail.find(o => o.day === index) || { open_time: { hh: null, mm: null }, close_time: { hh: null, mm: null }, is_open: false, strt_break_time: { hh: null, mm: null }, end_break_time: { hh: null, mm: null }, is_break: false };
-            
             let open_time = new Date(), close_time = new Date(), op_br_tm = new Date(), cl_br_tm = new Date();
-            open_time.setUTCHours(obj.open_time.hh, obj.open_time.mm);            
-            close_time.setUTCHours(obj.close_time.hh, obj.close_time.mm);
-            op_br_tm.setUTCHours(obj.strt_break_time ? obj.strt_break_time.hh : 0, obj.strt_break_time ? obj.strt_break_time.mm : 0);
-            cl_br_tm.setUTCHours(obj.end_break_time ? obj.end_break_time.hh : 0, obj.end_break_time ? obj.end_break_time.mm : 0);
+            console.log(obj);
+
+            if (obj.open_time.hh !== null && obj.close_time.hh !== null) {
+              open_time.setUTCHours(obj.open_time.hh, obj.open_time.mm);
+              close_time.setUTCHours(obj.close_time.hh, obj.close_time.mm);
+            } else {
+              open_time.setHours(0, 0);
+              close_time.setHours(0, 0);
+            }
+            if ((obj.strt_break_time && obj.strt_break_time.hh !== null) && (obj.end_break_time.hh && obj.end_break_time.hh !== null)) {
+              op_br_tm.setUTCHours(obj.strt_break_time ? obj.strt_break_time.hh : 0, obj.strt_break_time ? obj.strt_break_time.mm : 0);
+              cl_br_tm.setUTCHours(obj.end_break_time ? obj.end_break_time.hh : 0, obj.end_break_time ? obj.end_break_time.mm : 0);
+            } else {
+              op_br_tm.setHours(0,0);
+              cl_br_tm.setHours(0,0);
+            }
             // if(detail[index]['day'] == index)
             this.form.controls[day].patchValue({
               open: open_time,

@@ -1,1 +1,8 @@
 .main-card{padding: 30px 30px 30px 15px !important;}
+.main-card .notifi_list .noti_right{display: inline-flex;}
+.left_text{
+    width: calc(100% - 255px);margin-right: 15px;
+    &:hover{
+        color: #f96bb3;
+    }
+}

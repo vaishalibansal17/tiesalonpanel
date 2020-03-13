@@ -62,7 +62,7 @@
                 </tr>
                 <tr>
                     <td style="width: 185px;line-height: 26px;">Service location:</td>
-                    <td style="color: #909090;line-height: 26px;">{{detail?.service_at || 'NA' }}</td>
+                    <td style="color: #909090;line-height: 26px;">{{detail?.service_at == 1?'Home': detail?.service_at==2? (detail?.type==3?'Clinic' : 'Salon'):'Both'}}</td>
                 </tr>
                 <tr>
                     <td style="width: 185px;line-height: 26px;">Salon Name:</td>

@@ -91,10 +91,8 @@ export class SettingsComponent implements OnInit {
     this.allow_multi = salon.allow_multi;
     this.is_notif = salon.is_notif;
     this.onl_booking = salon.onl_booking;
-    this.sch_apt = salon.slt_dur;
+    this.sch_apt = String(salon.slt_dur);
     this.is_delete = salon.is_delete;
-    console.log(salon, this.sch_apt);
-
   }
   setLang(lang: string) {
     localStorage.setItem('lang', lang);

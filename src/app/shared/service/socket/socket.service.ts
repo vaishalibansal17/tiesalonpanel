@@ -8,27 +8,40 @@ import * as io from 'socket.io-client';
 })
 export class SocketService {
 	constructor() { }
-	private socket = io('http://157.175.63.108:2050/chat');
+	private socket = io('http://157.175.63.108:2050/support/chat');
+	private notification = io('http://157.175.63.108:2050/send/notification');
 
 	connectSocket(): void {
-		this.socket.on('connection', function () {
-			console.log('check 2', this.socket);
-		});
+		this.notification.on('connection', function () { });
+		this.socket.on('connection', function () { });
 	}
 
 	joinRoom(data) {
+		this.notification.emit('notification', { userid: data.user })
 		this.socket.emit('join', data);
 	}
 
 	sendMessage(data) {
-		console.log(data);
-		
 		this.socket.emit('msg', data);
 	}
+	sendNotification(data) {
+		this.notification.emit('send', data);
+	}
 	newMessageReceived() {
-		const observable = new Observable<{msg: String ,sndr: String}>(observer => {
+		const observable = new Observable<{ msg: String, sndr: String }>(observer => {
 			this.socket.on('new msg', (data) => {
-				console.log(data);
+				observer.next(data);
+			});
+			return () => {
+				this.socket.disconnect();
+			};
+		});
+		return observable;
+	}
+
+	getNotification() {
+		const observable = new Observable<{ msg: String, sndr: String }>(observer => {
+			this.notification.on('notif reply', (data) => {
 				observer.next(data);
 			});
 			return () => {
@@ -43,6 +56,7 @@ export class SocketService {
 	}
 
 	receivedTyping() {
+		console.log('-----');
 		const observable = new Observable<{ isTyping: boolean }>(observer => {
 			this.socket.on('typing', (data) => {
 				observer.next(data);
@@ -53,5 +67,6 @@ export class SocketService {
 		});
 		return observable;
 	}
+
 
 }

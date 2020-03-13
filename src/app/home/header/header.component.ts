@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   list: any;
   url = IMG.PRO
   detailList: any;
+  ttlunread: any = 0;
 
   constructor(private httpservice: HttpRequestService, private router: Router, private message: MessageService, private trns: TranslateService, ) {
 
@@ -62,8 +63,8 @@ export class HeaderComponent implements OnInit {
       if (res.status) {
         this.imgurl = res.res.uP;
         this.list = res.res.notf;
-        this.detailList = res.res
-        console.log(this.list);
+        this.detailList = res.res;
+        this.ttlunread=res.res.unread;
       } else {
         new Error();
       }

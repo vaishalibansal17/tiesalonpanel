@@ -52,7 +52,7 @@
 
       <ng-container matColumnDef="staff">
         <th mat-header-cell *matHeaderCellDef>{{'STAFFNAME' | translate}}</th>
-        <td mat-cell *matCellDef="let element">{{element.staf_name | titlecase}}</td>
+        <td mat-cell *matCellDef="let element">{{element?.staf_name || 'Anybody' | titlecase}}</td>
       </ng-container>
 
       <ng-container matColumnDef="number">
@@ -94,9 +94,9 @@
         <td mat-cell *matCellDef="let user">
           <button class="booking_btn accept"  *ngIf="user.bookingStatus==0"(click)="openDialog(user._id, 1)">{{'ACCEPT' | translate}}</button>
           <button class="booking_btn decline" *ngIf="user.bookingStatus==0" (click)="openDialog(user._id,2)">{{'REJECT' | translate}}</button>
-          <button class="booking_btn decline" *ngIf="user.bookingStatus==1" (click)="openDialog(user._id, 2)">{{'DECLINE' | translate}}</button>
+          <button class="booking_btn decline" *ngIf="user.bookingStatus==1" (click)="openDialog(user._id, 6)">{{'DECLINE' | translate}}</button>
           <button class="booking_btn completed" *ngIf="user.bookingStatus==3" readonly>{{'COMPELETED' | translate}}</button>
-          <button class="booking_btn rejected" *ngIf="user.bookingStatus==2" readonly>{{'REJECT' | translate}}</button>
+          <button class="booking_btn rejected" *ngIf="user.bookingStatus==2" readonly>{{'Rejected' | translate}}</button>
         </td>
       </ng-container>
 
@@ -119,6 +119,8 @@
         <div class="left_status pending" *ngIf="element.bookingStatus==0">{{'PENDING' | translate}}</div>
         <div class="left_status rejected" *ngIf="element.bookingStatus==2">{{'REJECT' | translate}}</div>
         <div class="left_status pending" *ngIf="element.bookingStatus==4">{{'RESCHEDULED' | translate}}</div>
+        <div class="left_status pending" *ngIf="element.bookingStatus==4">{{'DECLINE' | translate}}</div>
+
 
         <div class="right_status">
           <ul>

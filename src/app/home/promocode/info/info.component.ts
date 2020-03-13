@@ -14,6 +14,7 @@ export class InfoComponent implements OnInit {
   url: any = IMG.PRO;
   usrurl: any = IMG.PRO
   id: any;
+  service: any;
 
   constructor(private httpService: HttpRequestService, private routes: ActivatedRoute, private error: ErrorService) { }
 
@@ -27,7 +28,7 @@ export class InfoComponent implements OnInit {
         if (response.status === 1) {
           this.detail = response.res;
           console.log(this.detail);
-          
+          this.detail.service = this.detail.service.map(y => y.cat_name).join(', ') 
         } else {
           if (response.err) {
             this.error.handleError(response.err.errCode);

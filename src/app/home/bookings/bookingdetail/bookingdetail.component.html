@@ -18,7 +18,7 @@
                     <div class="col-md-3 label">Booking ID:</div>
                     <div class="col-md-9 description">{{detail?.booking_id || 'NA'}}</div>
                     <div class="col-md-3 label">Staff Name:</div>
-                    <div class="col-md-9 description">{{detail?.staf || 'NA' | titlecase}}</div>
+                    <div class="col-md-9 description">{{detail?.staf || 'Anybody' | titlecase}}</div>
                     <div class="col-md-3 label">Address:</div>
                     <div class="col-md-9 description">{{detail?.usr_address || 'NA' | titlecase}}</div>
                     <div class="col-md-3 label">Service At:</div>
@@ -36,8 +36,8 @@
                     <div class="col-md-12 label">Services:</div>
                      <div class="col-sm-12">
                         <div class="row" *ngFor="let element of detail?.service; let i =index">
-                            <div class="col-md-3 label">{{element?.title | titlecase}}<span>{{detail?.staf || 'Anybody' | titlecase}}</span></div>
-                            <div class="col-md-9 description alignright">SR{{element?.cost}}<span>{{element?.startDateTime | date : 'h:mm a'}}{{' - '}}{{element?.endDateTime | date : 'h:mm a'}}</span></div>
+                            <div class="col-md-3 label">{{element?.title | titlecase}}</div>
+                            <div class="col-md-9 description alignright">SR{{element?.cost}}<span>{{element?.duration + 'min'}}</span></div>
                         </div>
                         <hr/>
                         <div class="row">

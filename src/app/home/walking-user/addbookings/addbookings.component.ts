@@ -41,6 +41,7 @@ export class AddbookingsComponent implements OnInit {
   slots: any;
   date: Date;
   duration: any;
+  isSlot: boolean = false;
   constructor(private httpService: HttpRequestService, private router: Router,
     private messageService: MessageService, private helper: Helper,
     private errorserv: ErrorService,
@@ -51,9 +52,9 @@ export class AddbookingsComponent implements OnInit {
     this.max = new Date(Number(this.todaydt.getFullYear()), Number(this.todaydt.getMonth() + 3), Number(this.todaydt.getDate()), (23), (59), (59), (59));
     this.responseData = this.messageService.getBooking();
     if (!this.responseData) {
-      // this.router.navigateByUrl('walk-in-customer/add-user').then(() => {
-      //   this.errorserv.handleError(0);
-      // })
+      this.router.navigateByUrl('walk-in-customer/add-user').then(() => {
+        this.errorserv.handleError(0);
+      })
     } else
       this.getServices();
 
@@ -76,6 +77,9 @@ export class AddbookingsComponent implements OnInit {
     this.submitted = true;
 
     if (this.profile.valid) {
+      if(!this.isSlot){
+        return
+      }
       // this.profile.controls['price'].enable();
       console.log(this.profile, this.date);
       this.profile.value['service'] = JSON.stringify(this.chips);
@@ -175,6 +179,7 @@ export class AddbookingsComponent implements OnInit {
   }
 
   slcdt(slot) {
+    this.isSlot = true;
     if (slot.is_avlbl) {
       this.slots.forEach((obj, i) => {
         if (obj.time == slot.time) {

@@ -14,7 +14,7 @@
                 <div class="col-md-3 label">{{"MAXDISCOUNT" | translate}}:</div>
                 <div class="col-md-9 description">{{detail && detail.upto ? detail.upto:'NA'}}</div>
                 <div class="col-md-3 label">{{"SERVICE" | translate}}:</div>
-                <div class="col-md-9 description">{{detail && detail.service.length ? detail.service:'Applicable to all Services'}}</div>
+                <div class="col-md-9 description">{{detail && detail.service.length ? (detail.service | titlecase):'Applicable to all Services'}}</div>
                 <div class="col-md-3 label">{{"ADBY" | translate}}:</div>
                 <div class="col-md-9 description">Salon</div>
                 <div class="col-md-3 label">{{"TTL_USES" | translate}}:</div>
