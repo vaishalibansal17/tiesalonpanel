@@ -19,7 +19,6 @@ export class NotificationComponent implements OnInit {
   limit: number = 10;
   // NOTI_LIST
   constructor(private httprequest: HttpRequestService, private router: Router, private err: ErrorService, public dialog: MatDialog, private trns: TranslatePipe,) { }
-
   ngOnInit() {
     this.listNoti(0);
   }
@@ -35,7 +34,6 @@ export class NotificationComponent implements OnInit {
         } else {
           new Error();
         }
-
       },
         (error) => {
           // this.httprequest.showError('Failed to get');
@@ -58,7 +56,6 @@ export class NotificationComponent implements OnInit {
             }
           })
         } else {
-          console.log(response);
           this.err.handleError(response.err.errCode)
         }
       });
@@ -67,12 +64,10 @@ export class NotificationComponent implements OnInit {
 
 
   openDialog(id, type) {
-    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: `${'Are you sure you want to '}${type == 1 ? 'accept' : 'reject' + ' this Booking?'}`, btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
+    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: `${'Are you sure you want to '}${type == 1 ? 'accept' :  (type == 2?'reject':'decline')}${' this Booking?'}`, btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
     dialogRef.beforeClosed().subscribe(
       (val) => {
         if (val) {
-          console.log(id);
-
           this.httprequest.getRequest('PUT', 'BOOKING_ACPT', { bk_status: type }, id)
             .subscribe((response: any) => {
               if (response.status === 1) {

@@ -58,7 +58,7 @@ export class ListComponent implements OnInit {
   constructor(public dialog: MatDialog, private list: ListService, private errsrv: ErrorService, private httpservice: HttpRequestService, private trns: TranslatePipe, ) { }
 
   openDialog(id, type) {
-    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: `${'Are you sure you want to '}${type == 1 ? 'accept' : (type == 2?'reject':'decline') + ' the Booking?'}`, btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
+    const dialogRef = this.dialog.open(ConfimDialogComponent, { width: '500px', disableClose: true, data: { msg: `${'Are you sure you want to '}${type == 1 ? 'accept' : (type == 2?'reject':'decline')}${' the Booking?'}`, btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
     dialogRef.beforeClosed().subscribe(
       (val) => {
         if (val) {

@@ -15,7 +15,7 @@
               <li>              
                 <button mat-button [matMenuTriggerFor]="dropdown_notification" [disableRipple]="true"><mat-icon>notifications_none</mat-icon> <span class="badge">{{ttlunread}}</span></button>
                 <mat-menu #dropdown_notification="matMenu" xPosition="before">
-                    <div class="notifi_list" *ngFor="let list of list;" (click)="slct()">
+                    <div [class]="list?.is_read==0?'notifi_list unread' : 'notifi_list'" *ngFor="let list of list;" (click)="slct()">
                         <div class="noti_left"><img [src]="list?.img?((imgurl)+list.img):url" alt="Notification Profile"></div>
                         <div class="noti_right">
                           {{list?.msg}}

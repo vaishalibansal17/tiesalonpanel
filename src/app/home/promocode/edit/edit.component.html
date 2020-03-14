@@ -87,7 +87,7 @@
                 <div class="col-md-6 left">
                     <mat-form-field>
                         <span class="email-img pass"><img src="assets/images/calendar_form.png" alt="From"></span>
-                        <input matInput placeholder="From" class="form-control" [min]="todaydate" [matDatepicker]="fromDatepicker"
+                        <input matInput placeholder="From" class="form-control" [min]="todaydate" (dateChange)="checkDate('change', $event)" [matDatepicker]="fromDatepicker"
                             formControlName="frm" disabled>
                         <mat-datepicker-toggle matSuffix [for]="fromDatepicker">
                             <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
@@ -104,7 +104,7 @@
                 <div class="col-md-6 right">
                     <mat-form-field>
                         <span class="email-img pass"><img src="assets/images/calendar_form.png" alt="From"></span>
-                        <input matInput placeholder="To" class="form-control" [min]="todaydate" [matDatepicker]="toDatepicker"
+                        <input matInput placeholder="To" class="form-control" [min]="mindate" [matDatepicker]="toDatepicker"
                             formControlName="to" disabled>
                         <mat-datepicker-toggle matSuffix [for]="toDatepicker">
                             <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>

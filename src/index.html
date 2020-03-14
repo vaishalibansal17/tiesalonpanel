@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>TieWeb</title>
@@ -8,7 +9,21 @@
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.jpg">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <body>
-  <app-root><p>loading...</p></app-root>
+  <app-root>
+    <p>loading...</p>
+  </app-root>
+  <!-- Start of REVE Chat Script-->
+  <script type='text/javascript'>
+    window.$_REVECHAT_API || (function (d, w) {
+      var r = $_REVECHAT_API = function (c) { r._.push(c); }; w.__revechat_account = '6876176'; w.__revechat_version = 2;
+      r._ = []; var rc = d.createElement('script'); rc.type = 'text/javascript'; rc.async = true; rc.setAttribute('charset', 'utf-8');
+      rc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'static.revechat.com/widget/scripts/new-livechat.js?' + new Date().getTime();
+      var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(rc, s);
+    })(document, window);
+  </script>
+  <!-- End of REVE Chat Script -->
 </body>
+
 </html>

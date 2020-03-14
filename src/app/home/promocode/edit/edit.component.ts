@@ -8,6 +8,7 @@ import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { ValidationService } from 'src/app/shared/service/validation-service';
 import * as _ from "lodash";
 import { MatSelect } from '@angular/material';
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-edit',
@@ -16,6 +17,7 @@ import { MatSelect } from '@angular/material';
 })
 export class EditComponent implements OnInit {
   todaydate: Date = new Date();
+  mindate: Date = new Date();
   services = [];
   chips = [];
   submitted = false;
@@ -38,7 +40,7 @@ export class EditComponent implements OnInit {
     this.getServices();
     this.getUserProfile();
     this.promo = new FormGroup({
-      name: new FormControl(null, [Validators.required, ValidationService.namevalidator]),
+      name: new FormControl(null, [Validators.required]),
       code: new FormControl(null, [Validators.required, ValidationService.codeValidator]),
       discount: new FormControl(null, [Validators.required, ValidationService.numberValidator]),
       upto: new FormControl(null, [ValidationService.numberValidator]),
@@ -152,7 +154,7 @@ export class EditComponent implements OnInit {
   slctsrv(state: any) {
     const matSelect: MatSelect = state.source;
     matSelect.writeValue(null);
-    state = state.value;
+    state = state.value;    
     if (!this.arraySearch(this.sendServ, state)) {
       this.chips.push({ _id: state._id, cat_id: state.cat_id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)) });
       this.sendServ.push(state.cat_id);
@@ -165,6 +167,10 @@ export class EditComponent implements OnInit {
     this.chips = this.chips.filter(v => v._id !== data._id);
     this.sendServ = this.sendServ.filter(v => v !== data.cat_id);
   }
+
+  checkDate(type: string, event: MatDatepickerInputEvent<Date>){
+    this.mindate = new Date(event.value);    
+}
 
   arraySearch(arr, value) {
     let isFound = false;

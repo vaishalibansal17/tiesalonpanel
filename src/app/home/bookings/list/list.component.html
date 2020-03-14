@@ -115,13 +115,18 @@
     <div class="cards" *ngFor="let element of detail; let i =index">
       <div class="top_info">
         <!--add class for background color confirmed, pending, rejected, completed-->
-        <div class="left_status confirmed">confirmed</div>
+        <!-- <div class="left_status confirmed">confirmed</div>
         <div class="left_status completed" *ngIf="element.bookingStatus==3">{{'COMPELETED' | translate}}</div>
         <div class="left_status pending" *ngIf="element.bookingStatus==0">{{'PENDING' | translate}}</div>
         <div class="left_status rejected" *ngIf="element.bookingStatus==2">{{'REJECT' | translate}}</div>
         <div class="left_status pending" *ngIf="element.bookingStatus==4">{{'RESCHEDULED' | translate}}</div>
-        <div class="left_status pending" *ngIf="element.bookingStatus==4">{{'DECLINE' | translate}}</div>
-
+        <div class="left_status pending" *ngIf="element.bookingStatus==4">{{'DECLINE' | translate}}</div> -->
+        <div class="left_status confirmed" *ngIf="element.bookingStatus==1">{{'CONFIRMD' | translate}}</div>
+        <div class="left_status completed" *ngIf="element.bookingStatus==3">{{'COMPELETED' | translate}}</div>
+        <div class="left_status pending" *ngIf="element.bookingStatus==0">{{'PENDING' | translate}}</div>
+        <div class="left_status rejected" *ngIf="element.bookingStatus==2">{{'REJECT' | translate}}</div>
+        <div class="left_status pending" *ngIf="element.bookingStatus==4">{{'RESCHEDULED' | translate}}</div>
+        <div class="left_status pending" *ngIf="element.bookingStatus==5">{{'STATUS' | translate}}</div>
 
         <div class="right_status">
           <ul>

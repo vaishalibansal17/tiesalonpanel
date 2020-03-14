@@ -77,7 +77,7 @@ export class AddbookingsComponent implements OnInit {
     this.submitted = true;
 
     if (this.profile.valid) {
-      if(!this.isSlot){
+      if(this.isSlot){
         return
       }
       // this.profile.controls['price'].enable();
@@ -154,6 +154,7 @@ export class AddbookingsComponent implements OnInit {
   }
   slctstf() {
     if (this.profile.value.dttime && this.profile.value.staf_id) {
+      this.isSlot = true;
       // let date = new Date(this.profile.value.dttime);
       let date = this.helper.utcDate(this.profile.value.dttime);
       console.log(this.helper.utcDate(this.profile.value.dttime));
@@ -179,7 +180,7 @@ export class AddbookingsComponent implements OnInit {
   }
 
   slcdt(slot) {
-    this.isSlot = true;
+    this.isSlot = false;
     if (slot.is_avlbl) {
       this.slots.forEach((obj, i) => {
         if (obj.time == slot.time) {

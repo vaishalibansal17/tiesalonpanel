@@ -1,10 +1,10 @@
 <!-- <app-breadcrumb></app-breadcrumb> -->
 <div class="main-card">
    
-    <div [class]="list?.is_read==0?'notifi_list unread' : 'notifi_list'" *ngFor="let list of list;" (click)="slct(list)" >
+    <div [class]="list?.is_read==0?'notifi_list unread' : 'notifi_list'" *ngFor="let list of list;"  >
         <div class="noti_left"><img [src]="list?.img?((imgurl)+list.img):url" alt="Notification Profile"></div>
-        <div class="noti_right">
-            <div class="cursor left_text">{{list?.msg}}</div>
+        <div class="noti_right" >
+            <div class="cursor left_text" (click)="slct(list)">{{list?.msg}}</div>
             <span class="right_btn">
                 <!-- <a href="javascript:void(0)" [routerLink]="['/booking/info', list?.bk_id]" class="btn btn-accept">View</a> -->
                 <!-- <span> -->

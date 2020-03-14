@@ -18,6 +18,9 @@
   "WEEKOFF" : "إسبوع إجازة",
   "ALLBOOKING":"جميع الحجوزات",
 
+  "NUMOFSERVICES":"Number of Services",
+  "DECLINE" : "Decline",
+
   "SLNOFF":"Your salon is not working on this day.",
   "POLICYSUCCESS":"Cancellation-policy updated successfully.",
   "STYMREQ":"Appointment time is required.",

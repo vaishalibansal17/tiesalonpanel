@@ -70,6 +70,8 @@ export class HttpRequestService {
 	}
 
 	arraySearch(arr, value) {
+		console.log(arr, value);
+		
 		let isFound = false;
 		if (arr.length) {
 			for (let k = 0; k < arr.length; k++) {

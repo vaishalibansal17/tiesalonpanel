@@ -59,8 +59,8 @@
                     <p [class]="slots?.select?'slct':''">{{(slots?.time | timeFilter) | date : 'h:mm a'}}</p>
                 </span>
             </div>
-            <div *ngIf="(submitted && !isSlot)">
-                <p class="color error" *ngIf="!isSlot">{{'STYMREQ'|translate}}</p>
+            <div *ngIf="(submitted && isSlot)">
+                <p class="color error" *ngIf="isSlot">{{'STYMREQ'|translate}}</p>
             </div>
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/description.png" alt="envelope"></span>

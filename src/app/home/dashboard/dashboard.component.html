@@ -46,4 +46,9 @@
             {{'NUMOFWLKBOOKING' |  translate}} <span>{{(dashboard && dashboard.walkingBooking)? dashboard.walkingBooking :'0'}}</span>
         </div>
     </div>
+    <div class="col-md-4 dashboard_col" (click)="route('profile')">
+        <div class="card">
+            {{'NUMOFSERVICES' |  translate}} <span>{{(dashboard && dashboard.services)? dashboard.services :'0'}}</span>
+        </div>
+    </div>
 </div>

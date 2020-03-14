@@ -8,7 +8,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { ValidationService, date } from 'src/app/shared/service/validation-service';
 import * as _ from "lodash";
 import { MatSelect } from '@angular/material';
-
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 export interface Service {
   value: string;
   viewValue: string;
@@ -23,6 +23,7 @@ export class AddComponent implements OnInit {
   services: Service[];
   chips = [];
   todaydate: Date = new Date();
+  mindate: Date = new Date();
   submitted = false;
   dataSource = [];
   selectable = true;
@@ -30,6 +31,7 @@ export class AddComponent implements OnInit {
   sendServ = [];
   promo: FormGroup;
   validDte: boolean = true;
+  
   constructor(private httpService: HttpRequestService, private router: Router, private fb: FormBuilder,
     private routes: ActivatedRoute, private helper: Helper,
     private errorserv: ErrorService,
@@ -41,7 +43,7 @@ export class AddComponent implements OnInit {
 
     this.promo = this.fb.group({
       name: new FormControl(null, [
-        Validators.required, ValidationService.namevalidator
+        Validators.required
       ]),
       code: new FormControl(null, [
         Validators.required, ValidationService.codeValidator
@@ -134,14 +136,29 @@ export class AddComponent implements OnInit {
   slctsrv(state: any) {    
     const matSelect: MatSelect = state.source;
     matSelect.writeValue(null);
+    
     // let isFound = this.httpService.arraySearch(this.sendServ, state)
     state=state.value
-    if (!this.httpService.arraySearch(this.sendServ, state)) {
+    console.log(state);
+    if (!this.arraySearch(this.sendServ, state)) {
       this.chips.push({ id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)), title: _.startCase(_.camelCase(state.cat_name)), price: state.price });
       this.sendServ.push(state.cat_id);
       return
     } else {
     }
+  }
+
+  arraySearch(arr, value) {
+    let isFound = false;
+    if (arr.length) {
+      for (let k = 0; k < arr.length; k++) {
+        if (arr[k] === value.cat_id) {
+          isFound = true; break;
+        }
+      }
+      return isFound;
+    }
+    return false
   }
 
 
@@ -150,5 +167,7 @@ export class AddComponent implements OnInit {
     this.chips = this.chips.filter(v => v.id !== data.id);
     this.sendServ = this.sendServ.filter(v => v !== data.id);
   }
-
+  checkDate(type: string, event: MatDatepickerInputEvent<Date>){
+      this.mindate = new Date(event.value);    
+  }
 }
