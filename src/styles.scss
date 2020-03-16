@@ -339,7 +339,8 @@ ul.breadcrumb li a{color: #F96BB3;}
         float: left;
         text-align: center;
         img{
-            width: 40px;
+            width: 40px !important;
+            height: 40px !important;
         }
     }
     .noti_right{
@@ -915,6 +916,8 @@ img.full_width{width:100%;margin-bottom: 20px;}
         .add{
             font-family: 'Conv_GothamRounded-Medium';
             font-size: 14px;
+            display: inline-block;
+            cursor: pointer;
             img{
                 margin-right: 5px;
             }
@@ -1777,5 +1780,8 @@ button.chatbox-close,button.chatbox-open{padding: 10px;}
     transition: all 0.75s ease;
   } 
   .fc-day-grid-event .fc-content{white-space: normal;}
-
+  body .fc .fc-toolbar .fc-button-group .fc-button:focus{box-shadow: none;}
+  body .fc .fc-toolbar .fc-button {background-color: #f96bb3 !important;border: 1px solid #f96bb3 !important;}
+  body .fc .fc-toolbar .fc-button.fc-button-active {background-color: #de5a9d !important;border: #de5a9d !important;}
+  body .fc .fc-event {background-color: #2196f3 !important;border: 1px solid #2196f3 !important;text-transform: capitalize;}
 
