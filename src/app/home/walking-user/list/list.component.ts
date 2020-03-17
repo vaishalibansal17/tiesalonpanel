@@ -32,7 +32,7 @@ export interface Walkinglist {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'email','service', 'staff', 'number', 'bookingid', 'date', 'Action'];
+  displayedColumns: string[] = ['position', 'name', 'email','service', 'staff', 'number', 'bookingid', 'date', 'Action', 'Status'];
   limitPage = LIMIT;
   dataSource: ListDataSource;
   search: string;
@@ -127,11 +127,11 @@ export class ListComponent implements OnInit {
       rs.res.wlkUsr.forEach(element => {
         obj = {
           "Serial": ++i,
-          "Name": element.fullname? element.fullname:'NA',
+          "Name": element.name? element.name:'NA',
           "Email": element.email?element.email:'NA',
           "Services": element.service?element.service:"NA",
           "Staff": element.staff?element.staff:'NA',
-          "Contact Number": element.pno?element.pno:'NA',
+          "Contact Number": element.phone?element.phone:'NA',
           "Booking-Id": element.bookingid?element.bookingid:"NA",
           "Date": datePipe.transform(element.bookDateTime, "dd/MM/yyyy"),
         };

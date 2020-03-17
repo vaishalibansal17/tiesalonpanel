@@ -31,7 +31,7 @@
                         <div class="author-review">
                             <div class="author">{{review.name | titlecase}}</div>
                             <div class="reviews">
-                                <div class="staffdetail_staff"><ngx-stars [readonly]="true" [color]="'#f7c133'" [size]="5" [initialStars]="review.rvw_rt"></ngx-stars></div>
+                                <div class="staffdetail_staff"><ngx-stars [readonly]="true" [color]="'#f7c133'" [size]="5" [initialStars]="review.rvw_rt | number :'1.0-0'"></ngx-stars></div>
                             </div>
                         </div>
                         {{review.comment}}

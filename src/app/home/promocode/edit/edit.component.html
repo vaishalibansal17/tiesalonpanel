@@ -121,7 +121,7 @@
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/description.png" alt="envelope"></span>
                 <textarea matInput placeholder="{{'DESCRIPTION'| translate}}" class="form-control"
-                    formControlName="desc" maxlength="500"></textarea>
+                    formControlName="desc" maxlength="150"></textarea>
             </mat-form-field>
             <div
                 *ngIf="(submitted || getControl.desc.dirty|| getControl.desc.touched) && getControl.desc.errors">

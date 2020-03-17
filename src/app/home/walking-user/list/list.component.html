@@ -79,6 +79,18 @@
                 src="assets/images/view.png" alt="View"></a></button>
         </td>
       </ng-container>
+      <ng-container matColumnDef="Status">
+        <th mat-header-cell *matHeaderCellDef> Status </th>
+        <td mat-cell *matCellDef="let element">
+          <span class="confirmed" *ngIf="element.bookingStatus==1">{{'CONFIRMD' | translate}}</span>
+          <span class="completed" *ngIf="element.bookingStatus==3">{{'COMPELETED' | translate}}</span>
+          <span class="pending" *ngIf="element.bookingStatus==0">{{'PENDING' | translate}}</span>
+          <span class="rejected" *ngIf="element.bookingStatus==2">{{'REJECT' | translate}}</span>
+          <span class="pending" *ngIf="element.bookingStatus==4">{{'RESCHEDULED' | translate}}</span>
+          <span class="pending" *ngIf="element.bookingStatus==5">{{'STATUS' | translate}}</span>
+        </td>
+      </ng-container>
+      
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>

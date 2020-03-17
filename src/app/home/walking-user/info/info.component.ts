@@ -20,6 +20,8 @@ export class InfoComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.routes.snapshot.params.id;
+    console.log(this.detail, '========');
+
     this.getUserProfile();
   }
   getUserProfile() {
@@ -27,6 +29,8 @@ export class InfoComponent implements OnInit {
       .subscribe((response: any) => {
         if (response.status === 1) {
           this.detail = response.res;
+          console.log(this.detail);
+          
           this.ttlamt = this.detail.service.reduce((acc, val) => acc.cost + val.cost );
           this.ttlamt = this.detail.service.length==1?this.ttlamt.cost:this.ttlamt;
         } else {
