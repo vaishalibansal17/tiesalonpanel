@@ -98,7 +98,6 @@ export class EditstaffComponent implements OnInit {
             description: this.detail.hasOwnProperty('desc') ? this.detail.desc : '',
             day_off: this.detail.hasOwnProperty('day_off') ? this.detail.day_off : '',
             isAvailable: this.detail.hasOwnProperty('avlblity') ? this.detail.avlblity : true,
-
           });
           this.chips.push(...this.detail.services);
           for (let index = 0; index < this.detail.services.length; index++) {

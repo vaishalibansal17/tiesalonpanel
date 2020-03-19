@@ -6,3 +6,11 @@
         color: #f96bb3;
     }
 }
+
+@media(max-width:767px){
+    .main-card {padding: 15px !important;}
+    .main-card .notifi_list .noti_right{display: block;padding: 5px 0px;}
+    .left_text {width: 100%;margin-right: 15px;padding-right: 15px;}
+    .main-card .notifi_list .noti_right span.right_btn {float: none;margin-top: 7px;display: block;}
+    .main-card .notifi_list .noti_right span.right_btn a.btn.btn-accept, .main-card .notifi_list .noti_right span.right_btn a.btn.btn-decline{margin-bottom: 7px;}
+}

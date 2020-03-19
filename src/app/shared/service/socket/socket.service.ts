@@ -56,7 +56,6 @@ export class SocketService {
 	}
 
 	receivedTyping() {
-		console.log('-----');
 		const observable = new Observable<{ isTyping: boolean }>(observer => {
 			this.socket.on('typing', (data) => {
 				observer.next(data);

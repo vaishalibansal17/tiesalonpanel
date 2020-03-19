@@ -65,3 +65,8 @@ label.block{display: block}
 .custom_form mat-form-field.mat-form-field.multi_field{border:none}
 .custom_form span.email-img.descrip{top: 16px;}
 .main-card .setting_list{border-bottom: none;margin-bottom: 20px;padding-bottom: 0;}
+
+
+@media(max-width:767px){
+    .alignright{text-align: right;}
+}

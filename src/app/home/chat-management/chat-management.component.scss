@@ -108,11 +108,11 @@ form{display: initial;}
 #frame {
 width: 100%;
 min-width: 360px;
-max-width: 1000px;
+// max-width: 1000px;
 height: 92vh;
 min-height: 300px;
-max-height: 720px;
-background: #E6EAEA;
+max-height: 600px;
+background: transparent;
 }
 @media screen and (max-width: 360px) {
 #frame {
@@ -166,6 +166,7 @@ min-height: calc(100% - 93px);
 max-height: calc(100% - 93px);
 overflow-y: scroll;
 overflow-x: hidden;
+width: 100%;
 }
 @media screen and (max-width: 735px) {
 #frame .content .messages {
@@ -173,11 +174,11 @@ max-height: calc(100% - 105px);
 }
 }
 #frame .content .messages::-webkit-scrollbar {
-width: 8px;
+width: 5px;
 background: transparent;
 }
 #frame .content .messages::-webkit-scrollbar-thumb {
-background-color: rgba(0, 0, 0, 0.3);
+background-color: #f96bb3;
 }
 #frame .content .messages ul li {
 display: inline-block;

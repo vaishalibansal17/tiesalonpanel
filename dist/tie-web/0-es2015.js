@@ -80573,12 +80573,13 @@ __webpack_require__.r(__webpack_exports__);
 
 let ServicePipe = class ServicePipe {
     transform(value) {
-        return value.map(y => y.title).join(', ');
+        return value.map(y => y.title || y.cat_name).join(', ');
     }
 };
 ServicePipe = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Pipe"])({
-        name: 'service'
+        name: 'service',
+        pure: false
     })
 ], ServicePipe);
 

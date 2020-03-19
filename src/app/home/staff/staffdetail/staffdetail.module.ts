@@ -6,8 +6,9 @@ import { StaffdetailComponent } from './staffdetail.component';
 import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/applicationpipe.module';
 import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 import { NgxStarsModule } from 'ngx-stars';
+import { ServicePipe } from 'src/app/shared/_pipes/service.pipe';
+import { SharedModule } from 'src/app/shared/shared.module';
 
-console.log('---=-=-=-=-=-=-=--');
 
 @NgModule({
   declarations: [StaffdetailComponent],
@@ -15,7 +16,8 @@ console.log('---=-=-=-=-=-=-=--');
     CommonModule,
     StaffdetailRoutingModule,
     ApplicationpipeModule,
-    NgxStarsModule
+    NgxStarsModule,
+    SharedModule
   ],providers:[TranslatePipe]
 })
 export class StaffdetailModule { }

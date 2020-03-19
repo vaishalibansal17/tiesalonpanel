@@ -11,6 +11,8 @@
         <div class="col-md-9 description">{{detail && detail.desc?detail.desc:'NA'}}</div>
         <div class="col-md-3 label">{{'DESIGNATION'| translate}}:</div>
         <div class="col-md-9 description">{{detail && detail.designation ?detail.designation:'NA'}}</div>
+        <div class="col-md-3 label">{{'SERVICE'| translate}}:</div>
+        <div class="col-md-9 description">{{detail && detail?.services ?(detail?.services | service | titlecase):'NA'}}</div>
         <div class="col-md-3 label">{{'AVAILBILITY'| translate | titlecase}}:</div>
         <div class="col-md-9 description">{{detail && detail.avlblity ? 'Available':'Not Available'}}</div>
         <div class="col-md-3 label">{{'WEEKOFF'| translate | titlecase}}:</div>

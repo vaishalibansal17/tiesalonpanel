@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  'END_POINT': 'http://devapi.heynetwork.com/conferenceapp/api/v2/'
+  'END_POINT': 'http://devapi.heynetwork.com/conferenceapp/api/v2/',
+  'SOCKET_END_POINT': 'http://15.185.106.117:2020/api/v2/'
 };
 /*
    * For easier debugging in development mode, you can import the following file

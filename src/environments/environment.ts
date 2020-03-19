@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  'END_POINT': 'http://15.185.106.117:2020/api/v2/'
+  'END_POINT': 'http://15.185.106.117:2020/api/v2/',
+  'SOKET_END_POINT': 'http://15.185.106.117:2020/api/v2/'
 };
 
 /*

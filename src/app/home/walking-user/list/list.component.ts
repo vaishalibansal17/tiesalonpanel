@@ -32,7 +32,7 @@ export interface Walkinglist {
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'email','service', 'staff', 'number', 'bookingid', 'date', 'Action', 'Status'];
+  displayedColumns: string[] = ['position', 'name', 'email','service', 'staff', 'number', 'bookingid', 'date', 'Action'];
   limitPage = LIMIT;
   dataSource: ListDataSource;
   search: string;
@@ -51,6 +51,7 @@ export class ListComponent implements OnInit {
   loading: boolean;
   imgurl: string;
   totalLength: number;
+  detail: import("/Users/brainmobimac/Abhishek/angular/tie-web/src/app/model/List").List[];
 
   @ViewChild(MatPaginator, { static: true }) set matPaginator(mp: MatPaginator) {
     this.paginator = mp;
@@ -75,6 +76,10 @@ export class ListComponent implements OnInit {
     // this.dataSource.usersData.subscribe((val) => this.detail = val);
 
     this.dataSource.loadingUsers.subscribe(e => this.loading = !e);
+    console.log(this.loading );
+    this.dataSource.usersData.subscribe((val) => {
+      this.detail = val;
+    });
     this.dataSource.extra$.subscribe(e => this.imgurl = e)
     this.dataSource.totalCount$.subscribe(e => this.totalLength = e)
   }
@@ -113,7 +118,7 @@ export class ListComponent implements OnInit {
   }
 
   paginate(){
-    this.paginator.pageSize = this.paginator.pageSize + 1;
+    this.paginator.pageSize = this.paginator.pageSize + 5;
     this.getSalonStaff();
   }
   // ********************** Account Manager List Api Integration with search End******************
