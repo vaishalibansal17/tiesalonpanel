@@ -355,6 +355,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 "Name": element.name,
                 "Email": element.email,
                 "Phone": element.phone,
+                "Designation": element.designation || 'NA',
                 "Description": element.desc ? element.desc : "NA",
                 "Rating": element.avg_rating ? Math.round(element.avg_rating) : 'NA',
                 "Day off": _this4.chckDay(element.day_off)
@@ -363,7 +364,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             });
             var options = {
               noDownload: false,
-              headers: ["Serial", "Name", "Email", "Phone", "Description", "Rating", "Day off"]
+              headers: ["Serial", "Name", "Email", "Phone", "Designation", "Description", "Rating", "Day off"]
             };
             new angular5_csv_dist_Angular5_csv__WEBPACK_IMPORTED_MODULE_10__["Angular5Csv"](finalData, 'staff_list', options);
 

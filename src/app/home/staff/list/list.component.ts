@@ -133,13 +133,14 @@ export class ListComponent implements OnInit {
           "Name": element.name,
           "Email": element.email,
           "Phone": element.phone,
+          "Designation": element.designation || 'NA',
           "Description": element.desc ? element.desc : "NA",
           "Rating": element.avg_rating ? Math.round(element.avg_rating) : 'NA',
           "Day off":this.chckDay(element.day_off)
         };
         finalData.push(obj);
       });
-      var options = { noDownload: false, headers: ["Serial", "Name", "Email", "Phone", "Description", "Rating", "Day off"] };
+      var options = { noDownload: false, headers: ["Serial", "Name", "Email", "Phone", "Designation","Description", "Rating", "Day off"] };
       new Angular5Csv(finalData, 'staff_list', options);
       this.httpservice.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('EXPORTD'));
     })

@@ -48,7 +48,7 @@ export class EditComponent implements OnInit {
       frm: new FormControl(null, [Validators.required,]),
       to: new FormControl(null, [Validators.required,]),
       uses: new FormControl(null, []),
-      desc: new FormControl(null, [Validators.required, Validators.minLength(2), Validators.maxLength(500)]),
+      desc: new FormControl(null, [Validators.required, Validators.minLength(2), Validators.maxLength(150)]),
       cat_ids: new FormControl(null)
     })
   }

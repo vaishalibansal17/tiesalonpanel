@@ -231,7 +231,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               disabled: false
             }, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required]),
             uses: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, [src_app_shared_service_validation_service__WEBPACK_IMPORTED_MODULE_8__["ValidationService"].numberValidator]),
-            desc: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].minLength(2), _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].maxLength(500)]),
+            desc: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, [_angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].minLength(2), _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].maxLength(150)]),
             cat_ids: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null)
           });
         }

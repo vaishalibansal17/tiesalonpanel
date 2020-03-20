@@ -63,7 +63,7 @@ export class AddComponent implements OnInit {
       desc: new FormControl(null, [
         Validators.required,
         Validators.minLength(2),
-        Validators.maxLength(500)
+        Validators.maxLength(150)
       ]),
       cat_ids: new FormControl(null)
     })

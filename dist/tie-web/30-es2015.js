@@ -132,7 +132,7 @@ let AddComponent = class AddComponent {
             desc: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null, [
                 _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].required,
                 _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].minLength(2),
-                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].maxLength(500)
+                _angular_forms__WEBPACK_IMPORTED_MODULE_7__["Validators"].maxLength(150)
             ]),
             cat_ids: new _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormControl"](null)
         });
