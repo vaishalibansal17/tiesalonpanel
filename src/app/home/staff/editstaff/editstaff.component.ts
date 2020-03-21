@@ -99,6 +99,11 @@ export class EditstaffComponent implements OnInit {
             day_off: this.detail.hasOwnProperty('day_off') ? this.detail.day_off : '',
             isAvailable: this.detail.hasOwnProperty('avlblity') ? this.detail.avlblity : true,
           });
+          // if(this.detail.day_off == new Date().getDay()){
+          //   console.log('----------',this.detail.day_off == new Date().getDay());
+
+          //   this.profile.controls.isAvailable.disable();
+          // }
           this.chips.push(...this.detail.services);
           for (let index = 0; index < this.detail.services.length; index++) {
             this.sendServ.push(this.detail.services[index]['_id']);
@@ -145,7 +150,7 @@ export class EditstaffComponent implements OnInit {
       this.formData.append('services', JSON.stringify(this.sendServ));
       this.formData.append('day_off', this.profile.value.day_off);
       this.formData.append('designation', this.profile.value.designation);
-      this.formData.append('avlblity', this.profile.value.isAvailable);
+      this.formData.append('avlblity', this.profile.getRawValue().isAvailable == this.detail.avlblity ? this.detail.avlblity : this.profile.getRawValue().isAvailable);
       this.httpService.getRequest('PUT', 'STAFF', this.formData, this.id)
         .subscribe((response: any) => {
           if (response.status === 1) {
@@ -180,6 +185,16 @@ export class EditstaffComponent implements OnInit {
     }
   }
 
+  slctday(state) {
+    state = state.value;
+    console.log(this.detail.day_off == state)
+    if (this.detail.day_off == state) {
+      this.profile.patchValue({isAvailable:this.detail.avlblity});
+    } else {
+      this.profile.patchValue({isAvailable :true});
+    }
+  }
+
   getServices() {
     this.httpService.getRequest('GET', 'SERVICES', '')
       .subscribe((response: any) => {
@@ -199,8 +214,8 @@ export class EditstaffComponent implements OnInit {
   slctsrv(state: any) {
     const matSelect: MatSelect = state.source;
     matSelect.writeValue(null);
-    state=state.value;
-    if(!this.httpService.arraySearch(this.sendServ,state)){
+    state = state.value;
+    if (!this.httpService.arraySearch(this.sendServ, state)) {
       this.chips.push({ _id: state._id, cat_name: _.startCase(_.camelCase(state.cat_name)) });
       this.sendServ.push(state._id);
       return
