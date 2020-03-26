@@ -436,7 +436,6 @@ export class BusinesshoursComponent implements OnInit {
     } else {
       this.form.controls[dayName].enable();
     }
-
   }
   isBreak(day) {
     this['is' + day + 'Break'] = !this['is' + day + 'Break'];

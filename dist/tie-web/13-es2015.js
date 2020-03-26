@@ -207,7 +207,7 @@ let SettingsComponent = class SettingsComponent {
         });
     }
     toggle(key, value) {
-        let obj = { [key]: String(value) };
+        let obj = { [key]: value };
         this.httpService.getRequest('PUT', 'CANCELPOLICY', obj, '').subscribe((response) => {
             if (response.status === 1) {
                 let salon = JSON.parse(localStorage.getItem('salon'));

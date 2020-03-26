@@ -387,7 +387,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function toggle(key, value) {
           var _this4 = this;
 
-          var obj = _defineProperty({}, key, String(value));
+          var obj = _defineProperty({}, key, value);
 
           this.httpService.getRequest('PUT', 'CANCELPOLICY', obj, '').subscribe(function (response) {
             if (response.status === 1) {
