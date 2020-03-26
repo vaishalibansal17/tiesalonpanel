@@ -131,12 +131,13 @@ let SettingsComponent = class SettingsComponent {
         const dialogRef = this.dialog.open(src_app_shared_confim_dialog_confim_dialog_component__WEBPACK_IMPORTED_MODULE_5__["ConfimDialogComponent"], { width: '500px', disableClose: true, data: { msg: "Are you sure you want to deactivate your account?", btn: this.trns.transform('OK'), cncl: this.trns.transform('CANCEL') } });
         dialogRef.beforeClosed().subscribe((val) => {
             if (val) {
-                this.httpService.getRequest('PUT', 'CANCELPOLICY', { is_delete: this.is_delete }, '').subscribe((response) => {
+                this.httpService.getRequest('PUT', 'CANCELPOLICY', { is_del: this.is_delete }, '').subscribe((response) => {
                     if (response.status === 1) {
                         // let salon = JSON.parse(localStorage.getItem('salon'));
                         // salon.slt_dur = this.sch_apt;
                         // localStorage.setItem('salon', JSON.stringify(salon));
-                        localStorage.clear();
+                        // localStorage.clear();
+                        this.httpService.logout();
                         this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('SETSUCCESS'));
                     }
                     else {

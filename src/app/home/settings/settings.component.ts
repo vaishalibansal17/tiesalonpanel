@@ -41,12 +41,14 @@ export class SettingsComponent implements OnInit {
     dialogRef.beforeClosed().subscribe(
       (val) => {
         if (val) {
-          this.httpService.getRequest('PUT', 'CANCELPOLICY', { is_delete: this.is_delete }, '').subscribe((response: any) => {
+          this.httpService.getRequest('PUT', 'CANCELPOLICY', { is_del: this.is_delete }, '').subscribe((response: any) => {
             if (response.status === 1) {
               // let salon = JSON.parse(localStorage.getItem('salon'));
               // salon.slt_dur = this.sch_apt;
               // localStorage.setItem('salon', JSON.stringify(salon));
-              localStorage.clear();
+              // localStorage.clear();
+              this.httpService.logout();
+
               this.httpService.sucsTostr(this.trns.transform('SUCCESS'), this.trns.transform('SETSUCCESS'));
             } else {
               console.log(response);

@@ -270,13 +270,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           dialogRef.beforeClosed().subscribe(function (val) {
             if (val) {
               _this.httpService.getRequest('PUT', 'CANCELPOLICY', {
-                is_delete: _this.is_delete
+                is_del: _this.is_delete
               }, '').subscribe(function (response) {
                 if (response.status === 1) {
                   // let salon = JSON.parse(localStorage.getItem('salon'));
                   // salon.slt_dur = this.sch_apt;
                   // localStorage.setItem('salon', JSON.stringify(salon));
-                  localStorage.clear();
+                  // localStorage.clear();
+                  _this.httpService.logout();
 
                   _this.httpService.sucsTostr(_this.trns.transform('SUCCESS'), _this.trns.transform('SETSUCCESS'));
                 } else {
