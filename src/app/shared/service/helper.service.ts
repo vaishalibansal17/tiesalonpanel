@@ -42,7 +42,7 @@ export class Helper {
             mnth = ("0" + (date.getMonth())).slice(-2),
             day = ("0" + date.getDate()).slice(-2);
         let bac = moment.utc(date);
-        console.log(bac,'---------');
+        console.log(bac, '---------');
         return bac.valueOf();
     }
 
@@ -50,25 +50,27 @@ export class Helper {
         var date = new Date(data),
             mnth = ("0" + (date.getMonth())).slice(-2),
             day = ("0" + date.getDate()).slice(-2);
-        var dateTime = new Date(time)
 
-        var timeStamp = new Date(Number(date.getFullYear()), Number(mnth), Number(day), 5,30,0);
-        let bac = moment.utc(timeStamp)
-          if (isUTC)
-            return bac.valueOf();
-        else
-            return timeStamp.getTime();
+        var m1 = moment.utc([Number(date.getFullYear()), Number(mnth), Number(day)]);
+        // var timeStamp = new Date(Number(date.getFullYear()), Number(mnth), Number(day), 0, 0, 0);
+        // console.log(timeStamp, timeStamp.getTime());
+
+        // let bac = moment.utc(timeStamp);
+        // console.log(bac);
+
+        if (isUTC)
+            return m1.valueOf();
     }
 
     parsehhmm(data) {
-        if(data!==null){
+        if (data !== null) {
             var date = new Date(data)
             let bac = moment.utc(date)
-            console.log(bac.toDate(),'-----',bac.format(),'-----');
+            console.log(bac.toDate(), '-----', bac.format(), '-----');
             bac = bac.toDate();
-            return {hh:bac.getUTCHours(), mm:bac.getUTCMinutes()}
-        } else{
-            return {hh:null, mm:null};
+            return { hh: bac.getUTCHours(), mm: bac.getUTCMinutes() }
+        } else {
+            return { hh: null, mm: null };
         }
     }
 

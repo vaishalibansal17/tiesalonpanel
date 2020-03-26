@@ -70,7 +70,7 @@
                 </tr>
                 <tr>
                     <td style="width: 185px;line-height: 26px;">Staff Name:</td>
-                    <td style="color: #909090;line-height: 26px;">{{detail?.staf || 'NA' | titlecase}}</td>
+                    <td style="color: #909090;line-height: 26px;">{{detail?.staf || 'AnyBody' | titlecase}}</td>
                 </tr>
             </table>
 
@@ -85,8 +85,8 @@
                     <th style="padding: 8px 5px;background: #ccc;color: #fff;">Total</th>
                 </tr>
                 <tr *ngFor="let element of detail?.service; let i =index">
-                    <td style="padding: 8px 5px">{{element.title}}</td>
-                    <td style="padding: 8px 5px">{{element.cost}}</td>
+                    <td style="padding: 8px 5px">{{element.title | titlecase}}</td>
+                    <td style="padding: 8px 5px">{{element.discprice}}</td>
                 </tr>
             </table>
         </td>
