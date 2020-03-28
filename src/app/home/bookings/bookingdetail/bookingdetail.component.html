@@ -26,9 +26,9 @@
                     <div class="col-md-12 label">Booking Location:</div>
                     <div class="col-md-12 description">
                         <div class="map full_width">
-                            <agm-map [latitude]="detail?.loc[1]" [longitude]="detail?.loc[0]"
+                            <agm-map [latitude]="detail?.loc[0]" [longitude]="detail?.loc[1]"
                                 [zoomControl]="true">
-                                <agm-marker [latitude]="detail?.loc[1]" [longitude]="detail?.loc[0]"></agm-marker>
+                                <agm-marker [latitude]="detail?.loc[0]" [longitude]="detail?.loc[1]"></agm-marker>
                             </agm-map>
                         </div>
                     </div>
