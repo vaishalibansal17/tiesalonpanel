@@ -7,6 +7,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AgmCoreModule } from '@agm/core';
 import { FormsModule } from '@angular/forms';
 import { MAP } from 'src/app/shared/constants/constant';
+import { ApplicationpipeModule } from 'src/app/shared/module/applicationpipe/applicationpipe.module';
+import { TranslatePipe } from 'src/app/shared/_pipes/translate.pipe';
 
 
 @NgModule({
@@ -20,8 +22,10 @@ import { MAP } from 'src/app/shared/constants/constant';
       apiKey: MAP.KEY,
       libraries: [MAP.type]
     }),
+    ApplicationpipeModule,
   ],
-  entryComponents : [ BookingEmailDialogPopup ]
+  providers: [TranslatePipe],
+  entryComponents: [BookingEmailDialogPopup]
 
 })
 export class BookingdetailModule { }
