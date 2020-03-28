@@ -69737,11 +69737,11 @@ let BookingdetailComponent = class BookingdetailComponent {
             if (response.status === 1) {
                 this.detail = response.res;
                 this.url = this.detail.logo ? this.detail.usr_bp + this.detail.img : this.url;
-                // this.ttlamt = this.detail.service.length == 1 ? this.ttlamt.cost : this.ttlamt;
                 this.detail.service.map((v, i) => {
                     this.detail.service[i]['discprice'] = v.cost - (v.cost * v.discount) / 100;
                 });
                 this.itemttl = this.detail.service.reduce((acc, val) => acc.discprice + val.discprice);
+                this.itemttl = this.detail.service.length == 1 ? this.detail.service[0].discprice : this.itemttl;
                 this.ttlamt = this.detail.totalAmount;
             }
             else {

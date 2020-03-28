@@ -5,7 +5,7 @@
         <div class="noti_left"><img [src]="list?.img?((imgurl)+list.img):url" alt="Notification Profile"></div>
         <div class="noti_right">
             <div class="cursor left_text" (click)="slct(list)">{{list?.msg}}</div>
-            <span class="right_btn" *ngIf="list?.bookingStatus==0">
+            <span class="right_btn" *ngIf="list?.bookingStatus==0 || !list?.bookingStatus==2">
                 <!-- <a href="javascript:void(0)" [routerLink]="['/booking/info', list?.bk_id]" class="btn btn-accept">View</a> -->
                 <!-- <span> -->
                     <a href="javascript:void(0)" class="btn btn-accept" (click)="openDialog(list.bk_id, 1)">Accept</a>

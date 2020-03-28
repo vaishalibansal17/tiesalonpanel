@@ -86,7 +86,7 @@
                 </tr>
                 <tr *ngFor="let element of detail?.service; let i =index">
                     <td style="padding: 8px 5px">{{element.title | titlecase}}</td>
-                    <td style="padding: 8px 5px">{{element.discprice}}</td>
+                    <td style="padding: 8px 5px">SR{{element.discprice}}</td>
                 </tr>
             </table>
         </td>
@@ -96,16 +96,20 @@
             <table
                 style="padding-top: 10px;font-size: 14px; width: 100%;text-align: right;border-collapse: collapse;margin-bottom:5px;">
                 <tr>
-                    <td style="width: 370px;line-height: 26px;">Total:</td>
-                    <td style="width: 110px;line-height: 26px;">{{ttlamt}}</td>
+                    <td style="width: 370px;line-height: 26px;">Service Total:</td>
+                    <td style="width: 110px;line-height: 26px;">SR{{itmttlamt}}</td>
+                </tr>
+                <tr>
+                    <td style="width: 370px;line-height: 26px;">Promo - ({{detail?.promo || 'NA'}}):</td>
+                    <td style="width: 110px;line-height: 26px;">SR{{'NA'}}</td>
                 </tr>
                 <tr>
                     <td style="width: 370px;line-height: 26px;">VAT:</td>
-                    <td style="width: 110px;line-height: 26px;">5% Vat Inclusive</td>
+                    <td style="width: 110px;line-height: 26px;">SR{{detail?.taxAmount}}<i>(5% Vat Inclusive) </i></td>
                 </tr>
                 <tr>
                     <td style="width: 370px;line-height: 26px;background: #ccc;color:#fff;">Total:</td>
-                    <td style="width: 110px;line-height: 26px;background: #ccc;color:#fff;">{{ttlmt}}</td>
+                    <td style="width: 110px;line-height: 26px;background: #ccc;color:#fff;">SR{{ttlamt + detail?.taxAmount}}</td>
                 </tr>
             </table>
 
