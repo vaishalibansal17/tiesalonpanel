@@ -35,7 +35,11 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     // console.log(this.trnsalte.currentLang);
+    var arrImages = ["http://dev.thetieapp.com/assets/images/img_onboard_1.png", "http://dev.thetieapp.com/assets/images/img_onboard_2.png","http://dev.thetieapp.com/assets/images/img_onboard_3.png"];
 
+    var i = 1; //We start at the second image, because the first one is loaded already by default
+    var image = document.getElementById("image");
+    
     this.loginfrm = new FormGroup({
       email: new FormControl(null, [
         Validators.required,

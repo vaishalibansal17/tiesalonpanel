@@ -41,8 +41,12 @@
                         </div>
                         <hr/>
                         <div class="row">
-                            <div class="col-md-3 label">Total amount:<span><i>(5% Vat Inclusive)</i></span></div>
-                            <div class="col-md-9 description alignright">SR{{ttlamt}}</div>
+                            <div class="col-md-3 label">Service Total Amount:</div>
+                            <div class="col-md-9 description alignright">SR{{itemttl}}</div>
+                            <div class="col-md-3 label">Promo - ({{detail?.promo || 'NA'}}):<span><i>(5% VAT)</i></span></div>
+                            <div class="col-md-9 description alignright">SR{{NA}}<span>SR{{detail?.taxAmount}}</span></div>
+                            <div class="col-md-3 label">Total amount:</div>
+                            <div class="col-md-9 description alignright">SR{{detail?.taxAmount + ttlamt}}</div>
                         </div>
                     </div>
                     <div class="col-md-12 text-center"  *ngIf="detail?.bookingStatus==1 " (click)="compltServc()"><a href="javascript:void(0);" class="btn btn-submit">Mark as Complete</a></div>

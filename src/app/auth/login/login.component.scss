@@ -1,2 +1,12 @@
 .main-right .btn-submit{margin: 0px 0px 10px;}
 p.color.error{top:0px}
+
+#slideshow {
+    display: block;
+  }
+  
+  #image {
+    opacity: 0;
+    -webkit-transition: opacity 1.0s linear 0s;
+    transition: opacity 1.0s linear 0s;
+  }
