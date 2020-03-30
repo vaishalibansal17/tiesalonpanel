@@ -30,6 +30,7 @@
                  <span class="mobile_hidden"> {{detail.name | titlecase}} Admin</span> <img class="drop_img" src="assets/images/dropdown_grey.png" alt="Dropdown"></button>
                 <mat-menu #beforeMenu="matMenu" xPosition="before">
                   <button  mat-menu-item><a [routerLink]="['/profile']"><img src="assets/images/edit-profile.png" alt="Edit Profile">{{'MPROFILE'| translate}}</a></button>
+                  <button  mat-menu-item><a [routerLink]="['/profile/business-hours']"><img src="assets/images/password.png" alt="Password">{{'BUSINESSHOURS'| translate}}</a></button>
                   <button  mat-menu-item><a [routerLink]="['/profile/change-password']"><img src="assets/images/password.png" alt="Password">{{'CHNAGE_PASS'| translate}}</a></button>
                   <button  mat-menu-item><a [routerLink]="['/settings']"><img src="assets/images/settings.png" alt="Setting">{{'SETTINGS'| translate}}</a></button>
                   <button  mat-menu-item (click)='logout()'><img src="assets/images/log_out.png" alt="Logout">{{'LOGOUT' | translate}}</button>

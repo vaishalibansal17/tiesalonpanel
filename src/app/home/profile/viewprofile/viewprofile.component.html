@@ -1,14 +1,14 @@
 <div class="main-card">
 
     <div class="row">
-        <div class="col-md-6 top_view"><img [src]="url" alt="Username"><span class="user_name">{{detail?.name}}</span></div>
-        <div class="col-md-6 alignright"><a class="btn btn-edit" [routerLink]="['/profile/edit']"> {{'EDITPROF'| translate}}</a></div>
+        <div class="col-md-6 top_view"><img [src]="url" alt="Username"><span class="user_name">{{detail?.name | titlecase}}</span></div>
+        <div class="col-md-6 alignright"><a class="btn btn-edit" [routerLink]="['/profile/edit']"> {{'EDIT'| translate}}</a><a class="btn btn-edit" [routerLink]="['/staff']">Staff</a></div>
         <div class="col-md-3 label">{{'EMAIL'| translate | titlecase}}:</div>
         <div class="col-md-9 description">{{detail?.email}}</div>
         <div class="col-md-3 label">{{'MOBILENUMBER'| translate}}:</div>
         <div class="col-md-9 description">{{detail?.phone}}</div>
         <div class="col-md-3 label">{{'LOCATION'| translate}}:</div>
-        <div class="col-md-9 description">{{detail?.address}}
+        <div class="col-md-9 description">{{detail?.address | titlecase}}
             <!-- <img src="assets/images/maps.png" alt="map" class="full_width"> -->
             <div class="map full_width">
                 <agm-map [latitude]="detail?.lat" [longitude]="detail?.lng"

@@ -202,6 +202,16 @@ export class EditprofileComponent implements OnInit {
   }
 
 
+   /**
+   * Make text area auto grow based on text.
+   */
+  AutoGrowTextArea() {
+    let textArea = document.getElementById("textarea");
+    // textArea.style.overflow = 'hidden';
+    textArea.style.height = '20px';
+    textArea.style.height = (textArea.scrollHeight) + 'px';
+  }
+
   readUrlMultipleImage(event: any) {
     var imageData = this.helper.checkImageValidationMultiple(event);
     if (imageData == true) {
@@ -270,6 +280,7 @@ export class EditprofileComponent implements OnInit {
             description: this.detail.hasOwnProperty('desc') ? this.detail.desc : '',
             serviceat: this.detail.hasOwnProperty('service_at') ? String(this.detail.service_at) : ''
           });
+          this.AutoGrowTextArea();
           this.location.address_level_2 = this.detail.city;
           this.location.address_state = this.detail.state;
           this.location.address_zip = this.detail.pincode;
