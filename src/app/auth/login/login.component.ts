@@ -34,12 +34,44 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // console.log(this.trnsalte.currentLang);
-    var arrImages = ["http://dev.thetieapp.com/assets/images/img_onboard_1.png", "http://dev.thetieapp.com/assets/images/img_onboard_2.png","http://dev.thetieapp.com/assets/images/img_onboard_3.png"];
+	  
+	  var arrImages = ["http://dev.thetieapp.com/assets/images/img_onboard_1.png", "http://dev.thetieapp.com/assets/images/img_onboard_2.png","http://dev.thetieapp.com/assets/images/img_onboard_3.png"];
 
-    var i = 1; //We start at the second image, because the first one is loaded already by default
-    var image = document.getElementById("image");
-    
+	var i = 1; //We start at the second image, because the first one is loaded already by default
+	var image = document.getElementById("image");
+
+	function nextImage() {
+	  setTimeout(function(){
+		image.style.opacity = '0';},4000);
+	  
+	  image['src'] = arrImages[i]; //Change picture
+	  image.style.opacity = '100';
+	  
+	  if (i+1 >= arrImages.length) {
+		i = 0;
+	  } else {
+		i++;
+	  }
+
+	}
+
+	function startSlideshow() {
+	  image['src']=arrImages[0]; //Load first picture by default
+	  image.style.opacity = '100';
+	  
+	  //Change opacity back to 0, 1 second before changing the picture
+	  setTimeout(function(){image.style.opacity = '0';},4000);
+	  
+	  setInterval(function() {
+		nextImage()
+	  }, 7000);
+	}
+
+	startSlideshow();
+	  
+	  
+    // console.log(this.trnsalte.currentLang);
+
     this.loginfrm = new FormGroup({
       email: new FormControl(null, [
         Validators.required,
