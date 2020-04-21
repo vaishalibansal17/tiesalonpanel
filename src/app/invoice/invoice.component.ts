@@ -20,6 +20,7 @@ export class InvoiceComponent implements OnInit {
   ttlamt: any;
   error: any;
   @ViewChild('content', { static: true }) content: ElementRef;
+  itmttlamt: any;
 
   constructor(private httpService: HttpRequestService,
     private titleService: Title,
@@ -36,11 +37,12 @@ export class InvoiceComponent implements OnInit {
         if (response.status === 1) {
           this.detail = response.res;
           this.detail['slnme'] = JSON.parse(localStorage.getItem('salon')).name
-          // this.ttlamt = this.detail.service.reduce((acc, val) => acc.cost + val.cost);
           // this.ttlamt = this.detail.service.length == 1 ? this.ttlamt.cost : this.ttlamt;
           this.detail.service.map((v,i)=>{
             this.detail.service[i]['discprice']=v.cost-(v.cost*v.discount)/100;
           })
+          this.itmttlamt = this.detail.service.reduce((acc, val) => acc.discprice + val.discprice);
+          this.itmttlamt = this.detail.service.length == 1 ? this.detail.service[0].discprice : this.itmttlamt;
           this.ttlamt = this.detail.totalAmount;
         } else {
           if (response.err) {

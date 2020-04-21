@@ -22,6 +22,7 @@ export class BookingdetailComponent implements OnInit {
   usrurl: any = IMG.PRO
   id: any;
   ttlamt: any;
+  itemttl: any;
 
   constructor(public dialog: MatDialog, private httpService: HttpRequestService, private routes: ActivatedRoute, private errsrv: ErrorService, private route: Router, private trns: TranslatePipe, private error: ErrorService) { }
 
@@ -82,11 +83,12 @@ export class BookingdetailComponent implements OnInit {
         if (response.status === 1) {
           this.detail = response.res;
           this.url = this.detail.logo ? this.detail.usr_bp + this.detail.img : this.url;
-          // this.ttlamt = this.detail.service.reduce((acc, val) => acc.cost + val.cost);
-          // this.ttlamt = this.detail.service.length == 1 ? this.ttlamt.cost : this.ttlamt;
-          this.detail.service.map((v,i)=>{
-            this.detail.service[i]['discprice']=v.cost-(v.cost*v.discount)/100;
+
+          this.detail.service.map((v, i) => {
+            this.detail.service[i]['discprice'] = v.cost - (v.cost * v.discount) / 100;
           })
+          this.itemttl = this.detail.service.reduce((acc, val) => acc.discprice + val.discprice);
+          this.itemttl = this.detail.service.length == 1 ?this.detail.service[0].discprice  : this.itemttl;
           this.ttlamt = this.detail.totalAmount;
         } else {
           if (response.err) {

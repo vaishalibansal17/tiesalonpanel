@@ -60,8 +60,8 @@
 
             <mat-form-field>
                 <span class="email-img pass"><img src="assets/images/description.png" alt="envelope"></span>
-                <textarea matInput placeholder="{{'DESCRIPTION'| translate}}" class="form-control"
-                    formControlName="description" maxlength="500"></textarea>
+                <textarea matInput placeholder="{{'DESCRIPTION'| translate}}" class="form-control" id="textarea"
+                    formControlName="description" maxlength="500" rows="10" ></textarea>
             </mat-form-field>
             <div
                 *ngIf="(submitted || getControl.description.dirty|| getControl.description.touched) && getControl.description.errors">
@@ -71,7 +71,6 @@
             <div class="work_gallery">
                 <label for="" class="block">{{'WORKGALLERY'| translate}}</label>
                 <div class="form-group form-primary custom_formgroup">
-
                     <label class="detail_content">
                         <a class="margin_top" *ngFor="let image of salonImageUrlArray; index as i">
                             <img class="file_upload2" [src]="image" alt="Upload">
@@ -110,7 +109,7 @@
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-            <a [routerLink]="['/staff']">
+            <!-- <a [routerLink]="['/staff']">
                 <mat-form-field>
                     <span class="email-img pass"><img src="assets/images/edit-staff.png" alt="envelope"></span>
                     <input matInput placeholder="{{'MANAGESTAFF'| translate}}" class="form-control cursor" disabled>
@@ -121,7 +120,7 @@
                     <span class="email-img pass"><img src="assets/images/time.png" alt="envelope"></span>
                     <input matInput placeholder="{{'BUSINESSHOURS'| translate}}" class="form-control cursor" disabled>
                 </mat-form-field>
-            </a>
+            </a> -->
 
             <div class="text-center">
                 <button type="submit" class="btn btn-submit">{{'SAVE'| translate}}</button>

@@ -182,7 +182,11 @@ export class EditprofileComponent implements OnInit {
         .subscribe((response: any) => {
           if (response.status === 1) {
             this.submitted = true;
-            localStorage.setItem('salon', JSON.stringify({ name: this.profile.value.name, logo: response.res.logo ? response.res.logo : this.detail.logo }));
+            let salon = JSON.parse(localStorage.getItem('salon'));
+            _.extend(salon,{ name: this.profile.value.name, logo: response.res.logo ? response.res.logo : this.detail.logo })
+              console.log(salon);
+              
+            localStorage.setItem('salon', JSON.stringify(salon));
             this.messageService.sendMessage('profile changed');
             this.router.navigateByUrl('/profile')
               .then(() => {

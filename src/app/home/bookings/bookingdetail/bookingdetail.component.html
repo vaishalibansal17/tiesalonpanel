@@ -1,10 +1,13 @@
 <div class="main-card">
     <div class="row">
-        <div class="col-md-6 top_view"><img [src]="url" alt="User Add"><span class="user_name">{{detail?.fullname || 'NA'  | titlecase}}</span></div>
+        <div class="col-md-6 top_view"><img [src]="url" alt="User Add"><span
+                class="user_name">{{detail?.fullname || 'NA'  | titlecase}}</span></div>
         <div class="col-md-6 alignright">
             <ul class="inline">
-                <li><a class="btn btn-export" href="javascript:void(0);" [routerLink]="['/invoice', id]"target="_blank">PDF</a></li>
-                <li><button class="action_btn red" (click)="openDialog(email)"><img src="assets/images/email_pink.png" alt="Email"></button></li>
+                <li><a class="btn btn-export" href="javascript:void(0);" [routerLink]="['/invoice', id]"
+                        target="_blank">PDF</a></li>
+                <li><button class="action_btn red" (click)="openDialog(email)"><img src="assets/images/email_pink.png"
+                            alt="Email"></button></li>
                 <!-- <li><button><img src="assets/images/print.png" alt="Print"></button></li> -->
             </ul>
         </div>
@@ -23,33 +26,49 @@
                     <div class="col-md-9 description">{{detail?.usr_address || 'NA' | titlecase}}</div>
                     <div class="col-md-3 label">Service At:</div>
                     <div class="col-md-9 description">Salon</div>
+                    <div class="col-md-3 label">Booking Status:</div>
+                    <div class="col-md-3 label confirmed" *ngIf="detail?.bookingStatus==1">{{'CONFIRMD' | translate}}</div>
+                    <div class="col-md-3 label completed" *ngIf="detail?.bookingStatus==3">{{'COMPELETED' | translate}}</div>
+                    <div class="col-md-3 label pending" *ngIf="detail?.bookingStatus==0">{{'PENDING' | translate}}</div>
+                    <div class="col-md-3 label rejected" *ngIf="detail?.bookingStatus==2">{{'REJECT' | translate}}</div>
+                    <div class="col-md-3 label pending" *ngIf="detail?.bookingStatus==4">{{'RESCHEDULED' | translate}}</div>
+                    <div class="col-md-3 label pending" *ngIf="detail?.bookingStatus==5">{{'STATUS' | translate}}</div>
                     <div class="col-md-12 label">Booking Location:</div>
                     <div class="col-md-12 description">
                         <div class="map full_width">
-                            <agm-map [latitude]="detail?.loc[1]" [longitude]="detail?.loc[0]"
-                                [zoomControl]="true">
-                                <agm-marker [latitude]="detail?.loc[1]" [longitude]="detail?.loc[0]"></agm-marker>
+                            <agm-map [latitude]="detail?.loc[0]" [longitude]="detail?.loc[1]" [zoomControl]="true">
+                                <agm-marker [latitude]="detail?.loc[0]" [longitude]="detail?.loc[1]"></agm-marker>
                             </agm-map>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-12 label">Services:</div>
-                     <div class="col-sm-12">
+                    <div class="col-sm-12">
                         <div class="row" *ngFor="let element of detail?.service; let i =index">
-                            <div class="col-md-3 label">{{element?.title | titlecase}}<span>{{element?.discount + '% OFF'}}</span></div>
-                            <div class="col-md-9 description alignright">SR{{element?.cost}}<span>SR{{element?.discprice}}</span><span>{{element?.duration + 'min'}}</span></div>
+                            <div class="col-md-3 label">
+                                {{element?.title | titlecase}}<span>{{element?.discount + '% OFF'}}</span></div>
+                            <div class="col-md-9 description alignright">
+                                SR{{element?.cost}}<span>SR{{element?.discprice}}</span><span>{{element?.duration + 'min'}}</span>
+                            </div>
                         </div>
-                        <hr/>
+                        <hr />
                         <div class="row">
-                            <div class="col-md-3 label">Total amount:<span><i>(5% Vat Inclusive)</i></span></div>
-                            <div class="col-md-9 description alignright">SR{{ttlamt}}</div>
+                            <div class="col-md-3 label">Service Total Amount:</div>
+                            <div class="col-md-9 description alignright">SR{{itemttl}}</div>
+                            <div class="col-md-3 label">Promo - ({{detail?.promo || 'NA'}}):<span><i>(5% VAT)</i></span>
+                            </div>
+                            <div class="col-md-9 description alignright">NA<span>SR{{detail?.taxAmount}}</span>
+                            </div>
+                            <div class="col-md-3 label">Total amount:</div>
+                            <div class="col-md-9 description alignright">SR{{detail?.taxAmount + ttlamt}}</div>
                         </div>
                     </div>
-                    <div class="col-md-12 text-center"  *ngIf="detail?.bookingStatus==1 " (click)="compltServc()"><a href="javascript:void(0);" class="btn btn-submit">Mark as Complete</a></div>
+                    <div class="col-md-12 text-center" *ngIf="detail?.bookingStatus==1 " (click)="compltServc()"><a
+                            href="javascript:void(0);" class="btn btn-submit">Mark as Complete</a></div>
                 </div>
             </div>
             <div class="col-md-3 mobile_hidden"></div>
         </div>
 
-        </div>
     </div>
+</div>

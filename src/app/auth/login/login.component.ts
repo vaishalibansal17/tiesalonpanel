@@ -41,12 +41,12 @@ export class LoginComponent implements OnInit {
 	var image = document.getElementById("image");
 
 	function nextImage() {
-	  
+
 	  setTimeout(function(){
-		image.style.opacity = 0;},4000);
+		image.style.opacity = '0';},4000);
 	  
-	  image.src = arrImages[i]; //Change picture
-	  image.style.opacity = 100;
+	  image['src'] = arrImages[i]; //Change picture
+	  image.style.opacity = '100';
 	  
 	  if (i+1 >= arrImages.length) {
 		i = 0;
@@ -57,11 +57,12 @@ export class LoginComponent implements OnInit {
 	}
 
 	function startSlideshow() {
-	  image.src=arrImages[0]; //Load first picture by default
-	  image.style.opacity = 100;
+
+	  image['src']=arrImages[0]; //Load first picture by default
+	  image.style.opacity = '100';
 	  
 	  //Change opacity back to 0, 1 second before changing the picture
-	  setTimeout(function(){image.style.opacity = 0;},4000);
+	  setTimeout(function(){image.style.opacity = '0';},4000);
 	  
 	  setInterval(function() {
 		nextImage()
